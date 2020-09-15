@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     function C_LOGIN(){
 
         if(!isset($_COOKIE["ULogged"])){

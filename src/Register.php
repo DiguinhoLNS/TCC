@@ -20,142 +20,136 @@
 	<body id = "RegisterPage" class = "LightMode">
 
 		<?php
-		
-			include "php/Pag.php";
 
-			if(isset($_SESSION["UserRegisterError_G"])){
+			if($_SESSION["UserRegisterError_G"] == "1"){
 
-				if($_SESSION["UserRegisterError_G"] == true){
+				if($_SESSION["UserRegisterError_1"] == "1"){
 
-					if($_SESSION["UserRegisterError_1"] == "1"){
-
-						echo '
+					echo '
+					
+						<script language = "javascript" type = "text/javascript">
 						
-							<script language = "javascript" type = "text/javascript">
-							
-								$(document).ready(function(){
+							$(document).ready(function(){
 
-									$("#ErrorNome").css("display", "block");
+								$("#ErrorNome").css("display", "block");
 
-								});
-							
-							</script>
+							});
 						
-						';
-
-					}
-
-					if($_SESSION["UserRegisterError_2"] == "1"){
-
-						echo '
-						
-							<script language = "javascript" type = "text/javascript">
-							
-								$(document).ready(function(){
-
-									$("#ErrorEmail").css("display", "block");
-
-								});
-							
-							</script>
-						
-						';
-
-					}
-
-					if($_SESSION["UserRegisterError_3"] == "1"){
-
-						echo '
-						
-							<script language = "javascript" type = "text/javascript">
-							
-								$(document).ready(function(){
-
-									$("#ErrorCPF").css("display", "block");
-
-								});
-							
-							</script>
-						
-						';
-
-					}
-
-					if($_SESSION["UserRegisterError_4"] == "1"){
-
-						echo '
-						
-							<script language = "javascript" type = "text/javascript">
-							
-								$(document).ready(function(){
-
-									$("#ErrorDataNasc").css("display", "block");
-
-								});
-							
-							</script>
-						
-						';
-
-					}
-
-					if($_SESSION["UserRegisterError_5"] == "1"){
-
-						echo '
-						
-							<script language = "javascript" type = "text/javascript">
-							
-								$(document).ready(function(){
-
-									$("#ErrorTelefone").css("display", "block");
-
-								});
-							
-							</script>
-						
-						';
-
-					}
-
-					if($_SESSION["UserRegisterError_6"] == "1"){
-
-						echo '
-						
-							<script language = "javascript" type = "text/javascript">
-							
-								$(document).ready(function(){
-
-									$("#ErrorCelular").css("display", "block");
-
-								});
-							
-							</script>
-						
-						';
-
-					}
-
-					if($_SESSION["UserRegisterError_8"] == "1"){
-
-						echo '
-						
-							<script language = "javascript" type = "text/javascript">
-							
-								$(document).ready(function(){
-
-									$("#ErrorSenha").css("display", "block");
-
-								});
-							
-							</script>
-						
-						';
-
-					}
+						</script>
+					
+					';
 
 				}
 
-			}
+				if($_SESSION["UserRegisterError_2"] == "1"){
+
+					echo '
+					
+						<script language = "javascript" type = "text/javascript">
+						
+							$(document).ready(function(){
+
+								$("#ErrorEmail").css("display", "block");
+
+							});
+						
+						</script>
+					
+					';
+
+				}
+
+				if($_SESSION["UserRegisterError_3"] == "1"){
+
+					echo '
+					
+						<script language = "javascript" type = "text/javascript">
+						
+							$(document).ready(function(){
+
+								$("#ErrorCPF").css("display", "block");
+
+							});
+						
+						</script>
+					
+					';
+
+				}
+
+				if($_SESSION["UserRegisterError_4"] == "1"){
+
+					echo '
+					
+						<script language = "javascript" type = "text/javascript">
+						
+							$(document).ready(function(){
+
+								$("#ErrorDataNasc").css("display", "block");
+
+							});
+						
+						</script>
+					
+					';
+
+				}
+
+				if($_SESSION["UserRegisterError_5"] == "1"){
+
+					echo '
+					
+						<script language = "javascript" type = "text/javascript">
+						
+							$(document).ready(function(){
+
+								$("#ErrorTelefone").css("display", "block");
+
+							});
+						
+						</script>
+					
+					';
+
+				}
+
+				if($_SESSION["UserRegisterError_6"] == "1"){
+
+					echo '
+					
+						<script language = "javascript" type = "text/javascript">
+						
+							$(document).ready(function(){
+
+								$("#ErrorCelular").css("display", "block");
+
+							});
+						
+						</script>
+					
+					';
+
+				}
+
+				if($_SESSION["UserRegisterError_8"] == "1"){
+
+					echo '
+					
+						<script language = "javascript" type = "text/javascript">
+						
+							$(document).ready(function(){
+
+								$("#ErrorSenha").css("display", "block");
+
+							});
+						
+						</script>
+					
+					';
+
+				}
+
+			}		
 			
 		?>
 
