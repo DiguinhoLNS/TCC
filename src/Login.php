@@ -30,6 +30,9 @@
 							<label for = "L_Senha"> Senha </label>
 							<input name = "L_PWD" id = "L_Senha" class = "UserInputData" type = "password" required/>
 						</li>
+						<li class = "ContentError">
+							<span id = "ErrorLogin" class = "txtError"> Email ou Senhas incorretos </span>
+						</li>
 						<li class = "ContentBottom">	
 							<a href = "Register.php"> Ainda não possui uma conta? </a>
 							<input class = "UserInputSubmit btn" type = "submit" value = "Entrar">

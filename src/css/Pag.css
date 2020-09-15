@@ -1418,7 +1418,7 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 			#LoginPage .UserForm form .UserFormContent {
-				grid-template-rows: repeat(4, auto);
+				grid-template-rows: repeat(5, auto);
 			}
 
 			#RegisterPage .UserForm form .UserFormContent {
@@ -1430,6 +1430,14 @@ h1, h2, h3, h4, h5, h6 {
 			margin-bottom: 30px;
 
 			text-align: center;
+		}
+
+		.UserForm form .UserFormContent .txtError {
+			display: none;
+			float: right;
+			
+			color: #EA4335;
+			font-size: 14px;
 		}
 
 		/* Content Header */
@@ -1459,13 +1467,7 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 		.UserForm form .UserFormContent .ContentInput .txtError {
-			display: none;
-			float: right;
-
 			margin: 3px 0 17px;
-
-			color: #EA4335;
-			font-size: 14px;
 		}
 
 		.UserForm form .UserFormContent .ContentInput .UserInputData {
@@ -1481,7 +1483,13 @@ h1, h2, h3, h4, h5, h6 {
 
 			.UserForm form .UserFormContent .ContentInput .UserInputData::-webkit-input-placeholder {
 				color: var(--color-txt-t);
-			}			
+			}	
+			
+		/* Content Error */
+
+		.UserForm form .UserFormContent .ContentError {
+			margin: 0;
+		}
 
 		/* Content Bottom */
 		.UserForm form .UserFormContent .ContentBottom {
