@@ -1,0 +1,1952 @@
+/*******************************************************
+	
+	CSS - Página - V1
+
+--------------------------------------------------------
+
+	Todos os direitos reservados.
+	Desenvolvido por APE Group. 
+																					
+*******************************************************/
+
+
+/*******************************************************
+	CSS - Html|Body - V2
+*******************************************************/
+
+* {
+	box-sizing: border-box;
+	float: left;
+
+	margin: 0;
+	padding: 0;
+	
+	font-family: 'Montserrat', sans-serif;
+	font-style: normal;
+	font-weight: 500;
+}
+
+html, body {
+	width: 100%;
+}
+
+/*******************************************************
+	CSS - Link - V3
+*******************************************************/
+
+a {		
+	border: none;
+	color: none;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:link {
+	border: none;
+	color: none;
+	text-decoration: none;
+}
+
+a:active {
+	border: none;
+	color: none;
+	text-decoration: none;
+}
+
+a:visited {
+	border: none;
+	color: none;
+	text-decoration: none;
+}
+
+a:hover {
+	border: none;
+	color: none;
+	text-decoration: none;
+}
+
+a:focus {
+	border: none;
+	color: none;
+	text-decoration: none;
+}
+
+/*******************************************************
+	CSS - Input - V1
+*******************************************************/
+
+input:focus {
+	outline: none;
+}
+
+/*******************************************************
+	CSS - Button - V1
+*******************************************************/
+
+button:focus {
+	outline: none;
+}
+
+/*******************************************************
+	CSS - Imagem - V1
+*******************************************************/
+
+img {
+	vertical-align: top;
+	width: 100%;
+	height: auto;
+}
+
+/*******************************************************
+	CSS - Texto - V2
+*******************************************************/
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	font-weight: 500;
+}
+
+
+/*******************************************************
+	CSS - Variáveis
+*******************************************************/
+
+:root {
+	
+	/*P = Primary / S = Secundary / T = Tertiary*/
+
+	/*Theme */
+	--color-theme-p: #025F55;
+	--color-theme-s: #418D81;
+	--color-theme-t: #00342C;
+	
+	--color-theme-hover: #064841;
+	--color-hover: rgba(128, 128, 128, 30%);
+	
+	/* Dark Mode */
+	--color-layout-p-dm: rgb(12, 12, 12);
+	--color-layout-s-dm: rgb(39, 39, 39);
+	--color-layout-t-dm: rgb(30, 30, 30);
+
+	--color-txt-p-dm: #FFFFFF;
+	--color-txt-s-dm: #E0E0E0;
+	--color-txt-t-dm: #A9A9A9;
+	
+	--color-border-dm: var(--color-layout-t-dm);
+
+	/* Light Mode */
+	--color-layout-p-lm: #F3F3F3;
+	--color-layout-s-lm: #DCDCDC;
+	--color-layout-t-lm: #A9A9A9;
+	
+	--color-txt-p-lm: #202124;
+	--color-txt-s-lm: #414549;
+	--color-txt-t-lm: #5F6368;
+
+	--color-border-lm: #DDDDDD;
+}
+
+.DarkMode {
+	--color-layout-p: var(--color-layout-p-dm);
+	--color-layout-s: var(--color-layout-s-dm);
+	--color-layout-t: var(--color-layout-t-dm);
+
+	--color-txt-p: var(--color-txt-p-dm);
+	--color-txt-s: var(--color-txt-s-dm);
+	--color-txt-t: var(--color-txt-t-dm);
+
+	--color-header: var(--color-layout-s-dm);
+
+	--color-hover-p: rgba(2, 95, 85, 70%);
+
+	--color-border: var(--color-border-dm);
+}
+
+.LightMode {
+	--color-layout-p: var(--color-layout-p-lm);
+	--color-layout-s: var(--color-layout-s-lm);
+	--color-layout-t: var(--color-layout-t-lm);
+
+	--color-txt-p: var(--color-txt-p-lm);
+	--color-txt-s: var(--color-txt-s-lm);
+	--color-txt-t: var(--color-txt-t-lm);
+
+	--color-header: var(--color-layout-p-lm);
+
+	--color-hover-p: var(--color-hover);
+
+	--color-border: var(--color-border-lm);
+}
+
+/*******************************************************
+	Page Content
+*******************************************************/
+
+	/*******************************************************
+		Header
+	*******************************************************/
+
+	header {
+		z-index: 10;
+		position: fixed;
+		top: 0;
+
+		height: 60px;
+
+		transition: top 0.3s ease;
+	}
+
+	.HeaderContent {
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		grid-template-rows: 60px;
+		
+		width: 100%;
+		height: 60px;
+		padding: 0 20px;
+	}
+
+	.HeaderBlock {
+		height: 100%;
+	}
+
+	#Header1 {
+		padding: 10px 0;
+	}
+
+	#Header2 {
+		padding: 10px 0;
+		margin: 0 100px;
+	}
+
+	#Header3 {
+		padding: 10px 0;
+
+		font-size: 16px;
+	}
+
+	.HeaderIcon {
+		width: 40px;
+		height: 40px;
+		padding: 8px;
+		border-radius: 50%;
+	
+		font-size: 24px;
+	
+		cursor: pointer;
+		transition: 0.1s ease;
+	}
+
+		.HeaderIcon:hover, .HeaderIcon:active {
+			background-color: var(--color-hover);
+		}
+
+	.HeaderIcon i {
+		color: var(--color-txt-s);
+	}
+
+	/* H1 */
+
+	#HeaderNavIcon {
+		margin-right: 20px;	
+	}
+
+	#HeaderBanner {
+		height: 30px;
+		margin: 5px 0;	
+	}
+
+	#HeaderBanner a {
+		height: 30px;
+
+		color: var(--color-txt-p);
+	}
+
+	#HeaderBanner a h1 {
+		margin: 4px 0;
+		
+		font-size: 22px;
+		line-height: 22px;
+	}
+
+	/* H2 */
+
+	#HeaderSearchBar {
+		height: 40px;
+		padding: 5px 15px;
+		border-radius: 10px;
+	}
+
+	#HeaderSearchBar form {
+		background-color: transparent;
+	}
+
+	#HeaderSearchBar form input {
+		border: none;
+
+		color: var(--color-txt-p);
+		background-color: transparent;
+	}
+
+	#HeaderSearchBar form input[type = "text"]{
+		width: 500px;
+		height: 30px;
+		margin-right: 15px;
+
+		font-size: 16px;
+	}
+
+		#HeaderSearchBar form ::-webkit-input-placeholder {
+			color: var(--color-txt-t);
+		}
+
+	#HeaderSearchBar form input[type = "submit"]{
+		height: 30px;
+
+		color: var(--color-txt-t);
+
+		cursor: pointer;
+		transition: 0.2s linear;
+	}
+
+		#HeaderSearchBar form input[type = "submit"]:hover {
+			color: var(--color-txt-p);
+		}
+
+	/* H3 */
+
+	header nav {
+		height: 40px;
+	}
+
+		/* ul */
+
+		header nav ul {
+			height: 40px;
+			margin-right: 20px;
+
+			list-style: none;
+		}
+
+		header nav ul li {
+			display: inline-block;
+
+			height: 20px;
+			margin: 10px 20px 10px 0; 
+		}
+
+			header nav ul li:last-child {
+				margin-right: 0;
+			}
+
+		header nav ul li a {
+			color: var(--color-txt-t);
+			font-size: 16px;
+
+			transition: color 0.2s ease;
+		}
+
+			header nav ul li a:hover {
+				color: var(--color-txt-p);
+			}
+			
+		header button {
+			height: 30px;
+			margin: 5px 0;
+			border-radius: 15px;
+		}
+
+		header button a {
+			height: 30px;
+			padding: 5px 20px;
+			border-radius: 15px;
+
+			color: var(--color-txt-p-dm);
+			font-size: 16px;
+		}
+
+		/* HeaderIconGroup */
+
+		#HeaderIconGroup .HeaderIcon {
+			margin-right: 8px;
+		}
+
+			#HeaderIconGroup .HeaderIcon:last-child {
+				margin-right: 0;
+			}
+
+		/* Header Index */
+
+			/* H2 */
+
+			#HeaderIndex #HeaderSearchBar {
+				display: none;
+			}
+
+		/* Header Dashboard */
+
+			/* H2 */
+
+			#HeaderDashboard #HeaderSearchBar {
+				display: none;
+			}
+
+		/* Header User */
+
+			/* H2 */
+
+			#HeaderUser #HeaderSearchBar {
+				display: none;
+			}
+
+	/*******************************************************
+		Main
+	*******************************************************/
+
+	main {
+		margin-top: 60px;
+
+		background-color: var(--color-layout-p);
+	}
+
+	.MainContent {
+		width: 100%;
+	}
+
+	.MainContent section {
+		width: 100%;		
+	}	
+
+		/*******************************************************
+			Index.php
+		*******************************************************/
+
+		#MainIndex .MainContent {
+			padding: 0 0 100px;
+		}
+
+		/* Welcome */
+
+		#SectionIndexWelcome {
+			padding: 100px 0 200px;
+		}
+
+		#WelcomeHeader {
+			display: grid;
+			grid-template-columns: repeat(2, 50%);
+
+			width: 100%;
+			padding: 0 200px;
+		}
+
+			/* Left */
+
+			#WelcomeNav h1 {
+				width: 100%;
+				margin-bottom: 30px;
+				
+				color: var(--color-txt-p);
+				font-size: 70px;
+				text-align-last: left;
+			}
+
+			#WelcomeNav p {
+				width: 100%;
+				margin-bottom: 50px;
+
+				color: var(--color-txt-s);
+				font-size: 20px;
+				text-align-last: left;
+			}
+
+			#WelcomeNav button {
+				border-radius: 17.5px;
+			}
+
+			#WelcomeNav button a {
+				padding: 10px 20px;
+				border-radius: 17.5px;
+
+				color: var(--color-txt-p-dm);
+				font-size: 16px;
+			}
+
+			/* Right */
+
+			#WelcomeBanner {
+				height: 500px;
+
+				background-color: lightgray;
+			}
+
+		/* Discover */
+
+			/* Overlay */
+
+			#DiscoverOverlay {
+				z-index: 20;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: fixed;
+				top: 0;
+				left: 0;
+
+				width: 100%;
+				height: 100vh;
+
+				background-color: rgba(0, 0, 0, 0.6);
+				opacity: 0;
+				visibility: hidden;
+
+				transition: 0.3s ease;
+			}
+
+				/* Close */
+
+				#DiscoverOverlay #CloseDiscoverOverlay {
+					position: absolute;
+					top: 20px;
+					right: 20px;
+					
+					width: 50px;
+					height: 50px;
+					padding: 10px;
+					border-radius: 50%;
+
+					transition: 0.1s ease;
+					cursor: pointer;
+				}
+
+					#DiscoverOverlay #CloseDiscoverOverlay:hover {
+						background-color: var(--color-hover);
+					}
+
+				#DiscoverOverlay #CloseDiscoverOverlay i {
+					color: var(--color-txt-p-dm);
+					font-size: 30px;
+				}
+
+			/* Content */
+
+			#DiscoverOverlay ul {
+				display: grid;
+				grid-template-rows: auto, 1fr;
+				
+				width: 60%;
+				padding: 40px 60px;
+				border-radius: 40px;
+
+				list-style-type: none;
+				background-color: var(--color-layout-p);
+			}
+
+			#DiscoverOverlay ul li {
+				display: flex;
+				justify-content: center;
+				
+				width: 100%;
+			}
+
+				#DiscoverOverlay ul li:nth-child(1){
+					height: 80px;
+					margin-bottom: 60px;
+
+					text-align: center;
+				}
+
+			#DiscoverOverlay ul li i {
+				margin-right: 40px;
+
+				color: var(--color-txt-p);
+				font-size: 80px;
+			}
+
+			#DiscoverOverlay ul li h1 {
+				margin: 14px 0;
+
+				color: var(--color-txt-p);
+				font-size: 42px;
+			}
+
+			#DiscoverOverlay ul li p {
+				width: 100%;
+
+				color: var(--color-txt-s);
+				font-size: 25px;
+			}
+
+		#SectionIndexDiscover {
+			width: calc(100% - (2 * 200px));
+			margin: 0 200px;
+			border-radius: 40px;
+
+			background-color: var(--color-layout-t);
+		}
+
+			/* Companies Bar */
+
+			#CompaniesGroup {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				grid-template-rows: auto;
+				grid-gap: 50px 20px;
+				
+				width: 100%;
+				padding: 25px 70px;
+				border-radius: 40px;
+
+				background-color: var(--color-layout-s);
+			}
+
+			.CompanyBox {
+				display: grid;
+				grid-template-columns: 100px auto;
+				grid-template-rows: 30px 25px auto;
+				align-content: center;
+			}
+
+			.CompanyBox .CompanyImage {
+				grid-column: 1/2;
+				grid-row: 1/4;
+
+				width: 80px;
+				height: 80px;
+				margin-right: 20px;
+				border-radius: 50%;
+				
+				background-color: lightgrey;
+			}
+
+			/* Text */
+			.CompanyBox h1 {
+				color: var(--color-txt-p);
+				font-size: 20px;
+			}
+
+			.CompanyBox h2 {
+				color: var(--color-txt-t);
+				font-size: 12px;
+			}
+
+			.CompanyBox span a {
+				width: auto;
+				
+				color: var(--color-txt-s);
+				font-size: 14px;
+			}
+
+				.CompanyBox span a:hover {
+					color: var(--color-txt-p);
+				}
+
+			/* Discover */
+
+			#DiscoverContent {
+				width: 100%;
+				padding: 60px 70px;
+				border-radius: 0 0 40px 40px;
+
+				background-color: var(--color-layout-t);
+			}
+
+			#DiscoverContent h1 {
+				width: 100%;
+				margin-bottom: 80px;
+				
+				color: var(--color-txt-p);
+				font-size: 40px;
+				text-align: center;
+			}
+
+			#DiscoverContent #DiscoverBlocksGroup {
+				width: 100%;
+			}
+
+			#DiscoverContent #DiscoverBlocksGroup nav {
+				width: 100%;
+				margin-bottom: 60px;
+			}
+
+				#DiscoverContent #DiscoverBlocksGroup nav:last-child {
+					margin: 0;
+				}
+
+			#DiscoverContent #DiscoverBlocksGroup nav ul {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				
+				width: 100%;		
+
+				list-style-type: none;
+			}
+
+				#DiscoverContent #DiscoverBlocksGroup nav ul:nth-child(1){
+					margin-bottom: 40px;
+				}
+
+			#DiscoverContent #DiscoverBlocksGroup nav ul li {
+				display: flex;
+				justify-content: center;
+			}
+
+				/* DiscoverBlockContent */
+
+				#DiscoverContent #DiscoverBlocksGroup nav ul .DiscoverBlockContent a {
+					width: 100px;
+					height: 100px;
+					padding: 25px;
+					border-radius: 50px;
+					
+					color: var(--color-txt-p);
+					background-color: var(--color-layout-s);
+
+					transition: background-color 0.1s ease;
+				}
+
+					#DiscoverContent #DiscoverBlocksGroup nav ul .DiscoverBlockContent a:hover {
+						background-color: var(--color-hover);
+					}
+
+				#DiscoverContent #DiscoverBlocksGroup nav ul .DiscoverBlockContent a i {
+					font-size: 50px;
+				}
+
+				/* DiscoverBlockText */
+
+				#DiscoverContent #DiscoverBlocksGroup nav ul .DiscoverBlockText span {
+					color: var(--color-txt-s);
+					font-size: 20px;
+					text-align: center;
+				}
+
+		/*******************************************************
+			Dashboard.php
+		*******************************************************/
+		
+		#MainDashboard {
+			min-height: calc(100vh - 60px);
+		}
+
+		#MainDashboard .MainContent {
+			padding: 60px 0;
+		}
+
+		#MainDashboard .MainContent section {
+			margin-bottom: 40px;
+		}
+
+			#MainDashboard .MainContent section:last-child {
+				margin: 0;
+			}
+
+		/* Header */
+
+		#SectionDashboardHeader h1 {
+			width: 100%;
+			
+			color: var(--color-txt-p);
+			text-align: center;
+			font-size: 40px;
+		}
+
+		/* Content */
+
+		#SectionDashboardItems {
+			padding: 0 200px;
+		}
+
+		#SectionDashboardItems nav {
+			width: 100%;
+		}
+
+		#SectionDashboardItems nav ul {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-auto-rows: auto;
+			
+			width: 100%;
+			
+			list-style: none;
+		}
+
+		#SectionDashboardItems nav ul .BoxSpace {
+			width: 100%;
+			padding: 20px;
+		}
+
+			#SectionDashboardItems nav ul .NoFor {
+				grid-column: 2/3;
+			}
+
+		#SectionDashboardItems nav ul .Box {
+			width: 100%;
+			border-radius: 20px;
+
+			background-color: var(--color-layout-s);
+		}
+
+		#SectionDashboardItems nav ul .Box a {
+			display: grid;
+			grid-template-columns: 110px auto;
+			grid-template-rows: 30px 30px 20px;
+			
+			width: 100%;
+			padding: 20px 30px;
+		}
+
+		#SectionDashboardItems nav ul .Box a .CompanyImage {
+			grid-column: 1/2;
+			grid-row: 1/4;
+			width: 80px;
+			height: 80px;
+			margin-right: 30px;
+			border-radius: 50%;
+			background-color: lightgrey;
+		}
+
+		#SectionDashboardItems nav ul .Box a h1 {
+			color: var(--color-txt-p);
+			font-size: 20px;
+		}
+
+		#SectionDashboardItems nav ul .Box a h2 {
+			color: var(--color-txt-t);
+			font-size: 16px;
+		}
+
+		#SectionDashboardItems nav ul .Box a h3 {
+			color: var(--color-txt-s);
+			font-size: 14px;
+		}
+
+		/* Dashboard Control Panel */
+
+		#DashboardControlPane {
+			z-index: 20;
+			position: absolute;
+			right: 30px;
+			bottom: 30px;
+			display: none;
+
+			width: 300px;
+			padding: 20px 0;
+			border-radius: 20px;
+		}
+
+		#DashboardControlPane h1 {
+			width: 100%;
+			padding: 0 20px;
+			margin-bottom: 15px;
+
+			color: var(--color-txt-p);
+			font-size: 26px;
+		}
+
+		#DashboardControlPane ul {
+			width: 100%;
+			
+			list-style: none;
+		}
+	
+		#DashboardControlPane ul li {
+			display: inline-block;
+
+			width: 100%;
+			border-radius: 20px;
+
+			transition: 0.2s ease;
+		}
+
+			#DashboardControlPane ul li:hover {
+				background-color: var(--color-hover-p);
+			} 
+
+		#DashboardControlPane ul li a {
+
+			width: 100%;
+			padding: 10px 20px;
+			border-radius: 20px;
+
+			color: var(--color-txt-p);
+		}
+		
+		#DashboardControlPane ul li a i {
+			margin-right: 10px;
+	
+			font-size: 20px;
+		}
+
+		#DashboardControlPane ul li a span {
+			font-size: 17px;
+		}
+
+		/* btn Dashboard Control */
+
+		#btnDashboardControl {
+			position: absolute;
+			right: 30px;
+			bottom: 30px;	
+
+			widtH: 50px;
+			height: 50px;
+			border: none;
+			border-radius: 25px;
+	
+			background-color: var(--color-theme-p);
+	
+			transition: 0.3s linear;
+			cursor: pointer;
+		}
+	
+			#btnDashboardControl:hover {
+				background-color: var(--color-theme-hover);
+			}
+
+		#btnDashboardControl i {
+			width: 100%;
+			height: 100%;
+			padding: 10px;
+			border-radius: inherit;
+
+			color: var(--color-txt-p-dm);
+			font-size: 30px;
+		}
+
+		/*******************************************************
+			Feed.php
+		*******************************************************/
+
+		#MainFeed {
+			min-height: calc(100vh - 60px);
+		}
+
+		#MainFeed .MainContent {
+			padding: 60px 0;
+		}
+
+		#MainFeed .MainContent section {
+			margin-bottom: 40px;
+		}
+
+			#MainFeed .MainContent section:last-child {
+				margin: 0;
+			}
+
+		/* Header */
+
+		#SectionFeedHeader {
+			padding: 0 20px;
+		}
+
+		#SectionFeedHeader h1 {
+			width: 100%;
+			
+			color: var(--color-txt-p);
+			text-align: center;
+			font-size: 40px;
+		}
+
+		/* Filters */
+
+		#SectionFeedFilters {
+			padding: 0 200px;	
+		}
+
+		#SectionFeedFilters h1 {
+			width: 100%;
+			margin-bottom: 15px;
+
+			color: var(--color-txt-p);
+		}
+
+		#SectionFeedFilters nav {
+			width: 100%;
+		}
+
+		#SectionFeedFilters nav ul {
+			width: 100%;
+			
+			list-style: none;
+		}
+		
+		#SectionFeedFilters nav ul li {
+			display: inline-block;
+
+			padding: 7px 20px;
+			margin-right: 15px;
+			margin-bottom: 10px;
+			border-radius: 20px;
+
+			font-size: 16px;
+			font-weight: 400;
+
+			transition: 0.2s linear;
+			cursor: pointer;	
+		}
+
+			#SectionFeedFilters nav ul li:last-child {
+				margin: 0;
+			}
+
+			#SectionFeedFilters nav ul .FilterActive {
+				background-color: var(--color-theme-p);
+			}
+
+				#SectionFeedFilters nav ul .FilterActive:hover {
+					background-color: var(--color-theme-hover);
+				}
+
+			#SectionFeedFilters nav ul .FilterActive {
+				color: var(--color-txt-p-dm);
+			}
+			
+			#SectionFeedFilters nav ul .FilterDesactive {
+				background-color: var(--color-layout-s);
+			}
+
+				#SectionFeedFilters nav ul .FilterDesactive:hover {
+					background-color: var(--color-layout-t);
+				}
+
+			#SectionFeedFilters nav ul .FilterDesactive {
+				color: var(--color-txt-t);
+			}
+
+		/* Items */		
+
+		#SectionFeedItems {
+			padding: 0 180px;
+		}
+
+		#SectionFeedItems nav {	
+			width: 100%;
+		}
+
+		#SectionFeedItems nav ul {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-auto-rows: auto;
+			
+			width: 100%;
+			
+			list-style: none;
+		}
+
+		#SectionFeedItems nav ul .BoxSpace {
+			width: 100%;
+			padding: 20px;
+		}
+
+		#SectionFeedItems nav ul .Box {
+			display: inline-block;
+
+			width: 100%;
+			border-radius: 20px;
+
+			background-color: var(--color-layout-s);
+		}
+
+			#SectionFeedItems nav ul .NoFor {
+				grid-column: 2/4;
+			}
+
+		#SectionFeedItems nav ul .BoxSpace .Box a {
+			width: 100%;
+			padding: 20px;
+			border-radius: 20px;
+		}
+
+		#SectionFeedItems nav ul .BoxSpace .Box a .Boximg {
+			width: 100%;
+			height: 300px;
+			margin-bottom: 15px;
+			border-radius: 20px;
+
+			background-color: lightgray;
+		}
+
+		#SectionFeedItems nav ul .BoxSpace .Box a .BoxInfo {
+			width: 100%;
+		}
+
+		#SectionFeedItems nav ul .BoxSpace .Box a .BoxInfo h1 {
+			width: 100%;
+			margin-bottom: 5px;
+
+			color: var(--color-txt-p);
+			font-size: 22px;
+		}
+
+		#SectionFeedItems nav ul .BoxSpace .Box a .BoxInfo h1:last-of-type {
+			width: 100%;
+
+			color: var(--color-txt-t);
+			font-size: 14px;
+		}
+
+		/*******************************************************
+			User.php
+		*******************************************************/
+
+		#MainUser .MainContent {
+			padding: 60px 0;
+		}
+
+		/* Header */
+		
+		#SectionUserHeader {
+			padding: 0 200px;
+			margin-bottom: 80px;
+		}
+
+		#SectionUserHeader div {
+			width: 100%;
+		}
+
+		#SectionUserHeader h1, #SectionUserHeader h2 {
+			width: 100%;
+
+			text-align: center;
+		}
+
+		#SectionUserHeader h1 {
+			margin-bottom: 10px;
+
+			color: var(--color-txt-s);
+			font-size: 22px;
+		}
+
+		#SectionUserHeader h2 {
+			color: var(--color-txt-p);
+			font-size: 40px;
+		}
+
+		/* Nav Config */
+
+		#SectionUserConfig {
+			padding: 0 200px;	
+		}
+
+		#SectionUserConfig nav {
+			width: 100%;
+		}
+
+			/* Nav Options */
+
+			#NavUserConfig {
+				margin-bottom: 40px;
+			}
+
+				#NavUserConfig ul {
+					list-style-type: none;
+				}
+
+				#NavUserConfig ul li {
+					padding: 0 16px 10px;
+					border-bottom: 2px solid transparent;
+
+					color: var(--color-txt-t);
+
+					cursor: pointer;
+					transition: 0.1s ease;
+				}
+
+					#NavUserConfig ul li:hover {
+						border-bottom-color: var(--color-border);
+					}
+
+					/* Active */
+					#NavUserConfig ul .active {
+						border-bottom-color: var(--color-theme-p);
+
+						color: var(--color-theme-p);
+					}
+
+						#NavUserConfig ul .active:hover {
+							border-bottom-color: var(--color-theme-p);
+						}
+
+				#NavUserConfig ul li i {
+					margin-right: 8px;
+					
+					font-size: 22px;
+				}
+
+				#NavUserConfig ul li span {
+					font-size: 18px;
+				}
+
+			/* Nav Frames */
+
+			#NavUserFrameset .NavUserFrame {
+				width: 100%;
+			}
+
+				/* User Frames */
+
+				#UF2 , #UF3, #UF4, #UF5 {
+					display: none;
+				}
+
+				/* UF 1 */
+
+				#UF1 {
+					display: block;
+
+					background-color: lightblue;
+				}
+
+				/* UF 2 */
+
+					#UF2 .FrameHeader .NavUserViewSwitch {
+						float: right;
+
+						margin: 8px 0;
+
+						color: var(--color-txt-t);
+						font-size: 14px;
+
+						cursor: pointer;
+						transition: 0.1s ease;
+					}
+
+						#UF2 .FrameHeader .NavUserViewSwitch:hover {
+							color: var(--color-txt-s);
+						}
+
+						#UF2 .FrameHeader #NavUserViewBoxSwitch {
+							display: none;
+						}
+
+					/* Box */
+
+					#UF2 .FrameMain .BoxView {
+						display: grid;
+						grid-template-columns: repeat(3, 1fr);
+						grid-auto-rows: auto;
+						grid-gap: 20px;		
+
+						width: 100%;
+
+						list-style: none;
+					}
+
+					#UF2 .FrameMain .BoxView li {
+						border-radius: 20px;
+
+						background-color: var(--color-layout-s);
+					}
+
+					#UF2 .FrameMain .BoxView li a {
+						width: 100%;
+						padding: 20px 30px;
+						border-radius: inherit;
+					}
+
+					#UF2 .FrameMain .BoxView li a h1 {
+						width: 100%;
+
+						color: var(--color-txt-p);
+						text-align: center;
+					}
+
+					/* List */
+
+					#UF2 .FrameMain .ListView {
+						width: 100%;
+
+						list-style: none;
+					}
+
+					#UF2 .FrameMain .ListView li {
+						width: 100%;
+						border-bottom: 2px solid var(--color-border);
+					}
+
+						#UF2 .FrameMain .ListView li:hover {
+							background-color: var(--color-border);
+						}
+
+					#UF2 .FrameMain .ListView li a {
+						width: 100%;
+						padding: 10px;
+
+						color: var(--color-txt-s);
+						font-size: 16px;
+					}
+
+				/* UF 3 */
+
+					#UF3 .FrameMain #UserItensView {
+						display: grid;
+						grid-template-columns: repeat(4, 1fr);
+						grid-auto-rows: auto;
+						grid-gap: 20px;		
+
+						width: 100%;
+
+						list-style: none;
+					}
+
+					#UF3 .FrameMain #UserItensView li {
+						border-radius: 20px;
+
+						background-color: var(--color-layout-s);
+					}
+
+					#UF3 .FrameMain #UserItensView li a {
+						width: 100%;
+						padding: 20px;
+						border-radius: inherit;
+					}
+
+					#UF3 .FrameMain #UserItensView li a .Boximg {
+						width: 100%;
+						height: 300px;
+						margin-bottom: 15px;
+						border-radius: 20px;
+
+						background-color: lightgrey;
+					}
+
+					#UF3 .FrameMain #UserItensView li a .BoxInfo {
+						width: 100%;
+					}
+
+					#UF3 .FrameMain #UserItensView li a .BoxInfo h1 {
+						width: 100%;
+						margin-bottom: 5px;
+
+						color: var(--color-txt-p);
+						font-size: 22px;
+					}
+
+					#UF3 .FrameMain #UserItensView li a .BoxInfo h2 {
+						float: left;
+
+						color: var(--color-txt-t);
+						font-size: 14px;
+					}
+
+					#UF3 .FrameMain #UserItensView li a .BoxInfo h3 {
+						float: right;
+
+						color: var(--color-txt-t);
+						font-size: 14px;
+					}
+
+				/* UF 4 */
+
+				#UF4 {
+					background-color: lightsalmon;
+				}
+
+				/* UF 5 */
+
+				#UF5 {
+					background-color: lightsteelblue;
+				}
+
+			#NavUserFrameset .NavUserFrame .NavUserFrameContent {
+				width: 100%;
+			}
+
+			#NavUserFrameset .NavUserFrame .NavUserFrameContent .FrameSection {
+				width: 100%;
+				margin-bottom: 20px;
+			}
+
+				#NavUserFrameset .NavUserFrame .NavUserFrameContent .FrameSection:last-child {
+					margin: 0;
+				}
+
+				/* Header */
+
+				#NavUserFrameset .NavUserFrame .NavUserFrameContent .FrameHeader h1 {
+					float: left;
+					
+					color: var(--color-txt-p);
+					font-size: 28px;
+				}
+
+				#NavUserFrameset .NavUserFrame .NavUserFrameContent .FrameHeader p {
+					width: 100%;
+					margin-top: 16px;
+
+					color: var(--color-txt-s);
+					font-size: 16px;
+				}
+
+		/*******************************************************
+			Login.php / Register.php
+		*******************************************************/
+
+		#MainLogin, #MainRegister {
+			display: grid;
+			justify-content: center;
+			align-items: center;
+
+			width: 100%;
+			min-height: 100vh;
+			margin: 0;
+
+			/*background-image: linear-gradient(120deg, #2fccbb, var(--color-theme-t));*/
+			background-color: var(--color-layout-p);
+		}
+
+		.UserForm {
+			width: 440px;
+			padding: 80px 40px;
+			margin: 80px;
+			border-radius: 30px;
+
+			background-color: var(--color-header);
+		}
+
+		.UserForm form {
+			width: 100%;
+		}
+
+		.UserForm form .UserFormContent {
+			display: grid;	
+
+			width: 100%;
+
+			list-style: none;
+		}
+
+			#LoginPage .UserForm form .UserFormContent {
+				grid-template-rows: repeat(4, auto);
+			}
+
+			#RegisterPage .UserForm form .UserFormContent {
+				grid-template-rows: repeat(10, auto);
+			}
+
+		.UserForm form .UserFormContent li {
+			width: 100%;
+			margin-bottom: 30px;
+
+			text-align: center;
+		}
+
+		/* Content Header */
+		.UserForm form .UserFormContent .ContentHeader {
+			margin-bottom: 60px;
+		}
+
+		.UserForm form .UserFormContent .ContentHeader h1 {
+			width: 100%;
+
+			color: var(--color-txt-p);
+			font-size: 40px;
+			text-align: center;
+		}
+
+		/* Content Input */
+
+		.UserForm form .UserFormContent .ContentInput label {
+			margin-bottom: 14px;
+			
+			color: var(--color-txt-s);
+			font-size: 20px;
+
+			cursor: pointer;
+		}
+
+		.UserForm form .UserFormContent .ContentInput .UserInputData {
+			width: 100%;
+			padding: 8px 0;
+			border: none;
+			border-bottom: 2px solid var(--color-border);
+
+			color: var(--color-txt-t);
+			font-size: 18px;
+			background-color: var(--color-layout-p);
+		}
+
+			.UserForm form .UserFormContent .ContentInput .UserInputData::-webkit-input-placeholder {
+				color: var(--color-txt-t);
+			}			
+
+		/* Content Bottom */
+		.UserForm form .UserFormContent .ContentBottom {
+			margin: 20px 0 0;
+		}
+
+		.UserForm form .UserFormContent .ContentBottom a {
+			float: left;
+			margin: 11px 30px 11px 0;
+
+			color: var(--color-theme-p);
+			font-size: 14px;
+
+			transition: 0.3s ease;
+		}
+
+			.UserForm form .UserFormContent .ContentBottom a:hover {
+				color: var(--color-theme-hover);
+			}
+	
+		.UserForm form .UserFormContent .ContentBottom .UserInputSubmit {
+			height: 40px;
+			float: right;
+			padding: 10px 30px;
+			border: none;
+			border-radius: 20px;
+
+			font-size: 16px;
+		}
+
+	/*******************************************************
+		Footer
+	*******************************************************/
+
+	footer {
+		background-color: var(--color-layout-s);
+	}
+
+	#FooterContent {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(4, auto);
+		
+		width: 100%;
+		padding: 40px 200px;
+	}
+
+	#FooterContent ul {
+		margin-bottom: 40px;
+
+		list-style: none;
+	}
+
+		#FooterContent ul:last-child {
+			margin-bottom: 10px;
+		}
+
+	/* Header */
+
+	.FooterHeader {
+		grid-column: 1/4;	
+	}
+
+	.FooterHeader li a {
+		color: var(--color-txt-p);
+		font-size: 20px;
+	}
+
+	/* Links */
+
+	.FooterLinks h1 {
+		width: 100%;
+		margin-bottom: 16px;
+
+		color: var(--color-txt-p);
+		font-size: 18px;
+	}
+
+	.FooterLinks li {
+		width: 100%;
+		margin-bottom: 8px;
+	}
+
+		.FooterLinks li:last-child {
+			margin: 0;
+		}
+
+	.FooterLinks li a {
+		color: var(--color-txt-t);
+		font-size: 14px;
+	}
+
+		.FooterLinks li a:hover {
+			color: var(--color-txt-p);
+		}
+
+	/* Social */
+
+	.FooterSocial {
+		grid-column: 1/4;
+	}
+
+	.FooterSocial h1 {
+		margin-right: 20px;
+
+		color: var(--color-txt-p);
+		font-size: 18px;
+	}
+
+	.FooterSocial li {
+		height: 20px;
+		margin: 1px 16px 1px 0;
+	}
+
+		.FooterSocial li:last-child {
+			margin-right: 0;
+		}
+
+	.FooterSocial li a {
+		color: var(--color-txt-t);
+	}
+
+		.FooterSocial li a:hover {
+			color: var(--color-txt-p);
+		}
+
+	.FooterSocial li a i {
+		font-size: 18px;
+	}
+
+	/* License */
+
+	.FooterLicense {
+		grid-column: 1/4;
+	}
+
+	.FooterLicense li {
+		color: var(--color-txt-t);
+		font-size: 14px;
+	}
+
+/*******************************************************
+	Outros
+*******************************************************/
+
+/* BTN */
+
+.btn {
+	border: none;
+	
+	color: var(--color-txt-p-dm);
+	background-color: var(--color-theme-p);
+
+	cursor: pointer;
+	transition: 0.3s ease;
+}
+
+	.btn:hover {
+		background-color: var(--color-theme-hover);
+	}
+
+/* Box Shadow */
+
+.BS {
+	box-shadow: 0px 5px 10px 2px rgba(0,0,0,0.4);
+}
+
+/* Side Nav Bar */
+
+#SideNavBar {
+	z-index: 20;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: -300px;
+
+	width: 300px;
+
+	transition: left 0.5s ease;
+}
+
+/* Header Z-Index */
+
+#HeaderNotification, #HeaderConfig {
+	z-index: 20;
+	position: fixed;
+	top: 60px;
+	right: 20px;
+	display: none;
+
+	width: 300px;
+	border-radius: 20px;
+}
+
+	/* Header Notification */
+
+	#HeaderNotification nav {
+		width: 100%;
+		padding: 20px 0;
+	}
+
+	#HeaderNotification nav ul {
+		width: 100%;
+		
+		list-style: none;
+	}
+
+		/* Notifications Group */
+
+		#NotificationsGroup #NoneNotifications {
+			display: none;
+			
+			width: 100%;
+
+			color: var(--color-txt-t);
+			font-size: 16px;
+			text-align: center;
+
+			cursor: default;
+		}
+
+		#NotificationsGroup .NotificationBox {
+			width: 100%;
+			height: 40px;
+			padding: 10px 20px;
+			border-radius: 20px;
+
+			color: var(--color-txt-s);
+
+			cursor: pointer;
+			transition: 0.1s ease;
+		}
+
+			#NotificationsGroup .NotificationBox:hover {
+				background-color: var(--color-hover-p);
+			}
+
+			.NotificationBox:last-child {
+				margin-bottom: 10px;
+			}
+
+		#NotificationsGroup .NotificationBox i {
+			margin-right: 20px;
+
+			font-size: 20px;
+		}
+
+		#NotificationsGroup .NotificationBox span {
+			font-size: 17px;
+		}
+
+		/* Notifications Config */
+
+		#NotificationsConfig li {
+			float: right;
+			
+			margin: 0 20px;
+
+			color: var(--color-txt-t);
+			font-size: 14px;
+
+			cursor: pointer;
+			transition: 0.1s ease;
+		}
+
+			#NotificationsConfig li:hover {
+				color: var(--color-txt-s);
+			}
+
+/* Nav Options */
+
+.NavOptions {
+	width: 100%;
+	height: 100%;
+	padding: 20px 0;
+}
+
+.NavOptions h1 {
+	width: 100%;
+	padding: 0 20px 20px;
+	border-bottom: 1px solid var(--color-border);
+
+	font-size: 20px;
+
+	cursor: default;
+}
+
+.NavOptions ul {
+	width: 100%;
+	padding: 10px 0;
+	
+	list-style: none;
+}
+
+	.NavOptions ul:last-child {
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+
+.NavOptions ul li {
+	display: block;
+
+	width: 100%;
+	border-radius: 20px;
+
+	transition: 0.1s ease;
+}
+
+.NavOptions ul li:hover {
+		background-color: var(--color-hover-p);
+	}
+
+.NavOptions ul li a {
+	width: 100%;
+	padding: 10px 20px;
+	border-radius: 20px;
+
+	color: var(--color-txt-p);
+}
+
+.NavOptions ul li a i {
+	margin-right: 20px;
+	
+	font-size: 20px;
+}
+
+.NavOptions ul li a span {
+	font-size: 17px;
+}
+
+/* Mostrar */
+
+.mostrar {
+	display: block;
+}
+
+/* Dark Effect */
+
+#DarkEffect {
+	z-index: 11;
+	position: fixed;
+	top: 0;
+	
+	width: 100%;
+	height: 100vh;
+	
+	background-color: rgba(0, 0, 0, 40%);
+	opacity: 0;
+	visibility: hidden;
+	
+	transition: 0.3s ease;
+}
+
+/* Scroll Up */
+
+.scrollUp {
+	top: -60px;
+}
+
+/*******************************************************
+	Padrões
+*******************************************************/
+
+body {
+	background-color: var(--color-layout-p);
+}
+
+header, main, footer {
+	width: 100%;
+}
+
+#HeaderConfig, #SideNavBar {
+	color: var(--color-txt-p);	
+}
+
+header, #HeaderNotification, #HeaderConfig, #SideNavBar {
+	background-color: var(--color-header);
+}
+
+#SectionDashboardItems nav ul .NoFor, #SectionFeedItems nav ul .NoFor {
+	display: none;
+	
+	padding: 20px 30px;
+	border-radius: 20px;
+
+	color: var(--color-txt-t);
+	font-size: 20px;
+	text-align: center;
+	background-color: var(--color-layout-s);
+}
+
+/*******************************************************
+	Exceptions
+*******************************************************/
+
+	/*******************************************************
+		Light Mode Exceptions
+	*******************************************************/
+
+	/* Header */
+
+	.LightMode #HeaderSearchBar {
+		background-color: var(--color-layout-s-lm);
+	}
+
+	/* Main */
+
+	.LightMode #SectionIndexDiscover {
+		background-color: var(--color-layout-p);
+	}
+
+	.LightMode #CompaniesGroup {	
+		background-color: var(--color-layout-s);
+	}
+
+	.LightMode #DiscoverContent {
+		background-color: var(--color-layout-p);
+	}
+
+	.LightMode #DashboardControlPane {
+		background-color: var(--color-layout-p);
+	}
+
+	.LightMode .UserForm form .UserFormContent .ContentInput .UserInputData {
+		transition: border-color 0.2s ease;
+	}
+
+		.LightMode .UserForm form .UserFormContent .ContentInput .UserInputData:focus {
+			border-color: var(--color-theme-p);
+		}
+
+	/*******************************************************
+		Dark Mode Exceptions
+	*******************************************************/
+
+	/* Header */
+
+	.DarkMode #HeaderSearchBar {
+		background-color: var(--color-layout-t-dm);
+	}
+
+	/* Main */
+
+	.DarkMode #DashboardControlPane {
+		background-color: var(--color-layout-s);
+	}
+
+	.DarkMode .UserForm form .UserFormContent .ContentInput .UserInputData {
+		padding: 8px 16px;
+		border-radius: 19px;
+		
+		background-color: var(--color-layout-t);
+	}
+
+	/*******************************************************
+		User Exceptions
+	*******************************************************/
+
+	/* Not Logged */
+
+		/* ON */
+		.UNT #btnHeaderLogin, .UNT #WelcomeLogin {
+			display: block;
+		}
+
+		/* OFF */
+		.UNT #HeaderIconGroup, .UNT #WelcomeFind, .UNT #HeaderNavIcon {
+			display: none;
+		}
+	/* Logged */
+
+		/* ON */
+		.UIL #HeaderIconGroup, .UIL #WelcomeFind, .UIL #HeaderNavIcon {
+			display: block;
+		}
+
+		/* OFF */
+		.UIL #btnHeaderLogin, .UIL #WelcomeLogin {
+			display: none;
+		}

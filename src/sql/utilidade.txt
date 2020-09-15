@@ -1,0 +1,3 @@
+echo "<META HTTP-EQUIV=Refresh CONTENT='1.0; URL=Ranking.php'>";
+
+?t=12432&c=123432$e=rua
