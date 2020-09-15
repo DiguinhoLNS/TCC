@@ -60,6 +60,7 @@
 							</script>
 						
 						';
+
 					}
 
 					if ($UserRegisterError_2 == "1"){
@@ -77,6 +78,7 @@
 							</script>
 						
 						';
+
 					}
 
 					if($UserRegisterError_3 == "1"){
@@ -94,6 +96,7 @@
 							</script>
 						
 						';
+
 					}
 
 					if($UserRegisterError_4 == "1"){
@@ -111,6 +114,7 @@
 							</script>
 						
 						';
+						
 					}
 
 					if($UserRegisterError_5 == "1"){

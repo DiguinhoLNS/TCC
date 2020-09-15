@@ -1,3 +1,9 @@
+<?php
+
+	session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang = "pt-br">
 
@@ -10,6 +16,32 @@
 	</head>
 
 	<body id = "LoginPage" class = "LightMode">
+
+		<?php
+
+			if ($UserLoginError_G == "1"){
+		
+				if ($UserLoginError_1 == "1"){
+
+					echo '
+						
+						<script language = "javascript" type = "text/javascript">
+						
+							$(document).ready(function(){
+
+								$("#ErrorLogin").css("display", "block");
+
+							});
+						
+						</script>
+					
+					';
+					
+				}
+
+			}
+		
+		?>
 	
 		<main id = "MainLogin">
 
