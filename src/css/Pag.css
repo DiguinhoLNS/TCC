@@ -1448,12 +1448,24 @@ h1, h2, h3, h4, h5, h6 {
 		/* Content Input */
 
 		.UserForm form .UserFormContent .ContentInput label {
+			float: left;
+			
 			margin-bottom: 14px;
 			
 			color: var(--color-txt-s);
 			font-size: 20px;
 
 			cursor: pointer;
+		}
+
+		.UserForm form .UserFormContent .ContentInput .txtError {
+			display: none;
+			float: right;
+
+			margin: 3px 0 17px;
+
+			color: #EA4335;
+			font-size: 14px;
 		}
 
 		.UserForm form .UserFormContent .ContentInput .UserInputData {
