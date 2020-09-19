@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang = "pt-br">
 
@@ -13,8 +15,12 @@
 
         <?php 
         
-            include "php/C_Login.php"; 
+            include "php/Pag.php"; 
             C_Login();
+
+            include "include/Load.html";
+
+        ?>
             
         ?>
         
@@ -241,6 +247,8 @@
             </ul>
 
         </div>
+
+        <?php include "include/Script.php"; ?>
 
     </body>
     

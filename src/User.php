@@ -1,279 +1,304 @@
-<?php
-session_start();
-?>
+<?php session_start(); ?>
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang = "pt-br">
 
-<head>
+    <head>
 
-    <title> Usuário </title>
+        <title> Usuário </title>
 
-    <?php include "include/Head.php"; ?>
+        <?php include "include/Head.php"; ?>
 
-    <?php
+        <?php
 
-    include "php/C_Login.php";
-    C_Login();
+            $id = $_SESSION['id'];
 
-    include "php/Pag.php";
-    V_User();
+            $base = mysqli_connect('localhost', 'root', '', 'ape') or die("erro de conexão");
+            $regra = "SELECT nome FROM user_plataforma WHERE id_user_plataforma = '$id'";
 
-    $id = $_SESSION['id'];
+            $res = mysqli_query($base, $regra);
+            $mostrar = mysqli_fetch_array($res);
 
-    $base = mysqli_connect('localhost', 'root', '', 'ape') or die("erro de conexão");
-    $regra = "SELECT nome FROM user_plataforma WHERE id_user_plataforma = '$id'";
+        ?>
 
-    $res = mysqli_query($base, $regra);
-    $mostrar = mysqli_fetch_array($res);
-    ?>
+    </head>
 
-</head>
+    <body id = "UserPage" class = "UNT LightMode">
 
-<body id="UserPage" class="UNT LightMode">
+        <?php
 
-    <header id="HeaderUser">
+            include "php/Pag.php";
+            V_User();
+            C_Login();
 
-        <?php include "include/Header.php"; ?>
+            include "include/Load.html";
 
-    </header>
+        ?>
 
-    <main id="MainUser">
+        <header id = "HeaderUser">
 
-        <div class="MainContent">
+            <?php include "include/Header.php"; ?>
 
-            <section id="SectionUserHeader">
+        </header>
 
-                <div>
-                    <h1 id="DTN"></h1>
-                    <h2> <?php echo $mostrar['nome']; ?> </h2>
-                </div>
+        <main id = "MainUser">
 
-            </section>
+            <div class = "MainContent">
 
-            <section id="SectionUserConfig">
+                <section id = "SectionUserHeader">
 
-                <nav id="NavUserConfig">
-
-                    <ul>
-
-                        <li id="UFO1" class="UserConfigOption active">
-                            <i class="material-icons"> &#xe7fd; </i>
-                            <span> Usuário </span>
-                        </li>
-                        <li id="UFO2" class="UserConfigOption">
-                            <i class="material-icons"> &#xe0af; </i>
-                            <span> Empresas </span>
-                        </li>
-                        <li id="UFO3" class="UserConfigOption">
-                            <i class="material-icons"> category </i>
-                            <span> Itens </span>
-                        </li>
-                        <li id="UFO4" class="UserConfigOption">
-                            <i class="material-icons"> &#xe8b8; </i>
-                            <span> Configurações </span>
-                        </li>
-                        <li id="UFO5" class="UserConfigOption">
-                            <i class="material-icons"> &#xe002; </i>
-                            <span> Zona de Perigo </span>
-                        </li>
-
-                    </ul>
-
-                </nav>
-
-                <nav id="NavUserFrameset">
-
-                    <div id="UF1" class="NavUserFrame">
-
-                        <div class="NavUserFrameContent">
-
-                            <div class="FrameHeader FrameSection">
-
-                                <h1> Usuário </h1>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
-                                </p>
-
-                            </div>
-
-                            <div class="FrameMain FrameSection"></div>
-
-                        </div>
-
+                    <div>
+                        <h1 id = "DTN"></h1>
+                        <h2> <?php echo $mostrar['nome']; ?> </h2>
                     </div>
 
-                    <div id="UF2" class="NavUserFrame">
+                </section>
 
-                        <div class="NavUserFrameContent">
+                <section id = "SectionUserConfig">
 
-                            <div class="FrameHeader FrameSection">
+                    <nav id = "NavUserConfig">
 
-                                <h1> Empresas </h1>
+                        <ul>
 
-                                <div id="NavUserViewBoxSwitch" class="NavUserViewSwitch" title="Alterar Visualização"> Visualização em Bloco </div>
-                                <div id="NavUserViewListSwitch" class="NavUserViewSwitch" title="Alterar Visualização"> Visualização em Lista </div>
+                            <li id = "UFO1" class = "UserConfigOption active">
+                                <i class = "material-icons"> &#xe7fd; </i>
+                                <span> Usuário </span>
+                            </li>
+                            <li id = "UFO2" class = "UserConfigOption">
+                                <i class = "material-icons"> &#xe0af; </i>
+                                <span> Empresas </span>
+                            </li>
+                            <li id = "UFO3" class = "UserConfigOption">
+                                <i class = "material-icons"> category </i>
+                                <span> Itens </span>
+                            </li>
+                            <li id = "UFO4" class = "UserConfigOption">
+                                <i class = "material-icons"> &#xe8b8; </i>
+                                <span> Configurações </span>
+                            </li>
+                            <li id = "UFO5" class = "UserConfigOption">
+                                <i class = "material-icons"> &#xe002; </i>
+                                <span> Zona de Perigo </span>
+                            </li>
 
-                            </div>
+                        </ul>
 
-                            <div class="FrameMain FrameSection">
+                    </nav>
 
-                                <ul id="UserCompaniesView" class="BoxView">
+                    <nav id = "NavUserFrameset">
 
-                                    <li>
-                                        <a href="" title="Nome da Empresa">
-                                            <h1> Nome da Empresa </h1>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="" title="Nome da Empresa">
-                                            <h1> Nome da Empresa </h1>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="" title="Nome da Empresa">
-                                            <h1> Nome da Empresa </h1>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="" title="Nome da Empresa">
-                                            <h1> Nome da Empresa </h1>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="" title="Nome da Empresa">
-                                            <h1> Nome da Empresa </h1>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="" title="Nome da Empresa">
-                                            <h1> Nome da Empresa </h1>
-                                        </a>
-                                    </li>
+                        <div id = "UF1" class = "NavUserFrame">
 
-                                </ul>
+                            <div class = "NavUserFrameContent">
+
+                                <div class = "FrameHeader FrameSection">
+
+                                    <h1> Usuário </h1>
+
+                                </div>
+
+                                <div class = "FrameMain FrameSection">
+
+                                    <ul>
+
+                                        <h1> Perfil </h1>
+
+                                    </ul>
+
+                                    <ul>
+
+                                        <h1> Contato </h1>
+
+                                    </ul>
+
+                                    <ul>
+
+                                        <h1> Segurança </h1>
+
+                                    </ul>
+
+                                </div>
 
                             </div>
 
                         </div>
 
-                    </div>
+                        <div id = "UF2" class = "NavUserFrame">
 
-                    <div id="UF3" class="NavUserFrame">
+                            <div class = "NavUserFrameContent">
 
-                        <div class="NavUserFrameContent">
+                                <div class = "FrameHeader FrameSection">
 
-                            <div class="FrameHeader FrameSection">
+                                    <h1> Empresas </h1>
 
-                                <h1> Itens </h1>
+                                    <div id = "NavUserViewBoxSwitch" class = "NavUserViewSwitch" title = "Alterar Visualização"> Visualização em Bloco </div>
+                                    <div id = "NavUserViewListSwitch" class = "NavUserViewSwitch" title = "Alterar Visualização"> Visualização em Lista </div>
 
-                            </div>
+                                </div>
 
-                            <div class="FrameMain FrameSection">
+                                <div class = "FrameMain FrameSection">
 
-                                <ul id="UserItensView">
+                                    <ul id = "UserCompaniesView" class = "BoxView">
 
-                                    <li>
-                                        <a href="">
-                                            <div class="Boximg"></div>
-                                            <div class="BoxInfo">
-                                                <h1> Nome do Item Perdido </h1>
-                                                <h2> Empresa.inc </h2>
-                                                <h3> 10/09/2020 </h3>
-                                            </div>
-                                        </a>
-                                    </li>
+                                        <li>
+                                            <a href = "" title = "Nome da Empresa">
+                                                <h1> Nome da Empresa </h1>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href = "" title = "Nome da Empresa">
+                                                <h1> Nome da Empresa </h1>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href = "" title = "Nome da Empresa">
+                                                <h1> Nome da Empresa </h1>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href = "" title = "Nome da Empresa">
+                                                <h1> Nome da Empresa </h1>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href = "" title = "Nome da Empresa">
+                                                <h1> Nome da Empresa </h1>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href = "" title = "Nome da Empresa">
+                                                <h1> Nome da Empresa </h1>
+                                            </a>
+                                        </li>
 
-                                </ul>
+                                    </ul>
+
+                                </div>
 
                             </div>
 
                         </div>
 
-                    </div>
+                        <div id = "UF3" class = "NavUserFrame">
 
-                    <div id="UF4" class="NavUserFrame">
+                            <div class = "NavUserFrameContent">
 
-                        <div class="NavUserFrameContent">
+                                <div class = "FrameHeader FrameSection">
 
-                            <div class="FrameHeader FrameSection">
+                                    <h1> Itens </h1>
 
-                                <h1> Configurações </h1>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
-                                </p>
+                                </div>
 
-                            </div>
+                                <div class = "FrameMain FrameSection">
 
-                            <div class="FrameMain FrameSection"></div>
+                                    <ul id = "UserItensView">
 
-                        </div>
+                                        <li>
+                                            <a href = "">
+                                                <div class = "Boximg"></div>
+                                                <div class = "BoxInfo">
+                                                    <h1> Nome do Item Perdido </h1>
+                                                    <h2> Empresa.inc </h2>
+                                                    <h3> 10/09/2020 </h3>
+                                                </div>
+                                            </a>
+                                        </li>
 
-                    </div>
+                                    </ul>
 
-                    <div id="UF5" class="NavUserFrame">
-
-                        <div class="NavUserFrameContent">
-
-                            <div class="FrameHeader FrameSection">
-
-                                <h1> Configurações Avançadas </h1>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
-                                </p>
+                                </div>
 
                             </div>
 
-                            <div class="FrameMain FrameSection"></div>
+                        </div>
+
+                        <div id = "UF4" class = "NavUserFrame">
+
+                            <div class = "NavUserFrameContent">
+
+                                <div class = "FrameHeader FrameSection">
+
+                                    <h1> Configurações </h1>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
+                                    </p>
+
+                                </div>
+
+                                <div class = "FrameMain FrameSection"></div>
+
+                            </div>
 
                         </div>
 
-                    </div>
+                        <div id = "UF5" class = "NavUserFrame">
 
-                </nav>
+                            <div class = "NavUserFrameContent">
 
-            </section>
+                                <div class = "FrameHeader FrameSection">
 
-        </div>
+                                    <h1> Configurações Avançadas </h1>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
+                                    </p>
 
-    </main>
+                                </div>
 
-    <?php include "include/Footer.php"; ?>
+                                <div class = "FrameMain FrameSection"></div>
 
-    <?php include "include/SideNavBar.php"; ?>
-    <?php include "include/HeaderNotification.php"; ?>
-    <?php include "include/HeaderConfig.php"; ?>
+                            </div>
 
-    <div id="DarkEffect"></div>
+                        </div>
 
-    <script>
-        var date = new Date();
-        var hour = date.getHours();
+                    </nav>
 
-        if (hour >= 0 && hour < 12) {
+                </section>
 
-            txt = "Bom Dia";
+            </div>
 
-        } else {
+        </main>
 
-            if (hour >= 12 && hour < 18) {
+        <?php include "include/Footer.php"; ?>
 
-                txt = "Boa Tarde";
+        <?php include "include/SideNavBar.php"; ?>
+        <?php include "include/HeaderNotification.php"; ?>
+        <?php include "include/HeaderConfig.php"; ?>
+
+        <div id = "DarkEffect"></div>
+
+        <script type = "text/javascript">
+
+            var date = new Date();
+            var hour = date.getHours();
+
+            if (hour >= 0 && hour < 12) {
+
+                txt = "Bom Dia";
 
             } else {
 
-                if (hour >= 18) {
+                if (hour >= 12 && hour < 18) {
 
-                    txt = "Boa Noite";
+                    txt = "Boa Tarde";
+
+                } else {
+
+                    if (hour >= 18) {
+
+                        txt = "Boa Noite";
+
+                    }
 
                 }
 
             }
 
-        }
+            document.getElementById("DTN").innerHTML = txt;
 
-        document.getElementById("DTN").innerHTML = txt;
-    </script>
+        </script>
 
-</body>
+        <?php include "include/Script.php"; ?>
+
+    </body>
 
 </html>

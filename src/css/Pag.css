@@ -114,14 +114,12 @@ h1, h2, h3, h4, h5, h6 {
 
 :root {
 	
-	/*P = Primary / S = Secundary / T = Tertiary*/
-
 	/*Theme */
-	--color-theme-p: #025F55;
-	--color-theme-s: #418D81;
-	--color-theme-t: #00342C;
+	--color-theme-p: #6a50a7;
+	--color-theme-s: #9b7dd9;
+	--color-theme-t: #3a2677;
 	
-	--color-theme-hover: #064841;
+	--color-theme-hover: rgba(106, 80, 167, 60%);
 	--color-hover: rgba(128, 128, 128, 30%);
 	
 	/* Dark Mode */
@@ -158,7 +156,7 @@ h1, h2, h3, h4, h5, h6 {
 
 	--color-header: var(--color-layout-s-dm);
 
-	--color-hover-p: rgba(2, 95, 85, 70%);
+	--color-hover-p: var(--color-theme-hover);
 
 	--color-border: var(--color-border-dm);
 }
@@ -184,6 +182,32 @@ h1, h2, h3, h4, h5, h6 {
 *******************************************************/
 
 	/*******************************************************
+		Load
+	*******************************************************/
+
+	#Load {
+		z-index: 200;
+		position: fixed;
+		top: 0;
+		right: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		width: 100%;
+		height: 100%;
+
+		background-color: var(--color-header);
+
+		transition: 0.9s ease;
+	}
+
+	#Load img {
+		width: 200px;
+	}
+
+	/*******************************************************
 		Header
 	*******************************************************/
 
@@ -194,7 +218,7 @@ h1, h2, h3, h4, h5, h6 {
 
 		height: 60px;
 
-		transition: top 0.3s ease;
+		transition: top 0.2s ease;
 	}
 
 	.HeaderContent {
@@ -437,7 +461,6 @@ h1, h2, h3, h4, h5, h6 {
 			grid-template-columns: repeat(2, 50%);
 
 			width: 100%;
-			padding: 0 200px;
 		}
 
 			/* Left */
@@ -578,8 +601,8 @@ h1, h2, h3, h4, h5, h6 {
 			}
 
 		#SectionIndexDiscover {
-			width: calc(100% - (2 * 200px));
-			margin: 0 200px;
+			width: calc(100% - (2 * 300px));
+			margin: 0 300px;
 			border-radius: 40px;
 
 			background-color: var(--color-layout-t);
@@ -753,10 +776,6 @@ h1, h2, h3, h4, h5, h6 {
 
 		/* Content */
 
-		#SectionDashboardItems {
-			padding: 0 200px;
-		}
-
 		#SectionDashboardItems nav {
 			width: 100%;
 		}
@@ -915,6 +934,29 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 		/*******************************************************
+			Company.php
+		*******************************************************/
+
+		/* Header */
+
+		#SectionCompanyHeader {
+			
+			position: fixed;
+			
+			height: 400px;
+			
+			background-color: var(--color-theme-p);
+		}
+
+		/* Main */
+
+		#SectionCompanyMain {
+			height: 1000px;
+
+			background-color: var(--color-layout-p);
+		}
+
+		/*******************************************************
 			Feed.php
 		*******************************************************/
 
@@ -949,10 +991,6 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 		/* Filters */
-
-		#SectionFeedFilters {
-			padding: 0 200px;	
-		}
 
 		#SectionFeedFilters h1 {
 			width: 100%;
@@ -1090,6 +1128,10 @@ h1, h2, h3, h4, h5, h6 {
 			User.php
 		*******************************************************/
 
+		#MainUser {
+			min-height: calc(100vh - 60px);
+		}
+
 		#MainUser .MainContent {
 			padding: 60px 0;
 		}
@@ -1097,7 +1139,6 @@ h1, h2, h3, h4, h5, h6 {
 		/* Header */
 		
 		#SectionUserHeader {
-			padding: 0 200px;
 			margin-bottom: 80px;
 		}
 
@@ -1124,10 +1165,6 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 		/* Nav Config */
-
-		#SectionUserConfig {
-			padding: 0 200px;	
-		}
 
 		#SectionUserConfig nav {
 			width: 100%;
@@ -1194,148 +1231,163 @@ h1, h2, h3, h4, h5, h6 {
 
 				#UF1 {
 					display: block;
+				}
 
-					background-color: lightblue;
+				#UF1 .FrameMain ul {
+					width: 100%;
+					padding: 20px;
+					margin-bottom: 20px;
+					border: 1px solid var(--color-border);
+					border-radius: 20px;
+
+					list-style: none;
+				}
+
+				#UF1 .FrameMain ul h1 {
+					width: 100%;
+
+					color: var(--color-txt-p);
+					font-size: 22px;
 				}
 
 				/* UF 2 */
 
-					#UF2 .FrameHeader .NavUserViewSwitch {
-						float: right;
+				#UF2 .FrameHeader .NavUserViewSwitch {
+					float: right;
 
-						margin: 8px 0;
+					margin: 8px 0;
 
-						color: var(--color-txt-t);
-						font-size: 14px;
+					color: var(--color-txt-t);
+					font-size: 14px;
 
-						cursor: pointer;
-						transition: 0.1s ease;
-					}
+					cursor: pointer;
+					transition: 0.1s ease;
+				}
 
-						#UF2 .FrameHeader .NavUserViewSwitch:hover {
-							color: var(--color-txt-s);
-						}
-
-						#UF2 .FrameHeader #NavUserViewBoxSwitch {
-							display: none;
-						}
-
-					/* Box */
-
-					#UF2 .FrameMain .BoxView {
-						display: grid;
-						grid-template-columns: repeat(3, 1fr);
-						grid-auto-rows: auto;
-						grid-gap: 20px;		
-
-						width: 100%;
-
-						list-style: none;
-					}
-
-					#UF2 .FrameMain .BoxView li {
-						border-radius: 20px;
-
-						background-color: var(--color-layout-s);
-					}
-
-					#UF2 .FrameMain .BoxView li a {
-						width: 100%;
-						padding: 20px 30px;
-						border-radius: inherit;
-					}
-
-					#UF2 .FrameMain .BoxView li a h1 {
-						width: 100%;
-
-						color: var(--color-txt-p);
-						text-align: center;
-					}
-
-					/* List */
-
-					#UF2 .FrameMain .ListView {
-						width: 100%;
-
-						list-style: none;
-					}
-
-					#UF2 .FrameMain .ListView li {
-						width: 100%;
-						border-bottom: 2px solid var(--color-border);
-					}
-
-						#UF2 .FrameMain .ListView li:hover {
-							background-color: var(--color-border);
-						}
-
-					#UF2 .FrameMain .ListView li a {
-						width: 100%;
-						padding: 10px;
-
+					#UF2 .FrameHeader .NavUserViewSwitch:hover {
 						color: var(--color-txt-s);
-						font-size: 16px;
 					}
+
+					#UF2 .FrameHeader #NavUserViewBoxSwitch {
+						display: none;
+					}
+
+				/* Box */
+
+				#UF2 .FrameMain .BoxView {
+					display: grid;
+					grid-template-columns: repeat(4, 1fr);
+					grid-auto-rows: auto;
+					grid-gap: 20px;		
+
+					width: 100%;
+
+					list-style: none;
+				}
+
+				#UF2 .FrameMain .BoxView li {
+					border-radius: 20px;
+
+					background-color: var(--color-layout-s);
+				}
+
+				#UF2 .FrameMain .BoxView li a {
+					width: 100%;
+					padding: 20px 30px;
+					border-radius: inherit;
+				}
+
+				#UF2 .FrameMain .BoxView li a h1 {
+					width: 100%;
+
+					color: var(--color-txt-p);
+					text-align: center;
+				}
+
+				/* List */
+
+				#UF2 .FrameMain .ListView {
+					width: 100%;
+
+					list-style: none;
+				}
+
+				#UF2 .FrameMain .ListView li {
+					width: 100%;
+					border-bottom: 2px solid var(--color-border);
+				}
+
+					#UF2 .FrameMain .ListView li:hover {
+						background-color: var(--color-border);
+					}
+
+				#UF2 .FrameMain .ListView li a {
+					width: 100%;
+					padding: 10px;
+
+					color: var(--color-txt-s);
+					font-size: 16px;
+				}
 
 				/* UF 3 */
 
-					#UF3 .FrameMain #UserItensView {
-						display: grid;
-						grid-template-columns: repeat(4, 1fr);
-						grid-auto-rows: auto;
-						grid-gap: 20px;		
+				#UF3 .FrameMain #UserItensView {
+					display: grid;
+					grid-template-columns: repeat(4, 1fr);
+					grid-auto-rows: auto;
+					grid-gap: 20px;		
 
-						width: 100%;
+					width: 100%;
 
-						list-style: none;
-					}
+					list-style: none;
+				}
 
-					#UF3 .FrameMain #UserItensView li {
-						border-radius: 20px;
+				#UF3 .FrameMain #UserItensView li {
+					border-radius: 20px;
 
-						background-color: var(--color-layout-s);
-					}
+					background-color: var(--color-layout-s);
+				}
 
-					#UF3 .FrameMain #UserItensView li a {
-						width: 100%;
-						padding: 20px;
-						border-radius: inherit;
-					}
+				#UF3 .FrameMain #UserItensView li a {
+					width: 100%;
+					padding: 20px;
+					border-radius: inherit;
+				}
 
-					#UF3 .FrameMain #UserItensView li a .Boximg {
-						width: 100%;
-						height: 300px;
-						margin-bottom: 15px;
-						border-radius: 20px;
+				#UF3 .FrameMain #UserItensView li a .Boximg {
+					width: 100%;
+					height: 300px;
+					margin-bottom: 15px;
+					border-radius: 20px;
 
-						background-color: lightgrey;
-					}
+					background-color: lightgrey;
+				}
 
-					#UF3 .FrameMain #UserItensView li a .BoxInfo {
-						width: 100%;
-					}
+				#UF3 .FrameMain #UserItensView li a .BoxInfo {
+					width: 100%;
+				}
 
-					#UF3 .FrameMain #UserItensView li a .BoxInfo h1 {
-						width: 100%;
-						margin-bottom: 5px;
+				#UF3 .FrameMain #UserItensView li a .BoxInfo h1 {
+					width: 100%;
+					margin-bottom: 5px;
 
-						color: var(--color-txt-p);
-						font-size: 22px;
-					}
+					color: var(--color-txt-p);
+					font-size: 22px;
+				}
 
-					#UF3 .FrameMain #UserItensView li a .BoxInfo h2 {
-						float: left;
+				#UF3 .FrameMain #UserItensView li a .BoxInfo h2 {
+					float: left;
 
-						color: var(--color-txt-t);
-						font-size: 14px;
-					}
+					color: var(--color-txt-t);
+					font-size: 14px;
+				}
 
-					#UF3 .FrameMain #UserItensView li a .BoxInfo h3 {
-						float: right;
+				#UF3 .FrameMain #UserItensView li a .BoxInfo h3 {
+					float: right;
 
-						color: var(--color-txt-t);
-						font-size: 14px;
-					}
+					color: var(--color-txt-t);
+					font-size: 14px;
+				}
 
 				/* UF 4 */
 
@@ -1355,7 +1407,7 @@ h1, h2, h3, h4, h5, h6 {
 
 			#NavUserFrameset .NavUserFrame .NavUserFrameContent .FrameSection {
 				width: 100%;
-				margin-bottom: 20px;
+				margin-bottom: 40px;
 			}
 
 				#NavUserFrameset .NavUserFrame .NavUserFrameContent .FrameSection:last-child {
@@ -1375,7 +1427,7 @@ h1, h2, h3, h4, h5, h6 {
 					width: 100%;
 					margin-top: 16px;
 
-					color: var(--color-txt-s);
+					color: var(--color-txt-t);
 					font-size: 16px;
 				}
 
@@ -1534,7 +1586,7 @@ h1, h2, h3, h4, h5, h6 {
 		grid-template-rows: repeat(4, auto);
 		
 		width: 100%;
-		padding: 40px 200px;
+		padding: 40px 300px;
 	}
 
 	#FooterContent ul {
@@ -1879,6 +1931,14 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 	font-size: 20px;
 	text-align: center;
 	background-color: var(--color-layout-s);
+}
+
+/* Page Padding */
+
+/* 300px */
+
+#WelcomeHeader, #SectionFeedFilters, #SectionDashboardItems, #MainUser .MainContent section {
+	padding: 0 300px;
 }
 
 /*******************************************************

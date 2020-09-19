@@ -1,22 +1,26 @@
-<?php session_start(); ?>
-
 <div id = "HeaderConfig" class = "BS">
 
     <nav class = "NavOptions">
 
-        <?php
+        <h1>
+            <?php
+            
+                if(isset($_SESSION['id'])){
 
-            $id = $_SESSION['id'];
+                    $id = $_SESSION['id'];
 
-            $base = mysqli_connect('localhost', 'root', '', 'ape') or die("erro de conexão");
-            $regra = "SELECT nome FROM user_plataforma WHERE id_user_plataforma = '$id'";
+                    $base = mysqli_connect('localhost', 'root', '', 'ape') or die("erro de conexão");
+                    $regra = "SELECT nome FROM user_plataforma WHERE id_user_plataforma = '$id'";
 
-            $res = mysqli_query($base, $regra);
-            $mostrar = mysqli_fetch_array($res);
+                    $res = mysqli_query($base, $regra);
+                    $mostrar = mysqli_fetch_array($res);
 
-        ?>
+                    echo $mostrar['nome'];
 
-        <h1><?php echo $mostrar['nome']; ?></h1>
+                }
+                
+            ?>
+        </h1>
 
         <ul>
             <li>

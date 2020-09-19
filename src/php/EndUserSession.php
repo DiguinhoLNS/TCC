@@ -1,7 +1,13 @@
 <?php
 
-    setcookie("ULogged", "", time() - (86400 * 30), "/");
+    CloseSession();
 
-    header("Location: ../Index.php");
+    function CloseSession(){
+
+        setcookie("ULogged", "", time() - (86400 * 30), "/");
+
+        header("Location: ../Login.php");
+
+    }    
 
 ?>

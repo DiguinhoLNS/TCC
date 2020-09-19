@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang = "pt-br">
 
@@ -7,19 +9,19 @@
 		
 		<?php include "include/Head.php"; ?>
 
-		<?php
-
-            include "php/C_Login.php"; 
-            C_Login();
-
-            include "php/Pag.php";
-            V_User();
-
-        ?>
-
 	</head>
 
 	<body id = "FeedPage" class = "UNT LightMode">
+
+		<?php
+
+            include "php/Pag.php";
+            V_User();
+            C_Login();
+
+            include "include/Load.html";
+
+        ?>
 
 		<header id = "HeaderFeed">
 
@@ -95,6 +97,8 @@
         <?php include "include/HeaderConfig.php"; ?>
 
 		<div id = "DarkEffect"></div>
+
+		<?php include "include/Script.php"; ?>
 		
 	</body>
 

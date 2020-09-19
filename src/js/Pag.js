@@ -37,7 +37,7 @@ $(document).ready(function(){
     const DMS = $(".DarkModeSwitch");
     const LMS = $(".LightModeSwitch");
 
-    var Theme = localStorage.getItem('Theme');
+    var Theme = localStorage.getItem("Theme");
 
     if(Theme != null){
 ;
@@ -45,18 +45,18 @@ $(document).ready(function(){
     
     }
     
-    if(Theme == 'LightMode'){
+    if(Theme == "LightMode"){
 
-        $("body").removeClass('DarkMode').addClass('LightMode');
+        $("body").removeClass("DarkMode").addClass("LightMode");
         
         DMS.css("display", "block");
         LMS.css("display", "none");
     
     }else{
     
-        if(Theme == 'DarkMode'){
+        if(Theme == "DarkMode"){
 
-            $("body").removeClass('LightMode').addClass('DarkMode');
+            $("body").removeClass("LightMode").addClass("DarkMode");
             
             DMS.css("display", "none");
             LMS.css("display", "block");
@@ -78,8 +78,8 @@ $(document).ready(function(){
 
     DMS.on("click", function(){
 
-        $("body").removeClass('LightMode').addClass('DarkMode');
-        localStorage.setItem('Theme', 'DarkMode');
+        $("body").removeClass("LightMode").addClass("DarkMode");
+        localStorage.setItem("Theme", "DarkMode");
 
         DMS.css("display", "none");
         LMS.css("display", "block");
@@ -88,8 +88,8 @@ $(document).ready(function(){
 
     LMS.on("click", function(){
 
-        $("body").removeClass('DarkMode').addClass('LightMode');
-        localStorage.setItem('Theme', 'LightMode');
+        $("body").removeClass("DarkMode").addClass("LightMode");
+        localStorage.setItem("Theme", "LightMode");
 
         DMS.css("display", "block");
         LMS.css("display", "none");
@@ -331,7 +331,7 @@ $(document).ready(function(){
 
     /* Sticky */
 	  
-    'use strict';
+    "use strict";
     
     var c, currentScrollTop = 0, navbar = $("header");
 
@@ -409,7 +409,7 @@ $(document).ready(function(){
     const VBS = $("#NavUserViewBoxSwitch");
     const VLS = $("#NavUserViewListSwitch");
 
-    var LS_UCV = localStorage.getItem('UCV');
+    var LS_UCV = localStorage.getItem("UCV");
 
     if(LS_UCV != null){
 
@@ -418,14 +418,14 @@ $(document).ready(function(){
     
     }
     
-    if(LS_UCV == "box"){
+    if(LS_UCV == "BoxView"){
 
        VLS.css("display", "block");
        VBS.css("display", "none");
     
     }else{
 
-        if(LS_UCV == "list"){
+        if(LS_UCV == "ListView"){
         
             VLS.css("display", "none");
             VBS.css("display", "block");
@@ -445,8 +445,9 @@ $(document).ready(function(){
 
     VBS.on("click", function(){
 
-        UCV.removeClass('ListView').addClass('BoxView');
-        localStorage.setItem('UCV', 'BoxView');
+        UCV.removeClass("ListView").addClass("BoxView");
+        
+        localStorage.setItem("UCV", "BoxView");
 
         VLS.css("display", "block");
         VBS.css("display", "none");
@@ -455,8 +456,9 @@ $(document).ready(function(){
 
     VLS.on("click", function(){
 
-        UCV.removeClass('BoxView').addClass('ListView');
-        localStorage.setItem('UCV', 'ListView');
+        UCV.removeClass("BoxView").addClass("ListView");
+
+        localStorage.setItem("UCV", "ListView");
 
         VLS.css("display", "none");
         VBS.css("display", "block");

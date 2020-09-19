@@ -1,41 +1,32 @@
-<?php
-
-session_start();
-
-?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang = "pt-br">
 
-<head>
+	<head>
 
-	<title> Login </title>
+		<title> Login </title>
 
-	<?php include "include/Head.php"; ?>
+		<?php include "include/Head.php"; ?>
 
-</head>
+	</head>
 
-<body id="LoginPage" class="LightMode">
+	<body id = "LoginPage" class = "LightMode">
 
-	<?php
+		<?php
 
-	if (!isset($_SESSION["UserLoginError_1"])) {
+			if (!isset($_SESSION["UserLoginError_1"])) {
 
-		//$_SESSION["UserRegisterError_G"] = 0;
-		$_SESSION["UserRegisterError_1"] = 0;
-	} else {
+				$_SESSION["UserRegisterError_1"] = 0;
 
-		//$UserLoginError_G = $_SESSION["UserLoginError_G"];
-		$UserLoginError_1 = $_SESSION["UserLoginError_1"];
+			} else {
 
+				$UserLoginError_1 = $_SESSION["UserLoginError_1"];
 
+				if ($UserLoginError_1 == "1") {
 
-		//if ($UserLoginError_G == "1") {
-
-			if ($UserLoginError_1 == "1") {
-
-				echo '
-						
+					echo '
+							
 						<script language = "javascript" type = "text/javascript">
 						
 							$(document).ready(function(){
@@ -47,47 +38,48 @@ session_start();
 						</script>
 					
 					';
+
+				}
+
 			}
-		}
-	//}
 
-	?>
+		?>
 
-	<main id="MainLogin">
+		<main id = "MainLogin">
 
-		<div class="UserForm BS">
+			<div class = "UserForm BS">
 
-			<form method="POST" action="sql/VerificaLogin.php">
+				<form method = "POST" action = "sql/VerificaLogin.php">
 
-				<ul class="UserFormContent">
+					<ul class = "UserFormContent">
 
-					<li class="ContentHeader">
-						<h1> Login </h1>
-					</li>
-					<li class="ContentInput">
-						<label for="L_Email"> Email </label>
-						<input name="L_Email" id="L_Email" class="UserInputData" type="email" required />
-					</li>
-					<li class="ContentInput">
-						<label for="L_Senha"> Senha </label>
-						<input name="L_PWD" id="L_Senha" class="UserInputData" type="password" required />
-					</li>
-					<li class="ContentError">
-						<span id="ErrorLogin" class="txtError"> Email ou Senha incorretos </span>
-					</li>
-					<li class="ContentBottom">
-						<a href="Register.php"> Ainda não possui uma conta? </a>
-						<input class="UserInputSubmit btn" type="submit" value="Entrar">
-					</li>
+						<li class = "ContentHeader">
+							<h1> Login </h1>
+						</li>
+						<li class = "ContentInput">
+							<label for = "L_Email"> Email </label>
+							<input name="L_Email" id = "L_Email" class = "UserInputData" type = "email" required />
+						</li>
+						<li class = "ContentInput">
+							<label for = "L_Senha"> Senha </label>
+							<input name="L_PWD" id = "L_Senha" class = "UserInputData" type = "password" required />
+						</li>
+						<li class = "ContentError">
+							<span id = "ErrorLogin" class = "txtError"> Email ou Senha incorretos </span>
+						</li>
+						<li class = "ContentBottom">
+							<a href = "Register.php"> Ainda não possui uma conta? </a>
+							<input class = "UserInputSubmit btn" type = "submit" value="Entrar">
+						</li>
 
-				</ul>
+					</ul>
 
-			</form>
+				</form>
 
-		</div>
+			</div>
 
-	</main>
+		</main>
 
-</body>
+	</body>
 
 </html>

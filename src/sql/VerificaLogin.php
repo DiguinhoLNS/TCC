@@ -4,7 +4,6 @@
 
 	include "ConexaoBD.php";
 
-	//$_SESSION["UserRegisterError_G"] = 0;
 	$_SESSION["UserLoginError_1"] = 0;
 
 	$email = $_POST['L_Email'];
@@ -28,7 +27,6 @@
 
 	} else {
 
-		//$_SESSION["UserLoginError_G"] = "1";
 		$_SESSION["UserLoginError_1"] = "1";
 
 		header("Location: ../Login.php");
