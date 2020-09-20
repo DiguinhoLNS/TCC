@@ -3,11 +3,9 @@
     // Id Usuário
     function ID_User(){
 
-        if(!isset($_SESSION["id"])){
+        if(!isset($_COOKIE["ID"])){
 
-            include "EndUserSession.php";
-
-            header("Location: Login.php");
+            include "EndUserSession.php"; header("Location: Index.php");
 
         }
 

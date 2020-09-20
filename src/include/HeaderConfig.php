@@ -5,9 +5,9 @@
         <h1>
             <?php
             
-                if(isset($_SESSION['id'])){
+                if(isset($_COOKIE["ID"])){
 
-                    $id = $_SESSION['id'];
+                    $id = $_COOKIE["ID"];
 
                     $base = mysqli_connect('localhost', 'root', '', 'ape') or die("erro de conexão");
                     $regra = "SELECT nome FROM user_plataforma WHERE id_user_plataforma = '$id'";

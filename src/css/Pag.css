@@ -459,6 +459,7 @@ h1, h2, h3, h4, h5, h6 {
 		#WelcomeHeader {
 			display: grid;
 			grid-template-columns: repeat(2, 50%);
+			grid-gap: 0 20px;
 
 			width: 100%;
 		}
@@ -1245,10 +1246,23 @@ h1, h2, h3, h4, h5, h6 {
 
 				#UF1 .FrameMain ul h1 {
 					width: 100%;
+					margin-bottom: 10px;
 
 					color: var(--color-txt-p);
 					font-size: 22px;
 				}
+
+				#UF1 .FrameMain ul li {
+					width: 50%;
+				}
+
+					#UF1 .FrameMain ul .LeftContent {
+						float: left;
+					}
+
+					#UF1 .FrameMain ul .RightContent {
+						float: right;
+					}
 
 				/* UF 2 */
 

@@ -19,7 +19,7 @@
             V_User();
             C_Login();
 
-            include "include/Load.html";
+            include "include/Load.php";
 
         ?>
     

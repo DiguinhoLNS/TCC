@@ -15,13 +15,11 @@
 
         <?php 
         
-            include "php/Pag.php"; 
+            include "php/Pag.php";;
             C_Login();
 
-            include "include/Load.html";
+            include "include/Load.php";
 
-        ?>
-            
         ?>
         
 		<header id = "HeaderIndex">

@@ -11,7 +11,7 @@
 
         <?php
 
-            $id = $_SESSION['id'];
+            $id = $_COOKIE["ID"];
 
             $base = mysqli_connect('localhost', 'root', '', 'ape') or die("erro de conexão");
             $regra = "SELECT nome FROM user_plataforma WHERE id_user_plataforma = '$id'";
@@ -28,10 +28,11 @@
         <?php
 
             include "php/Pag.php";
+            
             V_User();
             C_Login();
 
-            include "include/Load.html";
+            include "include/Load.php";
 
         ?>
 
@@ -102,6 +103,9 @@
                                     <ul>
 
                                         <h1> Perfil </h1>
+
+                                        <li class = "LeftContent"></li>
+                                        <li class = "RightContent"></li>
 
                                     </ul>
 

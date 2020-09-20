@@ -17,11 +17,10 @@
 
 	$mostrar = mysqli_fetch_array($res);
 
-	$_SESSION['id'] = $mostrar['id_user_plataforma'];
-
 	if (strtolower($mostrar['email']) == strtolower($email) && $mostrar['senha_plataforma'] == $senha) {
 
 		setcookie("ULogged", "1", time() + (86400 * 30), "/");
+		setcookie("ID", $mostrar['id_user_plataforma'], time() + (86400 * 30), "/");
 
 		header("Location: ../Dashboard.php");
 
