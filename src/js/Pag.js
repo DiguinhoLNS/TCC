@@ -519,3 +519,16 @@ $(document).ready(function(){
     });
 
 });
+
+/* PWD View */
+
+$(document).ready(function(){
+
+    $("#DataPlaceholderPWD").on("click", function(){
+
+        $(this).css("display", "none");
+        $("#DataPWD").css("display", "block");
+
+    });
+
+});

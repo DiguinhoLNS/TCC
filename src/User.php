@@ -5,7 +5,7 @@
 
     <head>
 
-        <title> Usuário </title>
+        <title> Conta APE </title>
 
         <?php include "include/Head.php"; ?>
 
@@ -100,24 +100,87 @@
 
                                 <div class = "FrameMain FrameSection">
 
-                                    <ul>
+                                    <ul class = "DataCategory">
 
-                                        <h1> Perfil </h1>
+                                        <h1 class = "HeaderCategory"> Perfil </h1>
 
-                                        <li class = "LeftContent"></li>
-                                        <li class = "RightContent"></li>
+                                        <li class = "LeftContent">
+                                        
+                                            <div class = "DataContent">
+                                                <h1> Nome </h1>
+                                                <h2> Nome do Usuário </h2>
+                                            </div>
+                                            <div class = "DataContent">
+                                                <h1> CPF </h1>
+                                                <h2> 000.000.000-00 </h2>
+                                            </div>
+                                            <div class = "DataContent">
+                                                <h1> Gênero </h1>
+                                                <h2> Masculino / Feminino / Outro </h2>
+                                            </div>
+                                            <div class = "DataContent">
+                                                <h1> Data de Nascimento </h1>
+                                                <h2> 00/00/0000 </h2>
+                                            </div>
+                                        
+                                        </li>
+
+                                        <li class = "RightContent">
+
+                                            <h1> Informações sobre o usuário </h1>
+
+                                        </li>
 
                                     </ul>
 
-                                    <ul>
+                                    <ul class = "DataCategory">
 
-                                        <h1> Contato </h1>
+                                        <h1 class = "HeaderCategory"> Contato </h1>
+
+                                         <li class = "LeftContent">
+                                        
+                                            <div class = "DataContent">
+                                                <h1> Email </h1>
+                                                <h2> email@email.com </h2>
+                                            </div>
+                                            <div class = "DataContent">
+                                                <h1> Telefone </h1>
+                                                <h2> (00) 00000-0000 </h2>
+                                            </div>
+                                        
+                                        </li>
+                                        
+                                        <li class = "RightContent">
+
+                                            <h1> Informações de contato do usuário </h1>
+
+                                        </li>
 
                                     </ul>
 
-                                    <ul>
+                                    <ul class = "DataCategory">
 
-                                        <h1> Segurança </h1>
+                                        <h1 class = "HeaderCategory"> Segurança </h1>
+
+                                        <li class = "LeftContent">
+                                        
+                                            <div class = "DataContent">
+                                                <h1> ID </h1>
+                                                <h2> 1 </h2>
+                                            </div>
+                                            <div class = "DataContent">
+                                                <h1> Senha </h1>
+                                                <h2 id = "DataPlaceholderPWD"> Exibir Senha </h2>
+                                                <h2 id = "DataPWD"> Ab123456 </h2>
+                                            </div>
+                                        
+                                        </li>
+                                        
+                                        <li class = "RightContent">
+
+                                            <h1> Informações de segurança </h1>
+
+                                        </li>
 
                                     </ul>
 

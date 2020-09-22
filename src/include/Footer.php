@@ -57,17 +57,17 @@
 
             <h1> Nossas Redes Sociais </h1>
             <li>
-                <a href = "#">
+                <a href = "#" class = "IconFacebook">
                     <i class = "fab"> &#xf09a; </i>
                 </a>
             </li>
             <li>
-                <a href = "#">
+                <a href = "#" class = "IconInstagram">
                     <i class = "fab"> &#xf16d; </i>
                 </a>
             </li>
             <li>
-                <a href = "#">
+                <a href = "#" class = "IconTwitter">
                     <i class = "fab"> &#xf099; </i>
                 </a>
             </li>
