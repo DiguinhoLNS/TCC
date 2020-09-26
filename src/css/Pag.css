@@ -114,13 +114,16 @@ h1, h2, h3, h4, h5, h6 {
 
 :root {
 	
-	/*Theme */
+	/* Theme */
 	--color-theme-p: #6a50a7;
 	--color-theme-s: #9b7dd9;
 	--color-theme-t: #3a2677;
 	
 	--color-theme-hover: rgba(106, 80, 167, 60%);
 	--color-hover: rgba(128, 128, 128, 30%);
+
+	/* etc */
+	--color-error: #EA4335;
 	
 	/* Dark Mode */
 	--color-layout-p-dm: rgb(12, 12, 12);
@@ -1228,6 +1231,14 @@ h1, h2, h3, h4, h5, h6 {
 					font-size: 24px;
 				}
 
+				.NavUserFrame .FrameMain .Category {
+					width: 100%;
+					padding: 20px;
+					margin-bottom: 20px;
+					border: 2px solid var(--color-border);
+					border-radius: 20px;
+				}
+
 				/* User Frames */
 
 				#UF2 , #UF3, #UF4, #UF5 {
@@ -1240,26 +1251,20 @@ h1, h2, h3, h4, h5, h6 {
 					display: block;
 				}
 
-				#UF1 .FrameMain .DataCategory {
+				#UF1 .FrameMain .DataCategory .Category {
 					display: grid;
 					grid-template-columns: repeat(2, 1fr);
 					grid-template-rows: repeat(2, auto);
-					
-					width: 100%;
-					padding: 20px;
-					margin-bottom: 20px;
-					border: 2px solid var(--color-border);
-					border-radius: 20px;
-
 					list-style: none;
 				}
 
-				#UF1 .FrameMain .DataCategory .HeaderCategory {
+				#UF1 .FrameMain .DataCategory .Category .HeaderCategory {
 					grid-column: 1/2;
 					grid-row: 1/2;
 				}
 
-				#UF1 .FrameMain .DataCategory li {
+				#UF1 .FrameMain .DataCategory .Category .LeftContent,
+				#UF1 .FrameMain .DataCategory .Category .RightContent {
 					grid-row: 2/3;
 					
 					width: 100%;
@@ -1267,16 +1272,16 @@ h1, h2, h3, h4, h5, h6 {
 
 					/* Left */
 
-					#UF1 .FrameMain .DataCategory .LeftContent .DataContent {
+					#UF1 .FrameMain .DataCategory .Category .LeftContent .DataContent {
 						width: 100%;
 						margin-bottom: 18px;
 					}
 	
-						#UF1 .FrameMain .DataCategory .LeftContent .DataContent:last-child {
+						#UF1 .FrameMain .DataCategory .Category .LeftContent .DataContent:last-child {
 							margin: 0;
 						}
 	
-					#UF1 .FrameMain .DataCategory .LeftContent .DataContent h1 {
+					#UF1 .FrameMain .DataCategory .Category .LeftContent .DataContent h1 {
 						width: 100%;
 						margin: 0;
 	
@@ -1284,24 +1289,24 @@ h1, h2, h3, h4, h5, h6 {
 						font-size: 20px;
 					}
 	
-					#UF1 .FrameMain .DataCategory .LeftContent .DataContent h2 {
+					#UF1 .FrameMain .DataCategory .Category .LeftContent .DataContent h2 {
 						margin-top: 6px;
 						
 						color: var(--color-txt-t);
 						font-size: 18px;
 					}
 
-						#UF1 .FrameMain .DataCategory .LeftContent .DataContent #DataPlaceholderPWD {
+						#UF1 .FrameMain .DataCategory .Category .LeftContent .DataContent #DataPlaceholderPWD {
 							cursor: pointer;
 						}
 
-						#UF1 .FrameMain .DataCategory .LeftContent .DataContent #DataPWD {
+						#UF1 .FrameMain .DataCategory .Category .LeftContent .DataContent #DataPWD {
 							display: none;
 						}
 
 					/* Right */
 
-					#UF1 .FrameMain .DataCategory .RightContent {
+					#UF1 .FrameMain .DataCategory .Category .RightContent {
 						display: flex;
 						align-items: center;
 
@@ -1309,7 +1314,7 @@ h1, h2, h3, h4, h5, h6 {
 						border-left: 2px solid var(--color-border);
 					}
 
-					#UF1 .FrameMain .DataCategory .RightContent h1 {
+					#UF1 .FrameMain .DataCategory .Category .RightContent h1 {
 						color: var(--color-txt-t);
 					}
 
@@ -1460,22 +1465,12 @@ h1, h2, h3, h4, h5, h6 {
 					list-style: none;
 				}
 
-				#UF4 .FrameMain #ConfigCategory li {
-					width: 100%;
-					padding: 20px;
-					margin-bottom: 20px;
-					border: 2px solid var(--color-border);
-					border-radius: 20px;
-
-					list-style: none;
-				}
-
-					#UF4 .FrameMain #ConfigCategory li:last-child {
+					#UF4 .FrameMain #ConfigCategory .Category:last-child {
 						margin: 0;
 						border-color: rgba(234, 67, 53, 60%);
 					}
 
-				#UF4 .FrameMain #ConfigCategory li .ConfigOptions {
+				#UF4 .FrameMain #ConfigCategory .Category .ConfigOptions {
 					width: 100%;
 				}
 
@@ -1535,15 +1530,17 @@ h1, h2, h3, h4, h5, h6 {
 							border: 1px solid var(--color-border);
 							border-radius: 20px;
 
-							color: #EA4335;
+							color: var(--color-error);
 							background-color: transparent;
+
+							transition: 0.1s ease;
 						}
 
 							#ConfigDangerZone .ConfigOptions .btnContent button:hover {
-								border: 1px solid #EA4335;
+								border: 1px solid var(--color-error);
 							
 								color: #FFFFFF;
-								background-color: #EA4335;
+								background-color: var(--color-error);
 							}
 
 						#ConfigDangerZone .ConfigOptions .btnContent button a {
