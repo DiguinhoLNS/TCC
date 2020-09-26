@@ -77,10 +77,6 @@
                                 <i class = "material-icons"> &#xe8b8; </i>
                                 <span> Configurações </span>
                             </li>
-                            <li id = "UFO5" class = "UserConfigOption">
-                                <i class = "material-icons"> &#xe002; </i>
-                                <span> Zona de Perigo </span>
-                            </li>
 
                         </ul>
 
@@ -286,32 +282,72 @@
                                 <div class = "FrameHeader FrameSection">
 
                                     <h1> Configurações </h1>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
-                                    </p>
 
                                 </div>
 
-                                <div class = "FrameMain FrameSection"></div>
+                                <div class = "FrameMain FrameSection">
 
-                            </div>
+                                    <ul id = "ConfigCategory">
 
-                        </div>
+                                        <li id = "ConfigAccount" class = "Category">
 
-                        <div id = "UF5" class = "NavUserFrame">
+                                            <h1 class = "HeaderCategory"> Conta </h1>
 
-                            <div class = "NavUserFrameContent">
+                                        </li>
 
-                                <div class = "FrameHeader FrameSection">
+                                        <li id = "ConfigPlatform" class = "Category">
 
-                                    <h1> Configurações Avançadas </h1>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
-                                    </p>
+                                            <h1 class = "HeaderCategory"> Avançado </h1> 
+
+                                        </li>
+
+                                        <li id = "ConfigDangerZone" class = "Category">
+
+                                            <h1 class = "HeaderCategory"> Zona de Perigo </h1>
+
+                                            <div class = "ConfigOptions">
+                                                
+                                                <div class = "ConfigText">
+
+                                                    <h1> Apagar dados da plataforma </h1>
+                                                    <h2> Apagar todos os seus dados em nossa base de dados </h2>
+
+                                                </div>
+
+                                                <div class = "btnContent">
+
+                                                    <button>
+                                                        <a href = ""> Apagar Dados </a>
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class = "ConfigOptions">
+                                                
+                                                <div class = "ConfigText">
+
+                                                    <h1> Encerrar Conta </h1>
+                                                    <h2> Apagar a conta e todos os seus dados em nossa base de dados </h2>
+
+                                                </div>
+
+                                                <div class = "btnContent">
+
+                                                    <button>
+                                                        <a href = ""> Encerrar Conta </a>
+                                                    </button>
+
+                                                </div>
+
+                                            </div> 
+
+                                        </li>
+
+                                    </ul>
 
                                 </div>
-
-                                <div class = "FrameMain FrameSection"></div>
 
                             </div>
 

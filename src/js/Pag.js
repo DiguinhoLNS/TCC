@@ -509,15 +509,6 @@ $(document).ready(function(){
 
     });
 
-    // 5
-    $("#UFO5").on("click", function(){
-
-        NUF.css("display", "none");
-
-        $("#UF5").css("display", "block");
-
-    });
-
 });
 
 /* PWD View */

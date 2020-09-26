@@ -1220,6 +1220,14 @@ h1, h2, h3, h4, h5, h6 {
 				width: 100%;
 			}
 
+				.NavUserFrame .FrameMain .HeaderCategory {
+					width: 100%;
+					margin-bottom: 25px;
+
+					color: var(--color-txt-p);
+					font-size: 24px;
+				}
+
 				/* User Frames */
 
 				#UF2 , #UF3, #UF4, #UF5 {
@@ -1249,12 +1257,6 @@ h1, h2, h3, h4, h5, h6 {
 				#UF1 .FrameMain .DataCategory .HeaderCategory {
 					grid-column: 1/2;
 					grid-row: 1/2;
-					
-					width: 100%;
-					margin-bottom: 25px;
-
-					color: var(--color-txt-p);
-					font-size: 24px;
 				}
 
 				#UF1 .FrameMain .DataCategory li {
@@ -1452,15 +1454,105 @@ h1, h2, h3, h4, h5, h6 {
 
 				/* UF 4 */
 
-				#UF4 {
-					background-color: lightsalmon;
+				#UF4 .FrameMain #ConfigCategory {
+					width: 100%;
+
+					list-style: none;
 				}
 
-				/* UF 5 */
+				#UF4 .FrameMain #ConfigCategory li {
+					width: 100%;
+					padding: 20px;
+					margin-bottom: 20px;
+					border: 2px solid var(--color-border);
+					border-radius: 20px;
 
-				#UF5 {
-					background-color: lightsteelblue;
+					list-style: none;
 				}
+
+					#UF4 .FrameMain #ConfigCategory li:last-child {
+						margin: 0;
+						border-color: rgba(234, 67, 53, 60%);
+					}
+
+				#UF4 .FrameMain #ConfigCategory li .ConfigOptions {
+					width: 100%;
+				}
+
+					/* Account */
+
+					#ConfigAccount {
+						
+					}
+
+					/* Platform */
+
+					#ConfigPlatform {
+						
+					}
+
+					/* Danger Zone */
+
+					#ConfigDangerZone .ConfigOptions {
+						display: grid;
+						grid-template-columns: 1fr auto;
+
+						margin-bottom: 20px;
+					}
+
+						#ConfigDangerZone .ConfigOptions:last-child {
+							margin: 0;
+						}
+
+						/* Text */
+
+						#ConfigDangerZone .ConfigOptions .ConfigText {
+							float: left;
+
+							margin-right: 40px;
+						}
+
+						#ConfigDangerZone .ConfigOptions .ConfigText h1 {
+							width: 100%;
+							
+							color: var(--color-txt-s);
+							font-size: 18px;
+						}
+
+						#ConfigDangerZone .ConfigOptions .ConfigText h2 {
+							margin: 6px 0 0;
+							
+							color: var(--color-txt-t);
+							font-size: 14px;
+						}
+
+						/* Button */
+
+						#ConfigDangerZone .ConfigOptions .btnContent button {
+							float: right;
+							
+							margin: 5px 0;
+							border: 1px solid var(--color-border);
+							border-radius: 20px;
+
+							color: #EA4335;
+							background-color: transparent;
+						}
+
+							#ConfigDangerZone .ConfigOptions .btnContent button:hover {
+								border: 1px solid #EA4335;
+							
+								color: #FFFFFF;
+								background-color: #EA4335;
+							}
+
+						#ConfigDangerZone .ConfigOptions .btnContent button a {
+							padding: 8px 16px;
+							border-radius: inherit;
+
+							color: inherit;
+							font-size: 14px;
+						}
 
 			#NavUserFrameset .NavUserFrame .NavUserFrameContent {
 				width: 100%;
@@ -1763,15 +1855,15 @@ h1, h2, h3, h4, h5, h6 {
 /* Social Icons */
 
 .IconFacebook:hover {
-	color: #3B5999;
+	color: #1877F2;
 }
 
 .IconInstagram:hover {
-	color: #E4405F;
+	color: #C32AA3;
 }
 
 .IconTwitter:hover {
-	color: #55ACEE;
+	color: #1DA1F2;
 }
 
 /* Box Shadow */
