@@ -1,411 +1,411 @@
 <?php session_start(); ?>
 
 <!DOCTYPE html>
-<html lang = "pt-br">
+<html lang="pt-br">
 
-    <head>
+<head>
 
-        <title> Conta APE </title>
+    <title> Conta APE </title>
 
-        <?php include "include/Head.php"; ?>
+    <?php include "include/Head.php"; ?>
 
-        <?php
+    <?php
 
-            $id = $_COOKIE["ID"];
+    $id = $_COOKIE["ID"];
 
-            $base = mysqli_connect('localhost', 'root', '', 'ape') or die("erro de conexão");
-            $regra = "SELECT nome FROM user_plataforma WHERE id_user_plataforma = '$id'";
+    $base = mysqli_connect('localhost', 'root', '', 'ape') or die("erro de conexão");
+    $regra = "SELECT nome, CPF, data_nasc, email, celular, telefone, senha_plataforma, id_user_plataforma FROM user_plataforma WHERE id_user_plataforma = '$id'";
 
-            $res = mysqli_query($base, $regra);
-            $mostrar = mysqli_fetch_array($res);
+    $res = mysqli_query($base, $regra);
+    $mostrar = mysqli_fetch_array($res);
 
-        ?>
+    list($ano, $mes, $dia) = explode('-', $mostrar['data_nasc']);
 
-    </head>
+    ?>
 
-    <body id = "UserPage" class = "UNT LightMode">
+</head>
 
-        <?php
+<body id="UserPage" class="UNT LightMode">
 
-            include "php/Pag.php";
-            
-            V_User();
-            C_Login();
+    <?php
 
-            include "include/Load.php";
+    include "php/Pag.php";
 
-        ?>
+    V_User();
+    C_Login();
 
-        <header id = "HeaderUser">
+    include "include/Load.php";
 
-            <?php include "include/Header.php"; ?>
+    ?>
 
-        </header>
+    <header id="HeaderUser">
 
-        <main id = "MainUser">
+        <?php include "include/Header.php"; ?>
 
-            <div class = "MainContent">
+    </header>
 
-                <section id = "SectionUserHeader">
+    <main id="MainUser">
 
-                    <div>
-                        <h1 id = "DTN"></h1>
-                        <h2> <?php echo $mostrar['nome']; ?> </h2>
+        <div class="MainContent">
+
+            <section id="SectionUserHeader">
+
+                <div>
+                    <h1 id="DTN"></h1>
+                    <h2> <?php echo $mostrar['nome']; ?> </h2>
+                </div>
+
+            </section>
+
+            <section id="SectionUserConfig">
+
+                <nav id="NavUserConfig">
+
+                    <ul>
+
+                        <li id="UFO1" class="UserConfigOption active">
+                            <i class="material-icons"> &#xe7fd; </i>
+                            <span> Usuário </span>
+                        </li>
+                        <li id="UFO2" class="UserConfigOption">
+                            <i class="material-icons"> &#xe0af; </i>
+                            <span> Empresas </span>
+                        </li>
+                        <li id="UFO3" class="UserConfigOption">
+                            <i class="material-icons"> category </i>
+                            <span> Itens </span>
+                        </li>
+                        <li id="UFO4" class="UserConfigOption">
+                            <i class="material-icons"> &#xe8b8; </i>
+                            <span> Configurações </span>
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+                <nav id="NavUserFrameset">
+
+                    <div id="UF1" class="NavUserFrame">
+
+                        <div class="NavUserFrameContent">
+
+                            <div class="FrameHeader FrameSection">
+
+                                <h1> Usuário </h1>
+
+                            </div>
+
+                            <div class="FrameMain FrameSection">
+
+                                <ul class="DataCategory">
+
+                                    <li class="Category">
+
+                                        <h1 class="HeaderCategory"> Perfil </h1>
+
+                                        <div class="LeftContent">
+
+                                            <div class="DataContent">
+                                                <h1> Nome </h1>
+                                                <h2> <?php echo $mostrar['nome']; ?> </h2>
+                                            </div>
+                                            <div class="DataContent">
+                                                <h1> CPF </h1>
+                                                <h2> <?php echo $mostrar['CPF']; ?> </h2>
+                                            </div>
+                                            <div class="DataContent">
+                                                <h1> Gênero </h1>
+                                                <h2> Masculino / Feminino / Outro </h2>
+                                            </div>
+                                            <div class="DataContent">
+                                                <h1> Data de Nascimento </h1>
+                                                <h2> <?php echo $dia . "/" . $mes . "/" . $ano ?> </h2>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="RightContent">
+
+                                            <h1> Informações sobre o usuário </h1>
+
+                                        </div>
+
+                                    </li>
+
+                                    <li class=Category>
+
+                                        <h1 class="HeaderCategory"> Contato </h1>
+
+                                        <div class="LeftContent">
+
+                                            <div class="DataContent">
+                                                <h1> Email </h1>
+                                                <h2> <?php echo $mostrar['email']; ?> </h2>
+                                            </div>
+                                            <div class="DataContent">
+                                                <h1> Telefone </h1>
+                                                <h2> <?php echo $mostrar['celular']; ?> </h2>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="RightContent">
+
+                                            <h1> Informações de contato do usuário </h1>
+
+                                        </div>
+
+                                    </li>
+
+                                    <li class=Category>
+
+                                        <h1 class="HeaderCategory"> Segurança </h1>
+
+                                        <div class="LeftContent">
+
+                                            <div class="DataContent">
+                                                <h1> ID </h1>
+                                                <h2> <?php echo $mostrar['id_user_plataforma']; ?> </h2>
+                                            </div>
+                                            <div class="DataContent">
+                                                <h1> Senha </h1>
+                                                <h2 id="DataPlaceholderPWD"> Exibir Senha </h2>
+                                                <h2 id="DataPWD"> <?php echo $mostrar['senha_plataforma']; ?> </h2>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="RightContent">
+
+                                            <h1> Informações de segurança </h1>
+
+                                        </div>
+
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
                     </div>
 
-                </section>
+                    <div id="UF2" class="NavUserFrame">
 
-                <section id = "SectionUserConfig">
+                        <div class="NavUserFrameContent">
 
-                    <nav id = "NavUserConfig">
+                            <div class="FrameHeader FrameSection">
 
-                        <ul>
+                                <h1> Empresas </h1>
 
-                            <li id = "UFO1" class = "UserConfigOption active">
-                                <i class = "material-icons"> &#xe7fd; </i>
-                                <span> Usuário </span>
-                            </li>
-                            <li id = "UFO2" class = "UserConfigOption">
-                                <i class = "material-icons"> &#xe0af; </i>
-                                <span> Empresas </span>
-                            </li>
-                            <li id = "UFO3" class = "UserConfigOption">
-                                <i class = "material-icons"> category </i>
-                                <span> Itens </span>
-                            </li>
-                            <li id = "UFO4" class = "UserConfigOption">
-                                <i class = "material-icons"> &#xe8b8; </i>
-                                <span> Configurações </span>
-                            </li>
+                                <div id="NavUserViewBoxSwitch" class="NavUserViewSwitch" title="Alterar Visualização"> Visualização em Bloco </div>
+                                <div id="NavUserViewListSwitch" class="NavUserViewSwitch" title="Alterar Visualização"> Visualização em Lista </div>
 
-                        </ul>
+                            </div>
 
-                    </nav>
+                            <div class="FrameMain FrameSection">
 
-                    <nav id = "NavUserFrameset">
+                                <ul id="UserCompaniesView" class="BoxView">
 
-                        <div id = "UF1" class = "NavUserFrame">
+                                    <li>
+                                        <a href="" title="Nome da Empresa">
+                                            <h1> Nome da Empresa </h1>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" title="Nome da Empresa">
+                                            <h1> Nome da Empresa </h1>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" title="Nome da Empresa">
+                                            <h1> Nome da Empresa </h1>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" title="Nome da Empresa">
+                                            <h1> Nome da Empresa </h1>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" title="Nome da Empresa">
+                                            <h1> Nome da Empresa </h1>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" title="Nome da Empresa">
+                                            <h1> Nome da Empresa </h1>
+                                        </a>
+                                    </li>
 
-                            <div class = "NavUserFrameContent">
-
-                                <div class = "FrameHeader FrameSection">
-
-                                    <h1> Usuário </h1>
-
-                                </div>
-
-                                <div class = "FrameMain FrameSection">
-
-                                    <ul class = "DataCategory">
-
-                                        <li class = "Category">
-
-                                            <h1 class = "HeaderCategory"> Perfil </h1>
-
-                                            <div class = "LeftContent">
-
-                                                <div class = "DataContent">
-                                                    <h1> Nome </h1>
-                                                    <h2> Nome do Usuário </h2>
-                                                </div>
-                                                <div class = "DataContent">
-                                                    <h1> CPF </h1>
-                                                    <h2> 000.000.000-00 </h2>
-                                                </div>
-                                                <div class = "DataContent">
-                                                    <h1> Gênero </h1>
-                                                    <h2> Masculino / Feminino / Outro </h2>
-                                                </div>
-                                                <div class = "DataContent">
-                                                    <h1> Data de Nascimento </h1>
-                                                    <h2> 00/00/0000 </h2>
-                                                </div>
-
-                                            </div>
-
-                                            <div class = "RightContent">
-
-                                                <h1> Informações sobre o usuário </h1>
-
-                                            </div>
-
-                                        </li>
-
-                                        <li class = Category>
-
-                                            <h1 class = "HeaderCategory"> Contato </h1>
-
-                                            <div class = "LeftContent">
-                                            
-                                                <div class = "DataContent">
-                                                    <h1> Email </h1>
-                                                    <h2> email@email.com </h2>
-                                                </div>
-                                                <div class = "DataContent">
-                                                    <h1> Telefone </h1>
-                                                    <h2> (00) 00000-0000 </h2>
-                                                </div>
-                                            
-                                            </div>
-                                            
-                                            <div class = "RightContent">
-
-                                                <h1> Informações de contato do usuário </h1>
-
-                                            </div>
-
-                                        </li>
-
-                                        <li class = Category>
-
-                                            <h1 class = "HeaderCategory"> Segurança </h1>
-
-                                            <div class = "LeftContent">
-                                            
-                                                <div class = "DataContent">
-                                                    <h1> ID </h1>
-                                                    <h2> 1 </h2>
-                                                </div>
-                                                <div class = "DataContent">
-                                                    <h1> Senha </h1>
-                                                    <h2 id = "DataPlaceholderPWD"> Exibir Senha </h2>
-                                                    <h2 id = "DataPWD"> Ab123456 </h2>
-                                                </div>
-                                            
-                                            </div>
-                                            
-                                            <div class = "RightContent">
-
-                                                <h1> Informações de segurança </h1>
-
-                                            </div>
-                                        
-                                        </li>
-
-                                    </ul>
-
-                                </div>
+                                </ul>
 
                             </div>
 
                         </div>
 
-                        <div id = "UF2" class = "NavUserFrame">
+                    </div>
 
-                            <div class = "NavUserFrameContent">
+                    <div id="UF3" class="NavUserFrame">
 
-                                <div class = "FrameHeader FrameSection">
+                        <div class="NavUserFrameContent">
 
-                                    <h1> Empresas </h1>
+                            <div class="FrameHeader FrameSection">
 
-                                    <div id = "NavUserViewBoxSwitch" class = "NavUserViewSwitch" title = "Alterar Visualização"> Visualização em Bloco </div>
-                                    <div id = "NavUserViewListSwitch" class = "NavUserViewSwitch" title = "Alterar Visualização"> Visualização em Lista </div>
+                                <h1> Itens </h1>
 
-                                </div>
+                            </div>
 
-                                <div class = "FrameMain FrameSection">
+                            <div class="FrameMain FrameSection">
 
-                                    <ul id = "UserCompaniesView" class = "BoxView">
+                                <ul id="UserItensView">
 
-                                        <li>
-                                            <a href = "" title = "Nome da Empresa">
-                                                <h1> Nome da Empresa </h1>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href = "" title = "Nome da Empresa">
-                                                <h1> Nome da Empresa </h1>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href = "" title = "Nome da Empresa">
-                                                <h1> Nome da Empresa </h1>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href = "" title = "Nome da Empresa">
-                                                <h1> Nome da Empresa </h1>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href = "" title = "Nome da Empresa">
-                                                <h1> Nome da Empresa </h1>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href = "" title = "Nome da Empresa">
-                                                <h1> Nome da Empresa </h1>
-                                            </a>
-                                        </li>
+                                    <li>
+                                        <a href="">
+                                            <div class="Boximg"></div>
+                                            <div class="BoxInfo">
+                                                <h1> Nome do Item Perdido </h1>
+                                                <h2> Empresa.inc </h2>
+                                                <h3> 10/09/2020 </h3>
+                                            </div>
+                                        </a>
+                                    </li>
 
-                                    </ul>
-
-                                </div>
+                                </ul>
 
                             </div>
 
                         </div>
 
-                        <div id = "UF3" class = "NavUserFrame">
+                    </div>
 
-                            <div class = "NavUserFrameContent">
+                    <div id="UF4" class="NavUserFrame">
 
-                                <div class = "FrameHeader FrameSection">
+                        <div class="NavUserFrameContent">
 
-                                    <h1> Itens </h1>
+                            <div class="FrameHeader FrameSection">
 
-                                </div>
-
-                                <div class = "FrameMain FrameSection">
-
-                                    <ul id = "UserItensView">
-
-                                        <li>
-                                            <a href = "">
-                                                <div class = "Boximg"></div>
-                                                <div class = "BoxInfo">
-                                                    <h1> Nome do Item Perdido </h1>
-                                                    <h2> Empresa.inc </h2>
-                                                    <h3> 10/09/2020 </h3>
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                    </ul>
-
-                                </div>
+                                <h1> Configurações </h1>
 
                             </div>
 
-                        </div>
+                            <div class="FrameMain FrameSection">
 
-                        <div id = "UF4" class = "NavUserFrame">
+                                <ul id="ConfigCategory">
 
-                            <div class = "NavUserFrameContent">
+                                    <li id="ConfigAccount" class="Category">
 
-                                <div class = "FrameHeader FrameSection">
+                                        <h1 class="HeaderCategory"> Conta </h1>
 
-                                    <h1> Configurações </h1>
+                                    </li>
 
-                                </div>
+                                    <li id="ConfigPlatform" class="Category">
 
-                                <div class = "FrameMain FrameSection">
+                                        <h1 class="HeaderCategory"> Avançado </h1>
 
-                                    <ul id = "ConfigCategory">
+                                    </li>
 
-                                        <li id = "ConfigAccount" class = "Category">
+                                    <li id="ConfigDangerZone" class="Category">
 
-                                            <h1 class = "HeaderCategory"> Conta </h1>
+                                        <h1 class="HeaderCategory"> Zona de Perigo </h1>
 
-                                        </li>
+                                        <div class="ConfigOptions">
 
-                                        <li id = "ConfigPlatform" class = "Category">
+                                            <div class="ConfigText">
 
-                                            <h1 class = "HeaderCategory"> Avançado </h1> 
-
-                                        </li>
-
-                                        <li id = "ConfigDangerZone" class = "Category">
-
-                                            <h1 class = "HeaderCategory"> Zona de Perigo </h1>
-
-                                            <div class = "ConfigOptions">
-                                                
-                                                <div class = "ConfigText">
-
-                                                    <h1> Apagar dados da plataforma </h1>
-                                                    <h2> Apagar os seus dados em nossa base de dados </h2>
-
-                                                </div>
-
-                                                <div class = "btnContent">
-
-                                                    <button>
-                                                        <a href = ""> Apagar Dados </a>
-                                                    </button>
-
-                                                </div>
+                                                <h1> Apagar dados da plataforma </h1>
+                                                <h2> Apagar os seus dados em nossa base de dados </h2>
 
                                             </div>
 
-                                            <div class = "ConfigOptions">
-                                                
-                                                <div class = "ConfigText">
+                                            <div class="btnContent">
 
-                                                    <h1> Encerrar Conta </h1>
-                                                    <h2> Apagar a conta e todos os seus dados em nossa base de dados </h2>
+                                                <button>
+                                                    <a href=""> Apagar Dados </a>
+                                                </button>
 
-                                                </div>
+                                            </div>
 
-                                                <div class = "btnContent">
+                                        </div>
 
-                                                    <button>
-                                                        <a href = ""> Encerrar Conta </a>
-                                                    </button>
+                                        <div class="ConfigOptions">
 
-                                                </div>
+                                            <div class="ConfigText">
 
-                                            </div> 
+                                                <h1> Encerrar Conta </h1>
+                                                <h2> Apagar a conta e todos os seus dados em nossa base de dados </h2>
 
-                                        </li>
+                                            </div>
 
-                                    </ul>
+                                            <div class="btnContent">
 
-                                </div>
+                                                <button>
+                                                    <a href=""> Encerrar Conta </a>
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+
+                                    </li>
+
+                                </ul>
 
                             </div>
 
                         </div>
 
-                    </nav>
+                    </div>
 
-                </section>
+                </nav>
 
-            </div>
+            </section>
 
-        </main>
+        </div>
 
-        <?php include "include/Footer.php"; ?>
+    </main>
 
-        <?php include "include/SideNavBar.php"; ?>
-        <?php include "include/HeaderNotification.php"; ?>
-        <?php include "include/HeaderConfig.php"; ?>
+    <?php include "include/Footer.php"; ?>
 
-        <div id = "DarkEffect"></div>
+    <?php include "include/SideNavBar.php"; ?>
+    <?php include "include/HeaderNotification.php"; ?>
+    <?php include "include/HeaderConfig.php"; ?>
 
-        <script type = "text/javascript">
+    <div id="DarkEffect"></div>
 
-            var date = new Date();
-            var hour = date.getHours();
+    <script type="text/javascript">
+        var date = new Date();
+        var hour = date.getHours();
 
-            if (hour >= 0 && hour < 12) {
+        if (hour >= 0 && hour < 12) {
 
-                txt = "Bom Dia";
+            txt = "Bom Dia";
+
+        } else {
+
+            if (hour >= 12 && hour < 18) {
+
+                txt = "Boa Tarde";
 
             } else {
 
-                if (hour >= 12 && hour < 18) {
+                if (hour >= 18) {
 
-                    txt = "Boa Tarde";
-
-                } else {
-
-                    if (hour >= 18) {
-
-                        txt = "Boa Noite";
-
-                    }
+                    txt = "Boa Noite";
 
                 }
 
             }
 
-            document.getElementById("DTN").innerHTML = txt;
+        }
 
-        </script>
+        document.getElementById("DTN").innerHTML = txt;
+    </script>
 
-        <?php include "include/Script.php"; ?>
+    <?php include "include/Script.php"; ?>
 
-    </body>
+</body>
 
 </html>
