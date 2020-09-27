@@ -32,7 +32,7 @@
                 <a href = "Sobre.php"> Sobre </a>
             </li>
             <li>
-                <a href = "#"> Licenças </a>
+                <a href = "#"> Empresas </a>
             </li>
             <li>
 

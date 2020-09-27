@@ -300,6 +300,8 @@ h1, h2, h3, h4, h5, h6 {
 	/* H2 */
 
 	#HeaderSearchBar {
+		display: none;
+		
 		height: 40px;
 		padding: 5px 15px;
 		border-radius: 10px;
@@ -407,24 +409,8 @@ h1, h2, h3, h4, h5, h6 {
 
 			/* H2 */
 
-			#HeaderIndex #HeaderSearchBar {
-				display: none;
-			}
-
-		/* Header Dashboard */
-
-			/* H2 */
-
-			#HeaderDashboard #HeaderSearchBar {
-				display: none;
-			}
-
-		/* Header User */
-
-			/* H2 */
-
-			#HeaderUser #HeaderSearchBar {
-				display: none;
+			#HeaderFeed #HeaderSearchBar {
+				display: block;
 			}
 
 	/*******************************************************
@@ -1056,9 +1042,7 @@ h1, h2, h3, h4, h5, h6 {
 
 		/* Items */		
 
-		#SectionFeedItems {
-			padding: 0 180px;
-		}
+		
 
 		#SectionFeedItems nav {	
 			width: 100%;
@@ -1238,6 +1222,75 @@ h1, h2, h3, h4, h5, h6 {
 					border: 2px solid var(--color-border);
 					border-radius: 20px;
 				}
+			
+				/* User Options */
+
+				.NavUserFrame .FrameMain .Category .UserOptions {
+					display: grid;
+					grid-template-columns: 1fr auto;
+
+					margin-bottom: 20px;
+				}
+
+					.NavUserFrame .FrameMain .Category .UserOptions:last-child {
+						margin: 0;
+					}
+
+					/* Text */
+
+					.NavUserFrame .FrameMain .Category .UserOptions .UserText {
+						float: left;
+
+						margin-right: 40px;
+					}
+
+					.NavUserFrame .FrameMain .Category .UserOptions .UserText h1 {
+						width: 100%;
+						
+						color: var(--color-txt-s);
+						font-size: 18px;
+					}
+
+					.NavUserFrame .FrameMain .Category .UserOptions .UserText h2 {
+						margin: 6px 0 0;
+						
+						color: var(--color-txt-t);
+						font-size: 14px;
+					}
+
+					/* Button */
+
+					.NavUserFrame .FrameMain .Category .UserOptions .btnContent button {
+						float: right;
+						
+						margin: 5px 0;
+						border: 1px solid var(--color-border);
+						border-radius: 20px;
+
+						color: var(--color-txt-t);
+						background-color: transparent;
+
+						transition: 0.1s ease;
+					}
+
+						.NavUserFrame .FrameMain .Category .UserOptions .btnContent button:hover {
+							background-color: var(--color-hover-p);
+						}
+
+						.DarkMode .NavUserFrame .FrameMain .Category .UserOptions .btnContent button:hover {
+							border-color: var(--color-theme-p);
+							
+							color: #FFFFFF;
+							background-color: var(--color-theme-p);
+						}
+
+					.NavUserFrame .FrameMain .Category .UserOptions .btnContent button a {
+						padding: 8px 16px;
+						border-radius: inherit;
+
+						color: inherit;
+						font-size: 14px;
+					}
 
 				/* User Frames */
 
@@ -1470,7 +1523,7 @@ h1, h2, h3, h4, h5, h6 {
 						border-color: rgba(234, 67, 53, 60%);
 					}
 
-				#UF4 .FrameMain #ConfigCategory .Category .ConfigOptions {
+				#UF4 .FrameMain #ConfigCategory .Category .UserOptions {
 					width: 100%;
 				}
 
@@ -1488,67 +1541,15 @@ h1, h2, h3, h4, h5, h6 {
 
 					/* Danger Zone */
 
-					#ConfigDangerZone .ConfigOptions {
-						display: grid;
-						grid-template-columns: 1fr auto;
-
-						margin-bottom: 20px;
+					#ConfigDangerZone .UserOptions .btnContent button {
+						color: var(--color-error);
 					}
 
-						#ConfigDangerZone .ConfigOptions:last-child {
-							margin: 0;
-						}
-
-						/* Text */
-
-						#ConfigDangerZone .ConfigOptions .ConfigText {
-							float: left;
-
-							margin-right: 40px;
-						}
-
-						#ConfigDangerZone .ConfigOptions .ConfigText h1 {
-							width: 100%;
-							
-							color: var(--color-txt-s);
-							font-size: 18px;
-						}
-
-						#ConfigDangerZone .ConfigOptions .ConfigText h2 {
-							margin: 6px 0 0;
-							
-							color: var(--color-txt-t);
-							font-size: 14px;
-						}
-
-						/* Button */
-
-						#ConfigDangerZone .ConfigOptions .btnContent button {
-							float: right;
-							
-							margin: 5px 0;
-							border: 1px solid var(--color-border);
-							border-radius: 20px;
-
-							color: var(--color-error);
-							background-color: transparent;
-
-							transition: 0.1s ease;
-						}
-
-							#ConfigDangerZone .ConfigOptions .btnContent button:hover {
-								border: 1px solid var(--color-error);
-							
-								color: #FFFFFF;
-								background-color: var(--color-error);
-							}
-
-						#ConfigDangerZone .ConfigOptions .btnContent button a {
-							padding: 8px 16px;
-							border-radius: inherit;
-
-							color: inherit;
-							font-size: 14px;
+						#ConfigDangerZone .UserOptions .btnContent button:hover {
+							border: 1px solid var(--color-error);
+						
+							color: #FFFFFF;
+							background-color: var(--color-error);
 						}
 
 			#NavUserFrameset .NavUserFrame .NavUserFrameContent {
@@ -2097,7 +2098,7 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 
 /* 300px */
 
-#WelcomeHeader, #SectionFeedFilters, #SectionDashboardItems, #MainUser .MainContent section {
+#WelcomeHeader, #SectionFeedFilters, #SectionFeedItems, #SectionDashboardItems, #MainUser .MainContent section {
 	padding: 0 300px;
 }
 
