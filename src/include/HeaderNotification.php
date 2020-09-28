@@ -6,10 +6,7 @@
 
             <li id = "NoneNotifications"> Sem Notificações </li>
 
-            <li class = "NotificationBox">
-                <i class = "material-icons"> &#xe645; </i>
-                <span> Notificação teste </span>
-            </li>
+            <?php // addNotification(); ?>
 
         </ul>
 

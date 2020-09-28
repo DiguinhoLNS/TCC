@@ -18,11 +18,11 @@
 
 	if ($conexao->query($sql) === TRUE) {
 		
-		header("Location: ../Login.php");
+		header("Location: ../LoginUser.php");
 		
 	} else {
 
-		header("Location: ../Register.php");
+		header("Location: ../RegisterUser.php");
 
 	}
 

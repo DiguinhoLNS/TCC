@@ -40,7 +40,7 @@
                             <h1> Seus itens perdidos reunidos aqui </h1>
                             <p> Encontre os seus itens perdidos em nossa plataforma, ultilizada por empresas privadas e públicas </p>
                             <button class = "btn">
-                                <a id = "WelcomeLogin" href = "Login.php"> Encontrar </a>
+                                <a id = "WelcomeLogin" href = "LoginUser.php"> Encontrar </a>
                                 <a id = "WelcomeFind" href = "Dashboard.php"> Encontrar </a>
                             </button>
                         </div>
@@ -97,7 +97,7 @@
                                         </a>
                                     </li>
                                     <li class = "DiscoverBlockContent">
-                                        <a href = "Register.php" title = "Criar conta gratuitamente">
+                                        <a href = "RegisterUser.php" title = "Criar conta gratuitamente">
                                             <i class = "material-icons"> &#xe7fd; </i>
                                         </a>
                                     </li>
@@ -182,13 +182,13 @@
 
         <div id = "DarkEffect"></div>
 
-        <div id = "DiscoverOverlay" class = "BS">
+        <div id = "DiscoverOverlay" class = "MainOverlay BS">
 
-            <div id = "CloseDiscoverOverlay">
+            <div id = "CloseDiscoverOverlay" class = "CloseOverlay">
                 <i class = "material-icons"> &#xe5cd; </i>
             </div>
 
-            <ul id = "DiscoverContent1" class = "DiscoverOverlayUL">
+            <ul id = "DiscoverContent1" class = "DiscoverOverlayUL OverlayUL">
 
                 <li>
                     <i class = "material-icons"> &#xe1b1; </i>
@@ -202,7 +202,7 @@
 
             </ul>
 
-            <ul id = "DiscoverContent2" class = "DiscoverOverlayUL">
+            <ul id = "DiscoverContent2" class = "DiscoverOverlayUL OverlayUL">
 
                 <li>
                     <i class = "material-icons"> &#xe32a; </i>
@@ -216,7 +216,7 @@
 
             </ul>
 
-            <ul id = "DiscoverContent3" class = "DiscoverOverlayUL">
+            <ul id = "DiscoverContent3" class = "DiscoverOverlayUL OverlayUL">
 
                 <li>
                     <i class = "material-icons"> admin_panel_settings </i>
@@ -230,7 +230,7 @@
 
             </ul>
 
-            <ul id = "DiscoverContent4" class = "DiscoverOverlayUL">
+            <ul id = "DiscoverContent4" class = "DiscoverOverlayUL OverlayUL">
 
                 <li>
                     <i class = "material-icons"> &#xe1db; </i>

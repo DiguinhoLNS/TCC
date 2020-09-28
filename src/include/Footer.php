@@ -41,14 +41,14 @@
         <ul id = "FooterConfigs" class = "FooterLinks">
 
             <h1> Configurações </h1>
-            <li>
-                <a href = ""> Configurações </a>
-            </li>
             <li class = "DarkModeSwitch">
                 <a> Tema Escuro </a>
             </li>
             <li class = "LightModeSwitch">
                 <a> Tema Claro </a>
+            </li>
+            <li>
+                <a href = "php/EndUserSession.php"> Encerrar Sessão </a>
             </li>
 
         </ul>

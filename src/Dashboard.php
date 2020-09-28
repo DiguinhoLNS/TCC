@@ -75,14 +75,14 @@
                     <h1> Páginas </h1>
 
                     <ul>
-                        <li id = "LoginFeed">
-                            <a href = "">
+                        <li>
+                            <a href = "LoginCompany.php">
                                 <i class = "material-icons"> login </i>
                                 <span> Entrar em página </span>
                             </a>
                         </li>
-                        <li id = "AddFeed">   
-                            <a>          
+                        <li>   
+                            <a href = "RegisterCompany.php">          
                                 <i class = "material-icons"> &#xe145; </i>
                                 <span> Criar página </span>
                             </a>               

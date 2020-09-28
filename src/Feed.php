@@ -62,21 +62,55 @@
 
 					<nav>
 
-						<ul id = "FeedBoxContent">
+						<ul id = "FeedItensView" class = "ItensView">
 
 							<li class = "NoFor"> NOME DA EMPRESA não possui nenhum item! </li>
 
-							<li class = "BoxSpace">
+							<li>
 
-								<div class = "Box">
-									<a href = "#">
-										<div class = "Boximg"></div>
-										<div class = "BoxInfo">
-											<h1 class = "BoxTitulo"> Nome do Item Perdido </h1>
-											<h1 class = "BoxData"> 20/07/2020 </h1>
-										</div>
-									</a>
-								</div>
+								<a href = "">
+									<div class = "ItenImg"></div>
+									<div class = "ItenText">
+										<h1> Nome do Item Perdido </h1>
+										<h2> 20/07/2020 </h2>
+									</div>
+								</a>
+
+							</li>
+
+							<li>
+
+								<a href = "">
+									<div class = "ItenImg"></div>
+									<div class = "ItenText">
+										<h1> Nome do Item Perdido </h1>
+										<h2> 20/07/2020 </h2>
+									</div>
+								</a>
+
+							</li>
+
+							<li>
+
+								<a href = "">
+									<div class = "ItenImg"></div>
+									<div class = "ItenText">
+										<h1> Nome do Item Perdido </h1>
+										<h2> 20/07/2020 </h2>
+									</div>
+								</a>
+
+							</li>
+
+							<li>
+
+								<a href = "">
+									<div class = "ItenImg"></div>
+									<div class = "ItenText">
+										<h1> Nome do Item Perdido </h1>
+										<h2> 20/07/2020 </h2>
+									</div>
+								</a>
 
 							</li>
 							

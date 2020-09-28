@@ -173,14 +173,12 @@ $(document).ready(function(){
         $("#CloseDiscoverOverlay").on("click", function(){
             /* OFF */
             DO.css({"opacity": "0", "visibility": "hidden"});
-            DOUL.css("display", "none");
 
         });
 
         DO.on("click", function(){
 
             DO.css({"opacity": "0", "visibility": "hidden"});
-            DOUL.css("display", "none");
 
         });
 
@@ -273,17 +271,6 @@ $(document).ready(function(){
 
     });
 
-    $("#ClearNotifications").on("click", function(){
-        // ON
-        $("#NotificationNone").css("display", "block");
-        $("#NoneNotifications").css("display", "block"); 
-        // OFF
-        $("#NotificationAlert").css("display", "none");
-        $(".NotificationBox").css("display", "none");
-        $("#NotificationsConfig").css("display", "none");
-
-    });
-
     /* Header Config */
 
     $("#HeaderUserIcon").on("click", function(){
@@ -365,6 +352,17 @@ $(document).ready(function(){
 
     /* Notifications */
 
+    $("#ClearNotifications").on("click", function(){
+        // ON
+        $("#NotificationNone").css("display", "block");
+        $("#NoneNotifications").css("display", "block"); 
+        // OFF
+        $("#NotificationAlert").css("display", "none");
+        $(".NotificationBox").css("display", "none");
+        $("#NotificationsConfig").css("display", "none");
+
+    });
+
     if($(".NotificationBox").length > 0){
         // ON
         $("#NotificationAlert").css("display", "block");
@@ -374,8 +372,10 @@ $(document).ready(function(){
     }else {
         // ON
         $("#NotificationNone").css("display", "block");
+        $("#NoneNotifications").css("display", "block");
         // OFF
         $("#NotificationAlert").css("display", "none");
+        $("#NotificationsConfig").css("display", "none");
         
     }
     

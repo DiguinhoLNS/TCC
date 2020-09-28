@@ -16,7 +16,7 @@
 
         if(!isset($_COOKIE["ULogged"])){
 
-            header("Location: Login.php");
+            header("Location: LoginUser.php");
     
         }
 
@@ -58,6 +58,19 @@
             ';
 
         }
+
+    }
+
+    function addNotification(){
+
+        echo '
+    
+            <li class = "NotificationBox">
+                <i class = "material-icons"> &#xe645; </i>
+                <span> Login Realizado </span>
+            </li>
+        
+        ';
 
     }
 

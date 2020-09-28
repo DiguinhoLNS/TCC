@@ -24,6 +24,18 @@
 
         <ul>
             <li>
+                <a href = "Index.php">
+                    <i class = "material-icons"> &#xe88a; </i>
+                    <span> Home </span>
+                </a>
+            </li>
+            <li>
+                <a href = "Dashboard.php">
+                    <i class = "material-icons"> &#xe871; </i>
+                    <span> Dashboard </span>
+                </a>
+            </li>
+            <li>
                 <a href = "User.php">
                     <i class = "material-icons"> &#xe7fd; </i>
                     <span> Usuário </span>
@@ -31,12 +43,6 @@
             </li>
         </ul>
         <ul>
-            <li>
-                <a href = "Config.php">
-                    <i class = "material-icons"> &#xe8b8; </i>
-                    <span> Configurações </span>
-                </a>
-            </li>
             <li class = "DarkModeSwitch">
                 <a>
                     <i class = "material-icons"> &#xe3a9; </i>

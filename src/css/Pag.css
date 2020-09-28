@@ -119,7 +119,7 @@ h1, h2, h3, h4, h5, h6 {
 	--color-theme-s: #9b7dd9;
 	--color-theme-t: #3a2677;
 	
-	--color-theme-hover: rgba(106, 80, 167, 60%);
+	--color-theme-hover: rgba(106, 80, 167, 75%);
 	--color-hover: rgba(128, 128, 128, 30%);
 
 	/* etc */
@@ -489,103 +489,6 @@ h1, h2, h3, h4, h5, h6 {
 
 			#WelcomeBanner {
 				display: none;
-			}
-
-		/* Discover */
-
-			/* Overlay */
-
-			#DiscoverOverlay {
-				z-index: 20;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				position: fixed;
-				top: 0;
-				left: 0;
-
-				width: 100%;
-				height: 100vh;
-
-				background-color: rgba(0, 0, 0, 0.6);
-				opacity: 0;
-				visibility: hidden;
-
-				transition: 0.3s ease;
-			}
-
-				/* Close */
-
-				#DiscoverOverlay #CloseDiscoverOverlay {
-					position: absolute;
-					top: 20px;
-					right: 20px;
-					
-					width: 50px;
-					height: 50px;
-					padding: 10px;
-					border-radius: 50%;
-
-					transition: 0.1s ease;
-					cursor: pointer;
-				}
-
-					#DiscoverOverlay #CloseDiscoverOverlay:hover {
-						background-color: var(--color-hover);
-					}
-
-				#DiscoverOverlay #CloseDiscoverOverlay i {
-					color: var(--color-txt-p-dm);
-					font-size: 30px;
-				}
-
-			/* Content */
-
-			#DiscoverOverlay ul {
-				display: grid;
-				grid-template-rows: auto, 1fr;
-				
-				width: 60%;
-				padding: 40px 60px;
-				border-radius: 40px;
-
-				list-style-type: none;
-				background-color: var(--color-layout-p);
-			}
-
-			#DiscoverOverlay ul li {
-				display: flex;
-				justify-content: center;
-				
-				width: 100%;
-			}
-
-				#DiscoverOverlay ul li:nth-child(1){
-					height: 80px;
-					margin-bottom: 60px;
-
-					text-align: center;
-				}
-
-			#DiscoverOverlay ul li i {
-				margin-right: 40px;
-
-				color: var(--color-txt-p);
-				font-size: 80px;
-			}
-
-			#DiscoverOverlay ul li h1 {
-				margin: 14px 0;
-
-				color: var(--color-txt-p);
-				font-size: 42px;
-			}
-
-			#DiscoverOverlay ul li p {
-				width: 100%;
-
-				color: var(--color-txt-s);
-				font-size: 25px;
 			}
 
 		#SectionIndexDiscover {
@@ -1040,75 +943,20 @@ h1, h2, h3, h4, h5, h6 {
 				color: var(--color-txt-t);
 			}
 
-		/* Items */		
-
-		
+		/* Items */	
 
 		#SectionFeedItems nav {	
 			width: 100%;
 		}
 
-		#SectionFeedItems nav ul {
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			grid-auto-rows: auto;
-			
-			width: 100%;
-			
-			list-style: none;
+		#SectionFeedItems nav #FeedItensView {	
+			grid-template-columns: repeat(3, 1fr);
+			grid-row-gap: 60px;		
 		}
 
-		#SectionFeedItems nav ul .BoxSpace {
-			width: 100%;
-			padding: 20px;
-		}
-
-		#SectionFeedItems nav ul .Box {
-			display: inline-block;
-
-			width: 100%;
-			border-radius: 20px;
-
-			background-color: var(--color-layout-s);
-		}
-
-			#SectionFeedItems nav ul .NoFor {
+			#SectionFeedItems nav #FeedItensView .NoFor {
 				grid-column: 2/4;
 			}
-
-		#SectionFeedItems nav ul .BoxSpace .Box a {
-			width: 100%;
-			padding: 20px;
-			border-radius: 20px;
-		}
-
-		#SectionFeedItems nav ul .BoxSpace .Box a .Boximg {
-			width: 100%;
-			height: 300px;
-			margin-bottom: 15px;
-			border-radius: 20px;
-
-			background-color: lightgray;
-		}
-
-		#SectionFeedItems nav ul .BoxSpace .Box a .BoxInfo {
-			width: 100%;
-		}
-
-		#SectionFeedItems nav ul .BoxSpace .Box a .BoxInfo h1 {
-			width: 100%;
-			margin-bottom: 5px;
-
-			color: var(--color-txt-p);
-			font-size: 22px;
-		}
-
-		#SectionFeedItems nav ul .BoxSpace .Box a .BoxInfo h1:last-of-type {
-			width: 100%;
-
-			color: var(--color-txt-t);
-			font-size: 14px;
-		}
 
 		/*******************************************************
 			User.php
@@ -1453,61 +1301,7 @@ h1, h2, h3, h4, h5, h6 {
 				/* UF 3 */
 
 				#UF3 .FrameMain #UserItensView {
-					display: grid;
 					grid-template-columns: repeat(3, 1fr);
-					grid-auto-rows: auto;
-					grid-gap: 20px;		
-
-					width: 100%;
-
-					list-style: none;
-				}
-
-				#UF3 .FrameMain #UserItensView li {
-					border-radius: 20px;
-
-					background-color: var(--color-layout-s);
-				}
-
-				#UF3 .FrameMain #UserItensView li a {
-					width: 100%;
-					padding: 20px;
-					border-radius: inherit;
-				}
-
-				#UF3 .FrameMain #UserItensView li a .Boximg {
-					width: 100%;
-					height: 300px;
-					margin-bottom: 15px;
-					border-radius: 20px;
-
-					background-color: lightgrey;
-				}
-
-				#UF3 .FrameMain #UserItensView li a .BoxInfo {
-					width: 100%;
-				}
-
-				#UF3 .FrameMain #UserItensView li a .BoxInfo h1 {
-					width: 100%;
-					margin-bottom: 5px;
-
-					color: var(--color-txt-p);
-					font-size: 22px;
-				}
-
-				#UF3 .FrameMain #UserItensView li a .BoxInfo h2 {
-					float: left;
-
-					color: var(--color-txt-t);
-					font-size: 14px;
-				}
-
-				#UF3 .FrameMain #UserItensView li a .BoxInfo h3 {
-					float: right;
-
-					color: var(--color-txt-t);
-					font-size: 14px;
 				}
 
 				/* UF 4 */
@@ -1583,10 +1377,11 @@ h1, h2, h3, h4, h5, h6 {
 				}
 
 		/*******************************************************
-			Login.php / Register.php
+			LoginUser.php / LoginCompany.php
+			RegisterUser.php / RegisterCompany.php
 		*******************************************************/
 
-		#MainLogin, #MainRegister {
+		#MainLoginUser, #MainLoginCompany, #MainRegisterUser, #MainRegisterCompany {
 			display: grid;
 			justify-content: center;
 			align-items: center;
@@ -1595,11 +1390,10 @@ h1, h2, h3, h4, h5, h6 {
 			min-height: 100vh;
 			margin: 0;
 
-			/*background-image: linear-gradient(120deg, #2fccbb, var(--color-theme-t));*/
 			background-color: var(--color-layout-p);
 		}
 
-		.UserForm {
+		.FormPlatform {
 			width: 440px;
 			padding: 80px 40px;
 			margin: 80px;
@@ -1608,11 +1402,11 @@ h1, h2, h3, h4, h5, h6 {
 			background-color: var(--color-header);
 		}
 
-		.UserForm form {
+		.FormPlatform form {
 			width: 100%;
 		}
 
-		.UserForm form .UserFormContent {
+		.FormPlatform form .FormPlatformContent {
 			display: grid;	
 
 			width: 100%;
@@ -1620,35 +1414,35 @@ h1, h2, h3, h4, h5, h6 {
 			list-style: none;
 		}
 
-			#LoginPage .UserForm form .UserFormContent {
+			#LoginPage .FormPlatform form .FormPlatformContent {
 				grid-template-rows: repeat(5, auto);
 			}
 
-			#RegisterPage .UserForm form .UserFormContent {
+			#RegisterPage .FormPlatform form .FormPlatformContent {
 				grid-template-rows: repeat(10, auto);
 			}
 
-		.UserForm form .UserFormContent li {
+		.FormPlatform form .FormPlatformContent li {
 			width: 100%;
 			margin-bottom: 30px;
 
 			text-align: center;
 		}
 
-		.UserForm form .UserFormContent .txtError {
+		.FormPlatform form .FormPlatformContent .txtError {
 			display: none;
 			float: right;
 			
-			color: #EA4335;
+			color: var(--color-error);
 			font-size: 14px;
 		}
 
 		/* Content Header */
-		.UserForm form .UserFormContent .ContentHeader {
+		.FormPlatform form .FormPlatformContent .ContentHeader {
 			margin-bottom: 60px;
 		}
 
-		.UserForm form .UserFormContent .ContentHeader h1 {
+		.FormPlatform form .FormPlatformContent .ContentHeader h1 {
 			width: 100%;
 
 			color: var(--color-txt-p);
@@ -1658,7 +1452,7 @@ h1, h2, h3, h4, h5, h6 {
 
 		/* Content Input */
 
-		.UserForm form .UserFormContent .ContentInput label {
+		.FormPlatform form .FormPlatformContent .ContentInput label {
 			float: left;
 			
 			margin-bottom: 14px;
@@ -1669,11 +1463,11 @@ h1, h2, h3, h4, h5, h6 {
 			cursor: pointer;
 		}
 
-		.UserForm form .UserFormContent .ContentInput .txtError {
+		.FormPlatform form .FormPlatformContent .ContentInput .txtError {
 			margin: 3px 0 17px;
 		}
 
-		.UserForm form .UserFormContent .ContentInput .UserInputData {
+		.FormPlatform form .FormPlatformContent .ContentInput .UserInputData {
 			width: 100%;
 			padding: 8px 0;
 			border: none;
@@ -1684,22 +1478,22 @@ h1, h2, h3, h4, h5, h6 {
 			background-color: var(--color-layout-p);
 		}
 
-			.UserForm form .UserFormContent .ContentInput .UserInputData::-webkit-input-placeholder {
+			.FormPlatform form .FormPlatformContent .ContentInput .UserInputData::-webkit-input-placeholder {
 				color: var(--color-txt-t);
 			}	
 			
 		/* Content Error */
 
-		.UserForm form .UserFormContent .ContentError {
+		.FormPlatform form .FormPlatformContent .ContentError {
 			margin: 0;
 		}
 
 		/* Content Bottom */
-		.UserForm form .UserFormContent .ContentBottom {
+		.FormPlatform form .FormPlatformContent .ContentBottom {
 			margin: 20px 0 0;
 		}
 
-		.UserForm form .UserFormContent .ContentBottom a {
+		.FormPlatform form .FormPlatformContent .ContentBottom a {
 			float: left;
 			margin: 11px 30px 11px 0;
 
@@ -1709,11 +1503,11 @@ h1, h2, h3, h4, h5, h6 {
 			transition: 0.3s ease;
 		}
 
-			.UserForm form .UserFormContent .ContentBottom a:hover {
+			.FormPlatform form .FormPlatformContent .ContentBottom a:hover {
 				color: var(--color-theme-hover);
 			}
 	
-		.UserForm form .UserFormContent .ContentBottom .UserInputSubmit {
+		.FormPlatform form .FormPlatformContent .ContentBottom .UserInputSubmit {
 			height: 40px;
 			float: right;
 			padding: 10px 30px;
@@ -1722,6 +1516,12 @@ h1, h2, h3, h4, h5, h6 {
 
 			font-size: 16px;
 		}
+
+		/*******************************************************
+			RegisterCompany.php
+		*******************************************************/
+
+
 
 	/*******************************************************
 		Footer
@@ -2033,6 +1833,154 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 17px;
 }
 
+/* Itens View */
+
+.ItensView {
+	display: grid;
+    grid-auto-rows: auto;
+	grid-gap: 20px;
+	
+	width: 100%;
+	
+    list-style: none;
+}
+
+.ItensView li {
+	border-radius: 20px;
+    background-color: var(--color-layout-s);
+}
+
+.ItensView li a {
+	width: 100%;
+    padding: 20px;
+    border-radius: inherit;
+}
+
+.ItensView li a .ItenImg {
+	width: 100%;
+    height: 300px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    background-color: lightgrey;
+}
+
+.ItensView li a .ItenText {
+	width: 100%;
+}
+
+.ItensView li a .ItenText h1 {
+	width: 100%;
+    margin-bottom: 5px;
+    color: var(--color-txt-p);
+    font-size: 22px;
+}
+
+.ItensView li a .ItenText h2 {
+	float: left;
+    color: var(--color-txt-t);
+    font-size: 14px;
+}
+
+.ItensView li a .ItenText h3 {
+	float: right;
+
+	color: var(--color-txt-t);
+	font-size: 14px;
+}
+
+/* Overlay */
+
+.MainOverlay {
+	z-index: 20;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100vh;
+
+	background-color: rgba(0, 0, 0, 0.6);
+	opacity: 0;
+	visibility: hidden;
+
+	transition: 0.3s ease;
+}
+
+	/* Close */
+
+	.MainOverlay .CloseOverlay {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		
+		width: 50px;
+		height: 50px;
+		padding: 10px;
+		border-radius: 50%;
+
+		transition: 0.1s ease;
+		cursor: pointer;
+	}
+
+		.MainOverlay .CloseOverlay:hover {
+			background-color: var(--color-hover);
+		}
+
+	.MainOverlay .CloseOverlay i {
+		color: var(--color-txt-p-dm);
+		font-size: 30px;
+	}
+
+	.MainOverlay ul {
+		display: grid;
+		grid-template-rows: auto, 1fr;
+		
+		width: 60%;
+		padding: 40px 60px;
+		border-radius: 40px;
+
+		list-style-type: none;
+		background-color: var(--color-layout-p);
+	}
+
+	.MainOverlay ul li {
+		display: flex;
+		justify-content: center;
+		
+		width: 100%;
+	}
+
+		.MainOverlay ul li:nth-child(1){
+			height: 80px;
+			margin-bottom: 60px;
+
+			text-align: center;
+		}
+
+	.MainOverlay ul li i {
+		margin-right: 40px;
+
+		color: var(--color-txt-p);
+		font-size: 80px;
+	}
+
+	.MainOverlay ul li h1 {
+		margin: 14px 0;
+
+		color: var(--color-txt-p);
+		font-size: 42px;
+	}
+
+	.MainOverlay ul li p {
+		width: 100%;
+
+		color: var(--color-txt-s);
+		font-size: 25px;
+	}
+
 /* Mostrar */
 
 .mostrar {
@@ -2134,11 +2082,11 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 		background-color: var(--color-layout-p);
 	}
 
-	.LightMode .UserForm form .UserFormContent .ContentInput .UserInputData {
+	.LightMode .FormPlatform form .FormPlatformContent .ContentInput .UserInputData {
 		transition: border-color 0.2s ease;
 	}
 
-		.LightMode .UserForm form .UserFormContent .ContentInput .UserInputData:focus {
+		.LightMode .FormPlatform form .FormPlatformContent .ContentInput .UserInputData:focus {
 			border-color: var(--color-theme-p);
 		}
 
@@ -2158,7 +2106,7 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 		background-color: var(--color-layout-s);
 	}
 
-	.DarkMode .UserForm form .UserFormContent .ContentInput .UserInputData {
+	.DarkMode .FormPlatform form .FormPlatformContent .ContentInput .UserInputData {
 		padding: 8px 16px;
 		border-radius: 19px;
 		

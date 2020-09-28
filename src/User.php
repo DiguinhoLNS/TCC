@@ -260,12 +260,12 @@
 
                                 <div class = "FrameMain FrameSection">
 
-                                    <ul id = "UserItensView">
+                                    <ul id = "UserItensView" class = "ItensView">
 
                                         <li>
                                             <a href = "">
-                                                <div class = "Boximg"></div>
-                                                <div class = "BoxInfo">
+                                                <div class = "ItenImg"></div>
+                                                <div class = "ItenText">
                                                     <h1> Nome do Item Perdido </h1>
                                                     <h2> Empresa.inc </h2>
                                                     <h3> 10/09/2020 </h3>
@@ -304,7 +304,7 @@
                                                 <div class = "UserText">
 
                                                     <h1> Editar perfil </h1>
-                                                    <h2> Editar os dados de seu perfil </h2>
+                                                    <h2> Editar os dados do seu perfil </h2>
 
                                                 </div>
 

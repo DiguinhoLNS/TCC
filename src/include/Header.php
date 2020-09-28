@@ -56,7 +56,7 @@
         </nav>
 
         <button id = "btnHeaderLogin" class = "btn">
-            <a href = "Login.php"> Entrar </a>
+            <a href = "LoginUser.php"> Entrar </a>
         </button>
 
     </div>

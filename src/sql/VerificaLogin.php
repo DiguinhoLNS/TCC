@@ -28,7 +28,7 @@
 
 		$_SESSION["UserLoginError_1"] = "1";
 
-		header("Location: ../Login.php");
+		header("Location: ../LoginUser.php");
 		
 	}
 

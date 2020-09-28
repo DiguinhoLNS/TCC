@@ -44,26 +44,6 @@
                 </a>
             </li>
         </ul>
-        <ul>
-            <li>
-                <a href = "Config.php">
-                    <i class = "material-icons"> &#xe8b8; </i>
-                    <span> Configurações </span> 
-                </a>
-            </li>
-            <li class = "DarkModeSwitch">
-                <a>
-                    <i class = "material-icons"> &#xe3a9; </i>
-                    <span> Tema Escuro </span> 
-                </a>
-            </li>
-            <li class = "LightModeSwitch">
-                <a>  
-                    <i class = "material-icons"> &#xe3aa; </i>
-                    <span> Tema Claro </span> 
-                </a>
-            </li>
-        </ul>
         
     </nav>
 

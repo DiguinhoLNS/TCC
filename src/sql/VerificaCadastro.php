@@ -293,7 +293,7 @@
                     $_SESSION["UserRegisterError_8"] = "1";
                 }
 
-                header("Location: ../Register.php");
+                header("Location: ../RegisterUser.php");
 
             }
 
