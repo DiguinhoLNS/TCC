@@ -115,15 +115,43 @@ h1, h2, h3, h4, h5, h6 {
 :root {
 	
 	/* Theme */
-	--color-theme-p: #6a50a7;
-	--color-theme-s: #9b7dd9;
-	--color-theme-t: #3a2677;
+	--color-theme-p: #6A50A7;
+	--color-theme-s: #9B7DD9;
+	--color-theme-t: #3A2677;
 	
 	--color-theme-hover: rgba(106, 80, 167, 75%);
 	--color-hover: rgba(128, 128, 128, 30%);
 
-	/* etc */
+	/* Error */
 	--color-error: #EA4335;
+
+	/* Themes */
+	--color-theme-default-p: var(--color-theme-p);
+	--color-theme-default-s: rgba(106, 80, 167, 60%);
+
+	--color-theme-blue-p: #2196F3;
+	--color-theme-blue-s: rgba(33, 150, 243, 60%);
+
+	--color-theme-red-p: #F44336;
+	--color-theme-red-s: rgba(244, 67, 54, 60%);
+
+	--color-theme-pink-p: #E91E63;
+	--color-theme-pink-s: rgba(233, 30, 99, 60%);
+
+	--color-theme-green-p: #4CAF50;
+	--color-theme-green-s: rgba(76, 175, 80, 60%);
+
+	--color-theme-purple-p: #9C27B0;
+	--color-theme-purple-s: rgba(156, 39, 176, 60%);
+
+	--color-theme-orange-p: #FF5722;
+	--color-theme-orange-s: rgba(255, 87, 34, 60%);
+
+	--color-theme-teal-p: #009688;
+	--color-theme-teal-s: rgba(0, 150, 136, 60%);
+
+	--color-theme-brown-p: #795548;
+	--color-theme-brown-s: rgba(121, 85, 72, 60%);
 	
 	/* Dark Mode */
 	--color-layout-p-dm: rgb(12, 12, 12);
@@ -146,6 +174,51 @@ h1, h2, h3, h4, h5, h6 {
 	--color-txt-t-lm: #5F6368;
 
 	--color-border-lm: #DDDDDD;
+}
+
+.ThemeDefault {
+	--color-theme-company-p: var(--color-theme-default-p);
+	--color-theme-company-s: var(--color-theme-default-s);
+}
+
+.ThemeBlue {
+	--color-theme-company-p: var(--color-theme-blue-p);
+	--color-theme-company-s: var(--color-theme-blue-s);
+}
+
+.ThemeRed {
+	--color-theme-company-p: var(--color-theme-red-p);
+	--color-theme-company-s: var(--color-theme-red-s);
+}
+
+.ThemePink {
+	--color-theme-company-p: var(--color-theme-pink-p);
+	--color-theme-company-s: var(--color-theme-pink-s);
+}
+
+.ThemeGreen {
+	--color-theme-company-p: var(--color-theme-green-p);
+	--color-theme-company-s: var(--color-theme-green-s);
+}
+
+.ThemePurple {
+	--color-theme-company-p: var(--color-theme-purple-p);
+	--color-theme-company-s: var(--color-theme-purple-s);
+}
+
+.ThemeOrange {
+	--color-theme-company-p: var(--color-theme-orange-p);
+	--color-theme-company-s: var(--color-theme-orange-s);
+}
+
+.ThemeTeal {
+	--color-theme-company-p: var(--color-theme-teal-p);
+	--color-theme-company-s: var(--color-theme-teal-s);
+}
+
+.ThemeBrown {
+	--color-theme-company-p: var(--color-theme-brown-p);
+	--color-theme-company-s: var(--color-theme-brown-s);
 }
 
 .DarkMode {
@@ -828,24 +901,96 @@ h1, h2, h3, h4, h5, h6 {
 			Company.php
 		*******************************************************/
 
+		.UserView .CompanyADM {
+			display: block;
+		}
+
+		#MainCompany {
+			min-height: calc(100vh - 60px);
+		}
+
+		#MainCompany .MainContent {
+			padding: 0 0 60px;
+		}
+
 		/* Header */
 
 		#SectionCompanyHeader {
+			position: relative;
+			display: flex;
+			justify-content: center;
 			
-			position: fixed;
+			height: 250px;
+			margin-bottom: 100px;
 			
-			height: 400px;
-			
-			background-color: var(--color-theme-p);
+			background-color: var(--color-theme-company-p);
 		}
+
+		#SectionCompanyHeader #CompanyName {
+			z-index: 2;
+			position: absolute;
+			bottom: -40px;
+			
+			padding: 15px 40px;
+			border-radius: 40px;
+			
+			color: var(--color-txt-p);
+			font-size: 40px;
+			line-height: 50px;
+			background-color: var(--color-layout-p);
+
+			cursor: default;
+			transition: 0.3s ease;
+		}
+
+			#SectionCompanyHeader #CompanyName:hover {
+				color: var(--color-txt-p-dm);
+				background-color: var(--color-theme-company-p);
+			}
 
 		/* Main */
 
 		#SectionCompanyMain {
-			height: 1000px;
-
 			background-color: var(--color-layout-p);
 		}
+
+		#SectionCompanyMain ul {
+			width: 100%;
+
+			list-style: none;
+		}
+
+		#SectionCompanyMain ul .Category {
+			border-color: var(--color-theme-company-s);
+		}
+
+		#SectionCompanyMain ul .Category .CategoryOptions .btnContent button:hover {
+			background-color: var(--color-hover-p);
+		}
+
+			#SectionCompanyMain ul .Category .CategoryOptions .btnContent button:hover {
+				border-color: var(--color-theme-company-p);
+				
+				color: #FFFFFF;
+				background-color: var(--color-theme-company-p);
+			}
+
+			/* Danger */
+
+			#SectionCompanyMain ul .CategoryDanger {
+				border-color: rgba(234, 67, 53, 60%);
+			}
+
+			#SectionCompanyMain ul .CategoryDanger .CategoryOptions .btnContent button {
+				color: var(--color-error);
+			}
+
+				#SectionCompanyMain ul .CategoryDanger .CategoryOptions .btnContent button:hover {
+					border: 1px solid var(--color-error);
+				
+					color: #FFFFFF;
+					background-color: var(--color-error);
+				}
 
 		/*******************************************************
 			Feed.php
@@ -1055,91 +1200,6 @@ h1, h2, h3, h4, h5, h6 {
 				width: 100%;
 			}
 
-				.NavUserFrame .FrameMain .HeaderCategory {
-					width: 100%;
-					margin-bottom: 25px;
-
-					color: var(--color-txt-p);
-					font-size: 24px;
-				}
-
-				.NavUserFrame .FrameMain .Category {
-					width: 100%;
-					padding: 20px;
-					margin-bottom: 20px;
-					border: 2px solid var(--color-border);
-					border-radius: 20px;
-				}
-			
-				/* User Options */
-
-				.NavUserFrame .FrameMain .Category .UserOptions {
-					display: grid;
-					grid-template-columns: 1fr auto;
-
-					margin-bottom: 20px;
-				}
-
-					.NavUserFrame .FrameMain .Category .UserOptions:last-child {
-						margin: 0;
-					}
-
-					/* Text */
-
-					.NavUserFrame .FrameMain .Category .UserOptions .UserText {
-						float: left;
-
-						margin-right: 40px;
-					}
-
-					.NavUserFrame .FrameMain .Category .UserOptions .UserText h1 {
-						width: 100%;
-						
-						color: var(--color-txt-s);
-						font-size: 18px;
-					}
-
-					.NavUserFrame .FrameMain .Category .UserOptions .UserText h2 {
-						margin: 6px 0 0;
-						
-						color: var(--color-txt-t);
-						font-size: 14px;
-					}
-
-					/* Button */
-
-					.NavUserFrame .FrameMain .Category .UserOptions .btnContent button {
-						float: right;
-						
-						margin: 5px 0;
-						border: 1px solid var(--color-border);
-						border-radius: 20px;
-
-						color: var(--color-txt-t);
-						background-color: transparent;
-
-						transition: 0.1s ease;
-					}
-
-						.NavUserFrame .FrameMain .Category .UserOptions .btnContent button:hover {
-							background-color: var(--color-hover-p);
-						}
-
-						.DarkMode .NavUserFrame .FrameMain .Category .UserOptions .btnContent button:hover {
-							border-color: var(--color-theme-p);
-							
-							color: #FFFFFF;
-							background-color: var(--color-theme-p);
-						}
-
-					.NavUserFrame .FrameMain .Category .UserOptions .btnContent button a {
-						padding: 8px 16px;
-						border-radius: inherit;
-
-						color: inherit;
-						font-size: 14px;
-					}
-
 				/* User Frames */
 
 				#UF2 , #UF3, #UF4, #UF5 {
@@ -1170,6 +1230,38 @@ h1, h2, h3, h4, h5, h6 {
 					
 					width: 100%;
 				}
+
+				.FrameMain .Category {
+					border-color: var(--color-border);
+				}
+
+				.FrameMain .Category .CategoryOptions .btnContent button:hover {
+					background-color: var(--color-hover-p);
+				}
+		
+					.FrameMain .Category .CategoryOptions .btnContent button:hover {
+						border-color: var(--color-theme-p);
+						
+						color: #FFFFFF;
+						background-color: var(--color-theme-p);
+					}
+
+					/* Danger */
+
+					.FrameMain ul .CategoryDanger {
+						border-color: rgba(234, 67, 53, 60%);
+					}
+			
+					.FrameMain ul .CategoryDanger .CategoryOptions .btnContent button {
+						color: var(--color-error);
+					}
+			
+						.FrameMain ul .CategoryDanger .CategoryOptions .btnContent button:hover {
+							border: 1px solid var(--color-error);
+						
+							color: #FFFFFF;
+							background-color: var(--color-error);
+						}
 
 					/* Left */
 
@@ -1312,39 +1404,9 @@ h1, h2, h3, h4, h5, h6 {
 					list-style: none;
 				}
 
-					#UF4 .FrameMain #ConfigCategory .Category:last-child {
-						margin: 0;
-						border-color: rgba(234, 67, 53, 60%);
-					}
-
-				#UF4 .FrameMain #ConfigCategory .Category .UserOptions {
+				#UF4 .FrameMain #ConfigCategory .Category .CategoryOptions {
 					width: 100%;
 				}
-
-					/* Account */
-
-					#ConfigAccount {
-						
-					}
-
-					/* Platform */
-
-					#ConfigPlatform {
-						
-					}
-
-					/* Danger Zone */
-
-					#ConfigDangerZone .UserOptions .btnContent button {
-						color: var(--color-error);
-					}
-
-						#ConfigDangerZone .UserOptions .btnContent button:hover {
-							border: 1px solid var(--color-error);
-						
-							color: #FFFFFF;
-							background-color: var(--color-error);
-						}
 
 			#NavUserFrameset .NavUserFrame .NavUserFrameContent {
 				width: 100%;
@@ -1471,7 +1533,6 @@ h1, h2, h3, h4, h5, h6 {
 			width: 100%;
 			padding: 8px 0;
 			border: none;
-			border-bottom: 2px solid var(--color-border);
 
 			color: var(--color-txt-t);
 			font-size: 18px;
@@ -1480,7 +1541,27 @@ h1, h2, h3, h4, h5, h6 {
 
 			.FormPlatform form .FormPlatformContent .ContentInput .UserInputData::-webkit-input-placeholder {
 				color: var(--color-txt-t);
-			}	
+			}
+
+		.FormPlatform form .FormPlatformContent .ContentInput select {
+			width: 100%;
+			padding: 8px 0;
+			border: none;
+
+			color: var(--color-txt-t);
+			font-size: 18px;
+			background-color: var(--color-layout-p);
+
+			cursor: pointer;
+		}
+
+			.FormPlatform form .FormPlatformContent .ContentInput select:focus {
+				outline: none;
+			}
+
+		.FormPlatform form .FormPlatformContent .ContentInput select option {
+			padding: 4px 0;
+		}
 			
 		/* Content Error */
 
@@ -1516,12 +1597,6 @@ h1, h2, h3, h4, h5, h6 {
 
 			font-size: 16px;
 		}
-
-		/*******************************************************
-			RegisterCompany.php
-		*******************************************************/
-
-
 
 	/*******************************************************
 		Footer
@@ -1888,6 +1963,87 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 14px;
 }
 
+/* Category */
+
+.Category {
+	width: 100%;
+	padding: 20px;
+	margin-bottom: 20px;
+	border: 2px solid;
+	border-radius: 20px;
+}
+
+	.Category:last-child {
+		margin: 0;
+	}
+
+	
+
+.Category .HeaderCategory {
+	width: 100%;
+	margin-bottom: 25px;
+
+	color: var(--color-txt-p);
+	font-size: 24px;
+}
+
+.Category .CategoryOptions {
+	display: grid;
+	grid-template-columns: 1fr auto;
+
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+	.Category .CategoryOptions:last-child {
+		margin: 0;
+	}
+
+	/* Text */
+
+	.Category .CategoryOptions .CategoryText {
+		float: left;
+
+		margin-right: 40px;
+	}
+
+	.Category .CategoryOptions .CategoryText h1 {
+		width: 100%;
+		
+		color: var(--color-txt-s);
+		font-size: 18px;
+	}
+
+	.Category .CategoryOptions .CategoryText h2 {
+		margin: 6px 0 0;
+		
+		color: var(--color-txt-t);
+		font-size: 14px;
+	}
+
+	/* Button */
+
+	.Category .CategoryOptions .btnContent button {
+		float: right;
+		
+		margin: 5px 0;
+		border: 1px solid var(--color-border);
+		border-radius: 20px;
+
+		color: var(--color-txt-t);
+		background-color: transparent;
+
+		transition: 0.1s ease;
+	}	
+
+	.Category .CategoryOptions .btnContent button a {
+		padding: 8px 16px;
+		border-radius: inherit;
+
+		color: inherit;
+		font-size: 14px;
+	}
+
 /* Overlay */
 
 .MainOverlay {
@@ -2046,7 +2202,9 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 
 /* 300px */
 
-#WelcomeHeader, #SectionFeedFilters, #SectionFeedItems, #SectionDashboardItems, #MainUser .MainContent section {
+#WelcomeHeader, #SectionFeedFilters, #SectionFeedItems, 
+#SectionDashboardItems, #MainUser .MainContent section,
+#SectionCompanyMain {
 	padding: 0 300px;
 }
 
@@ -2082,11 +2240,15 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 		background-color: var(--color-layout-p);
 	}
 
-	.LightMode .FormPlatform form .FormPlatformContent .ContentInput .UserInputData {
+	.LightMode .FormPlatform form .FormPlatformContent .ContentInput .UserInputData,
+	.LightMode .FormPlatform form .FormPlatformContent .ContentInput select {
+		border-bottom: 2px solid var(--color-border);
+		
 		transition: border-color 0.2s ease;
 	}
 
-		.LightMode .FormPlatform form .FormPlatformContent .ContentInput .UserInputData:focus {
+		.LightMode .FormPlatform form .FormPlatformContent .ContentInput .UserInputData:focus,
+		.LightMode .FormPlatform form .FormPlatformContent .ContentInput select:focus {
 			border-color: var(--color-theme-p);
 		}
 
@@ -2106,11 +2268,16 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 		background-color: var(--color-layout-s);
 	}
 
-	.DarkMode .FormPlatform form .FormPlatformContent .ContentInput .UserInputData {
+	.DarkMode .FormPlatform form .FormPlatformContent .ContentInput .UserInputData,
+	.DarkMode .FormPlatform form .FormPlatformContent .ContentInput select {
 		padding: 8px 16px;
 		border-radius: 19px;
 		
 		background-color: var(--color-layout-t);
+	}
+
+	.DarkMode .FormPlatform form .FormPlatformContent .ContentInput select {
+		appearance: none;
 	}
 
 	/*******************************************************

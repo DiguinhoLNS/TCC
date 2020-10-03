@@ -144,7 +144,7 @@
                                                     <h2> <?php echo $mostrar['email']; ?> </h2>
                                                 </div>
                                                 <div class = "DataContent">
-                                                    <h1> Telefone </h1>
+                                                    <h1> Telefone de contato </h1>
                                                     <h2> <?php echo $mostrar['celular']; ?> </h2>
                                                 </div>
 
@@ -299,9 +299,9 @@
 
                                             <h1 class = "HeaderCategory"> Conta </h1>
 
-                                            <div class = "UserOptions">
+                                            <div class = "CategoryOptions">
 
-                                                <div class = "UserText">
+                                                <div class = "CategoryText">
 
                                                     <h1> Editar perfil </h1>
                                                     <h2> Editar os dados do seu perfil </h2>
@@ -318,9 +318,9 @@
 
                                             </div>
 
-                                            <div class = "UserOptions">
+                                            <div class = "CategoryOptions">
 
-                                                <div class = "UserText">
+                                                <div class = "CategoryText">
 
                                                     <h1> Editar contato </h1>
                                                     <h2> Editar os seus dados de contato </h2>
@@ -337,9 +337,9 @@
 
                                             </div>
 
-                                            <div class = "UserOptions">
+                                            <div class = "CategoryOptions">
 
-                                                <div class = "UserText">
+                                                <div class = "CategoryText">
 
                                                     <h1> Editar segurança </h1>
                                                     <h2> Editar os seus dados de segurança </h2>
@@ -362,9 +362,9 @@
 
                                             <h1 class = "HeaderCategory"> Plataforma </h1>
 
-                                            <div class = "UserOptions">
+                                            <div class = "CategoryOptions">
 
-                                                <div class = "UserText">
+                                                <div class = "CategoryText">
 
                                                     <h1> Alterar tema </h1>
                                                     <h2> Mudar tema do layout da página </h2>
@@ -384,9 +384,9 @@
 
                                             </div>
 
-                                            <div class = "UserOptions">
+                                            <div class = "CategoryOptions">
 
-                                                <div class = "UserText">
+                                                <div class = "CategoryText">
 
                                                     <h1> Encerrar sessão </h1>
                                                     <h2> Encerrar sessão na plataforma e voltar para a página principal </h2>
@@ -405,16 +405,16 @@
 
                                         </li>
 
-                                        <li id = "ConfigDangerZone" class = "Category">
+                                        <li id = "ConfigDangerZone" class = "Category CategoryDanger">
 
                                             <h1 class = "HeaderCategory"> Zona de Perigo </h1>
 
-                                            <div class = "UserOptions">
+                                            <div class = "CategoryOptions">
 
-                                                <div class = "UserText">
+                                                <div class = "CategoryText">
 
                                                     <h1> Apagar dados </h1>
-                                                    <h2> Apagar os seus dados e histórico em nossa base de dados </h2>
+                                                    <h2> Apagar os seus dados e o seu histórico em nossa plataforma </h2>
 
                                                 </div>
 
@@ -428,19 +428,19 @@
 
                                             </div>
 
-                                            <div class = "UserOptions">
+                                            <div class = "CategoryOptions">
 
-                                                <div class = "UserText">
+                                                <div class = "CategoryText">
 
-                                                    <h1> Encerrar Conta </h1>
-                                                    <h2> Apagar a conta e todos os seus dados em nossa base de dados </h2>
+                                                    <h1> Apagar Conta </h1>
+                                                    <h2> Apagar a sua conta em nossa plataforma </h2>
 
                                                 </div>
 
                                                 <div class = "btnContent">
 
                                                     <button>
-                                                        <a href = ""> Encerrar Conta </a>
+                                                        <a href = ""> Apagar Conta </a>
                                                     </button>
 
                                                 </div>

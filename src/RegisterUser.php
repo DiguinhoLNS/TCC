@@ -194,14 +194,17 @@
 							<input id = "R_Nome" class = "UserInputData" type = "text" name = "nome" required />
 						</li>
 						<li class = "ContentInput">
-							<label for = "R_Email"> Email </label>
-							<span id = "ErrorEmail" class = "txtError"> Email inválido </span>
-							<input id = "R_Email" class = "UserInputData" type = "email" name = "email" required />
-						</li>
-						<li class = "ContentInput">
 							<label for = "R_CPF"> CPF </label>
 							<span id = "ErrorCPF" class = "txtError"> CPF inválido </span>
 							<input id = "R_CPF" class = "UserInputData" type = "number" name = "CPF" required />
+						</li>
+						<li class = "ContentInput">
+							<label for = "R_Genero"> Gênero </label>
+							<select name = "Genero" id = "R_Genero" class = "UserSelectData" required>
+								<option value = "Feminino"> Feminino </option>
+								<option value = "Masculino"> Masculino </option>
+								<option value = "Prefiro não informar"> Prefiro não informar </option>
+                            </select>
 						</li>
 						<li class = "ContentInput">
 							<label for = "R_DataNasc"> Data de Nascimento </label>
@@ -209,18 +212,14 @@
 							<input id = "R_DataNasc" class = "UserInputData" type = "date" name = "data" required />
 						</li>
 						<li class = "ContentInput">
-							<label for = "R_Telefone"> Telefone </label>
+							<label for = "R_Email"> Email </label>
+							<span id = "ErrorEmail" class = "txtError"> Email inválido </span>
+							<input id = "R_Email" class = "UserInputData" type = "email" name = "email" required />
+						</li>
+						<li class = "ContentInput">
+							<label for = "R_Telefone"> Telefone de contato </label>
 							<span id = "ErrorTelefone" class = "txtError"> Telefone inválido </span>
-							<input id = "R_Telefone" class = "UserInputData" type = "number" name = "telefone" required />
-						</li>
-						<li class = "ContentInput">
-							<label for = "R_Celular"> Celular </label>
-							<span id = "ErrorCelular" class = "txtError"> Celular inválido </span>
-							<input id = "R_Celular" class = "UserInputData" type = "number" name = "celular" required />
-						</li>
-						<li class = "ContentInput">
-							<label for = "R_Endereco"> Endereço </label>
-							<input id = "R_Endereco" class = "UserInputData" type = "text" name = "endereco" required />
+							<input id = "R_Telefone" class = "UserInputData" type = "number" name = "telefone" placeholder = "Fixo ou móvel" required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "R_Senha"> Senha </label>

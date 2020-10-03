@@ -523,3 +523,45 @@ $(document).ready(function(){
     });
 
 });
+
+/*******************************************************
+    Generate Message
+*******************************************************/
+
+$(document).ready(function(){
+
+    // Generate Message
+    function GenerateMessage(CodV, CodText){
+
+        // Error
+        if(CodV == "0"){
+
+            switch(CodText){
+
+                case 1:
+
+                    alert("Erro ao copiar texto para a área de transferência");
+                    
+                break;
+
+            }
+            
+        }
+
+        if(CodV == "1"){
+
+            switch(CodText){
+
+                case 1:
+
+                    alert("Texto copiado para a área de transferência");
+                    
+                break;
+
+            }
+
+        }
+
+    }
+
+});
