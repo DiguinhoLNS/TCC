@@ -13,13 +13,13 @@
 
             $id = $_COOKIE["ID"];
 
-            $base = mysqli_connect('localhost', 'root', '', 'ape') or die("erro de conexão");
-            $regra = "SELECT nome, CPF, data_nasc, email, celular, telefone, senha_plataforma, id_user_plataforma FROM user_plataforma WHERE id_user_plataforma = '$id'";
+            $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
+            $regra = "SELECT Nome_user, CPF_user, Data_nasc_user, Email_user, Telefone_user, Genero_user, Senha_user, id_user FROM usuarios WHERE id_user = '$id'";
 
             $res = mysqli_query($base, $regra);
             $mostrar = mysqli_fetch_array($res);
 
-            list($ano, $mes, $dia) = explode('-', $mostrar['data_nasc']);
+            list($ano, $mes, $dia) = explode('-', $mostrar['Data_nasc_user']);
 
         ?>
 
@@ -52,7 +52,7 @@
 
                     <div>
                         <h1 id = "DTN"></h1>
-                        <h2> <?php echo $mostrar['nome']; ?> </h2>
+                        <h2> <?php echo $mostrar['Nome_user']; ?> </h2>
                     </div>
 
                 </section>
@@ -108,15 +108,15 @@
 
                                                 <div class = "DataContent">
                                                     <h1> Nome </h1>
-                                                    <h2> <?php echo $mostrar['nome']; ?> </h2>
+                                                    <h2> <?php echo $mostrar['Nome_user']; ?> </h2>
                                                 </div>
                                                 <div class = "DataContent">
                                                     <h1> CPF </h1>
-                                                    <h2> <?php echo $mostrar['CPF']; ?> </h2>
+                                                    <h2> <?php echo $mostrar['CPF_user']; ?> </h2>
                                                 </div>
                                                 <div class = "DataContent">
                                                     <h1> Gênero </h1>
-                                                    <h2> Masculino / Feminino / Outro </h2>
+                                                    <h2> <?php echo $mostrar['Genero_user']; ?> </h2>
                                                 </div>
                                                 <div class = "DataContent">
                                                     <h1> Data de Nascimento </h1>
@@ -141,11 +141,11 @@
 
                                                 <div class = "DataContent">
                                                     <h1> Email </h1>
-                                                    <h2> <?php echo $mostrar['email']; ?> </h2>
+                                                    <h2> <?php echo $mostrar['Email_user']; ?> </h2>
                                                 </div>
                                                 <div class = "DataContent">
                                                     <h1> Telefone de contato </h1>
-                                                    <h2> <?php echo $mostrar['celular']; ?> </h2>
+                                                    <h2> <?php echo $mostrar['Telefone_user']; ?> </h2>
                                                 </div>
 
                                             </div>
@@ -166,12 +166,12 @@
 
                                                 <div class = "DataContent">
                                                     <h1> ID APE </h1>
-                                                    <h2> <?php echo $mostrar['id_user_plataforma']; ?> </h2>
+                                                    <h2> <?php echo $mostrar['id_user']; ?> </h2>
                                                 </div>
                                                 <div class = "DataContent">
                                                     <h1> Senha </h1>
                                                     <h2 id = "DataPlaceholderPWD"> Exibir Senha </h2>
-                                                    <h2 id = "DataPWD"> <?php echo $mostrar['senha_plataforma']; ?> </h2>
+                                                    <h2 id = "DataPWD"> <?php echo $mostrar['Senha_user']; ?> </h2>
                                                 </div>
 
                                             </div>

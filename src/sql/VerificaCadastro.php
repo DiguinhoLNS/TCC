@@ -26,14 +26,14 @@
             $cpf = $_POST["CPF"];
             $data = $_POST["data"];
             $telefone = $_POST["telefone"];
-            $celular = $_POST["celular"];
-            $endereco = $_POST["endereco"];
+            $genero = $_POST["Genero"];
+            //$endereco = $_POST["endereco"];
             $senha = $_POST["senha"];
             $E1 = 0;
             $E2 = 0;
             $E3 = 0;
             $E4 = 0;
-            $E5 = 0;
+            //$E5 = 0;
             $E6 = 0;
             $E8 = 0;
 
@@ -63,15 +63,15 @@
             }
 
             //VERIFICA SE JÁ NAO EXISTE UM USUARIO COM MESMO EMAIL OU MESMO CPF
-            $base = mysqli_connect('localhost', 'root', '', 'ape') or die("erro de conexão");
+            $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
 
-            $regra1 = "SELECT email, CPF FROM user_plataforma where email =  '$email' and CPF = '$cpf'";
+            $regra1 = "SELECT Email_user, CPF_user FROM usuarios where Email_user =  '$email' and CPF_user = '$cpf'";
 
             $res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
 
             $mostrar = mysqli_fetch_array($res);
 
-            if (strtolower($mostrar['email']) == strtolower($email) || $mostrar['CPF'] == $cpf) {
+            if (strtolower($mostrar['Email_user']) == strtolower($email) || $mostrar['CPF_user'] == $cpf) {
 
                 //echo "Email ou CPF ja cadastrados";
 
@@ -161,16 +161,16 @@
             }
 
             //VERIFICA SE FOI DIGITADO O DDD JUNTO COM O TELEFONE
-            if (strlen($telefone) != 10) {
+            /*if (strlen($telefone) != 10) {
 
                 $E5 = "1";
 
                 $erros++;
 
-            }
+            }*/
 
             //VERIFICA SE FOI DIGITADO O DDD JUNTO COM O CELULAR
-            if (strlen($celular) < 10) {
+            if (strlen($telefone) < 10) {
 
                 $E6 = "1";
 
@@ -257,6 +257,7 @@
 
                 $_SESSION["UserRegisterError_G"] = "0";
 
+                //echo "erro";
                 include 'InsereCadastro.php';
 
             } else if ($erros > 0) {
@@ -281,9 +282,9 @@
                     $_SESSION["UserRegisterError_4"] = "1";
                 }
 
-                if ($E5 == "1") {
+                /*if ($E5 == "1") {
                     $_SESSION["UserRegisterError_5"] = "1";
-                }
+                }*/
 
                 if ($E6 == "1") {
                     $_SESSION["UserRegisterError_6"] = "1";
@@ -293,7 +294,8 @@
                     $_SESSION["UserRegisterError_8"] = "1";
                 }
 
-                header("Location: ../RegisterUser.php");
+                echo "Erro no cadastro";
+                //header("Location: ../RegisterUser.php");
 
             }
 

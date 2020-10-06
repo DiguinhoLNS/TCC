@@ -1,6 +1,6 @@
 <?php
 
-	$conexao = mysqli_connect('localhost', 'root', '', 'ape');
+	$conexao = mysqli_connect('localhost', 'root', '', 'bdape');
 
 	mysqli_set_charset($conexao, 'utf8');
  

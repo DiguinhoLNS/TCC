@@ -9,13 +9,13 @@
 
                     $id = $_COOKIE["ID"];
 
-                    $base = mysqli_connect('localhost', 'root', '', 'ape') or die("erro de conexão");
-                    $regra = "SELECT nome FROM user_plataforma WHERE id_user_plataforma = '$id'";
+                    $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
+                    $regra = "SELECT nome_user FROM usuarios WHERE id_user = '$id'";
 
                     $res = mysqli_query($base, $regra);
                     $mostrar = mysqli_fetch_array($res);
 
-                    echo $mostrar['nome'];
+                    echo $mostrar['nome_user'];
 
                 }
                 
