@@ -3,3 +3,6 @@ echo "<META HTTP-EQUIV=Refresh CONTENT='1.0; URL=Ranking.php'>";
 ?t=12432&c=123432$e=rua
 
 INSERT INTO usuarios (Nome_user, Genero_user, Data_nasc_user, CPF_user, Email_user, Telefone_user, Senha_user) VALUES ('Luis Gustavo Da Silva Feitoza', 'Masculino', '2003-08-20', '50576013854', 'luisgustavofeitoza@gmail.com', '11945620297', 'Lg123')
+
+cpf varchar 11
+data varchar 15

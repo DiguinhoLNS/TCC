@@ -22,15 +22,15 @@
 		
 	} else {
 
-		echo "Erro no cadastro2<br>";
+		/*echo "Erro no cadastro2<br>";
 		echo "$nome<br>";
 		echo "$cpf<br>";
 		echo "$data<br>";
 		echo "$telefone<br>";
 		echo "$genero<br>";
 		echo "$email<br>";
-		echo "$senha<br>";
-		//header("Location: ../RegisterUser.php");
+		echo "$senha<br>";*/
+		header("Location: ../RegisterUser.php");
 
 	}
 

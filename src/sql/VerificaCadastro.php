@@ -295,7 +295,7 @@
                 }
 
                 echo "Erro no cadastro";
-                //header("Location: ../RegisterUser.php");
+                header("Location: ../RegisterUser.php");
 
             }
 
