@@ -53,15 +53,15 @@
 							<label for = "R_Cor"> Cor </label>
 							<span id = "ErrorCor" class = "txtError"> Cor inválida </span>
 							<select name = "CorLayout" id = "R_Cor" class = "UserSelectData">
-                                <option value = "default"> Padrão </option>
-                                <option value = "#2196F3"> Azul </option>
-                                <option value = "#F44336"> Vermelho </option>
-                                <option value = "#E91E63"> Rosa </option>
-                                <option value = "#4CAF50"> Verde </option>
-                                <option value = "#9C27B0"> Roxo </option>
-                                <option value = "#FF5722"> Laranja </option>
-                                <option value = "#009688"> Ciano </option>
-                                <option value = "#795548"> Marrom </option>
+                                <option value = "ThemeDefault"> Padrão </option>
+                                <option value = "ThemeBlue"> Azul </option>
+                                <option value = "ThemeRed"> Vermelho </option>
+                                <option value = "ThemePink"> Rosa </option>
+                                <option value = "ThemeGreen"> Verde </option>
+                                <option value = "ThemePurple"> Roxo </option>
+                                <option value = "ThemeOrange"> Laranja </option>
+                                <option value = "ThemeTeal"> Ciano </option>
+                                <option value = "ThemeBrown"> Marrom </option>
                             </select>
                         </li>
                         <li class = "ContentBottom">

@@ -530,7 +530,6 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 
-    // Generate Message
     function GenerateMessage(CodV, CodText){
 
         // Error
@@ -548,10 +547,12 @@ $(document).ready(function(){
             
         }
 
+        // True
         if(CodV == "1"){
 
             switch(CodText){
 
+                // Copy to Clipboard
                 case 1:
 
                     alert("Texto copiado para a área de transferência");

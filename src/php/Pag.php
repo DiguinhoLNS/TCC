@@ -67,7 +67,7 @@
     
             <li class = "NotificationBox">
                 <i class = "material-icons"> &#xe645; </i>
-                <span> Login Realizado </span>
+                <span> txt </span>
             </li>
         
         ';

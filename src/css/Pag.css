@@ -902,6 +902,10 @@ h1, h2, h3, h4, h5, h6 {
 		*******************************************************/
 
 		.UserView .CompanyADM {
+			display: none;
+		}
+
+		.ADMView .CompanyADM {
 			display: block;
 		}
 
@@ -916,37 +920,29 @@ h1, h2, h3, h4, h5, h6 {
 		/* Header */
 
 		#SectionCompanyHeader {
-			position: relative;
 			display: flex;
 			justify-content: center;
 			
-			height: 250px;
-			margin-bottom: 100px;
+			width: calc(100% - 600px);
 			
+			padding: 30px 20px;
+			margin: 40px 300px;
+			border-radius: 20px;
+
 			background-color: var(--color-theme-company-p);
 		}
 
-		#SectionCompanyHeader #CompanyName {
-			z-index: 2;
-			position: absolute;
-			bottom: -40px;
-			
-			padding: 15px 40px;
-			border-radius: 40px;
-			
-			color: var(--color-txt-p);
-			font-size: 40px;
-			line-height: 50px;
-			background-color: var(--color-layout-p);
-
-			cursor: default;
-			transition: 0.3s ease;
+		.DarkMode #SectionCompanyHeader {
+			background-color: var(--color-theme-company-s);
 		}
 
-			#SectionCompanyHeader #CompanyName:hover {
-				color: var(--color-txt-p-dm);
-				background-color: var(--color-theme-company-p);
-			}
+		#SectionCompanyHeader #CompanyName {
+			border-radius: 40px;
+			
+			color: var(--color-txt-p-dm);
+			font-size: 40px;
+			line-height: 50px;
+		}
 
 		/* Main */
 
@@ -956,8 +952,23 @@ h1, h2, h3, h4, h5, h6 {
 
 		#SectionCompanyMain ul {
 			width: 100%;
+			margin-bottom: 35px;
 
 			list-style: none;
+		}
+
+			#SectionCompanyMain ul:last-child {
+				margin: 0;
+			}
+
+		#SectionCompanyMain ul .CategoryHeader {
+			width: 100%;
+			margin-bottom: 25px;
+		}
+
+		#SectionCompanyMain ul .CategoryHeader h1 {
+			color: var(--color-txt-p);
+			font-size: 28px;
 		}
 
 		#SectionCompanyMain ul .Category {
@@ -979,6 +990,10 @@ h1, h2, h3, h4, h5, h6 {
 
 			#SectionCompanyMain ul .CategoryDanger {
 				border-color: rgba(234, 67, 53, 60%);
+			}
+
+			#SectionCompanyMain ul .CategoryDanger .HeaderCategory {
+				color: var(--color-error);
 			}
 
 			#SectionCompanyMain ul .CategoryDanger .CategoryOptions .btnContent button {
@@ -1251,6 +1266,10 @@ h1, h2, h3, h4, h5, h6 {
 					.FrameMain ul .CategoryDanger {
 						border-color: rgba(234, 67, 53, 60%);
 					}
+
+					.FrameMain ul .CategoryDanger .HeaderCategory {
+						color: var(--color-error);
+					}
 			
 					.FrameMain ul .CategoryDanger .CategoryOptions .btnContent button {
 						color: var(--color-error);
@@ -1267,7 +1286,7 @@ h1, h2, h3, h4, h5, h6 {
 
 					#UF1 .FrameMain .DataCategory .Category .LeftContent .DataContent {
 						width: 100%;
-						margin-bottom: 18px;
+						margin-bottom: 15px;
 					}
 	
 						#UF1 .FrameMain .DataCategory .Category .LeftContent .DataContent:last-child {
@@ -1279,14 +1298,14 @@ h1, h2, h3, h4, h5, h6 {
 						margin: 0;
 	
 						color: var(--color-txt-s);
-						font-size: 20px;
+						font-size: 18px;
 					}
 	
 					#UF1 .FrameMain .DataCategory .Category .LeftContent .DataContent h2 {
 						margin-top: 6px;
 						
 						color: var(--color-txt-t);
-						font-size: 18px;
+						font-size: 14px;
 					}
 
 						#UF1 .FrameMain .DataCategory .Category .LeftContent .DataContent #DataPlaceholderPWD {
@@ -1309,6 +1328,7 @@ h1, h2, h3, h4, h5, h6 {
 
 					#UF1 .FrameMain .DataCategory .Category .RightContent h1 {
 						color: var(--color-txt-t);
+						font-size: 18px;
 					}
 
 				/* UF 2 */
@@ -1414,7 +1434,7 @@ h1, h2, h3, h4, h5, h6 {
 
 			#NavUserFrameset .NavUserFrame .NavUserFrameContent .FrameSection {
 				width: 100%;
-				margin-bottom: 40px;
+				margin-bottom: 25px;
 			}
 
 				#NavUserFrameset .NavUserFrame .NavUserFrameContent .FrameSection:last-child {
@@ -1975,13 +1995,11 @@ h1, h2, h3, h4, h5, h6 {
 
 	.Category:last-child {
 		margin: 0;
-	}
-
-	
+	}	
 
 .Category .HeaderCategory {
 	width: 100%;
-	margin-bottom: 25px;
+	margin-bottom: 20px;
 
 	color: var(--color-txt-p);
 	font-size: 24px;
@@ -1992,7 +2010,7 @@ h1, h2, h3, h4, h5, h6 {
 	grid-template-columns: 1fr auto;
 
 	width: 100%;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 }
 
 	.Category .CategoryOptions:last-child {
@@ -2198,15 +2216,15 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 	background-color: var(--color-layout-s);
 }
 
-/* Page Padding */
+/* Page Padding/Margin 300px */
 
-/* 300px */
+	/* Padding */
 
-#WelcomeHeader, #SectionFeedFilters, #SectionFeedItems, 
-#SectionDashboardItems, #MainUser .MainContent section,
-#SectionCompanyMain {
-	padding: 0 300px;
-}
+	#WelcomeHeader, #SectionFeedFilters, #SectionFeedItems, 
+	#SectionDashboardItems, #MainUser .MainContent section,
+	#SectionCompanyMain {
+		padding: 0 300px;
+	}
 
 /*******************************************************
 	Exceptions

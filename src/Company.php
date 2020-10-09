@@ -11,7 +11,7 @@
 
 	</head>
 
-    <body id = "CompanyPage" class = "UNT LightMode ThemeDefault UserView">
+    <body id = "CompanyPage" class = "UNT LightMode ThemeRed ADMView">
 
 		<?php
 
@@ -35,7 +35,7 @@
 
 				<section id = "SectionCompanyHeader">
 				
-					<span id = "CompanyName"> Nome da Empresa </span>
+					<h1 id = "CompanyName"> Nome da Empresa </h1>
 				
 				</section>
 
@@ -43,28 +43,99 @@
 
 					<ul>
 
+						<div class = "CategoryHeader">
+							<h1> Informações </h1>
+						</div>
+
 						<li class = "Category">
 
-							<h1 class = "HeaderCategory"> Opções </h1>
+							<h1 class = "HeaderCategory"> Perfil </h1>
 
 							<div class = "CategoryOptions">
 
 								<div class = "CategoryText">
 
-									<h1> Vizualizar empresa </h1>
-									<h2> Vizualizar informações sobre a empresa </h2>
-
-								</div>
-
-								<div class = "btnContent">
-
-									<button>
-										<a href = ""> Vizualizar Empresa </a>
-									</button>
+									<h1> Nome </h1>
+									<h2> Nome da Empresa </h2>
 
 								</div>
 
 							</div>
+
+							<div class = "CategoryOptions">
+
+								<div class = "CategoryText">
+
+									<h1> CNPJ </h1>
+									<h2> 00.000.000/0000-00 </h2>
+
+								</div>
+
+							</div>
+
+							<div class = "CategoryOptions">
+
+								<div class = "CategoryText">
+
+									<h1> Endereço </h1>
+									<h2> Avenida Teste 311 </h2>
+
+								</div>
+
+							</div>
+
+							<div class = "CategoryOptions">
+
+								<div class = "CategoryText">
+
+									<h1> Cor Tema </h1>
+									<h2> Roxo </h2>
+
+								</div>
+
+							</div>
+
+						</li>
+
+						<li class = "Category">
+
+							<h1 class = "HeaderCategory"> Contato </h1>
+
+							<div class = "CategoryOptions">
+
+								<div class = "CategoryText">
+
+									<h1> Telefone </h1>
+									<h2> (00) 0000-0000 </h2>
+
+								</div>
+
+							</div>
+
+							<div class = "CategoryOptions">
+
+								<div class = "CategoryText">
+
+									<h1> Email </h1>
+									<h2> email@email.com </h2>
+
+								</div>
+
+							</div>
+					
+						</li>
+
+					</ul>
+
+					<ul>
+
+						<div class = "CategoryHeader">
+							<h1> Opções </h1>
+						</div>
+					
+						<li class = "Category">
+
+							<h1 class = "HeaderCategory"> Feed </h1>
 
 							<div class = "CategoryOptions">
 
@@ -78,51 +149,7 @@
 								<div class = "btnContent">
 
 									<button>
-										<a href = "Feed.php/?Company=ID_DA_EMPRESA"> Acessar Feed </a>
-									</button>
-
-								</div>
-
-							</div>
-
-						</li>
-
-						<li class = "Category CategoryDanger">
-
-							<h1 class = "HeaderCategory"> Configurações </h1>
-
-							<div class = "CategoryOptions">
-
-								<div class = "CategoryText">
-
-									<h1> Apagar dados </h1>
-									<h2> Apagar os seus dados armazenados nessa empresa </h2>
-
-								</div>
-
-								<div class = "btnContent">
-
-									<button>
-										<a href = ""> Apagar dados </a>
-									</button>
-
-								</div>
-
-							</div>
-
-							<div class = "CategoryOptions">
-
-								<div class = "CategoryText">
-
-									<h1> Sair </h1>
-									<h2> Sair da empresa </h2>
-
-								</div>
-
-								<div class = "btnContent">
-
-									<button>
-										<a href = ""> Sair da Empresa </a>
+										<a href = "Feed.php/?id=ID_DA_EMPRESA"> Acessar Feed </a>
 									</button>
 
 								</div>
@@ -186,6 +213,50 @@
 
 									<button>
 										<a href = ""> Editar Itens </a>
+									</button>
+
+								</div>
+
+							</div>
+
+						</li>
+
+						<li class = "Category">
+
+							<h1 class = "HeaderCategory"> Configurações </h1>
+
+							<div class = "CategoryOptions">
+
+								<div class = "CategoryText">
+
+									<h1> Apagar dados </h1>
+									<h2> Apagar os seus dados armazenados nessa empresa </h2>
+
+								</div>
+
+								<div class = "btnContent">
+
+									<button>
+										<a href = ""> Apagar dados </a>
+									</button>
+
+								</div>
+
+							</div>
+
+							<div class = "CategoryOptions">
+
+								<div class = "CategoryText">
+
+									<h1> Sair </h1>
+									<h2> Sair da empresa </h2>
+
+								</div>
+
+								<div class = "btnContent">
+
+									<button>
+										<a href = ""> Sair da Empresa </a>
 									</button>
 
 								</div>
