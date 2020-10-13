@@ -1178,7 +1178,7 @@ h1, h2, h3, h4, h5, h6 {
 				}
 
 				#NavUserConfig ul li {
-					padding: 0 16px 10px;
+					padding: 0 16px 8px;
 					border-bottom: 2px solid transparent;
 
 					color: var(--color-txt-t);
@@ -1278,54 +1278,15 @@ h1, h2, h3, h4, h5, h6 {
 							background-color: var(--color-error);
 						}
 
-					/* Left */
+				/* UF 1 */
 
-					#UF1 .FrameMain .DataCategory .Category .LeftContent .DataContent {
-						width: 100%;
-						margin-bottom: 15px;
-					}
-	
-						#UF1 .FrameMain .DataCategory .Category .LeftContent .DataContent:last-child {
-							margin: 0;
-						}
-	
-					#UF1 .FrameMain .DataCategory .Category .LeftContent .DataContent h1 {
-						width: 100%;
-						margin: 0;
-	
-						color: var(--color-txt-s);
-						font-size: 18px;
-					}
-	
-					#UF1 .FrameMain .DataCategory .Category .LeftContent .DataContent h2 {
-						margin-top: 6px;
-						
-						color: var(--color-txt-t);
-						font-size: 14px;
-					}
+				#UF1 .FrameMain .DataCategory .Category .CategoryOptions #DataPlaceholderPWD {
+					cursor: pointer;
+				}
 
-						#UF1 .FrameMain .DataCategory .Category .LeftContent .DataContent #DataPlaceholderPWD {
-							cursor: pointer;
-						}
-
-						#UF1 .FrameMain .DataCategory .Category .LeftContent .DataContent #DataPWD {
-							display: none;
-						}
-
-					/* Right */
-
-					#UF1 .FrameMain .DataCategory .Category .RightContent {
-						display: flex;
-						align-items: center;
-
-						padding-left: 20px;
-						border-left: 2px solid var(--color-border);
-					}
-
-					#UF1 .FrameMain .DataCategory .Category .RightContent h1 {
-						color: var(--color-txt-t);
-						font-size: 18px;
-					}
+				#UF1 .FrameMain .DataCategory .Category .CategoryOptions #DataPWD {
+					display: none;
+				}
 
 				/* UF 2 */
 
@@ -1725,6 +1686,91 @@ h1, h2, h3, h4, h5, h6 {
 	Outros
 *******************************************************/
 
+/* Bottom TXT*/
+
+.BottomMessage {
+	position: fixed;
+	bottom: 0;
+
+	width: 100%;
+	padding: 10px 500px;
+
+	background-color: var(--color-theme-t);
+
+	transition: bottom 0.6s ease;
+}
+
+.BottomMessage .MessageContent {
+	display: grid;
+	grid-template-rows: repeat(2, auto);
+	grid-gap: 10px;
+	
+	width: 100%;
+}
+
+.BottomMessage .MessageContent #TopContent,
+.BottomMessage .MessageContent #BottomContent {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	width: 100%;
+}
+
+.BottomMessage .MessageContent #TopContent h1 {
+	float: left;
+	
+	color: var(--color-txt-p-dm);
+	font-size: 12px;
+}
+
+.BottomMessage .MessageContent #TopContent h1 a {
+	float: right;
+
+	margin-left: 10px;
+
+	color: var(--color-txt-t-dm);
+}
+
+	.BottomMessage .MessageContent #TopContent h1 a:hover {
+		color: var(--color-txt-s-dm);
+	}
+
+.BottomMessage .MessageContent #BottomContent {	
+	font-size: 14px;
+}
+
+.BottomMessage .MessageContent #BottomContent #CookiesOFF {
+	margin: 6px 0;
+	
+	color: var(--color-txt-t-dm);
+	font-size: inherit;
+
+	cursor: pointer;
+}
+
+	.BottomMessage .MessageContent #BottomContent #CookiesOFF:hover {
+		color: var(--color-txt-s-dm);
+	}
+
+.BottomMessage .MessageContent #BottomContent #CookiesON {
+	padding: 4px 16px;
+	margin-left: 18px;
+	border: 2px solid var(--color-theme-t);
+	border-radius: 13px;
+	outline: none;
+
+	color: var(--color-txt-p-dm);
+	font-size: inherit;
+	background-color: var(--color-theme-p);
+
+	cursor: pointer;
+}
+
+.BottomMessage .MessageContent #BottomContent #CookiesON:hover {
+	background-color: var(--color-theme-hover);
+}
+
 /* BTN */
 
 .btn {
@@ -1734,7 +1780,7 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: var(--color-theme-p);
 
 	cursor: pointer;
-	transition: 0.3s ease;
+	transition: 0.1s ease;
 }
 
 	.btn:hover {

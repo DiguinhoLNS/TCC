@@ -180,6 +180,27 @@
         <?php include "include/HeaderNotification.php"; ?>
         <?php include "include/HeaderConfig.php"; ?>
 
+        <div class = "BottomMessage">
+
+            <div class = "MessageContent">
+
+                <div id = "TopContent">
+
+                    <h1> A plataforma APE usa cookies para conteúdo personalizado e análise. <a href = ""> Cookies </a></h1>
+
+                </div>
+
+                <div id = "BottomContent">
+
+                    <span id = "CookiesOFF" class = "ExitMessageBottom"> Negar Cookies </span>
+                    <button id = "CookiesON" class = "ExitMessageBottom"> Aceitar Cookies </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
         <div id = "DarkEffect"></div>
 
         <div id = "DiscoverOverlay" class = "MainOverlay">

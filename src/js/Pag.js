@@ -540,6 +540,18 @@ $(document).ready(function(){
 
 });
 
+/* Bottom Message */
+
+$(document).ready(function(){
+
+    $(".ExitMessageBottom").on("click", function(){
+
+        $(".BottomMessage").css("bottom", "-75px");
+
+    });
+
+});
+
 /*******************************************************
     Generate Message
 *******************************************************/
