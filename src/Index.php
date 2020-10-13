@@ -182,13 +182,13 @@
 
         <div id = "DarkEffect"></div>
 
-        <div id = "DiscoverOverlay" class = "MainOverlay BS">
+        <div id = "DiscoverOverlay" class = "MainOverlay">
 
             <div id = "CloseDiscoverOverlay" class = "CloseOverlay">
                 <i class = "material-icons"> &#xe5cd; </i>
             </div>
 
-            <ul id = "DiscoverContent1" class = "DiscoverOverlayUL OverlayUL">
+            <ul id = "DiscoverContent1" class = "DiscoverOverlayUL OverlayUL BS">
 
                 <li>
                     <i class = "material-icons"> &#xe1b1; </i>
@@ -202,7 +202,7 @@
 
             </ul>
 
-            <ul id = "DiscoverContent2" class = "DiscoverOverlayUL OverlayUL">
+            <ul id = "DiscoverContent2" class = "DiscoverOverlayUL OverlayUL BS">
 
                 <li>
                     <i class = "material-icons"> &#xe32a; </i>
@@ -216,7 +216,7 @@
 
             </ul>
 
-            <ul id = "DiscoverContent3" class = "DiscoverOverlayUL OverlayUL">
+            <ul id = "DiscoverContent3" class = "DiscoverOverlayUL OverlayUL BS">
 
                 <li>
                     <i class = "material-icons"> admin_panel_settings </i>
@@ -230,7 +230,7 @@
 
             </ul>
 
-            <ul id = "DiscoverContent4" class = "DiscoverOverlayUL OverlayUL">
+            <ul id = "DiscoverContent4" class = "DiscoverOverlayUL OverlayUL BS">
 
                 <li>
                     <i class = "material-icons"> &#xe1db; </i>

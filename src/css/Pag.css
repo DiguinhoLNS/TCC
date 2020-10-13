@@ -152,6 +152,9 @@ h1, h2, h3, h4, h5, h6 {
 
 	--color-theme-brown-p: #795548;
 	--color-theme-brown-s: rgba(121, 85, 72, 60%);
+
+	--color-theme-yellow-p: #FFEB3B;
+	--color-theme-yellow-s: rgba(255, 235, 59, 60%);
 	
 	/* Dark Mode */
 	--color-layout-p-dm: rgb(12, 12, 12);
@@ -219,6 +222,11 @@ h1, h2, h3, h4, h5, h6 {
 .ThemeBrown {
 	--color-theme-company-p: var(--color-theme-brown-p);
 	--color-theme-company-s: var(--color-theme-brown-s);
+}
+
+.ThemeYellow {
+	--color-theme-company-p: var(--color-theme-yellow-p);
+	--color-theme-company-s: var(--color-theme-yellow-s);
 }
 
 .DarkMode {
@@ -748,15 +756,11 @@ h1, h2, h3, h4, h5, h6 {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
 			grid-auto-rows: auto;
+			grid-gap: 20px;
 			
 			width: 100%;
 			
 			list-style: none;
-		}
-
-		#SectionDashboardItems nav ul .BoxSpace {
-			width: 100%;
-			padding: 20px;
 		}
 
 			#SectionDashboardItems nav ul .NoFor {
@@ -767,40 +771,39 @@ h1, h2, h3, h4, h5, h6 {
 			width: 100%;
 			border-radius: 20px;
 
-			background-color: var(--color-layout-s);
+			background-color: var(--color-theme-company-s);
 		}
 
 		#SectionDashboardItems nav ul .Box a {
-			display: grid;
-			grid-template-columns: 110px auto;
-			grid-template-rows: 30px 30px 20px;
-			
 			width: 100%;
 			padding: 20px 30px;
+			border-radius: inherit;
 		}
 
-		#SectionDashboardItems nav ul .Box a .CompanyImage {
-			grid-column: 1/2;
-			grid-row: 1/4;
-			width: 80px;
-			height: 80px;
-			margin-right: 30px;
-			border-radius: 50%;
-			background-color: lightgrey;
+		#SectionDashboardItems nav ul .Box a h1,
+		#SectionDashboardItems nav ul .Box a h2,
+		#SectionDashboardItems nav ul .Box a h3 {
+			width: 100%;
 		}
 
 		#SectionDashboardItems nav ul .Box a h1 {
-			color: var(--color-txt-p);
+			height: 30px;
+
+			color: var(--color-txt-p-dm);
 			font-size: 20px;
 		}
 
 		#SectionDashboardItems nav ul .Box a h2 {
-			color: var(--color-txt-t);
+			height: 30px;
+
+			color: var(--color-txt-t-dm);
 			font-size: 16px;
 		}
 
 		#SectionDashboardItems nav ul .Box a h3 {
-			color: var(--color-txt-s);
+			height: 20px;
+
+			color: var(--color-txt-s-dm);
 			font-size: 14px;
 		}
 
@@ -1225,13 +1228,6 @@ h1, h2, h3, h4, h5, h6 {
 
 				#UF1 {
 					display: block;
-				}
-
-				#UF1 .FrameMain .DataCategory .Category {
-					display: grid;
-					grid-template-columns: repeat(2, 1fr);
-					grid-template-rows: repeat(2, auto);
-					list-style: none;
 				}
 
 				#UF1 .FrameMain .DataCategory .Category .HeaderCategory {
@@ -1991,6 +1987,8 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 20px;
 	border: 2px solid;
 	border-radius: 20px;
+
+	list-style: none;
 }
 
 	.Category:last-child {
@@ -2076,7 +2074,7 @@ h1, h2, h3, h4, h5, h6 {
 	width: 100%;
 	height: 100vh;
 
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 60%);
 	opacity: 0;
 	visibility: hidden;
 
@@ -2117,7 +2115,7 @@ h1, h2, h3, h4, h5, h6 {
 		border-radius: 40px;
 
 		list-style-type: none;
-		background-color: var(--color-layout-p);
+		background-color: var(--color-header);
 	}
 
 	.MainOverlay ul li {
@@ -2205,7 +2203,10 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 }
 
 #SectionDashboardItems nav ul .NoFor, #SectionFeedItems nav ul .NoFor {
-	display: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	
 	padding: 20px 30px;
 	border-radius: 20px;
@@ -2257,6 +2258,24 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 	.LightMode #DashboardControlPane {
 		background-color: var(--color-layout-p);
 	}
+
+	.LightMode #SectionDashboardItems nav ul .Box {
+		background-color: var(--color-theme-company-p);
+	}
+
+		/* YELLOW */
+
+		.LightMode #SectionDashboardItems nav ul .ThemeYellow a h1 {
+			color: var(--color-txt-p-lm);
+		}
+
+		.LightMode #SectionDashboardItems nav ul .ThemeYellow a h2 {
+			color: var(--color-txt-t-lm);
+		}
+
+		.LightMode #SectionDashboardItems nav ul .ThemeYellow a h3 {
+			color: var(--color-txt-s-lm);
+		}
 
 	.LightMode .FormPlatform form .FormPlatformContent .ContentInput .UserInputData,
 	.LightMode .FormPlatform form .FormPlatformContent .ContentInput select {

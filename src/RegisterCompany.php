@@ -56,8 +56,9 @@
                                 <option value = "ThemeDefault"> Padrão </option>
                                 <option value = "ThemeBlue"> Azul </option>
                                 <option value = "ThemeRed"> Vermelho </option>
-                                <option value = "ThemePink"> Rosa </option>
+                                <option value = "ThemeYellow"> Amarelo </option>
                                 <option value = "ThemeGreen"> Verde </option>
+                                <option value = "ThemePink"> Rosa </option>
                                 <option value = "ThemePurple"> Roxo </option>
                                 <option value = "ThemeOrange"> Laranja </option>
                                 <option value = "ThemeTeal"> Ciano </option>

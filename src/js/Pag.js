@@ -524,6 +524,22 @@ $(document).ready(function(){
 
 });
 
+/* Dashboard */
+
+$(document).ready(function(){
+
+    if($(".Box").length > 0){
+
+        $(".NoFor").css("display", "none");
+
+    }else{
+
+        $(".NoFor").css("display", "flex");
+
+    }
+
+});
+
 /*******************************************************
     Generate Message
 *******************************************************/

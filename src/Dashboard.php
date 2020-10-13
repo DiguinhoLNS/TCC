@@ -47,16 +47,43 @@
 
                             <li class = "NoFor"> Você não possui nenhuma empresa! </li>
                             
-                            <li class = "BoxSpace">
-                
-                                <div class = "Box">
-                                    <a href = "Feed.php" title = "Nome da Empresa">
-                                        <div class = "CompanyImage"></div>
-                                        <h1> Nome da Empresa </h1>
-                                        <h2> Empresa.inc </h2>
-                                        <h3> (XX) XXXX-XXXX </h3>
-                                    </a>
-                                </div>
+                            <li class = "Box ThemeDefault">
+                               
+                                <a href = "" title = "Nome da Empresa">
+                                    <h1> Nome da Empresa </h1>
+                                    <h2> cnpj </h2>
+                                    <h3> (XX) XXXX-XXXX </h3>
+                                </a>
+                            
+                            </li>
+
+                            <li class = "Box ThemeBlue">
+                               
+                                <a href = "" title = "Nome da Empresa">
+                                    <h1> Nome da Empresa </h1>
+                                    <h2> cnpj </h2>
+                                    <h3> (XX) XXXX-XXXX </h3>
+                                </a>
+                            
+                            </li>
+
+                            <li class = "Box ThemeYellow">
+                               
+                                <a href = "" title = "Nome da Empresa">
+                                    <h1> Nome da Empresa </h1>
+                                    <h2> cnpj </h2>
+                                    <h3> (XX) XXXX-XXXX </h3>
+                                </a>
+                            
+                            </li>
+
+                            <li class = "Box ThemeTeal">
+                               
+                                <a href = "" title = "Nome da Empresa">
+                                    <h1> Nome da Empresa </h1>
+                                    <h2> cnpj </h2>
+                                    <h3> (XX) XXXX-XXXX </h3>
+                                </a>
                             
                             </li>
 

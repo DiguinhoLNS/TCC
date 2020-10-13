@@ -104,30 +104,39 @@
 
                                             <h1 class = "HeaderCategory"> Perfil </h1>
 
-                                            <div class = "LeftContent">
+                                            <div class = "CategoryOptions">
 
-                                                <div class = "DataContent">
+                                                <div class = "CategoryText">
                                                     <h1> Nome </h1>
                                                     <h2> <?php echo $mostrar['Nome_user']; ?> </h2>
-                                                </div>
-                                                <div class = "DataContent">
-                                                    <h1> CPF </h1>
-                                                    <h2> <?php echo $mostrar['CPF_user']; ?> </h2>
-                                                </div>
-                                                <div class = "DataContent">
-                                                    <h1> Gênero </h1>
-                                                    <h2> <?php echo $mostrar['Genero_user']; ?> </h2>
-                                                </div>
-                                                <div class = "DataContent">
-                                                    <h1> Data de Nascimento </h1>
-                                                    <h2> <?php echo $dia . "/" . $mes . "/" . $ano ?> </h2>
                                                 </div>
 
                                             </div>
 
-                                            <div class = "RightContent">
+                                            <div class = "CategoryOptions">
 
-                                                <h1> Informações sobre o usuário </h1>
+                                                <div class = "CategoryText">
+                                                    <h1> CPF </h1>
+                                                    <h2> <?php echo $mostrar['CPF_user']; ?> </h2>
+                                                </div>
+
+                                            </div>
+
+                                            <div class = "CategoryOptions">
+
+                                                <div class = "CategoryText"">
+                                                    <h1> Gênero </h1>
+                                                    <h2> <?php echo $mostrar['Genero_user']; ?> </h2>
+                                                </div>
+
+                                            </div>
+
+                                            <div class = "CategoryOptions">
+
+                                                <div class = "CategoryText">
+                                                    <h1> Data de Nascimento </h1>
+                                                    <h2> <?php echo $dia . "/" . $mes . "/" . $ano ?> </h2>
+                                                </div>
 
                                             </div>
 
@@ -137,22 +146,21 @@
 
                                             <h1 class = "HeaderCategory"> Contato </h1>
 
-                                            <div class = "LeftContent">
+                                            <div class = "CategoryOptions">
 
-                                                <div class = "DataContent">
+                                                <div class = "CategoryText">
                                                     <h1> Email </h1>
                                                     <h2> <?php echo $mostrar['Email_user']; ?> </h2>
-                                                </div>
-                                                <div class = "DataContent">
-                                                    <h1> Telefone de contato </h1>
-                                                    <h2> <?php echo $mostrar['Telefone_user']; ?> </h2>
                                                 </div>
 
                                             </div>
 
-                                            <div class = "RightContent">
+                                            <div class = "CategoryOptions">
 
-                                                <h1> Informações de contato do usuário </h1>
+                                                <div class = "CategoryText">
+                                                    <h1> Telefone de contato </h1>
+                                                    <h2> <?php echo $mostrar['Telefone_user']; ?> </h2>
+                                                </div>
 
                                             </div>
 
@@ -162,23 +170,22 @@
 
                                             <h1 class = "HeaderCategory"> Segurança </h1>
 
-                                            <div class = "LeftContent">
+                                            <div class = "CategoryOptions">
 
-                                                <div class = "DataContent">
+                                                <div class = "CategoryText">
                                                     <h1> ID APE </h1>
                                                     <h2> <?php echo $mostrar['id_user']; ?> </h2>
-                                                </div>
-                                                <div class = "DataContent">
-                                                    <h1> Senha </h1>
-                                                    <h2 id = "DataPlaceholderPWD"> Exibir Senha </h2>
-                                                    <h2 id = "DataPWD"> <?php echo $mostrar['Senha_user']; ?> </h2>
                                                 </div>
 
                                             </div>
 
-                                            <div class = "RightContent">
+                                            <div class = "CategoryOptions">
 
-                                                <h1> Informações de segurança </h1>
+                                                <div class = "CategoryText">
+                                                    <h1> Senha </h1>
+                                                    <h2 id = "DataPlaceholderPWD"> Exibir Senha </h2>
+                                                    <h2 id = "DataPWD"> <?php echo $mostrar['Senha_user']; ?> </h2>
+                                                </div>
 
                                             </div>
 
