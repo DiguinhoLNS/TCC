@@ -13,6 +13,14 @@
     
     <body id = "LoginCompanyPage" class = "LightMode">
 
+    <?php
+    
+        include "php/Pag.php";
+
+        StopUserAccess();
+    
+    ?>
+
         <main id = "MainLoginCompany">
 
             <div class = "FormPlatform BS">

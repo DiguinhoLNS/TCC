@@ -16,6 +16,8 @@
         <?php
 
             include "php/Pag.php";
+
+            StopUserAccess();
             V_User();
             C_Login();
 

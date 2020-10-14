@@ -108,12 +108,9 @@ $(document).ready(function(){
     const HC = $("#HeaderConfig");
     const SNB = $("#SideNavBar");
     const DBCP = $("#DashboardControlPane");
-
-    // Effects
     const DE = $("#DarkEffect");
 
-    /* Hide element clicking outside element */
-  
+    /* Hide element clicking outside element */  
     $(document).mouseup(function(e){
 
         // HeaderNotification
@@ -543,13 +540,13 @@ $(document).ready(function(){
 /* Bottom Message */
 
 $(document).ready(function(){
-
+    
     $(".ExitMessageBottom").on("click", function(){
 
         $(".BottomMessage").css("bottom", "-75px");
 
     });
-
+    
 });
 
 /*******************************************************
@@ -592,5 +589,79 @@ $(document).ready(function(){
         }
 
     }
+
+});
+
+
+/*******************************************************
+    AJAX
+*******************************************************/
+
+$(document).ready(function(){
+
+    // ConsoleLog txt
+    function AJAXRequestStatus($s){
+
+        if($s == "0"){
+
+            console.log("Requisição AJAX foi mal sucedida");
+
+        }
+
+        if($s == "1"){
+
+            console.log("Requisição AJAX foi bem sucedida");
+
+        }
+
+    }
+
+    // Negar Cookies
+    function NegarCookies(){
+
+        $.ajax("ajax/cookies/NegarCookies.php",{
+
+        }).done(function(){
+
+            AJAXRequestStatus(1);
+
+        }).fail(function(){
+
+            AJAXRequestStatus(0);
+
+        });
+
+    }
+
+    // Permitir Cookies
+    function PermitirCookies(){
+
+        $.ajax("ajax/cookies/PermitirCookies.php",{
+
+        }).done(function(){
+
+            AJAXRequestStatus(1);
+
+        }).fail(function(){
+
+            AJAXRequestStatus(0);
+
+        });
+
+    }
+
+    // Negar Cookies
+    $("#CookiesOFF").click(function(){
+
+        NegarCookies();
+
+    });
+
+    // Permitir Cookies
+    $("#CookiesON").click(function(){
+
+        PermitirCookies();
+
+    });
 
 });

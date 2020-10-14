@@ -20,6 +20,10 @@
 	<body id = "RegisterUserPage" class = "LightMode">
 
 		<?php
+    
+			include "php/Pag.php";
+
+			StopUserAccess();
 
 			if(!isset($_SESSION["UserRegisterError_G"])){
 

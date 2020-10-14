@@ -15,6 +15,10 @@
 
 		<?php
 
+			include "php/Pag.php";
+
+			StopUserAccess();
+
 			if (!isset($_SESSION["UserLoginError_1"])) {
 
 				$_SESSION["UserRegisterError_1"] = 0;

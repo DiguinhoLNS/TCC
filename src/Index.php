@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php 
+
+    session_start();
+    
+?>
 
 <!DOCTYPE html>
 <html lang = "pt-br">
@@ -15,10 +19,12 @@
 
         <?php 
         
-            include "php/Pag.php";;
+            include "php/Pag.php";
+            
+            CookieStatus();
             C_Login();
 
-            include "include/Load.php";
+            include "include/Load.php";      
 
         ?>
         
@@ -107,9 +113,6 @@
                                         </a>
                                     </li>
 
-                                </ul>
-                                <ul>
-
                                     <li class = "DiscoverBlockText">
                                         <span> Multiplataforma </span>
                                     </li>
@@ -147,9 +150,6 @@
                                         </a>
                                     </li>
 
-                                </ul>
-                                <ul>
-
                                     <li class = "DiscoverBlockText">
                                         <span> Configurações Avançadas </span>
                                     </li>
@@ -186,7 +186,7 @@
 
                 <div id = "TopContent">
 
-                    <h1> A plataforma APE usa cookies para conteúdo personalizado e análise. <a href = ""> Cookies </a></h1>
+                    <h1> A plataforma APE utiliza cookies para personalizar o conteúdo da página, sem eles não podemos funcionar. <a href = "Sobre.php/#Cookies"> Saiba mais </a></h1>
 
                 </div>
 
