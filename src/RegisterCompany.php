@@ -1,5 +1,8 @@
-<?php session_start(); ?>
+<?php session_start(); 
 
+    $_SESSION['var'] = '2';
+
+?>
 <!DOCTYPE html>
 <html lang = "pt-br">
 
@@ -19,13 +22,108 @@
 
             StopUserAccess();
 
+            if(!isset($_SESSION["CompanyRegisterError_G"])){
+
+				$_SESSION["CompanyRegisterError_G"] = 0;
+				$_SESSION["CompanyRegisterError_1"] = 0;
+				$_SESSION["CompanyRegisterError_2"] = 0;
+				$_SESSION["CompanyRegisterError_3"] = 0;
+				$_SESSION["CompanyRegisterError_4"] = 0;
+
+			} else {
+
+				$CompanyRegisterError_G = $_SESSION["CompanyRegisterError_G"];
+				$CompanyRegisterError_1 = $_SESSION["CompanyRegisterError_1"];
+				$CompanyRegisterError_2 = $_SESSION["CompanyRegisterError_2"];
+				$CompanyRegisterError_3 = $_SESSION["CompanyRegisterError_3"];
+				$CompanyRegisterError_4 = $_SESSION["CompanyRegisterError_4"];
+                
+
+                if ($CompanyRegisterError_G == "1"){
+
+					if ($CompanyRegisterError_1 == "1"){
+
+						echo '
+							
+							<script language = "javascript" type = "text/javascript">
+							
+								$(document).ready(function(){
+
+									$("#ErrorNome").css("display", "block");
+
+								});
+							
+							</script>
+						
+						';
+
+					}
+
+					if ($CompanyRegisterError_2 == "1"){
+
+						echo '
+							
+							<script language = "javascript" type = "text/javascript">
+							
+								$(document).ready(function(){
+
+									$("#ErrorEmail").css("display", "block");
+
+								});
+							
+							</script>
+						
+						';
+
+					}
+
+					if($CompanyRegisterError_3 == "1"){
+
+						echo '
+							
+							<script language = "javascript" type = "text/javascript">
+							
+								$(document).ready(function(){
+
+									$("#ErrorCPF").css("display", "block");
+
+								});
+							
+							</script>
+						
+						';
+
+					}
+
+					if($CompanyRegisterError_4 == "1"){
+
+						echo '
+							
+							<script language = "javascript" type = "text/javascript">
+							
+								$(document).ready(function(){
+
+									$("#ErrorDataNasc").css("display", "block");
+
+								});
+							
+							</script>
+						
+						';
+						
+					}
+
+                }
+            }
+
+
         ?>
 
         <main id = "MainRegisterCompany">
 
             <div class = "FormPlatform BS">
 
-                <form method = "POST" action = "sql/.php">
+                <form method = "POST" action = "sql/VerificaCadastro.php">
 
                     <ul class = "FormPlatformContent">
 

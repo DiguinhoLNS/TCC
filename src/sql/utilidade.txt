@@ -6,3 +6,15 @@ INSERT INTO usuarios (Nome_user, Genero_user, Data_nasc_user, CPF_user, Email_us
 
 cpf varchar 11
 data varchar 15
+
+$bytes = random_bytes(3);
+echo strtoupper(bin2hex($bytes));
+
+CREATE DATABASE IF NOT EXISTS `bdape` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+	USE `bdape`;
+
+    //INCLUDE NA TABELA USER_EMPRESA
+		$sql = "INSERT INTO user_empresa (id_user) VALUES";
+		$sql .= " ('$id_adm','$id_empresa','$nivel_acesso') ";
+
+        INSERT INTO empresas (id_adm, codigo_acesso, Nome, CNPJ, Endereco, Email, Telefone, Cor_layout) VALUES ('1', 'E38DD9 ', '$Luís Gustavo', '$07179833000100', '$Rua Cerro de Mateus Simões', 'Luisgustavofeitoza@gmail.com', '11945620297', 'ThemeDefault')

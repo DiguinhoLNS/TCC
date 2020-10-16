@@ -18,6 +18,34 @@
         include "php/Pag.php";
 
         StopUserAccess();
+
+        if (!isset($_SESSION["CompanyLoginError_1"])) {
+
+            $_SESSION["CompanyRegisterError_1"] = 0;
+
+        } else {
+
+            $CompanyLoginError_1 = $_SESSION["CompanyLoginError_1"];
+
+            if ($CompanyLoginError_1 == "1") {
+
+                echo '
+                        
+                    <script language = "javascript" type = "text/javascript">
+                    
+                        $(document).ready(function(){
+
+                            $("#ErrorLogin").css("display", "block");
+
+                        });
+                    
+                    </script>
+                
+                ';
+
+            }
+
+        }
     
     ?>
 
