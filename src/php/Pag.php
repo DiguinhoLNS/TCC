@@ -58,6 +58,8 @@
 
         }else{
 
+            setcookie("CookiesStatus", "0", time() + (86400 * 30), "/");
+
             header("Location: Index.php");
 
         }
@@ -70,8 +72,6 @@
         if(!isset($_COOKIE["ID"])){
 
             include "EndUserSession.php";
-
-            header("Location: Index.php");
 
         }
 
