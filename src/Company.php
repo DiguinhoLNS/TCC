@@ -1,11 +1,15 @@
-<?php session_start(); 
-$id_adm = $_COOKIE["ID"]; 
-include "sql/ConexaoBD.php";
+<?php
 
-$base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
-$regra1 = "SELECT Nome, CNPJ, Endereco, Telefone, Email, Cor_layout FROM empresas where id_adm =  '$id_adm'";
-$res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
-$mostrar = mysqli_fetch_array($res);
+	session_start();
+	
+	include "sql/ConexaoBD.php";
+
+	$id_adm = $_COOKIE["ID"]; 
+	
+	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
+	$regra1 = "SELECT Nome, CNPJ, Endereco, Telefone, Email, Cor_layout FROM empresas where id_adm =  '$id_adm'";
+	$res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
+	$mostrar = mysqli_fetch_array($res);
 
 ?>
 
@@ -14,7 +18,7 @@ $mostrar = mysqli_fetch_array($res);
 
 	<head>
 
-		<title> <?php echo $mostrar['Nome']; ?> </title>
+		<title><?php echo $mostrar['Nome'];?></title>
 		
 		<?php include "include/Head.php"; ?>
 

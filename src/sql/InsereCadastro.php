@@ -1,12 +1,15 @@
 <?php
 
 	session_start();
-
-	$tipo_verificacao = $_SESSION['V'];
+	date_default_timezone_set('America/Sao_Paulo');
 
 	include "ConexaoBD.php";
 
-	switch ($tipo_verificacao) {
+	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
+
+	$tipo_verificacao = $_SESSION['V'];
+
+	switch($tipo_verificacao){
 
 		case 1:
 
@@ -15,7 +18,6 @@
 			$data = $_POST["data"];
 			$telefone = $_POST["telefone"];
 			$genero = $_POST["Genero"];
-			//$endereco = $_POST["endereco"];
 			$email = $_POST["email"];
 			$senha = $_POST["senha"];
 
@@ -45,7 +47,6 @@
 				$bytes = random_bytes(3);
 				$bytes2 = strtoupper(bin2hex($bytes));
 
-				$base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
 				$regra1 = "SELECT codigo_acesso FROM empresas where codigo_acesso =  '$bytes' ";
 				$res = mysqli_query($base, $regra1) or die("Erro na consulta");
 

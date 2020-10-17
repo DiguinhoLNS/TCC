@@ -164,7 +164,7 @@
                         <li class = "ContentInput">
 							<label for = "R_CNPJ"> CNPJ </label>
 							<span id = "ErrorCNPJ" class = "txtError"> CNPJ inválido </span>
-							<input id = "R_CNPJ" class = "UserInputData" type = "number" name = "cnpj" required />
+							<input id = "R_CNPJ" class = "UserInputData" type = "number" name = "cnpj" placeholder = "00.000.000/0000-00" required />
 						</li>
                         <li class = "ContentInput">
 							<label for = "R_Endereco"> Endereço </label>

@@ -1,38 +1,26 @@
 <?php
 
     session_start();
-
-    $tipo_verificacao = $_SESSION['V'];
-
     date_default_timezone_set('America/Sao_Paulo');
 
     include "ConexaoBD.php";
 
-    switch ($tipo_verificacao) {
+    $base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 
-        // User Register
+    $tipo_verificacao = $_SESSION['V'];
+
+    $E1 = 0;
+    $E2 = 0;
+    $E3 = 0;
+    $E4 = 0;
+    $E5 = 0;
+    $E6 = 0;
+    $E8 = 0;
+
+    switch($tipo_verificacao){
+
+        // User
         case 1:
-
-            //Nome
-            $_SESSION["UserRegisterError_1"] = 0;
-
-            //Email
-            $_SESSION["UserRegisterError_2"] = 0;
-
-            //CPF
-            $_SESSION["UserRegisterError_3"] = 0;
-
-            //Data nascimento
-            $_SESSION["UserRegisterError_4"] = 0;
-
-            //Endereço
-            $_SESSION["UserRegisterError_5"] = 0;
-
-            //Telefone
-            $_SESSION["UserRegisterError_6"] = 0;
-
-            //Senha
-            $_SESSION["UserRegisterError_8"] = 0;
 
             $nome = $_POST["nome"];
             $email = $_POST["email"];
@@ -42,15 +30,23 @@
             $genero = $_POST["Genero"];
             $endereco = $_POST["endereco"];
             $senha = $_POST["senha"];
-            $E1 = 0;
-            $E2 = 0;
-            $E3 = 0;
-            $E4 = 0;
-            $E5 = 0;
-            $E6 = 0;
-            $E8 = 0;
 
             $erros = 0;
+
+            //Nome
+            $_SESSION["UserRegisterError_1"] = 0;
+            //Email
+            $_SESSION["UserRegisterError_2"] = 0;
+            //CPF
+            $_SESSION["UserRegisterError_3"] = 0;
+            //Data nascimento
+            $_SESSION["UserRegisterError_4"] = 0;
+            //Endereço
+            $_SESSION["UserRegisterError_5"] = 0;
+            //Telefone
+            $_SESSION["UserRegisterError_6"] = 0;
+            //Senha
+            $_SESSION["UserRegisterError_8"] = 0;
 
             //VERIFICA NOME MENOS QUE DOIS CARACTERES E SE POSSUI CARACTERES ESPECIAIS
             if (strlen($nome) <= 2) {
@@ -76,8 +72,6 @@
             }
 
             //VERIFICA SE JÁ NAO EXISTE UM USUARIO COM MESMO EMAIL OU MESMO CPF
-            $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
-
             $regra1 = "SELECT Email_user, CPF_user FROM usuarios where Email_user =  '$email' and CPF_user = '$cpf'";
 
             $res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
@@ -327,6 +321,7 @@
 
         break;
 
+        // Company
         case 2:
 
             $nome = $_POST["nome"];
@@ -335,6 +330,7 @@
             $telefone = $_POST["telefone"];
             $cor = $_POST["CorLayout"];
             $endereco = $_POST["endereco"];
+
             $erros=0;
 
             //Nome
@@ -347,8 +343,6 @@
             $_SESSION["CompanyRegisterError_4"] = 0;
             //Endereço
             $_SESSION["CompanyRegisterError_4"] = 0;
-
-            $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
 
             $regra1 = "SELECT Email, CNPJ FROM empresas where Email =  '$email' and CNPJ = '$cnpj'";
 
