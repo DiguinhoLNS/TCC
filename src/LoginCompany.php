@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start(); $_SESSION['var'] = '2';?>
 
 <!DOCTYPE html>
 <html lang = "pt-br">
@@ -53,7 +53,7 @@
 
             <div class = "FormPlatform BS">
 
-                <form method = "POST" action = "sql/.php">
+                <form method = "POST" action = "sql/VerificaLogin.php">
 
                     <ul class = "FormPlatformContent">
 

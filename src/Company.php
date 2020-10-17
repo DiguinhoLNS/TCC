@@ -1,11 +1,20 @@
-<?php session_start(); ?>
+<?php session_start(); 
+$id_adm = $_COOKIE["ID"]; 
+include "sql/ConexaoBD.php";
+
+$base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
+$regra1 = "SELECT Nome, CNPJ, Endereco, Telefone, Email, Cor_layout FROM empresas where id_adm =  '$id_adm'";
+$res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
+$mostrar = mysqli_fetch_array($res);
+
+?>
 
 <!DOCTYPE html>
 <html lang = "pt-br">
 
 	<head>
 
-		<title> Nome da Empresa </title>
+		<title> <?php echo $mostrar['Nome']; ?> </title>
 		
 		<?php include "include/Head.php"; ?>
 
@@ -37,7 +46,7 @@
 
 				<section id = "SectionCompanyHeader">
 				
-					<h1 id = "CompanyName"> Nome da Empresa </h1>
+					<h1 id = "CompanyName"> <?php echo $mostrar['Nome']; ?> </h1>
 				
 				</section>
 
@@ -58,7 +67,7 @@
 								<div class = "CategoryText">
 
 									<h1> Nome </h1>
-									<h2> Nome da Empresa </h2>
+									<h2> <?php echo $mostrar['Nome']; ?> </h2>
 
 								</div>
 
@@ -69,7 +78,7 @@
 								<div class = "CategoryText">
 
 									<h1> CNPJ </h1>
-									<h2> 00.000.000/0000-00 </h2>
+									<h2> <?php echo $mostrar['CNPJ']; ?> </h2>
 
 								</div>
 
@@ -80,7 +89,7 @@
 								<div class = "CategoryText">
 
 									<h1> Endereço </h1>
-									<h2> Avenida Teste 311 </h2>
+									<h2> <?php echo $mostrar['Endereco']; ?> </h2>
 
 								</div>
 
@@ -91,7 +100,7 @@
 								<div class = "CategoryText">
 
 									<h1> Cor Tema </h1>
-									<h2> Roxo </h2>
+									<h2> <?php echo $mostrar['Cor_layout']; ?> </h2>
 
 								</div>
 
@@ -108,7 +117,7 @@
 								<div class = "CategoryText">
 
 									<h1> Telefone </h1>
-									<h2> (00) 0000-0000 </h2>
+									<h2> <?php echo $mostrar['Telefone']; ?> </h2>
 
 								</div>
 
@@ -119,7 +128,7 @@
 								<div class = "CategoryText">
 
 									<h1> Email </h1>
-									<h2> email@email.com </h2>
+									<h2> <?php echo $mostrar['Email']; ?> </h2>
 
 								</div>
 

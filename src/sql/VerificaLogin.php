@@ -2,19 +2,21 @@
 
 	session_start();
 
+	$tipo_verificacao = $_SESSION['var'];
 	include "ConexaoBD.php";
 
+	switch($tipo_verificacao){
+
+	
+	case 1: 
 	$_SESSION["UserLoginError_1"] = 0;
 
 	$email = $_POST['L_Email'];
 	$senha = $_POST['L_PWD'];
 
 	$base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
-
 	$regra1 = "SELECT Email_user, Senha_user, id_user FROM usuarios where Email_user =  '$email' and Senha_user = '$senha'";
-
 	$res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
-
 	$mostrar = mysqli_fetch_array($res);
 
 	if (strtolower($mostrar['Email_user']) == strtolower($email) && $mostrar['Senha_user'] == $senha) {
@@ -31,5 +33,34 @@
 		header("Location: ../LoginUser.php");
 		
 	}
+	break;
+
+	case 2:
+	$_SESSION["CompanyLoginError_1"] = 0;
+
+	$codigo_acesso = $_POST['cod'];
+
+	$base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
+	$regra1 = "SELECT codigo_acesso FROM empresas where codigo_acesso =  '$codigo_acesso'";
+	$res = mysqli_query($base, $regra1) or die("Erro na consulta");
+	$mostrar = mysqli_fetch_array($res);
+
+	if (strtolower($mostrar['codigo_acesso']) == $codigo_acesso) {
+
+		/*setcookie("ULogged", "1", time() + (86400 * 30), "/");
+		setcookie("ID", $mostrar['id_user'], time() + (86400 * 30), "/");*/
+
+		header("Location: ../Company.php");
+
+	} else {
+
+		$_SESSION["UserLoginError_1"] = "1";
+
+		header("Location: ../LoginCompany.php");
+		
+	}
+
+}
+
 
 ?>
