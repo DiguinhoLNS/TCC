@@ -2,7 +2,7 @@
 
 session_start();
 
-$tipo_verificacao = $_SESSION['var'];
+$tipo_verificacao = $_SESSION['V'];
 
 include "ConexaoBD.php";
 

@@ -106,7 +106,7 @@
 							
 								$(document).ready(function(){
 
-									$("#ErrorEndereco").css("display", "block");
+									$("#ErrorTelefone).css("display", "block");
 
 								});
 							
@@ -124,7 +124,7 @@
 							
 								$(document).ready(function(){
 
-									$("#ErrorTelefone").css("display", "block");
+									$("#ErrorEndereco").css("display", "block");
 
 								});
 							

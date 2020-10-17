@@ -207,7 +207,7 @@
 							<select name = "Genero" id = "R_Genero" class = "UserSelectData" required>
 								<option value = "Feminino"> Feminino </option>
 								<option value = "Masculino"> Masculino </option>
-								<option value = "Prefiro não informar"> Prefiro não informar </option>
+								<option value = "Outros"> Prefiro não informar </option>
                             </select>
 						</li>
 						<li class = "ContentInput">

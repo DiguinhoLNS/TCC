@@ -9,14 +9,6 @@
 
     $tipo_verificacao = $_SESSION['V'];
 
-    $E1 = 0;
-    $E2 = 0;
-    $E3 = 0;
-    $E4 = 0;
-    $E5 = 0;
-    $E6 = 0;
-    $E8 = 0;
-
     switch($tipo_verificacao){
 
         // User
@@ -28,10 +20,17 @@
             $data = $_POST["data"];
             $telefone = $_POST["telefone"];
             $genero = $_POST["Genero"];
-            $endereco = $_POST["endereco"];
+            //$endereco = $_POST["endereco"];
             $senha = $_POST["senha"];
 
             $erros = 0;
+            $E1 = 0;
+            $E2 = 0;
+            $E3 = 0;
+            $E4 = 0;
+            $E5 = 0;
+            $E6 = 0;
+            $E8 = 0;
 
             //Nome
             $_SESSION["UserRegisterError_1"] = 0;
@@ -72,22 +71,31 @@
             }
 
             //VERIFICA SE JÁ NAO EXISTE UM USUARIO COM MESMO EMAIL OU MESMO CPF
-            $regra1 = "SELECT Email_user, CPF_user FROM usuarios where Email_user =  '$email' and CPF_user = '$cpf'";
-
+            $regra1 = "SELECT * FROM usuarios where Email_user =  '$email' or CPF_user = '$cpf'";
             $res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
-
             $mostrar = mysqli_fetch_array($res);
+            $linhas = $res->num_rows;
 
-            if (strtolower($mostrar['Email_user']) == strtolower($email) || $mostrar['CPF_user'] == $cpf) {
-
-                //echo "Email ou CPF ja cadastrados";
-
+            if($linhas>0){
                 $E2 = "1";
                 $E3 = "1";
-
                 $erros++;
-
+            }else{
+                $E2 = 0;
+                $E3 = 0;
             }
+
+            /*if ($result = $mysqli->query("SELECT Code, Name FROM Country ORDER BY Name")) {
+
+                /* determine number of rows result set 
+                $row_cnt = $result->num_rows;
+            
+                printf("Result set has %d rows.\n", $row_cnt);
+            
+                 close result set 
+                $result->close();
+            }*/
+            
 
             //VERIFICA SE O CPF É VALIDO
             $soma1;
@@ -166,31 +174,6 @@
                 $erros++;
             }
 
-            //VERIFICA SE NO ENDEREÇO HÁ UMA DAS SEGUINTES PALAVRAS: RUA, AVENIDA, RODOVIA, ALAMEDA, VIELA, VIA, TRAVESSA, BECO, ESTRADA
-            $possiveis = array("rua", "avenida", "rodovia", "alameda", "viela", "travessa", "beco", "estrada");
-            //array(8) { [0]=> string(3) "rua" [1]=> string(7) "avenida" [2]=> string(7) "rodovia" [3]=> string(7) "alameda" [4]=> string(5) "viela" [5]=> string(8) "travessa" [6]=> string(4) "beco" [7]=> string(7) "estrada" }
-
-            $valid = 0;
-
-            for ($i = 0; $i < 8; $i++) {
-
-                $pos = strpos(strtolower($endereco), $possiveis[$i]);
-
-                if ($pos === false) {
-                    //echo "Endereço inválido"; Se apresentar nesse if ele apresenta invalido para todos os tipos que nao estao na string, resultando em muito texto repetido, por isso existe aquele if depois do fim do for
-                } else {
-                    
-                    $valid = 1;
-
-                }
-
-            }
-
-            if ($valid == 0) {
-
-                $E5 = "1";
-
-            }
 
             //VERIFICA SE FOI DIGITADO O DDD JUNTO COM O CELULAR
             if (strlen($telefone) < 10) {
@@ -280,6 +263,8 @@
 
                 $_SESSION["UserRegisterError_G"] = "0";
 
+                /*echo $mostrar['Email_user']."1 ".$email."2<br>";
+                echo $linhas;*/
                 include 'InsereCadastro.php';
 
             } else if ($erros > 0) {
@@ -314,13 +299,20 @@
                     $_SESSION["UserRegisterError_8"] = "1";
                 }
 
-                echo "Erro no cadastro";
+                /*echo "Erro no cadastro";
+
+                echo $E1." ".$E2." ".$E3." ".$E4." ".$E6." ".$E8."<br>";
+
+                echo $nome." ".$email." ".$cpf." ".$data." ".$telefone." ".$senha."<br>";
+
+                echo $linhas;*/
+
                 header("Location: ../RegisterUser.php");
 
             }
 
         break;
-
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         // Company
         case 2:
 
@@ -332,6 +324,11 @@
             $endereco = $_POST["endereco"];
 
             $erros=0;
+            $E1 = 0;
+            $E2 = 0;
+            $E3 = 0;
+            $E4 = 0;
+            $E5 = 0;
 
             //Nome
             $_SESSION["CompanyRegisterError_1"] = 0;
@@ -342,12 +339,10 @@
             //Telefone
             $_SESSION["CompanyRegisterError_4"] = 0;
             //Endereço
-            $_SESSION["CompanyRegisterError_4"] = 0;
+            $_SESSION["CompanyRegisterError_5"] = 0;
 
             $regra1 = "SELECT Email, CNPJ FROM empresas where Email =  '$email' and CNPJ = '$cnpj'";
-
             $res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
-
             $mostrar = mysqli_fetch_array($res);
 
             //VERIFICA NOME MENOS QUE DOIS CARACTERES E SE POSSUI CARACTERES ESPECIAIS
@@ -371,12 +366,16 @@
 
             }
 
-            if (strtolower($mostrar['Email']) == strtolower($email) || $mostrar['CNPJ'] == $cnpj) {
+            //VERIFICA SE JÁ NAO EXISTE UM USUARIO COM MESMO EMAIL OU MESMO CPF
+            $linhas = $res->num_rows;
 
+            if($linhas>0){
                 $E2 = "1";
                 $E3 = "1";
                 $erros++;
-
+            }else{
+                $E2 = 0;
+                $E3 = 0;
             }
 
             //VERIFICA SE O CNPJ É VALIDO
@@ -454,20 +453,20 @@
                 if ($pos === false) {
 
                     //echo "Endereço inválido"; Se apresentar nesse if ele apresenta invalido para todos os tipos que nao estao na string, resultando em muito texto repetido, por isso existe aquele if depois do fim do for
-                    $E4 = "1";
-                    $erros++;
+                    //NAO COLOQUE NENHUMA VARIVAEL AQUI
 
                 } else {
                     
                     $valid = 1;
+                    $E5 = "0";
 
                 }
 
             }
 
-            if ($valid == 0) {
+            if ($valid != 1) {
 
-                $E4 = "1";
+                $E5 = "1";
                 $erros++;
 
             }
@@ -475,7 +474,7 @@
             //VERIFICA SE FOI DIGITADO O DDD JUNTO COM O CELULAR
             if (strlen($telefone) < 10) {
 
-                $E5 = "1";
+                $E4 = "1";
                 $erros++;
 
             }
@@ -485,6 +484,7 @@
 
                 $_SESSION["CompanyRegisterError_G"] = "0";
 
+                $_SESSION['V'] = "2";
                 include 'InsereCadastro.php';
 
             } else if ($erros > 0) {
@@ -511,7 +511,11 @@
                     $_SESSION["CompanyRegisterError_5"] = "1";
                 }
 
-                header("Location: ../RegisterCompany.php");
+                echo $E1." ".$E2." ".$E3." ".$E4." ".$E5."<br>";
+
+                echo $nome." ".$email." ".$cnpj." ".$telefone." ".$endereco;
+
+                //header("Location: ../RegisterCompany.php");
 
             }
 
