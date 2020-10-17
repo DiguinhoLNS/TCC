@@ -1,6 +1,8 @@
-<?php session_start(); 
+<?php 
 
-    $_SESSION['var'] = '2';
+	session_start(); 
+
+    $_SESSION['V'] = '2';
 
 ?>
 <!DOCTYPE html>
@@ -29,6 +31,7 @@
 				$_SESSION["CompanyRegisterError_2"] = 0;
 				$_SESSION["CompanyRegisterError_3"] = 0;
 				$_SESSION["CompanyRegisterError_4"] = 0;
+				$_SESSION["CompanyRegisterError_5"] = 0;
 
 			} else {
 
@@ -37,7 +40,7 @@
 				$CompanyRegisterError_2 = $_SESSION["CompanyRegisterError_2"];
 				$CompanyRegisterError_3 = $_SESSION["CompanyRegisterError_3"];
 				$CompanyRegisterError_4 = $_SESSION["CompanyRegisterError_4"];
-                
+                $CompanyRegisterError_5 = $_SESSION["CompanyRegisterError_5"];
 
                 if ($CompanyRegisterError_G == "1"){
 
@@ -85,7 +88,7 @@
 							
 								$(document).ready(function(){
 
-									$("#ErrorCPF").css("display", "block");
+									$("#ErrorCNPJ").css("display", "block");
 
 								});
 							
@@ -103,7 +106,7 @@
 							
 								$(document).ready(function(){
 
-									$("#ErrorDataNasc").css("display", "block");
+									$("#ErrorEndereco").css("display", "block");
 
 								});
 							
@@ -113,9 +116,27 @@
 						
 					}
 
-                }
-            }
+					if($CompanyRegisterError_5 == "1"){
 
+						echo '
+							
+							<script language = "javascript" type = "text/javascript">
+							
+								$(document).ready(function(){
+
+									$("#ErrorTelefone").css("display", "block");
+
+								});
+							
+							</script>
+						
+						';
+						
+					}
+
+				}
+				
+            }
 
         ?>
 
@@ -134,21 +155,21 @@
 							<label for = "R_Nome"> Nome </label>
 							<span id = "ErrorNome" class = "txtError"> Nome inválido </span>
 							<input id = "R_Nome" class = "UserInputData" type = "text" name = "nome" required />
+						</li>
+						<li class = "ContentInput">
+							<label for = "R_Email"> Email </label>
+							<span id = "ErrorEmail" class = "txtError"> Email inválido </span>
+							<input id = "R_Email" class = "UserInputData" type = "email" name = "email" required />
                         </li>
                         <li class = "ContentInput">
 							<label for = "R_CNPJ"> CNPJ </label>
 							<span id = "ErrorCNPJ" class = "txtError"> CNPJ inválido </span>
 							<input id = "R_CNPJ" class = "UserInputData" type = "number" name = "cnpj" required />
-                        </li>
+						</li>
                         <li class = "ContentInput">
 							<label for = "R_Endereco"> Endereço </label>
 							<span id = "ErrorEndereco" class = "txtError"> Endereço inválido </span>
 							<input id = "R_Endereco" class = "UserInputData" type = "text" name = "endereco" required />
-                        </li>
-                        <li class = "ContentInput">
-							<label for = "R_Email"> Email </label>
-							<span id = "ErrorEmail" class = "txtError"> Email inválido </span>
-							<input id = "R_Email" class = "UserInputData" type = "email" name = "email" required />
                         </li>
                         <li class = "ContentInput">
 							<label for = "R_Telefone"> Telefone </label>
@@ -157,7 +178,6 @@
                         </li>
                         <li class = "ContentInput">
 							<label for = "R_Cor"> Cor </label>
-							<span id = "ErrorCor" class = "txtError"> Cor inválida </span>
 							<select name = "CorLayout" id = "R_Cor" class = "UserSelectData">
                                 <option value = "ThemeDefault"> Padrão </option>
                                 <option value = "ThemeBlue"> Azul </option>

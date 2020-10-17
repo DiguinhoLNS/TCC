@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php 
+
+    session_start(); 
+    
+    $_SESSION['V'] = '1'; 
+    
+?>
 
 <!DOCTYPE html>
 <html lang = "pt-br">

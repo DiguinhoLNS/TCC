@@ -1,4 +1,10 @@
-<?php session_start(); $_SESSION['var'] = '2';?>
+<?php 
+
+    session_start(); 
+    
+    $_SESSION['V'] = '2'; 
+    
+?>
 
 <!DOCTYPE html>
 <html lang = "pt-br">
