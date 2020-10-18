@@ -128,33 +128,43 @@ h1, h2, h3, h4, h5, h6 {
 	/* Themes */
 	--color-theme-default-p: var(--color-theme-p);
 	--color-theme-default-s: rgba(106, 80, 167, 60%);
+	--color-theme-default-hover: rgba(106, 80, 167, 80%);
 
 	--color-theme-blue-p: #2196F3;
 	--color-theme-blue-s: rgba(33, 150, 243, 60%);
+	--color-theme-blue-hover: rgba(33, 150, 243, 80%);
 
 	--color-theme-red-p: #F44336;
 	--color-theme-red-s: rgba(244, 67, 54, 60%);
+	--color-theme-red-hover: rgba(244, 67, 54, 80%);
 
 	--color-theme-pink-p: #E91E63;
 	--color-theme-pink-s: rgba(233, 30, 99, 60%);
+	--color-theme-pink-hover: rgba(233, 30, 99, 80%);
 
 	--color-theme-green-p: #4CAF50;
 	--color-theme-green-s: rgba(76, 175, 80, 60%);
+	--color-theme-green-hover:rgba(76, 175, 80, 80%);
 
 	--color-theme-purple-p: #9C27B0;
 	--color-theme-purple-s: rgba(156, 39, 176, 60%);
+	--color-theme-purple-hover:rgba(156, 39, 176, 80%);
 
 	--color-theme-orange-p: #FF5722;
 	--color-theme-orange-s: rgba(255, 87, 34, 60%);
+	--color-theme-orange-hover:rgba(255, 87, 34, 80%);
 
 	--color-theme-teal-p: #009688;
 	--color-theme-teal-s: rgba(0, 150, 136, 60%);
+	--color-theme-teal-hover: rgba(0, 150, 136, 80%);
 
 	--color-theme-brown-p: #795548;
 	--color-theme-brown-s: rgba(121, 85, 72, 60%);
+	--color-theme-brown-hover: rgba(121, 85, 72, 80%);
 
 	--color-theme-yellow-p: #FFEB3B;
 	--color-theme-yellow-s: rgba(255, 235, 59, 60%);
+	--color-theme-yellow-hover:  rgba(255, 235, 59, 80%);
 	
 	/* Dark Mode */
 	--color-layout-p-dm: rgb(12, 12, 12);
@@ -182,51 +192,61 @@ h1, h2, h3, h4, h5, h6 {
 .ThemeDefault {
 	--color-theme-company-p: var(--color-theme-default-p);
 	--color-theme-company-s: var(--color-theme-default-s);
+	--color-theme-company-hover: var(--color-theme-default-hover);
 }
 
 .ThemeBlue {
 	--color-theme-company-p: var(--color-theme-blue-p);
 	--color-theme-company-s: var(--color-theme-blue-s);
+	--color-theme-company-hover: var(--color-theme-blue-hover);
 }
 
 .ThemeRed {
 	--color-theme-company-p: var(--color-theme-red-p);
 	--color-theme-company-s: var(--color-theme-red-s);
+	--color-theme-company-hover: var(--color-theme-red-hover);
 }
 
 .ThemePink {
 	--color-theme-company-p: var(--color-theme-pink-p);
 	--color-theme-company-s: var(--color-theme-pink-s);
+	--color-theme-company-hover: var(--color-theme-pink-hover);
 }
 
 .ThemeGreen {
 	--color-theme-company-p: var(--color-theme-green-p);
 	--color-theme-company-s: var(--color-theme-green-s);
+	--color-theme-company-hover: var(--color-theme-green-hover);
 }
 
 .ThemePurple {
 	--color-theme-company-p: var(--color-theme-purple-p);
 	--color-theme-company-s: var(--color-theme-purple-s);
+	--color-theme-company-hover: var(--color-theme-purple-hover);
 }
 
 .ThemeOrange {
 	--color-theme-company-p: var(--color-theme-orange-p);
 	--color-theme-company-s: var(--color-theme-orange-s);
+	--color-theme-company-hover: var(--color-theme-orange-hover);
 }
 
 .ThemeTeal {
 	--color-theme-company-p: var(--color-theme-teal-p);
 	--color-theme-company-s: var(--color-theme-teal-s);
+	--color-theme-company-hover: var(--color-theme-teal-hover);
 }
 
 .ThemeBrown {
 	--color-theme-company-p: var(--color-theme-brown-p);
 	--color-theme-company-s: var(--color-theme-brown-s);
+	--color-theme-company-hover: var(--color-theme-brown-hover);
 }
 
 .ThemeYellow {
 	--color-theme-company-p: var(--color-theme-yellow-p);
 	--color-theme-company-s: var(--color-theme-yellow-s);
+	--color-theme-company-hover: var(--color-theme-yellow-hover);
 }
 
 .DarkMode {
@@ -580,60 +600,52 @@ h1, h2, h3, h4, h5, h6 {
 			background-color: var(--color-layout-t);
 		}
 
-			/* Companies Bar */
+			/* Companies Quick Access Bar */
 
-			#CompaniesGroup {
+			#CompaniesQuickAccessBar {
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
 				grid-template-rows: auto;
-				grid-gap: 50px 20px;
+				grid-gap: 50px 0;
 				
 				width: 100%;
-				padding: 25px 70px;
-				border-radius: 40px;
+				border-radius: 46px;
 
 				background-color: var(--color-layout-s);
 			}
 
 			.CompanyBox {
-				display: grid;
-				grid-template-columns: 100px auto;
-				grid-template-rows: 30px 25px auto;
-				align-content: center;
+				padding: 30px 40px;
+
+				background-color: var(--color-theme-company-p);
 			}
 
-			.CompanyBox .CompanyImage {
-				grid-column: 1/2;
-				grid-row: 1/4;
+				.CompanyBox:hover {
+					background-color: var(--color-theme-company-hover);
+				}
 
-				width: 80px;
-				height: 80px;
-				margin-right: 20px;
-				border-radius: 50%;
-				
-				background-color: lightgrey;
-			}
+				.CompanyBox:nth-child(1){
+					border-radius: 46px 0 0 46px;
+				}
 
-			/* Text */
+				.CompanyBox:nth-child(2){
+					border-radius: 0;
+				}
+
+				.CompanyBox:nth-child(3){
+					border-radius: 0 46px 46px 0;
+				}
+
 			.CompanyBox h1 {
-				color: var(--color-txt-p);
-				font-size: 20px;
+				width: 100%;
+
+				color: var(--color-txt-p-dm);
+				font-size: 26px;
+				text-align: center;
 			}
 
-			.CompanyBox h2 {
-				color: var(--color-txt-t);
-				font-size: 12px;
-			}
-
-			.CompanyBox span a {
-				width: auto;
-				
-				color: var(--color-txt-s);
-				font-size: 14px;
-			}
-
-				.CompanyBox span a:hover {
-					color: var(--color-txt-p);
+				.ThemeYellow h1 {
+					color: var(--color-txt-p-lm);
 				}
 
 			/* Discover */
@@ -1741,7 +1753,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 14px;
 }
 
-.BottomMessage .MessageContent #BottomContent #CookiesOFF {
+.BottomMessage .MessageContent #BottomContent .CookiesOFF {
 	margin: 6px 0;
 	
 	color: var(--color-txt-t-dm);
@@ -1751,11 +1763,11 @@ h1, h2, h3, h4, h5, h6 {
 	transition: 0.1s ease;
 }
 
-	.BottomMessage .MessageContent #BottomContent #CookiesOFF:hover {
+	.BottomMessage .MessageContent #BottomContent .CookiesOFF:hover {
 		color: var(--color-txt-s-dm);
 	}
 
-.BottomMessage .MessageContent #BottomContent #CookiesON {
+.BottomMessage .MessageContent #BottomContent .CookiesON {
 	padding: 4px 16px;
 	margin-left: 18px;
 	border: 2px solid var(--color-theme-t);
@@ -1769,7 +1781,7 @@ h1, h2, h3, h4, h5, h6 {
 	cursor: pointer;
 }
 
-.BottomMessage .MessageContent #BottomContent #CookiesON:hover {
+.BottomMessage .MessageContent #BottomContent .CookiesON:hover {
 	background-color: var(--color-theme-hover);
 }
 

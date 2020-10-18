@@ -68,14 +68,14 @@ $(document).ready(function(){
     }
 
     // Deny Cookies
-    $("#CookiesOFF").click(function(){
+    $(".CookiesOFF").click(function(){
 
         DenyCookies();
 
     });
 
     // Allow Cookies
-    $("#CookiesON").click(function(){
+    $(".CookiesON").click(function(){
 
         AllowCookies();
 

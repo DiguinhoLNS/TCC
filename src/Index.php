@@ -58,32 +58,25 @@
 
                 <section id = "SectionIndexDiscover">
 
-                    <div id = "CompaniesGroup">
+                    <div id = "CompaniesQuickAccessBar">
 
-                        <div class = "CompanyBox">
+                        <a href = "" class = "CompanyBox ThemeGreen" title = "Acessar NOME DA EMPRESA">
 
-                            <div class = "CompanyImage"></div>
-                            <h1> Empresa </h1>
-                            <h2> Empresa.inc </h2>
-                            <span><a href = "#" title = "Acessar"> Acessar </a></span>      
+                           <h1> Nome da Empresa </h1>
+                        
+                        </a>
 
-                        </div>
-                        <div class = "CompanyBox">
+                        <a href = "" class = "CompanyBox ThemeTeal" title = "Acessar NOME DA EMPRESA">
 
-                            <div class = "CompanyImage"></div>
-                            <h1> Empresa </h1>
-                            <h2> Empresa.inc </h2>
-                            <span><a href = "#" title = "Acessar"> Acessar </a></span>      
+                           <h1> Nome da Empresa </h1>
+                        
+                        </a>
 
-                        </div>
-                        <div class = "CompanyBox">
+                        <a href = "" class = "CompanyBox ThemeYellow" title = "Acessar NOME DA EMPRESA">
 
-                            <div class = "CompanyImage"></div>
-                            <h1> Empresa </h1>
-                            <h2> Empresa.inc </h2>
-                            <span><a href = "#" title = "Acessar"> Acessar </a></span>      
-
-                        </div>
+                           <h1> Nome da Empresa </h1>
+                        
+                        </a>
 
                     </div>
 
@@ -186,14 +179,13 @@
 
                 <div id = "TopContent">
 
-                    <h1> A plataforma APE utiliza cookies para personalizar o conteúdo da página, sem eles não podemos funcionar. <a href = "Sobre.php/#Cookies"> Saiba mais </a></h1>
+                    <h1> Ao utilizar a nossa plataforma você concorda em utilizar cookies para personalizar o conteúdo da página. <a href = "Sobre.php/#Cookies"> Saiba mais </a></h1>
 
                 </div>
 
                 <div id = "BottomContent">
 
-                    <span id = "CookiesOFF" class = "ExitMessageBottom"> Negar Cookies </span>
-                    <button id = "CookiesON" class = "ExitMessageBottom"> Aceitar Cookies </button>
+                    <button class = "ExitMessageBottom CookiesON"> Aceitar Cookies </button>
 
                 </div>
 

@@ -508,6 +508,22 @@ $(document).ready(function(){
 
 });
 
+/* Quick Access Bar */
+
+$(document).ready(function(){
+
+    if($(".CompanyBox").length > 0){
+
+        $("#CompaniesQuickAccessBar").css("display", "grid");
+
+    }else{
+
+        $("#CompaniesQuickAccessBar").css("display", "none");
+
+    }
+
+});
+
 /* PWD View */
 
 $(document).ready(function(){
