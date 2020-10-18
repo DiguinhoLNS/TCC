@@ -193,42 +193,42 @@
 							<h1> Criar Conta </h1>
 						</li>
 						<li class = "ContentInput">
-							<label for = "R_Nome"> Nome </label>
+							<label for = "R_UserNome"> Nome </label>
 							<span id = "ErrorNome" class = "txtError"> Nome inválido </span>
-							<input id = "R_Nome" class = "UserInputData" type = "text" name = "nome" required />
+							<input id = "R_UserNome" class = "UserInputData" type = "text" name = "nome" required />
 						</li>
 						<li class = "ContentInput">
-							<label for = "R_CPF"> CPF </label>
+							<label for = "R_UserCPF"> CPF </label>
 							<span id = "ErrorCPF" class = "txtError"> CPF inválido </span>
-							<input id = "R_CPF" class = "UserInputData" type = "number" name = "CPF" required />
+							<input id = "R_UserCPF" class = "UserInputData" type = "text" name = "CPF" required />
 						</li>
 						<li class = "ContentInput">
-							<label for = "R_Genero"> Gênero </label>
-							<select name = "Genero" id = "R_Genero" class = "UserSelectData" required>
+							<label for = "R_UserGenero"> Gênero </label>
+							<select name = "Genero" id = "R_UserGenero" class = "UserSelectData" required>
 								<option value = "Feminino"> Feminino </option>
 								<option value = "Masculino"> Masculino </option>
 								<option value = "Outros"> Prefiro não informar </option>
                             </select>
 						</li>
 						<li class = "ContentInput">
-							<label for = "R_DataNasc"> Data de Nascimento </label>
+							<label for = "R_UserDataNasc"> Data de Nascimento </label>
 							<span id = "ErrorDataNasc" class = "txtError"> Data inválida </span>
-							<input id = "R_DataNasc" class = "UserInputData" type = "date" name = "data" required />
+							<input id = "R_UserDataNasc" class = "UserInputData" type = "date" name = "data" required />
 						</li>
 						<li class = "ContentInput">
-							<label for = "R_Email"> Email </label>
+							<label for = "R_UserEmail"> Email </label>
 							<span id = "ErrorEmail" class = "txtError"> Email inválido </span>
-							<input id = "R_Email" class = "UserInputData" type = "email" name = "email" required />
+							<input id = "R_UserEmail" class = "UserInputData" type = "email" name = "email" required />
 						</li>
 						<li class = "ContentInput">
-							<label for = "R_Telefone"> Telefone de contato </label>
+							<label for = "R_UserTelefone"> Telefone de contato </label>
 							<span id = "ErrorTelefone" class = "txtError"> Telefone inválido </span>
-							<input id = "R_Telefone" class = "UserInputData" type = "number" name = "telefone" placeholder = "Fixo ou móvel" required />
+							<input id = "R_UserTelefone" class = "UserInputData" type = "text" name = "telefone" placeholder = "Fixo ou móvel" required />
 						</li>
 						<li class = "ContentInput">
-							<label for = "R_Senha"> Senha </label>
+							<label for = "R_UserSenha"> Senha </label>
 							<span id = "ErrorSenha" class = "txtError"> Senha inválida </span>
-							<input id = "R_Senha" class = "UserInputData" type = "password" name = "senha" required />
+							<input id = "R_UserSenha" class = "UserInputData" type = "password" name = "senha" required />
 						</li>
 						<li class = "ContentBottom">
 							<a href="LoginUser.php"> Já possui uma conta? </a>

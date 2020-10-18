@@ -138,7 +138,7 @@
 				
             }
 
-        ?>
+		?>
 
         <main id = "MainRegisterCompany">
 
@@ -152,33 +152,33 @@
 							<h1> Criar Página </h1>
                         </li>
                         <li class = "ContentInput">
-							<label for = "R_Nome"> Nome </label>
+							<label for = "R_CompanyNome"> Nome </label>
 							<span id = "ErrorNome" class = "txtError"> Nome inválido </span>
-							<input id = "R_Nome" class = "UserInputData" type = "text" name = "nome" required />
+							<input id = "R_CompanyNome" class = "UserInputData" type = "text" name = "nome" required />
 						</li>
 						<li class = "ContentInput">
-							<label for = "R_Email"> Email </label>
+							<label for = "R_CompanyEmail"> Email </label>
 							<span id = "ErrorEmail" class = "txtError"> Email inválido </span>
-							<input id = "R_Email" class = "UserInputData" type = "email" name = "email" required />
+							<input id = "R_CompanyEmail" class = "UserInputData" type = "email" name = "email" required />
                         </li>
                         <li class = "ContentInput">
-							<label for = "R_CNPJ"> CNPJ </label>
+							<label for = "R_CompanyCNPJ"> CNPJ </label>
 							<span id = "ErrorCNPJ" class = "txtError"> CNPJ inválido </span>
-							<input id = "R_CNPJ" class = "UserInputData" type = "number" name = "cnpj" placeholder = "00.000.000/0000-00" required />
+							<input id = "R_CompanyCNPJ" class = "UserInputData" type = "text" name = "cnpj" required />
 						</li>
                         <li class = "ContentInput">
-							<label for = "R_Endereco"> Endereço </label>
+							<label for = "R_CompanyEndereco"> Endereço </label>
 							<span id = "ErrorEndereco" class = "txtError"> Endereço inválido </span>
-							<input id = "R_Endereco" class = "UserInputData" type = "text" name = "endereco" required />
+							<input id = "R_CompanyEndereco" class = "UserInputData" type = "text" name = "endereco" required />
                         </li>
                         <li class = "ContentInput">
-							<label for = "R_Telefone"> Telefone </label>
+							<label for = "R_CompanyTelefone"> Telefone </label>
 							<span id = "ErrorTelefone" class = "txtError"> Telefone inválido </span>
-							<input id = "R_Telefone" class = "UserInputData" type = "number" name = "telefone" required />
+							<input id = "R_CompanyTelefone" class = "UserInputData" type = "text" name = "telefone" required />
                         </li>
                         <li class = "ContentInput">
-							<label for = "R_Cor"> Cor </label>
-							<select name = "CorLayout" id = "R_Cor" class = "UserSelectData">
+							<label for = "R_CompanyCor"> Cor </label>
+							<select name = "CorLayout" id = "R_CompanyCor" class = "UserSelectData">
                                 <option value = "ThemeDefault"> Padrão </option>
                                 <option value = "ThemeBlue"> Azul </option>
                                 <option value = "ThemeRed"> Vermelho </option>

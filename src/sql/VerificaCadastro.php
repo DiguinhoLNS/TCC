@@ -20,7 +20,6 @@
             $data = $_POST["data"];
             $telefone = $_POST["telefone"];
             $genero = $_POST["Genero"];
-            //$endereco = $_POST["endereco"];
             $senha = $_POST["senha"];
 
             $erros = 0;
@@ -95,7 +94,6 @@
                  close result set 
                 $result->close();
             }*/
-            
 
             //VERIFICA SE O CPF É VALIDO
             $soma1;
@@ -298,21 +296,12 @@
                 if ($E8 == "1") {
                     $_SESSION["UserRegisterError_8"] = "1";
                 }
-
-                /*echo "Erro no cadastro";
-
-                echo $E1." ".$E2." ".$E3." ".$E4." ".$E6." ".$E8."<br>";
-
-                echo $nome." ".$email." ".$cpf." ".$data." ".$telefone." ".$senha."<br>";
-
-                echo $linhas;*/
-
                 header("Location: ../RegisterUser.php");
 
             }
 
         break;
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
         // Company
         case 2:
 
@@ -485,6 +474,7 @@
                 $_SESSION["CompanyRegisterError_G"] = "0";
 
                 $_SESSION['V'] = "2";
+                
                 include 'InsereCadastro.php';
 
             } else if ($erros > 0) {
@@ -511,11 +501,7 @@
                     $_SESSION["CompanyRegisterError_5"] = "1";
                 }
 
-                echo $E1." ".$E2." ".$E3." ".$E4." ".$E5."<br>";
-
-                echo $nome." ".$email." ".$cnpj." ".$telefone." ".$endereco;
-
-                //header("Location: ../RegisterCompany.php");
+                header("Location: ../RegisterCompany.php");
 
             }
 
