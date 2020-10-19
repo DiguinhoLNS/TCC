@@ -1,7 +1,8 @@
 <?php session_start(); include 'sql/ConexaoBD.php';
 
+    $id = $_COOKIE["ID"];
     $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
-    $regra1 = "SELECT * FROM empresas where id_adm =  '$id_adm' ";
+    $regra1 = "SELECT * FROM empresas where id_adm =  '$id' ";
     $res = mysqli_query($base, $regra1) or die("Erro na consulta");
     $mostrar = mysqli_fetch_array($res);
     $linhas = $res->num_rows;
@@ -55,51 +56,32 @@
 
                         <ul id = "DashboardBoxContent">
 
-                            <?php if($linhas>0){
+                            <?php if($linhas==0){
 
-                           echo '<li class = "NoFor"> Você não possui nenhuma empresa! </li>';
+                            echo '<li class = "NoFor"> Você não possui nenhuma empresa! </li>';
                         
-                        }else{echo '
+                                }else{
+
+                                    $i=0;
+
+                                    do{   
+
+
+                            echo '
                             
                             <li class = "Box ThemeDefault">
                                
                                 <a href = "" title = "Nome da Empresa">
-                                    <h1> Nome da Empresa </h1>
+                                    <h1> '. $linhas .'</h1>
                                     <h2> cnpj </h2>
                                     <h3> (XX) XXXX-XXXX </h3>
-                                </a>
-                            
-                            </li>
+                                </a>                      
+                                 
+                            </li>';
 
-                            <li class = "Box ThemeBlue">
-                               
-                                <a href = "" title = "Nome da Empresa">
-                                    <h1> Nome da Empresa </h1>
-                                    <h2> cnpj </h2>
-                                    <h3> (XX) XXXX-XXXX </h3>
-                                </a>
-                            
-                            </li>
-
-                            <li class = "Box ThemeYellow">
-                               
-                                <a href = "" title = "Nome da Empresa">
-                                    <h1> Nome da Empresa </h1>
-                                    <h2> cnpj </h2>
-                                    <h3> (XX) XXXX-XXXX </h3>
-                                </a>
-                            
-                            </li>
-
-                            <li class = "Box ThemeTeal">
-                               
-                                <a href = "" title = "Nome da Empresa">
-                                    <h1> Nome da Empresa </h1>
-                                    <h2> cnpj </h2>
-                                    <h3> (XX) XXXX-XXXX </h3>
-                                </a>
-                            
-                            </li>';}?>
+                            $i++;
+                                    }while($i!=$linhas);
+                            }?>
 
                         </ul>
 

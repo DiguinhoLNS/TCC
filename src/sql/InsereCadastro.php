@@ -68,7 +68,7 @@
 			$id_adm = $_COOKIE["ID"];
 			$nome = $_POST["nome"];
 			$email = $_POST["email"];
-			$cnpj = $_POST["cnpj"];
+			$cnpj = $_SESSION['cnpjsemponto'];
 			$telefone = $_POST["telefone"];
 			$cor = $_POST["CorLayout"];
 			$endereco = $_POST["endereco"];
@@ -83,6 +83,8 @@
 
 			} else {
 
+				/*echo "Erro 2<br>";
+				echo $id_adm." ".$bytes2." ".$nome." ".$cnpj." ".$endereco." ".$email." ".$telefone." ".$cor;*/
 				header("Location: ../RegisterCompany.php");
 			}
 

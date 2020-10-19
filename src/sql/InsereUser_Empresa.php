@@ -35,7 +35,7 @@ switch ($tipo_verificacao) {
             header("Location: ../Company.php");
         } else {
 
-            echo "Erro no cadastro de User_Empresa";
+            echo "Erro 3";
             //header("Location: ../RegisterCompany.php");
         }
 

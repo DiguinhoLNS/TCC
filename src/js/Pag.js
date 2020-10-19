@@ -541,7 +541,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 
-    if($(".Box").length > 0){
+    /*if($(".Box").length > 0){
 
         $(".NoFor").css("display", "none");
 
@@ -549,7 +549,7 @@ $(document).ready(function(){
 
         $(".NoFor").css("display", "flex");
 
-    }
+    }*/
 
 });
 

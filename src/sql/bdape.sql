@@ -34,7 +34,7 @@ CREATE TABLE `empresas` (
   `CNPJ` varchar(14) NOT NULL,
   `Endereco` varchar(100) NOT NULL,
   `Email` varchar(100) NOT NULL,
-  `Telefone` varchar(11) NOT NULL,
+  `Telefone` varchar(15) NOT NULL,
   `Cor_layout` varchar(20) NOT NULL
 ) ENGINE = MyISAM DEFAULT CHARSET = latin1;
 -- --------------------------------------------------------
@@ -72,7 +72,7 @@ CREATE TABLE `usuarios` (
   `Data_nasc_user` varchar(15) NOT NULL,
   `CPF_user` varchar(11) NOT NULL,
   `Email_user` varchar(100) NOT NULL,
-  `Telefone_user` varchar(11) NOT NULL,
+  `Telefone_user` varchar(15) NOT NULL,
   `Senha_user` varchar(20) NOT NULL
 ) ENGINE = MyISAM DEFAULT CHARSET = latin1;
 --

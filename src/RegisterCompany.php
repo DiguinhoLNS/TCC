@@ -172,7 +172,7 @@
 							<input id = "R_CompanyEndereco" class = "UserInputData" type = "text" name = "endereco" required />
                         </li>
                         <li class = "ContentInput">
-							<label for = "R_CompanyTelefone"> Telefone </label>
+							<label for = "R_CompanyTelefone"> Telefone Fixo </label>
 							<span id = "ErrorTelefone" class = "txtError"> Telefone inválido </span>
 							<input id = "R_CompanyTelefone" class = "UserInputData" type = "text" name = "telefone" required />
                         </li>
