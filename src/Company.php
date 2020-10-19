@@ -5,11 +5,13 @@
 	include "sql/ConexaoBD.php";
 
 	$id_adm = $_COOKIE["ID"]; 
+	$_SESSION['V'] = '2';
 	
 	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 	$regra1 = "SELECT Nome, CNPJ, Endereco, Telefone, Email, Cor_layout FROM empresas where id_adm =  '$id_adm'";
 	$res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
 	$mostrar = mysqli_fetch_array($res);
+
 
 ?>
 
@@ -296,7 +298,7 @@
 								<div class = "btnContent">
 
 									<button>
-										<a href = ""> Apagar Dados </a>
+										<a href = "sql/ApagarCadastros.php?"> Apagar Dados </a>
 									</button>
 
 								</div>
@@ -315,7 +317,7 @@
 								<div class = "btnContent">
 
 									<button>
-										<a href = ""> Apagar Empresa </a>
+										<a href = "sql/ApagarCadastros.php"> Apagar Empresa </a>
 									</button>
 
 								</div>

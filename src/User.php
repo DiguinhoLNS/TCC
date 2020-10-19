@@ -10,6 +10,7 @@
         <?php include "include/Head.php"; ?>
 
         <?php
+            $_SESSION['V'] = '1';
 
             $id = $_COOKIE["ID"];
 
@@ -448,7 +449,7 @@
                                                 <div class = "btnContent">
 
                                                     <button>
-                                                        <a href = ""> Apagar Conta </a>
+                                                        <a href = "sql/ApagarCadastros.php"> Apagar Conta </a>
                                                     </button>
 
                                                 </div>

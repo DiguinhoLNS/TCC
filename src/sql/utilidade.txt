@@ -17,4 +17,5 @@ CREATE DATABASE IF NOT EXISTS `bdape` DEFAULT CHARACTER SET latin1 COLLATE latin
 		$sql = "INSERT INTO user_empresa (id_user) VALUES";
 		$sql .= " ('$id_adm','$id_empresa','$nivel_acesso') ";
 
-        INSERT INTO empresas (id_adm, codigo_acesso, Nome, CNPJ, Endereco, Email, Telefone, Cor_layout) VALUES ('1', 'E38DD9 ', '$Luís Gustavo', '$07179833000100', '$Rua Cerro de Mateus Simões', 'Luisgustavofeitoza@gmail.com', '11945620297', 'ThemeDefault')
+INSERT INTO empresas (id_adm, codigo_acesso, Nome, CNPJ, Endereco, Email, Telefone, Cor_layout) VALUES ('1', 'E38DD9 ', '$Luís Gustavo', '$07179833000100', '$Rua Cerro de Mateus Simões', 'Luisgustavofeitoza@gmail.com', '11945620297', 'ThemeDefault')
+INSERT INTO usuarios (Nome_user, Genero_user, Data_nasc_user, CPF_user, Email_user, Telefone_user, Senha_user) VALUES ('José Luís Feitoza', 'Feminino', '1999-02-01', '28135593856', 'luisgustavofeitoza2123@gmail.com', '(11) 98169-9284', 'Lg123')

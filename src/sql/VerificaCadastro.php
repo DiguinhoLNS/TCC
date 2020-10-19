@@ -11,16 +11,26 @@
 
     switch($tipo_verificacao){
 
+
+/*******************************************************
+	    USER
+*******************************************************/
+
         // User
         case 1:
 
             $nome = $_POST["nome"];
             $email = $_POST["email"];
-            $cpf = $_POST["CPF"];
+            $CpfComPonto = $_POST["CPF"];
             $data = $_POST["data"];
             $telefone = $_POST["telefone"];
             $genero = $_POST["Genero"];
             $senha = $_POST["senha"];
+
+            //Tirando mascara de entrada de cpf
+            $pontuacao = array(".", "-");
+            $cpf = str_replace($pontuacao, "", $CpfComPonto);
+            $_SESSION['cpfsemponto'] = $cpf;
 
             $erros = 0;
             $E1 = 0;
@@ -174,7 +184,7 @@
 
 
             //VERIFICA SE FOI DIGITADO O DDD JUNTO COM O CELULAR
-            if (strlen($telefone) < 10) {
+            if (strlen($telefone) <= 10) {
 
                 $E6 = "1";
 
@@ -261,8 +271,6 @@
 
                 $_SESSION["UserRegisterError_G"] = "0";
 
-                /*echo $mostrar['Email_user']."1 ".$email."2<br>";
-                echo $linhas;*/
                 include 'InsereCadastro.php';
 
             } else if ($erros > 0) {
@@ -297,10 +305,15 @@
                     $_SESSION["UserRegisterError_8"] = "1";
                 }
                 header("Location: ../RegisterUser.php");
+                //echo $E1." ".$E2." ".$E3." ".$E4." ".$E5." ".$E6." ".$E8;               
 
             }
 
         break;
+
+/*******************************************************
+	Company
+*******************************************************/
 
         // Company
         case 2:

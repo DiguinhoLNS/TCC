@@ -51,13 +51,13 @@
 			$res = mysqli_query($base, $regra1) or die("Erro na consulta");
 			$mostrar = mysqli_fetch_array($res);
 
-			if (strtolower($mostrar['codigo_acesso']) == $codigo_acesso) {
+			if ($mostrar['codigo_acesso'] == strtoupper($codigo_acesso)) {
 
 				header("Location: ../Company.php");
 
 			} else {
 
-				$_SESSION["UserLoginError_1"] = "1";
+				$_SESSION["CompanyLoginError_1"] = "1";
 
 				header("Location: ../LoginCompany.php");
 				

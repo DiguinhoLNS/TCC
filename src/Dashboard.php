@@ -1,4 +1,12 @@
-<?php session_start(); ?>
+<?php session_start(); include 'sql/ConexaoBD.php';
+
+    $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
+    $regra1 = "SELECT * FROM empresas where id_adm =  '$id_adm' ";
+    $res = mysqli_query($base, $regra1) or die("Erro na consulta");
+    $mostrar = mysqli_fetch_array($res);
+    $linhas = $res->num_rows;
+
+?>
 
 <!DOCTYPE html>
 <html lang = "pt-br">
@@ -47,7 +55,11 @@
 
                         <ul id = "DashboardBoxContent">
 
-                            <li class = "NoFor"> Você não possui nenhuma empresa! </li>
+                            <?php if($linhas>0){
+
+                           echo '<li class = "NoFor"> Você não possui nenhuma empresa! </li>';
+                        
+                        }else{echo '
                             
                             <li class = "Box ThemeDefault">
                                
@@ -87,7 +99,7 @@
                                     <h3> (XX) XXXX-XXXX </h3>
                                 </a>
                             
-                            </li>
+                            </li>';}?>
 
                         </ul>
 

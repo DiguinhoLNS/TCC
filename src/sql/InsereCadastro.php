@@ -1,5 +1,5 @@
 <?php
-
+	//session_start();
 	date_default_timezone_set('America/Sao_Paulo');
 
 	include "ConexaoBD.php";
@@ -13,7 +13,7 @@
 		case 1:
 
 			$nome = $_POST["nome"];
-			$cpf = $_POST["CPF"];
+			$cpf = $_SESSION['cpfsemponto'];
 			$data = $_POST["data"];
 			$telefone = $_POST["telefone"];
 			$genero = $_POST["Genero"];
@@ -31,6 +31,8 @@
 
 			} else {
 
+				/*echo $cpf." 2<br>";
+				echo $nome." ".$genero." ".$cpf." ".$data." ".$email." ".$telefone." ".$senha;*/
 				header("Location: ../RegisterUser.php");
 
 			}

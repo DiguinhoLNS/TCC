@@ -41,7 +41,7 @@
                     
                         $(document).ready(function(){
 
-                            $("#ErrorLogin").css("display", "block");
+                            $("#ErrorCod").css("display", "block");
 
                         });
                     
