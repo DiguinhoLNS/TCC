@@ -38,7 +38,7 @@
 
             <ul>
                 <li><a href = "#"> Empresas </a></li>
-                <li><a href = "#"> Sobre </a></li>
+                <li><a href = "About.php"> Sobre </a></li>
             </ul>
 
         </nav>

@@ -31,18 +31,6 @@
                     <span> Empresa 1 </span>
                 </a>
             </li>
-            <li>
-                <a href = "">
-                    <i class = "material-icons"> &#xe0af; </i>
-                    <span> Empresa 2 </span>
-                </a>
-            </li>
-            <li>
-                <a href = "">
-                    <i class = "material-icons"> &#xe0af; </i>
-                    <span> Empresa 3 </span>
-                </a>
-            </li>
         </ul>
         
     </nav>

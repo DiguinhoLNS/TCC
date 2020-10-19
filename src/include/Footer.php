@@ -29,7 +29,7 @@
 
             <h1> Sobre Nós </h1>
             <li>
-                <a href = "Sobre.php"> Sobre </a>
+                <a href = "About.php"> Sobre </a>
             </li>
             <li>
                 <a href = "#"> Empresas </a>
@@ -53,22 +53,27 @@
 
         </ul>
 
-        <ul class = "FooterSocial">
+        <ul class = "FooterSocial SocialIconsBar">
 
             <h1> Nossas Redes Sociais </h1>
             <li>
-                <a href = "#" class = "IconFacebook">
+                <a href = "#" class = "IconFacebook" target = "_blank">
                     <i class = "fab"> &#xf09a; </i>
                 </a>
             </li>
             <li>
-                <a href = "#" class = "IconInstagram">
+                <a href = "#" class = "IconInstagram" target = "_blank">
                     <i class = "fab"> &#xf16d; </i>
                 </a>
             </li>
             <li>
-                <a href = "#" class = "IconTwitter">
+                <a href = "#" class = "IconTwitter" target = "_blank">
                     <i class = "fab"> &#xf099; </i>
+                </a>
+            </li>
+            <li>
+                <a href = "https://github.com/DiguinhoLNS/TCC" class = "IconGithub" target = "_blank">
+                    <i class = "fab"> &#xf09b; </i>
                 </a>
             </li>
 

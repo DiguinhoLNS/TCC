@@ -595,14 +595,14 @@ h1, h2, h3, h4, h5, h6 {
 		#SectionIndexDiscover {
 			width: calc(100% - (2 * 300px));
 			margin: 0 300px;
-			border-radius: 40px;
+			border-radius: 46px;
 
 			background-color: var(--color-layout-t);
 		}
 
 			/* Companies Quick Access Bar */
 
-			#CompaniesQuickAccessBar {
+			.CompaniesQuickAccessBar {
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
 				grid-template-rows: auto;
@@ -632,8 +632,9 @@ h1, h2, h3, h4, h5, h6 {
 					border-radius: 0;
 				}
 
-				.CompanyBox:nth-child(3){
-					border-radius: 0 46px 46px 0;
+				.CompanyBox:last-child {
+					border-top-right-radius: 46px;
+					border-bottom-right-radius: 46px;
 				}
 
 			.CompanyBox h1 {
@@ -892,7 +893,7 @@ h1, h2, h3, h4, h5, h6 {
 	
 			background-color: var(--color-theme-p);
 	
-			transition: 0.3s linear;
+			transition: 0.1s ease;
 			cursor: pointer;
 		}
 	
@@ -1426,6 +1427,115 @@ h1, h2, h3, h4, h5, h6 {
 				}
 
 		/*******************************************************
+			About.php
+		*******************************************************/
+
+		#MainAbout .MainContent {
+			padding: 60px 0;
+		}
+
+		#MainAbout .MainContent section {
+			margin-bottom: 40px;
+		}
+
+			#MainAbout .MainContent section:last-child {
+				margin: 0;
+			}
+
+		#MainAbout .MainContent section h2 {
+			width: 100%;
+			margin-bottom: 40px;
+
+			color: var(--color-txt-p);
+			font-size: 30px;
+		}
+
+		#MainAbout .MainContent section ul {
+			width: 100%;
+
+			list-style: none;
+		}
+
+			#MainAbout .MainContent section .TextBox {
+				margin-bottom: 35px;
+			}
+
+				#MainAbout .MainContent section .TextBox:last-child {
+					margin: 0;
+				}
+
+		#MainAbout .MainContent section ul .TextContent {
+			width: 100%;
+			margin-bottom: 20px;
+
+			color: var(--color-txt-s);
+		}
+
+			#MainAbout .MainContent section ul .TextContent:last-child {
+				margin: 0;
+			}
+
+		#MainAbout .MainContent section ul .TextContent h3 {
+			width: 100%;
+			
+			font-size: 26px;
+		}
+
+			#MainAbout .MainContent section .TextBox .TextContent h3 {
+				margin-bottom: 25px;
+			}
+
+		#MainAbout .MainContent section ul .TextContent p {
+			width: 100%;
+
+			font-size: 16px;
+		}
+
+		/* Header */
+
+		#SectionAboutHeader h1 {
+			width: 100%;
+			
+			color: var(--color-txt-p);
+			text-align: center;
+			font-size: 40px;
+		}
+
+		/* Main */
+
+		/* Developers */
+
+		#SectionAboutDevelopers .DeveloperBox {
+			display: grid;
+			grid-template-columns: 150px auto;
+			grid-gap: 50px;
+			
+			margin-bottom: 35px;
+		}
+
+			#SectionAboutDevelopers .DeveloperBox:last-child {
+				margin: 0;
+			}
+
+		#SectionAboutDevelopers .DeveloperBox .DeveloperPhoto span {
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+
+			background-color: lightgrey;
+		}
+
+		#SectionAboutDevelopers .DeveloperBox .TextContent {
+			display: grid;
+			grid-template-rows: 32px auto 20px;
+			grid-gap: 20px;
+		}
+
+		#SectionAboutDevelopers .DeveloperBox .TextContent h3 {
+			color: var(--color-txt-p);
+		}
+
+		/*******************************************************
 			LoginUser.php / LoginCompany.php
 			RegisterUser.php / RegisterCompany.php
 		*******************************************************/
@@ -1495,7 +1605,7 @@ h1, h2, h3, h4, h5, h6 {
 			width: 100%;
 
 			color: var(--color-txt-p);
-			font-size: 40px;
+			font-size: 36px;
 			text-align: center;
 		}
 
@@ -1507,7 +1617,7 @@ h1, h2, h3, h4, h5, h6 {
 			margin-bottom: 14px;
 			
 			color: var(--color-txt-s);
-			font-size: 20px;
+			font-size: 18px;
 
 			cursor: pointer;
 		}
@@ -1522,7 +1632,7 @@ h1, h2, h3, h4, h5, h6 {
 			border: none;
 
 			color: var(--color-txt-t);
-			font-size: 18px;
+			font-size: 16px;
 			background-color: var(--color-layout-p);
 		}
 
@@ -1568,7 +1678,7 @@ h1, h2, h3, h4, h5, h6 {
 			color: var(--color-theme-p);
 			font-size: 14px;
 
-			transition: 0.3s ease;
+			transition: 0.1s ease;
 		}
 
 			.FormPlatform form .FormPlatformContent .ContentBottom a:hover {
@@ -1664,23 +1774,6 @@ h1, h2, h3, h4, h5, h6 {
 		font-size: 18px;
 	}
 
-	.FooterSocial li {
-		height: 20px;
-		margin: 1px 16px 1px 0;
-	}
-
-		.FooterSocial li:last-child {
-			margin-right: 0;
-		}
-
-	.FooterSocial li a {
-		color: var(--color-txt-t);
-	}
-
-	.FooterSocial li a i {
-		font-size: 18px;
-	}
-
 	/* License */
 
 	.FooterLicense {
@@ -1695,6 +1788,65 @@ h1, h2, h3, h4, h5, h6 {
 /*******************************************************
 	Outros
 *******************************************************/
+
+/* Social Icons */
+
+.SocialIconsBar li {
+	height: 20px;
+    margin: 1px 16px 1px 0;
+}
+
+	.SocialIconsBar li:last-child {
+		margin-right: 0;
+	}
+
+.SocialIconsBar li a {
+	color: var(--color-txt-t);
+}
+
+	.SocialIconsBar li .IconFacebook:hover {
+		color: #1877F2;
+	}
+
+	.SocialIconsBar li .IconInstagram:hover {
+		color: #C32AA3;
+	}
+
+	.SocialIconsBar li .IconTwitter:hover {
+		color: #1DA1F2;
+	}
+
+		.LightMode .SocialIconsBar li .IconGithub:hover {
+			color: #211F1F;
+		}
+
+		.DarkMode .SocialIconsBar li .IconGithub:hover {
+			color: #F6F8FA;
+		}
+
+	.SocialIconsBar li .IconDiscord:hover {
+		color: #7289DA;
+	}
+
+	.SocialIconsBar li .IconGoogle:hover {
+		color: #4285F4;
+	}
+
+	.SocialIconsBar li .IconLinkedin:hover {
+		color: #007BB5
+	}
+
+	.SocialIconsBar li .IconPinterest:hover {
+		color: #BD081C;
+	}
+
+	.SocialIconsBar li .IconReddit:hover {
+		color: #FF4500;
+	}
+
+.SocialIconsBar li a i {
+	font-size: 18px;
+}
 
 /* Bottom TXT*/
 
@@ -1800,20 +1952,6 @@ h1, h2, h3, h4, h5, h6 {
 	.btn:hover {
 		background-color: var(--color-theme-hover);
 	}
-
-/* Social Icons */
-
-.IconFacebook:hover {
-	color: #1877F2;
-}
-
-.IconInstagram:hover {
-	color: #C32AA3;
-}
-
-.IconTwitter:hover {
-	color: #1DA1F2;
-}
 
 /* Box Shadow */
 
@@ -2277,14 +2415,13 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 	background-color: var(--color-layout-s);
 }
 
-/* Page Padding/Margin 300px */
-
-	/* Padding */
+/* Page Padding 300px */
 
 	#WelcomeHeader, #SectionFeedFilters, #SectionFeedItems, 
 	#SectionDashboardItems, #MainUser .MainContent section,
-	#SectionCompanyMain {
-		padding: 0 300px;
+	#SectionCompanyMain, #MainAbout section {
+		padding-left: 300px;
+		padding-right: 300px;
 	}
 
 /*******************************************************
@@ -2389,9 +2526,11 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 		}
 
 		/* OFF */
-		.UNT #HeaderIconGroup, .UNT #WelcomeFind, .UNT #HeaderNavIcon {
+		.UNT #HeaderIconGroup, .UNT #WelcomeFind, 
+		.UNT #HeaderNavIcon, .UNT .CompaniesQuickAccessBar {
 			display: none;
 		}
+
 	/* Logged */
 
 		/* ON */

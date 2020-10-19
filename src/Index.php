@@ -58,7 +58,7 @@
 
                 <section id = "SectionIndexDiscover">
 
-                    <div id = "CompaniesQuickAccessBar">
+                    <div class = "CompaniesQuickAccessBar">
 
                         <a href = "" class = "CompanyBox ThemeGreen" title = "Acessar NOME DA EMPRESA">
 
@@ -66,13 +66,13 @@
                         
                         </a>
 
-                        <a href = "" class = "CompanyBox ThemeTeal" title = "Acessar NOME DA EMPRESA">
+                        <a href = "" class = "CompanyBox ThemeBlue" title = "Acessar NOME DA EMPRESA">
 
                            <h1> Nome da Empresa </h1>
                         
                         </a>
 
-                        <a href = "" class = "CompanyBox ThemeYellow" title = "Acessar NOME DA EMPRESA">
+                        <a href = "" class = "CompanyBox ThemeDefault" title = "Acessar NOME DA EMPRESA">
 
                            <h1> Nome da Empresa </h1>
                         
