@@ -39,7 +39,8 @@
                     
 			    <section id = "SectionAboutHeader">
 
-                    <h1> APE </h1>
+                    <h1> APE - Achados e Perdidos Empresarial </h1>
+                    <span class = "ReleaseNotes"> Notas da versão x.x.x </span>
 
                 </section>
 
@@ -51,7 +52,7 @@
 
                         <li class = "TextContent">
 
-                            <h3> Título da Sessão </h3>
+                            <h3> Sobre Nós </h3>
 
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
@@ -73,19 +74,23 @@
 
                         <li class = "TextContent">
 
-                            <h3> Título da Sessão </h3>
+                            <h3> Política de Privacidade e Termos </h3>
 
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
+                                Leia sobre a nossa política de privacidade e os nossos termos de uso.
                             </p>
 
                         </li>
 
-                        <li class = "TextContent">
+                        <li>
 
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
-                            </p>
+                            <button>
+                                <a href = "Terms.php"> Política de Privacidade </a>
+                            </button>
+
+                            <button>
+                                <a href = "Terms.php"> Termos de Uso </a>
+                            </button>
 
                         </li>
 

@@ -35,6 +35,8 @@
                 <a href = "#"> Empresas </a>
             </li>
             <li>
+                <a href = "Terms.php"> Termos </a>
+            </li>
 
         </ul>
 
@@ -72,7 +74,7 @@
                 </a>
             </li>
             <li>
-                <a href = "https://github.com/DiguinhoLNS/TCC" class = "IconGithub" target = "_blank">
+                <a href = "#" class = "IconGithub" target = "_blank">
                     <i class = "fab"> &#xf09b; </i>
                 </a>
             </li>
