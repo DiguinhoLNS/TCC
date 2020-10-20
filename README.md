@@ -1,11 +1,11 @@
-# APE - ACHADOS E PERDIDOES EMPRESARIAL 
+# APE - ACHADOS E PERDIDOS EMPRESARIAL 
 > Um site para facilitar a forma com que as empresas administram seus Achados e Perdidos
 
 Perdeu algo e quer recuperar? Possui uma empresa e quer administrar de uma forma melhor seu achados e perdidos? 
 Aqui você pode entrar em páginas de achados e perdidos de várias empresas, entrar em contato com elas e recuperar seu item perdido.
 
-![Index Cima](src/media/indexUp_screenshot.png)
-![Index Baixo](src/media/indexBot_screenshot.png)
+![Index Cima](https://github.com/DiguinhoLNS/TCC/blob/master/src/media/indexUp_screenshot.png)
+![Index Baixo](https://github.com/DiguinhoLNS/TCC/blob/master/src/media/indexBot_screenshot.png)
 
 Para o usuário que quer encontrar um item:
 * Crie uma conta gratuitamente e faça seu login;
