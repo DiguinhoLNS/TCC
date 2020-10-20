@@ -2,5 +2,3 @@ Usuario apagar conta e apagar os registro da tabela user_empresa tbm
 
 Apagar empresa e apagar cadastro dela no user_empresa tbm
 
-Quando usuario logar em uma empresa com codigo criar um cadastro na user_empresa
-Se ja tiver logado na empresa 1 vez, quando tentar logar dnv dar erro

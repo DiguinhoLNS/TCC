@@ -67,10 +67,10 @@
 
 			} else if($linhas>0){
 
-				$_SESSION["CompanyLoginError_1"] = "2";
+				//$_SESSION["CompanyLoginError_1"] = "2";
 				/*echo $linhas."<br>";
 				print_r($mostrar2);*/
-				header("Location: ../LoginCompany.php");
+				header("Location: ../Company.php?q=".$id_empresa);
 				
 			}else{
 				$_SESSION["CompanyLoginError_1"] = "1";

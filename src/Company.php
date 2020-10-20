@@ -18,7 +18,7 @@
 		$res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
 		$mostrar = mysqli_fetch_array($res);
 
-		$regra2 = "SELECT * FROM user_empresa where id_user =  '$id_user'";
+		$regra2 = "SELECT * FROM user_empresa where id_user =  '$id_user' and id_empresa = $id_empresa";
 		$res2 = mysqli_query($base, $regra2) or die("Usuario não cadastrado");
 		$mostrar2 = mysqli_fetch_array($res2);
 
@@ -37,7 +37,7 @@
 
 	</head>
 
-    <body id = "CompanyPage" class = "UNT LightMode <?php echo $mostrar['Cor_layout']; if($mostrar2['Nivel_acesso'] == 4){ echo 'ADMView'; }else if($mostrar2['Nivel_acesso'] == 2){echo 'UserView';}?>">
+    <body id = "CompanyPage" class = "UNT LightMode <?php echo $mostrar['Cor_layout']; if($mostrar2['Nivel_acesso'] == 4){ echo ' ADMView'; }else if($mostrar2['Nivel_acesso'] == 2){echo ' UserView';}?>">
 
 		<?php
 
@@ -328,7 +328,7 @@
 								<div class = "btnContent">
 
 									<button>
-										<a href = "sql/ApagarCadastros.php"> Apagar Empresa </a>
+										<a href = <?php echo "sql/ApagarCadastros.php?q=".$id_empresa; ?>> Apagar Empresa </a>
 									</button>
 
 								</div>

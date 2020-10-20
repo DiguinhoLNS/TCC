@@ -1,7 +1,5 @@
 Arquivo pra explicar o que eu fiz no commit:
 
-Consertado: Quando logar na empresa aparecer a empresa (ta dando erro, n aparece nenhum dado)
-
-Feito: Quando usuario logar em uma empresa com codigo criar um cadastro na user_empresa e se ja tiver logado na empresa 1 vez, quando tentar logar dnv dar erro
-
-E arrumei todas as QUERYS (inner join)
+Feito: 
+Apagar empresa e apagar cadastro dela no user_empresa tbm
+Usuario apagar conta e apagar os registro da tabela user_empresa tbm
