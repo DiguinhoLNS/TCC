@@ -28,7 +28,7 @@ procurar por ele.
 ## Como acessar o site
 
 Infelizmente venho dizer que este é apenas um projeto de TCC, por enquanto o site ainda não esta no ar 😩 mas, pretendemos um dia evoluir esse projeto
-e assim que conseguirmos um domínio colocaremos o link dele aqui, então fique por aqui para acompnhar as novidades.
+e assim que conseguirmos um domínio colocaremos o link dele aqui, então fique por aqui para acompanhar as novidades.
 
 _Se você quiser nos ajudar no desenvolvimento acadêmico ou comercial desde projeto, nos envie um email para: ape.achadoseperdidos@gmail.com_
 
