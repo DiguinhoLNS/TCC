@@ -4,8 +4,8 @@
 Perdeu algo e quer recuperar? Possui uma empresa e quer administrar de uma forma melhor seu achados e perdidos? 
 Aqui você pode entrar em páginas de achados e perdidos de várias empresas, entrar em contato com elas e recuperar seu item perdido.
 
-![Index Cima](https://github.com/DiguinhoLNS/TCC/blob/master/src/media/indexUp_screenshot.png)
-![Index Baixo](https://github.com/DiguinhoLNS/TCC/blob/master/src/media/indexBot_screenshot.png)
+![Index Cima](https://github.com/DiguinhoLNS/TCC/blob/master/src/media/indexUp_screenshot.PNG)
+![Index Baixo](https://github.com/DiguinhoLNS/TCC/blob/master/src/media/indexBot_screenshot.PNG)
 
 Para o usuário que quer encontrar um item:
 * Crie uma conta gratuitamente e faça seu login;
@@ -40,7 +40,7 @@ Luis Gustavo (BackEnd)– [@LG](https://twitter.com/__User__Name)– luisgustavo
 
 Marcos Augusto (Documentação)  – [@marcosaquiuqui](https://twitter.com/marcosaquiuqui) – 
 
-Rodrigo Lima (FrontEnd) – [@Diguinho_lns](https://twitter.com/Diguinho_lns) – 
+Rodrigo Lima (FrontEnd) – [@Diguinho_lns](https://twitter.com/Diguinho_lns) – rolns002@gmail.com
 
 Tiago Barbosa (Banco de dados) – [@Tiraxgo](https://twitter.com/Tiraxgo) – barbosatiago1811@gmail.com
 
