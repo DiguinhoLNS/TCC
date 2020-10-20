@@ -519,8 +519,8 @@
                     $_SESSION["CompanyRegisterError_5"] = "1";
                 }
 
-                echo "Erro 1";
-                //header("Location: ../RegisterCompany.php");
+                //echo "Erro 1";
+                header("Location: ../RegisterCompany.php");
 
             }
 

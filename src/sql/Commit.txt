@@ -1,0 +1,9 @@
+Arquivo pra explicar o que eu fiz no commit:
+
+Arrumado: Quando usuario cria 2 ou mais paginas, após o cadastro ele entra na pagina que acabou de criar, não na primeira que criou
+
+Arrumado: Pagina da empresa (company.php) com cor tema de acordo com o banco de dados
+
+Todos os Headers de erro descomentados
+
+

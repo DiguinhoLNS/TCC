@@ -29,7 +29,7 @@
 
 	</head>
 
-    <body id = "CompanyPage" class = "UNT LightMode ThemeRed ADMView">
+    <body id = "CompanyPage" class = "UNT LightMode <?php echo $mostrar['Cor_layout'];?> ADMView">
 
 		<?php
 

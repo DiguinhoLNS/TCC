@@ -49,7 +49,7 @@
 				$bytes2 = strtoupper(bin2hex($bytes));
 
 				$regra1 = "SELECT codigo_acesso FROM empresas where codigo_acesso =  '$bytes' ";
-				$res = mysqli_query($base, $regra1) or die("Erro na consulta");
+				$res = mysqli_query($base, $regra1) or die("Erro na consulta1");
 
 				$mostrar = mysqli_fetch_array($res);
 
