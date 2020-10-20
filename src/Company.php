@@ -1,25 +1,28 @@
 <?php
 
 	session_start();
+	date_default_timezone_set('America/Sao_Paulo');
 	
-	include "sql/ConexaoBD.php";
+	include 'sql/ConexaoBD.php';
+
+	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 
 	$id_empresa = $_GET['q'];
-	$id_user = $_COOKIE["ID"]; 
 	$_SESSION['V'] = '2';
-	
-	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
-	$regra1 = "SELECT * FROM empresas where id_empresa =  '$id_empresa'";
-	$res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
-	$mostrar = mysqli_fetch_array($res);
 
-	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
-	$regra2 = "SELECT * FROM user_empresa where id_user =  '$id_user'";
-	$res2 = mysqli_query($base, $regra2) or die("Usuario não cadastrado");
-	$mostrar2 = mysqli_fetch_array($res2);
+	if(isset($_COOKIE["ID"])){
 
-	
+		$id_user = $_COOKIE["ID"]; 
 
+		$regra1 = "SELECT * FROM empresas where id_empresa =  '$id_empresa'";
+		$res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
+		$mostrar = mysqli_fetch_array($res);
+
+		$regra2 = "SELECT * FROM user_empresa where id_user =  '$id_user'";
+		$res2 = mysqli_query($base, $regra2) or die("Usuario não cadastrado");
+		$mostrar2 = mysqli_fetch_array($res2);
+
+	}
 
 ?>
 

@@ -9,7 +9,7 @@
 
                     $id = $_COOKIE["ID"];
 
-                    $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
+                    $base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
                     $regra = "SELECT nome_user FROM usuarios WHERE id_user = '$id'";
 
                     $res = mysqli_query($base, $regra);

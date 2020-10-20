@@ -1,4 +1,38 @@
-<?php session_start(); ?>
+<?php 
+
+    session_start();
+    date_default_timezone_set('America/Sao_Paulo');
+
+    include 'sql/ConexaoBD.php';
+
+    $base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
+
+    $_SESSION['V'] = '1';
+
+    if(isset($_COOKIE["ID"])){
+
+        $id = $_COOKIE["ID"];
+
+        $regra = "SELECT * FROM empresas inner join user_empresa on 'id_empresa' = 'id_empresa' where user_empresa.id_user = $id and empresas.id_empresa = user_empresa.id_empresa order by Nome ASC";
+        $res = mysqli_query($base, $regra) or die("Erro na consulta");
+    
+        while($mostrar = mysqli_fetch_array($res)){
+    
+            $rows[] = $mostrar;
+    
+        }
+    
+        $linhas = $res->num_rows;
+                    
+        $regra1 = "SELECT Nome_user, CPF_user, Data_nasc_user, Email_user, Telefone_user, Genero_user, Senha_user, id_user FROM usuarios WHERE id_user = '$id'";
+    
+        $res1 = mysqli_query($base, $regra1);
+        $mostrar1 = mysqli_fetch_array($res1);
+    
+        list($ano, $mes, $dia) = explode('-', $mostrar1['Data_nasc_user']);
+
+    }
+?>
 
 <!DOCTYPE html>
 <html lang = "pt-br">
@@ -8,34 +42,6 @@
         <title> Conta APE </title>
 
         <?php include "include/Head.php"; ?>
-
-        <?php session_start(); include 'sql/ConexaoBD.php'; $id = $_COOKIE["ID"];
-        $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
-        $regra1 = "SELECT * FROM empresas inner join user_empresa on 'id_empresa' = 'id_empresa' where user_empresa.id_user = $id and empresas.id_empresa = user_empresa.id_empresa order by Nome ASC";
-        $res = mysqli_query($base, $regra1) or die("Erro na consulta");
-
-        while($mostrar = mysqli_fetch_array($res)){
-        $rows[] = $mostrar;
-        }
-
-        $linhas = $res->num_rows;
-
-        ?> 
-
-        <?php
-            $_SESSION['V'] = '1';
-
-            $id = $_COOKIE["ID"];
-
-            $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
-            $regra = "SELECT Nome_user, CPF_user, Data_nasc_user, Email_user, Telefone_user, Genero_user, Senha_user, id_user FROM usuarios WHERE id_user = '$id'";
-
-            $res = mysqli_query($base, $regra);
-            $mostrar = mysqli_fetch_array($res);
-
-            list($ano, $mes, $dia) = explode('-', $mostrar['Data_nasc_user']);
-
-        ?>
 
     </head>
 
@@ -67,7 +73,7 @@
 
                     <div>
                         <h1 id = "DTN"></h1>
-                        <h2> <?php echo $mostrar['Nome_user']; ?> </h2>
+                        <h2> <?php echo $mostrar1['Nome_user']; ?> </h2>
                     </div>
 
                 </section>
@@ -123,7 +129,7 @@
 
                                                 <div class = "CategoryText">
                                                     <h1> Nome </h1>
-                                                    <h2> <?php echo $mostrar['Nome_user']; ?> </h2>
+                                                    <h2> <?php echo $mostrar1['Nome_user']; ?> </h2>
                                                 </div>
 
                                             </div>
@@ -132,7 +138,7 @@
 
                                                 <div class = "CategoryText">
                                                     <h1> CPF </h1>
-                                                    <h2> <?php echo $mostrar['CPF_user']; ?> </h2>
+                                                    <h2> <?php echo $mostrar1['CPF_user']; ?> </h2>
                                                 </div>
 
                                             </div>
@@ -141,7 +147,7 @@
 
                                                 <div class = "CategoryText"">
                                                     <h1> Gênero </h1>
-                                                    <h2> <?php echo $mostrar['Genero_user']; ?> </h2>
+                                                    <h2> <?php echo $mostrar1['Genero_user']; ?> </h2>
                                                 </div>
 
                                             </div>
@@ -165,7 +171,7 @@
 
                                                 <div class = "CategoryText">
                                                     <h1> Email </h1>
-                                                    <h2> <?php echo $mostrar['Email_user']; ?> </h2>
+                                                    <h2> <?php echo $mostrar1['Email_user']; ?> </h2>
                                                 </div>
 
                                             </div>
@@ -174,7 +180,7 @@
 
                                                 <div class = "CategoryText">
                                                     <h1> Telefone de contato </h1>
-                                                    <h2> <?php echo $mostrar['Telefone_user']; ?> </h2>
+                                                    <h2> <?php echo $mostrar1['Telefone_user']; ?> </h2>
                                                 </div>
 
                                             </div>
@@ -189,7 +195,7 @@
 
                                                 <div class = "CategoryText">
                                                     <h1> ID APE </h1>
-                                                    <h2> <?php echo $mostrar['id_user']; ?> </h2>
+                                                    <h2> <?php echo $mostrar1['id_user']; ?> </h2>
                                                 </div>
 
                                             </div>
@@ -199,7 +205,7 @@
                                                 <div class = "CategoryText">
                                                     <h1> Senha </h1>
                                                     <h2 id = "DataPlaceholderPWD"> Exibir Senha </h2>
-                                                    <h2 id = "DataPWD"> <?php echo $mostrar['Senha_user']; ?> </h2>
+                                                    <h2 id = "DataPWD"> <?php echo $mostrar1['Senha_user']; ?> </h2>
                                                 </div>
 
                                             </div>
@@ -230,15 +236,28 @@
                                 <div class = "FrameMain FrameSection">
 
                                     <ul id = "UserCompaniesView" class = "BoxView">
+                                        <?php
 
-                                    <?php $i=0; do{echo '
-                                        <li>
-                                            <a href = "Company.php?q='.$rows[$i]['id_empresa'].'" title = "'. $rows[$i]['Nome']. '">
-                                                <h1> '. $rows[$i]['Nome']. ' </h1>
-                                            </a>
-                                        </li>'
-                                    ;$i++;}while($i<$linhas);?>
+                                            $i=0;
 
+                                            if($linhas>0){
+
+                                                do{
+                                                    echo '
+                                                        <li>
+                                                            <a href = "Company.php?q='.$rows[$i]['id_empresa'].'" title = "'. $rows[$i]['Nome']. '">
+                                                                <h1> '. $rows[$i]['Nome']. ' </h1>
+                                                            </a>
+                                                        </li>
+                                                    ';
+
+                                                    $i++;
+                                                    
+                                                }while($i<$linhas);
+
+                                            }
+                                            
+                                        ?>
                                     </ul>
 
                                 </div>

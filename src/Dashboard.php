@@ -1,15 +1,28 @@
-<?php session_start(); include 'sql/ConexaoBD.php';
+<?php 
 
-    $id = $_COOKIE["ID"];
-    $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
-    $regra1 = "SELECT * FROM empresas inner join user_empresa on 'id_empresa' = 'id_empresa' where user_empresa.id_user = $id and empresas.id_empresa = user_empresa.id_empresa order by Nome ASC";
-    $res = mysqli_query($base, $regra1) or die("Erro na consultaDB");
+    session_start();
+    date_default_timezone_set('America/Sao_Paulo'); 
+    
+    include 'sql/ConexaoBD.php';
 
-    while($mostrar = mysqli_fetch_array($res)){
-    $rows[] = $mostrar;
+    $base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
+
+    if(isset($_COOKIE["ID"])){
+
+        $id = $_COOKIE["ID"];
+
+        $regra1 = "SELECT * FROM empresas inner join user_empresa on 'id_empresa' = 'id_empresa' where user_empresa.id_user = $id and empresas.id_empresa = user_empresa.id_empresa order by Nome ASC";
+        $res = mysqli_query($base, $regra1) or die("Erro na consultaDB");
+
+        while($mostrar = mysqli_fetch_array($res)){
+
+            $rows[] = $mostrar;
+
+        }
+
+        $linhas = $res->num_rows;
+
     }
-
-    $linhas = $res->num_rows;
 
 ?>
 
@@ -30,6 +43,7 @@
 
             include "php/Pag.php";
 
+    
             StopUserAccess();
             V_User();
             C_Login();
@@ -59,13 +73,13 @@
                     <nav>
 
                         <ul id = "DashboardBoxContent">
+                            <?php 
+                            
+                                if($linhas==0){
 
-                            <?php if($linhas==0){
-
-                            echo '<li class = "NoFor"> Você não possui nenhuma empresa! </li>';
-                        
+                                    echo '<li class = "NoFor"> Você não possui nenhuma empresa! </li>';
+                            
                                 }else{
-
                                     //$i1=-1;
                                     $i=0;
 
@@ -76,25 +90,28 @@
                                     }*/
                                     $nome1 =  $rows[$i]['Nome'];
 
-                                    do{   
+                                    do{
+                                        echo "
                                         
+                                            <li class = 'Box ". $rows[$i]['Cor_layout']."'>
+                                            
+                                                <a href = 'Company.php?q=".$rows[$i]['id_empresa']."' title =' ".$i."'>
+                                                    <h1> ". $rows[$i]['Nome'] ."</h1>
+                                                    <h2> ". $rows[$i]['CNPJ']." </h2>
+                                                    <h3> ". $rows[$i]['Telefone'] ."</h3>
+                                                </a>                      
+                                                
+                                            </li>
+                                            
+                                        ";
 
-                            echo( "
-                            
-                            <li class = 'Box ". $rows[$i]['Cor_layout']."'>
-                               
-                                <a href = 'Company.php?q=".$rows[$i]['id_empresa']."' title =' ".$i."'>
-                                    <h1> ". $rows[$i]['Nome'] ."</h1>
-                                    <h2> ". $rows[$i]['CNPJ']." </h2>
-                                    <h3> ". $rows[$i]['Telefone'] ."</h3>
-                                </a>                      
-                                 
-                            </li>");
+                                        $i++;
 
-                            $i++;
                                     }while($i<($linhas));
-                            }?>
 
+                                }
+                            
+                            ?>
                         </ul>
 
                     </nav>
