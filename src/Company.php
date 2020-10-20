@@ -257,25 +257,6 @@
 
 								<div class = "CategoryText">
 
-									<h1> Apagar dados </h1>
-									<h2> Apagar os seus dados armazenados nessa empresa </h2>
-
-								</div>
-
-								<div class = "btnContent">
-
-									<button>
-										<a href = ""> Apagar dados </a>
-									</button>
-
-								</div>
-
-							</div>
-
-							<div class = "CategoryOptions">
-
-								<div class = "CategoryText">
-
 									<h1> Sair </h1>
 									<h2> Sair da empresa </h2>
 
@@ -295,26 +276,7 @@
 
 						<li class = "Category CategoryDanger CompanyADM">
 
-							<h1 class = "HeaderCategory"> Zona de Perigo </h1>
-
-							<div class = "CategoryOptions">
-
-								<div class = "CategoryText">
-
-									<h1> Apagar dados </h1>
-									<h2> Apagar todos os dados da sua empresa em nossa plataforma </h2>
-
-								</div>
-
-								<div class = "btnContent">
-
-									<button>
-										<a href = "sql/ApagarCadastros.php?"> Apagar Dados </a>
-									</button>
-
-								</div>
-
-							</div>
+							<h1 class = "HeaderCategory"> Zona de Perigo </h1>	
 
 							<div class = "CategoryOptions">
 

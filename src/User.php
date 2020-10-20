@@ -426,26 +426,7 @@
                                         <li id = "ConfigDangerZone" class = "Category CategoryDanger">
 
                                             <h1 class = "HeaderCategory"> Zona de Perigo </h1>
-
-                                            <div class = "CategoryOptions">
-
-                                                <div class = "CategoryText">
-
-                                                    <h1> Apagar dados </h1>
-                                                    <h2> Apagar os seus dados e o seu histórico em nossa plataforma </h2>
-
-                                                </div>
-
-                                                <div class = "btnContent">
-
-                                                    <button>
-                                                        <a href = ""> Apagar Dados </a>
-                                                    </button>
-
-                                                </div>
-
-                                            </div>
-
+                                                                
                                             <div class = "CategoryOptions">
 
                                                 <div class = "CategoryText">

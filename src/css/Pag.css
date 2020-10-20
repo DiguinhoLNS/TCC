@@ -637,7 +637,7 @@ h1, h2, h3, h4, h5, h6 {
 					border-bottom-right-radius: 46px;
 				}
 
-			.CompanyBox h1 {
+			.CompanyBox .CompanyTitle {
 				width: 100%;
 
 				color: var(--color-txt-p-dm);
@@ -645,7 +645,7 @@ h1, h2, h3, h4, h5, h6 {
 				text-align: center;
 			}
 
-				.ThemeYellow h1 {
+				.ThemeYellow .CompanyTitle {
 					color: var(--color-txt-p-lm);
 				}
 
@@ -912,227 +912,6 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 		/*******************************************************
-			Company.php
-		*******************************************************/
-
-		.UserView .CompanyADM {
-			display: none;
-		}
-
-		.ADMView .CompanyADM {
-			display: block;
-		}
-
-		#MainCompany {
-			min-height: calc(100vh - 60px);
-		}
-
-		#MainCompany .MainContent {
-			padding: 0 0 60px;
-		}
-
-		/* Header */
-
-		#SectionCompanyHeader {
-			display: flex;
-			justify-content: center;
-			
-			width: calc(100% - 600px);
-			
-			padding: 30px 20px;
-			margin: 40px 300px;
-			border-radius: 20px;
-
-			background-color: var(--color-theme-company-p);
-		}
-
-		.DarkMode #SectionCompanyHeader {
-			background-color: var(--color-theme-company-s);
-		}
-
-		#SectionCompanyHeader #CompanyName {
-			border-radius: 40px;
-			
-			color: var(--color-txt-p-dm);
-			font-size: 40px;
-			line-height: 50px;
-		}
-
-		/* Main */
-
-		#SectionCompanyMain {
-			background-color: var(--color-layout-p);
-		}
-
-		#SectionCompanyMain ul {
-			width: 100%;
-			margin-bottom: 35px;
-
-			list-style: none;
-		}
-
-			#SectionCompanyMain ul:last-child {
-				margin: 0;
-			}
-
-		#SectionCompanyMain ul .CategoryHeader {
-			width: 100%;
-			margin-bottom: 25px;
-		}
-
-		#SectionCompanyMain ul .CategoryHeader h1 {
-			color: var(--color-txt-p);
-			font-size: 28px;
-		}
-
-		#SectionCompanyMain ul .Category {
-			border-color: var(--color-theme-company-s);
-		}
-
-		#SectionCompanyMain ul .Category .CategoryOptions .btnContent button:hover {
-			background-color: var(--color-hover-p);
-		}
-
-			#SectionCompanyMain ul .Category .CategoryOptions .btnContent button:hover {
-				border-color: var(--color-theme-company-p);
-				
-				color: #FFFFFF;
-				background-color: var(--color-theme-company-p);
-			}
-
-			/* Danger */
-
-			#SectionCompanyMain ul .CategoryDanger {
-				border-color: rgba(234, 67, 53, 60%);
-			}
-
-			#SectionCompanyMain ul .CategoryDanger .HeaderCategory {
-				color: var(--color-error);
-			}
-
-			#SectionCompanyMain ul .CategoryDanger .CategoryOptions .btnContent button {
-				color: var(--color-error);
-			}
-
-				#SectionCompanyMain ul .CategoryDanger .CategoryOptions .btnContent button:hover {
-					border: 1px solid var(--color-error);
-				
-					color: #FFFFFF;
-					background-color: var(--color-error);
-				}
-
-		/*******************************************************
-			Feed.php
-		*******************************************************/
-
-		#MainFeed {
-			min-height: calc(100vh - 60px);
-		}
-
-		#MainFeed .MainContent {
-			padding: 60px 0;
-		}
-
-		#MainFeed .MainContent section {
-			margin-bottom: 40px;
-		}
-
-			#MainFeed .MainContent section:last-child {
-				margin: 0;
-			}
-
-		/* Header */
-
-		#SectionFeedHeader {
-			padding: 0 20px;
-		}
-
-		#SectionFeedHeader h1 {
-			width: 100%;
-			
-			color: var(--color-txt-p);
-			text-align: center;
-			font-size: 40px;
-		}
-
-		/* Filters */
-
-		#SectionFeedFilters h1 {
-			width: 100%;
-			margin-bottom: 15px;
-
-			color: var(--color-txt-p);
-		}
-
-		#SectionFeedFilters nav {
-			width: 100%;
-		}
-
-		#SectionFeedFilters nav ul {
-			width: 100%;
-			
-			list-style: none;
-		}
-		
-		#SectionFeedFilters nav ul li {
-			display: inline-block;
-
-			padding: 7px 20px;
-			margin-right: 15px;
-			margin-bottom: 10px;
-			border-radius: 20px;
-
-			font-size: 16px;
-			font-weight: 400;
-
-			transition: 0.2s linear;
-			cursor: pointer;	
-		}
-
-			#SectionFeedFilters nav ul li:last-child {
-				margin: 0;
-			}
-
-			#SectionFeedFilters nav ul .FilterActive {
-				background-color: var(--color-theme-p);
-			}
-
-				#SectionFeedFilters nav ul .FilterActive:hover {
-					background-color: var(--color-theme-hover);
-				}
-
-			#SectionFeedFilters nav ul .FilterActive {
-				color: var(--color-txt-p-dm);
-			}
-			
-			#SectionFeedFilters nav ul .FilterDesactive {
-				background-color: var(--color-layout-s);
-			}
-
-				#SectionFeedFilters nav ul .FilterDesactive:hover {
-					background-color: var(--color-layout-t);
-				}
-
-			#SectionFeedFilters nav ul .FilterDesactive {
-				color: var(--color-txt-t);
-			}
-
-		/* Items */	
-
-		#SectionFeedItems nav {	
-			width: 100%;
-		}
-
-		#SectionFeedItems nav #FeedItensView {	
-			grid-template-columns: repeat(3, 1fr);
-			grid-row-gap: 60px;		
-		}
-
-			#SectionFeedItems nav #FeedItensView .NoFor {
-				grid-column: 2/4;
-			}
-
-		/*******************************************************
 			User.php
 		*******************************************************/
 
@@ -1264,7 +1043,7 @@ h1, h2, h3, h4, h5, h6 {
 					.FrameMain .Category .CategoryOptions .btnContent button:hover {
 						border-color: var(--color-theme-p);
 						
-						color: #FFFFFF;
+						color: var(--color-txt-p-dm);
 						background-color: var(--color-theme-p);
 					}
 
@@ -1285,7 +1064,7 @@ h1, h2, h3, h4, h5, h6 {
 						.FrameMain ul .CategoryDanger .CategoryOptions .btnContent button:hover {
 							border: 1px solid var(--color-error);
 						
-							color: #FFFFFF;
+							color: var(--color-txt-p-dm);
 							background-color: var(--color-error);
 						}
 
@@ -1427,6 +1206,235 @@ h1, h2, h3, h4, h5, h6 {
 				}
 
 		/*******************************************************
+			Company.php
+		*******************************************************/
+
+		.UserView .CompanyADM {
+			display: none;
+		}
+
+		.ADMView .CompanyADM {
+			display: block;
+		}
+
+		#MainCompany {
+			min-height: calc(100vh - 60px);
+		}
+
+		#MainCompany .MainContent {
+			padding: 0 0 60px;
+		}
+
+		/* Header */
+
+		#SectionCompanyHeader {
+			display: flex;
+			justify-content: center;
+			
+			width: calc(100% - 600px);
+			
+			padding: 30px 20px;
+			margin: 40px 300px;
+			border-radius: 20px;
+
+			background-color: var(--color-theme-company-p);
+		}
+
+			.DarkMode #SectionCompanyHeader {
+				background-color: var(--color-theme-company-s);
+			}
+
+		#SectionCompanyHeader #CompanyName {
+			border-radius: 40px;
+			
+			color: var(--color-txt-p-dm);
+			font-size: 40px;
+			line-height: 50px;
+		}
+
+			.ThemeYellow #SectionCompanyHeader #CompanyName {
+				color: var(--color-txt-p-lm);
+			}
+
+		/* Main */
+
+		#SectionCompanyMain {
+			background-color: var(--color-layout-p);
+		}
+
+		#SectionCompanyMain ul {
+			width: 100%;
+			margin-bottom: 35px;
+
+			list-style: none;
+		}
+
+			#SectionCompanyMain ul:last-child {
+				margin: 0;
+			}
+
+		#SectionCompanyMain ul .CategoryHeader {
+			width: 100%;
+			margin-bottom: 25px;
+		}
+
+		#SectionCompanyMain ul .CategoryHeader h1 {
+			color: var(--color-txt-p);
+			font-size: 28px;
+		}
+
+		#SectionCompanyMain ul .Category {
+			border-color: var(--color-theme-company-s);
+		}
+
+		#SectionCompanyMain ul .Category .CategoryOptions .btnContent button:hover {
+			background-color: var(--color-hover-p);
+		}
+
+			#SectionCompanyMain ul .Category .CategoryOptions .btnContent button:hover {
+				border-color: var(--color-theme-company-p);
+				
+				color: var(--color-txt-p-dm);
+				background-color: var(--color-theme-company-p);
+			}
+			
+				.ThemeYellow #SectionCompanyMain ul .Category .CategoryOptions .btnContent button:hover {
+					color: var(--color-txt-p-lm);
+				}
+
+			/* Danger */
+
+			#SectionCompanyMain ul .CategoryDanger {
+				border-color: rgba(234, 67, 53, 60%);
+			}
+
+			#SectionCompanyMain ul .CategoryDanger .HeaderCategory {
+				color: var(--color-error);
+			}
+
+			#SectionCompanyMain ul .CategoryDanger .CategoryOptions .btnContent button {
+				color: var(--color-error);
+			}
+
+				#SectionCompanyMain ul .CategoryDanger .CategoryOptions .btnContent button:hover {
+					border: 1px solid var(--color-error);
+				
+					color: var(--color-txt-p-dm);
+					background-color: var(--color-error);
+				}
+
+		/*******************************************************
+			Feed.php
+		*******************************************************/
+
+		#MainFeed {
+			min-height: calc(100vh - 60px);
+		}
+
+		#MainFeed .MainContent {
+			padding: 60px 0;
+		}
+
+		#MainFeed .MainContent section {
+			margin-bottom: 40px;
+		}
+
+			#MainFeed .MainContent section:last-child {
+				margin: 0;
+			}
+
+		/* Header */
+
+		#SectionFeedHeader {
+			padding: 0 20px;
+		}
+
+		#SectionFeedHeader h1 {
+			width: 100%;
+			
+			color: var(--color-txt-p);
+			text-align: center;
+			font-size: 40px;
+		}
+
+		/* Filters */
+
+		#SectionFeedFilters h1 {
+			width: 100%;
+			margin-bottom: 15px;
+
+			color: var(--color-txt-p);
+		}
+
+		#SectionFeedFilters nav {
+			width: 100%;
+		}
+
+		#SectionFeedFilters nav ul {
+			width: 100%;
+			
+			list-style: none;
+		}
+		
+		#SectionFeedFilters nav ul li {
+			display: inline-block;
+
+			padding: 7px 20px;
+			margin-right: 15px;
+			margin-bottom: 10px;
+			border-radius: 20px;
+
+			font-size: 16px;
+			font-weight: 400;
+
+			transition: 0.2s linear;
+			cursor: pointer;	
+		}
+
+			#SectionFeedFilters nav ul li:last-child {
+				margin: 0;
+			}
+
+			#SectionFeedFilters nav ul .FilterActive {
+				background-color: var(--color-theme-p);
+			}
+
+				#SectionFeedFilters nav ul .FilterActive:hover {
+					background-color: var(--color-theme-hover);
+				}
+
+			#SectionFeedFilters nav ul .FilterActive {
+				color: var(--color-txt-p-dm);
+			}
+			
+			#SectionFeedFilters nav ul .FilterDesactive {
+				background-color: var(--color-layout-s);
+			}
+
+				#SectionFeedFilters nav ul .FilterDesactive:hover {
+					background-color: var(--color-layout-t);
+				}
+
+			#SectionFeedFilters nav ul .FilterDesactive {
+				color: var(--color-txt-t);
+			}
+
+		/* Items */	
+
+		#SectionFeedItems nav {	
+			width: 100%;
+		}
+
+		#SectionFeedItems nav #FeedItensView {	
+			grid-template-columns: repeat(3, 1fr);
+			grid-row-gap: 60px;		
+		}
+
+			#SectionFeedItems nav #FeedItensView .NoFor {
+				grid-column: 2/4;
+			}
+
+		/*******************************************************
 			About.php
 		*******************************************************/
 
@@ -1441,6 +1449,14 @@ h1, h2, h3, h4, h5, h6 {
 			#MainAbout .MainContent section:last-child {
 				margin: 0;
 			}
+
+		#MainAbout .MainContent section h2 {
+			width: 100%;
+			margin-bottom: 40px;
+
+			color: var(--color-txt-p);
+			font-size: 30px;
+		}
 
 		#MainAbout .MainContent section ul {
 			width: 100%;
@@ -1548,16 +1564,6 @@ h1, h2, h3, h4, h5, h6 {
 			#SectionAboutHeader .ReleaseNotes:hover {
 				color: var(--color-txt-p);
 			}
-
-		/* Main */
-
-		#MainAbout .MainContent #SectionAboutMain h2 {
-			width: 100%;
-			margin-bottom: 40px;
-
-			color: var(--color-txt-p);
-			font-size: 30px;
-		}
 
 		/* Developers */
 
