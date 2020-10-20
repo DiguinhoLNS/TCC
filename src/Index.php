@@ -98,6 +98,9 @@
                                     ';
 
                                     $i++;
+                                    if($i>2){
+                                        $i=$linhas;
+                                    }
 
                                 }while($i<$linhas);
 
