@@ -1,4 +1,10 @@
-Usuario apagar conta e apagar os registro da tabela user_empresa tbm
+cadastro de objetos
+cadastro de usuario
+cadastro de empresa
 
-Apagar empresa e apagar cadastro dela no user_empresa tbm
+editar dados de empresa
+editar dados de usuario
+editar dados de objetos
+
+apagar dados de objetos
 
