@@ -48,7 +48,6 @@ Tiago Barbosa (Banco de dados) – [@Tiraxgo](https://twitter.com/Tiraxgo) – b
 A licença ainda será criada
 
 [luiys](https://github.com/luiys)
-
 [DiguinhoLNS](https://github.com/DiguinhoLNS)
 
 ## Para Contribuir
