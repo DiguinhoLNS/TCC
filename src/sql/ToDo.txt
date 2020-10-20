@@ -1,9 +1,6 @@
 Usuario apagar conta e apagar os registro da tabela user_empresa tbm
 
-Apresentar as empresas que o usuario criou e participa na side bar
-
-Quando usuario logar em uma empresa com codigo criar um cadastro 
-
-Quando logar aparecer a empresa (ta dando erro, n aparece nenhum dado)
-
 Apagar empresa e apagar cadastro dela no user_empresa tbm
+
+Quando usuario logar em uma empresa com codigo criar um cadastro na user_empresa
+Se ja tiver logado na empresa 1 vez, quando tentar logar dnv dar erro

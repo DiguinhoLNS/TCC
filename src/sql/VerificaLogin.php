@@ -46,21 +46,36 @@
 			$_SESSION["CompanyLoginError_1"] = 0;
 
 			$codigo_acesso = $_POST['cod'];
+			$id_user = $_COOKIE['ID'];
 
-			$regra1 = "SELECT codigo_acesso FROM empresas where codigo_acesso =  '$codigo_acesso'";
+			$regra1 = "SELECT codigo_acesso, id_empresa FROM empresas where codigo_acesso =  '$codigo_acesso'";
 			$res = mysqli_query($base, $regra1) or die("Erro na consulta");
 			$mostrar = mysqli_fetch_array($res);
 
-			if ($mostrar['codigo_acesso'] == strtoupper($codigo_acesso)) {
+			$id_empresa = $mostrar['id_empresa'];
 
-				header("Location: ../Company.php");
+			$regra2 = "SELECT * FROM user_empresa inner join empresas on 'id_empresa' = 'id_empresa' where empresas.codigo_acesso = '$codigo_acesso' and user_empresa.id_user = $id_user and user_empresa.id_empresa = empresas.id_empresa";
+			$res2 = mysqli_query($base, $regra2) or die("Erro na consulta");
+			$mostrar2 = mysqli_fetch_array($res2);
+			$linhas = $res2->num_rows;
 
-			} else {
 
+			if ($mostrar['codigo_acesso'] == strtoupper($codigo_acesso) && $linhas == 0) {
+
+				$_SESSION['V'] = 1;
+				header("Location: InsereUser_Empresa.php?q=".$codigo_acesso);
+
+			} else if($linhas>0){
+
+				$_SESSION["CompanyLoginError_1"] = "2";
+				/*echo $linhas."<br>";
+				print_r($mostrar2);*/
+				header("Location: ../LoginCompany.php");
+				
+			}else{
 				$_SESSION["CompanyLoginError_1"] = "1";
 
 				header("Location: ../LoginCompany.php");
-				
 			}
 
 		break;

@@ -82,3 +82,6 @@ array(2) { [0]=> array(18) {
     [6]=> string(20) "AAAAATESTE@gmail.com" ["Email"]=> string(20) "AAAAATESTE@gmail.com" 
     [7]=> string(14) "(11) 9891-7403"       ["Telefone"]=> string(14) "(11) 9891-7403" 
     [8]=> string(11) "ThemeOrange"          ["Cor_layout"]=> string(11) "ThemeOrange" } }
+
+    SELECT * FROM empresas inner join user_empresa on 'id_empresa' = 'id_empresa' where user_empresa.id_user = 18 and empresas.codigo_acesso = 'EAC621'
+    SELECT * FROM empresas inner join user_empresa on 'id_empresa' = 'id_empresa' where user_empresa.id_user = 18 and empresas.codigo_acesso = EAC621 and empresas.id_empresa = 12

@@ -2,8 +2,8 @@
 
     $id = $_COOKIE["ID"];
     $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
-    $regra1 = "SELECT * FROM empresas where id_adm =  '$id' ORDER BY Nome ASC ";
-    $res = mysqli_query($base, $regra1) or die("Erro na consulta");
+    $regra1 = "SELECT * FROM empresas inner join user_empresa on 'id_empresa' = 'id_empresa' where user_empresa.id_user = $id and empresas.id_empresa = user_empresa.id_empresa order by Nome ASC";
+    $res = mysqli_query($base, $regra1) or die("Erro na consultaDB");
 
     while($mostrar = mysqli_fetch_array($res)){
     $rows[] = $mostrar;

@@ -1,4 +1,7 @@
 Arquivo pra explicar o que eu fiz no commit:
 
-Feito: Mostrando empresas na side bar, no index e no user
+Consertado: Quando logar na empresa aparecer a empresa (ta dando erro, n aparece nenhum dado)
 
+Feito: Quando usuario logar em uma empresa com codigo criar um cadastro na user_empresa e se ja tiver logado na empresa 1 vez, quando tentar logar dnv dar erro
+
+E arrumei todas as QUERYS (inner join)

@@ -5,13 +5,18 @@
 	include "sql/ConexaoBD.php";
 
 	$id_empresa = $_GET['q'];
-	$id_adm = $_COOKIE["ID"]; 
+	$id_user = $_COOKIE["ID"]; 
 	$_SESSION['V'] = '2';
 	
 	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
-	$regra1 = "SELECT Nome, CNPJ, Endereco, Telefone, Email, Cor_layout FROM empresas where id_empresa =  '$id_empresa'";
+	$regra1 = "SELECT * FROM empresas where id_empresa =  '$id_empresa'";
 	$res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
 	$mostrar = mysqli_fetch_array($res);
+
+	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
+	$regra2 = "SELECT * FROM user_empresa where id_user =  '$id_user'";
+	$res2 = mysqli_query($base, $regra2) or die("Usuario não cadastrado");
+	$mostrar2 = mysqli_fetch_array($res2);
 
 	
 
@@ -29,7 +34,7 @@
 
 	</head>
 
-    <body id = "CompanyPage" class = "UNT LightMode <?php echo $mostrar['Cor_layout'];?> ADMView">
+    <body id = "CompanyPage" class = "UNT LightMode <?php echo $mostrar['Cor_layout']; if($mostrar2['Nivel_acesso'] == 4){ echo 'ADMView'; }else if($mostrar2['Nivel_acesso'] == 2){echo 'UserView';}?>">
 
 		<?php
 

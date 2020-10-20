@@ -33,7 +33,7 @@
 
             $CompanyLoginError_1 = $_SESSION["CompanyLoginError_1"];
 
-            if ($CompanyLoginError_1 == "1") {
+            if ($CompanyLoginError_1 == "1" || $CompanyLoginError_1 == "2") {
 
                 echo '
                         
@@ -50,6 +50,7 @@
                 ';
 
             }
+
 
         }
     
@@ -71,8 +72,8 @@
 							<input id = "L_Cod" class = "UserInputData" type = "text" name = "cod" required />
                         </li>
                         <li class = "ContentError">
-							<span id = "ErrorCod" class = "txtError"> Código incorreto </span>
-						</li>
+							<span id = "ErrorCod" class = "txtError"> <?php if ($CompanyLoginError_1 == "1"){echo "Código incorreto";}else if($CompanyLoginError_1 == "2") {echo "Você já esta nesta empresa, entre pelo Dashboard";} ?> </span>
+                        </li>
 						<li class = "ContentBottom">
 							<a href = "Dashboard.php"> Voltar para Dashboard </a>
 							<input class = "UserInputSubmit btn" type = "submit" value = "Entrar">
