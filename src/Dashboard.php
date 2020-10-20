@@ -4,7 +4,16 @@
     $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
     $regra1 = "SELECT * FROM empresas where id_adm =  '$id' ";
     $res = mysqli_query($base, $regra1) or die("Erro na consulta");
-    $mostrar = mysqli_fetch_array($res);
+
+    while($mostrar = mysqli_fetch_array($res)){
+    $rows[] = $mostrar;
+    }
+
+
+    //$mostrar = mysqli_fetch_array($res);
+
+
+
     $linhas = $res->num_rows;
 
 ?>
@@ -62,25 +71,33 @@
                         
                                 }else{
 
+                                    //$i1=-1;
                                     $i=0;
 
+                                    /*for($i1=0;$i1!=($linhas);$i1++){
+                                    $nomes = array($i1 => print_r($rows[$i1]['Nome']));
+                                    $cnpjs = array($i1 =>print_r($rows[$i1]['CNPJ']));
+                                    $telefones = array($i1 =>print_r($rows[$i1]['Telefone']));
+                                    }*/
+                                    $nome1 =  $rows[$i]['Nome'];
+
                                     do{   
+                                        
 
-
-                            echo '
+                            echo( "
                             
-                            <li class = "Box ThemeDefault">
+                            <li class = 'Box ". $rows[$i]['Cor_layout']."'>
                                
-                                <a href = "" title = "Nome da Empresa">
-                                    <h1> '. $linhas .'</h1>
-                                    <h2> cnpj </h2>
-                                    <h3> (XX) XXXX-XXXX </h3>
+                                <a href = 'Company.php?q=".$rows[$i]['id_empresa']."' title =' ".$i."'>
+                                    <h1> ". $rows[$i]['Nome'] ."</h1>
+                                    <h2> ". $rows[$i]['CNPJ']." </h2>
+                                    <h3> ". $rows[$i]['Telefone'] ."</h3>
                                 </a>                      
                                  
-                            </li>';
+                            </li>");
 
                             $i++;
-                                    }while($i!=$linhas);
+                                    }while($i<($linhas));
                             }?>
 
                         </ul>

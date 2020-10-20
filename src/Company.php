@@ -4,13 +4,16 @@
 	
 	include "sql/ConexaoBD.php";
 
+	$id_empresa = $_GET['q'];
 	$id_adm = $_COOKIE["ID"]; 
 	$_SESSION['V'] = '2';
 	
 	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
-	$regra1 = "SELECT Nome, CNPJ, Endereco, Telefone, Email, Cor_layout FROM empresas where id_adm =  '$id_adm'";
+	$regra1 = "SELECT Nome, CNPJ, Endereco, Telefone, Email, Cor_layout FROM empresas where id_empresa =  '$id_empresa'";
 	$res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
 	$mostrar = mysqli_fetch_array($res);
+
+	
 
 
 ?>
