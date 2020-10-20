@@ -1,5 +1,7 @@
-Quando o usuario criar 2 ou mais paginas, assim que criar, mostrar a pagina que criou nao a primeira
+//Quando o usuario criar 2 ou mais paginas, assim que criar, mostrar a pagina que criou nao a primeira
 
-Usuario apagar conta e apagar os registro da tabela user_empresa tbm
+//Usuario apagar conta e apagar os registro da tabela user_empresa tbm
 
-//Apresentar as empresas que o usuario criou e participa
+Apresentar as empresas que o usuario criou e participa na side bar
+
+Quando usuario logar em uma empresa com codigo criar um cadastro 

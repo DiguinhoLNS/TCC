@@ -16,7 +16,11 @@ switch ($tipo_verificacao) {
         $apagar = "DELETE FROM usuarios where id_user = '$id'";
         mysqli_query($base, $apagar);
 
-        if ($conexao->query($apagar) === TRUE) {
+        $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
+        $apagar2 = "DELETE FROM user_empresa where id_user = '$id'";
+        mysqli_query($base, $apagar2);
+
+        if ($conexao->query($apagar) === TRUE && $conexao->query($apagar2)){
 
             CloseSession();
             

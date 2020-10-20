@@ -32,7 +32,7 @@ switch ($tipo_verificacao) {
 
         if ($conexao->query($sql) === TRUE) {
 
-            header("Location: ../Company.php");
+            header("Location: ../Company.php?q=".$id_empresa);
         } else {
 
             echo "Erro 3";
