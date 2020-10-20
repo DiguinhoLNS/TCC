@@ -1,3 +1,16 @@
+<?php session_start(); include 'sql/ConexaoBD.php'; $id = $_COOKIE["ID"];
+    $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
+    $regra1 = "SELECT * FROM empresas where id_adm =  '$id' ";
+    $res = mysqli_query($base, $regra1) or die("Erro na consulta");
+
+    while($mostrar = mysqli_fetch_array($res)){
+    $rows[] = $mostrar;
+    }
+
+    $linhas = $res->num_rows;
+
+?> 
+
 <div id = "SideNavBar">
 
     <nav class = "NavOptions">
@@ -25,12 +38,14 @@
             </li>
         </ul>
         <ul>
-            <li>
-                <a href = "">
+            <?php $i=0; do{ echo '
+            <li>               
+                <a href = "Company.php?q='.$rows[$i]['id_empresa'].'">
                     <i class = "material-icons"> &#xe0af; </i>
-                    <span> Empresa 1 </span>
-                </a>
-            </li>
+                    <span>'. $rows[$i]['Nome'] .'</span>
+                </a>                
+            </li>'
+            ;$i++;}while($i<$linhas)?>
         </ul>
         
     </nav>

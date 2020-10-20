@@ -2,17 +2,12 @@
 
     $id = $_COOKIE["ID"];
     $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
-    $regra1 = "SELECT * FROM empresas where id_adm =  '$id' ";
+    $regra1 = "SELECT * FROM empresas where id_adm =  '$id' ORDER BY Nome ASC ";
     $res = mysqli_query($base, $regra1) or die("Erro na consulta");
 
     while($mostrar = mysqli_fetch_array($res)){
     $rows[] = $mostrar;
     }
-
-
-    //$mostrar = mysqli_fetch_array($res);
-
-
 
     $linhas = $res->num_rows;
 

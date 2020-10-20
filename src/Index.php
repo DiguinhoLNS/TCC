@@ -11,7 +11,20 @@
 
 		<title> APE </title>
 		
-		<?php include "include/Head.php"; ?>
+        <?php include "include/Head.php";  ?>
+        
+        <?php session_start(); include 'sql/ConexaoBD.php'; $id = $_COOKIE["ID"];
+        $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
+        $regra1 = "SELECT * FROM empresas where id_adm =  '$id' ORDER BY Nome ASC";
+        $res = mysqli_query($base, $regra1) or die("Erro na consulta");
+
+        while($mostrar = mysqli_fetch_array($res)){
+        $rows[] = $mostrar;
+        }
+
+        $linhas = $res->num_rows;
+
+        ?> 
 
 	</head>
 
@@ -59,25 +72,13 @@
                 <section id = "SectionIndexDiscover">
 
                     <div class = "CompaniesQuickAccessBar">
+                    <?php $i=0; do{ echo '
+                        <a href = "Company.php?q='.$rows[$i]['id_empresa'].'" class = "CompanyBox '.$rows[$i]['Cor_layout'].'" title = "Acessar '.$rows[$i]['Nome'].' ">
 
-                        <a href = "" class = "CompanyBox ThemeGreen" title = "Acessar NOME DA EMPRESA">
-
-                           <h1> Nome da Empresa </h1>
+                           <h1> '.$rows[$i]['Nome'].' </h1>
                         
-                        </a>
-
-                        <a href = "" class = "CompanyBox ThemeBlue" title = "Acessar NOME DA EMPRESA">
-
-                           <h1> Nome da Empresa </h1>
-                        
-                        </a>
-
-                        <a href = "" class = "CompanyBox ThemeDefault" title = "Acessar NOME DA EMPRESA">
-
-                           <h1> Nome da Empresa </h1>
-                        
-                        </a>
-
+                        </a>'
+                    ;$i++;}while($i<$linhas);?>
                     </div>
 
                     <div id = "DiscoverContent">

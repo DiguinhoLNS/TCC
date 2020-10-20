@@ -9,6 +9,19 @@
 
         <?php include "include/Head.php"; ?>
 
+        <?php session_start(); include 'sql/ConexaoBD.php'; $id = $_COOKIE["ID"];
+        $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
+        $regra1 = "SELECT * FROM empresas where id_adm =  '$id' ORDER BY Nome ASC ";
+        $res = mysqli_query($base, $regra1) or die("Erro na consulta");
+
+        while($mostrar = mysqli_fetch_array($res)){
+        $rows[] = $mostrar;
+        }
+
+        $linhas = $res->num_rows;
+
+        ?> 
+
         <?php
             $_SESSION['V'] = '1';
 
@@ -218,36 +231,13 @@
 
                                     <ul id = "UserCompaniesView" class = "BoxView">
 
+                                    <?php $i=0; do{echo '
                                         <li>
-                                            <a href = "" title = "Nome da Empresa">
-                                                <h1> Nome da Empresa </h1>
+                                            <a href = "Company.php?q='.$rows[$i]['id_empresa'].'" title = "'. $rows[$i]['Nome']. '">
+                                                <h1> '. $rows[$i]['Nome']. ' </h1>
                                             </a>
-                                        </li>
-                                        <li>
-                                            <a href = "" title = "Nome da Empresa">
-                                                <h1> Nome da Empresa </h1>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href = "" title = "Nome da Empresa">
-                                                <h1> Nome da Empresa </h1>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href = "" title = "Nome da Empresa">
-                                                <h1> Nome da Empresa </h1>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href = "" title = "Nome da Empresa">
-                                                <h1> Nome da Empresa </h1>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href = "" title = "Nome da Empresa">
-                                                <h1> Nome da Empresa </h1>
-                                            </a>
-                                        </li>
+                                        </li>'
+                                    ;$i++;}while($i<$linhas);?>
 
                                     </ul>
 
