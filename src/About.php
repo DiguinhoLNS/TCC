@@ -36,7 +36,7 @@
 			    <section id = "SectionAboutHeader">
 
                     <h1> APE - Achados e Perdidos Empresarial </h1>
-                    <span class = "ReleaseNotes"> Notas da versão x.x.x </span>
+                    <a href = "ReleaseNotes.php" id = "AboutReleaseNotes" class = "ReleaseNotes"> Notas da versão x.x.x </a>
 
                 </section>
 

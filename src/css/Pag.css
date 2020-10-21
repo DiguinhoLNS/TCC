@@ -1690,6 +1690,148 @@ h1, h2, h3, h4, h5, h6 {
 			}
 
 		/*******************************************************
+			ReleaseNotes.php
+		*******************************************************/
+
+		#MainReleaseNotes .MainContent {
+			padding: 60px 0;
+		}
+
+		#MainReleaseNotes .MainContent section {
+			margin-bottom: 40px;
+		}
+
+			#MainReleaseNotes .MainContent section:last-child {
+				margin: 0;
+			}
+
+		/* Header */
+
+		#SectionReleaseNotesHeader h1 {
+			width: 100%;
+			
+			color: var(--color-txt-p);
+			text-align: center;
+			font-size: 40px;
+		}
+
+		/* Main */
+
+		#SectionReleaseNotesMain .ReleaseNotesVersionHeader {
+			width: 100%;
+			margin-bottom: 25px;
+		}
+
+		#SectionReleaseNotesMain .ReleaseNotesVersionHeader h2 {
+			margin-right: 20px;
+			
+			color: var(--color-txt-p);
+			font-size: 28px;
+		}
+
+		#SectionReleaseNotesMain .ReleaseNotesVersionHeader h3 {
+			color: var(--color-txt-t);
+			font-size: 28px;
+		}
+
+		#SectionReleaseNotesMain #ReleaseNotesGroup {
+			width: 100%;
+
+			list-style: none;
+		}
+
+		#SectionReleaseNotesMain #ReleaseNotesGroup .ReleaseNotesBox {
+			width: 100%;
+			margin-bottom: 25px;
+			border: 2px solid;
+			border-radius: 20px;
+
+			background-color: var(--color-layout-p);
+		}
+
+			#SectionReleaseNotesMain #ReleaseNotesGroup .ReleaseNotesBox:last-child {
+				margin: 0;
+			}
+
+			#SectionReleaseNotesMain #ReleaseNotesGroup #NewFeatures {
+				border-bottom-color: #34A853;
+
+				color: #34A853;
+			}
+
+				.DarkMode #SectionReleaseNotesMain #ReleaseNotesGroup #NewFeatures {
+					background-color: #34A853;
+				}
+
+			#SectionReleaseNotesMain #ReleaseNotesGroup #Updates {
+				border-bottom-color: #FBBC05;
+
+				color: #FBBC05;
+			}
+
+				.DarkMode #SectionReleaseNotesMain #ReleaseNotesGroup #Updates {
+					background-color: #FBBC05;
+				}
+
+			#SectionReleaseNotesMain #ReleaseNotesGroup #FixedErrors {
+				border-bottom-color: #EA4335;
+
+				color: #EA4335;
+			}
+
+				.DarkMode #SectionReleaseNotesMain #ReleaseNotesGroup #FixedErrors {
+					background-color: #EA4335;
+				}
+
+		#SectionReleaseNotesMain #ReleaseNotesGroup .ReleaseNotesBox h1 {
+			width: 100%;
+			padding: 20px 20px 0;
+			
+			color: inherit;
+			font-size: 24px;
+		}
+
+			.DarkMode #SectionReleaseNotesMain #ReleaseNotesGroup .ReleaseNotesBox h1 {
+				padding: 20px;
+				border-top-left-radius: inherit;
+				border-top-right-radius: inherit;
+				
+				color: var(--color-layout-p);
+			}
+
+		#ReleaseNotesGroup .ReleaseNotesBox .ReleaseNotesContent {
+			width: 100%;
+			padding: 20px;
+			border-bottom-left-radius: inherit;
+			border-bottom-right-radius: inherit;
+
+			list-style: none;
+			background-color: var(--color-layout-p);
+		}
+
+		#ReleaseNotesGroup .ReleaseNotesBox .ReleaseNotesContent .ReleaseNotesText {
+			width: 100%;
+			margin-bottom: 20px;
+		}
+
+			#ReleaseNotesGroup .ReleaseNotesBox .ReleaseNotesContent .ReleaseNotesText:last-child {
+				margin-bottom: 0;
+			}
+
+		#ReleaseNotesGroup .ReleaseNotesBox .ReleaseNotesContent .ReleaseNotesText h2 {
+			margin-bottom: 10px;
+			
+			color: var(--color-txt-p);
+			font-size: 20px;
+		}
+
+		#ReleaseNotesGroup .ReleaseNotesBox .ReleaseNotesContent .ReleaseNotesText p {
+			
+			color: var(--color-txt-t);
+			font-size: 16px;
+		}
+
+		/*******************************************************
 			LoginUser.php / RegisterUser.php / EditUser.php
 			LoginCompany.php / RegisterCompany.php / EditCompany.php
 		*******************************************************/
@@ -2459,9 +2601,9 @@ h1, h2, h3, h4, h5, h6 {
 		font-size: 30px;
 	}
 
-	.MainOverlay ul {
+	.MainOverlay .DiscoverOverlayUL {
 		display: grid;
-		grid-template-rows: auto, 1fr;
+		grid-template-rows: auto 1fr;
 		
 		width: 60%;
 		padding: 40px 60px;
@@ -2470,36 +2612,36 @@ h1, h2, h3, h4, h5, h6 {
 		list-style-type: none;
 		background-color: var(--color-header);
 	}
-
-	.MainOverlay ul li {
+	
+	.MainOverlay .DiscoverOverlayUL li {
 		display: flex;
 		justify-content: center;
 		
 		width: 100%;
 	}
 
-		.MainOverlay ul li:nth-child(1){
+		.MainOverlay .DiscoverOverlayUL li:nth-child(1){
 			height: 80px;
 			margin-bottom: 60px;
 
 			text-align: center;
 		}
 
-	.MainOverlay ul li i {
+	.MainOverlay .DiscoverOverlayUL li i {
 		margin-right: 40px;
 
 		color: var(--color-txt-p);
 		font-size: 80px;
 	}
 
-	.MainOverlay ul li h1 {
+	.MainOverlay .DiscoverOverlayUL li h1 {
 		margin: 14px 0;
 
 		color: var(--color-txt-p);
 		font-size: 42px;
 	}
 
-	.MainOverlay ul li p {
+	.MainOverlay .DiscoverOverlayUL li p {
 		width: 100%;
 
 		color: var(--color-txt-s);
@@ -2574,7 +2716,8 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 
 	#WelcomeHeader, #SectionFeedFilters, #SectionFeedItems, 
 	#SectionDashboardItems, #MainUser .MainContent section,
-	#SectionCompanyMain, #MainAbout section, #MainTerms section {
+	#SectionCompanyMain, #MainAbout section, #MainTerms section,
+	#MainReleaseNotes section {
 		padding-left: 300px;
 		padding-right: 300px;
 	}
