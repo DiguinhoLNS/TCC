@@ -1598,6 +1598,82 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 		/*******************************************************
+			Terms.php
+		*******************************************************/
+
+		#MainTerms .MainContent {
+			padding: 60px 0;
+		}
+
+		#MainTerms .MainContent section {
+			margin-bottom: 40px;
+		}
+
+			#MainTerms .MainContent section:last-child {
+				margin: 0;
+			}
+
+		/* Header */
+
+		#SectionTermsHeader h1 {
+			width: 100%;
+			
+			color: var(--color-txt-p);
+			text-align: center;
+			font-size: 40px;
+		}
+
+		/* Main */
+
+		#SectionTermsMain ul {
+			width: 100%;
+			margin-bottom: 40px;
+
+			list-style: none;
+		}
+
+			#SectionTermsMain ul:last-child {
+				margin: 0;
+			}
+
+		#SectionTermsMain ul h2 {
+			width: 100%;
+			margin-bottom: 30px;
+
+			color: var(--color-txt-p);
+			font-size: 30px;
+		}
+
+		#SectionTermsMain ul li {
+			width: 100%;
+			margin-bottom: 20px;
+		}
+
+			#SectionTermsMain ul li:last-child {
+				margin: 0;
+			}
+
+		#SectionTermsMain ul li h3 {
+			width: 100%;
+			margin-bottom: 20px;
+
+			color: var(--color-txt-s);
+			font-size: 26px;
+		}
+
+		#SectionTermsMain ul li span {
+			width: 100%;
+			margin-bottom: 15px;
+
+			color: var(--color-txt-s);
+			font-size: 16px;
+		}
+
+			#SectionTermsMain ul li span:last-child {
+				margin: 0;
+			}
+
+		/*******************************************************
 			LoginUser.php / LoginCompany.php
 			RegisterUser.php / RegisterCompany.php
 		*******************************************************/
@@ -2481,7 +2557,7 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 
 	#WelcomeHeader, #SectionFeedFilters, #SectionFeedItems, 
 	#SectionDashboardItems, #MainUser .MainContent section,
-	#SectionCompanyMain, #MainAbout section {
+	#SectionCompanyMain, #MainAbout section, #MainTerms section {
 		padding-left: 300px;
 		padding-right: 300px;
 	}

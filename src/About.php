@@ -74,7 +74,7 @@
 
                         <li class = "TextContent">
 
-                            <h3> Política de Privacidade e Termos </h3>
+                            <h3> Política de Privacidade, Termos e Licensas </h3>
 
                             <p>
                                 Leia sobre a nossa política de privacidade e os nossos termos de uso.
@@ -83,6 +83,10 @@
                         </li>
 
                         <li>
+
+                            <button>
+                                <a href = "Terms.php"> Licensas </a>
+                            </button>
 
                             <button>
                                 <a href = "Terms.php"> Política de Privacidade </a>
