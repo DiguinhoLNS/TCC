@@ -30,15 +30,15 @@ procurar por ele.
 Infelizmente venho dizer que este é apenas um projeto de TCC, por enquanto o site ainda não esta no ar 😩 mas, pretendemos um dia evoluir esse projeto
 e assim que conseguirmos um domínio colocaremos o link dele aqui, então fique por aqui para acompanhar as novidades.
 
-_Se você quiser nos ajudar no desenvolvimento acadêmico ou comercial desde projeto, nos envie um email para: ape.achadoseperdidos@gmail.com_
+>_Se você quiser nos ajudar no desenvolvimento acadêmico ou comercial deste projeto, nos envie um email para: ape.achadoseperdidos@gmail.com_
 
 _Toda ajuda será bem vinda_
 
 ## Meta
 
-Luis Gustavo (BackEnd)– [@LG](https://twitter.com/__User__Name)– luisgustavofeitoza@gmail.com
+Luis Gustavo (BackEnd)– [@LG](https://twitter.com/__User__Name) – luisgustavofeitoza@gmail.com
 
-Marcos Augusto (Documentação)  – [@marcosaquiuqui](https://twitter.com/marcosaquiuqui) – 
+Marcos Augusto (Documentação)  – [@marcosaquiuqui](https://twitter.com/marcosaquiuqui) – marcosaquiuqui@gmail.com
 
 Rodrigo Lima (FrontEnd) – [@Diguinho_lns](https://twitter.com/Diguinho_lns) – rolns002@gmail.com
 
@@ -58,6 +58,6 @@ A licença ainda será criada
 4. _Push_ 
 5. Crie um novo _Pull Request_
 
-_Se você quiser nos ajudar no desenvolvimento acadêmico ou comercial desde projeto, nos envie um email para: ape.achadoseperdidos@gmail.com_
+>_Se você quiser nos ajudar no desenvolvimento acadêmico ou comercial desde projeto, nos envie um email para: ape.achadoseperdidos@gmail.com_
 
 _Toda ajuda será bem vinda_
