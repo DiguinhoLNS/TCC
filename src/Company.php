@@ -7,7 +7,7 @@
 
 	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 
-	$id_empresa = $_GET['q'];
+	$id_empresa = $_GET['company'];
 	$_SESSION['V'] = '2';
 
 	if(isset($_COOKIE["ID"])){
@@ -199,7 +199,26 @@
 
 								<div class = "CategoryText">
 
-									<h1> Editar página </h1>
+									<h1> Editar empresa </h1>
+									<h2> Editar os dados da sua empresa </h2>
+
+								</div>
+
+								<div class = "btnContent">
+
+									<button>
+										<a href = "EditCompany.php"> Editar Empresa </a>
+									</button>
+
+								</div>
+
+							</div>
+
+							<div class = "CategoryOptions">
+
+								<div class = "CategoryText">
+
+									<h1> Editar feed </h1>
 									<h2> Editar o feed da sua empresa </h2>
 
 								</div>

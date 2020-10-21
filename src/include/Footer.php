@@ -84,7 +84,7 @@
         <ul class = "FooterLicense">
 
             <li>
-                Todos os direitos reservados. Licenciado por Creative Commons. APE Group <script type = "text/javascript"> var ano = new Date(); document.write(ano.getFullYear()); </script>.
+                APE Group <script type = "text/javascript"> var ano = new Date(); document.write(ano.getFullYear()); </script>. Todos os direitos reservados. Licenciado por Creative Commons <script type = "text/javascript"> var ano = new Date(); document.write(ano.getFullYear()); </script>.
             </li>
 
         </ul>

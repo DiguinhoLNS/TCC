@@ -11,7 +11,7 @@
 
 	<head>
 
-		<title> Cadastro APE </title>
+		<title> Criar Conta </title>
 
 		<?php include "include/Head.php"; ?>
 

@@ -1674,11 +1674,12 @@ h1, h2, h3, h4, h5, h6 {
 			}
 
 		/*******************************************************
-			LoginUser.php / LoginCompany.php
-			RegisterUser.php / RegisterCompany.php
+			LoginUser.php / RegisterUser.php / EditUser.php
+			LoginCompany.php / RegisterCompany.php / EditCompany.php
 		*******************************************************/
 
-		#MainLoginUser, #MainLoginCompany, #MainRegisterUser, #MainRegisterCompany {
+		#MainLoginUser, #MainRegisterUser, #MainEditUser, 
+		#MainLoginCompany, #MainRegisterCompany, #MainEditCompany {
 			display: grid;
 			justify-content: center;
 			align-items: center;

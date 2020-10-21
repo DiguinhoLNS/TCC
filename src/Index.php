@@ -90,7 +90,7 @@
                                 do{
 
                                     echo '
-                                        <a href = "Company.php?q='.$rows[$i]['id_empresa'].'" class = "CompanyBox '.$rows[$i]['Cor_layout'].'" title = "Acessar '.$rows[$i]['Nome'].' ">
+                                        <a href = "Company.php?company='.$rows[$i]['id_empresa'].'" class = "CompanyBox '.$rows[$i]['Cor_layout'].'" title = "Acessar '.$rows[$i]['Nome'].' ">
 
                                             <h1 class = "CompanyTitle"> '.$rows[$i]['Nome'].' </h1>
                                         

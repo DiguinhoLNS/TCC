@@ -249,7 +249,7 @@
                                                 do{
                                                     echo '
                                                         <li>
-                                                            <a href = "Company.php?q='.$rows[$i]['id_empresa'].'" title = "'. utf8_encode($rows[$i]['Nome']). '">
+                                                            <a href = "Company.php?company='.$rows[$i]['id_empresa'].'" title = "'. utf8_encode($rows[$i]['Nome']). '">
                                                                 <h1> '. utf8_encode($rows[$i]['Nome']). ' </h1>
                                                             </a>
                                                         </li>
@@ -333,45 +333,7 @@
                                                 <div class = "btnContent">
 
                                                     <button>
-                                                        <a href = "EditUser.php/?edit=profile"> Editar Perfil </a>
-                                                    </button>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class = "CategoryOptions">
-
-                                                <div class = "CategoryText">
-
-                                                    <h1> Editar contato </h1>
-                                                    <h2> Editar os seus dados de contato </h2>
-
-                                                </div>
-
-                                                <div class = "btnContent">
-
-                                                    <button>
-                                                        <a href = "EditUser.php/?edit=contact"> Editar Contato </a>
-                                                    </button>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class = "CategoryOptions">
-
-                                                <div class = "CategoryText">
-
-                                                    <h1> Editar segurança </h1>
-                                                    <h2> Editar os seus dados de segurança </h2>
-
-                                                </div>
-
-                                                <div class = "btnContent">
-
-                                                    <button>
-                                                        <a href = "EditUser.php/?edit=security"> Editar Segurança </a>
+                                                        <a href = "EditUser.php"> Editar Perfil </a>
                                                     </button>
 
                                                 </div>

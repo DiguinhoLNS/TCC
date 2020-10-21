@@ -19,42 +19,42 @@
     
     <body id = "LoginCompanyPage" class = "LightMode">
 
-    <?php
-    
-        include "php/Pag.php";
+        <?php
+        
+            include "php/Pag.php";
 
-        StopUserAccess();
+            StopUserAccess();
 
-        if (!isset($_SESSION["CompanyLoginError_1"])) {
+            if (!isset($_SESSION["CompanyLoginError_1"])) {
 
-            $_SESSION["CompanyRegisterError_1"] = 0;
+                $_SESSION["CompanyRegisterError_1"] = 0;
 
-        } else {
+            } else {
 
-            $CompanyLoginError_1 = $_SESSION["CompanyLoginError_1"];
+                $CompanyLoginError_1 = $_SESSION["CompanyLoginError_1"];
 
-            if ($CompanyLoginError_1 == "1" || $CompanyLoginError_1 == "2") {
+                if ($CompanyLoginError_1 == "1" || $CompanyLoginError_1 == "2") {
 
-                echo '
+                    echo '
+                            
+                        <script language = "javascript" type = "text/javascript">
                         
-                    <script language = "javascript" type = "text/javascript">
-                    
-                        $(document).ready(function(){
+                            $(document).ready(function(){
 
-                            $("#ErrorCod").css("display", "block");
+                                $("#ErrorCod").css("display", "block");
 
-                        });
+                            });
+                        
+                        </script>
                     
-                    </script>
-                
-                ';
+                    ';
+
+                }
+
 
             }
-
-
-        }
-    
-    ?>
+        
+        ?>
 
         <main id = "MainLoginCompany">
 

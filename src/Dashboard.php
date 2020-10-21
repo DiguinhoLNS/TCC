@@ -93,7 +93,7 @@
                                         
                                             <li class = 'Box ". $rows[$i]['Cor_layout']."'>
                                             
-                                                <a href = 'Company.php?q=".$rows[$i]['id_empresa']."' title =' ".$i."'>
+                                                <a href = 'Company.php?company=".$rows[$i]['id_empresa']."' title =' ".$i."'>
                                                     <h1> ". utf8_encode($rows[$i]['Nome']) ."</h1>
                                                     <h2> ". $cnpj." </h2>
                                                     <h3> ". $rows[$i]['Telefone'] ."</h3>
