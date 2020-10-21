@@ -45,7 +45,8 @@ Rodrigo Lima (FrontEnd) – [@Diguinho_lns](https://twitter.com/Diguinho_lns) �
 Tiago Barbosa (Banco de dados) – [@Tiraxgo](https://twitter.com/Tiraxgo) – barbosatiago1811@gmail.com
 
 
-A licença ainda será criada
+Achados e Perdidos Empresarial está licenciado com uma Licença Creative Commons - Atribuição-NãoComercial-SemDerivações 4.0 Internacional.  
+http://creativecommons.org/licenses/by-nc-nd/4.0/
 
 [luiys](https://github.com/luiys)
 [DiguinhoLNS](https://github.com/DiguinhoLNS)
