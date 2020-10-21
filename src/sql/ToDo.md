@@ -1,19 +1,19 @@
 # TO DO
 
 ### Cadastros
->-cadastro de usuario.
->-cadastro de empresa.
--cadastro de objetos.
+- >cadastro de usuario.
+- >cadastro de empresa.
+- cadastro de objetos.
 
 ### Editar Dados
--editar dados de usuario.
--editar dados de empresa.
--editar dados de objetos.
+- editar dados de usuario.
+- editar dados de empresa.
+- editar dados de objetos.
 
 ### Apagar Dados
->-apagar dados de usuario.
->-DESATIVAR empresa.
--apagar dados de objetos.
+- >apagar dados de usuario.
+- >DESATIVAR empresa.
+- apagar dados de objetos.
 
 ### Outras funcionalidades e documentos (NECESSÁRIOS)
 
