@@ -249,7 +249,7 @@
                                                 do{
                                                     echo '
                                                         <li>
-                                                            <a href = "Company.php?company='.$rows[$i]['id_empresa'].'" title = "'. utf8_encode($rows[$i]['Nome']). '">
+                                                            <a href = "Company.php?q='.$rows[$i]['id_empresa'].'" title = "'. utf8_encode($rows[$i]['Nome']). '">
                                                                 <h1> '. utf8_encode($rows[$i]['Nome']). ' </h1>
                                                             </a>
                                                         </li>

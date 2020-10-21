@@ -1,5 +1,9 @@
 # TO DO
 
+## Projeto CLEANCODE
+- Variaveis com nomes auto explicativos (mesmo que o nome seja grande)
+- Funções pequenas e com nomes auto explicativos tambem
+
 ### Cadastros
 - >cadastro de usuario.
 - >cadastro de empresa.

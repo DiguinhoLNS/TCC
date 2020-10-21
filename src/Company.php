@@ -7,7 +7,7 @@
 
 	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 
-	$id_empresa = $_GET['company'];
+	$id_empresa = $_GET['q'];
 	$_SESSION['V'] = '2';
 
 	if(isset($_COOKIE["ID"])){

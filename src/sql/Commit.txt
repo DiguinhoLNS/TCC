@@ -1,3 +1,7 @@
 Arquivo pra explicar o que eu fiz no commit:
 
-Apresentando CPF e CNPJ com pontuacao
+"Company" convertido para "q" no GET novamente
+
+Criacao de arquivo Querys para armazenar todas as querys do site em funcoes 
+
+Querys da VerificaCadastro tranformadas em funcoes 

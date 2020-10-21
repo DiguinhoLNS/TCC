@@ -4,6 +4,7 @@
     date_default_timezone_set('America/Sao_Paulo');
 
     include "ConexaoBD.php";
+    include "Querys.php";
 
     $base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 
@@ -78,30 +79,13 @@
             }
 
             //VERIFICA SE JÁ NAO EXISTE UM USUARIO COM MESMO EMAIL OU MESMO CPF
-            $regra1 = "SELECT * FROM usuarios where Email_user =  '$email' or CPF_user = '$cpf'";
-            $res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
-            $mostrar = mysqli_fetch_array($res);
-            $linhas = $res->num_rows;
+            $QuantidadeDeCadastros = VerificarSeUsuarioJaCadastrado($base, $email, $cpf);
 
-            if($linhas>0){
+            if(!empty($QuantidadeDeCadastros)){
                 $E2 = "1";
                 $E3 = "1";
                 $erros++;
-            }else{
-                $E2 = 0;
-                $E3 = 0;
             }
-
-            /*if ($result = $mysqli->query("SELECT Code, Name FROM Country ORDER BY Name")) {
-
-                /* determine number of rows result set 
-                $row_cnt = $result->num_rows;
-            
-                printf("Result set has %d rows.\n", $row_cnt);
-            
-                 close result set 
-                $result->close();
-            }*/
 
             //VERIFICA SE O CPF É VALIDO
             $soma1;
@@ -345,9 +329,6 @@
             //Endereço
             $_SESSION["CompanyRegisterError_5"] = 0;
 
-            $regra1 = "SELECT Email, CNPJ FROM empresas where Email =  '$email' and CNPJ = '$cnpj'";
-            $res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
-            $mostrar = mysqli_fetch_array($res);
 
             //VERIFICA NOME MENOS QUE DOIS CARACTERES E SE POSSUI CARACTERES ESPECIAIS
             if (strlen($nome) <= 2) {
@@ -370,16 +351,13 @@
 
             }
 
-            //VERIFICA SE JÁ NAO EXISTE UM USUARIO COM MESMO EMAIL OU MESMO CPF
-            $linhas = $res->num_rows;
+            //VERIFICA SE JÁ NAO EXISTE UMA EMPRESA COM MESMO EMAIL OU MESMO CNPJ
+            $QuantidadeDeCadastros = VerificarSeEmpresaJaCadastrada($base, $email, $cnpj);
 
-            if($linhas>0){
+            if(!empty($QuantidadeDeCadastros)){
                 $E2 = "1";
                 $E3 = "1";
                 $erros++;
-            }else{
-                $E2 = 0;
-                $E3 = 0;
             }
 
             //VERIFICA SE O CNPJ É VALIDO
@@ -516,7 +494,6 @@
                     $_SESSION["CompanyRegisterError_5"] = "1";
                 }
 
-                //echo "Erro 1";
                 header("Location: ../RegisterCompany.php");
 
             }
