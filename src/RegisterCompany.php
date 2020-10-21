@@ -1,10 +1,4 @@
-<?php 
-
-	session_start(); 
-
-    $_SESSION['V'] = '2';
-
-?>
+<?php session_start(); $_SESSION['TipoVerificação'] = "Empresa";?>
 <!DOCTYPE html>
 <html lang = "pt-br">
 

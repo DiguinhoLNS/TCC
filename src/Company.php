@@ -4,6 +4,7 @@
 	date_default_timezone_set('America/Sao_Paulo');
 	
 	include 'sql/ConexaoBD.php';
+	include "sql/Querys.php";
 
 	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 
@@ -14,15 +15,11 @@
 
 		$id_user = $_COOKIE["ID"]; 
 
-		$regra1 = "SELECT * FROM empresas where id_empresa =  '$id_empresa'";
-		$res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
-		$mostrar = mysqli_fetch_array($res);
+		$DadosEmpresa = PegarDadosEmpresaPeloIdEmpresa($base, $id_empresa);
 
-		$regra2 = "SELECT * FROM user_empresa where id_user =  '$id_user' and id_empresa = $id_empresa";
-		$res2 = mysqli_query($base, $regra2) or die("Usuario não cadastrado");
-		$mostrar2 = mysqli_fetch_array($res2);
+		$DadosUserEmpresa = PegarDadosUserEmpresaPeloIdUserEIdEmpresa($base, $id_user, $id_empresa);
 
-		$cnpj =  substr_replace($mostrar['CNPJ'], '.', 2, 0);
+		$cnpj =  substr_replace($DadosEmpresa['CNPJ'], '.', 2, 0);
     	$cnpj =  substr_replace($cnpj, '.', 6, 0);
         $cnpj =  substr_replace($cnpj, '/', 10, 0);
         $cnpj =  substr_replace($cnpj,  '-', 15, 0);
@@ -36,13 +33,13 @@
 
 	<head>
 
-		<title><?php echo $mostrar['Nome'];?></title>
+		<title><?php echo $DadosEmpresa['Nome'];?></title>
 		
 		<?php include "include/Head.php"; ?>
 
 	</head>
 
-    <body id = "CompanyPage" class = "UNT LightMode <?php echo $mostrar['Cor_layout']; if($mostrar2['Nivel_acesso'] == 4){ echo ' ADMView'; }else if($mostrar2['Nivel_acesso'] == 2){echo ' UserView';}?>">
+    <body id = "CompanyPage" class = "UNT LightMode <?php echo $DadosEmpresa['Cor_layout']; if($DadosUserEmpresa['Nivel_acesso'] == 4){ echo ' ADMView'; }else if($DadosUserEmpresa['Nivel_acesso'] == 2){echo ' UserView';}?>">
 
 		<?php
 
@@ -68,7 +65,7 @@
 
 				<section id = "SectionCompanyHeader">
 				
-					<h1 id = "CompanyName"> <?php echo $mostrar['Nome']; ?> </h1>
+					<h1 id = "CompanyName"> <?php echo $DadosEmpresa['Nome']; ?> </h1>
 				
 				</section>
 
@@ -89,7 +86,7 @@
 								<div class = "CategoryText">
 
 									<h1> Nome </h1>
-									<h2> <?php echo utf8_encode($mostrar['Nome']); ?> </h2>
+									<h2> <?php echo utf8_encode($DadosEmpresa['Nome']); ?> </h2>
 
 								</div>
 
@@ -111,7 +108,7 @@
 								<div class = "CategoryText">
 
 									<h1> Endereço </h1>
-									<h2> <?php echo utf8_encode($mostrar['Endereco']); ?> </h2>
+									<h2> <?php echo utf8_encode($DadosEmpresa['Endereco']); ?> </h2>
 
 								</div>
 
@@ -122,7 +119,7 @@
 								<div class = "CategoryText">
 
 									<h1> Cor Tema </h1>
-									<h2> <?php echo $mostrar['Cor_layout']; ?> </h2>
+									<h2> <?php echo $DadosEmpresa['Cor_layout']; ?> </h2>
 
 								</div>
 
@@ -139,7 +136,7 @@
 								<div class = "CategoryText">
 
 									<h1> Telefone </h1>
-									<h2> <?php echo $mostrar['Telefone']; ?> </h2>
+									<h2> <?php echo $DadosEmpresa['Telefone']; ?> </h2>
 
 								</div>
 
@@ -150,7 +147,7 @@
 								<div class = "CategoryText">
 
 									<h1> Email </h1>
-									<h2> <?php echo $mostrar['Email']; ?> </h2>
+									<h2> <?php echo $DadosEmpresa['Email']; ?> </h2>
 
 								</div>
 

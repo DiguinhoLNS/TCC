@@ -7,12 +7,11 @@
 
 	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 
-	$tipo_verificacao = $_SESSION['V'];
+	$tipo_verificacao = $_SESSION['TipoVerificação'];
 
 	switch($tipo_verificacao){
 
-		// User
-		case 1: 
+		case "Usuario": 
 			
 			$_SESSION["UserLoginError_1"] = 0;
 
@@ -40,8 +39,7 @@
 
 		break;
 
-		// Company
-		case 2:
+		case "Empresa":
 
 			$_SESSION["CompanyLoginError_1"] = 0;
 
@@ -62,7 +60,7 @@
 
 			if ($mostrar['codigo_acesso'] == strtoupper($codigo_acesso) && $linhas == 0) {
 
-				$_SESSION['V'] = 1;
+				$_SESSION['TipoVerificação'] = "Usuario";
 				header("Location: InsereUser_Empresa.php?q=".$codigo_acesso);
 
 			} else if($linhas>0){

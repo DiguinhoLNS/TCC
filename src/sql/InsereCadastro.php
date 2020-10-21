@@ -7,11 +7,11 @@
 
 	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 
-	$tipo_verificacao = $_SESSION['V'];
+	$tipo_verificacao = $_SESSION['TipoVerificação'];
 
 	switch($tipo_verificacao){
 
-		case 1:
+		case "Usuario":
 
 			$nome = $_POST["nome"];
 			$cpf = $_SESSION['cpfsemponto'];
@@ -40,7 +40,7 @@
 
 		break;
 
-		case 2:
+		case "Empresa":
 
 			$valid = 0;
 

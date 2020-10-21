@@ -2,7 +2,7 @@
 
     session_start(); 
     
-    $_SESSION['V'] = '1'; 
+    $_SESSION['TipoVerificação'] = "Usuario"; 
     
 ?>
 

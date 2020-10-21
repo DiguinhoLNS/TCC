@@ -7,12 +7,12 @@
 
     $base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 
-    $tipo_verificacao = $_SESSION['V'];
+    $tipo_verificacao = $_SESSION['TipoVerificação'];
 
     switch ($tipo_verificacao) {
 
         //(LOGANDO NA EMPRESA) Usuario nivel de acesso 2
-        case 1:
+        case "Usuario":
 
             $codigo_acesso = $_GET['q'];
             $nivel_acesso = 2;
@@ -41,7 +41,7 @@
         break;
 
         //(CRIANDO A EMPRESA) Usuario nivel de acesso 4
-        case 2:
+        case "Empresa":
 
             $id_adm = $_COOKIE["ID"];
             $nivel_acesso = 4;

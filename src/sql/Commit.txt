@@ -1,7 +1,5 @@
 Arquivo pra explicar o que eu fiz no commit:
 
-"Company" convertido para "q" no GET novamente
+Querys da Company.php tranformadas em funcoes 
 
-Criacao de arquivo Querys para armazenar todas as querys do site em funcoes 
-
-Querys da VerificaCadastro tranformadas em funcoes 
+Switch cases com cases em string

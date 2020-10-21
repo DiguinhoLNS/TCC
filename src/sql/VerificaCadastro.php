@@ -8,15 +8,11 @@
 
     $base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 
-    $tipo_verificacao = $_SESSION['V'];
+    $tipo_verificacao = $_SESSION['TipoVerificação'];
 
     switch($tipo_verificacao){
 
-        /*******************************************************
-            Verifica Usuário
-        *******************************************************/
-
-        case 1:
+        case "Usuario":
 
             $nome = $_POST["nome"];
             $email = $_POST["email"];
@@ -293,11 +289,7 @@
 
         break;
 
-        /*******************************************************
-            Verifica Empresa
-        *******************************************************/
-
-        case 2:
+        case "Empresa":
 
             $nome = $_POST["nome"];
             $email = $_POST["email"];

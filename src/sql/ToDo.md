@@ -21,21 +21,25 @@
 
 ### Outras funcionalidades e documentos (NECESSÁRIOS)
 
+1. >Licença de uso
+2. Politica de privacidade
+3. Politica de cookies
+4. Usuario Sair da empresa
+
 #### Mostrar Dados em:
-1. User 
+5. User 
     1. >Todos os dados do usuario
     2. >Nome das empresas na aba empresas 
     3. Itens Recuperados
-2. >HeaderConfig nome do usuario
-3. Objetos no feed das empresas 
-4. Apresentar empresas 
+6. >HeaderConfig nome do usuario
+7. Objetos no feed das empresas 
+8. Apresentar empresas 
     1. >Dashboard
     2. >User na aba de empresas
     3. >side nav bar
     4. >Index (com no maximo 3 empresas)
-5. >Licença de uso
-6. Politica de privacidade
-7. Politica de cookies
+
+
 
 ### Outras funcionalidades (**NÃO** NECESSÁRIAS)
 1. Apresentar CNPJ com pontuação na:
