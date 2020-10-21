@@ -35,10 +35,10 @@
 
 ### Outras funcionalidades (**NÃO** NECESSÁRIAS)
 1. Apresentar CNPJ com pontuação na:
-    1. Dashboard.php
-    2. Company.php
+    1. >Dashboard.php
+    2. >Company.php
 2. Apresentar CPF com pontuação na:
-    1. User.php
+    1. >User.php
 
 ### Erros para consertar
 1. Cookies não funcionando no OperaGX

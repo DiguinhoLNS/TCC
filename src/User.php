@@ -31,6 +31,10 @@
     
         list($ano, $mes, $dia) = explode('-', $mostrar1['Data_nasc_user']);
 
+        $cpf =  substr_replace($mostrar1['CPF_user'], ".", 3, 0);
+        $cpf =  substr_replace($cpf, ".", 7, 0);
+        $cpf =  substr_replace($cpf, "-", 11, 0);
+
     }
 ?>
 
@@ -138,7 +142,7 @@
 
                                                 <div class = "CategoryText">
                                                     <h1> CPF </h1>
-                                                    <h2> <?php echo $mostrar1['CPF_user']; ?> </h2>
+                                                    <h2> <?php echo $cpf; ?> </h2>
                                                 </div>
 
                                             </div>

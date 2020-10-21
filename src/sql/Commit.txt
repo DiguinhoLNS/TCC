@@ -1,3 +1,3 @@
 Arquivo pra explicar o que eu fiz no commit:
 
-Issue consertada: Acentos estavam dando erro e aparecendo "?"
+Apresentando CPF e CNPJ com pontuacao

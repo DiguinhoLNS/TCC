@@ -22,6 +22,11 @@
 		$res2 = mysqli_query($base, $regra2) or die("Usuario não cadastrado");
 		$mostrar2 = mysqli_fetch_array($res2);
 
+		$cnpj =  substr_replace($mostrar['CNPJ'], '.', 2, 0);
+    	$cnpj =  substr_replace($cnpj, '.', 6, 0);
+        $cnpj =  substr_replace($cnpj, '/', 10, 0);
+        $cnpj =  substr_replace($cnpj,  '-', 15, 0);
+
 	}
 
 ?>
@@ -95,7 +100,7 @@
 								<div class = "CategoryText">
 
 									<h1> CNPJ </h1>
-									<h2> <?php echo $mostrar['CNPJ']; ?> </h2>
+									<h2> <?php echo $cnpj; ?> </h2>
 
 								</div>
 
