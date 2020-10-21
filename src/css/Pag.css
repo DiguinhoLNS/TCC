@@ -1646,7 +1646,7 @@ h1, h2, h3, h4, h5, h6 {
 
 		#SectionTermsMain ul li {
 			width: 100%;
-			margin-bottom: 20px;
+			margin-bottom: 30px;
 		}
 
 			#SectionTermsMain ul li:last-child {
@@ -1655,17 +1655,33 @@ h1, h2, h3, h4, h5, h6 {
 
 		#SectionTermsMain ul li h3 {
 			width: 100%;
-			margin-bottom: 20px;
+			margin-bottom: 25px;
 
-			color: var(--color-txt-s);
+			color: var(--color-txt-p);
 			font-size: 26px;
 		}
 
-		#SectionTermsMain ul li span {
+		#SectionTermsMain ul li h4 {
 			width: 100%;
 			margin-bottom: 15px;
 
 			color: var(--color-txt-s);
+			font-size: 22px;
+		}
+
+		#SectionTermsMain ul li h5 {
+			width: 100%;
+			margin-bottom: 10px;
+
+			color: var(--color-txt-s);
+			font-size: 18px;
+		}
+
+		#SectionTermsMain ul li span {
+			width: 100%;
+			margin-bottom: 20px;
+
+			color: var(--color-txt-t);
 			font-size: 16px;
 		}
 

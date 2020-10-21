@@ -1,8 +1,4 @@
-<?php 
-
-    session_start();
-    
-?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang = "pt-br">
@@ -74,10 +70,10 @@
 
                         <li class = "TextContent">
 
-                            <h3> Política de Privacidade, Termos e Licensas </h3>
+                            <h3> Nossos Termos </h3>
 
                             <p>
-                                Leia sobre a nossa política de privacidade e os nossos termos de uso.
+                                Leia sobre os nossos Termos, Políticas e Licensas.
                             </p>
 
                         </li>
@@ -85,15 +81,7 @@
                         <li>
 
                             <button>
-                                <a href = "Terms.php"> Licensas </a>
-                            </button>
-
-                            <button>
-                                <a href = "Terms.php"> Política de Privacidade </a>
-                            </button>
-
-                            <button>
-                                <a href = "Terms.php"> Termos de Uso </a>
+                                <a href = "Terms.php"> Termos </a>
                             </button>
 
                         </li>
