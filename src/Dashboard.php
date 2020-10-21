@@ -47,7 +47,6 @@
             StopUserAccess();
             V_User();
             C_Login();
-
             
             include "include/Load.php";
 
