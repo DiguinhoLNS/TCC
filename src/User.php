@@ -129,7 +129,7 @@
 
                                                 <div class = "CategoryText">
                                                     <h1> Nome </h1>
-                                                    <h2> <?php echo $mostrar1['Nome_user']; ?> </h2>
+                                                    <h2> <?php echo utf8_encode($mostrar1['Nome_user']); ?> </h2>
                                                 </div>
 
                                             </div>
@@ -245,8 +245,8 @@
                                                 do{
                                                     echo '
                                                         <li>
-                                                            <a href = "Company.php?q='.$rows[$i]['id_empresa'].'" title = "'. $rows[$i]['Nome']. '">
-                                                                <h1> '. $rows[$i]['Nome']. ' </h1>
+                                                            <a href = "Company.php?q='.$rows[$i]['id_empresa'].'" title = "'. utf8_encode($rows[$i]['Nome']). '">
+                                                                <h1> '. utf8_encode($rows[$i]['Nome']). ' </h1>
                                                             </a>
                                                         </li>
                                                     ';

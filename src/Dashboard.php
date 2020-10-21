@@ -80,23 +80,14 @@
                                     echo '<li class = "NoFor"> Você não possui nenhuma empresa! </li>';
                             
                                 }else{
-                                    //$i1=-1;
                                     $i=0;
-
-                                    /*for($i1=0;$i1!=($linhas);$i1++){
-                                    $nomes = array($i1 => print_r($rows[$i1]['Nome']));
-                                    $cnpjs = array($i1 =>print_r($rows[$i1]['CNPJ']));
-                                    $telefones = array($i1 =>print_r($rows[$i1]['Telefone']));
-                                    }*/
-                                    $nome1 =  $rows[$i]['Nome'];
-
                                     do{
                                         echo "
                                         
                                             <li class = 'Box ". $rows[$i]['Cor_layout']."'>
                                             
                                                 <a href = 'Company.php?q=".$rows[$i]['id_empresa']."' title =' ".$i."'>
-                                                    <h1> ". $rows[$i]['Nome'] ."</h1>
+                                                    <h1> ". utf8_encode($rows[$i]['Nome']) ."</h1>
                                                     <h2> ". $rows[$i]['CNPJ']." </h2>
                                                     <h3> ". $rows[$i]['Telefone'] ."</h3>
                                                 </a>                      

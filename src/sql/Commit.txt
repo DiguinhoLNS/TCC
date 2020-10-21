@@ -1,5 +1,3 @@
 Arquivo pra explicar o que eu fiz no commit:
 
-Feito: 
-Apagar empresa e apagar cadastro dela no user_empresa tbm
-Usuario apagar conta e apagar os registro da tabela user_empresa tbm
+Issue consertada: Acentos estavam dando erro e aparecendo "?"

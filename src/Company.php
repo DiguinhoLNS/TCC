@@ -84,7 +84,7 @@
 								<div class = "CategoryText">
 
 									<h1> Nome </h1>
-									<h2> <?php echo $mostrar['Nome']; ?> </h2>
+									<h2> <?php echo utf8_encode($mostrar['Nome']); ?> </h2>
 
 								</div>
 
@@ -106,7 +106,7 @@
 								<div class = "CategoryText">
 
 									<h1> Endereço </h1>
-									<h2> <?php echo $mostrar['Endereco']; ?> </h2>
+									<h2> <?php echo utf8_encode($mostrar['Endereco']); ?> </h2>
 
 								</div>
 
