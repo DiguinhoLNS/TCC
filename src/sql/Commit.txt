@@ -1,5 +1,3 @@
 Arquivo pra explicar o que eu fiz no commit:
 
-Querys da Company.php tranformadas em funcoes 
-
-Switch cases com cases em string
+Querys da VerificaLogin tranformadas em funcoes 

@@ -17,7 +17,7 @@
 
 		$DadosEmpresa = PegarDadosEmpresaPeloIdEmpresa($base, $id_empresa);
 
-		$DadosUserEmpresa = PegarDadosUserEmpresaPeloIdUserEIdEmpresa($base, $id_user, $id_empresa);
+		$DadosUserEmpresa = PegarDadosUserEmpresaPeloIdUserIdEmpresa($base, $id_user, $id_empresa);
 
 		$cnpj =  substr_replace($DadosEmpresa['CNPJ'], '.', 2, 0);
     	$cnpj =  substr_replace($cnpj, '.', 6, 0);
