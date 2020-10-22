@@ -8,7 +8,7 @@
 
     $base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 
-    $_SESSION['V'] = '1';
+    $_SESSION['TipoVerificação'] = 'Usuario';
 
     if(isset($_COOKIE["ID"])){
 

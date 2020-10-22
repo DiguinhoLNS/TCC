@@ -30,7 +30,7 @@
 
 	<head>
 
-		<title><?php echo $DadosEmpresa['Nome'];?></title>
+		<title><?php echo utf8_encode($DadosEmpresa['Nome']);?></title>
 		
 		<?php include "include/Head.php"; ?>
 
@@ -62,7 +62,7 @@
 
 				<section id = "SectionCompanyHeader">
 				
-					<h1 id = "CompanyName"> <?php echo $DadosEmpresa['Nome']; ?> </h1>
+					<h1 id = "CompanyName"> <?php echo utf8_encode($DadosEmpresa['Nome']); ?> </h1>
 				
 				</section>
 

@@ -8,14 +8,14 @@
 
     $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
 
-    $tipo_verificacao = $_SESSION['V'];
+    $tipo_verificacao = $_SESSION['TipoVerificação'];
     $id = $_COOKIE["ID"];
     $id_empresa = $_GET['q'];
 
     switch ($tipo_verificacao) {
 
         //Apagar Conta de Usuario
-        case 1:
+        case "Usuario":
 
             $apagar = "DELETE FROM usuarios where id_user = '$id'";
             mysqli_query($base, $apagar);
@@ -27,6 +27,7 @@
 
                 //CloseSession();
                 include "../php/EndUserSession.php";
+                CloseSession();
                 
             } else {
 
@@ -37,7 +38,7 @@
         break;
 
         //Apagar Página de Empresa
-        case 2:
+        case "Empresa":
 
             $apagar = "DELETE FROM empresas where id_empresa = '$id_empresa'";
             mysqli_query($base, $apagar);
