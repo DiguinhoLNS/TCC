@@ -3,7 +3,7 @@
 	date_default_timezone_set('America/Sao_Paulo');
 
 	include "ConexaoBD.php";
-	include "Funcoes.php";
+	include_once "Funcoes.php";
 
 	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 

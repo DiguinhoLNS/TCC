@@ -4,7 +4,7 @@
     date_default_timezone_set('America/Sao_Paulo');
 
     include "ConexaoBD.php";
-    
+    include_once "../php/EndUserSession.php";
 
     $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
 
@@ -14,49 +14,27 @@
 
     switch ($tipo_verificacao) {
 
-        //Apagar Conta de Usuario
         case "Usuario":
 
-            $apagar = "DELETE FROM usuarios where id_user = '$id'";
-            mysqli_query($base, $apagar);
+            $apagarUsuario = "DELETE FROM usuarios where id_user = '$id'";
+            mysqli_query($base, $apagarUsuario);
 
-            $apagar2 = "DELETE FROM user_empresa where id_user = '$id'";
-            mysqli_query($base, $apagar2);
+            $apagarUser_Empresa = "DELETE FROM user_empresa where id_user = '$id'";
+            mysqli_query($base, $apagarUser_Empresa);
 
-            if ($conexao->query($apagar) === TRUE && $conexao->query($apagar2) === TRUE){
-
-                //CloseSession();
-                include "../php/EndUserSession.php";
-                CloseSession();
-                
-            } else {
-
-                header("Location: ../User.php");
-        
-            }
+            $conexao->query($apagarUsuario) === TRUE && $conexao->query($apagarUser_Empresa) ? CloseSession() : header("Location: ../User.php");
 
         break;
 
-        //Apagar Página de Empresa
         case "Empresa":
 
-            $apagar = "DELETE FROM empresas where id_empresa = '$id_empresa'";
-            mysqli_query($base, $apagar);
+            $apagarEmpresa = "DELETE FROM empresas where id_empresa = '$id_empresa'";
+            mysqli_query($base, $apagarEmpresa);
 
-            $apagar2 = "DELETE FROM user_empresa where id_empresa = '$id_empresa'";
-            mysqli_query($base, $apagar2);
+            $apagarUser_Empresa = "DELETE FROM user_empresa where id_empresa = '$id_empresa'";
+            mysqli_query($base, $apagarUser_Empresa);
 
-            if ($conexao->query($apagar) === TRUE && $conexao->query($apagar2) === TRUE) {
-
-                header("Location: ../Dashboard.php");
-                //echo $id_empresa."<br>";
-
-
-            } else {
-
-                header("Location: ../Company.php?q=".$id_empresa);
-                
-            }
+            $conexao->query($apagarEmpresa) === TRUE && $conexao->query($apagarUser_Empresa) === TRUE ? header("Location: ../Dashboard.php") : header("Location: ../Company.php?q=".$id_empresa);
 
         break;
 

@@ -33,7 +33,7 @@
     3. Itens Recuperados
 6. >HeaderConfig nome do usuario
 7. Objetos no feed das empresas 
-8. Apresentar empresas 
+8. >Apresentar empresas 
     1. >Dashboard
     2. >User na aba de empresas
     3. >side nav bar
@@ -42,10 +42,10 @@
 
 
 ### Outras funcionalidades (**NÃO** NECESSÁRIAS)
-1. Apresentar CNPJ com pontuação na:
+1. >Apresentar CNPJ com pontuação na:
     1. >Dashboard.php
     2. >Company.php
-2. Apresentar CPF com pontuação na:
+2. >Apresentar CPF com pontuação na:
     1. >User.php
 
 ### Erros para consertar

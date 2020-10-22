@@ -1,6 +1,5 @@
 Arquivo pra explicar o que eu fiz no commit:
 
-InsereCadastro 2387235869% mais CleanCode 
-Query InsereCadastro virou funcao
+include de funcoes trocado por include_once = CONSERTANDO FATAL ERROR
 
-Verificacao para ver se codigo_acesso de empresa ja existe mais clean
+ApagarCadastro mais clean 
