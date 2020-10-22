@@ -59,6 +59,6 @@ http://creativecommons.org/licenses/by-nc-nd/4.0/
 4. _Push_ 
 5. Crie um novo _Pull Request_
 
->_Se você quiser nos ajudar no desenvolvimento acadêmico ou comercial desde projeto, nos envie um email para: ape.achadoseperdidos@gmail.com_
+>_Se você quiser nos ajudar no desenvolvimento acadêmico ou comercial deste projeto, nos envie um email para: ape.achadoseperdidos@gmail.com_
 
 _Toda ajuda será bem vinda_
