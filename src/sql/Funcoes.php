@@ -103,7 +103,7 @@ function VerificarSeUsuarioJaFezLoginAntes($base, $codigo_acesso, $id_user)
     return $QuantidadeDeLoginsJaFeitos;
 }
 
-function PegarDadosEmpresaPeloIdCodigo($base, $id_adm, $codigo_acesso)
+function PegarDadosEmpresaPeloId_Codigo($base, $id_adm, $codigo_acesso)
 {
     $regra1 = "SELECT id_adm, id_empresa FROM empresas where id_adm =  $id_adm and codigo_acesso = '$codigo_acesso'";
     $res = mysqli_query($base, $regra1) or die("Erro na consulta8 ". $id_adm ." ". $codigo_acesso);

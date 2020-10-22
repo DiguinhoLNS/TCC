@@ -1,5 +1,6 @@
 Arquivo pra explicar o que eu fiz no commit:
 
-Querys da InsereUser_Empresa transformadas em funcoes
+InsereCadastro 2387235869% mais CleanCode 
+Query InsereCadastro virou funcao
 
-Tranformando cpf e cnpj user friendly viraram funcoes tambem
+Verificacao para ver se codigo_acesso de empresa ja existe mais clean

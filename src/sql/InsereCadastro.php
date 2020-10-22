@@ -1,6 +1,5 @@
 <?php
 
-	//session_start();
 	date_default_timezone_set('America/Sao_Paulo');
 
 	include "ConexaoBD.php";
@@ -24,47 +23,21 @@
 			$sql = "INSERT INTO usuarios (Nome_user, Genero_user, Data_nasc_user, CPF_user, Email_user, Telefone_user, Senha_user) VALUES";
 			$sql .= " ('$nome', '$genero', '$data', '$cpf', '$email', '$telefone', '$senha') ";
 
-			//INSERT INTO workorders (column1, column2) VALUES ($column1, $column2)
-
-			if ($conexao->query($sql) === TRUE) {
-
-				header("Location: ../LoginUser.php");
-
-			} else {
-
-				/*echo $cpf." 2<br>";
-				echo $nome." ".$genero." ".$cpf." ".$data." ".$email." ".$telefone." ".$senha;*/
-				header("Location: ../RegisterUser.php");
-
-			}
+			$conexao->query($sql) === TRUE ? header("Location: ../LoginUser.php") : header("Location: ../RegisterUser.php");
 
 		break;
 
 		case "Empresa":
 
-			$valid = 0;
+			$CodigoJaExiste = true;
 
 			do {
 
-				$bytes = random_bytes(3);
-				$bytes2 = strtoupper(bin2hex($bytes));
+				$codigo_acesso = strtoupper(bin2hex(random_bytes(3)));
+				$Dados = PegarDadosEmpresaPeloCodigo($base, $codigo_acesso);
+				$CodigoJaExiste = $Dados["CodigoExiste"] ? true : false;
 
-				$regra1 = "SELECT codigo_acesso FROM empresas where codigo_acesso =  '$bytes' ";
-				$res = mysqli_query($base, $regra1) or die("Erro na consulta1");
-
-				$mostrar = mysqli_fetch_array($res);
-
-				if (strtolower($mostrar['codigo_acesso']) == $bytes) {
-
-					$valid = 0;
-
-				} else {
-
-					$valid = 1;
-
-				}
-
-			} while ($valid == 0);
+			} while ($CodigoJaExiste);
 
 			$id_adm = $_COOKIE["ID"];
 			$nome = $_POST["nome"];
@@ -74,18 +47,10 @@
 			$cor = $_POST["CorLayout"];
 			$endereco = $_POST["endereco"];
 
-			//INCLUDE NA TABELA EMPRESA
 			$sql = "INSERT INTO empresas (id_adm, codigo_acesso, Nome, CNPJ, Endereco, Email, Telefone, Cor_layout) VALUES";
-			$sql .= " ('$id_adm', '$bytes2', '$nome', '$cnpj', '$endereco', '$email', '$telefone', '$cor') ";
+			$sql .= " ('$id_adm', '$codigo_acesso', '$nome', '$cnpj', '$endereco', '$email', '$telefone', '$cor') ";
 
-			if ($conexao->query($sql) === TRUE) {
-
-				header("Location: InsereUser_Empresa.php?q=".$bytes2);
-
-			} else {
-
-				header("Location: ../RegisterCompany.php");
-			}
+			$conexao->query($sql) === TRUE ? header("Location: InsereUser_Empresa.php?q=".$codigo_acesso) : header("Location: ../RegisterCompany.php");
 
 		break;
 		

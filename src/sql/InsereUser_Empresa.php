@@ -33,7 +33,7 @@
             $codigo_acesso = $_GET['q'];
             $id_adm = $_COOKIE["ID"];
 
-            $DadosEmpresa = PegarDadosEmpresaPeloIdCodigo($base, $id_adm, $codigo_acesso);
+            $DadosEmpresa = PegarDadosEmpresaPeloId_Codigo($base, $id_adm, $codigo_acesso);
 
             $sql = "INSERT INTO user_empresa (id_user, id_empresa, Nivel_acesso) VALUES";
             $sql .= " ('$id_adm','".$DadosEmpresa['id_empresa']."','4') ";
