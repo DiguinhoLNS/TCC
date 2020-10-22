@@ -33,6 +33,7 @@
         $cpf = ColocarPontoCPF($mostrar1['CPF_user']);
 
     }
+    
 ?>
 
 <!DOCTYPE html>
