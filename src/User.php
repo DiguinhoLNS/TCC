@@ -4,6 +4,7 @@
     date_default_timezone_set('America/Sao_Paulo');
 
     include 'sql/ConexaoBD.php';
+    include "sql/Funcoes.php";
 
     $base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 
@@ -31,9 +32,7 @@
     
         list($ano, $mes, $dia) = explode('-', $mostrar1['Data_nasc_user']);
 
-        $cpf =  substr_replace($mostrar1['CPF_user'], ".", 3, 0);
-        $cpf =  substr_replace($cpf, ".", 7, 0);
-        $cpf =  substr_replace($cpf, "-", 11, 0);
+        $cpf = ColocarPontoCPF($mostrar1['CPF_user']);
 
     }
 ?>

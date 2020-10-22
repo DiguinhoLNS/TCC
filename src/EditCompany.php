@@ -2,7 +2,7 @@
 
 	session_start(); 
 
-    $_SESSION['V'] = '2';
+    $_SESSION['TipoVerificação'] = "Empresa";
 
 ?>
 <!DOCTYPE html>

@@ -4,6 +4,7 @@
     date_default_timezone_set('America/Sao_Paulo'); 
     
     include 'sql/ConexaoBD.php';
+    include "sql/Funcoes.php";
 
     $base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 
@@ -83,10 +84,7 @@
                                     $i=0;
                                     do{
 
-                                        $cnpj =  substr_replace($rows[$i]['CNPJ'], '.', 2, 0);
-                                        $cnpj =  substr_replace($cnpj, '.', 6, 0);
-                                        $cnpj =  substr_replace($cnpj, '/', 10, 0);
-                                        $cnpj =  substr_replace($cnpj,  '-', 15, 0);
+                                        $cnpj = ColocarPontoCNPJ($rows[$i]['CNPJ']);
                                         
                                         echo "
                                         

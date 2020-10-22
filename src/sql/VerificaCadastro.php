@@ -4,7 +4,7 @@
     date_default_timezone_set('America/Sao_Paulo');
 
     include "ConexaoBD.php";
-    include "Querys.php";
+    include "Funcoes.php";
 
     $base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 
@@ -458,7 +458,7 @@
 
                 $_SESSION["CompanyRegisterError_G"] = "0";
 
-                $_SESSION['V'] = "2";
+                $_SESSION['TipoVerificação'] = "Empresa";
                 
                 include 'InsereCadastro.php';
 

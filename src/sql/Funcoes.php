@@ -2,6 +2,25 @@
 
 include 'ConexaoBD.php';
 
+function ColocarPontoCPF($cpfSemPonto)
+{
+    $cpf =  substr_replace($cpfSemPonto, ".", 3, 0);
+    $cpf =  substr_replace($cpf, ".", 7, 0);
+    $cpf =  substr_replace($cpf, "-", 11, 0);
+
+    return $cpf;
+}
+
+function ColocarPontoCNPJ($cnpjSemPonto)
+{
+    $cnpj =  substr_replace($cnpjSemPonto, '.', 2, 0);
+    $cnpj =  substr_replace($cnpj, '.', 6, 0);
+    $cnpj =  substr_replace($cnpj, '/', 10, 0);
+    $cnpj =  substr_replace($cnpj,  '-', 15, 0);
+
+    return $cnpj;
+}
+
 //Querys usadas no VerificaCadastro.php
 function VerificarSeUsuarioJaCadastrado($base, $email, $cpf)
 {
@@ -74,15 +93,21 @@ function PegarDadosEmpresaPeloCodigo($base, $codigo_acesso)
     return $Dados;
 }
 
-function VerificarSeUsuarioJaFezLoginAntes($base, $codigo_acesso, $id_user){
-
+function VerificarSeUsuarioJaFezLoginAntes($base, $codigo_acesso, $id_user)
+{
     $regra2 = "SELECT * FROM user_empresa inner join empresas on 'id_empresa' = 'id_empresa' where empresas.codigo_acesso = '$codigo_acesso' and user_empresa.id_user = $id_user and user_empresa.id_empresa = empresas.id_empresa";
     $res2 = mysqli_query($base, $regra2) or die("Erro na consulta7");
     $DadosUserEmpresa = mysqli_fetch_array($res2);
     $QuantidadeDeLoginsJaFeitos = $res2->num_rows;
 
     return $QuantidadeDeLoginsJaFeitos;
-
 }
 
+function PegarDadosEmpresaPeloIdCodigo($base, $id_adm, $codigo_acesso)
+{
+    $regra1 = "SELECT id_adm, id_empresa FROM empresas where id_adm =  $id_adm and codigo_acesso = '$codigo_acesso'";
+    $res = mysqli_query($base, $regra1) or die("Erro na consulta8 ". $id_adm ." ". $codigo_acesso);
+    $DadosEmpresa = mysqli_fetch_array($res);
 
+    return $DadosEmpresa;
+}

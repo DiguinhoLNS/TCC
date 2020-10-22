@@ -4,12 +4,12 @@
 	date_default_timezone_set('America/Sao_Paulo');
 	
 	include 'sql/ConexaoBD.php';
-	include "sql/Querys.php";
+	include "sql/Funcoes.php";
 
 	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
 
 	$id_empresa = $_GET['q'];
-	$_SESSION['V'] = '2';
+	$_SESSION['TipoVerificação'] = 'Empresa';
 
 	if(isset($_COOKIE["ID"])){
 
@@ -19,10 +19,7 @@
 
 		$DadosUserEmpresa = PegarDadosUserEmpresaPeloIdUserIdEmpresa($base, $id_user, $id_empresa);
 
-		$cnpj =  substr_replace($DadosEmpresa['CNPJ'], '.', 2, 0);
-    	$cnpj =  substr_replace($cnpj, '.', 6, 0);
-        $cnpj =  substr_replace($cnpj, '/', 10, 0);
-        $cnpj =  substr_replace($cnpj,  '-', 15, 0);
+		$cnpj = ColocarPontoCNPJ($DadosEmpresa["CNPJ"]);
 
 	}
 

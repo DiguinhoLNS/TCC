@@ -1,3 +1,5 @@
 Arquivo pra explicar o que eu fiz no commit:
 
-Querys da VerificaLogin tranformadas em funcoes 
+Querys da InsereUser_Empresa transformadas em funcoes
+
+Tranformando cpf e cnpj user friendly viraram funcoes tambem

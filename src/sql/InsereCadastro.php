@@ -80,12 +80,10 @@
 
 			if ($conexao->query($sql) === TRUE) {
 
-				header("Location: InsereUser_Empresa.php");
+				header("Location: InsereUser_Empresa.php?q=".$bytes2);
 
 			} else {
 
-				/*echo "Erro 2<br>";
-				echo $id_adm." ".$bytes2." ".$nome." ".$cnpj." ".$endereco." ".$email." ".$telefone." ".$cor;*/
 				header("Location: ../RegisterCompany.php");
 			}
 
