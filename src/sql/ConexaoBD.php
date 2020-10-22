@@ -1,19 +1,19 @@
 <?php
 
-	$conexao = mysqli_connect('localhost', 'root', '', 'bdape');
+	$ServerName = "localhost";
+	$UserName = "root";
+	$ServerPassword = "";
+	$ServerDataBase = "bdape";
+
+	$conexao = mysqli_connect($ServerName, $UserName, $ServerPassword, $ServerDataBase);
 	mysqli_set_charset($conexao, 'utf8');
 
-	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
+	if(!$conexao){
 
-	mysqli_query($base,"SET NAMES 'utf8'");
-	mysqli_query($base,'SET character_set_connection=utf8');
-	mysqli_query($base,'SET character_set_client=utf8');
-	mysqli_query($base,'SET character_set_results=utf8');
- 
-	if($conexao->connect_error){
-		
-		die("Falha ao realizar a conexao: " . $conexao->connect_error);
+		die("Falha ao realizar a conexão: " .mysqli_connect_error());
 
 	}
+
+	$base = $conexao;
 
 ?>

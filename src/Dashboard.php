@@ -6,8 +6,6 @@
     include 'sql/ConexaoBD.php';
     include_once "sql/Funcoes.php";
 
-    $base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
-
     if(isset($_COOKIE["ID"])){
 
         $id = $_COOKIE["ID"];

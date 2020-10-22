@@ -6,8 +6,6 @@
     include "ConexaoBD.php";
     include_once "../php/EndUserSession.php";
 
-    $base = mysqli_connect('localhost', 'root', '', 'bdape') or die("erro de conexão");
-
     $tipo_verificacao = $_SESSION['TipoVerificação'];
     $id = $_COOKIE["ID"];
     $id_empresa = $_GET['q'];

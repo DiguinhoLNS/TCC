@@ -782,7 +782,7 @@ h1, h2, h3, h4, h5, h6 {
 			width: 100%;
 			border-radius: 20px;
 
-			background-color: var(--color-theme-company-s);
+			background-color: var(--color-theme-company-p);
 		}
 
 		#SectionDashboardItems nav ul .Box a {
@@ -804,6 +804,10 @@ h1, h2, h3, h4, h5, h6 {
 			font-size: 20px;
 		}
 
+			#SectionDashboardItems nav ul .ThemeYellow a h1 {
+				color: var(--color-txt-p-lm);
+			}
+
 		#SectionDashboardItems nav ul .Box a h2 {
 			height: 30px;
 
@@ -811,12 +815,20 @@ h1, h2, h3, h4, h5, h6 {
 			font-size: 16px;
 		}
 
+			#SectionDashboardItems nav ul .ThemeYellow a h2 {
+				color: var(--color-txt-t-lm);
+			}
+
 		#SectionDashboardItems nav ul .Box a h3 {
 			height: 20px;
 
 			color: var(--color-txt-s-dm);
 			font-size: 14px;
 		}
+
+			#SectionDashboardItems nav ul .ThemeYellow a h3 {
+				color: var(--color-txt-s-lm);
+			}
 
 		/* Dashboard Control Panel */
 

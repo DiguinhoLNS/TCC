@@ -5,8 +5,6 @@
 	include "ConexaoBD.php";
 	include_once "Funcoes.php";
 
-	$base = mysqli_connect('localhost', 'root', '', 'bdape')or die("Erro de conexão");
-
 	$tipo_verificacao = $_SESSION['TipoVerificação'];
 
 	switch($tipo_verificacao){
