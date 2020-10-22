@@ -46,13 +46,13 @@ function PegarDadosUserEmpresaPeloIdUserIdEmpresa($base, $id_user, $id_empresa)
 function PegarDadosUsuarioPeloEmailSenha($base, $email, $senha)
 {
     $regra1 = "SELECT Email_user, Senha_user, id_user FROM usuarios where Email_user =  '$email' and Senha_user = '$senha'";
-    $res = mysqli_query($base, $regra1) or die("Usuario não cadastrado");
+    $res = mysqli_query($base, $regra1) or die("Erro na consulta5");
     $DadosUsuario = mysqli_fetch_array($res);
     $QuantidadeDeCadastros = $res->num_rows;
 
     $Dados = array(
-        ["id_user"] => $DadosUsuario['id_user'],
-        ["QuantidadeDeCadastros"] => $QuantidadeDeCadastros
+        "id_user" => $DadosUsuario['id_user'],
+        "QuantidadeDeCadastros" => $QuantidadeDeCadastros
     );
 
     return $Dados;
@@ -61,15 +61,14 @@ function PegarDadosUsuarioPeloEmailSenha($base, $email, $senha)
 function PegarDadosEmpresaPeloCodigo($base, $codigo_acesso)
 {
     $regra1 = "SELECT codigo_acesso, id_empresa FROM empresas where codigo_acesso =  '$codigo_acesso'";
-    $res = mysqli_query($base, $regra1) or die("Erro na consulta");
+    $res = mysqli_query($base, $regra1) or die("Erro na consulta6");
     $DadosEmpresa = mysqli_fetch_array($res);
-    $Empresa = $res->num_rows;
 
-    $CodigoExiste = (empty($Empresa)) ? false : true;
+    $CodigoExiste = (empty($res->num_rows)) ? false : true;
 
     $Dados = array(
-        ["CodigoExiste"] => $CodigoExiste,
-        ["id_empresa"] => $DadosEmpresa['id_empresa']
+        "CodigoExiste" => $CodigoExiste,
+        "id_empresa" => $DadosEmpresa['id_empresa']
     );
 
     return $Dados;
@@ -78,7 +77,7 @@ function PegarDadosEmpresaPeloCodigo($base, $codigo_acesso)
 function VerificarSeUsuarioJaFezLoginAntes($base, $codigo_acesso, $id_user){
 
     $regra2 = "SELECT * FROM user_empresa inner join empresas on 'id_empresa' = 'id_empresa' where empresas.codigo_acesso = '$codigo_acesso' and user_empresa.id_user = $id_user and user_empresa.id_empresa = empresas.id_empresa";
-    $res2 = mysqli_query($base, $regra2) or die("Erro na consulta");
+    $res2 = mysqli_query($base, $regra2) or die("Erro na consulta7");
     $DadosUserEmpresa = mysqli_fetch_array($res2);
     $QuantidadeDeLoginsJaFeitos = $res2->num_rows;
 

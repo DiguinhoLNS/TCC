@@ -45,11 +45,11 @@
 			$codigo_acesso = $_POST['cod'];
 			$id_user = $_COOKIE['ID'];
 
-			$DadosEmpresa = PegarDadosEmpresaPeloCodigo($base, $codigo_acesso);
+			$Dados = PegarDadosEmpresaPeloCodigo($base, $codigo_acesso);
 
 			$QuantidadeDeLoginsJaFeitos = VerificarSeUsuarioJaFezLoginAntes($base, $codigo_acesso, $id_user);
 			
-			if ($DadosEmpresa["CodigoExiste"] && empty($QuantidadeDeLoginsJaFeitos)) {
+			if ($Dados["CodigoExiste"] && empty($QuantidadeDeLoginsJaFeitos)) {
 
 				$_SESSION['TipoVerificação'] = "Usuario";
 				header("Location: InsereUser_Empresa.php?q=".$codigo_acesso);
@@ -58,10 +58,9 @@
 
 				header("Location: ../Company.php?q=".$Dados['id_empresa']);
 				
-			}else if(!$DadosEmpresa["CodigoExiste"]) {
+			}else if(!$Dados["CodigoExiste"]) {
 
 				$_SESSION["CompanyLoginError_1"] = "1";
-
 				header("Location: ../LoginCompany.php");
 			}
 
