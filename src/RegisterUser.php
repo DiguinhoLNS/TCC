@@ -18,31 +18,11 @@
 
 			StopUserAccess();
 
-			if(!isset($_SESSION["UserRegisterError_G"])){
+				if (isset($_SESSION["Erros"])) {
 
-				$_SESSION["UserRegisterError_G"] = 0;
-				$_SESSION["UserRegisterError_1"] = 0;
-				$_SESSION["UserRegisterError_2"] = 0;
-				$_SESSION["UserRegisterError_3"] = 0;
-				$_SESSION["UserRegisterError_4"] = 0;
-				$_SESSION["UserRegisterError_5"] = 0;
-				$_SESSION["UserRegisterError_6"] = 0;
-				$_SESSION["UserRegisterError_8"] = 0;
+					$erros = $_SESSION["Erros"];
 
-			} else {
-
-				$UserRegisterError_G = $_SESSION["UserRegisterError_G"];
-				$UserRegisterError_1 = $_SESSION["UserRegisterError_1"];
-				$UserRegisterError_2 = $_SESSION["UserRegisterError_2"];
-				$UserRegisterError_3 = $_SESSION["UserRegisterError_3"];
-				$UserRegisterError_4 = $_SESSION["UserRegisterError_4"];
-				$UserRegisterError_5 = $_SESSION["UserRegisterError_5"];
-				$UserRegisterError_6 = $_SESSION["UserRegisterError_6"];
-				$UserRegisterError_8 = $_SESSION["UserRegisterError_8"];
-
-				if ($UserRegisterError_G == "1"){
-
-					if ($UserRegisterError_1 == "1"){
+					if (isset($erros["Nome"])){
 
 						echo '
 							
@@ -60,7 +40,7 @@
 
 					}
 
-					if ($UserRegisterError_2 == "1"){
+					if (isset($erros["Email"])){
 
 						echo '
 							
@@ -78,7 +58,7 @@
 
 					}
 
-					if($UserRegisterError_3 == "1"){
+					if(isset($erros["CPF"])){
 
 						echo '
 							
@@ -96,7 +76,7 @@
 
 					}
 
-					if($UserRegisterError_4 == "1"){
+					if(isset($erros["Data"])){
 
 						echo '
 							
@@ -114,7 +94,7 @@
 						
 					}
 
-					if($UserRegisterError_5 == "1"){
+					if(isset($erros["Telefone"])){
 
 						echo '
 							
@@ -132,7 +112,7 @@
 
 					}
 
-					if($UserRegisterError_6 == "1"){
+					if(isset($erros["Celular"])){
 
 						echo '
 							
@@ -150,7 +130,7 @@
 
 					}
 
-					if($UserRegisterError_8 == "1"){
+					if(isset($erros["Senha"])){
 
 						echo '
 							
@@ -170,7 +150,6 @@
 
 				}
 				
-			}
 
 		?>
 

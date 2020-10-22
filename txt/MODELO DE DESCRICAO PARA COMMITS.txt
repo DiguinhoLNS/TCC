@@ -6,7 +6,9 @@ MODELO DE DESCRIÇÃO PARA COMMITS
 
 // ATUALIZAÇÕES
 
-#
+# Verifica cadastro de usuario com funcoes, 83976528% mais clean
+# Nova forma de passar erro entre VerificaCadastro e pagina de RegisterUser
+# Todos os tipos de erro no cadastro de usuarios testados e funcionando
 
 // ERROS CORRIGIDOS
 
