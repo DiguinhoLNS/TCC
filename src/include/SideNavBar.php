@@ -62,7 +62,7 @@
                                 <li>               
                                     <a href = "Company.php?q='.$rows[$i]['id_empresa'].'">
                                         <i class = "material-icons"> &#xe0af; </i>
-                                        <span>'. utf8_encode($rows[$i]['Nome']) .'</span>
+                                        <span>'. $rows[$i]['Nome'] .'</span>
                                     </a>                
                                 </li>
                             ';

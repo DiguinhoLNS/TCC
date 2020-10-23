@@ -14,7 +14,7 @@
                     $res = mysqli_query($base, $regra);
                     $mostrar = mysqli_fetch_array($res);
 
-                    echo utf8_encode($mostrar['nome_user']);
+                    echo $mostrar['nome_user'];
 
                 }
                 
