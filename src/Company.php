@@ -109,17 +109,6 @@
 
 							</div>
 
-							<div class = "CategoryOptions">
-
-								<div class = "CategoryText">
-
-									<h1> Cor Tema </h1>
-									<h2><?php echo $DadosEmpresa['Cor_layout']; ?></h2>
-
-								</div>
-
-							</div>
-
 						</li>
 
 						<li class = "Category">

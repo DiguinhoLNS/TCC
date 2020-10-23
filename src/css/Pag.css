@@ -615,7 +615,7 @@ h1, h2, h3, h4, h5, h6 {
 			}
 
 			.CompanyBox {
-				padding: 30px 40px;
+				padding: 20px 40px;
 
 				background-color: var(--color-theme-company-p);
 			}
@@ -780,7 +780,7 @@ h1, h2, h3, h4, h5, h6 {
 
 		#SectionDashboardItems nav ul .Box {
 			width: 100%;
-			border-radius: 20px;
+			border-radius: 30px;
 
 			background-color: var(--color-theme-company-p);
 		}
@@ -792,13 +792,12 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 		#SectionDashboardItems nav ul .Box a h1,
-		#SectionDashboardItems nav ul .Box a h2,
-		#SectionDashboardItems nav ul .Box a h3 {
+		#SectionDashboardItems nav ul .Box a h2 {
 			width: 100%;
 		}
 
 		#SectionDashboardItems nav ul .Box a h1 {
-			height: 30px;
+			height: 60px;
 
 			color: var(--color-txt-p-dm);
 			font-size: 20px;
@@ -809,24 +808,13 @@ h1, h2, h3, h4, h5, h6 {
 			}
 
 		#SectionDashboardItems nav ul .Box a h2 {
-			height: 30px;
-
-			color: var(--color-txt-t-dm);
-			font-size: 16px;
-		}
-
-			#SectionDashboardItems nav ul .ThemeYellow a h2 {
-				color: var(--color-txt-t-lm);
-			}
-
-		#SectionDashboardItems nav ul .Box a h3 {
 			height: 20px;
 
 			color: var(--color-txt-s-dm);
 			font-size: 14px;
 		}
 
-			#SectionDashboardItems nav ul .ThemeYellow a h3 {
+			#SectionDashboardItems nav ul .ThemeYellow a h2 {
 				color: var(--color-txt-s-lm);
 			}
 
@@ -2385,16 +2373,15 @@ h1, h2, h3, h4, h5, h6 {
 .NavOptions h1 {
 	width: 100%;
 	padding: 0 20px 20px;
-	border-bottom: 1px solid var(--color-border);
 
-	font-size: 20px;
+	font-size: 22px;
 
 	cursor: default;
 }
 
 .NavOptions ul {
 	width: 100%;
-	padding: 10px 0;
+	padding: 0 0 20px;
 	
 	list-style: none;
 }

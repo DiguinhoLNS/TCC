@@ -90,8 +90,7 @@
                                             
                                                 <a href = 'Company.php?q=".$rows[$i]['id_empresa']."'>
                                                     <h1> ". utf8_encode($rows[$i]['Nome']) ."</h1>
-                                                    <h2> ". $cnpj." </h2>
-                                                    <h3> ". $rows[$i]['Telefone'] ."</h3>
+                                                    <h2> ". $rows[$i]['Telefone'] ."</h2>
                                                 </a>                      
                                                 
                                             </li>
