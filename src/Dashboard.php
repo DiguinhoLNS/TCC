@@ -10,16 +10,7 @@
 
         $id = $_COOKIE["ID"];
 
-        $regra1 = "SELECT * FROM empresas inner join user_empresa on 'id_empresa' = 'id_empresa' where user_empresa.id_user = $id and empresas.id_empresa = user_empresa.id_empresa order by Nome ASC";
-        $res = mysqli_query($base, $regra1) or die("Erro na consultaDB");
-
-        while($mostrar = mysqli_fetch_array($res)){
-
-            $rows[] = $mostrar;
-
-        }
-
-        $linhas = $res->num_rows;
+        $DadosEmpresas = PegarDadosEmpresaPeloIdUsuario($base, $id);
 
 
     }
@@ -74,7 +65,7 @@
                         <ul id = "DashboardBoxContent">
                             <?php 
                             
-                                if($linhas==0){
+                                if($DadosEmpresas["QuantidadeDeEmpresas"]==0){
 
                                     echo '<li class = "NoFor"> Você não possui nenhuma empresa! </li>';
                             
@@ -82,15 +73,15 @@
                                     $i=0;
                                     do{
 
-                                        $cnpj = ColocarPontoCNPJ($rows[$i]['CNPJ']);
+                                        $cnpj = ColocarPontoCNPJ($DadosEmpresas['Dados'][$i]['CNPJ']);
                                         
                                         echo "
                                         
-                                            <li class = 'Box ". $rows[$i]['Cor_layout']."'>
+                                            <li class = 'Box ". $DadosEmpresas['Dados'][$i]['Cor_layout']."'>
                                             
-                                                <a href = 'Company.php?q=".$rows[$i]['id_empresa']."'>
-                                                    <h1> ". $rows[$i]['Nome'] ."</h1>
-                                                    <h2> ". $rows[$i]['Telefone'] ."</h2>
+                                                <a href = 'Company.php?q=".$DadosEmpresas['Dados'][$i]['id_empresa']."'>
+                                                    <h1> ". $DadosEmpresas['Dados'][$i]['Nome'] ."</h1>
+                                                    <h2> ". $DadosEmpresas['Dados'][$i]['Telefone'] ."</h2>
                                                 </a>                      
                                                 
                                             </li>
@@ -99,7 +90,7 @@
 
                                         $i++;
 
-                                    }while($i<($linhas));
+                                    }while($i<($DadosEmpresas["QuantidadeDeEmpresas"]));
 
                                 }
                             

@@ -4,21 +4,13 @@
     date_default_timezone_set('America/Sao_Paulo');
 
     include 'sql/ConexaoBD.php'; 
+    include_once "sql/Funcoes.php";
 
     if(isset($_COOKIE["ID"])){
 
         $id = $_COOKIE["ID"];
 
-        $regra1 = "SELECT * FROM empresas inner join user_empresa on 'id_empresa' = 'id_empresa' where user_empresa.id_user = $id and empresas.id_empresa = user_empresa.id_empresa order by Nome ASC";
-        $res = mysqli_query($base, $regra1) or die("Erro na consulta");
-
-        while($mostrar = mysqli_fetch_array($res)){
-       
-            $rows[] = $mostrar;
-
-        }
-
-        $linhas = $res->num_rows;
+        $DadosEmpresas = PegarDadosEmpresaPeloIdUsuario($base, $id);
 
     }
     
@@ -83,24 +75,24 @@
 
                             $i = 0;
                             
-                            if($linhas>0){
+                            if($DadosEmpresas["QuantidadeDeEmpresas"]>0){
                             
                                 do{
 
                                     echo '
-                                        <a href = "Company.php?q='.$rows[$i]['id_empresa'].'" class = "CompanyBox '.$rows[$i]['Cor_layout'].'" title = "Acessar '.$rows[$i]['Nome'].' ">
+                                        <a href = "Company.php?q='.$DadosEmpresas['Dados'][$i]['id_empresa'].'" class = "CompanyBox '.$DadosEmpresas['Dados'][$i]['Cor_layout'].'" title = "Acessar '.$DadosEmpresas['Dados'][$i]['Nome'].' ">
 
-                                            <h1 class = "CompanyTitle"> '.$rows[$i]['Nome'].' </h1>
+                                            <h1 class = "CompanyTitle"> '.$DadosEmpresas['Dados'][$i]['Nome'].' </h1>
                                         
                                         </a>
                                     ';
 
                                     $i++;
                                     if($i>2){
-                                        $i=$linhas;
+                                        break;
                                     }
 
-                                }while($i<$linhas);
+                                }while($i<$DadosEmpresas["QuantidadeDeEmpresas"]);
 
                             }
                             

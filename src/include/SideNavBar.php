@@ -6,16 +6,7 @@
 
         $id = $_COOKIE["ID"];
         
-        $regra1 = "SELECT * FROM empresas inner join user_empresa on 'id_empresa' = 'id_empresa' where user_empresa.id_user = $id and empresas.id_empresa = user_empresa.id_empresa order by Nome ASC";
-        $res = mysqli_query($base, $regra1) or die("Erro na consulta");
-
-        while($mostrar = mysqli_fetch_array($res)){
-
-            $rows[] = $mostrar;
-            
-        }
-
-        $linhas = $res->num_rows;
+        $DadosEmpresas = PegarDadosEmpresaPeloIdUsuario($base, $id);
 
     }
 
@@ -54,22 +45,22 @@
                 
                 if(isset ($_COOKIE["ID"])){
 
-                    if($linhas>0){
+                    if($DadosEmpresas["QuantidadeDeEmpresas"]>0){
 
                         do{
 
                             echo '
                                 <li>               
-                                    <a href = "Company.php?q='.$rows[$i]['id_empresa'].'">
+                                    <a href = "Company.php?q='.$DadosEmpresas['Dados'][$i]['id_empresa'].'">
                                         <i class = "material-icons"> &#xe0af; </i>
-                                        <span>'. $rows[$i]['Nome'] .'</span>
+                                        <span>'. $DadosEmpresas['Dados'][$i]['Nome'] .'</span>
                                     </a>                
                                 </li>
                             ';
 
                             $i++;
 
-                        }while($i<$linhas);
+                        }while($i<$DadosEmpresas["QuantidadeDeEmpresas"]);
 
                     }
                 

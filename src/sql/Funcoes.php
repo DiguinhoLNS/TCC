@@ -3,13 +3,27 @@
 include 'ConexaoBD.php';
 date_default_timezone_set('America/Sao_Paulo');
 
-function EncerrarSessao(){
+function EncerrarSessao()
+{
 
     setcookie("ULogged", "", time() - (86400 * 30), "/");
     setcookie("ID", "", time() - (86400 * 30), "/");
 
     header("Location: ../Index.php");
+}
 
+function SepararData($DataJunta)
+{
+
+    list($ano, $mes, $dia) = explode('-', $DataJunta);
+
+    $DataSeparda = [
+        "ano" => $ano,
+        "mes" => $mes,
+        "dia" => $dia
+    ];
+
+    return $DataSeparda;
 }
 
 function ColocarPontoCPF($cpfSemPonto)
@@ -77,16 +91,15 @@ function VerificaCPF($cpf)
     if (empty($cpf) || strlen($cpf) < 11) {
 
         return true;
-    } 
+    }
 
     for ($i = 0; $i < 11; $i++) {
 
         if (ord($cpf[$i]) < 48 || ord($cpf[$i]) > 57) {
             return true;
         }
-
     }
-    
+
 
     $soma1 = ($cpf[0] * 10) + ($cpf[1] * 9) + ($cpf[2] * 8) + ($cpf[3] * 7) + ($cpf[4] * 6) + ($cpf[5] * 5) + ($cpf[6] * 4) + ($cpf[7] * 3) + ($cpf[8] * 2);
     $digitoVerificadorUm = 11 - ($soma1 % 11);
@@ -127,7 +140,6 @@ function VerificaCNPJ($cnpj)
 
             return true;
         }
-
     }
 
 
@@ -172,8 +184,7 @@ function VerificarEndereco($endereco)
 
         $achou = strpos(strtolower($endereco), $possiveis[$i]);
 
-        return $achou !== false? false : true; 
-
+        return $achou !== false ? false : true;
     }
 }
 
@@ -212,18 +223,18 @@ function VerificaSenha($senha)
 //Querys usadas no VerificaCadastro.php
 function VerificarSeUsuarioJaCadastrado($base, $email, $cpf)
 {
-    $regra1 = "SELECT Email_user, CPF_user FROM usuarios where Email_user =  '$email' or CPF_user = '$cpf'";
-    $res = mysqli_query($base, $regra1) or die("Erro na consulta1");
-    $QuantidadeDeCadastros = $res->num_rows;
+    $query = "SELECT Email_user, CPF_user FROM usuarios where Email_user =  '$email' or CPF_user = '$cpf'";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 1");
+    $QuantidadeDeCadastros = $ResultadoQuery->num_rows;
 
     return !empty($QuantidadeDeCadastros) ? true : false;
 }
 
 function VerificarSeEmpresaJaCadastrada($base, $email, $cnpj)
 {
-    $regra1 = "SELECT Email, CNPJ FROM empresas where Email =  '$email' or CNPJ = '$cnpj'";
-    $res = mysqli_query($base, $regra1) or die("Erro na consulta2");
-    $QuantidadeDeCadastros = $res->num_rows;
+    $query = "SELECT Email, CNPJ FROM empresas where Email =  '$email' or CNPJ = '$cnpj'";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 2");
+    $QuantidadeDeCadastros = $ResultadoQuery->num_rows;
 
     return $QuantidadeDeCadastros;
 }
@@ -231,18 +242,18 @@ function VerificarSeEmpresaJaCadastrada($base, $email, $cnpj)
 //Querys usadas no Company.php
 function PegarDadosEmpresaPeloIdEmpresa($base, $id_empresa)
 {
-    $regra1 = "SELECT * FROM empresas where id_empresa =  '$id_empresa'";
-    $res = mysqli_query($base, $regra1) or die("Erro na consulta3");
-    $DadosEmpresa = mysqli_fetch_array($res);
+    $query = "SELECT * FROM empresas where id_empresa =  '$id_empresa'";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 3");
+    $DadosEmpresa = mysqli_fetch_array($ResultadoQuery);
 
     return $DadosEmpresa;
 }
 
 function PegarDadosUserEmpresaPeloIdUserIdEmpresa($base, $id_user, $id_empresa)
 {
-    $regra2 = "SELECT * FROM user_empresa where id_user =  '$id_user' and id_empresa = $id_empresa";
-    $res2 = mysqli_query($base, $regra2) or die("Erro na consulta4");
-    $DadosUserEmpresa = mysqli_fetch_array($res2);
+    $query = "SELECT * FROM user_empresa where id_user =  '$id_user' and id_empresa = $id_empresa";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 4");
+    $DadosUserEmpresa = mysqli_fetch_array($ResultadoQuery);
 
     return $DadosUserEmpresa;
 }
@@ -250,10 +261,10 @@ function PegarDadosUserEmpresaPeloIdUserIdEmpresa($base, $id_user, $id_empresa)
 //Querys usadas no VerificaLogin
 function PegarDadosUsuarioPeloEmailSenha($base, $email, $senha)
 {
-    $regra1 = "SELECT Email_user, Senha_user, id_user FROM usuarios where Email_user =  '$email' and Senha_user = '$senha'";
-    $res = mysqli_query($base, $regra1) or die("Erro na consulta5");
-    $DadosUsuario = mysqli_fetch_array($res);
-    $QuantidadeDeCadastros = $res->num_rows;
+    $query = "SELECT Email_user, Senha_user, id_user FROM usuarios where Email_user =  '$email' and Senha_user = '$senha'";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 5");
+    $DadosUsuario = mysqli_fetch_array($ResultadoQuery);
+    $QuantidadeDeCadastros = $ResultadoQuery->num_rows;
 
     $Dados = array(
         "id_user" => $DadosUsuario['id_user'],
@@ -265,11 +276,11 @@ function PegarDadosUsuarioPeloEmailSenha($base, $email, $senha)
 
 function PegarDadosEmpresaPeloCodigo($base, $codigo_acesso)
 {
-    $regra1 = "SELECT codigo_acesso, id_empresa FROM empresas where codigo_acesso =  '$codigo_acesso'";
-    $res = mysqli_query($base, $regra1) or die("Erro na consulta6");
-    $DadosEmpresa = mysqli_fetch_array($res);
+    $query = "SELECT codigo_acesso, id_empresa FROM empresas where codigo_acesso =  '$codigo_acesso'";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 6");
+    $DadosEmpresa = mysqli_fetch_array($ResultadoQuery);
 
-    $CodigoExiste = (empty($res->num_rows)) ? false : true;
+    $CodigoExiste = (empty($ResultadoQuery->num_rows)) ? false : true;
 
     $Dados = array(
         "CodigoExiste" => $CodigoExiste,
@@ -281,19 +292,52 @@ function PegarDadosEmpresaPeloCodigo($base, $codigo_acesso)
 
 function VerificarSeUsuarioJaFezLoginAntes($base, $codigo_acesso, $id_user)
 {
-    $regra2 = "SELECT * FROM user_empresa inner join empresas on 'id_empresa' = 'id_empresa' where empresas.codigo_acesso = '$codigo_acesso' and user_empresa.id_user = $id_user and user_empresa.id_empresa = empresas.id_empresa";
-    $res2 = mysqli_query($base, $regra2) or die("Erro na consulta7");
-    $DadosUserEmpresa = mysqli_fetch_array($res2);
-    $QuantidadeDeLoginsJaFeitos = $res2->num_rows;
+    $query = "SELECT * FROM user_empresa inner join empresas on 'id_empresa' = 'id_empresa' where empresas.codigo_acesso = '$codigo_acesso' and user_empresa.id_user = $id_user and user_empresa.id_empresa = empresas.id_empresa";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 7");
+    $DadosUserEmpresa = mysqli_fetch_array($ResultadoQuery);
+    $QuantidadeDeLoginsJaFeitos = $ResultadoQuery->num_rows;
 
     return $QuantidadeDeLoginsJaFeitos;
 }
 
 function PegarDadosEmpresaPeloId_Codigo($base, $id_adm, $codigo_acesso)
 {
-    $regra1 = "SELECT id_adm, id_empresa FROM empresas where id_adm =  $id_adm and codigo_acesso = '$codigo_acesso'";
-    $res = mysqli_query($base, $regra1) or die("Erro na consulta8 " . $id_adm . " " . $codigo_acesso);
-    $DadosEmpresa = mysqli_fetch_array($res);
+    $query = "SELECT id_adm, id_empresa FROM empresas where id_adm =  $id_adm and codigo_acesso = '$codigo_acesso'";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 8 " . $id_adm . " " . $codigo_acesso);
+    $DadosEmpresa = mysqli_fetch_array($ResultadoQuery);
 
     return $DadosEmpresa;
+}
+
+function PegarDadosUsuarioPeloId($base, $id)
+{
+    $query = "SELECT * FROM usuarios WHERE id_user = '$id'";
+
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 9");
+    $DadosUsuario = mysqli_fetch_array($ResultadoQuery);
+
+    return $DadosUsuario;
+}
+
+function PegarDadosEmpresaPeloIdUsuario($base, $id)
+{
+
+    $query = "SELECT * FROM empresas inner join user_empresa on 'id_empresa' = 'id_empresa' where user_empresa.id_user = $id and empresas.id_empresa = user_empresa.id_empresa order by Nome ASC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 10");
+
+    while ($UmaEmpresa = mysqli_fetch_array($ResultadoQuery)) {
+
+        $TodasEmpresas[] = $UmaEmpresa;
+    }
+
+    $QuantidadeDeEmpresas = $ResultadoQuery->num_rows;
+
+    $Empresas = [
+
+        "Dados" => $TodasEmpresas,
+        "QuantidadeDeEmpresas" => $QuantidadeDeEmpresas
+
+    ];
+
+    return $Empresas;
 }

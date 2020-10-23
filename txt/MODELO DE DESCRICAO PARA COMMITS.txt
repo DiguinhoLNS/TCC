@@ -6,9 +6,8 @@ MODELO DE DESCRIÇÃO PARA COMMITS
 
 // ATUALIZAÇÕES
 
-# Verifica cadastro de empresa com funcoes, 83976528% mais clean
-# Nova forma de passar erro entre VerificaCadastro e pagina de RegisterCompany
-# Todos os tipos de erro no cadastro de empresa testados e funcionando
+# Query de: Dashboard, User, Index e SideNavBar viraram funcao (Funcao de mostrar as empresas que o usuario criou ou logou) 
+# Funcao para separar data e funcao para Pegar dados do usuario pelo seu id
 
 // ERROS CORRIGIDOS
 
