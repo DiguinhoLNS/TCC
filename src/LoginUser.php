@@ -26,15 +26,14 @@
 
 			StopUserAccess();
 
-			if (!isset($_SESSION["UserLoginError_1"])) {
+			if (isset($_SESSION["ErroLoginUsuario"])) {
 
-				$_SESSION["UserRegisterError_1"] = 0;
+				//Zerar erros de cadastro
+				$_SESSION["ErrosCadastroUsuario"] = null;
 
-			} else {
+				$erro = $_SESSION["ErroLoginUsuario"];
 
-				$UserLoginError_1 = $_SESSION["UserLoginError_1"];
-
-				if ($UserLoginError_1 == "1") {
+				if ($erro) {
 
 					echo '
 							

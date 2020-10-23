@@ -26,9 +26,9 @@
 
 			StopUserAccess();
 
-				if (isset($_SESSION["Erros"])) {
+				if (isset($_SESSION["ErrosCadastroUsuario"])) {
 
-					$erros = $_SESSION["Erros"];
+					$erros = $_SESSION["ErrosCadastroUsuario"];
 
 					if (isset($erros["Nome"])){
 

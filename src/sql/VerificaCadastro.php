@@ -53,11 +53,12 @@
 
             if (!isset($erros)) {
 
+                $_SESSION["ErrosCadastroUsuario"] = null;
                 include 'InsereCadastro.php';
 
             } else {
 
-                $_SESSION["Erros"] = $erros;
+                $_SESSION["ErrosCadastroUsuario"] = $erros;
                 header("Location: ../RegisterUser.php");          
 
             }
@@ -104,12 +105,12 @@
             if (!isset($erros)) {
 
                 $_SESSION['TipoVerificação'] = "Empresa";
-                
+                $_SESSION["ErrosCadastrosEmpresa"] = null;
                 include 'InsereCadastro.php';
 
             } else {
 
-                $_SESSION["Erros"] = $erros;
+                $_SESSION["ErrosCadastrosEmpresa"] = $erros;
                 header("Location: ../RegisterCompany.php");
 
             }

@@ -26,15 +26,14 @@
 
             StopUserAccess();
 
-            if (!isset($_SESSION["CompanyLoginError_1"])) {
+            if (isset($_SESSION["ErroLoginEmpresa"])) {
 
-                $_SESSION["CompanyRegisterError_1"] = 0;
+                //Zerar erros no cadastro de empresa
+                $_SESSION["ErrosCadastrosEmpresa"] = null;
 
-            } else {
+                $erro = $_SESSION["ErroLoginEmpresa"];
 
-                $CompanyLoginError_1 = $_SESSION["CompanyLoginError_1"];
-
-                if ($CompanyLoginError_1 == "1" || $CompanyLoginError_1 == "2") {
+                if ($erro) {
 
                     echo '
                             
@@ -73,7 +72,7 @@
 							<input id = "L_Cod" class = "UserInputData" type = "text" name = "cod" required />
                         </li>
                         <li class = "ContentError">
-							<span id = "ErrorCod" class = "txtError"> <?php if ($CompanyLoginError_1 == "1"){echo "Código incorreto";}else if($CompanyLoginError_1 == "2") {echo "Você já esta nesta empresa, entre pelo Dashboard";} ?> </span>
+							<span id = "ErrorCod" class = "txtError"> Código incorreto </span>
                         </li>
 						<li class = "ContentBottom">
 							<a href = "Dashboard.php"> Voltar para Dashboard </a>

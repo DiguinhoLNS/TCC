@@ -28,7 +28,7 @@
 
 			} else {
 
-				$_SESSION["UserLoginError_1"] = "1";
+				$_SESSION["ErroLoginUsuario"] = true;
 
 				header("Location: ../LoginUser.php");
 				
@@ -58,7 +58,7 @@
 				
 			}else if(!$Dados["CodigoExiste"]) {
 
-				$_SESSION["CompanyLoginError_1"] = "1";
+				$_SESSION["ErroLoginEmpresa"] = true;
 				header("Location: ../LoginCompany.php");
 			}
 
