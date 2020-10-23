@@ -1,4 +1,12 @@
-<?php session_start(); $_SESSION['TipoVerificação'] = "Usuario";?>
+<?php 
+
+	session_start();
+	date_default_timezone_set('America/Sao_Paulo');
+
+	$_SESSION['TipoVerificação'] = "Usuario";
+
+?>
+
 <!DOCTYPE html>
 <html lang = "pt-br">
 

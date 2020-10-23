@@ -1131,6 +1131,10 @@ h1, h2, h3, h4, h5, h6 {
 					background-color: var(--color-layout-s);
 				}
 
+					#UF2 .FrameMain .BoxView li:hover {
+						background-color: var(--color-hover);
+					}
+
 				#UF2 .FrameMain .BoxView li a {
 					width: 100%;
 					padding: 20px 30px;
@@ -1158,7 +1162,7 @@ h1, h2, h3, h4, h5, h6 {
 				}
 
 					#UF2 .FrameMain .ListView li:hover {
-						background-color: var(--color-border);
+						background-color: var(--color-hover);
 					}
 
 				#UF2 .FrameMain .ListView li a {

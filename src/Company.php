@@ -60,7 +60,7 @@
 
 				<section id = "SectionCompanyHeader">
 				
-					<h1 id = "CompanyName"> <?php echo $DadosEmpresa['Nome']; ?> </h1>
+					<h1 id = "CompanyName"><?php echo $DadosEmpresa['Nome']; ?></h1>
 				
 				</section>
 
@@ -81,7 +81,7 @@
 								<div class = "CategoryText">
 
 									<h1> Nome </h1>
-									<h2> <?php echo $DadosEmpresa['Nome']; ?> </h2>
+									<h2><?php echo $DadosEmpresa['Nome']; ?></h2>
 
 								</div>
 
@@ -103,7 +103,7 @@
 								<div class = "CategoryText">
 
 									<h1> Endereço </h1>
-									<h2> <?php echo utf8_encode($DadosEmpresa['Endereco']); ?> </h2>
+									<h2><?php echo utf8_encode($DadosEmpresa['Endereco']); ?></h2>
 
 								</div>
 
@@ -114,7 +114,7 @@
 								<div class = "CategoryText">
 
 									<h1> Cor Tema </h1>
-									<h2> <?php echo $DadosEmpresa['Cor_layout']; ?> </h2>
+									<h2><?php echo $DadosEmpresa['Cor_layout']; ?></h2>
 
 								</div>
 
@@ -131,7 +131,7 @@
 								<div class = "CategoryText">
 
 									<h1> Telefone </h1>
-									<h2> <?php echo $DadosEmpresa['Telefone']; ?> </h2>
+									<h2><?php echo $DadosEmpresa['Telefone']; ?></h2>
 
 								</div>
 
@@ -142,7 +142,35 @@
 								<div class = "CategoryText">
 
 									<h1> Email </h1>
-									<h2> <?php echo $DadosEmpresa['Email']; ?> </h2>
+									<h2><?php echo $DadosEmpresa['Email']; ?></h2>
+
+								</div>
+
+							</div>
+					
+						</li>
+
+						<li class = "Category CompanyADM">
+
+							<h1 class = "HeaderCategory"> Segurança </h1>
+
+							<div class = "CategoryOptions">
+
+								<div class = "CategoryText">
+
+									<h1> ID APE </h1>
+									<h2><?php echo $DadosEmpresa['id_empresa']; ?></h2>
+
+								</div>
+
+							</div>
+
+							<div class = "CategoryOptions">
+
+								<div class = "CategoryText">
+
+									<h1> Código de acesso </h1>
+									<h2><?php echo $DadosEmpresa['codigo_acesso']; ?></h2>
 
 								</div>
 
@@ -181,7 +209,34 @@
 
 							</div>
 
+							<div class = "CategoryOptions">
+
+								<div class = "CategoryText">
+
+									<h1> Sair </h1>
+									<h2> Sair da empresa </h2>
+
+								</div>
+
+								<div class = "btnContent">
+
+									<button>
+										<a href = ""> Sair da Empresa </a>
+									</button>
+
+								</div>
+
+							</div>
+
 						</li>
+
+					</ul>
+
+					<ul>
+
+						<div class = "CategoryHeader">
+							<h1> Configurações </h1>
+						</div>
 
 						<li class = "Category CompanyADM">
 
@@ -257,31 +312,6 @@
 
 									<button>
 										<a href = ""> Editar Itens </a>
-									</button>
-
-								</div>
-
-							</div>
-
-						</li>
-
-						<li class = "Category">
-
-							<h1 class = "HeaderCategory"> Configurações </h1>
-
-							<div class = "CategoryOptions">
-
-								<div class = "CategoryText">
-
-									<h1> Sair </h1>
-									<h2> Sair da empresa </h2>
-
-								</div>
-
-								<div class = "btnContent">
-
-									<button>
-										<a href = ""> Sair da Empresa </a>
 									</button>
 
 								</div>

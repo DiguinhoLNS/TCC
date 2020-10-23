@@ -1,4 +1,12 @@
-<?php session_start(); $_SESSION['TipoVerificação'] = "Empresa";?>
+<?php 
+
+	session_start(); 
+	date_default_timezone_set('America/Sao_Paulo');
+	
+	$_SESSION['TipoVerificação'] = "Empresa";
+	
+?>
+
 <!DOCTYPE html>
 <html lang = "pt-br">
 
@@ -169,7 +177,7 @@
                         </li>
                         <li class = "ContentBottom">
 							<a href = "LoginCompany.php"> Já possui uma página? </a>
-							<input class = "UserInputSubmit btn" type = "submit" value = "Cadastrar">
+							<input class = "UserInputSubmit btn" type = "submit" value = "Criar">
 						</li>
                         
                     </ul>

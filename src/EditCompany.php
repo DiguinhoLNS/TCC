@@ -1,10 +1,12 @@
 <?php 
 
-	session_start(); 
+	session_start();
+	date_default_timezone_set('America/Sao_Paulo');
 
     $_SESSION['TipoVerificação'] = "Empresa";
 
 ?>
+
 <!DOCTYPE html>
 <html lang = "pt-br">
 
