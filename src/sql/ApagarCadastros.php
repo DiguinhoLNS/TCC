@@ -4,7 +4,7 @@
     date_default_timezone_set('America/Sao_Paulo');
 
     include "ConexaoBD.php";
-    include_once "../php/EndUserSession.php";
+    include_once "Funcoes.php";
 
     $tipo_verificacao = $_SESSION['TipoVerificação'];
     $id = $_COOKIE["ID"];
@@ -20,7 +20,7 @@
             $apagarUser_Empresa = "DELETE FROM user_empresa where id_user = '$id'";
             mysqli_query($base, $apagarUser_Empresa);
 
-            $conexao->query($apagarUsuario) === TRUE && $conexao->query($apagarUser_Empresa) ? CloseSession() : header("Location: ../User.php");
+            $conexao->query($apagarUsuario) === TRUE && $conexao->query($apagarUser_Empresa) ? EncerrarSessao() : header("Location: ../User.php");
 
         break;
 

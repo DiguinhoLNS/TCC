@@ -18,27 +18,11 @@
 
             StopUserAccess();
 
-            if(!isset($_SESSION["CompanyRegisterError_G"])){
+            if(isset($_SESSION["Erros"])){
 
-				$_SESSION["CompanyRegisterError_G"] = 0;
-				$_SESSION["CompanyRegisterError_1"] = 0;
-				$_SESSION["CompanyRegisterError_2"] = 0;
-				$_SESSION["CompanyRegisterError_3"] = 0;
-				$_SESSION["CompanyRegisterError_4"] = 0;
-				$_SESSION["CompanyRegisterError_5"] = 0;
+				$erros = $_SESSION["Erros"];
 
-			} else {
-
-				$CompanyRegisterError_G = $_SESSION["CompanyRegisterError_G"];
-				$CompanyRegisterError_1 = $_SESSION["CompanyRegisterError_1"];
-				$CompanyRegisterError_2 = $_SESSION["CompanyRegisterError_2"];
-				$CompanyRegisterError_3 = $_SESSION["CompanyRegisterError_3"];
-				$CompanyRegisterError_4 = $_SESSION["CompanyRegisterError_4"];
-                $CompanyRegisterError_5 = $_SESSION["CompanyRegisterError_5"];
-
-                if ($CompanyRegisterError_G == "1"){
-
-					if ($CompanyRegisterError_1 == "1"){
+					if (isset($erros["Nome"])){
 
 						echo '
 							
@@ -56,7 +40,7 @@
 
 					}
 
-					if ($CompanyRegisterError_2 == "1"){
+					if (isset($erros["Email"])){
 
 						echo '
 							
@@ -74,7 +58,7 @@
 
 					}
 
-					if($CompanyRegisterError_3 == "1"){
+					if(isset($erros["CNPJ"])){
 
 						echo '
 							
@@ -92,7 +76,7 @@
 
 					}
 
-					if($CompanyRegisterError_4 == "1"){
+					if(isset($erros["Telefone"])){
 
 						echo '
 							
@@ -100,7 +84,7 @@
 							
 								$(document).ready(function(){
 
-									$("#ErrorTelefone).css("display", "block");
+									$("#ErrorTelefone").css("display", "block");
 
 								});
 							
@@ -110,7 +94,7 @@
 						
 					}
 
-					if($CompanyRegisterError_5 == "1"){
+					if(isset($erros["Endereco"])){
 
 						echo '
 							
@@ -129,8 +113,6 @@
 					}
 
 				}
-				
-            }
 
 		?>
 

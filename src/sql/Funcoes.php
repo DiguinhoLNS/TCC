@@ -3,6 +3,15 @@
 include 'ConexaoBD.php';
 date_default_timezone_set('America/Sao_Paulo');
 
+function EncerrarSessao(){
+
+    setcookie("ULogged", "", time() - (86400 * 30), "/");
+    setcookie("ID", "", time() - (86400 * 30), "/");
+
+    header("Location: ../Index.php");
+
+}
+
 function ColocarPontoCPF($cpfSemPonto)
 {
     $cpf =  substr_replace($cpfSemPonto, ".", 3, 0);
@@ -68,17 +77,17 @@ function VerificaCPF($cpf)
     if (empty($cpf) || strlen($cpf) < 11) {
 
         return true;
-    } else {
+    } 
 
-        for ($i = 0; $i < 11; $i++) {
+    for ($i = 0; $i < 11; $i++) {
 
-            if (ord($cpf[$i]) < 48 || ord($cpf[$i]) > 57) {
-                return true;
-            }
+        if (ord($cpf[$i]) < 48 || ord($cpf[$i]) > 57) {
+            return true;
         }
-    }
 
-    // Definição de cpf válido
+    }
+    
+
     $soma1 = ($cpf[0] * 10) + ($cpf[1] * 9) + ($cpf[2] * 8) + ($cpf[3] * 7) + ($cpf[4] * 6) + ($cpf[5] * 5) + ($cpf[6] * 4) + ($cpf[7] * 3) + ($cpf[8] * 2);
     $digitoVerificadorUm = 11 - ($soma1 % 11);
 
@@ -99,6 +108,49 @@ function VerificaCPF($cpf)
     return $digitoVerificadorUm != $cpf[9] || $digitoVerificadorDois != $cpf[10] ? true : false;
 }
 
+function VerificaCNPJ($cnpj)
+{
+
+    $soma1 = 0;
+    $soma2 = 0;
+    $digitoVerificadorUm = 0;
+    $digitoVerificadorDois = 0;
+
+    if (empty($cnpj) || strlen($cnpj) < 14) {
+
+        return true;
+    }
+
+    for ($i = 0; $i < 14; $i++) {
+
+        if (ord($cnpj[$i]) < 48 || ord($cnpj[$i]) > 57) {
+
+            return true;
+        }
+
+    }
+
+
+    $soma1 = ($cnpj[0] * 5) + ($cnpj[1] * 4) + ($cnpj[2] * 3) + ($cnpj[3] * 2) + ($cnpj[4] * 9) + ($cnpj[5] * 8) + ($cnpj[6] * 7) + ($cnpj[7] * 6) + ($cnpj[8] * 5) + ($cnpj[9] * 4) + ($cnpj[10] * 3) + ($cnpj[11] * 2);
+    $digitoVerificadorUm = 11 - ($soma1 % 11);
+
+    if ($digitoVerificadorUm > 9) {
+
+        $digitoVerificadorUm = 0;
+    }
+
+    $soma2 = ($cnpj[0] * 6) + ($cnpj[1] * 5) + ($cnpj[2] * 4) + ($cnpj[3] * 3) + ($cnpj[4] * 2) + ($cnpj[5] * 9) + ($cnpj[6] * 8) + ($cnpj[7] * 7) + ($cnpj[8] * 6) + ($cnpj[9] * 5) + ($cnpj[10] * 4) + ($cnpj[11] * 3) + ($cnpj[12] * 2);
+    $digitoVerificadorDois = 11 - ($soma2 % 11);
+
+    if ($digitoVerificadorDois > 9) {
+
+        $digitoVerificadorDois = 0;
+    }
+
+    //verificadores
+    return $digitoVerificadorUm != $cnpj[12] || $digitoVerificadorDois != $cnpj[13] ? true : false;
+}
+
 function VerificaData($data)
 {
 
@@ -106,43 +158,54 @@ function VerificaData($data)
     return $ano >= date("Y") ? true : false;
 }
 
-function VerificaTelefone($telefone){
-    return strlen($telefone) <= 10 ? true : false;
+function VerificaTelefone($telefone)
+{
+    return strlen($telefone) <= 13 ? true : false;
 }
 
-function VerificaSenha($senha){
+function VerificarEndereco($endereco)
+{
 
-            $i = 0;
-            $maiusculas = false;
-            $minusculas = false;
-            $numeros = false;
-            $tamanhoSenha = strlen($senha);
+    $possiveis = array("rua", "avenida", "rodovia", "alameda", "viela", "travessa", "beco", "estrada");
 
-            do {
+    for ($i = 0; $i < 8; $i++) {
 
-                if (ord($senha[$i]) >= 65 && ord($senha[$i]) <= 90) {
+        $achou = strpos(strtolower($endereco), $possiveis[$i]);
 
-                    $maiusculas = true;
-                    $i++;
+        return $achou !== false? false : true; 
 
-                } else if (ord($senha[$i]) >= 97 && ord($senha[$i]) <= 122) {
+    }
+}
 
-                    $minusculas = true;
-                    $i++;
+function VerificaSenha($senha)
+{
 
-                } else if (ord($senha[$i]) >= 48 && ord($senha[$i]) <= 57) {
+    $i = 0;
+    $maiusculas = false;
+    $minusculas = false;
+    $numeros = false;
+    $tamanhoSenha = strlen($senha);
 
-                    $numeros = true;
-                    $i++;
+    do {
 
-                }else{
-                    return true;
-                }
+        if (ord($senha[$i]) >= 65 && ord($senha[$i]) <= 90) {
 
-            } while ($i < $tamanhoSenha);
+            $maiusculas = true;
+            $i++;
+        } else if (ord($senha[$i]) >= 97 && ord($senha[$i]) <= 122) {
 
-            return $minusculas && $maiusculas && $numeros ? false : true;
+            $minusculas = true;
+            $i++;
+        } else if (ord($senha[$i]) >= 48 && ord($senha[$i]) <= 57) {
 
+            $numeros = true;
+            $i++;
+        } else {
+            return true;
+        }
+    } while ($i < $tamanhoSenha);
+
+    return $minusculas && $maiusculas && $numeros ? false : true;
 }
 
 
