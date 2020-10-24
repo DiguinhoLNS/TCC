@@ -58,7 +58,7 @@
 
 			<div class = "MainContent">
 
-				<section id = "SectionCompanyHeader">
+				<section id = "SectionCompanyHeader" class = "CompanyHeader">
 				
 					<h1 id = "CompanyName"><?php echo $DadosEmpresa['Nome']; ?></h1>
 				

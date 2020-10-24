@@ -1,17 +1,25 @@
-<?php session_start(); ?>
+<?php
+
+	session_start();
+	date_default_timezone_set('America/Sao_Paulo');
+
+	include 'sql/ConexaoBD.php';
+	include_once "sql/Funcoes.php";
+
+?>
 
 <!DOCTYPE html>
 <html lang = "pt-br">
 
 	<head>
 
-		<title> Feed X </title>
+		<title> Feed </title>
 		
 		<?php include "include/Head.php"; ?>
 
 	</head>
 
-	<body id = "FeedPage" class = "UNT LightMode">
+	<body id = "FeedPage" class = "UNT LightMode ADMView">
 
 		<?php
 
@@ -31,92 +39,227 @@
 
 		</header>
 
-		<main id = "MainFeed">
+		<main id = "MainFeed" class = "ThemeBlue">
 
 			<div class = "MainContent">
 
-				<section id = "SectionFeedHeader">
+				<section id = "SectionCompanyHeader" class = "CompanyHeader">
+					
+					<h1> Feed </h1>
+				
+				</section>
 
-					<h1> Items Perdidos </h1>
+				<section id = "SectionFeedNav">
+
+					<ul id = "FeedNavBar">
+
+						<li>
+
+							<div id = "FeedSearchBar">
+
+								<form>
+
+									<input type = "text" placeholder = "Pesquisar itens" title = "Pesquisar Itens">
+									<button id = "SearchFeed" title = "Pesquisar">
+										<i class = "material-icons"> &#xe8b6; </i>	
+									</button>
+
+								</form>
+
+							</div>
+
+						</li>
+						<li>
+
+							<ul class = "FeedFilters">
+
+								<li id = "btnAllFilter" class = "FilterItem FilterCategory active"> Todos </li>
+								<li id = "btnCategoryFilter" class = "FilterItem FilterCategory"> Categorias </li>	
+
+							</ul>
+
+						</li>
+						<li>
+
+							<ul class = "FeedFilters">
+
+								<li id = "P1" class = "FilterItem FilterParameter active"> A - Z </li>
+								<li id = "P2" class = "FilterItem FilterParameter"> Z - A </li>
+								<li id = "P3" class = "FilterItem FilterParameter"> Mais recentes </li>
+								<li id = "P4" class = "FilterItem FilterParameter"> Mais antigos  </li>
+
+							</ul>
+
+						</li>
+
+					</ul>
 
 				</section>
 
-				<section id = "SectionFeedFilters">
+				<section id = "SectionFeedMain">
 
-					<h1> Filtros </h1>
+					<nav id = "FeedFrameset">
 
-					<nav>
+						<div id = "AllItensFrame" class = "FeedFrame">
 
-						<ul>
-							
-							<li class = "FilterActive" title = "Todos"> Todos </li>
-							<li class = "FilterDesactive" title = "Nome"> Nome </li>
-							<li class = "FilterDesactive" title = "Data"> Data </li>
-							<li class = "FilterDesactive" title = "Categorias"> Categorias </li>
-							
-						</ul>
+							<div class = "FeedFrameContent">
 
-					</nav>
+								<h1 class = "TitleGroup"> Todos </h1>
 
-				</section>
+								<div class = "FeedFrameCategory">
 
-				<section id = "SectionFeedItems">
+									<ul class = "FeedBoxGroup">
 
-					<nav>
+										<li class = "ItemBox">
 
-						<ul id = "FeedItensView" class = "ItensView">
+											<div class = "ItemImg"></div>
 
-							<li class = "NoFor"> NOME DA EMPRESA não possui nenhum item! </li>
+											<div class = "ItemInfo">
+												
+												<h1> Nome do item </h1>
+												<h2> 00/00/2020 </h2>
+												<h3> Categoria </h3>
 
-							<li>
+											</div>
 
-								<a href = "">
-									<div class = "ItenImg"></div>
-									<div class = "ItenText">
-										<h1> Nome do Item Perdido </h1>
-										<h2> 20/07/2020 </h2>
-									</div>
-								</a>
+										</li>
 
-							</li>
+									</ul>
 
-							<li>
+								</div>
 
-								<a href = "">
-									<div class = "ItenImg"></div>
-									<div class = "ItenText">
-										<h1> Nome do Item Perdido </h1>
-										<h2> 20/07/2020 </h2>
-									</div>
-								</a>
+							</div>
 
-							</li>
+						</div>
+						<div id = "CategoryItensFrame" class = "FeedFrame">
 
-							<li>
+							<div class = "FeedFrameContent">
 
-								<a href = "">
-									<div class = "ItenImg"></div>
-									<div class = "ItenText">
-										<h1> Nome do Item Perdido </h1>
-										<h2> 20/07/2020 </h2>
-									</div>
-								</a>
+								<h1 class = "TitleGroup"> Categorias </h1>
 
-							</li>
+								<div class = "FeedFrameCategory">
 
-							<li>
+									<h2> Eletrônicos </h2>
 
-								<a href = "">
-									<div class = "ItenImg"></div>
-									<div class = "ItenText">
-										<h1> Nome do Item Perdido </h1>
-										<h2> 20/07/2020 </h2>
-									</div>
-								</a>
+									<ul class = "FeedBoxGroup">
 
-							</li>
-							
-						</ul>
+										<li class = "ItemBox">
+
+											<div class = "ItemImg"></div>
+
+											<div class = "ItemInfo">
+												
+												<h1> Nome do item </h1>
+												<h2> 00/00/2020 </h2>
+												<h3> Categoria </h3>
+
+											</div>
+
+										</li>
+
+									</ul>
+
+								</div>
+
+								<div class = "FeedFrameCategory">
+
+									<h2> Roupas </h2>
+
+									<ul class = "FeedBoxGroup">
+
+										<li class = "ItemBox">
+
+											<div class = "ItemImg"></div>
+
+											<div class = "ItemInfo">
+												
+												<h1> Nome do item </h1>
+												<h2> 00/00/2020 </h2>
+												<h3> Categoria </h3>
+
+											</div>
+
+										</li>
+
+									</ul>
+
+								</div>
+
+								<div class = "FeedFrameCategory">
+
+									<h2> Acessórios </h2>
+
+									<ul class = "FeedBoxGroup">
+
+										<li class = "ItemBox">
+
+											<div class = "ItemImg"></div>
+
+											<div class = "ItemInfo">
+												
+												<h1> Nome do item </h1>
+												<h2> 00/00/2020 </h2>
+												<h3> Categoria </h3>
+
+											</div>
+
+										</li>
+
+									</ul>
+
+								</div>
+
+								<div class = "FeedFrameCategory">
+
+									<h2> Documentos </h2>
+
+									<ul class = "FeedBoxGroup">
+
+										<li class = "ItemBox">
+
+											<div class = "ItemImg"></div>
+
+											<div class = "ItemInfo">
+												
+												<h1> Nome do item </h1>
+												<h2> 00/00/2020 </h2>
+												<h3> Categoria </h3>
+
+											</div>
+
+										</li>
+
+									</ul>
+
+								</div>
+
+								<div class = "FeedFrameCategory">
+
+									<h2> Outros </h2>
+
+									<ul class = "FeedBoxGroup">
+
+										<li class = "ItemBox">
+
+											<div class = "ItemImg"></div>
+
+											<div class = "ItemInfo">
+												
+												<h1> Nome do item </h1>
+												<h2> 00/00/2020 </h2>
+												<h3> Categoria </h3>
+
+											</div>
+
+										</li>
+
+									</ul>
+
+								</div>
+
+							</div>
+
+						</div>
 
 					</nav>
 

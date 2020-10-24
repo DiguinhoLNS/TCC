@@ -16,21 +16,7 @@
 
     </div>
     
-    <div id = "Header2" class = "HeaderBlock">
-
-        <div id = "HeaderSearchBar">
-
-            <form name = "formHeaderSearchBar" method = "get" action = "php.php">
-
-                <input type = "text" placeholder = "Pesquisar itens" title = "" required>
-
-                <input type = "submit" class = "material-icons" title = "Pesquisar" value = "&#xe8b6;">
-
-            </form>
-
-        </div>
-
-    </div>
+    <div id = "Header2" class = "HeaderBlock"></div>
     
     <div id = "Header3" class = "HeaderBlock">
         

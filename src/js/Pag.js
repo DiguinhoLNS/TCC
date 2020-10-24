@@ -537,19 +537,49 @@ $(document).ready(function(){
 
 });
 
-/* Dashboard */
+/* Fedd */
 
 $(document).ready(function(){
 
-    /*if($(".Box").length > 0){
+    const FilterCategory = $(".FilterCategory");
+    const FilterParamenter = $(".FilterParameter");
+    const FeedFrame = $(".FeedFrame");
 
-        $(".NoFor").css("display", "none");
+    /* Icons */
 
-    }else{
+        // Category
+        FilterCategory.on("click", function(){
 
-        $(".NoFor").css("display", "flex");
+            FilterCategory.removeClass("active");
+            $(this).addClass("active");
+    
+        });
 
-    }*/
+        // Parameter
+        FilterParamenter.on("click", function(){
+
+            FilterParamenter.removeClass("active");
+            $(this).addClass("active");
+    
+        });
+    
+    /* Frames */
+
+        // ALL
+        $("#btnAllFilter").on("click", function(){
+
+            FeedFrame.css("display", "none");
+            $("#AllItensFrame").css("display", "block");
+
+        });
+
+        // Category
+        $("#btnCategoryFilter").on("click", function(){
+
+            FeedFrame.css("display", "none");
+            $("#CategoryItensFrame").css("display", "block");
+
+        });
 
 });
 
