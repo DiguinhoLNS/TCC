@@ -2,11 +2,11 @@ MODELO DE DESCRIÇÃO PARA COMMITS
 
 // NOVOS RECURSOS
 
-#
+# Editar dados de usuario e empresa
 
 // ATUALIZAÇÕES
 
-# erros passados por VerificaLogin, LoginUser e LoginCompany atualizados
+# 
 
 // ERROS CORRIGIDOS
 

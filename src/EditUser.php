@@ -2,8 +2,15 @@
 
     session_start();
     date_default_timezone_set('America/Sao_Paulo');
+
+    include_once "sql/ConexaoBD.php";
+    include_once "sql/Funcoes.php";
+
+    $id = $_COOKIE["ID"];
+
+    $DadosUsuario = PegarDadosUsuarioPeloId($base, $id);
         
-    $_SESSION['TipoVerificação'] = "Usuario";
+    $_SESSION['TipoVerificação'] = "EditarUsuario";
 
 ?>
 
@@ -26,31 +33,12 @@
 
 			StopUserAccess();
 
-            if(!isset($_SESSION["UserRegisterError_G"])){
+            if(isset($_SESSION["ErrosEditarUsuario"])){
 
-                $_SESSION["UserRegisterError_G"] = 0;
-                $_SESSION["UserRegisterError_1"] = 0;
-                $_SESSION["UserRegisterError_2"] = 0;
-                $_SESSION["UserRegisterError_3"] = 0;
-                $_SESSION["UserRegisterError_4"] = 0;
-                $_SESSION["UserRegisterError_5"] = 0;
-                $_SESSION["UserRegisterError_6"] = 0;
-                $_SESSION["UserRegisterError_8"] = 0;
+                $erros = $_SESSION["ErrosEditarUsuario"];
 
-                } else {
 
-                $UserRegisterError_G = $_SESSION["UserRegisterError_G"];
-                $UserRegisterError_1 = $_SESSION["UserRegisterError_1"];
-                $UserRegisterError_2 = $_SESSION["UserRegisterError_2"];
-                $UserRegisterError_3 = $_SESSION["UserRegisterError_3"];
-                $UserRegisterError_4 = $_SESSION["UserRegisterError_4"];
-                $UserRegisterError_5 = $_SESSION["UserRegisterError_5"];
-                $UserRegisterError_6 = $_SESSION["UserRegisterError_6"];
-                $UserRegisterError_8 = $_SESSION["UserRegisterError_8"];
-
-                if ($UserRegisterError_G == "1"){
-
-                    if ($UserRegisterError_1 == "1"){
+                    if (isset($erros["Nome"])){
 
                         echo '
                             
@@ -68,7 +56,7 @@
 
                     }
 
-                    if ($UserRegisterError_2 == "1"){
+                    if (isset($erros["Email"])){
 
                         echo '
                             
@@ -86,7 +74,7 @@
 
                     }
 
-                    if($UserRegisterError_3 == "1"){
+                    if(isset($erros["CPF"])){
 
                         echo '
                             
@@ -104,7 +92,7 @@
 
                     }
 
-                    if($UserRegisterError_4 == "1"){
+                    if(isset($erros["Data"])){
 
                         echo '
                             
@@ -122,7 +110,7 @@
                         
                     }
 
-                    if($UserRegisterError_5 == "1"){
+                    if(isset($erros["Telefone"])){
 
                         echo '
                             
@@ -140,25 +128,7 @@
 
                     }
 
-                    if($UserRegisterError_6 == "1"){
-
-                        echo '
-                            
-                            <script language = "javascript" type = "text/javascript">
-                            
-                                $(document).ready(function(){
-
-                                    $("#ErrorCelular").css("display", "block");
-
-                                });
-                            
-                            </script>
-                        
-                        ';
-
-                    }
-
-                    if($UserRegisterError_8 == "1"){
+                    if(isset($erros["Senha"])){
 
                         echo '
                             
@@ -178,15 +148,13 @@
 
                 }
 
-            }
-
         ?>
 
         <main id = "MainEditUser">
 
             <div class = "FormPlatform BS">
 
-                <form method = "POST" action = "sql/.php">
+                <form method = "POST" action = "sql/VerificaCadastro.php">
 
                     <ul class = "FormPlatformContent">
 
@@ -196,40 +164,42 @@
                         <li class = "ContentInput">
 							<label for = "E_UserNome"> Nome </label>
 							<span id = "ErrorNome" class = "txtError"> Nome inválido </span>
-							<input id = "E_UserNome" class = "UserInputData" type = "text" name = "nome" required />
+							<input id = "E_UserNome" class = "UserInputData" type = "text" name = "nome" value = "<?php echo $DadosUsuario["Nome_user"] ?>" required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "E_UserCPF"> CPF </label>
 							<span id = "ErrorCPF" class = "txtError"> CPF inválido </span>
-							<input id = "E_UserCPF" class = "UserInputData" type = "text" name = "CPF" required />
+							<input id = "E_UserCPF" class = "UserInputData" type = "text" name = "CPF" value = "<?php echo $DadosUsuario["CPF_user"] ?>" required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "E_UserGenero"> Gênero </label>
 							<select name = "Genero" id = "E_UserGenero" class = "UserSelectData" required>
-								<option value = "Feminino"> Feminino </option>
-								<option value = "Masculino"> Masculino </option>
-								<option value = "Outros"> Prefiro não informar </option>
+
+                                <option value = "Feminino" <?php if($DadosUsuario["Genero_user"] == "Feminino"){ echo "selected" ;}?>> Feminino </option>
+								<option value = "Masculino" <?php if($DadosUsuario["Genero_user"] == "Masculino"){ echo "selected" ;}?>> Masculino </option>
+                                <option value = "Outros" <?php if($DadosUsuario["Genero_user"] == "Outros"){ echo "selected" ;}?>> Prefiro não informar </option>';
+                                
                             </select>
 						</li>
 						<li class = "ContentInput">
 							<label for = "E_UserDataNasc"> Data de Nascimento </label>
 							<span id = "ErrorDataNasc" class = "txtError"> Data inválida </span>
-							<input id = "E_UserDataNasc" class = "UserInputData" type = "date" name = "data" required />
+							<input id = "E_UserDataNasc" class = "UserInputData" type = "date" name = "data" value = "<?php echo $DadosUsuario["Data_nasc_user"] ?>" required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "E_UserEmail"> Email </label>
 							<span id = "ErrorEmail" class = "txtError"> Email inválido </span>
-							<input id = "E_UserEmail" class = "UserInputData" type = "email" name = "email" required />
+							<input id = "E_UserEmail" class = "UserInputData" type = "email" name = "email" value = "<?php echo $DadosUsuario["Email_user"] ?>" required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "E_UserTelefone"> Telefone de contato </label>
 							<span id = "ErrorTelefone" class = "txtError"> Telefone inválido </span>
-							<input id = "E_UserTelefone" class = "UserInputData" type = "text" name = "telefone" placeholder = "Fixo ou móvel" required />
+							<input id = "E_UserTelefone" class = "UserInputData" type = "text" name = "telefone" value = "<?php echo $DadosUsuario["Telefone_user"] ?>" placeholder = "Fixo ou móvel" required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "E_UserSenha"> Senha </label>
 							<span id = "ErrorSenha" class = "txtError"> Senha inválida </span>
-							<input id = "E_UserSenha" class = "UserInputData" type = "password" name = "senha" required />
+							<input id = "E_UserSenha" class = "UserInputData" type = "password" name = "senha"  value = "<?php echo $DadosUsuario["Senha_user"] ?>" required />
 						</li>
 						<li class = "ContentBottom">
                         <a href = "User.php"> Voltar </a>

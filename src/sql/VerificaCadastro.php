@@ -119,6 +119,101 @@
         break;
 
         case "EditarUsuario":
+            $nome = $_POST["nome"];
+            $email = $_POST["email"];
+            $CpfComPonto = $_POST["CPF"];
+            $data = $_POST["data"];
+            $telefone = $_POST["telefone"];
+            $genero = $_POST["Genero"];
+            $senha = $_POST["senha"];
+
+            $cpf = TirarPontoCPF($CpfComPonto);
+
+            $ErroNosCampos = [
+                "Nome" => false,
+                "Email" => false,
+                "CPF" => false,
+                "Data" => false,
+                "Endereco" => false,
+                "Telefone" => false,
+                "Senha" => false
+            ];
+
+            $ErroNosCampos["Nome"] = VerificarCadastroNome($nome);    
+
+            $ErroNosCampos["CPF"] = VerificaCPF($cpf);
+
+            $ErroNosCampos["Data"] = VerificaData($data);
+
+            $ErroNosCampos["Telefone"] = VerificaTelefone($telefone);
+
+            $ErroNosCampos["Senha"] = VerificaSenha($senha); 
+
+            foreach ($ErroNosCampos as $key => $verifica) {
+                if ($verifica) {
+                    $erros[$key] =  true;
+                }
+            }
+
+            if (!isset($erros)) {
+
+                $_SESSION['TipoVerificação'] = "Usuario";
+                include 'EditarDados.php';
+
+            } else {
+
+                $_SESSION["ErrosEditarUsuario"] = $erros;
+                header("Location: ../EditUser.php");          
+
+            }
+        break;
+
+        case "EditarEmpresa":
+            $id_empresa = $_GET['q'];
+            $nome = $_POST["nome"];
+            $email = $_POST["email"];
+            $CnpjComPonto = $_POST["cnpj"];
+            $telefone = $_POST["telefone"];
+            $endereco = $_POST["endereco"];
+            $cor = $_POST["CorLayout"];
+
+            $cnpj = TirarPontoCNPJ($CnpjComPonto);
+
+            $ErroNosCampos = [
+                "Nome" => false,
+                "Email" => false,
+                "CNPJ" => false,
+                "Telefone" => false,
+                "Endereco" => false,
+                "Cor" => false
+            ];
+
+            $ErroNosCampos["Nome"] = VerificarCadastroNome($nome);
+
+            $ErroNosCampos["CNPJ"] = VerificaCNPJ($cnpj);
+
+            $ErroNosCampos["Endereco"] = VerificarEndereco($endereco);
+
+            $ErroNosCampos["Telefone"] = VerificaTelefone($telefone);
+
+            foreach ($ErroNosCampos as $key => $verifica) {
+                if ($verifica) {
+                    $erros[$key] =  true;
+                }
+            }
+
+            if (!isset($erros)) {
+
+                $_SESSION['TipoVerificação'] = "Empresa";
+                include "EditarDados.php";
+
+            } else {
+
+                $_SESSION["ErrosEditarEmpresa"] = $erros;
+                header("Location: ../EditCompany.php?q=".$id_empresa);
+
+            }
+
         break;
 
         default:

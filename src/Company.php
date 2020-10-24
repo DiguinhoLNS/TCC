@@ -103,7 +103,7 @@
 								<div class = "CategoryText">
 
 									<h1> Endereço </h1>
-									<h2><?php echo utf8_encode($DadosEmpresa['Endereco']); ?></h2>
+									<h2><?php echo $DadosEmpresa['Endereco']; ?></h2>
 
 								</div>
 
@@ -191,7 +191,7 @@
 								<div class = "btnContent">
 
 									<button>
-										<a href = "Feed.php/?id=ID_DA_EMPRESA"> Acessar Feed </a>
+										<a href = "Feed.php/?q="> Acessar Feed </a>
 									</button>
 
 								</div>
@@ -243,7 +243,7 @@
 								<div class = "btnContent">
 
 									<button>
-										<a href = "EditCompany.php"> Editar Empresa </a>
+										<a href = "EditCompany.php?q=<?php echo $id_empresa;?>"> Editar Empresa </a>
 									</button>
 
 								</div>

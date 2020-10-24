@@ -3,7 +3,13 @@
 	session_start();
 	date_default_timezone_set('America/Sao_Paulo');
 
-    $_SESSION['TipoVerificação'] = "Empresa";
+	include_once "sql/ConexaoBD.php";
+	include_once "sql/Funcoes.php";
+
+	$_SESSION['TipoVerificação'] = "EditarEmpresa";
+	$id_empresa = $_GET['q'];
+
+	$DadosEmpresa = PegarDadosEmpresaPeloIdEmpresa($base, $id_empresa);
 
 ?>
 
@@ -26,27 +32,11 @@
 
             StopUserAccess();
 
-            if(!isset($_SESSION["CompanyRegisterError_G"])){
+            if(isset($_SESSION["ErrosEditarEmpresa"])){
 
-				$_SESSION["CompanyRegisterError_G"] = 0;
-				$_SESSION["CompanyRegisterError_1"] = 0;
-				$_SESSION["CompanyRegisterError_2"] = 0;
-				$_SESSION["CompanyRegisterError_3"] = 0;
-				$_SESSION["CompanyRegisterError_4"] = 0;
-				$_SESSION["CompanyRegisterError_5"] = 0;
+				$erros = $_SESSION["ErrosEditarEmpresa"];
 
-			} else {
-
-				$CompanyRegisterError_G = $_SESSION["CompanyRegisterError_G"];
-				$CompanyRegisterError_1 = $_SESSION["CompanyRegisterError_1"];
-				$CompanyRegisterError_2 = $_SESSION["CompanyRegisterError_2"];
-				$CompanyRegisterError_3 = $_SESSION["CompanyRegisterError_3"];
-				$CompanyRegisterError_4 = $_SESSION["CompanyRegisterError_4"];
-                $CompanyRegisterError_5 = $_SESSION["CompanyRegisterError_5"];
-
-                if ($CompanyRegisterError_G == "1"){
-
-					if ($CompanyRegisterError_1 == "1"){
+					if (isset($erros["Nome"])){
 
 						echo '
 							
@@ -64,7 +54,7 @@
 
 					}
 
-					if ($CompanyRegisterError_2 == "1"){
+					if (isset($erros["Email"])){
 
 						echo '
 							
@@ -82,7 +72,7 @@
 
 					}
 
-					if($CompanyRegisterError_3 == "1"){
+					if(isset($erros["CNPJ"])){
 
 						echo '
 							
@@ -100,7 +90,7 @@
 
 					}
 
-					if($CompanyRegisterError_4 == "1"){
+					if(isset($erros["Telefone"])){
 
 						echo '
 							
@@ -118,7 +108,7 @@
 						
 					}
 
-					if($CompanyRegisterError_5 == "1"){
+					if(isset($erros["Endereco"])){
 
 						echo '
 							
@@ -138,7 +128,6 @@
 
 				}
 				
-            }
 
 		?>
 
@@ -146,7 +135,7 @@
 
             <div class = "FormPlatform BS">
 
-                <form method = "POST" action = "sql/.php">
+                <form method = "POST" action = "sql/VerificaCadastro.php?q=<?php echo $id_empresa;?>" >
 
                     <ul class = "FormPlatformContent">
 
@@ -156,45 +145,45 @@
                         <li class = "ContentInput">
 							<label for = "E_CompanyNome"> Nome </label>
 							<span id = "ErrorNome" class = "txtError"> Nome inválido </span>
-							<input id = "E_CompanyNome" class = "UserInputData" type = "text" name = "nome" required />
+							<input id = "E_CompanyNome" class = "UserInputData" type = "text" name = "nome" value = "<?php echo $DadosEmpresa["Nome"]; ?> " required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "E_CompanyEmail"> Email </label>
 							<span id = "ErrorEmail" class = "txtError"> Email inválido </span>
-							<input id = "E_CompanyEmail" class = "UserInputData" type = "email" name = "email" required />
+							<input id = "E_CompanyEmail" class = "UserInputData" type = "email" name = "email" value = "<?php echo $DadosEmpresa["Email"]; ?> " required />
                         </li>
                         <li class = "ContentInput">
 							<label for = "E_CompanyCNPJ"> CNPJ </label>
 							<span id = "ErrorCNPJ" class = "txtError"> CNPJ inválido </span>
-							<input id = "E_CompanyCNPJ" class = "UserInputData" type = "text" name = "cnpj" required />
+							<input id = "E_CompanyCNPJ" class = "UserInputData" type = "text" name = "cnpj" value = "<?php echo $DadosEmpresa["CNPJ"]; ?> " required />
 						</li>
                         <li class = "ContentInput">
 							<label for = "E_CompanyEndereco"> Endereço </label>
 							<span id = "ErrorEndereco" class = "txtError"> Endereço inválido </span>
-							<input id = "E_CompanyEndereco" class = "UserInputData" type = "text" name = "endereco" required />
+							<input id = "E_CompanyEndereco" class = "UserInputData" type = "text" name = "endereco" value = "<?php echo $DadosEmpresa["Endereco"]; ?> " required />
                         </li>
                         <li class = "ContentInput">
 							<label for = "E_CompanyTelefone"> Telefone Fixo </label>
 							<span id = "ErrorTelefone" class = "txtError"> Telefone inválido </span>
-							<input id = "E_CompanyTelefone" class = "UserInputData" type = "text" name = "telefone" required />
+							<input id = "E_CompanyTelefone" class = "UserInputData" type = "text" name = "telefone" value = "<?php echo $DadosEmpresa["Telefone"]; ?> " required />
                         </li>
                         <li class = "ContentInput">
 							<label for = "E_CompanyCor"> Cor </label>
 							<select name = "CorLayout" id = "E_CompanyCor" class = "UserSelectData">
-                                <option value = "ThemeDefault"> Padrão </option>
-                                <option value = "ThemeBlue"> Azul </option>
-                                <option value = "ThemeRed"> Vermelho </option>
-                                <option value = "ThemeYellow"> Amarelo </option>
-                                <option value = "ThemeGreen"> Verde </option>
-                                <option value = "ThemePink"> Rosa </option>
-                                <option value = "ThemePurple"> Roxo </option>
-                                <option value = "ThemeOrange"> Laranja </option>
-                                <option value = "ThemeTeal"> Ciano </option>
-                                <option value = "ThemeBrown"> Marrom </option>
+                                <option value = "ThemeDefault" <?php if ($DadosEmpresa["Cor_layout"] == "ThemeDefault"){ echo "selected" ;} ?> > Padrão </option>
+                                <option value = "ThemeBlue" <?php if ($DadosEmpresa["Cor_layout"] == "ThemeBlue"){ echo "selected" ;} ?> > Azul </option>
+                                <option value = "ThemeRed" <?php if ($DadosEmpresa["Cor_layout"] == "ThemeRed"){ echo "selected" ;} ?> > Vermelho </option>
+                                <option value = "ThemeYellow" <?php if ($DadosEmpresa["Cor_layout"] == "ThemeYellow"){ echo "selected" ;} ?>> Amarelo </option>
+                                <option value = "ThemeGreen" <?php if ($DadosEmpresa["Cor_layout"] == "ThemeGreen"){ echo "selected" ;} ?>> Verde </option>
+                                <option value = "ThemePink" <?php if ($DadosEmpresa["Cor_layout"] == "ThemePink"){ echo "selected" ;} ?>> Rosa </option>
+                                <option value = "ThemePurple" <?php if ($DadosEmpresa["Cor_layout"] == "ThemePurple"){ echo "selected" ;} ?>> Roxo </option>
+                                <option value = "ThemeOrange" <?php if ($DadosEmpresa["Cor_layout"] == "ThemeOrange "){ echo "selected" ;} ?>> Laranja </option>
+                                <option value = "ThemeTeal" <?php if ($DadosEmpresa["Cor_layout"] == "ThemeTeal"){ echo "selected" ;} ?>> Ciano </option>
+                                <option value = "ThemeBrown" <?php if ($DadosEmpresa["Cor_layout"] == "ThemeBrown"){ echo "selected" ;} ?>> Marrom </option>
                             </select>
                         </li>
                         <li class = "ContentBottom">
-							<a href = "Company.php/?company="> Voltar </a>
+							<a href = "Company.php/?q=<?php echo $id_empresa;?>"> Voltar </a>
 							<input class = "UserInputSubmit btn" type = "submit" value = "Editar">
 						</li>
                         

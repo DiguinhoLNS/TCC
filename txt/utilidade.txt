@@ -85,3 +85,5 @@ array(2) { [0]=> array(18) {
 
     SELECT * FROM empresas inner join user_empresa on 'id_empresa' = 'id_empresa' where user_empresa.id_user = 18 and empresas.codigo_acesso = 'EAC621'
     SELECT * FROM empresas inner join user_empresa on 'id_empresa' = 'id_empresa' where user_empresa.id_user = 18 and empresas.codigo_acesso = EAC621 and empresas.id_empresa = 12
+
+    UPDATE usuarios SET Nome_user='Luís Gustavo', Genero_user='Masculino', Data_nasc_user = '2003-02-08', CPF_user = '50576013854', Email_user = 'Luisgustavofeitoza@gmail.com', Telefone_user = '(11) 94562-0298', Senha_user 'Lg123' WHERE id_user='15'
