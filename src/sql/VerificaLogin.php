@@ -23,13 +23,14 @@
 
 				setcookie("ULogged", "1", time() + (86400 * 30), "/");
 				setcookie("ID", $Dados['id_user'], time() + (86400 * 30), "/");
+				setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 
 				header("Location: ../Dashboard.php");
 
 			} else {
 
 				$_SESSION["ErroLoginUsuario"] = true;
-
+				setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
 				header("Location: ../LoginUser.php");
 				
 			}
@@ -50,15 +51,18 @@
 			if ($Dados["CodigoExiste"] && empty($QuantidadeDeLoginsJaFeitos)) {
 
 				$_SESSION['TipoVerificação'] = "Usuario";
+				setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 				header("Location: InsereUser_Empresa.php?q=".$codigo_acesso);
 
 			} else if(!empty($QuantidadeDeLoginsJaFeitos)){
 
 				header("Location: ../Company.php?q=".$Dados['id_empresa']);
+				setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 				
 			}else if(!$Dados["CodigoExiste"]) {
 
 				$_SESSION["ErroLoginEmpresa"] = true;
+				setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
 				header("Location: ../LoginCompany.php");
 			}
 

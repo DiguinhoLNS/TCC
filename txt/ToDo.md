@@ -10,8 +10,8 @@
 - cadastro de objetos.
 
 ### Editar Dados
-- editar dados de usuario.
-- editar dados de empresa.
+- >editar dados de usuario.
+- >editar dados de empresa.
 - editar dados de objetos.
 
 ### Apagar Dados
@@ -22,8 +22,8 @@
 ### Outras funcionalidades e documentos (NECESSÁRIOS)
 
 1. >Licença de uso
-2. Politica de privacidade
-3. Politica de cookies
+2. >Politica de privacidade
+3. >Politica de cookies
 4. Usuario Sair da empresa
 
 #### Mostrar Dados em:

@@ -30,7 +30,8 @@
         
             include "php/Pag.php";
 
-            StopUserAccess();
+			StopUserAccess();
+		if($_COOKIE["VerificaErro"]){
 
             if(isset($_SESSION["ErrosEditarEmpresa"])){
 
@@ -126,9 +127,9 @@
 						
 					}
 
-				}
+			}
 				
-
+		}
 		?>
 
         <main id = "MainEditCompany">

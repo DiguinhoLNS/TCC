@@ -26,6 +26,8 @@
 
             StopUserAccess();
 
+        if($_COOKIE["VerificaErro"]){
+
             if (isset($_SESSION["ErroLoginEmpresa"])) {
 
                 //Zerar erros no cadastro de empresa
@@ -53,6 +55,7 @@
 
 
             }
+        }
         
         ?>
 

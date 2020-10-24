@@ -24,103 +24,105 @@
         
             include "php/Pag.php";
 
-            StopUserAccess();
+			StopUserAccess();
+			if($_COOKIE["VerificaErro"]){
 
-            if(isset($_SESSION["ErrosCadastrosEmpresa"])){
+				if(isset($_SESSION["ErrosCadastrosEmpresa"])){
 
-				$erros = $_SESSION["ErrosCadastrosEmpresa"];
+					$erros = $_SESSION["ErrosCadastrosEmpresa"];
 
-					if (isset($erros["Nome"])){
+						if (isset($erros["Nome"])){
 
-						echo '
+							echo '
+								
+								<script language = "javascript" type = "text/javascript">
+								
+									$(document).ready(function(){
+
+										$("#ErrorNome").css("display", "block");
+
+									});
+								
+								</script>
 							
-							<script language = "javascript" type = "text/javascript">
-							
-								$(document).ready(function(){
+							';
 
-									$("#ErrorNome").css("display", "block");
+						}
 
-								});
+						if (isset($erros["Email"])){
+
+							echo '
+								
+								<script language = "javascript" type = "text/javascript">
+								
+									$(document).ready(function(){
+
+										$("#ErrorEmail").css("display", "block");
+
+									});
+								
+								</script>
 							
-							</script>
-						
-						';
+							';
+
+						}
+
+						if(isset($erros["CNPJ"])){
+
+							echo '
+								
+								<script language = "javascript" type = "text/javascript">
+								
+									$(document).ready(function(){
+
+										$("#ErrorCNPJ").css("display", "block");
+
+									});
+								
+								</script>
+							
+							';
+
+						}
+
+						if(isset($erros["Telefone"])){
+
+							echo '
+								
+								<script language = "javascript" type = "text/javascript">
+								
+									$(document).ready(function(){
+
+										$("#ErrorTelefone").css("display", "block");
+
+									});
+								
+								</script>
+							
+							';
+							
+						}
+
+						if(isset($erros["Endereco"])){
+
+							echo '
+								
+								<script language = "javascript" type = "text/javascript">
+								
+									$(document).ready(function(){
+
+										$("#ErrorEndereco").css("display", "block");
+
+									});
+								
+								</script>
+							
+							';
+							
+						}
 
 					}
-
-					if (isset($erros["Email"])){
-
-						echo '
-							
-							<script language = "javascript" type = "text/javascript">
-							
-								$(document).ready(function(){
-
-									$("#ErrorEmail").css("display", "block");
-
-								});
-							
-							</script>
-						
-						';
-
-					}
-
-					if(isset($erros["CNPJ"])){
-
-						echo '
-							
-							<script language = "javascript" type = "text/javascript">
-							
-								$(document).ready(function(){
-
-									$("#ErrorCNPJ").css("display", "block");
-
-								});
-							
-							</script>
-						
-						';
-
-					}
-
-					if(isset($erros["Telefone"])){
-
-						echo '
-							
-							<script language = "javascript" type = "text/javascript">
-							
-								$(document).ready(function(){
-
-									$("#ErrorTelefone").css("display", "block");
-
-								});
-							
-							</script>
-						
-						';
-						
-					}
-
-					if(isset($erros["Endereco"])){
-
-						echo '
-							
-							<script language = "javascript" type = "text/javascript">
-							
-								$(document).ready(function(){
-
-									$("#ErrorEndereco").css("display", "block");
-
-								});
-							
-							</script>
-						
-						';
-						
-					}
-
-				}
+			}
 
 		?>
 

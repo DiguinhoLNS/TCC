@@ -26,31 +26,34 @@
 
 			StopUserAccess();
 
-			if (isset($_SESSION["ErroLoginUsuario"])) {
+			if($_COOKIE["VerificaErro"]){
 
-				//Zerar erros de cadastro
-				$_SESSION["ErrosCadastroUsuario"] = null;
+				if (isset($_SESSION["ErroLoginUsuario"])) {
 
-				$erro = $_SESSION["ErroLoginUsuario"];
+					//Zerar erros de cadastro
+					$_SESSION["ErrosCadastroUsuario"] = null;
 
-				if ($erro) {
+					$erro = $_SESSION["ErroLoginUsuario"];
 
-					echo '
+					if ($erro) {
+
+						echo '
+								
+							<script language = "javascript" type = "text/javascript">
 							
-						<script language = "javascript" type = "text/javascript">
-						
-							$(document).ready(function(){
+								$(document).ready(function(){
 
-								$("#ErrorLogin").css("display", "block");
+									$("#ErrorLogin").css("display", "block");
 
-							});
+								});
+							
+							</script>
 						
-						</script>
-					
-					';
+						';
+
+					}
 
 				}
-
 			}
 
 		?>

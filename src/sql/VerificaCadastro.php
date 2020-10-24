@@ -53,12 +53,13 @@
 
             if (!isset($erros)) {
 
-                $_SESSION["ErrosCadastroUsuario"] = null;
+                setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
                 include 'InsereCadastro.php';
 
             } else {
 
                 $_SESSION["ErrosCadastroUsuario"] = $erros;
+                setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
                 header("Location: ../RegisterUser.php");          
 
             }
@@ -105,12 +106,13 @@
             if (!isset($erros)) {
 
                 $_SESSION['TipoVerificação'] = "Empresa";
-                $_SESSION["ErrosCadastrosEmpresa"] = null;
+                setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
                 include 'InsereCadastro.php';
 
             } else {
 
                 $_SESSION["ErrosCadastrosEmpresa"] = $erros;
+                setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
                 header("Location: ../RegisterCompany.php");
 
             }
@@ -158,11 +160,13 @@
             if (!isset($erros)) {
 
                 $_SESSION['TipoVerificação'] = "Usuario";
+                setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
                 include 'EditarDados.php';
 
             } else {
 
                 $_SESSION["ErrosEditarUsuario"] = $erros;
+                setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
                 header("Location: ../EditUser.php");          
 
             }
@@ -204,11 +208,13 @@
 
             if (!isset($erros)) {
 
+                setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
                 $_SESSION['TipoVerificação'] = "Empresa";
                 include "EditarDados.php";
 
             } else {
 
+                setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
                 $_SESSION["ErrosEditarEmpresa"] = $erros;
                 header("Location: ../EditCompany.php?q=".$id_empresa);
 

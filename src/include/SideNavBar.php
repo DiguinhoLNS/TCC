@@ -1,6 +1,7 @@
 <?php 
 
     include 'sql/ConexaoBD.php';
+    include_once 'sql/Funcoes.php';
 
     if(isset ($_COOKIE["ID"])){
 

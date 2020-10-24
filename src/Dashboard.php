@@ -37,6 +37,7 @@
             StopUserAccess();
             V_User();
             C_Login();
+            setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
             
             include "include/Load.php";
 

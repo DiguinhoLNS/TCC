@@ -26,7 +26,10 @@
 
 			StopUserAccess();
 
+			if($_COOKIE["VerificaErro"]){
+
 				if (isset($_SESSION["ErrosCadastroUsuario"])) {
+					
 
 					$erros = $_SESSION["ErrosCadastroUsuario"];
 
@@ -157,6 +160,7 @@
 					}
 
 				}
+			}
 				
 
 		?>
