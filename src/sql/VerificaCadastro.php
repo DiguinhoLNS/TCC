@@ -12,13 +12,13 @@
 
         case "Usuario":
 
-            $nome = $_POST["nome"];
-            $email = $_POST["email"];
-            $CpfComPonto = $_POST["CPF"];
-            $data = $_POST["data"];
-            $telefone = $_POST["telefone"];
-            $genero = $_POST["Genero"];
-            $senha = $_POST["senha"];
+            $nome = mysqli_real_escape_string($base, $_POST["nome"]);
+            $email = mysqli_real_escape_string($base, $_POST["email"]);
+            $CpfComPonto = mysqli_real_escape_string($base, $_POST["CPF"]);
+            $data = mysqli_real_escape_string($base, $_POST["data"]);
+            $telefone = mysqli_real_escape_string($base, $_POST["telefone"]);
+            $genero = mysqli_real_escape_string($base, $_POST["Genero"]);
+            $senha = mysqli_real_escape_string($base, $_POST["senha"]);
 
             $cpf = TirarPontoCPF($CpfComPonto);
 
@@ -68,12 +68,12 @@
 
         case "Empresa":
 
-            $nome = $_POST["nome"];
-            $email = $_POST["email"];
-            $CnpjComPonto = $_POST["cnpj"];
-            $telefone = $_POST["telefone"];
-            $endereco = $_POST["endereco"];
-            $cor = $_POST["CorLayout"];
+            $nome = mysqli_real_escape_string($base, $_POST["nome"]);
+            $email = mysqli_real_escape_string($base, $_POST["email"]);
+            $CnpjComPonto = mysqli_real_escape_string($base, $_POST["cnpj"]);
+            $telefone = mysqli_real_escape_string($base, $_POST["telefone"]);
+            $endereco = mysqli_real_escape_string($base, $_POST["endereco"]);
+            $cor = mysqli_real_escape_string($base, $_POST["CorLayout"]);
 
             $cnpj = TirarPontoCNPJ($CnpjComPonto);
 
@@ -121,13 +121,13 @@
         break;
 
         case "EditarUsuario":
-            $nome = $_POST["nome"];
-            $email = $_POST["email"];
-            $CpfComPonto = $_POST["CPF"];
-            $data = $_POST["data"];
-            $telefone = $_POST["telefone"];
-            $genero = $_POST["Genero"];
-            $senha = $_POST["senha"];
+            $nome = mysqli_real_escape_string($base, $_POST["nome"]);
+            $email = mysqli_real_escape_string($base, $_POST["email"]);
+            $CpfComPonto = mysqli_real_escape_string($base, $_POST["CPF"]);
+            $data = mysqli_real_escape_string($base, $_POST["data"]);
+            $telefone = mysqli_real_escape_string($base, $_POST["telefone"]);
+            $genero = mysqli_real_escape_string($base, $_POST["Genero"]);
+            $senha = mysqli_real_escape_string($base, $_POST["senha"]);
 
             $cpf = TirarPontoCPF($CpfComPonto);
 
@@ -173,13 +173,13 @@
         break;
 
         case "EditarEmpresa":
-            $id_empresa = $_GET['q'];
-            $nome = $_POST["nome"];
-            $email = $_POST["email"];
-            $CnpjComPonto = $_POST["cnpj"];
-            $telefone = $_POST["telefone"];
-            $endereco = $_POST["endereco"];
-            $cor = $_POST["CorLayout"];
+            $id_empresa = mysqli_real_escape_string($base, $_GET['q']);
+            $nome = mysqli_real_escape_string($base, $_POST["nome"]);
+            $email = mysqli_real_escape_string($base, $_POST["email"]);
+            $CnpjComPonto = mysqli_real_escape_string($base, $_POST["cnpj"]);
+            $telefone = mysqli_real_escape_string($base, $_POST["telefone"]);
+            $endereco = mysqli_real_escape_string($base, $_POST["endereco"]);
+            $cor = mysqli_real_escape_string($base, $_POST["CorLayout"]);
 
             $cnpj = TirarPontoCNPJ($CnpjComPonto);
 

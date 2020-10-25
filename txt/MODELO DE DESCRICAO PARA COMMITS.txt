@@ -2,15 +2,15 @@ MODELO DE DESCRIÇÃO PARA COMMITS
 
 // NOVOS RECURSOS
 
-# Editar dados de usuario e empresa
+# 
 
 // ATUALIZAÇÕES
 
-# 
+# Atualização de segurança contra SQL INJECTION
 
 // ERROS CORRIGIDOS
 
-#
+# 
 
 // FALHAS ENCONTRADAS
 

@@ -11,13 +11,13 @@
 
 		case "Usuario":
 
-			$nome = $_POST["nome"];
-			$cpf = $_SESSION['cpfsemponto'];
-			$data = $_POST["data"];
-			$telefone = $_POST["telefone"];
-			$genero = $_POST["Genero"];
-			$email = $_POST["email"];
-			$senha = $_POST["senha"];
+			$nome = mysqli_real_escape_string($base, $_POST["nome"]);
+			$cpf = mysqli_real_escape_string($base, $_SESSION['cpfsemponto']);
+			$data = mysqli_real_escape_string($base, $_POST["data"]);
+			$telefone = mysqli_real_escape_string($base, $_POST["telefone"]);
+			$genero = mysqli_real_escape_string($base, $_POST["Genero"]);
+			$email = mysqli_real_escape_string($base, $_POST["email"]);
+			$senha = mysqli_real_escape_string($base, $_POST["senha"]);
 
 			$sql = "INSERT INTO usuarios (Nome_user, Genero_user, Data_nasc_user, CPF_user, Email_user, Telefone_user, Senha_user) VALUES";
 			$sql .= " ('$nome', '$genero', '$data', '$cpf', '$email', '$telefone', '$senha') ";
@@ -38,13 +38,13 @@
 
 			} while ($CodigoJaExiste);
 
-			$id_adm = $_COOKIE["ID"];
-			$nome = $_POST["nome"];
-			$email = $_POST["email"];
-			$cnpj = $_SESSION['cnpjsemponto'];
-			$telefone = $_POST["telefone"];
-			$cor = $_POST["CorLayout"];
-			$endereco = $_POST["endereco"];
+			$id_adm = mysqli_real_escape_string($base, $_COOKIE["ID"]);
+			$nome = mysqli_real_escape_string($base, $_POST["nome"]);
+			$email = mysqli_real_escape_string($base, $_POST["email"]);
+			$cnpj = mysqli_real_escape_string($base, $_SESSION['cnpjsemponto']);
+			$telefone = mysqli_real_escape_string($base, $_POST["telefone"]);
+			$cor = mysqli_real_escape_string($base, $_POST["CorLayout"]);
+			$endereco = mysqli_real_escape_string($base, $_POST["endereco"]);
 
 			$sql = "INSERT INTO empresas (id_adm, codigo_acesso, Nome, CNPJ, Endereco, Email, Telefone, Cor_layout) VALUES";
 			$sql .= " ('$id_adm', '$codigo_acesso', '$nome', '$cnpj', '$endereco', '$email', '$telefone', '$cor') ";

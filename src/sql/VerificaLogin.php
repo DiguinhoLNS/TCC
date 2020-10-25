@@ -14,8 +14,8 @@
 			
 			$_SESSION["UserLoginError_1"] = 0;
 
-			$email = $_POST['L_Email'];
-			$senha = $_POST['L_PWD'];
+			$email = mysqli_real_escape_string($base, $_POST['L_Email']);
+			$senha = mysqli_real_escape_string($base, $_POST['L_PWD']);
 
 			$Dados = PegarDadosUsuarioPeloEmailSenha($base, $email, $senha);
 
@@ -41,8 +41,8 @@
 
 			$_SESSION["CompanyLoginError_1"] = 0;
 
-			$codigo_acesso = $_POST['cod'];
-			$id_user = $_COOKIE['ID'];
+			$codigo_acesso = mysqli_real_escape_string($base, $_POST['cod']);
+			$id_user = mysqli_real_escape_string($base, $_COOKIE['ID']);
 
 			$Dados = PegarDadosEmpresaPeloCodigo($base, $codigo_acesso);
 
