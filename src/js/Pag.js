@@ -569,7 +569,7 @@ $(document).ready(function(){
 
 });
 
-/* Fedd */
+/* Feed */
 
 $(document).ready(function(){
 

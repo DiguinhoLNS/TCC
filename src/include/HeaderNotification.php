@@ -3,11 +3,26 @@
     <nav>
 
         <ul id = "NotificationsGroup">
+        <?php 
+        
+            if(isset($_COOKIE["MessageNotification"])){
 
-            <li id = "NoneNotifications"> Sem Notificações </li>
+                echo '
 
-            <?php // addNotification(); ?>
+                    <li class = "NotificationBox">
+                        <i class = "material-icons"> &#xe645; </i>
+                        <span> '.$_COOKIE["MessageNotification"].' </span>
+                    </li>
+                
+                ';
 
+            }else{
+
+                echo '<li id = "NoneNotifications"> Sem Notificações </li>';
+
+            }
+        
+        ?>
         </ul>
 
         <ul id = "NotificationsConfig">

@@ -81,4 +81,21 @@ $(document).ready(function(){
 
     });
 
+    // Notification
+    $("#ClearNotifications").click(function(){
+
+        $.ajax("php/cookies/Notification.php",{
+
+        }).done(function(){
+
+            AJAXRequestStatus(1);
+
+        }).fail(function(){
+
+            AJAXRequestStatus(0);
+
+        });
+
+    });
+
 });

@@ -1811,10 +1811,12 @@ h1, h2, h3, h4, h5, h6 {
 		/*******************************************************
 			LoginUser.php / RegisterUser.php / EditUser.php
 			LoginCompany.php / RegisterCompany.php / EditCompany.php
+			RegisterItem.php
 		*******************************************************/
 
 		#MainLoginUser, #MainRegisterUser, #MainEditUser, 
-		#MainLoginCompany, #MainRegisterCompany, #MainEditCompany {
+		#MainLoginCompany, #MainRegisterCompany, #MainEditCompany,
+		#MainRegisterItem {
 			display: grid;
 			justify-content: center;
 			align-items: center;
@@ -1931,6 +1933,35 @@ h1, h2, h3, h4, h5, h6 {
 
 		.FormPlatform form .FormPlatformContent .ContentInput select option {
 			padding: 4px 0;
+		}
+
+		.FormPlatform form .FormPlatformContent .ContentInput textarea {
+			width: 100%;
+			padding: 8px 16px;
+			border: 2px solid var(--color-border);
+			border-radius: 19px;
+
+			color: var(--color-txt-t);
+			font-size: 16px;
+
+			resize: none;
+		}
+
+			.FormPlatform form .FormPlatformContent .ContentInput textarea:focus {
+				outline: none;
+			}
+
+		.FormPlatform form .FormPlatformContent .ContentInput input[type = file]{
+			z-index: -1;
+			position: absolute;
+			
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		.FormPlatform form .FormPlatformContent .ContentInput img {
+			width: 100%;
+			border-radius: 19px;
 		}
 			
 		/* Content Error */
@@ -2886,14 +2917,16 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 		}
 
 	.LightMode .FormPlatform form .FormPlatformContent .ContentInput .UserInputData,
-	.LightMode .FormPlatform form .FormPlatformContent .ContentInput select {
+	.LightMode .FormPlatform form .FormPlatformContent .ContentInput select,
+	.LightMode  .FormPlatform form .FormPlatformContent .ContentInput textarea {
 		border-bottom: 2px solid var(--color-border);
 		
 		transition: border-color 0.2s ease;
 	}
 
 		.LightMode .FormPlatform form .FormPlatformContent .ContentInput .UserInputData:focus,
-		.LightMode .FormPlatform form .FormPlatformContent .ContentInput select:focus {
+		.LightMode .FormPlatform form .FormPlatformContent .ContentInput select:focus ,
+		.LightMode .FormPlatform form .FormPlatformContent .ContentInput textarea:focus {
 			border-color: var(--color-theme-p);
 		}
 
@@ -2908,7 +2941,8 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 	}
 
 	.DarkMode .FormPlatform form .FormPlatformContent .ContentInput .UserInputData,
-	.DarkMode .FormPlatform form .FormPlatformContent .ContentInput select {
+	.DarkMode .FormPlatform form .FormPlatformContent .ContentInput select,
+	.DarkMode .FormPlatform form .FormPlatformContent .ContentInput textarea {
 		padding: 8px 16px;
 		border-radius: 19px;
 		
