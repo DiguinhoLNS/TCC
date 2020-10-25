@@ -150,7 +150,7 @@
                         <li class = "ContentInput">
 							<label for = "R_CompanyCNPJ"> CNPJ </label>
 							<span id = "ErrorCNPJ" class = "txtError"> CNPJ inválido </span>
-							<input id = "R_CompanyCNPJ" class = "UserInputData" type = "text" name = "cnpj" required />
+							<input id = "R_CompanyCNPJ" class = "UserInputData InputCNPJ" type = "text" name = "cnpj" required />
 						</li>
                         <li class = "ContentInput">
 							<label for = "R_CompanyEndereco"> Endereço </label>
@@ -160,7 +160,7 @@
                         <li class = "ContentInput">
 							<label for = "R_CompanyTelefone"> Telefone Fixo </label>
 							<span id = "ErrorTelefone" class = "txtError"> Telefone inválido </span>
-							<input id = "R_CompanyTelefone" class = "UserInputData" type = "text" name = "telefone" required />
+							<input id = "R_CompanyTelefone" class = "UserInputData InputTelefone8" type = "text" name = "telefone" required />
                         </li>
                         <li class = "ContentInput">
 							<label for = "R_CompanyCor"> Cor </label>

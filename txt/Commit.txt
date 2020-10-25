@@ -1,5 +1,0 @@
-Arquivo pra explicar o que eu fiz no commit:
-
-include de funcoes trocado por include_once = CONSERTANDO FATAL ERROR
-
-ApagarCadastro mais clean 

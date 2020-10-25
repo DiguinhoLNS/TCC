@@ -108,6 +108,7 @@ $(document).ready(function(){
     const HC = $("#HeaderConfig");
     const SNB = $("#SideNavBar");
     const DBCP = $("#DashboardControlPane");
+    const FCP = $("#FeedControlPane");
     const DE = $("#DarkEffect");
 
     /* Hide element clicking outside element */  
@@ -134,6 +135,13 @@ $(document).ready(function(){
 
         }
 
+        // Feed Control Pane
+        if(!FCP.is(e.target) && FCP.has(e.target).length === 0){
+
+            FCP.css("display", "none");
+
+        }
+
     });
 
     /* Dark Effect */
@@ -144,6 +152,7 @@ $(document).ready(function(){
         HN.css("display", "none");
         HC.css("display", "none");
         DBCP.css("display", "none");
+        FCP.css("display", "none");
         DE.css({"opacity": "0", "visibility": "hidden"});
 
     });
@@ -230,7 +239,8 @@ $(document).ready(function(){
             // OFF
             HN.css("display", "none");
             HC.css("display", "none"); 
-            DBCP.css("display", "none");   
+            DBCP.css("display", "none");  
+            FCP.css("display", "none"); 
 
         }else{
             // OFF
@@ -239,6 +249,7 @@ $(document).ready(function(){
             HN.css("display", "none");      
             HC.css("display", "none");
             DBCP.css("display", "none");
+            FCP.css("display", "none");
 
         }   
 
@@ -257,12 +268,16 @@ $(document).ready(function(){
             HC.css("display", "none");
             SNB.css("left", "-300px");
             DE.css({"opacity": "0", "visibility": "hidden"});
+            BDCP.css("display", "none");
+            FCP.css("display", "none");
            
         }else{
             // OFF
             HC.css("display", "none");
             SNB.css("left", "-300px");        
             DE.css({"opacity": "0", "visibility": "hidden"});
+            DBCP.css("display", "none");
+            FCP.css("display", "none");
            
         }    
 
@@ -281,6 +296,8 @@ $(document).ready(function(){
             HN.css("display", "none");
             SNB.css("left", "-300px");
             DE.css({"opacity": "0", "visibility": "hidden"});
+            DBCP.css("display", "none");
+            FCP.css("display", "none");
            
         }else{
             // OFF
@@ -288,6 +305,8 @@ $(document).ready(function(){
             HC.css("display", "none");
             SNB.css("left", "-300px");        
             DE.css({"opacity": "0", "visibility": "hidden"});
+            DBCP.css("display", "none");
+            FCP.css("display", "none");
            
         }    
 
@@ -298,6 +317,18 @@ $(document).ready(function(){
     $("#btnDashboardControl").on("click", function(){
         // ON
         DBCP.css("display", "block");
+        // OFF
+        HN.css("display", "none");
+        HC.css("display", "none");
+        SNB.css("left", "-300px");        
+
+    });
+
+    /* Feed Control Pane */
+
+    $("#btnFeedControl").on("click", function(){
+        // ON
+        FCP.css("display", "block");
         // OFF
         HN.css("display", "none");
         HC.css("display", "none");
@@ -332,7 +363,7 @@ $(document).ready(function(){
             // OFF
             $("#HeaderNotification").css("display", "none");
             $("#HeaderConfig").css("display", "none");
-            $("#DashboardControlPane").css("display", "none");
+            $(".ControlPane").css("display", "none");
             $("#Clear").css({"opacity": "0", "visibility": "hidden"});
             $("#DiscoverOverlay").css({"opacity": "0", "visibility": "hidden"});
             $(".DiscoverOverlayUL").css("display", "none");
@@ -340,6 +371,7 @@ $(document).ready(function(){
         }else if(c > currentScrollTop ){
             // OFF
             navbar.removeClass("scrollUp");
+            $(".ControlPane").css("display", "none");
 
         }
 

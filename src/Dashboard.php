@@ -102,11 +102,11 @@
                 
                 </section>
 
-                <button id = "btnDashboardControl">
+                <button id = "btnDashboardControl" class = "btnControl">
                     <i class = "material-icons"> &#xe145; </i>
                 </button>
 
-                <div id = "DashboardControlPane" class = "BS">
+                <div id = "DashboardControlPane" class = "ControlPane BS">
 
                     <h1> Páginas </h1>
 

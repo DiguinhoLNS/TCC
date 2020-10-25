@@ -5,7 +5,16 @@
 
 	include 'sql/ConexaoBD.php';
 	include_once "sql/Funcoes.php";
+
 	$id_empresa = $_GET['q'];
+
+	if(isset($_COOKIE["ID"])){
+
+		$id_user = $_COOKIE["ID"]; 
+
+		$DadosEmpresa = PegarDadosEmpresaPeloIdEmpresa($base, $id_empresa);
+
+	}
 
 ?>
 
@@ -40,13 +49,13 @@
 
 		</header>
 
-		<main id = "MainFeed" class = "ThemeBlue">
+		<main id = "MainFeed" class = "<?php echo $DadosEmpresa['Cor_layout'];?>">
 
 			<div class = "MainContent">
 
 				<section id = "SectionCompanyHeader" class = "CompanyHeader">
 					
-					<h1> Feed </h1>
+					<h1> Feed <?php echo $DadosEmpresa['Nome'];?></h1>
 				
 				</section>
 
@@ -74,8 +83,8 @@
 
 							<ul class = "FeedFilters">
 
-								<li id = "btnAllFilter" class = "FilterItem FilterCategory active"> Todos </li>
-								<li id = "btnCategoryFilter" class = "FilterItem FilterCategory"> Categorias </li>	
+								<li id = "btnAllFilter" class = "FilterItem FilterCategory active" title = "Mostrar todos"> Todos </li>
+								<li id = "btnCategoryFilter" class = "FilterItem FilterCategory" title = "Mostrar categorias"> Categorias </li>	
 
 							</ul>
 
@@ -84,10 +93,10 @@
 
 							<ul class = "FeedFilters">
 
-								<li id = "P1" class = "FilterItem FilterParameter active"> A - Z </li>
-								<li id = "P2" class = "FilterItem FilterParameter"> Z - A </li>
-								<li id = "P3" class = "FilterItem FilterParameter"> Mais recentes </li>
-								<li id = "P4" class = "FilterItem FilterParameter"> Mais antigos  </li>
+								<li id = "P1" class = "FilterItem FilterParameter active" title = "Ordenar de A-Z"> A - Z </li>
+								<li id = "P2" class = "FilterItem FilterParameter" title = "Ordenar de Z-A"> Z - A </li>
+								<li id = "P3" class = "FilterItem FilterParameter" title = "Ordenar por mais recentes"> Mais recentes </li>
+								<li id = "P4" class = "FilterItem FilterParameter" title = "Ordernar por mais antigos"> Mais antigos  </li>
 
 							</ul>
 
@@ -105,7 +114,7 @@
 
 							<div class = "FeedFrameContent">
 
-								<h1 class = "TitleGroup"> Todos </h1>
+								<h1 class = "TitleHeader"> Todos </h1>
 
 								<div class = "FeedFrameCategory">
 
@@ -113,15 +122,19 @@
 
 										<li class = "ItemBox">
 
-											<div class = "ItemImg"></div>
+											<a href = "" title = "NOME DO ITEM">
 
-											<div class = "ItemInfo">
-												
-												<h1> Nome do item </h1>
-												<h2> 00/00/2020 </h2>
-												<h3> Categoria </h3>
+												<div class = "ItemImg"></div>
 
-											</div>
+												<div class = "ItemInfo">
+													
+													<h1 class = "ItemName"> Nome do item </h1>
+													<h2 class = "ItemData"> 00/00/2020 </h2>
+													<h3 class = "ItemCategory"> Categoria </h3>
+
+												</div>
+
+											</a>
 
 										</li>
 
@@ -136,25 +149,29 @@
 
 							<div class = "FeedFrameContent">
 
-								<h1 class = "TitleGroup"> Categorias </h1>
+								<h1 class = "TitleHeader"> Categorias </h1>
 
 								<div class = "FeedFrameCategory">
 
-									<h2> Eletrônicos </h2>
+									<h2 class = "HeaderCategory"> Eletrônicos </h2>
 
 									<ul class = "FeedBoxGroup">
 
 										<li class = "ItemBox">
 
-											<div class = "ItemImg"></div>
+											<a href = "" title = "NOME DO ITEM">
 
-											<div class = "ItemInfo">
-												
-												<h1> Nome do item </h1>
-												<h2> 00/00/2020 </h2>
-												<h3> Categoria </h3>
+												<div class = "ItemImg"></div>
 
-											</div>
+												<div class = "ItemInfo">
+													
+													<h1 class = "ItemName"> Nome do item </h1>
+													<h2 class = "ItemData"> 00/00/2020 </h2>
+													<h3 class = "ItemCategory"> Categoria </h3>
+
+												</div>
+
+											</a>
 
 										</li>
 
@@ -164,21 +181,25 @@
 
 								<div class = "FeedFrameCategory">
 
-									<h2> Roupas </h2>
+									<h2 class = "HeaderCategory"> Roupas </h2>
 
 									<ul class = "FeedBoxGroup">
 
 										<li class = "ItemBox">
 
-											<div class = "ItemImg"></div>
+											<a href = "" title = "NOME DO ITEM">
 
-											<div class = "ItemInfo">
-												
-												<h1> Nome do item </h1>
-												<h2> 00/00/2020 </h2>
-												<h3> Categoria </h3>
+												<div class = "ItemImg"></div>
 
-											</div>
+												<div class = "ItemInfo">
+													
+													<h1 class = "ItemName"> Nome do item </h1>
+													<h2 class = "ItemData"> 00/00/2020 </h2>
+													<h3 class = "ItemCategory"> Categoria </h3>
+
+												</div>
+
+											</a>
 
 										</li>
 
@@ -188,21 +209,25 @@
 
 								<div class = "FeedFrameCategory">
 
-									<h2> Acessórios </h2>
+									<h2 class = "HeaderCategory"> Acessórios </h2>
 
 									<ul class = "FeedBoxGroup">
 
 										<li class = "ItemBox">
 
-											<div class = "ItemImg"></div>
+											<a href = "" title = "NOME DO ITEM">
 
-											<div class = "ItemInfo">
-												
-												<h1> Nome do item </h1>
-												<h2> 00/00/2020 </h2>
-												<h3> Categoria </h3>
+												<div class = "ItemImg"></div>
 
-											</div>
+												<div class = "ItemInfo">
+													
+													<h1 class = "ItemName"> Nome do item </h1>
+													<h2 class = "ItemData"> 00/00/2020 </h2>
+													<h3 class = "ItemCategory"> Categoria </h3>
+
+												</div>
+
+											</a>
 
 										</li>
 
@@ -212,21 +237,25 @@
 
 								<div class = "FeedFrameCategory">
 
-									<h2> Documentos </h2>
+									<h2 class = "HeaderCategory"> Documentos </h2>
 
 									<ul class = "FeedBoxGroup">
 
 										<li class = "ItemBox">
 
-											<div class = "ItemImg"></div>
+											<a href = "" title = "NOME DO ITEM">
 
-											<div class = "ItemInfo">
-												
-												<h1> Nome do item </h1>
-												<h2> 00/00/2020 </h2>
-												<h3> Categoria </h3>
+												<div class = "ItemImg"></div>
 
-											</div>
+												<div class = "ItemInfo">
+													
+													<h1 class = "ItemName"> Nome do item </h1>
+													<h2 class = "ItemData"> 00/00/2020 </h2>
+													<h3 class = "ItemCategory"> Categoria </h3>
+
+												</div>
+
+											</a>
 
 										</li>
 
@@ -236,21 +265,25 @@
 
 								<div class = "FeedFrameCategory">
 
-									<h2> Outros </h2>
+									<h2 class = "HeaderCategory"> Outros </h2>
 
 									<ul class = "FeedBoxGroup">
 
 										<li class = "ItemBox">
 
-											<div class = "ItemImg"></div>
+											<a href = "" title = "NOME DO ITEM">
 
-											<div class = "ItemInfo">
-												
-												<h1> Nome do item </h1>
-												<h2> 00/00/2020 </h2>
-												<h3> Categoria </h3>
+												<div class = "ItemImg"></div>
 
-											</div>
+												<div class = "ItemInfo">
+													
+													<h1 class = "ItemName"> Nome do item </h1>
+													<h2 class = "ItemData"> 00/00/2020 </h2>
+													<h3 class = "ItemCategory"> Categoria </h3>
+
+												</div>
+
+											</a>
 
 										</li>
 
@@ -265,6 +298,31 @@
 					</nav>
 
 				</section>
+
+			</div>
+
+			<button id = "btnFeedControl" class = "btnControl FeedADM">
+				<i class = "material-icons"> &#xe145; </i>
+			</button>
+
+			<div id = "FeedControlPane" class = "ControlPane BS">
+
+				<h1> Feed </h1>
+
+				<ul>
+					<li>
+						<a href = "RegisterItem.php">
+							<i class = "material-icons"> &#xe145; </i>
+							<span> Criar Item </span>
+						</a>
+					</li>
+					<li>
+						<a href = "ConfigFeed.php">
+							<i class = "material-icons"> &#xe8b8; </i>
+							<span> Gerenciar </span>
+						</a>
+					</li>
+				</ul>
 
 			</div>
 

@@ -16,41 +16,36 @@
 
 $(document).ready(function(){ 
 
-    // Register
+    var $M_CPF = $(".InputCPF");
+    var $M_CNPJ = $(".InputCNPJ");
+    var $M_Telefone8 = $(".InputTelefone8");
+    var $M_Telefone9 = $(".InputTelefone9");
 
-        // User
+    $M_CPF.mask('000.000.000-00', {reverse: true});
 
-        var $RUserCPF = $("#R_UserCPF");
-        var $RUserPhone = $("#R_UserTelefone");
+    $M_CNPJ.mask('00.000.000/0000-00', {reverse: true});
 
-        $RUserCPF.mask('000.000.000-00', {reverse: true});
-        $RUserPhone.focusout(function(){
+    $M_Telefone8.mask('(00) 0000-0000');
 
-            var phone, element;
+    $M_Telefone9.focusout(function(){
 
-            element = $(this);
-            element.unmask();
-            
-            phone = element.val().replace(/\D/g, '');
+        var phone, element;
 
-            if (phone.length > 10) {
+        element = $(this);
+        element.unmask();
+        
+        phone = element.val().replace(/\D/g, '');
 
-                element.mask("(99) 99999-9999");
+        if (phone.length > 10) {
 
-            } else {
+            element.mask("(99) 99999-9999");
 
-                element.mask("(99) 9999-9999?9");
+        } else {
 
-            }
+            element.mask("(99) 9999-9999?9");
 
-        }).trigger('focusout');
+        }
 
-        // Company
-          
-        var $RCompanyCNPJ = $("#R_CompanyCNPJ");
-        var $RCompanyPhone = $("#R_CompanyTelefone");
-
-        $RCompanyCNPJ.mask('00.000.000/0000-00', {reverse: true});
-        $RCompanyPhone.mask('(00) 0000-0000');
+    }).trigger('focusout');
 
 });

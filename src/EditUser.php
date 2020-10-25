@@ -171,16 +171,14 @@
 						<li class = "ContentInput">
 							<label for = "E_UserCPF"> CPF </label>
 							<span id = "ErrorCPF" class = "txtError"> CPF inválido </span>
-							<input id = "E_UserCPF" class = "UserInputData" type = "text" name = "CPF" value = "<?php echo $DadosUsuario["CPF_user"] ?>" required />
+							<input id = "E_UserCPF" class = "UserInputData InputCPF" type = "text" name = "CPF" value = "<?php echo $DadosUsuario["CPF_user"] ?>" required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "E_UserGenero"> Gênero </label>
 							<select name = "Genero" id = "E_UserGenero" class = "UserSelectData" required>
-
                                 <option value = "Feminino" <?php if($DadosUsuario["Genero_user"] == "Feminino"){ echo "selected" ;}?>> Feminino </option>
 								<option value = "Masculino" <?php if($DadosUsuario["Genero_user"] == "Masculino"){ echo "selected" ;}?>> Masculino </option>
-                                <option value = "Outros" <?php if($DadosUsuario["Genero_user"] == "Outros"){ echo "selected" ;}?>> Prefiro não informar </option>';
-                                
+                                <option value = "Outros" <?php if($DadosUsuario["Genero_user"] == "Outros"){ echo "selected" ;}?>> Prefiro não informar </option>';       
                             </select>
 						</li>
 						<li class = "ContentInput">
@@ -196,7 +194,7 @@
 						<li class = "ContentInput">
 							<label for = "E_UserTelefone"> Telefone de contato </label>
 							<span id = "ErrorTelefone" class = "txtError"> Telefone inválido </span>
-							<input id = "E_UserTelefone" class = "UserInputData" type = "text" name = "telefone" value = "<?php echo $DadosUsuario["Telefone_user"] ?>" placeholder = "Fixo ou móvel" required />
+							<input id = "E_UserTelefone" class = "UserInputData InputTelefone9" type = "text" name = "telefone" value = "<?php echo $DadosUsuario["Telefone_user"] ?>" placeholder = "Fixo ou móvel" required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "E_UserSenha"> Senha </label>

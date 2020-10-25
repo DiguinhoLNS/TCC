@@ -156,7 +156,7 @@
                         <li class = "ContentInput">
 							<label for = "E_CompanyCNPJ"> CNPJ </label>
 							<span id = "ErrorCNPJ" class = "txtError"> CNPJ inválido </span>
-							<input id = "E_CompanyCNPJ" class = "UserInputData" type = "text" name = "cnpj" value = "<?php echo $DadosEmpresa["CNPJ"]; ?> " required />
+							<input id = "E_CompanyCNPJ" class = "UserInputData InputCNPJ" type = "text" name = "cnpj" value = "<?php echo $DadosEmpresa["CNPJ"]; ?> " required />
 						</li>
                         <li class = "ContentInput">
 							<label for = "E_CompanyEndereco"> Endereço </label>
@@ -166,7 +166,7 @@
                         <li class = "ContentInput">
 							<label for = "E_CompanyTelefone"> Telefone Fixo </label>
 							<span id = "ErrorTelefone" class = "txtError"> Telefone inválido </span>
-							<input id = "E_CompanyTelefone" class = "UserInputData" type = "text" name = "telefone" value = "<?php echo $DadosEmpresa["Telefone"]; ?> " required />
+							<input id = "E_CompanyTelefone" class = "UserInputData InputTelefone8" type = "text" name = "telefone" value = "<?php echo $DadosEmpresa["Telefone"]; ?> " required />
                         </li>
                         <li class = "ContentInput">
 							<label for = "E_CompanyCor"> Cor </label>

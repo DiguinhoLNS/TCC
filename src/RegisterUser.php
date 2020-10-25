@@ -184,7 +184,7 @@
 						<li class = "ContentInput">
 							<label for = "R_UserCPF"> CPF </label>
 							<span id = "ErrorCPF" class = "txtError"> CPF inválido </span>
-							<input id = "R_UserCPF" class = "UserInputData" type = "text" name = "CPF" required />
+							<input id = "R_UserCPF" class = "UserInputData InputCPF" type = "text" name = "CPF" required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "R_UserGenero"> Gênero </label>
@@ -207,7 +207,7 @@
 						<li class = "ContentInput">
 							<label for = "R_UserTelefone"> Telefone de contato </label>
 							<span id = "ErrorTelefone" class = "txtError"> Telefone inválido </span>
-							<input id = "R_UserTelefone" class = "UserInputData" type = "text" name = "telefone" placeholder = "Fixo ou móvel" required />
+							<input id = "R_UserTelefone" class = "UserInputData InputTelefone9" type = "text" name = "telefone" placeholder = "Fixo ou móvel" required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "R_UserSenha"> Senha </label>
