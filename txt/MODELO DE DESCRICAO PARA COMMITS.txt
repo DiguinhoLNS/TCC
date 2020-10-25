@@ -6,7 +6,7 @@ MODELO DE DESCRIÇÃO PARA COMMITS
 
 // ATUALIZAÇÕES
 
-# Atualização de segurança contra SQL INJECTION
+# Atualização de segurança: Senha Criptografada
 
 // ERROS CORRIGIDOS
 

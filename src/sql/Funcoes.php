@@ -261,14 +261,23 @@ function PegarDadosUserEmpresaPeloIdUserIdEmpresa($base, $id_user, $id_empresa)
 //Querys usadas no VerificaLogin
 function PegarDadosUsuarioPeloEmailSenha($base, $email, $senha)
 {
-    $query = "SELECT Email_user, Senha_user, id_user FROM usuarios where Email_user =  '$email' and Senha_user = '$senha'";
+
+    $query = "SELECT Email_user, Senha_user, id_user FROM usuarios where Email_user =  '$email'";
     $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 5");
     $DadosUsuario = mysqli_fetch_array($ResultadoQuery);
-    $QuantidadeDeCadastros = $ResultadoQuery->num_rows;
+    $EmailExiste = $ResultadoQuery->num_rows;
+
+    if ($EmailExiste == 1) {
+        if (password_verify($senha, $DadosUsuario["Senha_user"])) {
+            $UsuarioExiste = true;
+        }
+    } else if ($EmailExiste == 0) {
+        $UsuarioExiste = false;
+    }
 
     $Dados = array(
         "id_user" => $DadosUsuario['id_user'],
-        "QuantidadeDeCadastros" => $QuantidadeDeCadastros
+        "UsuarioExiste" => $UsuarioExiste
     );
 
     return $Dados;

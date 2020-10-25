@@ -18,9 +18,10 @@
 			$genero = mysqli_real_escape_string($base, $_POST["Genero"]);
 			$email = mysqli_real_escape_string($base, $_POST["email"]);
 			$senha = mysqli_real_escape_string($base, $_POST["senha"]);
+			$senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
 			$sql = "INSERT INTO usuarios (Nome_user, Genero_user, Data_nasc_user, CPF_user, Email_user, Telefone_user, Senha_user) VALUES";
-			$sql .= " ('$nome', '$genero', '$data', '$cpf', '$email', '$telefone', '$senha') ";
+			$sql .= " ('$nome', '$genero', '$data', '$cpf', '$email', '$telefone', '$senhaCriptografada') ";
 
 			$conexao->query($sql) === TRUE ? header("Location: ../LoginUser.php") : header("Location: ../RegisterUser.php");
 

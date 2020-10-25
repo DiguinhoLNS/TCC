@@ -19,8 +19,9 @@ switch ($tipo_verificacao) {
         $genero = mysqli_real_escape_string($base, $_POST["Genero"]);
         $email = mysqli_real_escape_string($base, $_POST["email"]);
         $senha = mysqli_real_escape_string($base, $_POST["senha"]);
+        $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
-        $query = "UPDATE usuarios SET Nome_user='$nome', Genero_user='$genero', Data_nasc_user = '$data', CPF_user = '$cpf', Email_user = '$email', Telefone_user = '$telefone', Senha_user = '$senha' WHERE id_user='$id'";
+        $query = "UPDATE usuarios SET Nome_user='$nome', Genero_user='$genero', Data_nasc_user = '$data', CPF_user = '$cpf', Email_user = '$email', Telefone_user = '$telefone', Senha_user = '$senhaCriptografada' WHERE id_user='$id'";
 
         $executandoQuery = mysqli_query($base, $query) or die("Deu errado");       
 

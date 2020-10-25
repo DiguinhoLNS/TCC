@@ -19,7 +19,7 @@
 
 			$Dados = PegarDadosUsuarioPeloEmailSenha($base, $email, $senha);
 
-			if (!empty($Dados['QuantidadeDeCadastros'])) {
+			if ($Dados['UsuarioExiste']) {
 
 				setcookie("ULogged", "1", time() + (86400 * 30), "/");
 				setcookie("ID", $Dados['id_user'], time() + (86400 * 30), "/");
