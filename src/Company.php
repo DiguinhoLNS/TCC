@@ -191,7 +191,7 @@
 								<div class = "btnContent">
 
 									<button>
-										<a href = "Feed.php/?q="> Acessar Feed </a>
+										<a href = "Feed.php?q=<?php echo $DadosEmpresa["id_empresa"];?>"> Acessar Feed </a>
 									</button>
 
 								</div>

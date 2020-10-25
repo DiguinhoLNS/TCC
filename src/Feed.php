@@ -5,6 +5,7 @@
 
 	include 'sql/ConexaoBD.php';
 	include_once "sql/Funcoes.php";
+	$id_empresa = $_GET['q'];
 
 ?>
 
