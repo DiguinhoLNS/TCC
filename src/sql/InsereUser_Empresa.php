@@ -13,8 +13,8 @@
         //(LOGANDO NA EMPRESA) Usuario nivel de acesso 2
         case "Usuario":
 
-            $codigo_acesso = mysqli_real_escape_string($base, $_GET['q']);
-            $id_user = mysqli_real_escape_string($base, $_COOKIE["ID"]);
+            $codigo_acesso = ClearInjectionXSS($base, $_GET['q']);
+            $id_user = ClearInjectionXSS($base, $_COOKIE["ID"]);
 
             $DadosEmpresa = PegarDadosEmpresaPeloCodigo($base, $codigo_acesso);
 
@@ -28,8 +28,8 @@
         //(CRIANDO A EMPRESA) Usuario nivel de acesso 4
         case "Empresa":
 
-            $codigo_acesso = mysqli_real_escape_string($base, $_GET['q']);
-            $id_adm = mysqli_real_escape_string($base, $_COOKIE["ID"]);
+            $codigo_acesso = ClearInjectionXSS($base, $_GET['q']);
+            $id_adm = ClearInjectionXSS($base, $_COOKIE["ID"]);
 
             $DadosEmpresa = PegarDadosEmpresaPeloId_Codigo($base, $id_adm, $codigo_acesso);
 

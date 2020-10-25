@@ -6,7 +6,7 @@ MODELO DE DESCRIÇÃO PARA COMMITS
 
 // ATUALIZAÇÕES
 
-# Atualização de segurança: Senha Criptografada
+# Atualização de segurança: Proteção contra ataque de XSS (Cross Site Scripting)
 
 // ERROS CORRIGIDOS
 

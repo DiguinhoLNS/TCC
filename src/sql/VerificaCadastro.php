@@ -12,13 +12,13 @@
 
         case "Usuario":
 
-            $nome = mysqli_real_escape_string($base, $_POST["nome"]);
-            $email = mysqli_real_escape_string($base, $_POST["email"]);
-            $CpfComPonto = mysqli_real_escape_string($base, $_POST["CPF"]);
-            $data = mysqli_real_escape_string($base, $_POST["data"]);
-            $telefone = mysqli_real_escape_string($base, $_POST["telefone"]);
-            $genero = mysqli_real_escape_string($base, $_POST["Genero"]);
-            $senha = mysqli_real_escape_string($base, $_POST["senha"]);
+            $nome = ClearInjectionXSS($base, $_POST["nome"]);
+            $email = ClearInjectionXSS($base, $_POST["email"]);
+            $CpfComPonto = ClearInjectionXSS($base, $_POST["CPF"]);
+            $data = ClearInjectionXSS($base, $_POST["data"]);
+            $telefone = ClearInjectionXSS($base, $_POST["telefone"]);
+            $genero = ClearInjectionXSS($base, $_POST["Genero"]);
+            $senha = ClearInjectionXSS($base, $_POST["senha"]);
 
             $cpf = TirarPontoCPF($CpfComPonto);
 
@@ -68,12 +68,12 @@
 
         case "Empresa":
 
-            $nome = mysqli_real_escape_string($base, $_POST["nome"]);
-            $email = mysqli_real_escape_string($base, $_POST["email"]);
-            $CnpjComPonto = mysqli_real_escape_string($base, $_POST["cnpj"]);
-            $telefone = mysqli_real_escape_string($base, $_POST["telefone"]);
-            $endereco = mysqli_real_escape_string($base, $_POST["endereco"]);
-            $cor = mysqli_real_escape_string($base, $_POST["CorLayout"]);
+            $nome = ClearInjectionXSS($base, $_POST["nome"]);
+            $email = ClearInjectionXSS($base, $_POST["email"]);
+            $CnpjComPonto = ClearInjectionXSS($base, $_POST["cnpj"]);
+            $telefone = ClearInjectionXSS($base, $_POST["telefone"]);
+            $endereco = ClearInjectionXSS($base, $_POST["endereco"]);
+            $cor = ClearInjectionXSS($base, $_POST["CorLayout"]);
 
             $cnpj = TirarPontoCNPJ($CnpjComPonto);
 
@@ -121,13 +121,13 @@
         break;
 
         case "EditarUsuario":
-            $nome = mysqli_real_escape_string($base, $_POST["nome"]);
-            $email = mysqli_real_escape_string($base, $_POST["email"]);
-            $CpfComPonto = mysqli_real_escape_string($base, $_POST["CPF"]);
-            $data = mysqli_real_escape_string($base, $_POST["data"]);
-            $telefone = mysqli_real_escape_string($base, $_POST["telefone"]);
-            $genero = mysqli_real_escape_string($base, $_POST["Genero"]);
-            $senha = mysqli_real_escape_string($base, $_POST["senha"]);
+            $nome = ClearInjectionXSS($base, $_POST["nome"]);
+            $email = ClearInjectionXSS($base, $_POST["email"]);
+            $CpfComPonto = ClearInjectionXSS($base, $_POST["CPF"]);
+            $data = ClearInjectionXSS($base, $_POST["data"]);
+            $telefone = ClearInjectionXSS($base, $_POST["telefone"]);
+            $genero = ClearInjectionXSS($base, $_POST["Genero"]);
+            $senha = ClearInjectionXSS($base, $_POST["senha"]);
 
             $cpf = TirarPontoCPF($CpfComPonto);
 
@@ -173,13 +173,13 @@
         break;
 
         case "EditarEmpresa":
-            $id_empresa = mysqli_real_escape_string($base, $_GET['q']);
-            $nome = mysqli_real_escape_string($base, $_POST["nome"]);
-            $email = mysqli_real_escape_string($base, $_POST["email"]);
-            $CnpjComPonto = mysqli_real_escape_string($base, $_POST["cnpj"]);
-            $telefone = mysqli_real_escape_string($base, $_POST["telefone"]);
-            $endereco = mysqli_real_escape_string($base, $_POST["endereco"]);
-            $cor = mysqli_real_escape_string($base, $_POST["CorLayout"]);
+            $id_empresa = ClearInjectionXSS($base, $_GET['q']);
+            $nome = ClearInjectionXSS($base, $_POST["nome"]);
+            $email = ClearInjectionXSS($base, $_POST["email"]);
+            $CnpjComPonto = ClearInjectionXSS($base, $_POST["cnpj"]);
+            $telefone = ClearInjectionXSS($base, $_POST["telefone"]);
+            $endereco = ClearInjectionXSS($base, $_POST["endereco"]);
+            $cor = ClearInjectionXSS($base, $_POST["CorLayout"]);
 
             $cnpj = TirarPontoCNPJ($CnpjComPonto);
 

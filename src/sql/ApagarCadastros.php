@@ -7,8 +7,8 @@
     include_once "Funcoes.php";
 
     $tipo_verificacao = $_SESSION['TipoVerificação'];
-    $id = mysqli_real_escape_string($base, $_COOKIE["ID"]);
-    $id_empresa = mysqli_real_escape_string($base, $_GET['q']);
+    $id = ClearInjectionXSS($base, $_COOKIE["ID"]);
+    $id_empresa = ClearInjectionXSS($base, $_GET['q']);
 
     switch ($tipo_verificacao) {
 

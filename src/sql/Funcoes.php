@@ -350,3 +350,11 @@ function PegarDadosEmpresaPeloIdUsuario($base, $id)
 
     return $Empresas;
 }
+
+function ClearInjectionXSS($base, $input){
+
+    $input = mysqli_real_escape_string($base, $input);
+    $input = htmlspecialchars($input);
+    return $input;
+
+}

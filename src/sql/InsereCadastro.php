@@ -11,13 +11,13 @@
 
 		case "Usuario":
 
-			$nome = mysqli_real_escape_string($base, $_POST["nome"]);
-			$cpf = mysqli_real_escape_string($base, $_SESSION['cpfsemponto']);
-			$data = mysqli_real_escape_string($base, $_POST["data"]);
-			$telefone = mysqli_real_escape_string($base, $_POST["telefone"]);
-			$genero = mysqli_real_escape_string($base, $_POST["Genero"]);
-			$email = mysqli_real_escape_string($base, $_POST["email"]);
-			$senha = mysqli_real_escape_string($base, $_POST["senha"]);
+			$nome = ClearInjectionXSS($base, $_POST["nome"]);
+			$cpf = ClearInjectionXSS($base, $_SESSION['cpfsemponto']);
+			$data = ClearInjectionXSS($base, $_POST["data"]);
+			$telefone = ClearInjectionXSS($base, $_POST["telefone"]);
+			$genero = ClearInjectionXSS($base, $_POST["Genero"]);
+			$email = ClearInjectionXSS($base, $_POST["email"]);
+			$senha = ClearInjectionXSS($base, $_POST["senha"]);
 			$senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
 			$sql = "INSERT INTO usuarios (Nome_user, Genero_user, Data_nasc_user, CPF_user, Email_user, Telefone_user, Senha_user) VALUES";
@@ -39,13 +39,13 @@
 
 			} while ($CodigoJaExiste);
 
-			$id_adm = mysqli_real_escape_string($base, $_COOKIE["ID"]);
-			$nome = mysqli_real_escape_string($base, $_POST["nome"]);
-			$email = mysqli_real_escape_string($base, $_POST["email"]);
-			$cnpj = mysqli_real_escape_string($base, $_SESSION['cnpjsemponto']);
-			$telefone = mysqli_real_escape_string($base, $_POST["telefone"]);
-			$cor = mysqli_real_escape_string($base, $_POST["CorLayout"]);
-			$endereco = mysqli_real_escape_string($base, $_POST["endereco"]);
+			$id_adm = ClearInjectionXSS($base, $_COOKIE["ID"]);
+			$nome = ClearInjectionXSS($base, $_POST["nome"]);
+			$email = ClearInjectionXSS($base, $_POST["email"]);
+			$cnpj = ClearInjectionXSS($base, $_SESSION['cnpjsemponto']);
+			$telefone = ClearInjectionXSS($base, $_POST["telefone"]);
+			$cor = ClearInjectionXSS($base, $_POST["CorLayout"]);
+			$endereco = ClearInjectionXSS($base, $_POST["endereco"]);
 
 			$sql = "INSERT INTO empresas (id_adm, codigo_acesso, Nome, CNPJ, Endereco, Email, Telefone, Cor_layout) VALUES";
 			$sql .= " ('$id_adm', '$codigo_acesso', '$nome', '$cnpj', '$endereco', '$email', '$telefone', '$cor') ";
