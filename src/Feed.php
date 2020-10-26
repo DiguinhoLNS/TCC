@@ -13,6 +13,7 @@
 		$id_user = $_COOKIE["ID"]; 
 
 		$DadosEmpresa = PegarDadosEmpresaPeloIdEmpresa($base, $id_empresa);
+		setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 
 	}
 

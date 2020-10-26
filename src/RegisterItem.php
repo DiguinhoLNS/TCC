@@ -25,7 +25,53 @@
     
 			include "php/Pag.php";
 
-            StopUserAccess();
+			StopUserAccess();
+			if($_COOKIE["VerificaErro"]){
+
+				if(isset($_SESSION["ErrosRegistrarItem"])){
+
+					$erros = $_SESSION["ErrosRegistrarItem"];
+
+						if (isset($erros["Nome"])){
+
+							echo '
+								
+								<script language = "javascript" type = "text/javascript">
+								
+									$(document).ready(function(){
+
+										$("#ErrorNome").css("display", "block");
+
+									});
+								
+								</script>
+							
+							';
+
+						}
+
+						if (isset($erros["foto"])){
+
+							echo '
+								
+								<script language = "javascript" type = "text/javascript">
+								
+									$(document).ready(function(){
+
+										$("#ErrorFoto").css("display", "block");
+
+									});
+								
+								</script>
+							
+							';
+
+						}
+
+						
+				}
+			}
+
             
 		?>
 

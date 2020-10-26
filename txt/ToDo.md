@@ -7,7 +7,7 @@
 ### Cadastros
 - >cadastro de usuario.
 - >cadastro de empresa.
-- cadastro de objetos.
+- >cadastro de objetos.
 
 ### Editar Dados
 - >editar dados de usuario.

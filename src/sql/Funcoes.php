@@ -64,6 +64,15 @@ function TirarPontoCNPJ($CnpjComPonto)
     return $cnpj;
 }
 
+function VerificarNomeOBJ($nome){
+
+    if (strlen($nome) <= 2) {
+        return true;
+    }
+    return false;
+
+}
+
 function VerificarCadastroNome($nome)
 {
     if (strlen($nome) <= 2) {

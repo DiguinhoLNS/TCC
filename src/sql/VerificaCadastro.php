@@ -236,7 +236,7 @@
                 "descricao" => false,
             ];
 
-            $ErroNosCampos["Nome"] = VerificarCadastroNome($nome);   
+            $ErroNosCampos["Nome"] = VerificarNomeOBJ($nome);   
             $ErroNosCampos["foto"] = VerificarFoto($foto);
 
             foreach ($ErroNosCampos as $key => $verifica) {
@@ -253,8 +253,8 @@
             } else {
 
                 setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
-                $_SESSION["ErrosEditarEmpresa"] = $erros;
-                header("Location: ../EditCompany.php?q=".$id_empresa);
+                $_SESSION["ErrosRegistrarItem"] = $erros;
+                header("Location: ../RegisterItem.php?q=".$id_empresa);
 
             }
 
