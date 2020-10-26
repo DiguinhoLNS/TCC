@@ -23,6 +23,7 @@
             }
         
         ?>
+            <li id = "NoneNotifications"> Sem Notificações </li>
         </ul>
 
         <ul id = "NotificationsConfig">

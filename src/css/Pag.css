@@ -1959,9 +1959,14 @@ h1, h2, h3, h4, h5, h6 {
 			visibility: hidden;
 		}
 
-		.FormPlatform form .FormPlatformContent .ContentInput img {
+		.FormPlatform form .FormPlatformContent .ContentInput #imgContent {
 			width: 100%;
 			border-radius: 19px;
+		}
+
+		.FormPlatform form .FormPlatformContent .ContentInput img {
+			width: 100%;
+			border-radius: inherit;
 		}
 			
 		/* Content Error */
@@ -2432,6 +2437,7 @@ h1, h2, h3, h4, h5, h6 {
 			width: 100%;
 			height: 40px;
 			padding: 10px 20px;
+			margin-bottom: 10px;
 			border-radius: 20px;
 
 			color: var(--color-txt-s);

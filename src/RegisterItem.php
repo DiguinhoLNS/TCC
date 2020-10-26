@@ -27,21 +27,6 @@
             StopUserAccess();
             
 		?>
-		
-		<script type = "text/javascript">
-
-			 function PreviewImage() {
-
-				var oFReader = new FileReader();
-				oFReader.readAsDataURL(document.getElementById("R_ItemFoto").files[0]);
-
-				oFReader.onload = function (oFREvent) {
-					document.getElementById("FormFoto").src = oFREvent.target.result;
-				};
-
-			};
-
-		</script>
 
         <main id = "MainRegisterItem">
 
@@ -62,8 +47,10 @@
 						<li class = "ContentInput">
 							<label for = "R_ItemFoto"> Foto </label>
 							<span id = "ErrorFoto" class = "txtError"> Foto inválida </span>
-							<input id = "R_ItemFoto" type = "file" name = "foto" onchange = "PreviewImage();"/>
-							<img id = "FormFoto" />
+							<input id = "R_ItemFoto" type = "file" name = "foto"/>
+							<div id = "imgContent">
+								<img id = "FormFoto"/>
+							</div>	
 						</li>
 						<li class = "ContentInput">
 							<label for = "R_ItemCategoria"> Categoria </label>

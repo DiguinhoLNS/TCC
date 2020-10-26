@@ -32,8 +32,8 @@
         <nav id = "HeaderIconGroup">
 
             <div id = "HeaderNotificationIcon" class = "HeaderIcon">
-                <i id = "NotificationNone" class = "material-icons"> &#xe7f4; </i>
-                <i id = "NotificationAlert" class = "material-icons"> notification_important </i>	
+                <i id = "NotificationNoneIcon" class = "material-icons"> &#xe7f4; </i>
+                <i id = "NotificationAlertIcon" class = "material-icons"> notification_important </i>	
             </div>
             <div id = "HeaderUserIcon" class = "HeaderIcon">
                 <i class = "material-icons"> &#xe7fd; </i>	

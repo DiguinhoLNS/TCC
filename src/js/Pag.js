@@ -268,7 +268,7 @@ $(document).ready(function(){
             HC.css("display", "none");
             SNB.css("left", "-300px");
             DE.css({"opacity": "0", "visibility": "hidden"});
-            BDCP.css("display", "none");
+            DBCP.css("display", "none");
             FCP.css("display", "none");
            
         }else{
@@ -383,10 +383,10 @@ $(document).ready(function(){
 
     $("#ClearNotifications").on("click", function(){
         // ON
-        $("#NotificationNone").css("display", "block");
+        $("#NotificationNoneIcon").css("display", "block");
         $("#NoneNotifications").css("display", "block"); 
         // OFF
-        $("#NotificationAlert").css("display", "none");
+        $("#NotificationAlertIcon").css("display", "none");
         $(".NotificationBox").css("display", "none");
         $("#NotificationsConfig").css("display", "none");
 
@@ -394,16 +394,16 @@ $(document).ready(function(){
 
     if($(".NotificationBox").length > 0){
         // ON
-        $("#NotificationAlert").css("display", "block");
+        $("#NotificationAlertIcon").css("display", "block");
         // OFF
-        $("#NotificationNone").css("display", "none");
+        $("#NotificationNoneIcon").css("display", "none");
     
     }else {
         // ON
-        $("#NotificationNone").css("display", "block");
+        $("#NotificationNoneIcon").css("display", "block");
         $("#NoneNotifications").css("display", "block");
         // OFF
-        $("#NotificationAlert").css("display", "none");
+        $("#NotificationAlertIcon").css("display", "none");
         $("#NotificationsConfig").css("display", "none");
         
     }
@@ -614,6 +614,21 @@ $(document).ready(function(){
         });
 
 });
+
+/* Register Item Foto */
+
+document.getElementById("R_ItemFoto").onchange = function() {PreviewImage()};
+
+function PreviewImage() {
+
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL(document.getElementById("R_ItemFoto").files[0]);
+
+    oFReader.onload = function (oFREvent) {
+        document.getElementById("FormFoto").src = oFREvent.target.result;
+    };
+
+};
 
 /* Bottom Message */
 

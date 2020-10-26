@@ -23,7 +23,7 @@
 
 				setcookie("ULogged", "1", time() + (86400 * 30), "/");
 				setcookie("ID", $Dados['id_user'], time() + (86400 * 30), "/");
-				setcookie("MessageNotification", "Login realizado", time() + 3600, "/");
+				setcookie("MessageNotification", "Login realizado", time() + 900, "/");
 				setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 
 				header("Location: ../Dashboard.php");
