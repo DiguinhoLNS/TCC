@@ -311,7 +311,7 @@
 
 				<ul>
 					<li>
-						<a href = "RegisterItem.php">
+						<a href = "RegisterItem.php?q=<?php echo $id_empresa;?>">
 							<i class = "material-icons"> &#xe145; </i>
 							<span> Criar Item </span>
 						</a>

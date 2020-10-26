@@ -222,6 +222,44 @@
 
         break;
 
+        case "Item":
+            $id_empresa = ClearInjectionXSS($base, $_GET['q']);
+            $nome = ClearInjectionXSS($base, $_POST["nome"]);
+            $foto = $_FILES["foto"];
+            $categoria = ClearInjectionXSS($base, $_POST["categoria"]);
+            $descricao = ClearInjectionXSS($base, $_POST["descricao"]);
+
+            $ErroNosCampos = [
+                "Nome" => false,
+                "foto" => false,
+                "categoria" => false,
+                "descricao" => false,
+            ];
+
+            $ErroNosCampos["Nome"] = VerificarCadastroNome($nome);   
+            $ErroNosCampos["foto"] = VerificarFoto($foto);
+
+            foreach ($ErroNosCampos as $key => $verifica) {
+                if ($verifica) {
+                    $erros[$key] =  true;
+                }
+            }
+
+            if (!isset($erros)) {
+
+                setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
+                include "InsereCadastro.php";
+
+            } else {
+
+                setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
+                $_SESSION["ErrosEditarEmpresa"] = $erros;
+                header("Location: ../EditCompany.php?q=".$id_empresa);
+
+            }
+
+        break;
+
         default:
         break;
 

@@ -361,3 +361,25 @@ function ClearInjectionXSS($base, $input)
     $input = htmlspecialchars($input);
     return $input;
 }
+
+function VerificarFoto($foto){
+
+    $foto = $_FILES["foto"];
+    list($tipo, $extensao) = explode("/", $foto["type"]);
+
+    $tipo = strtolower($tipo);
+    $extensao = strtolower($extensao);
+
+    $extensoesPossiveis = [
+        "jpg" => "jpg",
+        "jpeg" => "jpeg",
+        "png" => "png"
+    ];
+
+    if(in_array($extensao, $extensoesPossiveis)){
+        return false;
+    }else{
+        return true;
+    }
+
+}

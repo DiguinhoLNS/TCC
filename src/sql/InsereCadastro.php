@@ -1,61 +1,81 @@
 <?php
 
-	date_default_timezone_set('America/Sao_Paulo');
+date_default_timezone_set('America/Sao_Paulo');
 
-	include "ConexaoBD.php";
-	include_once "Funcoes.php";
+include "ConexaoBD.php";
+include_once "Funcoes.php";
 
-	$tipo_verificacao = $_SESSION['TipoVerificação'];
+$tipo_verificacao = $_SESSION['TipoVerificação'];
 
-	switch($tipo_verificacao){
+switch ($tipo_verificacao) {
 
-		case "Usuario":
+	case "Usuario":
 
-			$nome = ClearInjectionXSS($base, $_POST["nome"]);
-			$cpf = ClearInjectionXSS($base, $_SESSION['cpfsemponto']);
-			$data = ClearInjectionXSS($base, $_POST["data"]);
-			$telefone = ClearInjectionXSS($base, $_POST["telefone"]);
-			$genero = ClearInjectionXSS($base, $_POST["Genero"]);
-			$email = ClearInjectionXSS($base, $_POST["email"]);
-			$senha = ClearInjectionXSS($base, $_POST["senha"]);
-			$senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
+		$nome = ClearInjectionXSS($base, $_POST["nome"]);
+		$cpf = ClearInjectionXSS($base, $_SESSION['cpfsemponto']);
+		$data = ClearInjectionXSS($base, $_POST["data"]);
+		$telefone = ClearInjectionXSS($base, $_POST["telefone"]);
+		$genero = ClearInjectionXSS($base, $_POST["Genero"]);
+		$email = ClearInjectionXSS($base, $_POST["email"]);
+		$senha = ClearInjectionXSS($base, $_POST["senha"]);
+		$senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
-			$sql = "INSERT INTO usuarios (Nome_user, Genero_user, Data_nasc_user, CPF_user, Email_user, Telefone_user, Senha_user) VALUES";
-			$sql .= " ('$nome', '$genero', '$data', '$cpf', '$email', '$telefone', '$senhaCriptografada') ";
+		$sql = "INSERT INTO usuarios (Nome_user, Genero_user, Data_nasc_user, CPF_user, Email_user, Telefone_user, Senha_user) VALUES";
+		$sql .= " ('$nome', '$genero', '$data', '$cpf', '$email', '$telefone', '$senhaCriptografada') ";
 
-			$conexao->query($sql) === TRUE ? header("Location: ../LoginUser.php") : header("Location: ../RegisterUser.php");
+		$conexao->query($sql) ? header("Location: ../LoginUser.php") : header("Location: ../RegisterUser.php");
+
+		break;
+
+	case "Empresa":
+
+		$CodigoJaExiste = true;
+
+		do {
+
+			$codigo_acesso = strtoupper(bin2hex(random_bytes(3)));
+			$Dados = PegarDadosEmpresaPeloCodigo($base, $codigo_acesso);
+			$CodigoJaExiste = $Dados["CodigoExiste"] ? true : false;
+		} while ($CodigoJaExiste);
+
+		$id_adm = ClearInjectionXSS($base, $_COOKIE["ID"]);
+		$nome = ClearInjectionXSS($base, $_POST["nome"]);
+		$email = ClearInjectionXSS($base, $_POST["email"]);
+		$cnpj = ClearInjectionXSS($base, $_SESSION['cnpjsemponto']);
+		$telefone = ClearInjectionXSS($base, $_POST["telefone"]);
+		$cor = ClearInjectionXSS($base, $_POST["CorLayout"]);
+		$endereco = ClearInjectionXSS($base, $_POST["endereco"]);
+
+		$sql = "INSERT INTO empresas (id_adm, codigo_acesso, Nome, CNPJ, Endereco, Email, Telefone, Cor_layout) VALUES";
+		$sql .= " ('$id_adm', '$codigo_acesso', '$nome', '$cnpj', '$endereco', '$email', '$telefone', '$cor') ";
+
+		$conexao->query($sql) ? header("Location: InsereUser_Empresa.php?q=" . $codigo_acesso) : header("Location: ../RegisterCompany.php");
 
 		break;
 
-		case "Empresa":
+	case "Item":
 
-			$CodigoJaExiste = true;
+		$nome = ClearInjectionXSS($base, $_POST["nome"]);
+		$foto = $_FILES["foto"];
+		$categoria = ClearInjectionXSS($base, $_POST["categoria"]);
+		$descricao = ClearInjectionXSS($base, $_POST["descricao"]);
 
-			do {
+		list($tipo, $extensao) = explode("/", $foto["type"]);
 
-				$codigo_acesso = strtoupper(bin2hex(random_bytes(3)));
-				$Dados = PegarDadosEmpresaPeloCodigo($base, $codigo_acesso);
-				$CodigoJaExiste = $Dados["CodigoExiste"] ? true : false;
+		$tipo = strtolower($tipo);
+		$extensao = strtolower($extensao);
 
-			} while ($CodigoJaExiste);
+		$novoNome = md5(time()) .".". $extensao;
+		$diretorio = "C:/Users/T-Gamer/Documents/GitHub/TCC/src/imagesBD/";
 
-			$id_adm = ClearInjectionXSS($base, $_COOKIE["ID"]);
-			$nome = ClearInjectionXSS($base, $_POST["nome"]);
-			$email = ClearInjectionXSS($base, $_POST["email"]);
-			$cnpj = ClearInjectionXSS($base, $_SESSION['cnpjsemponto']);
-			$telefone = ClearInjectionXSS($base, $_POST["telefone"]);
-			$cor = ClearInjectionXSS($base, $_POST["CorLayout"]);
-			$endereco = ClearInjectionXSS($base, $_POST["endereco"]);
+		move_uploaded_file($foto["tmp_name"], $diretorio . $novoNome);
 
-			$sql = "INSERT INTO empresas (id_adm, codigo_acesso, Nome, CNPJ, Endereco, Email, Telefone, Cor_layout) VALUES";
-			$sql .= " ('$id_adm', '$codigo_acesso', '$nome', '$cnpj', '$endereco', '$email', '$telefone', '$cor') ";
+		$data = date('l jS \of F Y h:i:s A');
 
-			$conexao->query($sql) === TRUE ? header("Location: InsereUser_Empresa.php?q=".$codigo_acesso) : header("Location: ../RegisterCompany.php");
+		$sql = "INSERT INTO objetos (id_empresa, Nome_foto, Nome_obj, Data_cadastro, Categoria, Descricao, situacao) VALUES";
+		$sql .= " ('$id_empresa', '$novoNome', '$nome', '$data' , '$categoria', '$descricao', 'Perdido') ";
 
-		break;
-		
-	}
+		$conexao->query($sql) ? header("Location: ../Feed.php?q=" . $id_empresa) : header("Location: ../RegisterItem.php?q=".$id_empresa);
+}
 
-	$conexao->close();
-
-?>
+$conexao->close();

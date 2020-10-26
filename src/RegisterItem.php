@@ -4,6 +4,7 @@
 	date_default_timezone_set('America/Sao_Paulo');
 
 	$_SESSION['TipoVerificação'] = "Item";
+	$id_empresa = $_GET["q"];
 
 ?>
 
@@ -32,7 +33,7 @@
 
 			<div class = "FormPlatform BS">
 
-				<form method = "POST" action = "sql/VerificaCadastro.php">
+				<form method = "POST" action = "sql/VerificaCadastro.php?q=<?php echo $id_empresa;?>" enctype="multipart/form-data">
 			
 					<ul class = "FormPlatformContent">
 
@@ -48,14 +49,13 @@
 							<label for = "R_ItemFoto"> Foto </label>
 							<span id = "ErrorFoto" class = "txtError"> Foto inválida </span>
 							<input id = "R_ItemFoto" type = "file" name = "foto"/>
-							<label id = "imgContent" for = "R_ItemFoto">
-								<i id = "imgIcon" class = "material-icons"> &#xe251; </i>
+							<div id = "imgContent">
 								<img id = "FormFoto"/>
-							</label>	
+							</div>	
 						</li>
 						<li class = "ContentInput">
 							<label for = "R_ItemCategoria"> Categoria </label>
-							<select name = "Categoria" id = "R_ItemCategoria" class = "UserSelectData" required>
+							<select name = "categoria" id = "R_ItemCategoria" class = "UserSelectData" required>
 								<option value = "outros"> Outros </option>
 								<option value = "acessorio"> Acessórios </option>
 								<option value = "documento"> Documentos </option>
@@ -65,7 +65,7 @@
 						</li>
 						<li class = "ContentInput">
 							<label for = "R_ItemDesc"> Descrição </label>
-							<textarea id = "R_ItemDesc" class = "FormTextareaData" name = "descricao" rows = "4" placeholder = "Descrição do item"></textarea>
+							<textarea id = "R_ItemDesc" class = "FormTextareaData" name = "descricao" rows = "4"></textarea>
 						</li>
 						<li class = "ContentBottom">
 							<a href = "Feed.php"> Voltar para Feed </a>
