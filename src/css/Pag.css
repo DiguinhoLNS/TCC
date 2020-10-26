@@ -1960,11 +1960,31 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 		.FormPlatform form .FormPlatformContent .ContentInput #imgContent {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			
 			width: 100%;
 			border-radius: 19px;
+			margin: 0;
+
+			background-color: var(--color-layout-s);
 		}
 
-		.FormPlatform form .FormPlatformContent .ContentInput img {
+		.DarkMode .FormPlatform form .FormPlatformContent .ContentInput #imgContent {
+			background-color: var(--color-layout-t);
+		}
+
+		.FormPlatform form .FormPlatformContent .ContentInput #imgContent i {
+			padding: 20px;
+
+			color: var(--color-txt-t);
+			font-size: 36px;
+		}
+
+		.FormPlatform form .FormPlatformContent .ContentInput #imgContent img {
 			width: 100%;
 			border-radius: inherit;
 		}

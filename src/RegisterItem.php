@@ -48,9 +48,10 @@
 							<label for = "R_ItemFoto"> Foto </label>
 							<span id = "ErrorFoto" class = "txtError"> Foto inválida </span>
 							<input id = "R_ItemFoto" type = "file" name = "foto"/>
-							<div id = "imgContent">
+							<label id = "imgContent" for = "R_ItemFoto">
+								<i id = "imgIcon" class = "material-icons"> &#xe251; </i>
 								<img id = "FormFoto"/>
-							</div>	
+							</label>	
 						</li>
 						<li class = "ContentInput">
 							<label for = "R_ItemCategoria"> Categoria </label>
@@ -64,7 +65,7 @@
 						</li>
 						<li class = "ContentInput">
 							<label for = "R_ItemDesc"> Descrição </label>
-							<textarea id = "R_ItemDesc" class = "FormTextareaData" name = "descricao" rows = "4"></textarea>
+							<textarea id = "R_ItemDesc" class = "FormTextareaData" name = "descricao" rows = "4" placeholder = "Descrição do item"></textarea>
 						</li>
 						<li class = "ContentBottom">
 							<a href = "Feed.php"> Voltar para Feed </a>
