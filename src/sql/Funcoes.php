@@ -382,7 +382,7 @@ function VerificarFoto($foto)
 
     $extensoesPossiveis = ["jpg", "jpeg", "png"];
 
-    return in_array($extensao, $extensoesPossiveis) ?  false :  true;
+    return in_array($extensao, $extensoesPossiveis) && $tipo == "image" ?  false :  true;
 }
 
 function PegarDadosItemPeloIdEmpresa($base, $id_empresa)
@@ -409,4 +409,134 @@ function PegarDadosItemPeloIdEmpresa($base, $id_empresa)
             "Quantidade" => $QuantidadeDeObjetos,
         ];
     }
+}
+
+function PegarDocumentos($base, $id_empresa){
+
+    $query = "SELECT * FROM objetos where id_empresa =  '$id_empresa' and Categoria = 'Documento'";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 12");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+
+}
+
+function PegarRoupas($base, $id_empresa){
+
+    $query = "SELECT * FROM objetos where id_empresa =  '$id_empresa' and Categoria = 'Roupa'";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 13");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+
+}
+
+function PegarEletronicos($base, $id_empresa){
+
+    $query = "SELECT * FROM objetos where id_empresa =  '$id_empresa' and Categoria = 'Eletrônico'";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 14");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+
+}
+
+function PegarAcessorios($base, $id_empresa){
+
+    $query = "SELECT * FROM objetos where id_empresa =  '$id_empresa' and Categoria = 'Acessório'";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 15");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+
+}
+
+function PegarOutros($base, $id_empresa){
+
+    $query = "SELECT * FROM objetos where id_empresa =  '$id_empresa' and Categoria = 'Outros'";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 16");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+
 }

@@ -14,6 +14,13 @@
 
 		$DadosEmpresa = PegarDadosEmpresaPeloIdEmpresa($base, $id_empresa);
 		$DadosItem = PegarDadosItemPeloIdEmpresa ($base, $id_empresa);
+
+		$Documentos = PegarDocumentos($base, $id_empresa);
+		$Acessorios = PegarAcessorios($base, $id_empresa);
+		$Roupas = PegarRoupas($base, $id_empresa);
+		$Eletronicos = PegarEletronicos($base, $id_empresa);
+		$Outros = PegarOutros($base, $id_empresa);	
+
 		setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 
 	}
@@ -127,12 +134,13 @@
 
 										if($DadosItem["Quantidade"]==0){
 
-											//echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
-											echo "<li class = 'NoFor'>". var_dump($DadosItem) ."</li>";
+											echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
 
 										}else{
 											$i=0;
 											do{
+												list($DiaSemana, $Data, $Hora) = explode(" ", $DadosItem["Objeto"][$i]["Data_cadastro"]);
+
 												echo '
 													<li class = "ItemBox">
 
@@ -145,7 +153,7 @@
 															<div class = "ItemInfo">
 																
 																<h1 class = "ItemName"> '.$DadosItem["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$DadosItem["Objeto"][$i]["Data_cadastro"].' </h2>
+																<h2 class = "ItemData"> '.$Data.' </h2>
 																<h3 class = "ItemCategory"> '.$DadosItem["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>
@@ -158,7 +166,6 @@
 											}while($i<($DadosItem["Quantidade"]));
 										}
 										
-
 									?>
 
 									</ul>
@@ -180,23 +187,42 @@
 
 									<ul class = "FeedBoxGroup">
 
-										<li class = "ItemBox">
+									<?php
 
-											<a href = "" title = "NOME DO ITEM">
+										if($Eletronicos["Quantidade"]==0){
 
-												<div class = "ItemImg"></div>
+											echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
 
-												<div class = "ItemInfo">
-													
-													<h1 class = "ItemName"> Nome do item </h1>
-													<h2 class = "ItemData"> 00/00/2020 </h2>
-													<h3 class = "ItemCategory"> Categoria </h3>
+										}else{
+											$i=0;
+											do{
+												list($DiaSemana, $Data, $Hora) = explode(" ", $DadosItem["Objeto"][$i]["Data_cadastro"]);
+												echo '
+													<li class = "ItemBox">
 
-												</div>
+														<a href = "#" title = "'.$Eletronicos["Objeto"][$i]["Nome_obj"].'">
 
-											</a>
+															<div class = "ItemImg">
+																<img src = "imagesBD/'.$Eletronicos["Objeto"][$i]["Nome_foto"].'">
+															</div>
 
-										</li>
+															<div class = "ItemInfo">
+																
+																<h1 class = "ItemName"> '.$Eletronicos["Objeto"][$i]["Nome_obj"].' </h1>
+																<h2 class = "ItemData"> '.$Data.' </h2>
+																<h3 class = "ItemCategory"> '.$Eletronicos["Objeto"][$i]["Categoria"].' </h3>
+
+															</div>
+
+														</a>
+
+													</li>
+												';
+											$i++;
+											}while($i<($Eletronicos["Quantidade"]));
+										}
+
+									?>
 
 									</ul>
 
@@ -208,23 +234,42 @@
 
 									<ul class = "FeedBoxGroup">
 
-										<li class = "ItemBox">
+									<?php
 
-											<a href = "" title = "NOME DO ITEM">
+										if($Roupas["Quantidade"]==0){
 
-												<div class = "ItemImg"></div>
+											echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
 
-												<div class = "ItemInfo">
-													
-													<h1 class = "ItemName"> Nome do item </h1>
-													<h2 class = "ItemData"> 00/00/2020 </h2>
-													<h3 class = "ItemCategory"> Categoria </h3>
+										}else{
+											$i=0;
+											do{
+												list($DiaSemana, $Data, $Hora) = explode(" ", $DadosItem["Objeto"][$i]["Data_cadastro"]);
+												echo '
+													<li class = "ItemBox">
 
-												</div>
+														<a href = "#" title = "'.$Roupas["Objeto"][$i]["Nome_obj"].'">
 
-											</a>
+															<div class = "ItemImg">
+																<img src = "imagesBD/'.$Roupas["Objeto"][$i]["Nome_foto"].'">
+															</div>
 
-										</li>
+															<div class = "ItemInfo">
+																
+																<h1 class = "ItemName"> '.$Roupas["Objeto"][$i]["Nome_obj"].' </h1>
+																<h2 class = "ItemData"> '.$Data.' </h2>
+																<h3 class = "ItemCategory"> '.$Roupas["Objeto"][$i]["Categoria"].' </h3>
+
+															</div>
+
+														</a>
+
+													</li>
+												';
+											$i++;
+											}while($i<($Roupas["Quantidade"]));
+										}
+
+									?>
 
 									</ul>
 
@@ -236,23 +281,42 @@
 
 									<ul class = "FeedBoxGroup">
 
-										<li class = "ItemBox">
+									<?php
 
-											<a href = "" title = "NOME DO ITEM">
+										if($Acessorios["Quantidade"]==0){
 
-												<div class = "ItemImg"></div>
+											echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
 
-												<div class = "ItemInfo">
-													
-													<h1 class = "ItemName"> Nome do item </h1>
-													<h2 class = "ItemData"> 00/00/2020 </h2>
-													<h3 class = "ItemCategory"> Categoria </h3>
+										}else{
+											$i=0;
+											do{
+												list($DiaSemana, $Data, $Hora) = explode(" ", $DadosItem["Objeto"][$i]["Data_cadastro"]);
+												echo '
+													<li class = "ItemBox">
 
-												</div>
+														<a href = "#" title = "'.$Acessorios["Objeto"][$i]["Nome_obj"].'">
 
-											</a>
+															<div class = "ItemImg">
+																<img src = "imagesBD/'.$Acessorios["Objeto"][$i]["Nome_foto"].'">
+															</div>
 
-										</li>
+															<div class = "ItemInfo">
+																
+																<h1 class = "ItemName"> '.$Acessorios["Objeto"][$i]["Nome_obj"].' </h1>
+																<h2 class = "ItemData"> '.$Data.' </h2>
+																<h3 class = "ItemCategory"> '.$Acessorios["Objeto"][$i]["Categoria"].' </h3>
+
+															</div>
+
+														</a>
+
+													</li>
+												';
+											$i++;
+											}while($i<($Acessorios["Quantidade"]));
+										}
+
+									?>
 
 									</ul>
 
@@ -264,23 +328,42 @@
 
 									<ul class = "FeedBoxGroup">
 
-										<li class = "ItemBox">
+									<?php
 
-											<a href = "" title = "NOME DO ITEM">
+										if($Documentos["Quantidade"]==0){
 
-												<div class = "ItemImg"></div>
+											echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
 
-												<div class = "ItemInfo">
-													
-													<h1 class = "ItemName"> Nome do item </h1>
-													<h2 class = "ItemData"> 00/00/2020 </h2>
-													<h3 class = "ItemCategory"> Categoria </h3>
+										}else{
+											$i=0;
+											do{
+												list($DiaSemana, $Data, $Hora) = explode(" ", $DadosItem["Objeto"][$i]["Data_cadastro"]);
+												echo '
+													<li class = "ItemBox">
 
-												</div>
+														<a href = "#" title = "'.$Documentos["Objeto"][$i]["Nome_obj"].'">
 
-											</a>
+															<div class = "ItemImg">
+																<img src = "imagesBD/'.$Documentos["Objeto"][$i]["Nome_foto"].'">
+															</div>
 
-										</li>
+															<div class = "ItemInfo">
+																
+																<h1 class = "ItemName"> '.$Documentos["Objeto"][$i]["Nome_obj"].' </h1>
+																<h2 class = "ItemData"> '.$Data.' </h2>
+																<h3 class = "ItemCategory"> '.$Documentos["Objeto"][$i]["Categoria"].' </h3>
+
+															</div>
+
+														</a>
+
+													</li>
+												';
+											$i++;
+											}while($i<($Documentos["Quantidade"]));
+										}
+
+									?>
 
 									</ul>
 
@@ -292,23 +375,42 @@
 
 									<ul class = "FeedBoxGroup">
 
-										<li class = "ItemBox">
+									<?php
 
-											<a href = "" title = "NOME DO ITEM">
+										if($Outros["Quantidade"]==0){
 
-												<div class = "ItemImg"></div>
+											echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
 
-												<div class = "ItemInfo">
-													
-													<h1 class = "ItemName"> Nome do item </h1>
-													<h2 class = "ItemData"> 00/00/2020 </h2>
-													<h3 class = "ItemCategory"> Categoria </h3>
+										}else{
+											$i=0;
+											do{
+												list($DiaSemana, $Data, $Hora) = explode(" ", $DadosItem["Objeto"][$i]["Data_cadastro"]);
+												echo '
+													<li class = "ItemBox">
 
-												</div>
+														<a href = "#" title = "'.$Outros["Objeto"][$i]["Nome_obj"].'">
 
-											</a>
+															<div class = "ItemImg">
+																<img src = "imagesBD/'.$Outros["Objeto"][$i]["Nome_foto"].'">
+															</div>
 
-										</li>
+															<div class = "ItemInfo">
+																
+																<h1 class = "ItemName"> '.$Outros["Objeto"][$i]["Nome_obj"].' </h1>
+																<h2 class = "ItemData"> '.$Data.' </h2>
+																<h3 class = "ItemCategory"> '.$Outros["Objeto"][$i]["Categoria"].' </h3>
+
+															</div>
+
+														</a>
+
+													</li>
+												';
+											$i++;
+											}while($i<($Outros["Quantidade"]));
+										}
+
+									?>
 
 									</ul>
 
@@ -356,7 +458,7 @@
         <?php include "include/SideNavBar.php"; ?>
         <?php include "include/HeaderNotification.php"; ?>
 		<?php include "include/HeaderConfig.php"; ?>
-		<?php include "include/CookiesMessage"; ?>
+		<?php include "include/CookieMessage.php"; ?>
 
 		<div id = "DarkEffect"></div>
 

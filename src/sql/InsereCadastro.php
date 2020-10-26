@@ -66,18 +66,35 @@
 			$extensao = strtolower($extensao);
 
 			$novoNome = md5(time()) .".". $extensao;
-			$diretorio = "C:\Users\Diguinho\Documents\GitHub\TCC\src\imagesBD/";
+			$diretorio = "C:\Users\T-Gamer\Documents\GitHub\TCC\src\imagesBD/";
 
 			move_uploaded_file($foto["tmp_name"], $diretorio . $novoNome);
 
-			$data = date('l jS \of F Y h:i:s A');
+			setlocale(LC_ALL, 'pt_BR', 'pt', 'Portuguese_Brazilian');
+
+			$horarioDeVerao = date('I');
+
+			if($horarioDeVerao == 1){
+				$Hora = date('H')-1;
+				$data = strftime('%A %d/%m/%Y');
+				$data .= " ".$Hora;
+				$data .= date(':i:s');
+				$DiaMaiusculo = strtoupper(substr($data, 0, 1));  
+    			$data = substr_replace($data, $DiaMaiusculo, 0, 1);
+			}else{
+				$Hora = date('H');
+				$data = strftime('%A %d/%m/%Y');
+				$data .= " ".$Hora;
+				$data .= date(':i:s');
+				$DiaMaiusculo = strtoupper(substr($data, 0, 1));  
+    			$data = substr_replace($data, $DiaMaiusculo, 0, 1);
+			}
+			
 
 			$sql = "INSERT INTO objetos (id_empresa, Nome_foto, Nome_obj, Data_cadastro, Categoria, Descricao, situacao) VALUES";
 			$sql .= " ('$id_empresa', '$novoNome', '$nome', '$data' , '$categoria', '$descricao', 'Perdido') ";
 
-			$conexao->query($sql) ? header("Location: ../Feed.php?q=".$id_empresa) : var_dump($_POST)/*header("Location: ../RegisterItem.php?q=".$id_empresa)*/;
+			$conexao->query($sql) ? header("Location: ../Feed.php?q=".$id_empresa) : header("Location: ../RegisterItem.php?q=".$id_empresa);
 	}
 
 	$conexao->close();
-
-?>
