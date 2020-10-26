@@ -64,13 +64,13 @@ function TirarPontoCNPJ($CnpjComPonto)
     return $cnpj;
 }
 
-function VerificarNomeOBJ($nome){
+function VerificarNomeOBJ($nome)
+{
 
     if (strlen($nome) <= 2) {
         return true;
     }
     return false;
-
 }
 
 function VerificarCadastroNome($nome)
@@ -344,11 +344,11 @@ function PegarDadosEmpresaPeloIdUsuario($base, $id)
     $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 10");
     $QuantidadeDeEmpresas = $ResultadoQuery->num_rows;
 
-    if ($QuantidadeDeEmpresas>0) {
+    if ($QuantidadeDeEmpresas > 0) {
         while ($UmaEmpresa = mysqli_fetch_array($ResultadoQuery)) {
             $TodasEmpresas[] = $UmaEmpresa;
         }
-    }else{
+    } else {
         $TodasEmpresas = null;
     }
 
@@ -371,7 +371,8 @@ function ClearInjectionXSS($base, $input)
     return $input;
 }
 
-function VerificarFoto($foto){
+function VerificarFoto($foto)
+{
 
     $foto = $_FILES["foto"];
     list($tipo, $extensao) = explode("/", $foto["type"]);
@@ -379,16 +380,33 @@ function VerificarFoto($foto){
     $tipo = strtolower($tipo);
     $extensao = strtolower($extensao);
 
-    $extensoesPossiveis = [
-        "jpg" => "jpg",
-        "jpeg" => "jpeg",
-        "png" => "png"
-    ];
+    $extensoesPossiveis = ["jpg", "jpeg", "png"];
 
-    if(in_array($extensao, $extensoesPossiveis)){
-        return false;
-    }else{
-        return true;
+    return in_array($extensao, $extensoesPossiveis) ?  false :  true;
+}
+
+function PegarDadosItemPeloIdEmpresa($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa =  '$id_empresa'";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 11");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
     }
 
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
 }

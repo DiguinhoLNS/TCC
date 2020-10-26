@@ -13,6 +13,7 @@
 		$id_user = $_COOKIE["ID"]; 
 
 		$DadosEmpresa = PegarDadosEmpresaPeloIdEmpresa($base, $id_empresa);
+		$DadosItem = PegarDadosItemPeloIdEmpresa ($base, $id_empresa);
 		setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 
 	}
@@ -121,23 +122,39 @@
 
 									<ul class = "FeedBoxGroup">
 
-										<li class = "ItemBox">
+									<?php
 
-											<a href = "" title = "NOME DO ITEM">
+										if($DadosItem["Quantidade"]==0){
 
-												<div class = "ItemImg"></div>
+											//echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
+											echo "<li class = 'NoFor'>". var_dump($DadosItem) ."</li>";
 
-												<div class = "ItemInfo">
-													
-													<h1 class = "ItemName"> Nome do item </h1>
-													<h2 class = "ItemData"> 00/00/2020 </h2>
-													<h3 class = "ItemCategory"> Categoria </h3>
+										}else{
+											$i=0;
+											do{
+												echo '<li class = "ItemBox">
 
-												</div>
+													<a href = "#" title = "'.$DadosItem["Objeto"][$i]["Nome_obj"].'">
 
-											</a>
+														<div class = "ItemImg"><img src = "imagesBD/'.$DadosItem["Objeto"][$i]["Nome_foto"].'"></div>
 
-										</li>
+														<div class = "ItemInfo">
+															
+															<h1 class = "ItemName"> '.$DadosItem["Objeto"][$i]["Nome_obj"].' </h1>
+															<h2 class = "ItemData"> '.$DadosItem["Objeto"][$i]["Data_cadastro"].' </h2>
+															<h3 class = "ItemCategory"> '.$DadosItem["Objeto"][$i]["Categoria"].' </h3>
+
+														</div>
+
+													</a>
+
+												</li>';
+											$i++;
+											}while($i<($DadosItem["Quantidade"]));
+										}
+										
+
+									?>
 
 									</ul>
 
