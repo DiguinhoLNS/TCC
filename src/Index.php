@@ -194,26 +194,7 @@
         <?php include "include/SideNavBar.php"; ?>
         <?php include "include/HeaderNotification.php"; ?>
         <?php include "include/HeaderConfig.php"; ?>
-
-        <div class = "BottomMessage">
-
-            <div class = "MessageContent">
-
-                <div id = "TopContent">
-
-                    <h1> Ao utilizar a nossa plataforma você concorda em utilizar cookies para personalizar o conteúdo da página. <a href = "Sobre.php/#Cookies"> Saiba mais </a></h1>
-
-                </div>
-
-                <div id = "BottomContent">
-
-                    <button class = "ExitMessageBottom CookiesON"> Aceitar Cookies </button>
-
-                </div>
-
-            </div>
-
-        </div>
+        <?php include "include/CookiesMessage"; ?>
 
         <div id = "DarkEffect"></div>
 

@@ -17,6 +17,7 @@
         
             include "php/Pag.php";
             
+            CookieStatus();
             C_Login();
 
             include "include/Load.php";      
@@ -153,6 +154,7 @@
         <?php include "include/SideNavBar.php"; ?>
         <?php include "include/HeaderNotification.php"; ?>
         <?php include "include/HeaderConfig.php"; ?>
+        <?php include "include/CookiesMessage"; ?>
 
         <div id = "DarkEffect"></div>
 

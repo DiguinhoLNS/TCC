@@ -36,6 +36,7 @@
     
             StopUserAccess();
             V_User();
+            CookieStatus();
             C_Login();
             setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
             
@@ -136,6 +137,7 @@
         <?php include "include/SideNavBar.php"; ?>
         <?php include "include/HeaderNotification.php"; ?>
         <?php include "include/HeaderConfig.php"; ?>
+        <?php include "include/CookiesMessage"; ?>
 
         <div id = "DarkEffect"></div>
 

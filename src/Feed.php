@@ -38,7 +38,8 @@
 			include "php/Pag.php";
 			
 			StopUserAccess();
-            V_User();
+			V_User();
+			CookieStatus();
             C_Login();
 
             include "include/Load.php";
@@ -132,23 +133,27 @@
 										}else{
 											$i=0;
 											do{
-												echo '<li class = "ItemBox">
+												echo '
+													<li class = "ItemBox">
 
-													<a href = "#" title = "'.$DadosItem["Objeto"][$i]["Nome_obj"].'">
+														<a href = "#" title = "'.$DadosItem["Objeto"][$i]["Nome_obj"].'">
 
-														<div class = "ItemImg"><img src = "imagesBD/'.$DadosItem["Objeto"][$i]["Nome_foto"].'"></div>
+															<div class = "ItemImg">
+																<img src = "imagesBD/'.$DadosItem["Objeto"][$i]["Nome_foto"].'">
+															</div>
 
-														<div class = "ItemInfo">
-															
-															<h1 class = "ItemName"> '.$DadosItem["Objeto"][$i]["Nome_obj"].' </h1>
-															<h2 class = "ItemData"> '.$DadosItem["Objeto"][$i]["Data_cadastro"].' </h2>
-															<h3 class = "ItemCategory"> '.$DadosItem["Objeto"][$i]["Categoria"].' </h3>
+															<div class = "ItemInfo">
+																
+																<h1 class = "ItemName"> '.$DadosItem["Objeto"][$i]["Nome_obj"].' </h1>
+																<h2 class = "ItemData"> '.$DadosItem["Objeto"][$i]["Data_cadastro"].' </h2>
+																<h3 class = "ItemCategory"> '.$DadosItem["Objeto"][$i]["Categoria"].' </h3>
 
-														</div>
+															</div>
 
-													</a>
+														</a>
 
-												</li>';
+													</li>
+												';
 											$i++;
 											}while($i<($DadosItem["Quantidade"]));
 										}
@@ -350,7 +355,8 @@
         
         <?php include "include/SideNavBar.php"; ?>
         <?php include "include/HeaderNotification.php"; ?>
-        <?php include "include/HeaderConfig.php"; ?>
+		<?php include "include/HeaderConfig.php"; ?>
+		<?php include "include/CookiesMessage"; ?>
 
 		<div id = "DarkEffect"></div>
 

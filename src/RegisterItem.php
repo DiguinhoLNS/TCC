@@ -103,11 +103,11 @@
 						<li class = "ContentInput">
 							<label for = "R_ItemCategoria"> Categoria </label>
 							<select name = "categoria" id = "R_ItemCategoria" class = "UserSelectData" required>
-								<option value = "outros"> Outros </option>
-								<option value = "acessorio"> Acessórios </option>
-								<option value = "documento"> Documentos </option>
-								<option value = "eletronico"> Eletrônicos </option>
-								<option value = "roupa"> Roupas </option>
+								<option value = "Outros"> Outros </option>
+								<option value = "Acessório"> Acessórios </option>
+								<option value = "Documento"> Documentos </option>
+								<option value = "Eletrônico"> Eletrônicos </option>
+								<option value = "Roupa"> Roupas </option>
                             </select>
 						</li>
 						<li class = "ContentInput">

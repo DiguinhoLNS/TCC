@@ -11,7 +11,7 @@
 
 	if(isset($_COOKIE["ID"])){
 
-		$id = base64_decode($_COOKIE["ID"]); 
+		$id_user = base64_decode($_COOKIE["ID"]); 
 
 		$DadosEmpresa = PegarDadosEmpresaPeloIdEmpresa($base, $id_empresa);
 
@@ -42,6 +42,7 @@
 
 			StopUserAccess();
 			V_User();
+			CookieStatus();
 			C_Login();
 
 			include "include/Load.php";
@@ -346,7 +347,8 @@
         
         <?php include "include/SideNavBar.php"; ?>
         <?php include "include/HeaderNotification.php"; ?>
-        <?php include "include/HeaderConfig.php"; ?>
+		<?php include "include/HeaderConfig.php"; ?>
+		<?php include "include/CookiesMessage"; ?>
 
 		<div id = "DarkEffect"></div>
 		
