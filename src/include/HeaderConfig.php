@@ -7,7 +7,7 @@
             
                 if(isset($_COOKIE["ID"])){
 
-                    $id = $_COOKIE["ID"];
+                    $id = base64_decode($_COOKIE["ID"]);
 
                     $regra = "SELECT nome_user FROM usuarios WHERE id_user = '$id'";
 

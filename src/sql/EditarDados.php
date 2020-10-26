@@ -11,7 +11,7 @@ switch ($tipo_verificacao) {
 
     case "Usuario":
 
-        $id = ClearInjectionXSS($base, $_COOKIE['ID']);
+        $id = ClearInjectionXSS($base, base64_decode($_COOKIE["ID"]));
         $nome = ClearInjectionXSS($base, $_POST["nome"]);
         $cpf = ClearInjectionXSS($base, $_SESSION['cpfsemponto']);
         $data = ClearInjectionXSS($base, $_POST["data"]);

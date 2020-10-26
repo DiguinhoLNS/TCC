@@ -6,7 +6,7 @@
     include_once "sql/ConexaoBD.php";
     include_once "sql/Funcoes.php";
 
-    $id = $_COOKIE["ID"];
+    $id = base64_decode($_COOKIE["ID"]);
 
     $DadosUsuario = PegarDadosUsuarioPeloId($base, $id);
         

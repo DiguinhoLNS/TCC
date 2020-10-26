@@ -8,7 +8,7 @@
 
     $_SESSION['TipoVerificação'] = 'Usuario';
 
-    $id = $_COOKIE["ID"];
+    $id = base64_decode($_COOKIE["ID"]);
 
     $DadosEmpresas = PegarDadosEmpresaPeloIdUsuario($base, $id);
                     

@@ -615,21 +615,6 @@ $(document).ready(function(){
 
 });
 
-/* Register Item Foto */
-
-document.getElementById("R_ItemFoto").onchange = function() {PreviewImage()};
-
-function PreviewImage() {
-
-    var oFReader = new FileReader();
-    oFReader.readAsDataURL(document.getElementById("R_ItemFoto").files[0]);
-
-    oFReader.onload = function (oFREvent) {
-        document.getElementById("FormFoto").src = oFREvent.target.result;
-    };
-
-};
-
 /* Bottom Message */
 
 $(document).ready(function(){

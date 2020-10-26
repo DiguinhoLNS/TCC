@@ -10,7 +10,7 @@
 
 	if(isset($_COOKIE["ID"])){
 
-		$id_user = $_COOKIE["ID"]; 
+		$id = base64_decode($_COOKIE["ID"]);
 
 		$DadosEmpresa = PegarDadosEmpresaPeloIdEmpresa($base, $id_empresa);
 		$DadosItem = PegarDadosItemPeloIdEmpresa ($base, $id_empresa);

@@ -1363,6 +1363,11 @@ h1, h2, h3, h4, h5, h6 {
 					background-color: var(--color-theme-company-s);
 				}
 
+				.FeedFrame .FeedFrameContent .FeedBoxGroup .ItemBox a .ItemImg img {
+					border-top-right-radius: inherit;
+					border-top-left-radius: inherit;
+				}
+
 				/* Info */
 
 				.FeedFrame .FeedFrameContent .FeedBoxGroup .ItemBox a .ItemInfo {
