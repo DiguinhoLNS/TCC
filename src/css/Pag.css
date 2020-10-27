@@ -1142,6 +1142,10 @@ h1, h2, h3, h4, h5, h6 {
 					color: var(--color-txt-p-lm);
 				}
 
+				.ThemeYellow #SectionCompanyMain ul .CategoryDanger .CategoryOptions .btnContent button:hover {
+					color: var(--color-txt-p-dm);
+				}
+
 			/* Danger */
 
 			#SectionCompanyMain ul .CategoryDanger {
@@ -2559,6 +2563,10 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 .NavOptions ul li a {
+	display: grid;
+	grid-template-columns: 20px 1fr;
+	grid-gap: 20px;
+	
 	width: 100%;
 	padding: 10px 20px;
 	border-radius: 20px;
@@ -2567,7 +2575,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .NavOptions ul li a i {
-	margin-right: 20px;
+	display: flex;
+	align-items: center;
 	
 	font-size: 20px;
 }

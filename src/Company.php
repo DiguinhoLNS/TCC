@@ -222,13 +222,13 @@
 
 					</ul>
 
-					<ul>
+					<ul class = "CompanyADM">
 
-						<div class = "CategoryHeader">
+						<div class = "CategoryHeader ">
 							<h1> Configurações </h1>
 						</div>
 
-						<li class = "Category CompanyADM">
+						<li class = "Category">
 
 							<h1 class = "HeaderCategory"> Editar </h1>
 
@@ -310,7 +310,7 @@
 
 						</li>
 
-						<li class = "Category CategoryDanger CompanyADM">
+						<li class = "Category CategoryDanger">
 
 							<h1 class = "HeaderCategory"> Zona de Perigo </h1>	
 
