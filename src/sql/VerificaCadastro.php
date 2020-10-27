@@ -127,7 +127,6 @@
             $data = ClearInjectionXSS($base, $_POST["data"]);
             $telefone = ClearInjectionXSS($base, $_POST["telefone"]);
             $genero = ClearInjectionXSS($base, $_POST["Genero"]);
-            $senha = ClearInjectionXSS($base, $_POST["senha"]);
 
             $cpf = TirarPontoCPF($CpfComPonto);
 
@@ -137,8 +136,7 @@
                 "CPF" => false,
                 "Data" => false,
                 "Endereco" => false,
-                "Telefone" => false,
-                "Senha" => false
+                "Telefone" => false
             ];
 
             $ErroNosCampos["Nome"] = VerificarCadastroNome($nome);    
@@ -148,8 +146,6 @@
             $ErroNosCampos["Data"] = VerificaData($data);
 
             $ErroNosCampos["Telefone"] = VerificaTelefone($telefone);
-
-            $ErroNosCampos["Senha"] = VerificaSenha($senha); 
 
             foreach ($ErroNosCampos as $key => $verifica) {
                 if ($verifica) {
@@ -264,5 +260,3 @@
         break;
 
     }
-
-?>

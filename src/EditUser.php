@@ -196,11 +196,6 @@
 							<span id = "ErrorTelefone" class = "txtError"> Telefone inválido </span>
 							<input id = "E_UserTelefone" class = "UserInputData InputTelefone9" type = "text" name = "telefone" value = "<?php echo $DadosUsuario["Telefone_user"] ?>" placeholder = "Fixo ou móvel" required />
 						</li>
-						<li class = "ContentInput">
-							<label for = "E_UserSenha"> Senha </label>
-							<span id = "ErrorSenha" class = "txtError"> Senha inválida </span>
-							<input id = "E_UserSenha" class = "UserInputData" type = "password" name = "senha"  value = "<?php echo $DadosUsuario["Senha_user"] ?>" required />
-						</li>
 						<li class = "ContentBottom">
                         <a href = "User.php"> Voltar </a>
 							<input class = "UserInputSubmit btn" type = "submit" value = "Editar">

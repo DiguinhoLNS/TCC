@@ -180,24 +180,28 @@
 							<div class = "FeedFrameContent">
 
 								<h1 class = "TitleHeader"> Categorias </h1>
-
-								<div class = "FeedFrameCategory">
-
-									<h2 class = "HeaderCategory"> Eletrônicos </h2>
-
-									<ul class = "FeedBoxGroup">
-
-									<?php
+								<?php
 
 										if($Eletronicos["Quantidade"]==0){
 
-											echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
+											echo '
+											<div class = "FeedFrameCategory">											
+
+											<ul class = "FeedBoxGroup">';									
 
 										}else{
 											$i=0;
+											echo '
+											<div class = "FeedFrameCategory">
+
+											<h2 class = "HeaderCategory"> Eletrônicos </h2>
+
+											<ul class = "FeedBoxGroup">';
 											do{
-												list($DiaSemana, $Data, $Hora) = explode(" ", $DadosItem["Objeto"][$i]["Data_cadastro"]);
+												list($DiaSemana, $Data, $Hora) = explode(" ", $Eletronicos["Objeto"][$i]["Data_cadastro"]);
 												echo '
+
+
 													<li class = "ItemBox">
 
 														<a href = "#" title = "'.$Eletronicos["Objeto"][$i]["Nome_obj"].'">
@@ -228,23 +232,28 @@
 
 								</div>
 
-								<div class = "FeedFrameCategory">
-
-									<h2 class = "HeaderCategory"> Roupas </h2>
-
-									<ul class = "FeedBoxGroup">
-
-									<?php
+								<?php
 
 										if($Roupas["Quantidade"]==0){
 
-											echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
+											echo '
+											<div class = "FeedFrameCategory">									
+
+											<ul class = "FeedBoxGroup">';									
 
 										}else{
+											echo'
+											<div class = "FeedFrameCategory">
+
+											<h2 class = "HeaderCategory"> Roupas </h2>
+
+											<ul class = "FeedBoxGroup">';
+
 											$i=0;
 											do{
-												list($DiaSemana, $Data, $Hora) = explode(" ", $DadosItem["Objeto"][$i]["Data_cadastro"]);
+												list($DiaSemana, $Data, $Hora) = explode(" ", $Roupas["Objeto"][$i]["Data_cadastro"]);
 												echo '
+
 													<li class = "ItemBox">
 
 														<a href = "#" title = "'.$Roupas["Objeto"][$i]["Nome_obj"].'">
@@ -275,23 +284,29 @@
 
 								</div>
 
-								<div class = "FeedFrameCategory">
 
-									<h2 class = "HeaderCategory"> Acessórios </h2>
-
-									<ul class = "FeedBoxGroup">
 
 									<?php
 
 										if($Acessorios["Quantidade"]==0){
-
-											echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
+											echo '
+											<div class = "FeedFrameCategory">	
+		
+											<ul class = "FeedBoxGroup">';
 
 										}else{
 											$i=0;
+											echo'
+											<div class = "FeedFrameCategory">
+
+											<h2 class = "HeaderCategory"> Acessórios </h2>
+
+											<ul class = "FeedBoxGroup">';
 											do{
-												list($DiaSemana, $Data, $Hora) = explode(" ", $DadosItem["Objeto"][$i]["Data_cadastro"]);
+
+												list($DiaSemana, $Data, $Hora) = explode(" ", $Acessorios["Objeto"][$i]["Data_cadastro"]);
 												echo '
+
 													<li class = "ItemBox">
 
 														<a href = "#" title = "'.$Acessorios["Objeto"][$i]["Nome_obj"].'">
@@ -322,23 +337,27 @@
 
 								</div>
 
-								<div class = "FeedFrameCategory">
-
-									<h2 class = "HeaderCategory"> Documentos </h2>
-
-									<ul class = "FeedBoxGroup">
-
 									<?php
 
 										if($Documentos["Quantidade"]==0){
+											echo '
+											<div class = "FeedFrameCategory">
 
-											echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
+											<ul class = "FeedBoxGroup">';
 
 										}else{
 											$i=0;
+											echo '
+											<div class = "FeedFrameCategory">
+
+											<h2 class = "HeaderCategory"> Documentos </h2>
+
+											<ul class = "FeedBoxGroup">';
+
 											do{
-												list($DiaSemana, $Data, $Hora) = explode(" ", $DadosItem["Objeto"][$i]["Data_cadastro"]);
+												list($DiaSemana, $Data, $Hora) = explode(" ", $Documentos["Objeto"][$i]["Data_cadastro"]);
 												echo '
+
 													<li class = "ItemBox">
 
 														<a href = "#" title = "'.$Documentos["Objeto"][$i]["Nome_obj"].'">
@@ -369,23 +388,28 @@
 
 								</div>
 
-								<div class = "FeedFrameCategory">
-
-									<h2 class = "HeaderCategory"> Outros </h2>
-
-									<ul class = "FeedBoxGroup">
-
 									<?php
 
 										if($Outros["Quantidade"]==0){
+											echo'
 
-											echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
+											<div class = "FeedFrameCategory">
+		
+											<ul class = "FeedBoxGroup">';
 
 										}else{
 											$i=0;
+											echo '				
+											<div class = "FeedFrameCategory">
+
+											<h2 class = "HeaderCategory"> Outros </h2>
+		
+											<ul class = "FeedBoxGroup">';
+
 											do{
-												list($DiaSemana, $Data, $Hora) = explode(" ", $DadosItem["Objeto"][$i]["Data_cadastro"]);
+												list($DiaSemana, $Data, $Hora) = explode(" ", $Outros["Objeto"][$i]["Data_cadastro"]);
 												echo '
+
 													<li class = "ItemBox">
 
 														<a href = "#" title = "'.$Outros["Objeto"][$i]["Nome_obj"].'">
