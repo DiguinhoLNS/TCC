@@ -14,7 +14,7 @@
         case "Usuario":
 
             $codigo_acesso = ClearInjectionXSS($base, $_GET['q']);
-            $id_user = ClearInjectionXSS($base, $_COOKIE["ID"]);
+            $id_user = ClearInjectionXSS($base, base64_decode($_COOKIE["ID"]));
 
             $DadosEmpresa = PegarDadosEmpresaPeloCodigo($base, $codigo_acesso);
 
@@ -29,7 +29,7 @@
         case "Empresa":
 
             $codigo_acesso = ClearInjectionXSS($base, $_GET['q']);
-            $id_adm = ClearInjectionXSS($base, $_COOKIE["ID"]);
+            $id_adm = ClearInjectionXSS($base, base64_decode($_COOKIE["ID"]));
 
             $DadosEmpresa = PegarDadosEmpresaPeloId_Codigo($base, $id_adm, $codigo_acesso);
 

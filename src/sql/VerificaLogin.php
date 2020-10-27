@@ -43,7 +43,7 @@
 			$_SESSION["CompanyLoginError_1"] = 0;
 
 			$codigo_acesso = ClearInjectionXSS($base, $_POST['cod']);
-			$id_user = ClearInjectionXSS($base, $_COOKIE['ID']);
+			$id_user = ClearInjectionXSS($base, base64_decode($_COOKIE['ID']));
 
 			$Dados = PegarDadosEmpresaPeloCodigo($base, $codigo_acesso);
 

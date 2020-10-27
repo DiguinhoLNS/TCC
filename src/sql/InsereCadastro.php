@@ -38,7 +38,7 @@
 				$CodigoJaExiste = $Dados["CodigoExiste"] ? true : false;
 			} while ($CodigoJaExiste);
 
-			$id_adm = ClearInjectionXSS($base, $_COOKIE["ID"]);
+			$id_adm = ClearInjectionXSS($base, base64_decode($_COOKIE["ID"]));
 			$nome = ClearInjectionXSS($base, $_POST["nome"]);
 			$email = ClearInjectionXSS($base, $_POST["email"]);
 			$cnpj = ClearInjectionXSS($base, $_SESSION['cnpjsemponto']);

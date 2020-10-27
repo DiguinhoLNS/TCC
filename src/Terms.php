@@ -179,7 +179,7 @@
         <?php include "include/SideNavBar.php"; ?>
         <?php include "include/HeaderNotification.php"; ?>
         <?php include "include/HeaderConfig.php"; ?>
-        <?php include "include/CookiesMessage"; ?>
+        <?php include "include/CookieMessage.php"; ?>
 
         <div id = "DarkEffect"></div>
 

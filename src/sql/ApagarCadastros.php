@@ -7,7 +7,7 @@
     include_once "Funcoes.php";
 
     $tipo_verificacao = $_SESSION['TipoVerificação'];
-    $id = ClearInjectionXSS($base, $_COOKIE["ID"]);
+    $id = ClearInjectionXSS($base, base64_decode($_COOKIE["ID"]));
     $id_empresa = ClearInjectionXSS($base, $_GET['q']);
 
     switch ($tipo_verificacao) {
