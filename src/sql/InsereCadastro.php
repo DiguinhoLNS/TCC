@@ -80,14 +80,16 @@
 				$data .= " ".$Hora;
 				$data .= date(':i:s');
 				$DiaMaiusculo = strtoupper(substr($data, 0, 1));  
-    			$data = substr_replace($data, $DiaMaiusculo, 0, 1);
+				$data = substr_replace($data, $DiaMaiusculo, 0, 1);
+				$data = utf8_encode($data);
 			}else{
 				$Hora = date('H');
 				$data = strftime('%A %d/%m/%Y');
 				$data .= " ".$Hora;
 				$data .= date(':i:s');
 				$DiaMaiusculo = strtoupper(substr($data, 0, 1));  
-    			$data = substr_replace($data, $DiaMaiusculo, 0, 1);
+				$data = substr_replace($data, $DiaMaiusculo, 0, 1);
+				$data = utf8_encode($data);
 			}
 			
 
