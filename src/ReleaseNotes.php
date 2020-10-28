@@ -36,7 +36,7 @@
 
                 <section id = "SectionReleaseNotesHeader">
 
-                    <h1> Notas de Atualização </h1>
+                    <h1> Notas de Versão </h1>
 
                 </section>
 
@@ -45,7 +45,7 @@
                     <div class = "ReleaseNotesVersionHeader">
 
                         <h2> APE </h2>
-                        <h3> 0.6.4 </h3>
+                        <h3> 1.0.0 </h3>
 
                     </div>
 

@@ -79,7 +79,7 @@
 
 								<form>
 
-									<input type = "text" placeholder = "Pesquisar itens" title = "Pesquisar Itens">
+									<input id = "FeedSearchItens" type = "text" placeholder = "Pesquisar itens" title = "Pesquisar Itens">
 									<button id = "SearchFeed" title = "Pesquisar">
 										<i class = "material-icons"> &#xe8b6; </i>	
 									</button>

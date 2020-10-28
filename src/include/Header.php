@@ -23,7 +23,7 @@
         <nav>
 
             <ul>
-                <li><a href = "#"> Empresas </a></li>
+                <li><a href = "AbourCompanies.php"> Empresas </a></li>
                 <li><a href = "About.php"> Sobre </a></li>
             </ul>
 

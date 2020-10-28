@@ -9,7 +9,7 @@
 
 <link rel = "stylesheet" type = "text/css" href = "css/Pag.css"/>
 
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 
 <script src = "js/Pag.js" defer></script>

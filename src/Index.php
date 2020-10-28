@@ -113,17 +113,17 @@
                                 <ul>
 
                                     <li class = "DiscoverBlockContent">
-                                        <a id = "D1">
+                                        <a id = "D1" title = "Leia mais">
                                             <i class = "material-icons"> &#xe1b1; </i>
                                         </a>
                                     </li>
                                     <li class = "DiscoverBlockContent">
-                                        <a href = "RegisterUser.php" title = "Criar conta gratuitamente">
+                                        <a href = "RegisterUser.php" title = "Criar uma conta gratuitamente">
                                             <i class = "material-icons"> &#xe7fd; </i>
                                         </a>
                                     </li>
                                     <li class = "DiscoverBlockContent">
-                                        <a id = "D2">
+                                        <a id = "D2" title = "Leia mais">
                                             <i class = "material-icons"> &#xe32a; </i>
                                         </a>
                                     </li>
@@ -147,12 +147,12 @@
                                 <ul>
 
                                     <li class = "DiscoverBlockContent">
-                                        <a id = "D3">
+                                        <a id = "D3" title = "Leia mais">
                                             <i class = "material-icons"> admin_panel_settings </i>
                                         </a>
                                     </li>
                                     <li class = "DiscoverBlockContent">
-                                        <a id = "D4">
+                                        <a id = "D4" title = "Leia mais">
                                             <i class = "material-icons"> &#xe1db; </i>
                                         </a>
                                     </li>
@@ -212,7 +212,7 @@
                 </li>
                 <li>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
+                        A plataforma APE está disponível em várias plataformas e navegadores, permitindo a conexão de muitos lugares diferentes.
                     </p>
                 </li>
 
@@ -226,7 +226,7 @@
                 </li>
                 <li>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
+                        Todos os dados armazenados na plataforma APE são criptografados com tecnologia de ponta que mantém a sua segurança e a sua privacidade.
                     </p>
                 </li>
 
@@ -240,7 +240,7 @@
                 </li>
                 <li>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
+                        Com uma conta nível 4 dentro de uma empresa, você terá opções avançadas para gerenciar a sua página.
                     </p>
                 </li>
 
@@ -254,7 +254,7 @@
                 </li>
                 <li>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
+                        O armazenamento de dados na plataforma APE é totalmente gratuito e seguro.
                     </p>
                 </li>
 

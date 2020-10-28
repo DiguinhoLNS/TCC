@@ -99,3 +99,51 @@ $(document).ready(function(){
     });
 
 });
+
+/*******************************************************
+    Feed
+*******************************************************/
+
+$(document).ready(function(){
+
+    const ItemBox = $(".ItemBox");
+
+    /* Filtes */
+
+    // A-Z
+    $("#P1").on("click", function(){
+
+        ItemBox.remove();
+
+    });
+
+    // Z-A
+    $("#P2").on("click", function(){
+
+        ItemBox.remove();
+
+    });
+
+    // Data >
+    $("#P3").on("click", function(){
+
+        ItemBox.remove();
+
+    });
+
+    // Data <
+    $("#P4").on("click", function(){
+
+        ItemBox.remove();
+
+    });
+
+    /* Search Bar */
+
+    $("#FeedSearchItens").keyup(function(){
+
+        ItemBox.remove();
+        
+    });
+
+});

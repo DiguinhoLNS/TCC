@@ -2771,7 +2771,7 @@ h1, h2, h3, h4, h5, h6 {
 		display: grid;
 		grid-template-rows: auto 1fr;
 		
-		width: 60%;
+		width: 900px;
 		padding: 40px 60px;
 		border-radius: 40px;
 
@@ -2812,6 +2812,7 @@ h1, h2, h3, h4, h5, h6 {
 
 		color: var(--color-txt-s);
 		font-size: 25px;
+		text-align: justify;
 	}
 
 /* Mostrar */

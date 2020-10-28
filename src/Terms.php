@@ -36,7 +36,7 @@
             
                 <section id = "SectionTermsHeader">
 
-                    <h1> Termos APE </h1>
+                    <h1> Plataforma APE </h1>
                     
                 </section>
 
@@ -62,22 +62,6 @@
                                     <img alt = "Licença Creative Commons" style = "border-width:0" src = "https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"/>
                                 </a> 
 
-                            </span>
-
-                        </li>
-
-                    </ul>
-
-                    <ul>
-
-                        <h2> Termos </h2>
-
-                        <li id = "TermsUse">
-
-                            <h3> Termos de Uso </h3>
-
-                            <span>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at tincidunt augue. Sed id metus semper, pellentesque felis at, condimentum mi. Mauris sagittis augue sed ligula hendrerit, in pharetra odio finibus. Cras at volutpat ligula. Sed id velit nec leo euismod mollis vitae non sapien. Pellentesque suscipit sollicitudin egestas. Integer fermentum dui augue, ac ultrices magna tempor vel. Pellentesque ullamcorper odio rhoncus enim cursus, facilisis viverra lacus maximus. Proin bibendum vel erat nec congue.
                             </span>
 
                         </li>
