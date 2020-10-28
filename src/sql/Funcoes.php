@@ -1,6 +1,5 @@
 <?php
 
-include 'ConexaoBD.php';
 date_default_timezone_set('America/Sao_Paulo');
 
 function EncerrarSessao()
@@ -411,7 +410,8 @@ function PegarDadosItemPeloIdEmpresa($base, $id_empresa)
     }
 }
 
-function PegarDocumentos($base, $id_empresa){
+function PegarDocumentos($base, $id_empresa)
+{
 
     $query = "SELECT * FROM objetos where id_empresa =  '$id_empresa' and Categoria = 'Documento'";
     $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 12");
@@ -434,10 +434,10 @@ function PegarDocumentos($base, $id_empresa){
             "Quantidade" => $QuantidadeDeObjetos,
         ];
     }
-
 }
 
-function PegarRoupas($base, $id_empresa){
+function PegarRoupas($base, $id_empresa)
+{
 
     $query = "SELECT * FROM objetos where id_empresa =  '$id_empresa' and Categoria = 'Roupa'";
     $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 13");
@@ -460,10 +460,10 @@ function PegarRoupas($base, $id_empresa){
             "Quantidade" => $QuantidadeDeObjetos,
         ];
     }
-
 }
 
-function PegarEletronicos($base, $id_empresa){
+function PegarEletronicos($base, $id_empresa)
+{
 
     $query = "SELECT * FROM objetos where id_empresa =  '$id_empresa' and Categoria = 'Eletrônico'";
     $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 14");
@@ -486,10 +486,10 @@ function PegarEletronicos($base, $id_empresa){
             "Quantidade" => $QuantidadeDeObjetos,
         ];
     }
-
 }
 
-function PegarAcessorios($base, $id_empresa){
+function PegarAcessorios($base, $id_empresa)
+{
 
     $query = "SELECT * FROM objetos where id_empresa =  '$id_empresa' and Categoria = 'Acessório'";
     $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 15");
@@ -512,13 +512,13 @@ function PegarAcessorios($base, $id_empresa){
             "Quantidade" => $QuantidadeDeObjetos,
         ];
     }
-
 }
 
-function PegarOutros($base, $id_empresa){
+function PegarOutros($base, $id_empresa)
+{
 
     $query = "SELECT * FROM objetos where id_empresa =  '$id_empresa' and Categoria = 'Outros'";
-    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 16");
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 17");
     $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
 
     if ($QuantidadeDeObjetos > 0) {
@@ -538,5 +538,625 @@ function PegarOutros($base, $id_empresa){
             "Quantidade" => $QuantidadeDeObjetos,
         ];
     }
+}
 
+function TodosAZ($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa order by Nome_obj ASC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 18");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function TodosZA($base, $id_empresa)
+{
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa order by Nome_obj DESC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 19");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function TodosRecente($base, $id_empresa)
+{
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa order by Data_cadastro DESC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 20");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function TodosAntigo($base, $id_empresa)
+{
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa order by Data_cadastro ASC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 21");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function AcessoriosAZ($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Acessório' order by Nome_obj ASC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 22");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function AcessoriosZA($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Acessório' order by Nome_obj DESC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 23");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function AcessoriosAntigo($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Acessório' order by Data_cadastro ASC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 24");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function AcessoriosRecente($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Acessório' order by Data_cadastro DESC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 24");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function DocumentosAZ($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Documento' order by Nome_obj ASC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 25");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function DocumentosZA($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Documento' order by Nome_obj DESC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 26");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function DocumentosAntigo($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Documento' order by Data_cadastro ASC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 27");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function DocumentosRecente($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Documento' order by Data_cadastro DESC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 28");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function EletronicosAZ($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Eletrônico' order by Nome_obj ASC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 29");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function EletronicosZA($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Eletrônico' order by Nome_obj DESC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 30");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function EletronicosAntigo($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Eletrônico' order by Data_cadastro ASC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 31");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function EletronicosRecente($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Eletrônico' order by Data_cadastro DESC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 32");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function RoupasAZ($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Roupa' order by Nome_obj ASC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 33");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function RoupasZA($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Roupa' order by Nome_obj DESC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 34");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function RoupasAntigo($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Roupa' order by Data_cadastro ASC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 35");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function RoupasRecente($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Roupa' order by Data_cadastro DESC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 36");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function OutrosAZ($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Outros' order by Nome_obj ASC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 37");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function OutrosZA($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Outros' order by Nome_obj DESC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 38");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function OutrosAntigo($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Outros' order by Data_cadastro ASC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 39");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
+function OutrosRecente($base, $id_empresa)
+{
+
+    $query = "SELECT * FROM objetos where id_empresa = $id_empresa and categoria = 'Outros' order by Data_cadastro DESC";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 40");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
 }

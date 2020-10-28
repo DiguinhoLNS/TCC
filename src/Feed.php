@@ -139,8 +139,6 @@
 										}else{
 											$i=0;
 											do{
-												list($DiaSemana, $Data, $Hora) = explode(" ", $DadosItem["Objeto"][$i]["Data_cadastro"]);
-
 												echo '
 													<li class = "ItemBox">
 
@@ -153,7 +151,7 @@
 															<div class = "ItemInfo">
 																
 																<h1 class = "ItemName"> '.$DadosItem["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$Data.' </h2>
+																<h2 class = "ItemData"> '.$DadosItem["Objeto"][$i]["Data_cadastro"].' </h2>
 																<h3 class = "ItemCategory"> '.$DadosItem["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>
@@ -198,7 +196,6 @@
 
 											<ul class = "FeedBoxGroup">';
 											do{
-												list($DiaSemana, $Data, $Hora) = explode(" ", $Eletronicos["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 
@@ -213,7 +210,7 @@
 															<div class = "ItemInfo">
 																
 																<h1 class = "ItemName"> '.$Eletronicos["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$Data.' </h2>
+																<h2 class = "ItemData"> '.$Eletronicos["Objeto"][$i]["Data_cadastro"].' </h2>
 																<h3 class = "ItemCategory"> '.$Eletronicos["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>
@@ -251,7 +248,6 @@
 
 											$i=0;
 											do{
-												list($DiaSemana, $Data, $Hora) = explode(" ", $Roupas["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 													<li class = "ItemBox">
@@ -265,7 +261,7 @@
 															<div class = "ItemInfo">
 																
 																<h1 class = "ItemName"> '.$Roupas["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$Data.' </h2>
+																<h2 class = "ItemData"> '.$Roupas["Objeto"][$i]["Data_cadastro"].' </h2>
 																<h3 class = "ItemCategory"> '.$Roupas["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>
@@ -303,8 +299,6 @@
 
 											<ul class = "FeedBoxGroup">';
 											do{
-
-												list($DiaSemana, $Data, $Hora) = explode(" ", $Acessorios["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 													<li class = "ItemBox">
@@ -318,7 +312,7 @@
 															<div class = "ItemInfo">
 																
 																<h1 class = "ItemName"> '.$Acessorios["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$Data.' </h2>
+																<h2 class = "ItemData"> '.$Acessorios["Objeto"][$i]["Data_cadastro"].' </h2>
 																<h3 class = "ItemCategory"> '.$Acessorios["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>
@@ -355,7 +349,6 @@
 											<ul class = "FeedBoxGroup">';
 
 											do{
-												list($DiaSemana, $Data, $Hora) = explode(" ", $Documentos["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 													<li class = "ItemBox">
@@ -369,7 +362,7 @@
 															<div class = "ItemInfo">
 																
 																<h1 class = "ItemName"> '.$Documentos["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$Data.' </h2>
+																<h2 class = "ItemData"> '.$Documentos["Objeto"][$i]["Data_cadastro"].' </h2>
 																<h3 class = "ItemCategory"> '.$Documentos["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>
@@ -407,7 +400,6 @@
 											<ul class = "FeedBoxGroup">';
 
 											do{
-												list($DiaSemana, $Data, $Hora) = explode(" ", $Outros["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 													<li class = "ItemBox">
@@ -421,7 +413,7 @@
 															<div class = "ItemInfo">
 																
 																<h1 class = "ItemName"> '.$Outros["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$Data.' </h2>
+																<h2 class = "ItemData"> '.$Outros["Objeto"][$i]["Data_cadastro"].' </h2>
 																<h3 class = "ItemCategory"> '.$Outros["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>

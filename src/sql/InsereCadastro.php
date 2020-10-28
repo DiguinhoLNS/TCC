@@ -72,26 +72,7 @@
 
 			setlocale(LC_ALL, 'pt_BR', 'pt', 'Portuguese_Brazilian');
 
-			$horarioDeVerao = date('I');
-
-			if($horarioDeVerao == 1){
-				$Hora = date('H')-1;
-				$data = strftime('%A %d/%m/%Y');
-				$data .= " ".$Hora;
-				$data .= date(':i:s');
-				$DiaMaiusculo = strtoupper(substr($data, 0, 1));  
-				$data = substr_replace($data, $DiaMaiusculo, 0, 1);
-				$data = utf8_encode($data);
-			}else{
-				$Hora = date('H');
-				$data = strftime('%A %d/%m/%Y');
-				$data .= " ".$Hora;
-				$data .= date(':i:s');
-				$DiaMaiusculo = strtoupper(substr($data, 0, 1));  
-				$data = substr_replace($data, $DiaMaiusculo, 0, 1);
-				$data = utf8_encode($data);
-			}
-			
+			$data = strftime('%Y-%m-%d');			
 
 			$sql = "INSERT INTO objetos (id_empresa, Nome_foto, Nome_obj, Data_cadastro, Categoria, Descricao, situacao) VALUES";
 			$sql .= " ('$id_empresa', '$novoNome', '$nome', '$data' , '$categoria', '$descricao', 'Perdido') ";
