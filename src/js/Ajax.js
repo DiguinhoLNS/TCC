@@ -98,52 +98,213 @@ $(document).ready(function(){
 
     });
 
-});
+    /*******************************************************
+        Feed
+    *******************************************************/
 
-/*******************************************************
-    Feed
-*******************************************************/
+    const AllFolder = "php/Filters/All/FilterAZ.php";
+    const CategoryFolder = "php/Filters/Category/FilterRecente.php";
+    const AllItemBox = $(".AllItemBox");
+    const CategoryItemBox = $(".CategoryItemBox");
+    const FeedAll = $("#FeedAll");
+    const FeedCategory = $("#FeedCategory");
 
-$(document).ready(function(){
-
-    const ItemBox = $(".ItemBox");
+    var FeedAllDisplay = $("#AllItensFrame").css("display");
+    var FeedCategoryDisplay = $("#CategoryItensFrame").css("display");
 
     /* Filtes */
 
-    // A-Z
-    $("#P1").on("click", function(){
+        // A-Z
+        $("#btnFeedAZ").on("click", function(){
 
-        ItemBox.remove();
+            // All
+            if(FeedAllDisplay == "block"){
 
-    });
+                $.ajax(AllFolder,{
 
-    // Z-A
-    $("#P2").on("click", function(){
+                }).done(function(){
 
-        ItemBox.remove();
+                    AJAXRequestStatus(1);
 
-    });
+                    AllItemBox.remove();
 
-    // Data >
-    $("#P3").on("click", function(){
+                    $(FeedAll).load(AllFolder);
+    
+                }).fail(function(){
+    
+                    AJAXRequestStatus(0);
+    
+                });
 
-        ItemBox.remove();
+            }
 
-    });
+            // Category
+            if(FeedCategoryDisplay == "block"){
 
-    // Data <
-    $("#P4").on("click", function(){
+                $.ajax(CategoryFolder,{
 
-        ItemBox.remove();
+                }).done(function(){
+    
+                    AJAXRequestStatus(1);
 
-    });
+                    $(FeedCategory).load(CategoryFolder);
+    
+                }).fail(function(){
+    
+                    AJAXRequestStatus(0);
+    
+                });
 
-    /* Search Bar */
+            }
 
-    $("#FeedSearchItens").keyup(function(){
+        });
 
-        ItemBox.remove();
-        
-    });
+        // Z-A
+        $("#btnFeedZA").on("click", function(){
+
+            // All
+            if(FeedAllDisplay == "block"){
+
+                $.ajax(AllFolder,{
+
+                }).done(function(){
+    
+                    AJAXRequestStatus(1);
+
+                    AllItemBox.remove();
+
+                    $(FeedAll).load(AllFolder);
+    
+                }).fail(function(){
+    
+                    AJAXRequestStatus(0);
+    
+                });
+
+            }
+
+            // Category
+            if(FeedCategoryDisplay == "block"){
+
+                $.ajax(CategoryFolder,{
+
+                }).done(function(){
+    
+                    AJAXRequestStatus(1);
+
+                    $(FeedCategory).load(CategoryFolder);
+    
+                }).fail(function(){
+    
+                    AJAXRequestStatus(0);
+    
+                });
+
+            }
+
+        });
+
+        // Recente
+        $("#btnFeedRecente").on("click", function(){
+
+            // All
+            if(FeedAllDisplay == "block"){
+
+                $.ajax(AllFolder,{
+
+                }).done(function(){
+    
+                    AJAXRequestStatus(1);
+
+                    AllItemBox.remove();
+
+                    $(FeedAll).load(AllFolder);
+    
+                }).fail(function(){
+    
+                    AJAXRequestStatus(0);
+    
+                });
+
+            }
+
+            // Category
+            if(FeedCategoryDisplay == "block"){
+
+                $.ajax(CategoryFolder,{
+
+                }).done(function(){
+    
+                    AJAXRequestStatus(1);
+
+                    $(FeedCategory).load(CategoryFolder);
+    
+                }).fail(function(){
+    
+                    AJAXRequestStatus(0);
+    
+                });
+
+            }
+
+        });
+
+        // Antigo
+        $("#btnFeedAntigo").on("click", function(){
+
+            // All
+            if(FeedAllDisplay == "block"){
+
+                $.ajax(AllFolder,{
+
+                }).done(function(){
+    
+                    AJAXRequestStatus(1);
+
+                    AllItemBox.remove();
+
+                    $(FeedAll).load(AllFolder);
+    
+                }).fail(function(){
+    
+                    AJAXRequestStatus(0);
+    
+                });
+
+            }
+
+            // Category
+            if(FeedCategoryDisplay == "block"){
+
+                $.ajax(CategoryFolder,{
+
+                }).done(function(){
+    
+                    AJAXRequestStatus(1);
+
+                    $(FeedCategory).load(CategoryFolder);
+    
+                }).fail(function(){
+    
+                    AJAXRequestStatus(0);
+    
+                });
+
+            }
+
+        });
+
+        /* Search Bar */
+
+        $("#FeedSearchItens").keyup(function(){
+
+            AllItemBox.remove();
+
+            $(".FilterCategory").removeClass("active");
+
+            $("#AllItensFrame").css("display", "block");
+            $("#CategoryItensFrame").css("display", "None");
+            
+        });
 
 });

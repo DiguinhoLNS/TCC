@@ -7,6 +7,7 @@
 	include_once "sql/Funcoes.php";
 
 	$id_empresa = $_GET['q'];
+	setcookie("ID_Company", base64_encode($id_empresa), time() + (86400 * 30), "/");
 
 	if(isset($_COOKIE["ID"])){
 
@@ -19,7 +20,7 @@
 		$Acessorios = PegarAcessorios($base, $id_empresa);
 		$Roupas = PegarRoupas($base, $id_empresa);
 		$Eletronicos = PegarEletronicos($base, $id_empresa);
-		$Outros = PegarOutros($base, $id_empresa);	
+		$Outros = PegarOutros($base, $id_empresa);
 
 		setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 
@@ -103,10 +104,10 @@
 
 							<ul class = "FeedFilters">
 
-								<li id = "P1" class = "FilterItem FilterParameter active" title = "Ordenar de A-Z"> A - Z </li>
-								<li id = "P2" class = "FilterItem FilterParameter" title = "Ordenar de Z-A"> Z - A </li>
-								<li id = "P3" class = "FilterItem FilterParameter" title = "Ordenar por mais recentes"> Mais recentes </li>
-								<li id = "P4" class = "FilterItem FilterParameter" title = "Ordernar por mais antigos"> Mais antigos  </li>
+								<li id = "btnFeedAZ" class = "FilterItem FilterParameter active" title = "Ordenar de A-Z"> A - Z </li>
+								<li id = "btnFeedZA" class = "FilterItem FilterParameter" title = "Ordenar de Z-A"> Z - A </li>
+								<li id = "btnFeedRecente" class = "FilterItem FilterParameter" title = "Ordenar por mais recentes"> Mais recentes </li>
+								<li id = "btnFeedAntigo" class = "FilterItem FilterParameter" title = "Ordernar por mais antigos"> Mais antigos  </li>
 
 							</ul>
 
@@ -128,7 +129,7 @@
 
 								<div class = "FeedFrameCategory">
 
-									<ul class = "FeedBoxGroup">
+									<ul id = "FeedAll" class = "FeedBoxGroup">
 
 									<?php
 
@@ -140,7 +141,7 @@
 											$i=0;
 											do{
 												echo '
-													<li class = "ItemBox">
+													<li class = "ItemBox AllItemBox">
 
 														<a href = "#" title = "'.$DadosItem["Objeto"][$i]["Nome_obj"].'">
 
