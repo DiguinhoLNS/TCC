@@ -102,10 +102,9 @@ $(document).ready(function(){
         Feed
     *******************************************************/
 
-    const AllFolder = "php/Filters/All/FilterAZ.php";
-    const CategoryFolder = "php/Filters/Category/FilterRecente.php";
     const AllItemBox = $(".AllItemBox");
     const CategoryItemBox = $(".CategoryItemBox");
+
     const FeedAll = $("#FeedAll");
     const FeedCategory = $("#FeedCategory");
 
@@ -120,7 +119,9 @@ $(document).ready(function(){
             // All
             if(FeedAllDisplay == "block"){
 
-                $.ajax(AllFolder,{
+                var folder = "php/Filters/All/FilterAZ.php";
+
+                $.ajax(folder,{
 
                 }).done(function(){
 
@@ -128,7 +129,7 @@ $(document).ready(function(){
 
                     AllItemBox.remove();
 
-                    $(FeedAll).load(AllFolder);
+                    $(FeedAll).load(folder);
     
                 }).fail(function(){
     
@@ -141,13 +142,15 @@ $(document).ready(function(){
             // Category
             if(FeedCategoryDisplay == "block"){
 
-                $.ajax(CategoryFolder,{
+                var folder = "php/Filters/Category/FilterAZ.php";
+
+                $.ajax(folder,{
 
                 }).done(function(){
     
                     AJAXRequestStatus(1);
 
-                    $(FeedCategory).load(CategoryFolder);
+                    $(FeedCategory).load(folder);
     
                 }).fail(function(){
     
@@ -165,7 +168,9 @@ $(document).ready(function(){
             // All
             if(FeedAllDisplay == "block"){
 
-                $.ajax(AllFolder,{
+                var folder = "php/Filters/All/FilterZA.php";
+
+                $.ajax(folder,{
 
                 }).done(function(){
     
@@ -173,7 +178,7 @@ $(document).ready(function(){
 
                     AllItemBox.remove();
 
-                    $(FeedAll).load(AllFolder);
+                    $(FeedAll).load(folder);
     
                 }).fail(function(){
     
@@ -186,13 +191,15 @@ $(document).ready(function(){
             // Category
             if(FeedCategoryDisplay == "block"){
 
-                $.ajax(CategoryFolder,{
+                var folder = "php/Filters/Category/FilterZA.php";
+
+                $.ajax(folder,{
 
                 }).done(function(){
     
                     AJAXRequestStatus(1);
 
-                    $(FeedCategory).load(CategoryFolder);
+                    $(FeedCategory).load(folder);
     
                 }).fail(function(){
     
@@ -210,7 +217,9 @@ $(document).ready(function(){
             // All
             if(FeedAllDisplay == "block"){
 
-                $.ajax(AllFolder,{
+                var folder = "php/Filters/All/FilterRecente.php";
+
+                $.ajax(folder,{
 
                 }).done(function(){
     
@@ -218,7 +227,7 @@ $(document).ready(function(){
 
                     AllItemBox.remove();
 
-                    $(FeedAll).load(AllFolder);
+                    $(FeedAll).load(folder);
     
                 }).fail(function(){
     
@@ -231,13 +240,15 @@ $(document).ready(function(){
             // Category
             if(FeedCategoryDisplay == "block"){
 
-                $.ajax(CategoryFolder,{
+                var folder = "php/Filters/Category/FilterRecente.php";
+
+                $.ajax(folder,{
 
                 }).done(function(){
     
                     AJAXRequestStatus(1);
 
-                    $(FeedCategory).load(CategoryFolder);
+                    $(FeedCategory).load(folder);
     
                 }).fail(function(){
     
@@ -255,7 +266,9 @@ $(document).ready(function(){
             // All
             if(FeedAllDisplay == "block"){
 
-                $.ajax(AllFolder,{
+                var folder = "php/Filters/All/FilterAntigo.php";
+
+                $.ajax(folder,{
 
                 }).done(function(){
     
@@ -263,7 +276,7 @@ $(document).ready(function(){
 
                     AllItemBox.remove();
 
-                    $(FeedAll).load(AllFolder);
+                    $(FeedAll).load(folder);
     
                 }).fail(function(){
     
@@ -276,13 +289,15 @@ $(document).ready(function(){
             // Category
             if(FeedCategoryDisplay == "block"){
 
-                $.ajax(CategoryFolder,{
+                var folder = "php/Filters/Category/FilterAntigo.php";
+
+                $.ajax(folder,{
 
                 }).done(function(){
     
                     AJAXRequestStatus(1);
 
-                    $(FeedCategory).load(CategoryFolder);
+                    $(FeedCategory).load(folder);
     
                 }).fail(function(){
     
