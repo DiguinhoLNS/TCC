@@ -311,32 +311,29 @@ $(document).ready(function(){
 
         /* Search Bar */
 
-        $("#FeedSearchItens").keyup(function(){
+        var FeedSearchBar = $("#FeedSearchItens");
 
-            AllItemBox.remove();
+        FeedSearchBar.keyup(function(){
 
-            function sleep(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-              }       
+            var pesquisa = FeedSearchBar.val();
+      
+            var folder = `php/Filters/Search.php?q=${pesquisa}`;
 
-            //$(".FilterCategory").removeClass("active");
-
-            $("#AllItensFrame").css("display", "block");
-            $("#CategoryItensFrame").css("display", "None");    
-            
-            sleep(2000); 
-            var pesquisa = $(this).val();
-            sleep(2000);
-            var file =  `php/Filters/Search.php?q=${pesquisa}`;
-
-            $.ajax(file,function(){   
+            $.ajax(folder,function(){   
 
             }).done(function(){   
 
                 AJAXRequestStatus(1);
 
-                $(FeedAll).load(file);
-                console.log(file);
+                AllItemBox.remove();
+
+                $(".FilterItem").removeClass("active");
+                $("#btnAllFilter").addClass("active");
+                
+                $("#AllItensFrame").css("display", "block");
+                $("#CategoryItensFrame").css("display", "None");
+
+                $(FeedAll).load(folder);
                 
             }).fail(function(){
 
