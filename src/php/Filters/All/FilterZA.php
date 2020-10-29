@@ -1,10 +1,11 @@
 <?php
 
     include '../../../sql/ConexaoBD.php';
+    include_once '../../../sql/Funcoes.php';
 
     $id_empresa = base64_decode($_COOKIE["ID_Company"]);
 
-    $TodosAntigos = TodosZA($base, $id_empresa);
+    $FeedQuery = TodosZA($base, $id_empresa);
 
     function TodosZA($base, $id_empresa){
 
@@ -31,27 +32,28 @@
         }
     }
 
-    if($TodosAntigos["Quantidade"]==0){
+    if($FeedQuery["Quantidade"]==0){
 
         echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
 
     }else{
         $i=0;
         do{
+            $DataSeparada = SepararData($FeedQuery["Objeto"][$i]["Data_cadastro"]);
             echo '
                 <li class = "ItemBox">
 
-                    <a href = "#" title = "'.$TodosAntigos["Objeto"][$i]["Nome_obj"].'">
+                    <a href = "#" title = "'.$FeedQuery["Objeto"][$i]["Nome_obj"].'">
 
                         <div class = "ItemImg">
-                            <img src = "imagesBD/'.$TodosAntigos["Objeto"][$i]["Nome_foto"].'">
+                            <img src = "imagesBD/'.$FeedQuery["Objeto"][$i]["Nome_foto"].'">
                         </div>
 
                         <div class = "ItemInfo">
                             
-                            <h1 class = "ItemName"> '.$TodosAntigos["Objeto"][$i]["Nome_obj"].' </h1>
-                            <h2 class = "ItemData"> '.$TodosAntigos["Objeto"][$i]["Data_cadastro"].' </h2>
-                            <h3 class = "ItemCategory"> '.$TodosAntigos["Objeto"][$i]["Categoria"].' </h3>
+                            <h1 class = "ItemName"> '.$FeedQuery["Objeto"][$i]["Nome_obj"].' </h1>
+                            <h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
+                            <h3 class = "ItemCategory"> '.$FeedQuery["Objeto"][$i]["Categoria"].' </h3>
 
                         </div>
 
@@ -62,7 +64,7 @@
 
         $i++;
 
-        }while($i<($TodosAntigos["Quantidade"]));
+        }while($i<($FeedQuery["Quantidade"]));
 
     }
 

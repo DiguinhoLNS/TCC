@@ -315,10 +315,35 @@ $(document).ready(function(){
 
             AllItemBox.remove();
 
-            $(".FilterCategory").removeClass("active");
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+              }       
+
+            //$(".FilterCategory").removeClass("active");
 
             $("#AllItensFrame").css("display", "block");
-            $("#CategoryItensFrame").css("display", "None");
+            $("#CategoryItensFrame").css("display", "None");    
+            
+            sleep(2000); 
+            var pesquisa = $(this).val();
+            sleep(2000);
+            var file =  `php/Filters/Search.php?q=${pesquisa}`;
+
+            $.ajax(file,function(){   
+
+            }).done(function(){   
+
+                AJAXRequestStatus(1);
+
+                $(FeedAll).load(file);
+                console.log(file);
+                
+            }).fail(function(){
+
+                AJAXRequestStatus(0);
+
+            });
+
             
         });
 

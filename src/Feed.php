@@ -78,12 +78,12 @@
 
 							<div id = "FeedSearchBar">
 
-								<form>
+								<form method="POST" action="">
 
-									<input id = "FeedSearchItens" type = "text" placeholder = "Pesquisar itens" title = "Pesquisar Itens">
-									<button id = "SearchFeed" title = "Pesquisar">
+									<input id = "FeedSearchItens" type = "text" placeholder = "Pesquisar itens" title = "Pesquisar Itens" name = "pesquisar">
+									<!--<button id = "SearchFeed" title = "Pesquisar">
 										<i class = "material-icons"> &#xe8b6; </i>	
-									</button>
+									</button>-->
 
 								</form>
 
@@ -107,7 +107,7 @@
 								<li id = "btnFeedAZ" class = "FilterItem FilterParameter active" title = "Ordenar de A-Z"> A - Z </li>
 								<li id = "btnFeedZA" class = "FilterItem FilterParameter" title = "Ordenar de Z-A"> Z - A </li>
 								<li id = "btnFeedRecente" class = "FilterItem FilterParameter" title = "Ordenar por mais recentes"> Mais recentes </li>
-								<li id = "btnFeedAntigo" class = "FilterItem FilterParameter" title = "Ordernar por mais antigos"> Mais antigos  </li>
+								<li id = "btnFeedAntigo" class = "FilterItem FilterParameter" title = "Ordernar por mais antigos"> Mais antigos </li>
 
 							</ul>
 
@@ -140,6 +140,7 @@
 										}else{
 											$i=0;
 											do{
+												$DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
 												echo '
 													<li class = "ItemBox AllItemBox">
 
@@ -152,7 +153,7 @@
 															<div class = "ItemInfo">
 																
 																<h1 class = "ItemName"> '.$DadosItem["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$DadosItem["Objeto"][$i]["Data_cadastro"].' </h2>
+																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
 																<h3 class = "ItemCategory"> '.$DadosItem["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>

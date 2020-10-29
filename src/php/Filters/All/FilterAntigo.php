@@ -1,6 +1,7 @@
 <?php
 
     include '../../../sql/ConexaoBD.php';
+    include_once '../../../sql/Funcoes.php';
 
     $id_empresa = base64_decode($_COOKIE["ID_Company"]);
 
@@ -31,6 +32,8 @@
         }
     }
 
+    
+
     if($FeedQuery["Quantidade"]==0){
 
         echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
@@ -38,6 +41,7 @@
     }else{
         $i=0;
         do{
+            $DataSeparada = SepararData($FeedQuery["Objeto"][$i]["Data_cadastro"]);
             echo '
                 <li class = "ItemBox">
 
@@ -50,7 +54,7 @@
                         <div class = "ItemInfo">
                             
                             <h1 class = "ItemName"> '.$FeedQuery["Objeto"][$i]["Nome_obj"].' </h1>
-                            <h2 class = "ItemData"> '.$FeedQuery["Objeto"][$i]["Data_cadastro"].' </h2>
+                            <h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
                             <h3 class = "ItemCategory"> '.$FeedQuery["Objeto"][$i]["Categoria"].' </h3>
 
                         </div>
