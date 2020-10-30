@@ -138,6 +138,7 @@
 										}else{
 											$i=0;
 											do{
+												$DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
 												echo '
 													<li class = "ItemBox AllItemBox">
 
@@ -150,7 +151,7 @@
 															<div class = "ItemInfo">
 																
 																<h1 class = "ItemName"> '.$DadosItem["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$DadosItem["Objeto"][$i]["Data_cadastro"].' </h2>
+																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
 																<h3 class = "ItemCategory"> '.$DadosItem["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>
