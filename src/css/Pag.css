@@ -1198,6 +1198,7 @@ h1, h2, h3, h4, h5, h6 {
 			/* Search Bar */
 
 			#FeedSearchBar {
+				width: 454px;
 				height: 50px;
 				padding: 10px 30px;
 				border-radius: 25px;
@@ -1205,24 +1206,10 @@ h1, h2, h3, h4, h5, h6 {
 				background-color: var(--color-layout-s);
 			}
 		
-			#FeedSearchBar form {
-				width: 394px;
-				
-				background-color: transparent;
-			}
-
-			#FeedSearchBar form i {
-				margin: 3px 20px 3px 0;
-				
-				color: var(--color-txt-t);
-				font-size: 24px;
-
-				cursor: default;
-			}
-		
-			#FeedSearchBar form input[type = "text"]{
+			#FeedSearchBar input[type = "text"]{
 				width: 350px;
 				height: 30px;
+				margin-right: 20px;
 				border: none;
 		
 				color: var(--color-txt-s);
@@ -1230,9 +1217,26 @@ h1, h2, h3, h4, h5, h6 {
 				background-color: transparent;
 			}
 		
-				#FeedSearchBar form ::-webkit-input-placeholder {
+				#FeedSearchBar input[type = "text"]::-webkit-input-placeholder {
 					color: var(--color-txt-t);
-				}	
+				}
+
+			#FeedSearchBar button {
+				height: 30px;
+				padding: 3px 0;
+				border: none;
+				
+				color: var(--color-txt-t);
+				font-size: 24px;
+				background-color: transparent;
+		
+				cursor: pointer;
+				transition: 0.1s ease;
+			}
+	
+				#FeedSearchBar button:hover {
+					color: var(--color-txt-p);
+				}
 
 			/* Filters */
 
@@ -1348,6 +1352,19 @@ h1, h2, h3, h4, h5, h6 {
 				width: 100%;
 
 				list-style: none;
+			}
+
+			.FeedFrame .FeedFrameContent .FeedBoxGroup .LoadingFeed {
+				display: none;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				grid-column: 2/4;
+			}
+
+			.FeedFrame .FeedFrameContent .FeedBoxGroup .LoadingFeed img {
+				width: 200px;
+				height: 200px;
 			}
 
 			.FeedFrame .FeedFrameContent .FeedBoxGroup .ItemBox a {

@@ -102,11 +102,15 @@ $(document).ready(function(){
         Feed
     *******************************************************/
 
+    const LoadFeedFolder = "include/LoadFeed.php;"
+
+    const ItemBox = $(".ItemBox");
     const AllItemBox = $(".AllItemBox");
     const CategoryItemBox = $(".CategoryItemBox");
+    const SearchItemBox = $(".SearchItemBox");
 
-    const FeedAll = $("#FeedAll");
-    const FeedCategory = $("#FeedCategory");
+    var FeedAll = $("#FeedAll");
+    var FeedCategory = $("#FeedCategory");
 
     var FeedAllDisplay = $("#AllItensFrame").css("display");
     var FeedCategoryDisplay = $("#CategoryItensFrame").css("display");
@@ -311,42 +315,46 @@ $(document).ready(function(){
 
         /* Search Bar */
 
-        var FeedSearchBar = $("#FeedSearchItens");
+        $("#btnSearchFeed").on("click", function(){
 
-        FeedSearchBar.keyup(function(){
+            var pesquisa = $("#FeedSearchItens").val();
+            var folder = `php/Filters/Search.php?q=${pesquisa}`;
 
-            function sleep(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-              } 
+            ItemBox.remove();
 
-            var pesquisa = FeedSearchBar.val();
-      
-            var folder = `php/Filters/Search.php?q=${pesquisa}`; 
+            $.ajax({
 
-            $.ajax(folder,function(){   
+                url : folder,
+                type : 'get',
+
+                beforeSend : function(){
+
+                    
+                    $(".ItemBox").remove();
+                    $(".SearchItemBox").remove();
+                    
+                    $(".LoadingFeed").css("display", "flex");
+                    $(".FilterItem").removeClass("active");
+                    $("#btnAllFilter").addClass("active");
+                    
+                    $("#AllItensFrame").css("display", "block");
+                    $("#CategoryItensFrame").css("display", "None");
+
+                }
 
             }).done(function(){   
 
                 AJAXRequestStatus(1);
-                
-                sleep(500);
 
-                AllItemBox.remove();
-
-                $(".FilterItem").removeClass("active");
-                $("#btnAllFilter").addClass("active");
-                
-                $("#AllItensFrame").css("display", "block");
-                $("#CategoryItensFrame").css("display", "None");
+                $(".LoadingFeed").css("display", "none");           
 
                 $(FeedAll).load(folder);
-                                
+                
             }).fail(function(){
 
                 AJAXRequestStatus(0);
 
             });
-
             
         });
 

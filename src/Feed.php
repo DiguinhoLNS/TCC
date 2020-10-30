@@ -78,12 +78,10 @@
 
 							<div id = "FeedSearchBar">
 
-								<form>
-
-									<i class = "material-icons"> &#xe8b6; </i>
-									<input id = "FeedSearchItens" type = "text" placeholder = "Pesquisar itens" title = "Pesquisar Itens">
-
-								</form>
+								<input id = "FeedSearchItens" type = "text" placeholder = "Pesquisar itens" title = "Pesquisar Itens">
+								<button id = "btnSearchFeed" title = "Pesquisar">
+									<i class = "material-icons"> &#xe8b6; </i>	
+								</button>
 
 							</div>
 
@@ -130,6 +128,8 @@
 									<ul id = "FeedAll" class = "FeedBoxGroup">
 
 									<?php
+
+										include "include/LoadFeed.php";
 
 										if($DadosItem["Quantidade"]==0){
 
