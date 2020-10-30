@@ -4,7 +4,7 @@
 	date_default_timezone_set('America/Sao_Paulo');
 
 	$_SESSION['TipoVerificação'] = "Item";
-	$id_empresa = $_GET["q"];
+	$id_empresa = base64_decode($_GET["q"]);
 
 ?>
 

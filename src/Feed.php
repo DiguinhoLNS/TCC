@@ -451,7 +451,7 @@
 
 				<ul>
 					<li>
-						<a href = "RegisterItem.php?q=<?php echo $id_empresa;?>">
+						<a href = "RegisterItem.php?q=<?php echo base64_encode($id_empresa);?>">
 							<i class = "material-icons"> &#xe145; </i>
 							<span> Criar Item </span>
 						</a>

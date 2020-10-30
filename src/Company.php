@@ -244,7 +244,7 @@
 								<div class = "btnContent">
 
 									<button>
-										<a href = "EditCompany.php?q=<?php echo $id_empresa;?>"> Editar Empresa </a>
+										<a href = "EditCompany.php?q=<?php echo base64_encode($id_empresa);?>"> Editar Empresa </a>
 									</button>
 
 								</div>

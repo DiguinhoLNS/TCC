@@ -7,7 +7,7 @@
 	include_once "sql/Funcoes.php";
 
 	$_SESSION['TipoVerificação'] = "EditarEmpresa";
-	$id_empresa = $_GET['q'];
+	$id_empresa = base64_decode($_GET['q']);
 
 	$DadosEmpresa = PegarDadosEmpresaPeloIdEmpresa($base, $id_empresa);
 
@@ -136,7 +136,7 @@
 
             <div class = "FormPlatform BS">
 
-                <form method = "POST" action = "sql/VerificaCadastro.php?q=<?php echo $id_empresa;?>" >
+                <form method = "POST" action = "sql/VerificaCadastro.php?q=<?php echo base64_encode($id_empresa);?>" >
 
                     <ul class = "FormPlatformContent">
 
@@ -184,7 +184,7 @@
                             </select>
                         </li>
                         <li class = "ContentBottom">
-							<a href = "Company.php/?q=<?php echo $id_empresa;?>"> Voltar </a>
+							<a href = "Company.php/?q=<?php echo base64_encode($id_empresa);?>"> Voltar </a>
 							<input class = "UserInputSubmit btn" type = "submit" value = "Editar">
 						</li>
                         

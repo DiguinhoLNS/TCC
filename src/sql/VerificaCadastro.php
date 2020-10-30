@@ -169,7 +169,7 @@
         break;
 
         case "EditarEmpresa":
-            $id_empresa = ClearInjectionXSS($base, $_GET['q']);
+            $id_empresa = ClearInjectionXSS($base, base64_decode($_GET['q']));
             $nome = ClearInjectionXSS($base, $_POST["nome"]);
             $email = ClearInjectionXSS($base, $_POST["email"]);
             $CnpjComPonto = ClearInjectionXSS($base, $_POST["cnpj"]);
@@ -219,7 +219,7 @@
         break;
 
         case "Item":
-            $id_empresa = ClearInjectionXSS($base, $_GET['q']);
+            $id_empresa = ClearInjectionXSS($base, base64_decode($_GET['q']));
             $nome = ClearInjectionXSS($base, $_POST["nome"]);
             $foto = $_FILES["foto"];
             $categoria = ClearInjectionXSS($base, $_POST["categoria"]);
