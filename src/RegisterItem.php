@@ -79,7 +79,7 @@
 
 			<div class = "FormPlatform BS">
 
-				<form method = "POST" action = "sql/VerificaCadastro.php?q=<?php echo $id_empresa;?>" enctype="multipart/form-data">
+				<form method = "POST" action = "sql/VerificaCadastro.php?q=<?php echo base64_encode($id_empresa);?>" enctype="multipart/form-data">
 			
 					<ul class = "FormPlatformContent">
 
@@ -115,7 +115,7 @@
 							<textarea id = "R_ItemDesc" class = "FormTextareaData" name = "descricao" rows = "4"></textarea>
 						</li>
 						<li class = "ContentBottom">
-							<a href = "Feed.php?q=<?php echo $id_empresa?>"> Voltar para Feed </a>
+							<a href = "Feed.php?q=<?php echo base64_encode($id_empresa)?>"> Voltar para Feed </a>
 							<input class = "UserInputSubmit btn" type = "submit" value = "Criar"/>
 						</li>
 

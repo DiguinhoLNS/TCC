@@ -315,15 +315,21 @@ $(document).ready(function(){
 
         FeedSearchBar.keyup(function(){
 
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+              } 
+
             var pesquisa = FeedSearchBar.val();
       
-            var folder = `php/Filters/Search.php?q=${pesquisa}`;
+            var folder = `php/Filters/Search.php?q=${pesquisa}`; 
 
             $.ajax(folder,function(){   
 
             }).done(function(){   
 
                 AJAXRequestStatus(1);
+                
+                sleep(500);
 
                 AllItemBox.remove();
 
@@ -334,7 +340,7 @@ $(document).ready(function(){
                 $("#CategoryItensFrame").css("display", "None");
 
                 $(FeedAll).load(folder);
-                
+                                
             }).fail(function(){
 
                 AJAXRequestStatus(0);

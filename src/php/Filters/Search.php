@@ -5,7 +5,7 @@ include '../../sql/Funcoes.php';
 
     $id_empresa = base64_decode($_COOKIE["ID_Company"]);
 
-    $pesquisar = ClearInjectionXSS($base, $_GET["q"]);
+    $pesquisar = ClearInjectionXSS($base, base64_decode($_GET["q"]));
 
         $query = "SELECT * FROM objetos WHERE Nome_obj LIKE '%$pesquisar%' and id_empresa = $id_empresa";
         $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 41");

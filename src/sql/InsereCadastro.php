@@ -49,7 +49,7 @@
 			$sql = "INSERT INTO empresas (id_adm, codigo_acesso, Nome, CNPJ, Endereco, Email, Telefone, Cor_layout) VALUES";
 			$sql .= " ('$id_adm', '$codigo_acesso', '$nome', '$cnpj', '$endereco', '$email', '$telefone', '$cor') ";
 
-			$conexao->query($sql) ? header("Location: InsereUser_Empresa.php?q=" . $codigo_acesso) : header("Location: ../RegisterCompany.php");
+			$conexao->query($sql) ? header("Location: InsereUser_Empresa.php?q=" . base64_encode($codigo_acesso)) : header("Location: ../RegisterCompany.php");
 
 			break;
 
@@ -77,7 +77,7 @@
 			$sql = "INSERT INTO objetos (id_empresa, Nome_foto, Nome_obj, Data_cadastro, Categoria, Descricao, situacao) VALUES";
 			$sql .= " ('$id_empresa', '$novoNome', '$nome', '$data' , '$categoria', '$descricao', 'Perdido') ";
 
-			$conexao->query($sql) ? header("Location: ../Feed.php?q=".$id_empresa) : header("Location: ../RegisterItem.php?q=".$id_empresa);
+			$conexao->query($sql) ? header("Location: ../Feed.php?q=".base64_encode($id_empresa)) : header("Location: ../RegisterItem.php?q=".base64_encode($id_empresa));
 	}
 
 	$conexao->close();

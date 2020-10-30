@@ -29,7 +29,7 @@ switch ($tipo_verificacao) {
 
     case "Empresa":
 
-        $id_empresa = ClearInjectionXSS($base, $_GET["q"]);
+        $id_empresa = ClearInjectionXSS($base, base64_decode($_GET["q"]));
         $nome = ClearInjectionXSS($base, $_POST["nome"]);
         $email = ClearInjectionXSS($base, $_POST["email"]);
         $cnpj = ClearInjectionXSS($base, $_SESSION['cnpjsemponto']);
@@ -41,7 +41,7 @@ switch ($tipo_verificacao) {
 
         $executandoQuery = mysqli_query($base, $query) or die("Deu errado 2");       
 
-        $conexao->query($query) === TRUE ? header("Location: ../Company.php?q=".$id_empresa) : header("Location: ../EditCompany.php");
+        $conexao->query($query) === TRUE ? header("Location: ../Company.php?q=".base64_encode($id_empresa)) : header("Location: ../EditCompany.php");
    
 
         break;

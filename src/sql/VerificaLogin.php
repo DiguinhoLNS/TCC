@@ -53,11 +53,11 @@
 
 				$_SESSION['TipoVerificação'] = "Usuario";
 				setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
-				header("Location: InsereUser_Empresa.php?q=".$codigo_acesso);
+				header("Location: InsereUser_Empresa.php?q=".base64_encode($codigo_acesso));
 
 			} else if(!empty($QuantidadeDeLoginsJaFeitos)){
 
-				header("Location: ../Company.php?q=".$Dados['id_empresa']);
+				header("Location: ../Company.php?q=".base64_encode($Dados['id_empresa']));
 				setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 				
 			}else if(!$Dados["CodigoExiste"]) {

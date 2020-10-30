@@ -8,7 +8,7 @@
 
     $tipo_verificacao = $_SESSION['TipoVerificação'];
     $id = ClearInjectionXSS($base, base64_decode($_COOKIE["ID"]));
-    $id_empresa = ClearInjectionXSS($base, $_GET['q']);
+    $id_empresa = ClearInjectionXSS($base, base64_decode($_GET['q']));
 
     switch ($tipo_verificacao) {
 
@@ -32,7 +32,7 @@
             $apagarUser_Empresa = "DELETE FROM user_empresa where id_empresa = '$id_empresa'";
             mysqli_query($base, $apagarUser_Empresa);
 
-            $conexao->query($apagarEmpresa) === TRUE && $conexao->query($apagarUser_Empresa) === TRUE ? header("Location: ../Dashboard.php") : header("Location: ../Company.php?q=".$id_empresa);
+            $conexao->query($apagarEmpresa) === TRUE && $conexao->query($apagarUser_Empresa) === TRUE ? header("Location: ../Dashboard.php") : header("Location: ../Company.php?q=".base64_encode($id_empresa));
 
         break;
 
