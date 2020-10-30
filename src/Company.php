@@ -14,7 +14,8 @@
 		$id_user = base64_decode($_COOKIE["ID"]); 
 
 		$DadosEmpresa = PegarDadosEmpresaPeloIdEmpresa($base, $id_empresa);
-
+		
+		echo $id_user. " - ". $id_empresa."<br>" ;
 		$DadosUserEmpresa = PegarDadosUserEmpresaPeloIdUserIdEmpresa($base, $id_user, $id_empresa);
 
 		$cnpj = ColocarPontoCNPJ($DadosEmpresa["CNPJ"]);
@@ -211,7 +212,7 @@
 								<div class = "btnContent">
 
 									<button>
-										<a href = ""> Sair da Empresa </a>
+										<a href = "sql/ApagarCadastros.php?q=<?php $_SESSION['TipoVerificação'] = 'LoginNaEmpresa'; echo $id_empresa; ?>"> Sair da Empresa </a>
 									</button>
 
 								</div>
