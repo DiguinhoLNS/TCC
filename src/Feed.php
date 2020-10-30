@@ -6,7 +6,7 @@
 	include 'sql/ConexaoBD.php';
 	include_once "sql/Funcoes.php";
 
-	$id_empresa = $_GET['q'];
+	$id_empresa = base64_decode($_GET['q']);
 	setcookie("ID_Company", base64_encode($id_empresa), time() + (86400 * 30), "/");
 
 	if(isset($_COOKIE["ID"])){
@@ -80,6 +80,7 @@
 
 								<form>
 
+									<i class = "material-icons"> &#xe8b6; </i>
 									<input id = "FeedSearchItens" type = "text" placeholder = "Pesquisar itens" title = "Pesquisar Itens">
 
 								</form>

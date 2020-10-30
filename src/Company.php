@@ -6,7 +6,7 @@
 	include 'sql/ConexaoBD.php';
 	include_once "sql/Funcoes.php";
 
-	$id_empresa = $_GET['q'];
+	$id_empresa = base64_decode($_GET['q']);
 	$_SESSION['TipoVerificação'] = 'Empresa';
 
 	if(isset($_COOKIE["ID"])){
@@ -192,7 +192,7 @@
 								<div class = "btnContent">
 
 									<button>
-										<a href = "Feed.php?q=<?php echo $DadosEmpresa["id_empresa"];?>"> Acessar Feed </a>
+										<a href = "Feed.php?q=<?php echo base64_encode($DadosEmpresa["id_empresa"]);?>"> Acessar Feed </a>
 									</button>
 
 								</div>

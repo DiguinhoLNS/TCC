@@ -1206,13 +1206,23 @@ h1, h2, h3, h4, h5, h6 {
 			}
 		
 			#FeedSearchBar form {
+				width: 394px;
+				
 				background-color: transparent;
+			}
+
+			#FeedSearchBar form i {
+				margin: 3px 20px 3px 0;
+				
+				color: var(--color-txt-t);
+				font-size: 24px;
+
+				cursor: default;
 			}
 		
 			#FeedSearchBar form input[type = "text"]{
 				width: 350px;
 				height: 30px;
-				margin-right: 16px;
 				border: none;
 		
 				color: var(--color-txt-s);
@@ -1223,23 +1233,6 @@ h1, h2, h3, h4, h5, h6 {
 				#FeedSearchBar form ::-webkit-input-placeholder {
 					color: var(--color-txt-t);
 				}	
-
-			#FeedSearchBar form button {
-				height: 30px;
-				padding: 3px 0;
-				border: none;
-				
-				color: var(--color-txt-t);
-				font-size: 24px;
-				background-color: transparent;
-		
-				cursor: pointer;
-				transition: 0.1s ease;
-			}
-
-			#FeedSearchBar form button:hover {
-				color: var(--color-txt-p);
-			}
 
 			/* Filters */
 

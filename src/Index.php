@@ -83,7 +83,7 @@
                                 do{
 
                                     echo '
-                                        <a href = "Company.php?q='.$DadosEmpresas['Dados'][$i]['id_empresa'].'" class = "CompanyBox '.$DadosEmpresas['Dados'][$i]['Cor_layout'].'" title = "Acessar '.$DadosEmpresas['Dados'][$i]['Nome'].' ">
+                                        <a href = "Company.php?q='.base64_encode($DadosEmpresas['Dados'][$i]['id_empresa']).'" class = "CompanyBox '.$DadosEmpresas['Dados'][$i]['Cor_layout'].'" title = "Acessar '.$DadosEmpresas['Dados'][$i]['Nome'].' ">
 
                                             <h1 class = "CompanyTitle"> '.$DadosEmpresas['Dados'][$i]['Nome'].' </h1>
                                         
