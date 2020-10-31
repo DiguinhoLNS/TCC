@@ -26,44 +26,44 @@
 
             StopUserAccess();
 
-        if($_COOKIE["VerificaErro"]){
+            if($_COOKIE["VerificaErro"]){
 
-            if (isset($_SESSION["ErroLoginEmpresa"])) {
+                if (isset($_SESSION["ErroLoginEmpresa"])) {
 
-                //Zerar erros no cadastro de empresa
-                $_SESSION["ErrosCadastrosEmpresa"] = null;
+                    //Zerar erros no cadastro de empresa
+                    $_SESSION["ErrosCadastrosEmpresa"] = null;
 
-                $erro = $_SESSION["ErroLoginEmpresa"];
+                    $erro = $_SESSION["ErroLoginEmpresa"];
 
-                if ($erro) {
+                    if ($erro) {
 
-                    echo '
+                        echo '
+                                
+                            <script language = "javascript" type = "text/javascript">
                             
-                        <script language = "javascript" type = "text/javascript">
-                        
-                            $(document).ready(function(){
+                                $(document).ready(function(){
 
-                                $("#ErrorCod").css("display", "block");
+                                    $("#ErrorCod").css("display", "block");
 
-                            });
+                                });
+                            
+                            </script>
                         
-                        </script>
-                    
-                    ';
+                        ';
+
+                    }
 
                 }
-
-
+                
             }
-        }
         
         ?>
 
         <main id = "MainLoginCompany">
 
-            <div class = "FormPlatform BS">
+            <div class = "FormPlatform FormLogin BS">
 
-                <form method = "POST" action = "sql/VerificaLogin.php">
+                <form class = "FormData" method = "POST" action = "sql/VerificaLogin.php">
 
                     <ul class = "FormPlatformContent">
 
@@ -85,6 +85,22 @@
                     </ul>
                     
                 </form>
+
+                <div class = "FormControl">
+
+					<ul class = "FormControlContent">
+					
+						<li class = "ContentHeader">
+							<i class = "material-icons"> &#xe0af; </i>
+							<h1> Empresa APE </h1>
+						</li>
+						<li class = "ContentControl">
+							<a href = "RegisterCompany.php" class = "btn"> Criar Empresa </a>
+						</li>
+
+					</ul>
+
+				</div>
 
             </div>
             

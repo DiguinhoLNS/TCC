@@ -128,9 +128,9 @@
 
         <main id = "MainRegisterCompany">
 
-            <div class = "FormPlatform BS">
+            <div class = "FormPlatform FormRegister BS">
 
-                <form method = "POST" action = "sql/VerificaCadastro.php">
+                <form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php">
 
                     <ul class = "FormPlatformContent">
 
@@ -179,7 +179,7 @@
                         </li>
                         <li class = "ContentBottom">
 							<a href = "LoginCompany.php"> Já possui uma página? </a>
-							<input class = "UserInputSubmit btn" type = "submit" value = "Criar">
+							<input class = "UserInputSubmit btn" type = "submit" value = "Criar Empresa">
 						</li>
                         
                     </ul>

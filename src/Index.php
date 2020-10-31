@@ -118,7 +118,10 @@
                                         </a>
                                     </li>
                                     <li class = "DiscoverBlockContent">
-                                        <a href = "RegisterUser.php" title = "Criar uma conta gratuitamente">
+                                        <a href = "RegisterUser.php" id = "DiscoverNewUser" title = "Criar uma conta gratuitamente">
+                                            <i class = "material-icons"> &#xe7fd; </i>
+                                        </a>
+                                        <a href = "User.php" id = "DiscoverUser" title = "Sua conta">
                                             <i class = "material-icons"> &#xe7fd; </i>
                                         </a>
                                     </li>

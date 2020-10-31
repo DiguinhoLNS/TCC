@@ -60,9 +60,9 @@
 
 		<main id = "MainLoginUser">
 
-			<div class = "FormPlatform BS">
+			<div class = "FormPlatform FormLogin BS">
 
-				<form method = "POST" action = "sql/VerificaLogin.php">
+				<form class = "FormData" method = "POST" action = "sql/VerificaLogin.php">
 
 					<ul class = "FormPlatformContent">
 
@@ -81,13 +81,29 @@
 							<span id = "ErrorLogin" class = "txtError"> Email ou Senha incorretos </span>
 						</li>
 						<li class = "ContentBottom">
-							<a href = "RegisterUser.php"> Ainda não possui uma conta? </a>
-							<input class = "UserInputSubmit btn" type = "submit" value="Entrar">
+							<a href = "#"> Esqueceu a senha? </a>
+							<input class = "UserInputSubmit btn" type = "submit" value = "Entrar">
 						</li>
 
 					</ul>
 
 				</form>
+
+				<div class = "FormControl">
+
+					<ul class = "FormControlContent">
+					
+						<li class = "ContentHeader">
+							<i class = "material-icons"> &#xe7fd; </i>
+							<h1> Usuário APE </h1>
+						</li>
+						<li class = "ContentControl">
+							<a href = "RegisterUser.php" class = "btn"> Criar Conta </a>
+						</li>
+
+					</ul>
+
+				</div>
 
 			</div>
 

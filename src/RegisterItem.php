@@ -77,9 +77,9 @@
 
         <main id = "MainRegisterItem">
 
-			<div class = "FormPlatform BS">
+			<div class = "FormPlatform FormRegister BS">
 
-				<form method = "POST" action = "sql/VerificaCadastro.php?q=<?php echo base64_encode($id_empresa);?>" enctype="multipart/form-data">
+				<form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php?q=<?php echo base64_encode($id_empresa);?>" enctype="multipart/form-data">
 			
 					<ul class = "FormPlatformContent">
 

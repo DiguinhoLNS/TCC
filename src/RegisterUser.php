@@ -167,9 +167,9 @@
 
 		<main id = "MainRegisterUser">
 
-			<div class = "FormPlatform BS">
+			<div class = "FormPlatform FormRegister BS">
 
-				<form method = "POST" action = "sql/VerificaCadastro.php">
+				<form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php">
 
 					<ul class = "FormPlatformContent">
 

@@ -1853,7 +1853,7 @@ h1, h2, h3, h4, h5, h6 {
 		#MainLoginUser, #MainRegisterUser, #MainEditUser, 
 		#MainLoginCompany, #MainRegisterCompany, #MainEditCompany,
 		#MainRegisterItem {
-			display: grid;
+			display: flex;
 			justify-content: center;
 			align-items: center;
 
@@ -1863,202 +1863,288 @@ h1, h2, h3, h4, h5, h6 {
 			background-color: var(--color-layout-p);
 		}
 
-		.FormPlatform {
-			width: 440px;
-			padding: 80px 40px;
+		.FormPlatform {	
 			margin: 80px;
 			border-radius: 30px;
+
+			background-color: var(--color-theme-p);
+		}
+
+			.FormRegister {
+				width: 440px;
+			}
+
+			.FormLogin {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				
+				width: 800px;
+			}
+
+			.DarkMode .FormPlatform {
+				background-color: var(--color-theme-t);
+			}
+
+		/* Data */
+
+		.FormPlatform .FormData {
+			width: 100%;
+			padding: 80px 40px;
+			border-radius: inherit;
 
 			background-color: var(--color-header);
 		}
 
-		.FormPlatform form {
-			width: 100%;
-		}
+			.FormPlatform .FormData .FormPlatformContent {
+				display: grid;
+				grid-template-rows: auto;	
 
-		.FormPlatform form .FormPlatformContent {
-			display: grid;	
+				width: 100%;
 
-			width: 100%;
-
-			list-style: none;
-		}
-
-			#LoginPage .FormPlatform form .FormPlatformContent {
-				grid-template-rows: repeat(5, auto);
+				list-style: none;
 			}
 
-			#RegisterPage .FormPlatform form .FormPlatformContent {
-				grid-template-rows: repeat(10, auto);
+			.FormPlatform .FormData .FormPlatformContent li {
+				width: 100%;
+				margin-bottom: 20px;
+
+				text-align: center;
 			}
 
-		.FormPlatform form .FormPlatformContent li {
-			width: 100%;
-			margin-bottom: 30px;
+			.FormPlatform .FormData .FormPlatformContent .txtError {
+				display: none;
+				float: right;
+				
+				color: var(--color-error);
+				font-size: 14px;
+			}
 
-			text-align: center;
-		}
+			/* Content Header */
+			.FormPlatform .FormData .FormPlatformContent .ContentHeader {
+				margin-bottom: 60px;
+			}
 
-		.FormPlatform form .FormPlatformContent .txtError {
-			display: none;
-			float: right;
-			
-			color: var(--color-error);
-			font-size: 14px;
-		}
+			.FormPlatform .FormData .FormPlatformContent .ContentHeader h1 {
+				width: 100%;
 
-		/* Content Header */
-		.FormPlatform form .FormPlatformContent .ContentHeader {
-			margin-bottom: 60px;
-		}
+				color: var(--color-txt-p);
+				font-size: 30px;
+				text-align: center;
+			}
 
-		.FormPlatform form .FormPlatformContent .ContentHeader h1 {
-			width: 100%;
+			/* Content Input */
 
-			color: var(--color-txt-p);
-			font-size: 36px;
-			text-align: center;
-		}
+			.FormPlatform .FormData .FormPlatformContent .ContentInput label {
+				float: left;
+				
+				margin-bottom: 14px;
+				
+				color: var(--color-txt-s);
+				font-size: 16px;
 
-		/* Content Input */
+				cursor: pointer;
+			}
 
-		.FormPlatform form .FormPlatformContent .ContentInput label {
-			float: left;
-			
-			margin-bottom: 14px;
-			
-			color: var(--color-txt-s);
-			font-size: 18px;
+			.FormPlatform .FormData .FormPlatformContent .ContentInput .txtError {
+				margin: 3px 0 17px;
+			}
 
-			cursor: pointer;
-		}
+			.FormPlatform .FormData .FormPlatformContent .ContentInput .UserInputData {
+				width: 100%;
+				padding: 8px 0;
+				border: none;
 
-		.FormPlatform form .FormPlatformContent .ContentInput .txtError {
-			margin: 3px 0 17px;
-		}
-
-		.FormPlatform form .FormPlatformContent .ContentInput .UserInputData {
-			width: 100%;
-			padding: 8px 0;
-			border: none;
-
-			color: var(--color-txt-t);
-			font-size: 16px;
-			background-color: var(--color-layout-p);
-		}
-
-			.FormPlatform form .FormPlatformContent .ContentInput .UserInputData::-webkit-input-placeholder {
 				color: var(--color-txt-t);
+				font-size: 16px;
+				background-color: var(--color-layout-p);
 			}
 
-		.FormPlatform form .FormPlatformContent .ContentInput select {
-			width: 100%;
-			padding: 8px 0;
-			border: none;
+				.FormPlatform .FormData .FormPlatformContent .ContentInput .UserInputData::-webkit-input-placeholder {
+					color: var(--color-txt-t);
+				}
 
-			color: var(--color-txt-t);
-			font-size: 18px;
-			background-color: var(--color-layout-p);
+			.FormPlatform .FormData .FormPlatformContent .ContentInput select {
+				width: 100%;
+				padding: 8px 0;
+				border: none;
 
-			cursor: pointer;
-		}
+				color: var(--color-txt-t);
+				font-size: 18px;
+				background-color: var(--color-layout-p);
 
-			.FormPlatform form .FormPlatformContent .ContentInput select:focus {
-				outline: none;
+				cursor: pointer;
 			}
 
-		.FormPlatform form .FormPlatformContent .ContentInput select option {
-			padding: 4px 0;
-		}
+				.FormPlatform .FormData .FormPlatformContent .ContentInput select:focus {
+					outline: none;
+				}
 
-		.FormPlatform form .FormPlatformContent .ContentInput textarea {
-			width: 100%;
-			padding: 8px 16px;
-			border: 2px solid var(--color-border);
-			border-radius: 19px;
-
-			color: var(--color-txt-t);
-			font-size: 16px;
-
-			resize: none;
-		}
-
-			.FormPlatform form .FormPlatformContent .ContentInput textarea:focus {
-				outline: none;
+			.FormPlatform .FormData .FormPlatformContent .ContentInput select option {
+				padding: 4px 0;
 			}
 
-		.FormPlatform form .FormPlatformContent .ContentInput input[type = file]{
-			z-index: -1;
-			position: absolute;
-			
-			opacity: 0;
-			visibility: hidden;
-		}
+			.FormPlatform .FormData .FormPlatformContent .ContentInput textarea {
+				width: 100%;
+				padding: 8px 16px;
+				border: 2px solid var(--color-border);
+				border-radius: 19px;
 
-		.FormPlatform form .FormPlatformContent .ContentInput #imgContent {
-			position: relative;
+				color: var(--color-txt-t);
+				font-size: 16px;
+
+				resize: none;
+			}
+
+				.FormPlatform .FormData .FormPlatformContent .ContentInput textarea:focus {
+					outline: none;
+				}
+
+			.FormPlatform .FormData .FormPlatformContent .ContentInput input[type = file]{
+				z-index: -1;
+				position: absolute;
+				
+				opacity: 0;
+				visibility: hidden;
+			}
+
+			.FormPlatform .FormData .FormPlatformContent .ContentInput #imgContent {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				
+				width: 100%;
+				border-radius: 19px;
+				margin: 0;
+
+				background-color: var(--color-layout-s);
+			}
+
+				.DarkMode .FormPlatform .FormData .FormPlatformContent .ContentInput #imgContent {
+					background-color: var(--color-layout-t);
+				}
+
+			.FormPlatform .FormData .FormPlatformContent .ContentInput #imgContent i {
+				padding: 20px;
+
+				color: var(--color-txt-t);
+				font-size: 36px;
+			}
+
+			.FormPlatform .FormData .FormPlatformContent .ContentInput #imgContent img {
+				width: 100%;
+				border-radius: inherit;
+			}
+				
+			/* Content Error */
+
+			.FormPlatform .FormData .FormPlatformContent .ContentError {
+				margin: 0;
+			}
+
+			/* Content Bottom */
+
+			.FormPlatform .FormData .FormPlatformContent .ContentBottom {
+				margin: 20px 0 0;
+			}
+
+			.FormPlatform .FormData .FormPlatformContent .ContentBottom a {
+				float: left;
+				margin: 8px 30px 8px 0;
+
+				color: var(--color-theme-p);
+				font-size: 14px;
+
+				transition: 0.1s ease;
+			}
+
+				.FormPlatform .FormData .FormPlatformContent .ContentBottom a:hover {
+					color: var(--color-theme-hover);
+				}
+		
+			.FormPlatform .FormData .FormPlatformContent .ContentBottom .UserInputSubmit {
+				float: right;
+				padding: 8px 16px;
+				border: none;
+				border-radius: 17px;
+
+				font-size: 14px;
+			}
+
+		/* Control */
+
+		.FormPlatform .FormControl {
 			display: flex;
-			flex-direction: column;
-			align-items: center;
 			justify-content: center;
-			
-			width: 100%;
-			border-radius: 19px;
-			margin: 0;
+			align-items: center;
 
-			background-color: var(--color-layout-s);
+			padding: 80px 40px;
+			border-top-right-radius: 30px;
+			border-bottom-right-radius: 30px;
+
+			background-color: var(--color-theme-p);
 		}
 
-		.DarkMode .FormPlatform form .FormPlatformContent .ContentInput #imgContent {
-			background-color: var(--color-layout-t);
-		}
-
-		.FormPlatform form .FormPlatformContent .ContentInput #imgContent i {
-			padding: 20px;
-
-			color: var(--color-txt-t);
-			font-size: 36px;
-		}
-
-		.FormPlatform form .FormPlatformContent .ContentInput #imgContent img {
-			width: 100%;
-			border-radius: inherit;
-		}
-			
-		/* Content Error */
-
-		.FormPlatform form .FormPlatformContent .ContentError {
-			margin: 0;
-		}
-
-		/* Content Bottom */
-		.FormPlatform form .FormPlatformContent .ContentBottom {
-			margin: 20px 0 0;
-		}
-
-		.FormPlatform form .FormPlatformContent .ContentBottom a {
-			float: left;
-			margin: 11px 30px 11px 0;
-
-			color: var(--color-theme-p);
-			font-size: 14px;
-
-			transition: 0.1s ease;
-		}
-
-			.FormPlatform form .FormPlatformContent .ContentBottom a:hover {
-				color: var(--color-theme-hover);
+			.DarkMode .FormPlatform .FormControl {
+				background-color: var(--color-theme-t);
 			}
-	
-		.FormPlatform form .FormPlatformContent .ContentBottom .UserInputSubmit {
-			height: 40px;
-			float: right;
-			padding: 10px 30px;
-			border: none;
-			border-radius: 20px;
 
-			font-size: 16px;
-		}
+			.FormPlatform .FormControl .FormControlContent {
+				width: 100%;
+
+				list-style: none;
+			}
+
+			.FormPlatform .FormControl .FormControlContent li {
+				display: flex;
+				justify-content: center;
+				
+				width: 100%;
+			}
+
+				.FormPlatform .FormControl .FormControlContent li:first-child {
+					margin-bottom: 30px;
+				}
+
+			/* Header */
+
+			.FormPlatform .FormControl .FormControlContent .ContentHeader {
+				color: var(--color-txt-p-dm);
+			}
+			
+			.FormPlatform .FormControl .FormControlContent .ContentHeader i {
+				margin-right: 20px;
+				
+				font-size: 50px;
+			}
+
+			.FormPlatform .FormControl .FormControlContent .ContentHeader h1 {
+				height: 30px;
+				margin: 10px 0;
+				
+				font-size: 26px;
+			}
+
+			/* Control */
+
+			.FormPlatform .FormControl .FormControlContent .ContentControl .btn {	
+				padding: 8px 16px;
+				border: 1px solid #FFFFFF;
+				border-radius: 18px;
+
+				font-size: 14px;
+			}
+
+				.LightMode .FormPlatform .FormControl .FormControlContent .ContentControl .btn:hover {
+					border-color: var(--color-theme-s);
+					background-color: var(--color-theme-s);
+				}
+
+				.DarkMode .FormPlatform .FormControl .FormControlContent .ContentControl .btn {
+					border: none;
+					border-radius: 17px;
+				}
 
 	/*******************************************************
 		Footer
@@ -2984,17 +3070,17 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 			color: var(--color-txt-s-lm);
 		}
 
-	.LightMode .FormPlatform form .FormPlatformContent .ContentInput .UserInputData,
-	.LightMode .FormPlatform form .FormPlatformContent .ContentInput select,
-	.LightMode  .FormPlatform form .FormPlatformContent .ContentInput textarea {
+	.LightMode .FormPlatform .FormData .FormPlatformContent .ContentInput .UserInputData,
+	.LightMode .FormPlatform .FormData .FormPlatformContent .ContentInput select,
+	.LightMode  .FormPlatform .FormData .FormPlatformContent .ContentInput textarea {
 		border-bottom: 2px solid var(--color-border);
 		
 		transition: border-color 0.2s ease;
 	}
 
-		.LightMode .FormPlatform form .FormPlatformContent .ContentInput .UserInputData:focus,
-		.LightMode .FormPlatform form .FormPlatformContent .ContentInput select:focus ,
-		.LightMode .FormPlatform form .FormPlatformContent .ContentInput textarea:focus {
+		.LightMode .FormPlatform .FormData .FormPlatformContent .ContentInput .UserInputData:focus,
+		.LightMode .FormPlatform .FormData .FormPlatformContent .ContentInput select:focus ,
+		.LightMode .FormPlatform .FormData .FormPlatformContent .ContentInput textarea:focus {
 			border-color: var(--color-theme-p);
 		}
 
@@ -3008,16 +3094,16 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 		background-color: var(--color-layout-s);
 	}
 
-	.DarkMode .FormPlatform form .FormPlatformContent .ContentInput .UserInputData,
-	.DarkMode .FormPlatform form .FormPlatformContent .ContentInput select,
-	.DarkMode .FormPlatform form .FormPlatformContent .ContentInput textarea {
+	.DarkMode .FormPlatform .FormData .FormPlatformContent .ContentInput .UserInputData,
+	.DarkMode .FormPlatform .FormData .FormPlatformContent .ContentInput select,
+	.DarkMode .FormPlatform .FormData .FormPlatformContent .ContentInput textarea {
 		padding: 8px 16px;
 		border-radius: 19px;
 		
 		background-color: var(--color-layout-t);
 	}
 
-	.DarkMode .FormPlatform form .FormPlatformContent .ContentInput select {
+	.DarkMode .FormPlatform .FormData .FormPlatformContent .ContentInput select {
 		appearance: none;
 	}
 
@@ -3028,24 +3114,28 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 	/* Not Logged */
 
 		/* ON */
-		.UNT #btnHeaderLogin, .UNT #WelcomeLogin {
+		.UNT #btnHeaderLogin, .UNT #WelcomeLogin,
+		.UNT #DiscoverNewUser {
 			display: block;
 		}
 
 		/* OFF */
 		.UNT #HeaderIconGroup, .UNT #WelcomeFind, 
-		.UNT #HeaderNavIcon, .UNT .CompaniesQuickAccessBar {
+		.UNT #HeaderNavIcon, .UNT .CompaniesQuickAccessBar,
+		.UNT #DiscoverUser {
 			display: none;
 		}
 
 	/* Logged */
 
 		/* ON */
-		.UIL #HeaderIconGroup, .UIL #WelcomeFind, .UIL #HeaderNavIcon {
+		.UIL #HeaderIconGroup, .UIL #WelcomeFind, .UIL #HeaderNavIcon,
+		.UIL #DiscoverUser {
 			display: block;
 		}
 
 		/* OFF */
-		.UIL #btnHeaderLogin, .UIL #WelcomeLogin {
+		.UIL #btnHeaderLogin, .UIL #WelcomeLogin,
+		.UIL #DiscoverNewUser {
 			display: none;
 		}

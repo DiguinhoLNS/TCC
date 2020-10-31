@@ -615,6 +615,39 @@ $(document).ready(function(){
 
 });
 
+/* Form */
+
+$(document).ready(function(){
+
+    var FormBackground = $(".FormLogin");
+    var Theme = localStorage.getItem("Theme");
+
+    $(".FormData").on("click", function(){
+
+        if(Theme == "DarkMode"){
+
+            FormBackground.css("background-color", "var(--color-theme-t)");
+
+        }else{
+
+            FormBackground.css("background-color", "var(--color-theme-p)");
+
+        }
+
+        $(this).css("border-radius", "30px");
+
+    });
+
+    $(".FormControl").on("click", function(){
+
+        FormBackground.css("background-color", "var(--color-header)");
+
+        $(this).css("border-radius", "30px");
+
+    });
+
+});
+
 /* Bottom Message */
 
 $(document).ready(function(){
