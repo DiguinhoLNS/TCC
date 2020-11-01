@@ -196,7 +196,7 @@
 
 											<ul class = "FeedBoxGroup">';
 											do{
-												$DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
+												$DataSeparada = SepararData($Eletronicos["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 
@@ -249,7 +249,7 @@
 
 											$i=0;
 											do{
-												$DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
+												$DataSeparada = SepararData($Roupas["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 													<li class = "ItemBox">
@@ -301,7 +301,7 @@
 
 											<ul class = "FeedBoxGroup">';
 											do{
-												$DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
+												$DataSeparada = SepararData($Acessorios["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 													<li class = "ItemBox">
@@ -352,7 +352,7 @@
 											<ul class = "FeedBoxGroup">';
 
 											do{
-												$DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
+												$DataSeparada = SepararData($Documentos["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 													<li class = "ItemBox">
@@ -404,7 +404,7 @@
 											<ul class = "FeedBoxGroup">';
 
 											do{
-												$DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
+												$DataSeparada = SepararData($Outros["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 													<li class = "ItemBox">
