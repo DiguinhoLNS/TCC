@@ -39,7 +39,7 @@
 
 	</head>
 
-	<body id = "FeedPage" class = "UNT LightMode ADMView">
+	<body id = "FeedPage" class = "UNT LightMode UserView">
 
 		<?php
 
