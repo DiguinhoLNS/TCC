@@ -82,16 +82,19 @@
 							<ul id = "InfoBox3" class = "BoxContent">
 
 								<li>
+									<i class = "material-icons"> &#xe916; </i>
 									<h1> Data </h1>
 									<h2> 01/11/2020 </h2>
 								</li>
 							
 								<li>
+									<i class = "material-icons"> category </i>
 									<h1> Categoria </h1>
 									<h2> Nome da Categoria </h2>
 								</li>
 
 								<li>
+									<i class = "material-icons"> &#xe0af; </i>
 									<h1> Empresa </h1>
 									<h2>
 										<a href = ""> Nome da Empresa </a>
@@ -99,6 +102,7 @@
 								</li>
 
 								<li>
+									<i class = "material-icons"> &#xe88e; </i>
 									<h1> Status </h1>
 									<h2 class = "Status1"> Perdido </h2>
 								</li>
@@ -122,10 +126,9 @@
 
 						<li>
 
-							<h1> Deseja recuperar esse item? </h1>
+							<h1 id = "RecoveryItem"> Deseja recuperar esse item? </h1>
 
 						</li>
-						<li></li>
 
 					</ul>
 
