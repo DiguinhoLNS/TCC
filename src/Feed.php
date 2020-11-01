@@ -196,6 +196,7 @@
 
 											<ul class = "FeedBoxGroup">';
 											do{
+												$DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 
@@ -210,7 +211,7 @@
 															<div class = "ItemInfo">
 																
 																<h1 class = "ItemName"> '.$Eletronicos["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$Eletronicos["Objeto"][$i]["Data_cadastro"].' </h2>
+																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
 																<h3 class = "ItemCategory"> '.$Eletronicos["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>
@@ -248,6 +249,7 @@
 
 											$i=0;
 											do{
+												$DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 													<li class = "ItemBox">
@@ -261,7 +263,7 @@
 															<div class = "ItemInfo">
 																
 																<h1 class = "ItemName"> '.$Roupas["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$Roupas["Objeto"][$i]["Data_cadastro"].' </h2>
+																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
 																<h3 class = "ItemCategory"> '.$Roupas["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>
@@ -299,6 +301,7 @@
 
 											<ul class = "FeedBoxGroup">';
 											do{
+												$DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 													<li class = "ItemBox">
@@ -312,7 +315,7 @@
 															<div class = "ItemInfo">
 																
 																<h1 class = "ItemName"> '.$Acessorios["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$Acessorios["Objeto"][$i]["Data_cadastro"].' </h2>
+																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
 																<h3 class = "ItemCategory"> '.$Acessorios["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>
@@ -349,6 +352,7 @@
 											<ul class = "FeedBoxGroup">';
 
 											do{
+												$DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 													<li class = "ItemBox">
@@ -362,7 +366,7 @@
 															<div class = "ItemInfo">
 																
 																<h1 class = "ItemName"> '.$Documentos["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$Documentos["Objeto"][$i]["Data_cadastro"].' </h2>
+																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
 																<h3 class = "ItemCategory"> '.$Documentos["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>
@@ -400,6 +404,7 @@
 											<ul class = "FeedBoxGroup">';
 
 											do{
+												$DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 													<li class = "ItemBox">
@@ -413,7 +418,7 @@
 															<div class = "ItemInfo">
 																
 																<h1 class = "ItemName"> '.$Outros["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$Outros["Objeto"][$i]["Data_cadastro"].' </h2>
+																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
 																<h3 class = "ItemCategory"> '.$Outros["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>

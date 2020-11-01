@@ -318,43 +318,46 @@ $(document).ready(function(){
         $("#btnSearchFeed").on("click", function(){
 
             var pesquisa = $("#FeedSearchItens").val();
-            var folder = `php/Filters/Search.php?q=${pesquisa}`;
 
-            ItemBox.remove();
+                var folder = `php/Filters/Search.php?q=${pesquisa}`;
 
-            $.ajax({
+                ItemBox.remove();
 
-                url : folder,
-                type : 'get',
+                $.ajax({
 
-                beforeSend : function(){
+                    url : folder,
+                    type : 'get',
 
+                    beforeSend : function(){
+
+                        
+                        $(".ItemBox").remove();
+                        $(".SearchItemBox").remove();
+                        
+                        $(".LoadingFeed").css("display", "flex");
+                        $(".FilterItem").removeClass("active");
+                        $("#btnAllFilter").addClass("active");
+                        
+                        $("#AllItensFrame").css("display", "block");
+                        $("#CategoryItensFrame").css("display", "None");
+
+                    }
+
+                }).done(function(){   
+
+                    AJAXRequestStatus(1);  
                     
-                    $(".ItemBox").remove();
-                    $(".SearchItemBox").remove();
+                    $(".LoadingFeed").css("display", "none");     
+
+                    $(FeedAll).load(folder);
+           
                     
-                    $(".LoadingFeed").css("display", "flex");
-                    $(".FilterItem").removeClass("active");
-                    $("#btnAllFilter").addClass("active");
-                    
-                    $("#AllItensFrame").css("display", "block");
-                    $("#CategoryItensFrame").css("display", "None");
+                }).fail(function(){
 
-                }
+                    AJAXRequestStatus(0);
 
-            }).done(function(){   
+                });
 
-                AJAXRequestStatus(1);
-
-                $(".LoadingFeed").css("display", "none");           
-
-                $(FeedAll).load(folder);
-                
-            }).fail(function(){
-
-                AJAXRequestStatus(0);
-
-            });
             
         });
 

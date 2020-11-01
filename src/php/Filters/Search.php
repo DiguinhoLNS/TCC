@@ -1,11 +1,13 @@
 <?php
 
-    include '../../sql/ConexaoBD.php';
-    include '../../sql/Funcoes.php';
+include '../../sql/ConexaoBD.php';
+include '../../sql/Funcoes.php';
 
-    $id_empresa = base64_decode($_COOKIE["ID_Company"]);
+$id_empresa = base64_decode($_COOKIE["ID_Company"]);
 
-    $pesquisar = ClearInjectionXSS($base, $_GET["q"]);
+$pesquisar = ClearInjectionXSS($base, $_GET["q"]);
+
+if ($pesquisar != null) {
 
     $query = "SELECT * FROM objetos WHERE Nome_obj LIKE '%$pesquisar%' and id_empresa = $id_empresa";
     $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 41");
@@ -22,36 +24,36 @@
             "Quantidade" => $QuantidadeDeObjetos,
             "Objeto" => $TodosObjetos
         ];
-            $Dados;
+        $Dados;
     } else {
-            $Dados = [
+        $Dados = [
             "Quantidade" => $QuantidadeDeObjetos,
         ];
     }
 
-    if($Dados["Quantidade"]==0){
-        
-        echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
+    if ($Dados["Quantidade"] == 0) {
 
-    }else{
+        echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
+    } else {
         include "../../include/LoadFeed.php";
-        $i=0;
-        do{
-            echo '
+        $i = 0;
+        do {
+            $DataSeparada = SepararData($Dados["Objeto"][$i]["Data_cadastro"]);
+            echo '          
 
                 <li class = "SearchItemBox ItemBox">
 
-                    <a href = "#" title = "'.$Dados["Objeto"][$i]["Nome_obj"].'">
+                    <a href = "#" title = "' . $Dados["Objeto"][$i]["Nome_obj"] . '">
 
                         <div class = "ItemImg">
-                            <img src = "imagesBD/'.$Dados["Objeto"][$i]["Nome_foto"].'">
+                            <img src = "imagesBD/' . $Dados["Objeto"][$i]["Nome_foto"] . '">
                         </div>
 
                         <div class = "ItemInfo">
                             
-                            <h1 class = "ItemName"> '.$Dados["Objeto"][$i]["Nome_obj"].' </h1>
-                            <h2 class = "ItemData"> '.$Dados["Objeto"][$i]["Data_cadastro"].' </h2>
-                            <h3 class = "ItemCategory"> '.$Dados["Objeto"][$i]["Categoria"].' </h3>
+                            <h1 class = "ItemName"> ' . $Dados["Objeto"][$i]["Nome_obj"] . ' </h1>
+                            <h2 class = "ItemData"> ' . $DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"] . ' </h2>
+                            <h3 class = "ItemCategory"> ' . $Dados["Objeto"][$i]["Categoria"] . ' </h3>
 
                         </div>
 
@@ -60,9 +62,8 @@
                 </li>
             ';
             $i++;
-
-        }while($i<($Dados["Quantidade"]));
-
+        } while ($i < ($Dados["Quantidade"]));
     }
-
-?>
+} else {
+    echo "<meta HTTP-EQUIV='refresh' CONTENT='0'>";
+}
