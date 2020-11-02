@@ -6,13 +6,20 @@
 	include 'sql/ConexaoBD.php';
 	include_once "sql/Funcoes.php";
 
-	//$id_empresa = base64_decode($_GET['q']);
-	//$id_item = base64_decode($_GET['i']);
-
 	if(isset($_COOKIE["ID"])){
 
 		$id = base64_decode($_COOKIE["ID"]);
+		$id_item = base64_decode($_GET['q']);
 
+		$DadosItem = PegarDadosItemPeloId($base, $id_item);
+		$DataSeparada = SepararData($DadosItem["Objeto"][0]["Data_cadastro"]);
+
+		if($DadosItem['Quantidade'] == 0 || $DadosItem['Quantidade'] > 1){
+			die("Erro de ID de Objeto ". $DadosItem["Quantidade"]);
+		}
+
+	}else{
+		die("Erro de ID de usuario");
 	}
     
 ?>
@@ -61,7 +68,7 @@
 
 							<div id = "InfoBox1" class = "BoxContent">
 
-								<h1> Nome do Item </h1>
+								<h1> <?= $DadosItem["Objeto"][0]["Nome_obj"]; ?> </h1>
 
 							</div>
 
@@ -71,7 +78,7 @@
 							<div id = "InfoBox2" class = "BoxContent">
 
 								<p class = "ItemDescription">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempus, massa iaculis sodales finibus, est arcu sagittis quam, nec aliquam.
+								<?= $DadosItem["Objeto"][0]["Descricao"]; ?>
 								</p>
 
 							</div>
@@ -84,27 +91,27 @@
 								<li>
 									<i class = "material-icons"> &#xe916; </i>
 									<h1> Data </h1>
-									<h2> 01/11/2020 </h2>
+									<h2> <?= $DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"] ?></h2>
 								</li>
 							
 								<li>
 									<i class = "material-icons"> category </i>
 									<h1> Categoria </h1>
-									<h2> Nome da Categoria </h2>
+									<h2> <?= $DadosItem["Objeto"][0]["Categoria"]; ?> </h2>
 								</li>
 
 								<li>
 									<i class = "material-icons"> &#xe0af; </i>
 									<h1> Empresa </h1>
 									<h2>
-										<a href = ""> Nome da Empresa </a>
+										<a href = "Company.php?q=<?= base64_encode($DadosItem["Objeto"][0][1]); ?>"> <?= $DadosItem["Objeto"][0]["Nome"]; ?> </a>
 									</h2>
 								</li>
 
 								<li>
 									<i class = "material-icons"> &#xe88e; </i>
 									<h1> Status </h1>
-									<h2 class = "Status1"> Perdido </h2>
+									<h2 class = "Status1"> <?= $DadosItem["Objeto"][0]["situacao"]; ?> </h2>
 								</li>
 
 							</ul>
@@ -112,7 +119,7 @@
 						</li>
 						<li class = "Box Boximg">
 
-							<img src = "imagesBD\4632496204ddd2e1b1d414517ef8059d.jpeg"/>
+							<img src = "imagesBD\<?= $DadosItem["Objeto"][0]["Nome_foto"]; ?>"/>
 
 						</li>
 

@@ -410,6 +410,32 @@ function PegarDadosItemPeloIdEmpresa($base, $id_empresa)
     }
 }
 
+function PegarDadosItemPeloId($base, $id)
+{
+
+    $query = "SELECT * FROM objetos inner join empresas on empresas.id_empresa = objetos.id_empresa where id_obj = '$id'";
+    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 11");
+    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+
+    if ($QuantidadeDeObjetos > 0) {
+        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
+            $TodosObjetos[] = $DadosObjetos;
+        }
+    }
+
+    if (isset($TodosObjetos)) {
+        $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+            "Objeto" => $TodosObjetos
+        ];
+        return $Dados;
+    } else {
+        return $Dados = [
+            "Quantidade" => $QuantidadeDeObjetos,
+        ];
+    }
+}
+
 function PegarDocumentos($base, $id_empresa)
 {
 

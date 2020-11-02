@@ -15,7 +15,6 @@
 
 		$DadosEmpresa = PegarDadosEmpresaPeloIdEmpresa($base, $id_empresa);
 		
-		echo $id_user. " - ". $id_empresa."<br>" ;
 		$DadosUserEmpresa = PegarDadosUserEmpresaPeloIdUserIdEmpresa($base, $id_user, $id_empresa);
 
 		$cnpj = ColocarPontoCNPJ($DadosEmpresa["CNPJ"]);
