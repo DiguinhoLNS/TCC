@@ -29,7 +29,7 @@
 
 	<head>
 
-		<title> NOME DO ITEM </title>
+		<title> <?= $DadosItem["Objeto"][0]["Nome_obj"]; ?> </title>
 		
 		<?php include "include/Head.php"; ?>
 

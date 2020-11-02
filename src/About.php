@@ -108,7 +108,8 @@
                             <h3> Luís Gustavo </h3>
 
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a blandit dolor. Phasellus et massa dignissim, egestas libero eu, facilisis risus. Praesent vulputate magna lacus, nec egestas lorem sodales sit.
+                                Vulgo LG, amante de PHP. Dono da mágica por trás do site, ou seja, o Back-end.<br>
+                                †ℐℋ𝒮†
                             </p>
 
                             <ul class = "DeveloperSocialBar SocialIconsBar">
