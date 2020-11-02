@@ -115,37 +115,22 @@
                             <ul class = "DeveloperSocialBar SocialIconsBar">
 
                                 <li>
-                                    <a href = "#" class = "IconFacebook" target = "_blank">
+                                    <a href = "https://www.facebook.com/gustavo.dasilvafeitoza/" class = "IconFacebook" target = "_blank">
                                         <i class = "fab"> &#xf09a; </i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href = "#" class = "IconInstagram" target = "_blank">
+                                    <a href = "https://www.instagram.com/luisfeitoza07/?hl=pt-br" class = "IconInstagram" target = "_blank">
                                         <i class = "fab"> &#xf16d; </i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href = "#" class = "IconTwitter" target = "_blank">
+                                    <a href = "https://twitter.com/__User__Name" class = "IconTwitter" target = "_blank">
                                         <i class = "fab"> &#xf099; </i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href = "#" class = "IconPinterest" target = "_blank">
-                                        <i class = "fab"> &#xf0d2; </i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href = "" class = "IconReddit" target = "_blank">
-                                        <i class = "fab"> &#xf1a1; </i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href = "#" class = "IconLinkedin" target = "_blank">
-                                        <i class = "fab"> &#xf08c; </i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href = "" class = "IconGithub" target = "_blank">
+                                    <a href = "https://github.com/luiys" class = "IconGithub" target = "_blank">
                                         <i class = "fab"> &#xf09b; </i>
                                     </a>
                                 </li>
