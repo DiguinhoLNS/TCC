@@ -826,263 +826,122 @@ h1, h2, h3, h4, h5, h6 {
 			font-size: 40px;
 		}
 
-		/* Nav Config */
+		/* User Frames */
 
-		#SectionUserConfig nav {
-			width: 100%;
+		#UF2 , #UF3, #UF4, #UF5 {
+			display: none;
 		}
 
-			/* Nav Options */
+		/* UF 1 */
 
-			#NavUserConfig {
-				margin-bottom: 40px;
+		#UF1 {
+			display: block;
+		}
+
+		/* UF 2 */
+
+		#UF2 .FrameHeader .NavUserViewSwitch {
+			float: right;
+
+			margin: 8px 0;
+
+			color: var(--color-txt-t);
+			font-size: 14px;
+
+			cursor: pointer;
+			transition: 0.1s ease;
+		}
+
+			#UF2 .FrameHeader .NavUserViewSwitch:hover {
+				color: var(--color-txt-s);
 			}
 
-				#NavUserConfig ul {
-					list-style-type: none;
-				}
-
-				#NavUserConfig ul li {
-					padding: 0 16px 8px;
-					border-bottom: 2px solid transparent;
-
-					color: var(--color-txt-t);
-
-					cursor: pointer;
-					transition: 0.1s ease;
-				}
-
-					#NavUserConfig ul li:hover {
-						border-bottom-color: var(--color-border);
-					}
-
-					/* Active */
-					#NavUserConfig ul .active {
-						border-bottom-color: var(--color-theme-p);
-
-						color: var(--color-theme-p);
-					}
-
-						#NavUserConfig ul .active:hover {
-							border-bottom-color: var(--color-theme-p);
-						}
-
-				#NavUserConfig ul li i {
-					margin-right: 8px;
-					
-					font-size: 22px;
-				}
-
-				#NavUserConfig ul li span {
-					font-size: 18px;
-				}
-
-			/* Nav Frames */
-
-			#NavUserFrameset .NavUserFrame {
-				width: 100%;
+			#UF2 .FrameHeader #NavUserViewBoxSwitch {
+				display: none;
 			}
 
-				/* User Frames */
+		/* Box */
 
-				#UF2 , #UF3, #UF4, #UF5 {
-					display: none;
-				}
+		#UF2 .FrameMain .BoxView {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-auto-rows: auto;
+			grid-gap: 20px;		
 
-				/* UF 1 */
+			width: 100%;
 
-				#UF1 {
-					display: block;
-				}
+			list-style: none;
+		}
 
-				#UF1 .FrameMain .DataCategory .Category .HeaderCategory {
-					grid-column: 1/2;
-					grid-row: 1/2;
-				}
+		#UF2 .FrameMain .BoxView li {
+			border-radius: 20px;
 
-				#UF1 .FrameMain .DataCategory .Category .LeftContent,
-				#UF1 .FrameMain .DataCategory .Category .RightContent {
-					grid-row: 2/3;
-					
-					width: 100%;
-				}
+			background-color: var(--color-layout-s);
+		}
 
-				.FrameMain .Category {
-					border-color: var(--color-border);
-				}
+			#UF2 .FrameMain .BoxView li:hover {
+				background-color: var(--color-hover);
+			}
 
-				.FrameMain .Category .CategoryOptions .btnContent button:hover {
-					background-color: var(--color-hover-p);
-				}
-		
-					.FrameMain .Category .CategoryOptions .btnContent button:hover {
-						border-color: var(--color-theme-p);
-						
-						color: var(--color-txt-p-dm);
-						background-color: var(--color-theme-p);
-					}
-
-					/* Danger */
-
-					.FrameMain ul .CategoryDanger {
-						border-color: rgba(234, 67, 53, 60%);
-					}
-
-					.FrameMain ul .CategoryDanger .HeaderCategory {
-						color: var(--color-error);
-					}
+		#UF2 .FrameMain .BoxView li a {
+			display: flex;
+			align-items: center;
 			
-					.FrameMain ul .CategoryDanger .CategoryOptions .btnContent button {
-						color: var(--color-error);
-					}
-			
-						.FrameMain ul .CategoryDanger .CategoryOptions .btnContent button:hover {
-							border: 1px solid var(--color-error);
-						
-							color: var(--color-txt-p-dm);
-							background-color: var(--color-error);
-						}
+			width: 100%;
+			height: 100%;
+			padding: 20px 30px;
+			border-radius: inherit;
+		}
 
-				/* UF 1 */
+		#UF2 .FrameMain .BoxView li a h1 {
+			width: 100%;
 
-				#UF1 .FrameMain .DataCategory .Category .CategoryOptions #DataPlaceholderPWD {
-					cursor: pointer;
-				}
+			color: var(--color-txt-p);
+			text-align: center;
+		}
 
-				#UF1 .FrameMain .DataCategory .Category .CategoryOptions #DataPWD {
-					display: none;
-				}
+		/* List */
 
-				/* UF 2 */
+		#UF2 .FrameMain .ListView {
+			width: 100%;
 
-				#UF2 .FrameHeader .NavUserViewSwitch {
-					float: right;
+			list-style: none;
+		}
 
-					margin: 8px 0;
+		#UF2 .FrameMain .ListView li {
+			width: 100%;
+			border-bottom: 2px solid var(--color-border);
+		}
 
-					color: var(--color-txt-t);
-					font-size: 14px;
-
-					cursor: pointer;
-					transition: 0.1s ease;
-				}
-
-					#UF2 .FrameHeader .NavUserViewSwitch:hover {
-						color: var(--color-txt-s);
-					}
-
-					#UF2 .FrameHeader #NavUserViewBoxSwitch {
-						display: none;
-					}
-
-				/* Box */
-
-				#UF2 .FrameMain .BoxView {
-					display: grid;
-					grid-template-columns: repeat(4, 1fr);
-					grid-auto-rows: auto;
-					grid-gap: 20px;		
-
-					width: 100%;
-
-					list-style: none;
-				}
-
-				#UF2 .FrameMain .BoxView li {
-					border-radius: 20px;
-
-					background-color: var(--color-layout-s);
-				}
-
-					#UF2 .FrameMain .BoxView li:hover {
-						background-color: var(--color-hover);
-					}
-
-				#UF2 .FrameMain .BoxView li a {
-					width: 100%;
-					padding: 20px 30px;
-					border-radius: inherit;
-				}
-
-				#UF2 .FrameMain .BoxView li a h1 {
-					width: 100%;
-
-					color: var(--color-txt-p);
-					text-align: center;
-				}
-
-				/* List */
-
-				#UF2 .FrameMain .ListView {
-					width: 100%;
-
-					list-style: none;
-				}
-
-				#UF2 .FrameMain .ListView li {
-					width: 100%;
-					border-bottom: 2px solid var(--color-border);
-				}
-
-					#UF2 .FrameMain .ListView li:hover {
-						background-color: var(--color-hover);
-					}
-
-				#UF2 .FrameMain .ListView li a {
-					width: 100%;
-					padding: 10px;
-
-					color: var(--color-txt-s);
-					font-size: 16px;
-				}
-
-				/* UF 3 */
-
-				#UF3 .FrameMain #UserItensView {
-					grid-template-columns: repeat(3, 1fr);
-				}
-
-				/* UF 4 */
-
-				#UF4 .FrameMain #ConfigCategory {
-					width: 100%;
-
-					list-style: none;
-				}
-
-				#UF4 .FrameMain #ConfigCategory .Category .CategoryOptions {
-					width: 100%;
-				}
-
-			#NavUserFrameset .NavUserFrame .NavUserFrameContent {
-				width: 100%;
+			#UF2 .FrameMain .ListView li:hover {
+				background-color: var(--color-hover);
 			}
 
-			#NavUserFrameset .NavUserFrame .NavUserFrameContent .FrameSection {
-				width: 100%;
-				margin-bottom: 25px;
-			}
+		#UF2 .FrameMain .ListView li a {
+			width: 100%;
+			padding: 10px;
 
-				#NavUserFrameset .NavUserFrame .NavUserFrameContent .FrameSection:last-child {
-					margin: 0;
-				}
+			color: var(--color-txt-s);
+			font-size: 16px;
+		}
 
-				/* Header */
+		/* UF 3 */
 
-				#NavUserFrameset .NavUserFrame .NavUserFrameContent .FrameHeader h1 {
-					float: left;
-					
-					color: var(--color-txt-p);
-					font-size: 28px;
-				}
+		#UF3 .FrameMain #UserItensView {
+			grid-template-columns: repeat(3, 1fr);
+		}
 
-				#NavUserFrameset .NavUserFrame .NavUserFrameContent .FrameHeader p {
-					width: 100%;
-					margin-top: 16px;
+		/* UF 4 */
 
-					color: var(--color-txt-t);
-					font-size: 16px;
-				}
+		#UF4 .FrameMain #ConfigCategory {
+			width: 100%;
+
+			list-style: none;
+		}
+
+		#UF4 .FrameMain #ConfigCategory .Category .CategoryOptions {
+			width: 100%;
+		}
 
 		/*******************************************************
 			Company.php
@@ -1102,71 +961,18 @@ h1, h2, h3, h4, h5, h6 {
 			background-color: var(--color-layout-p);
 		}
 
-		#SectionCompanyMain ul {
-			width: 100%;
-			margin-bottom: 35px;
+		/* Company Frames */
 
-			list-style: none;
+		#CF2 , #CF3 {
+			display: none;
 		}
 
-			#SectionCompanyMain ul:last-child {
-				margin: 0;
-			}
+		/* CF 1 */
 
-		#SectionCompanyMain ul .CategoryHeader {
-			width: 100%;
-			margin-bottom: 25px;
+		#CF1 {
+			display: block;
 		}
-
-		#SectionCompanyMain ul .CategoryHeader h1 {
-			color: var(--color-txt-p);
-			font-size: 28px;
-		}
-
-		#SectionCompanyMain ul .Category {
-			border-color: var(--color-theme-company-s);
-		}
-
-		#SectionCompanyMain ul .Category .CategoryOptions .btnContent button:hover {
-			background-color: var(--color-hover-p);
-		}
-
-			#SectionCompanyMain ul .Category .CategoryOptions .btnContent button:hover {
-				border-color: var(--color-theme-company-p);
-				
-				color: var(--color-txt-p-dm);
-				background-color: var(--color-theme-company-p);
-			}
-			
-				.ThemeYellow #SectionCompanyMain ul .Category .CategoryOptions .btnContent button:hover {
-					color: var(--color-txt-p-lm);
-				}
-
-				.ThemeYellow #SectionCompanyMain ul .CategoryDanger .CategoryOptions .btnContent button:hover {
-					color: var(--color-txt-p-dm);
-				}
-
-			/* Danger */
-
-			#SectionCompanyMain ul .CategoryDanger {
-				border-color: rgba(234, 67, 53, 60%);
-			}
-
-			#SectionCompanyMain ul .CategoryDanger .HeaderCategory {
-				color: var(--color-error);
-			}
-
-			#SectionCompanyMain ul .CategoryDanger .CategoryOptions .btnContent button {
-				color: var(--color-error);
-			}
-
-				#SectionCompanyMain ul .CategoryDanger .CategoryOptions .btnContent button:hover {
-					border: 1px solid var(--color-error);
-				
-					color: var(--color-txt-p-dm);
-					background-color: var(--color-error);
-				}
-
+		
 		/*******************************************************
 			Feed.php
 		*******************************************************/
@@ -2429,7 +2235,9 @@ h1, h2, h3, h4, h5, h6 {
 	Outros
 *******************************************************/
 
-/* User/ADM View */
+	/*******************************************************
+		User/ADM View
+	*******************************************************/
 
 	/* Company */
 
@@ -2451,68 +2259,70 @@ h1, h2, h3, h4, h5, h6 {
 		display: block;
 	}
 
-/* Social Icons */
+	/*******************************************************
+		Social Icons
+	*******************************************************/
 
-.SocialIconsBar li {
-	height: 20px;
-    margin: 1px 16px 1px 0;
-}
-
-	.SocialIconsBar li:last-child {
-		margin-right: 0;
+	.SocialIconsBar li {
+		height: 20px;
+		margin: 1px 16px 1px 0;
 	}
 
-.SocialIconsBar li a {
-	color: var(--color-txt-t);
-}
-
-	.SocialIconsBar li .IconFacebook:hover {
-		color: #1877F2;
-	}
-
-	.SocialIconsBar li .IconInstagram:hover {
-		color: #C32AA3;
-	}
-
-	.SocialIconsBar li .IconTwitter:hover {
-		color: #1DA1F2;
-	}
-
-		.LightMode .SocialIconsBar li .IconGithub:hover {
-			color: #211F1F;
+		.SocialIconsBar li:last-child {
+			margin-right: 0;
 		}
 
-		.DarkMode .SocialIconsBar li .IconGithub:hover {
-			color: #F6F8FA;
+	.SocialIconsBar li a {
+		color: var(--color-txt-t);
+	}
+
+		.SocialIconsBar li .IconFacebook:hover {
+			color: #1877F2;
 		}
 
-	.SocialIconsBar li .IconDiscord:hover {
-		color: #7289DA;
+		.SocialIconsBar li .IconInstagram:hover {
+			color: #C32AA3;
+		}
+
+		.SocialIconsBar li .IconTwitter:hover {
+			color: #1DA1F2;
+		}
+
+			.LightMode .SocialIconsBar li .IconGithub:hover {
+				color: #211F1F;
+			}
+
+			.DarkMode .SocialIconsBar li .IconGithub:hover {
+				color: #F6F8FA;
+			}
+
+		.SocialIconsBar li .IconDiscord:hover {
+			color: #7289DA;
+		}
+
+		.SocialIconsBar li .IconGoogle:hover {
+			color: #4285F4;
+		}
+
+		.SocialIconsBar li .IconLinkedin:hover {
+			color: #007BB5
+		}
+
+		.SocialIconsBar li .IconPinterest:hover {
+			color: #BD081C;
+		}
+
+		.SocialIconsBar li .IconReddit:hover {
+			color: #FF4500;
+		}
+
+	.SocialIconsBar li a i {
+		font-size: 18px;
 	}
 
-	.SocialIconsBar li .IconGoogle:hover {
-		color: #4285F4;
-	}
-
-	.SocialIconsBar li .IconLinkedin:hover {
-		color: #007BB5
-	}
-
-	.SocialIconsBar li .IconPinterest:hover {
-		color: #BD081C;
-	}
-
-	.SocialIconsBar li .IconReddit:hover {
-		color: #FF4500;
-	}
-
-.SocialIconsBar li a i {
-	font-size: 18px;
-}
-
-/* Control Pane */
-
-	/* btn */
+	/*******************************************************
+		Control Panel
+	*******************************************************/
 
 	.btnControl {
 		z-index: 11;
@@ -2538,8 +2348,6 @@ h1, h2, h3, h4, h5, h6 {
 		color: var(--color-txt-p-dm);
 		font-size: 30px;
 	}
-
-	/* Control Pane */
 
 	.ControlPane {
 		z-index: 20;
@@ -2599,145 +2407,157 @@ h1, h2, h3, h4, h5, h6 {
 		font-size: 17px;
 	}
 
-/* Bottom TXT*/
+	/*******************************************************
+		Bottom txt
+	*******************************************************/
 
-.BottomMessage {
-	z-index: 10;
-	position: fixed;
-	bottom: -75px;
+	.BottomMessage {
+		z-index: 10;
+		position: fixed;
+		bottom: -75px;
 
-	width: 100%;
-	padding: 10px 500px;
+		width: 100%;
+		padding: 10px 500px;
 
-	background-color: var(--color-theme-t);
+		background-color: var(--color-theme-t);
 
-	transition: bottom 0.9s ease;
-}
-
-.BottomMessage .MessageContent {
-	display: grid;
-	grid-template-rows: repeat(2, auto);
-	grid-gap: 10px;
-	
-	width: 100%;
-}
-
-.BottomMessage .MessageContent #TopContent,
-.BottomMessage .MessageContent #BottomContent {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	
-	width: 100%;
-}
-
-.BottomMessage .MessageContent #TopContent h1 {
-	float: left;
-	
-	color: var(--color-txt-p-dm);
-	font-size: 12px;
-}
-
-.BottomMessage .MessageContent #TopContent h1 a {
-	float: right;
-
-	margin-left: 10px;
-
-	color: var(--color-txt-t-dm);
-
-	transition: 0.1s ease;
-}
-
-	.BottomMessage .MessageContent #TopContent h1 a:hover {
-		color: var(--color-txt-s-dm);
+		transition: bottom 0.9s ease;
 	}
 
-.BottomMessage .MessageContent #BottomContent {	
-	font-size: 14px;
-}
-
-.BottomMessage .MessageContent #BottomContent .CookiesOFF {
-	margin: 6px 0;
-	
-	color: var(--color-txt-t-dm);
-	font-size: inherit;
-
-	cursor: pointer;
-	transition: 0.1s ease;
-}
-
-	.BottomMessage .MessageContent #BottomContent .CookiesOFF:hover {
-		color: var(--color-txt-s-dm);
+	.BottomMessage .MessageContent {
+		display: grid;
+		grid-template-rows: repeat(2, auto);
+		grid-gap: 10px;
+		
+		width: 100%;
 	}
 
-.BottomMessage .MessageContent #BottomContent .CookiesON {
-	padding: 4px 16px;
-	margin-left: 18px;
-	border: 2px solid var(--color-theme-t);
-	border-radius: 13px;
-	outline: none;
+	.BottomMessage .MessageContent #TopContent,
+	.BottomMessage .MessageContent #BottomContent {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		
+		width: 100%;
+	}
 
-	color: var(--color-txt-p-dm);
-	font-size: inherit;
-	background-color: var(--color-theme-p);
+	.BottomMessage .MessageContent #TopContent h1 {
+		float: left;
+		
+		color: var(--color-txt-p-dm);
+		font-size: 12px;
+	}
 
-	cursor: pointer;
-}
+	.BottomMessage .MessageContent #TopContent h1 a {
+		float: right;
 
-.BottomMessage .MessageContent #BottomContent .CookiesON:hover {
-	background-color: var(--color-theme-hover);
-}
+		margin-left: 10px;
 
-/* BTN */
+		color: var(--color-txt-t-dm);
 
-.btn {
-	border: none;
-	
-	color: var(--color-txt-p-dm);
-	background-color: var(--color-theme-p);
+		transition: 0.1s ease;
+	}
 
-	cursor: pointer;
-	transition: 0.1s ease;
-}
+		.BottomMessage .MessageContent #TopContent h1 a:hover {
+			color: var(--color-txt-s-dm);
+		}
 
-	.btn:hover {
+	.BottomMessage .MessageContent #BottomContent {	
+		font-size: 14px;
+	}
+
+	.BottomMessage .MessageContent #BottomContent .CookiesOFF {
+		margin: 6px 0;
+		
+		color: var(--color-txt-t-dm);
+		font-size: inherit;
+
+		cursor: pointer;
+		transition: 0.1s ease;
+	}
+
+		.BottomMessage .MessageContent #BottomContent .CookiesOFF:hover {
+			color: var(--color-txt-s-dm);
+		}
+
+	.BottomMessage .MessageContent #BottomContent .CookiesON {
+		padding: 4px 16px;
+		margin-left: 18px;
+		border: 2px solid var(--color-theme-t);
+		border-radius: 13px;
+		outline: none;
+
+		color: var(--color-txt-p-dm);
+		font-size: inherit;
+		background-color: var(--color-theme-p);
+
+		cursor: pointer;
+	}
+
+	.BottomMessage .MessageContent #BottomContent .CookiesON:hover {
 		background-color: var(--color-theme-hover);
 	}
 
-/* Box Shadow */
+	/*******************************************************
+		btn
+	*******************************************************/
 
-.BS {
-	box-shadow: 0px 5px 10px 2px rgba(0,0,0,0.4);
-}
+	.btn {
+		border: none;
+		
+		color: var(--color-txt-p-dm);
+		background-color: var(--color-theme-p);
 
-/* Side Nav Bar */
+		cursor: pointer;
+		transition: 0.1s ease;
+	}
 
-#SideNavBar {
-	z-index: 20;
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: -300px;
+		.btn:hover {
+			background-color: var(--color-theme-hover);
+		}
 
-	width: 300px;
+	/*******************************************************
+		Box Shadow
+	*******************************************************/
 
-	transition: left 0.5s ease;
-}
+	.BS {
+		box-shadow: 0px 5px 10px 2px rgba(0,0,0,0.4);
+	}
 
-/* Header Z-Index */
+	/*******************************************************
+		Side NavBar
+	*******************************************************/
 
-#HeaderNotification, #HeaderConfig {
-	z-index: 20;
-	position: fixed;
-	top: 60px;
-	right: 20px;
-	display: none;
+	#SideNavBar {
+		z-index: 20;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: -300px;
 
-	width: 300px;
-	border-radius: 20px;
-}
+		width: 300px;
 
-	/* Header Notification */
+		transition: left 0.5s ease;
+	}
+
+	/*******************************************************
+		Header Z-index
+	*******************************************************/
+
+	#HeaderNotification, #HeaderConfig {
+		z-index: 20;
+		position: fixed;
+		top: 60px;
+		right: 20px;
+		display: none;
+
+		width: 300px;
+		border-radius: 20px;
+	}
+
+	/*******************************************************
+		Header Notification
+	*******************************************************/
 
 	#HeaderNotification nav {
 		width: 100%;
@@ -2750,392 +2570,575 @@ h1, h2, h3, h4, h5, h6 {
 		list-style: none;
 	}
 
-		/* Notifications Group */
+	/* Notifications Group */
 
-		#NotificationsGroup #NoneNotifications {
-			display: none;
-			
-			width: 100%;
-
-			color: var(--color-txt-t);
-			font-size: 16px;
-			text-align: center;
-
-			cursor: default;
-		}
-
-		#NotificationsGroup .NotificationBox {
-			width: 100%;
-			height: 40px;
-			padding: 10px 20px;
-			margin-bottom: 10px;
-			border-radius: 20px;
-
-			color: var(--color-txt-s);
-
-			cursor: pointer;
-			transition: 0.1s ease;
-		}
-
-			#NotificationsGroup .NotificationBox:hover {
-				background-color: var(--color-hover-p);
-			}
-
-			.NotificationBox:last-child {
-				margin-bottom: 10px;
-			}
-
-		#NotificationsGroup .NotificationBox i {
-			margin-right: 20px;
-
-			font-size: 20px;
-		}
-
-		#NotificationsGroup .NotificationBox span {
-			font-size: 17px;
-		}
-
-		/* Notifications Config */
-
-		#NotificationsConfig li {
-			float: right;
-			
-			margin: 0 20px;
-
-			color: var(--color-txt-t);
-			font-size: 14px;
-
-			cursor: pointer;
-			transition: 0.1s ease;
-		}
-
-			#NotificationsConfig li:hover {
-				color: var(--color-txt-s);
-			}
-
-/* Nav Options */
-
-.NavOptions {
-	width: 100%;
-	height: 100%;
-	padding: 20px 0;
-}
-
-.NavOptions h1 {
-	width: 100%;
-	padding: 0 20px 20px;
-
-	font-size: 22px;
-
-	cursor: default;
-}
-
-.NavOptions ul {
-	width: 100%;
-	padding: 0 0 20px;
-	
-	list-style: none;
-}
-
-	.NavOptions ul:last-child {
-		padding-bottom: 0;
-		border-bottom: none;
-	}
-
-.NavOptions ul li {
-	display: block;
-
-	width: 100%;
-	border-radius: 20px;
-
-	transition: 0.1s ease;
-}
-
-.NavOptions ul li:hover {
-		background-color: var(--color-hover-p);
-	}
-
-.NavOptions ul li a {
-	display: grid;
-	grid-template-columns: 20px 1fr;
-	grid-gap: 20px;
-	
-	width: 100%;
-	padding: 10px 20px;
-	border-radius: 20px;
-
-	color: var(--color-txt-p);
-}
-
-.NavOptions ul li a i {
-	display: flex;
-	align-items: center;
-	
-	font-size: 20px;
-}
-
-.NavOptions ul li a span {
-	font-size: 17px;
-}
-
-/* Itens View */
-
-.ItensView {
-	display: grid;
-    grid-auto-rows: auto;
-	grid-gap: 20px;
-	
-	width: 100%;
-	
-    list-style: none;
-}
-
-.ItensView li {
-	border-radius: 20px;
-    background-color: var(--color-layout-s);
-}
-
-.ItensView li a {
-	width: 100%;
-    padding: 20px;
-    border-radius: inherit;
-}
-
-.ItensView li a .ItenImg {
-	width: 100%;
-    height: 300px;
-    margin-bottom: 15px;
-    border-radius: 20px;
-    background-color: lightgrey;
-}
-
-.ItensView li a .ItenText {
-	width: 100%;
-}
-
-.ItensView li a .ItenText h1 {
-	width: 100%;
-    margin-bottom: 5px;
-    color: var(--color-txt-p);
-    font-size: 22px;
-}
-
-.ItensView li a .ItenText h2 {
-	float: left;
-    color: var(--color-txt-t);
-    font-size: 14px;
-}
-
-.ItensView li a .ItenText h3 {
-	float: right;
-
-	color: var(--color-txt-t);
-	font-size: 14px;
-}
-
-/* Category */
-
-.Category {
-	width: 100%;
-	padding: 20px;
-	margin-bottom: 20px;
-	border: 2px solid;
-	border-radius: 20px;
-
-	list-style: none;
-}
-
-	.Category:last-child {
-		margin: 0;
-	}	
-
-.Category .HeaderCategory {
-	width: 100%;
-	margin-bottom: 20px;
-
-	color: var(--color-txt-p);
-	font-size: 24px;
-}
-
-.Category .CategoryOptions {
-	display: grid;
-	grid-template-columns: 1fr auto;
-
-	width: 100%;
-	margin-bottom: 15px;
-}
-
-	.Category .CategoryOptions:last-child {
-		margin: 0;
-	}
-
-	/* Text */
-
-	.Category .CategoryOptions .CategoryText {
-		float: left;
-
-		margin-right: 40px;
-	}
-
-	.Category .CategoryOptions .CategoryText h1 {
-		width: 100%;
+	#NotificationsGroup #NoneNotifications {
+		display: none;
 		
+		width: 100%;
+
+		color: var(--color-txt-t);
+		font-size: 16px;
+		text-align: center;
+
+		cursor: default;
+	}
+
+	#NotificationsGroup .NotificationBox {
+		width: 100%;
+		height: 40px;
+		padding: 10px 20px;
+		margin-bottom: 10px;
+		border-radius: 20px;
+
 		color: var(--color-txt-s);
+
+		cursor: pointer;
+		transition: 0.1s ease;
+	}
+
+		#NotificationsGroup .NotificationBox:hover {
+			background-color: var(--color-hover-p);
+		}
+
+		.NotificationBox:last-child {
+			margin-bottom: 10px;
+		}
+
+	#NotificationsGroup .NotificationBox i {
+		margin-right: 20px;
+
+		font-size: 20px;
+	}
+
+	#NotificationsGroup .NotificationBox span {
+		font-size: 17px;
+	}
+
+	/* Notifications Config */
+
+	#NotificationsConfig li {
+		float: right;
+		
+		margin: 0 20px;
+
+		color: var(--color-txt-t);
+		font-size: 14px;
+
+		cursor: pointer;
+		transition: 0.1s ease;
+	}
+
+		#NotificationsConfig li:hover {
+			color: var(--color-txt-s);
+		}
+
+	/*******************************************************
+		Platform Panel
+	*******************************************************/
+
+	.SectionPlatformPanel nav {
+		width: 100%;
+	}
+
+	.NavBarControl {
+		margin-bottom: 40px;
+	}
+
+	.NavBarControl ul {
+		list-style-type: none;
+	}
+
+	.NavBarControl ul li {
+		padding: 0 16px 8px;
+		border-bottom: 2px solid transparent;
+
+		color: var(--color-txt-t);
+
+		cursor: pointer;
+		transition: 0.1s ease;
+	}
+
+		.NavBarControl ul li:hover {
+			border-bottom-color: var(--color-border);
+		}
+
+		/* Active */
+		.NavBarControl ul .active {
+			border-bottom-color: var(--color-theme-p);
+
+			color: var(--color-theme-p);
+		}
+
+			.NavBarControl ul .active:hover {
+				border-bottom-color: var(--color-theme-p);
+			}
+
+		/* Company */
+
+		#CompanyPage .NavBarControl ul .active {
+			border-bottom-color: var(--color-theme-company-p);
+
+			color: var(--color-theme-company-p);
+		}
+
+			#CompanyPage .NavBarControl ul .active:hover {
+				border-bottom-color: var(--color-theme-company-p);
+			}
+
+			/* Theme Yellow */
+
+			#CompanyPage .ThemeYellow .NavBarControl ul .active {
+				border-bottom-color: var(--color-txt-p);
+	
+				color:  var(--color-txt-p);
+			}
+	
+				#CompanyPage .ThemeYellow .NavBarControl ul .active:hover {
+					border-bottom-color: var(--color-txt-p);
+				}
+
+	.NavBarControl ul li i {
+		margin-right: 8px;
+		
+		font-size: 22px;
+	}
+
+	.NavBarControl ul li span {
 		font-size: 18px;
 	}
 
-	.Category .CategoryOptions .CategoryText h2 {
-		margin: 6px 0 0;
-		
-		color: var(--color-txt-t);
-		font-size: 14px;
+	/* Nav Frames */
+
+	.NavFrameset .NavFrame{
+		width: 100%;
 	}
 
-	/* Button */
+	.NavFrameset .NavFrame .NavFrameContent {
+		width: 100%;
+	}
 
-	.Category .CategoryOptions .btnContent button {
-		float: right;
+	.NavFrameset .NavFrame .NavFrameContent .FrameSection {
+		width: 100%;
+		margin-bottom: 25px;
+	}
+
+		.NavFrameset .NavFrame .NavFrameContent .FrameSection:last-child {
+			margin: 0;
+		}
+
+	/* Header */
+
+	.FrameHeader h1 {
+		float: left;
 		
-		margin: 5px 0;
-		border: 1px solid var(--color-border);
+		color: var(--color-txt-p);
+		font-size: 28px;
+	}
+
+	.FrameHeader p {
+		width: 100%;
+		margin-top: 16px;
+
+		color: var(--color-txt-t);
+		font-size: 16px;
+	}
+
+	/* Main */
+
+	.FrameMain .DataCategory {
+		width: 100%;
+
+		list-style: none;
+	}
+
+	.FrameMain .DataCategory .Category {
+		border-color: var(--color-border);
+	}
+
+		.FrameMain .DataCategory .Category .CategoryOptions .btnContent .btnOption:hover {
+			border-color: var(--color-theme-p);
+			
+			color: var(--color-txt-p-dm);
+			background-color: var(--color-theme-p);
+		}
+
+		/* Company */
+
+		#CompanyPage .FrameMain .DataCategory .Category .CategoryOptions .btnContent .btnOption:hover {
+			border-color: var(--color-theme-company-p);
+			
+			color: var(--color-txt-p-dm);
+			background-color: var(--color-theme-company-p);
+		}
+
+			/* Yellow */
+			
+			#CompanyPage .ThemeYellow .FrameMain .DataCategory .Category .CategoryOptions .btnContent .btnOption:hover {
+				border-color: var(--color-theme-company-p);
+				
+				color: var(--color-txt-p-lm);
+				background-color: var(--color-theme-company-p);
+			}
+
+	/* Danger */
+
+	.FrameMain .DataCategory .CategoryDanger {
+		border-color: rgba(234, 67, 53, 60%);
+	}
+
+	.FrameMain .DataCategory .CategoryDanger .HeaderCategory {
+		color: var(--color-error);
+	}
+
+	.FrameMain .DataCategory .CategoryDanger .CategoryOptions .btnContent .btnDanger {
+		color: var(--color-error);
+	}
+
+		.FrameMain .DataCategory .CategoryDanger .CategoryOptions .btnContent .btnDanger:hover {
+			border: 1px solid var(--color-error);
+		
+			color: var(--color-txt-p-dm);
+			background-color: var(--color-error);
+		}
+
+	/*******************************************************
+		Nav Options
+	*******************************************************/
+
+	.NavOptions {
+		width: 100%;
+		height: 100%;
+		padding: 20px 0;
+	}
+
+	.NavOptions h1 {
+		width: 100%;
+		padding: 0 20px 20px;
+
+		font-size: 22px;
+
+		cursor: default;
+	}
+
+	.NavOptions ul {
+		width: 100%;
+		padding: 0 0 20px;
+		
+		list-style: none;
+	}
+
+		.NavOptions ul:last-child {
+			padding-bottom: 0;
+			border-bottom: none;
+		}
+
+	.NavOptions ul li {
+		display: block;
+
+		width: 100%;
 		border-radius: 20px;
 
-		color: var(--color-txt-t);
-		background-color: transparent;
-
 		transition: 0.1s ease;
-	}	
+	}
 
-	.Category .CategoryOptions .btnContent button a {
-		padding: 8px 16px;
+	.NavOptions ul li:hover {
+			background-color: var(--color-hover-p);
+		}
+
+	.NavOptions ul li a {
+		display: grid;
+		grid-template-columns: 20px 1fr;
+		grid-gap: 20px;
+		
+		width: 100%;
+		padding: 10px 20px;
+		border-radius: 20px;
+
+		color: var(--color-txt-p);
+	}
+
+	.NavOptions ul li a i {
+		display: flex;
+		align-items: center;
+		
+		font-size: 20px;
+	}
+
+	.NavOptions ul li a span {
+		font-size: 17px;
+	}
+
+	/*******************************************************
+		Itens View
+	*******************************************************/
+
+	.ItensView {
+		display: grid;
+		grid-auto-rows: auto;
+		grid-gap: 20px;
+		
+		width: 100%;
+		
+		list-style: none;
+	}
+
+	.ItensView li {
+		border-radius: 20px;
+		background-color: var(--color-layout-s);
+	}
+
+	.ItensView li a {
+		width: 100%;
+		padding: 20px;
 		border-radius: inherit;
+	}
 
-		color: inherit;
+	.ItensView li a .ItenImg {
+		width: 100%;
+		height: 300px;
+		margin-bottom: 15px;
+		border-radius: 20px;
+		background-color: lightgrey;
+	}
+
+	.ItensView li a .ItenText {
+		width: 100%;
+	}
+
+	.ItensView li a .ItenText h1 {
+		width: 100%;
+		margin-bottom: 5px;
+		color: var(--color-txt-p);
+		font-size: 22px;
+	}
+
+	.ItensView li a .ItenText h2 {
+		float: left;
+		color: var(--color-txt-t);
 		font-size: 14px;
 	}
 
-/* Overlay */
+	.ItensView li a .ItenText h3 {
+		float: right;
 
-.MainOverlay {
-	z-index: 20;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: fixed;
-	top: 0;
-	left: 0;
-
-	width: 100%;
-	height: 100vh;
-
-	background-color: rgba(0, 0, 0, 60%);
-	opacity: 0;
-	visibility: hidden;
-
-	transition: 0.3s ease;
-}
-
-	/* Close */
-
-	.MainOverlay .CloseOverlay {
-		position: absolute;
-		top: 20px;
-		right: 20px;
-		
-		width: 50px;
-		height: 50px;
-		padding: 10px;
-		border-radius: 50%;
-
-		transition: 0.1s ease;
-		cursor: pointer;
+		color: var(--color-txt-t);
+		font-size: 14px;
 	}
 
-		.MainOverlay .CloseOverlay:hover {
-			background-color: var(--color-hover);
-		}
+	/*******************************************************
+		Category
+	*******************************************************/
 
-	.MainOverlay .CloseOverlay i {
-		color: var(--color-txt-p-dm);
-		font-size: 30px;
+	.Category {
+		width: 100%;
+		padding: 20px;
+		margin-bottom: 20px;
+		border: 2px solid;
+		border-radius: 20px;
+
+		list-style: none;
 	}
 
-	.MainOverlay .DiscoverOverlayUL {
+		.Category:last-child {
+			margin: 0;
+		}	
+
+	.Category .HeaderCategory {
+		width: 100%;
+		margin-bottom: 20px;
+
+		color: var(--color-txt-p);
+		font-size: 24px;
+	}
+
+	.Category .CategoryOptions {
 		display: grid;
-		grid-template-rows: auto 1fr;
-		
-		width: 900px;
-		padding: 40px 60px;
-		border-radius: 40px;
+		grid-template-columns: 1fr auto;
 
-		list-style-type: none;
-		background-color: var(--color-header);
-	}
-	
-	.MainOverlay .DiscoverOverlayUL li {
-		display: flex;
-		justify-content: center;
-		
 		width: 100%;
+		margin-bottom: 15px;
 	}
 
-		.MainOverlay .DiscoverOverlayUL li:nth-child(1){
-			height: 80px;
-			margin-bottom: 60px;
-
-			text-align: center;
+		.Category .CategoryOptions:last-child {
+			margin: 0;
 		}
 
-	.MainOverlay .DiscoverOverlayUL li i {
-		margin-right: 40px;
+		/* Text */
 
-		color: var(--color-txt-p);
-		font-size: 80px;
-	}
+		.Category .CategoryOptions .CategoryText {
+			float: left;
 
-	.MainOverlay .DiscoverOverlayUL li h1 {
-		margin: 14px 0;
+			margin-right: 40px;
+		}
 
-		color: var(--color-txt-p);
-		font-size: 42px;
-	}
+		.Category .CategoryOptions .CategoryText h1 {
+			width: 100%;
+			
+			color: var(--color-txt-s);
+			font-size: 18px;
+		}
 
-	.MainOverlay .DiscoverOverlayUL li p {
+		.Category .CategoryOptions .CategoryText h2 {
+			margin: 6px 0 0;
+			
+			color: var(--color-txt-t);
+			font-size: 14px;
+		}
+
+		/* Button */
+
+		.Category .CategoryOptions .btnContent button {
+			float: right;
+			
+			margin: 5px 0;
+			border: 1px solid var(--color-border);
+			border-radius: 20px;
+
+			color: var(--color-txt-t);
+			background-color: transparent;
+
+			transition: 0.1s ease;
+		}	
+
+		.Category .CategoryOptions .btnContent button a {
+			padding: 8px 16px;
+			border-radius: inherit;
+
+			color: inherit;
+			font-size: 14px;
+		}
+
+	/*******************************************************
+		Overlay
+	*******************************************************/
+
+	.MainOverlay {
+		z-index: 20;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: fixed;
+		top: 0;
+		left: 0;
+
 		width: 100%;
+		height: 100vh;
 
-		color: var(--color-txt-s);
-		font-size: 25px;
-		text-align: justify;
+		background-color: rgba(0, 0, 0, 60%);
+		opacity: 0;
+		visibility: hidden;
+
+		transition: 0.3s ease;
 	}
 
-/* Mostrar */
+		/* Close */
 
-.mostrar {
-	display: block;
-}
+		.MainOverlay .CloseOverlay {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			
+			width: 50px;
+			height: 50px;
+			padding: 10px;
+			border-radius: 50%;
 
-/* Dark Effect */
+			transition: 0.1s ease;
+			cursor: pointer;
+		}
 
-#DarkEffect {
-	z-index: 11;
-	position: fixed;
-	top: 0;
-	
-	width: 100%;
-	height: 100vh;
-	
-	background-color: rgba(0, 0, 0, 40%);
-	opacity: 0;
-	visibility: hidden;
-	
-	transition: 0.3s ease;
-}
+			.MainOverlay .CloseOverlay:hover {
+				background-color: var(--color-hover);
+			}
 
-/* Scroll Up */
+		.MainOverlay .CloseOverlay i {
+			color: var(--color-txt-p-dm);
+			font-size: 30px;
+		}
 
-.scrollUp {
-	top: -60px;
-}
+		.MainOverlay .DiscoverOverlayUL {
+			display: grid;
+			grid-template-rows: auto 1fr;
+			
+			width: 900px;
+			padding: 40px 60px;
+			border-radius: 40px;
+
+			list-style-type: none;
+			background-color: var(--color-header);
+		}
+		
+		.MainOverlay .DiscoverOverlayUL li {
+			display: flex;
+			justify-content: center;
+			
+			width: 100%;
+		}
+
+			.MainOverlay .DiscoverOverlayUL li:nth-child(1){
+				height: 80px;
+				margin-bottom: 60px;
+
+				text-align: center;
+			}
+
+		.MainOverlay .DiscoverOverlayUL li i {
+			margin-right: 40px;
+
+			color: var(--color-txt-p);
+			font-size: 80px;
+		}
+
+		.MainOverlay .DiscoverOverlayUL li h1 {
+			margin: 14px 0;
+
+			color: var(--color-txt-p);
+			font-size: 42px;
+		}
+
+		.MainOverlay .DiscoverOverlayUL li p {
+			width: 100%;
+
+			color: var(--color-txt-s);
+			font-size: 25px;
+			text-align: justify;
+		}
+
+	/*******************************************************
+		Mostrar
+	*******************************************************/
+
+	.mostrar {
+		display: block;
+	}
+
+	/*******************************************************
+		Dark Effect
+	*******************************************************/
+
+	#DarkEffect {
+		z-index: 11;
+		position: fixed;
+		top: 0;
+		
+		width: 100%;
+		height: 100vh;
+		
+		background-color: rgba(0, 0, 0, 40%);
+		opacity: 0;
+		visibility: hidden;
+		
+		transition: 0.3s ease;
+	}
+
+	/*******************************************************
+		SrollUp
+	*******************************************************/
+
+	.scrollUp {
+		top: -60px;
+	}
 
 /*******************************************************
 	Padrões
@@ -3157,7 +3160,8 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 	background-color: var(--color-header);
 }
 
-#SectionDashboardItems nav ul .NoFor, #SectionFeedItems nav ul .NoFor {
+#SectionDashboardItems nav ul .NoFor, 
+#SectionFeedItems nav ul .NoFor {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -3209,7 +3213,7 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 /* Page Padding 300px */
 
 	#WelcomeHeader, #MainDashboard section, #MainUser section,
-	#SectionCompanyMain, #MainFeed section, #MainItem section,
+	#MainCompany section, #MainFeed section, #MainItem section,
 	#MainAbout section, #MainTerms section, #MainReleaseNotes section {
 		padding-left: 300px;
 		padding-right: 300px;

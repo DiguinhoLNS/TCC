@@ -15,10 +15,10 @@
 *******************************************************/
 
     /*******************************************************
-        User Loged
+        User Logged
     *******************************************************/
    
-   $(document).ready(function(){
+    $(document).ready(function(){
 
         $("#EndUserSession").on("click", function(){
 
@@ -26,7 +26,7 @@
 
         });
 
-   });   
+    });   
 
 /*******************************************************
     Switch Theme
@@ -414,21 +414,6 @@ $(document).ready(function(){
     Main
 *******************************************************/
 
-/* User Nav Config */
-
-$(document).ready(function(){
-
-    const UCO = $(".UserConfigOption");
-
-    UCO.on("click", function(){
-
-        UCO.removeClass("active");
-        $(this).addClass("active");
-
-    });
-
-});
-
 /* Frame View */
 
 $(document).ready(function(){
@@ -496,45 +481,84 @@ $(document).ready(function(){
 
 });
 
-/* Frames */
+/* Nav Panel Control */
 
 $(document).ready(function(){
 
-    const NUF = $(".NavUserFrame");
+    const NLO= $(".NavListOption");
 
-    // 1
+    NLO.on("click", function(){
+
+        NLO.removeClass("active");
+        $(this).addClass("active");
+
+    });
+
+});
+
+/* Platform Frame */
+
+$(document).ready(function(){
+
+    const NF = $(".NavFrame");
+
+    // User.php
+
     $("#UFO1").on("click", function(){
 
-        NUF.css("display", "none");
+        NF.css("display", "none");
 
         $("#UF1").css("display", "block");
 
     });
 
-    // 2
     $("#UFO2").on("click", function(){
 
-        NUF.css("display", "none");
+        NF.css("display", "none");
 
         $("#UF2").css("display", "block");
 
     });
 
-    // 3
     $("#UFO3").on("click", function(){
 
-        NUF.css("display", "none");
+        NF.css("display", "none");
 
         $("#UF3").css("display", "block");
 
     });
 
-    // 4
     $("#UFO4").on("click", function(){
 
-        NUF.css("display", "none");
+        NF.css("display", "none");
 
         $("#UF4").css("display", "block");
+
+    });
+
+    // Company.php
+
+    $("#CFO1").on("click", function(){
+
+        NF.css("display", "none");
+
+        $("#CF1").css("display", "block");
+
+    });
+
+    $("#CFO2").on("click", function(){
+
+        NF.css("display", "none");
+
+        $("#CF2").css("display", "block");
+
+    });
+
+    $("#CFO3").on("click", function(){
+
+        NF.css("display", "none");
+
+        $("#CF3").css("display", "block");
 
     });
 
@@ -557,7 +581,7 @@ $(document).ready(function(){
 });
 
 /* PWD View */
-
+/*
 $(document).ready(function(){
 
     $("#DataPlaceholderPWD").on("click", function(){
@@ -568,7 +592,7 @@ $(document).ready(function(){
     });
 
 });
-
+*/
 /* Feed */
 
 $(document).ready(function(){

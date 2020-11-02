@@ -66,25 +66,25 @@
 
                 </section>
 
-                <section id = "SectionUserConfig">
+                <section id = "SectionUserConfig" class = "SectionPlatformPanel">
 
-                    <nav id = "NavUserConfig">
+                    <nav id = "NavUserConfig" class = "NavBarControl">
 
                         <ul>
 
-                            <li id = "UFO1" class = "UserConfigOption active">
+                            <li id = "UFO1" class = "NavListOption active">
                                 <i class = "material-icons"> &#xe7fd; </i>
                                 <span> Usuário </span>
                             </li>
-                            <li id = "UFO2" class = "UserConfigOption">
+                            <li id = "UFO2" class = "NavListOption">
                                 <i class = "material-icons"> &#xe0af; </i>
                                 <span> Empresas </span>
                             </li>
-                            <li id = "UFO3" class = "UserConfigOption">
+                            <li id = "UFO3" class = "NavListOption">
                                 <i class = "material-icons"> category </i>
                                 <span> Itens </span>
                             </li>
-                            <li id = "UFO4" class = "UserConfigOption">
+                            <li id = "UFO4" class = "NavListOption">
                                 <i class = "material-icons"> &#xe8b8; </i>
                                 <span> Configurações </span>
                             </li>
@@ -93,11 +93,11 @@
 
                     </nav>
 
-                    <nav id = "NavUserFrameset">
+                    <nav id = "NavUserFrameset" class = "NavFrameset">
 
-                        <div id = "UF1" class = "NavUserFrame">
+                        <div id = "UF1" class = "NavFrame">
 
-                            <div class = "NavUserFrameContent">
+                            <div class = "NavFrameContent">
 
                                 <div class = "FrameHeader FrameSection">
 
@@ -188,16 +188,6 @@
 
                                             </div>
 
-                                            <div class = "CategoryOptions">
-
-                                                <div class = "CategoryText">
-                                                    <h1> Senha </h1>
-                                                    <h2 id = "DataPlaceholderPWD"> Exibir Senha </h2>
-                                                    <h2 id = "DataPWD"> <?php echo $DadosUsuario['Senha_user']; ?> </h2>
-                                                </div>
-
-                                            </div>
-
                                         </li>
 
                                     </ul>
@@ -208,9 +198,9 @@
 
                         </div>
 
-                        <div id = "UF2" class = "NavUserFrame">
+                        <div id = "UF2" class = "NavFrame">
 
-                            <div class = "NavUserFrameContent">
+                            <div class = "NavFrameContent">
 
                                 <div class = "FrameHeader FrameSection">
 
@@ -254,9 +244,9 @@
 
                         </div>
 
-                        <div id = "UF3" class = "NavUserFrame">
+                        <div id = "UF3" class = "NavFrame">
 
-                            <div class = "NavUserFrameContent">
+                            <div class = "NavFrameContent">
 
                                 <div class = "FrameHeader FrameSection">
 
@@ -287,9 +277,9 @@
 
                         </div>
 
-                        <div id = "UF4" class = "NavUserFrame">
+                        <div id = "UF4" class = "NavFrame">
 
-                            <div class = "NavUserFrameContent">
+                            <div class = "NavFrameContent">
 
                                 <div class = "FrameHeader FrameSection">
 
@@ -299,9 +289,9 @@
 
                                 <div class = "FrameMain FrameSection">
 
-                                    <ul id = "ConfigCategory">
+                                    <ul class = "DataCategory">
 
-                                        <li id = "ConfigAccount" class = "Category">
+                                        <li class = "Category">
 
                                             <h1 class = "HeaderCategory"> Conta </h1>
 
@@ -316,7 +306,7 @@
 
                                                 <div class = "btnContent">
 
-                                                    <button>
+                                                    <button class = "btnOption">
                                                         <a href = "EditUser.php"> Editar Perfil </a>
                                                     </button>
 
@@ -326,7 +316,7 @@
 
                                         </li>
 
-                                        <li id = "ConfigPlatform" class = "Category">
+                                        <li class = "Category">
 
                                             <h1 class = "HeaderCategory"> Plataforma </h1>
 
@@ -341,10 +331,10 @@
 
                                                 <div class = "btnContent">
 
-                                                    <button class = "LightModeSwitch">
+                                                    <button class = "btnOption LightModeSwitch">
                                                         <a> Tema Claro </a>
                                                     </button>
-                                                    <button class = "DarkModeSwitch">
+                                                    <button class = "btnOption DarkModeSwitch">
                                                         <a> Tema Escuro </a>
                                                     </button>
 
@@ -363,7 +353,7 @@
 
                                                 <div class = "btnContent">
 
-                                                    <button>
+                                                    <button class = "btnOption">
                                                         <a href = "EndUserSession"> Encerrar Sessão </a>
                                                     </button>
 
@@ -373,7 +363,7 @@
 
                                         </li>
 
-                                        <li id = "ConfigDangerZone" class = "Category CategoryDanger">
+                                        <li class = "Category CategoryDanger">
 
                                             <h1 class = "HeaderCategory"> Zona de Perigo </h1>
                                                                 
@@ -388,7 +378,7 @@
 
                                                 <div class = "btnContent">
 
-                                                    <button>
+                                                    <button class = "bntDanger">
                                                         <a href = "sql/ApagarCadastros.php"> Apagar Conta </a>
                                                     </button>
 

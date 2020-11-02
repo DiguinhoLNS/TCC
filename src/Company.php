@@ -34,7 +34,7 @@
 
 	</head>
 
-    <body id = "CompanyPage" class = "UNT LightMode <?php echo $DadosEmpresa['Cor_layout']; if($DadosUserEmpresa['Nivel_acesso'] == 4){ echo ' ADMView'; }else if($DadosUserEmpresa['Nivel_acesso'] == 2){echo ' UserView';}?>">
+    <body id = "CompanyPage" class = "UNT LightMode <?php if($DadosUserEmpresa['Nivel_acesso'] == 4){ echo ' ADMView'; }else if($DadosUserEmpresa['Nivel_acesso'] == 2){echo ' UserView';}?>">
 
 		<?php
 
@@ -55,7 +55,7 @@
 
 		</header>
 
-		<main id = "MainCompany">
+		<main id = "MainCompany" class = "<?php echo $DadosEmpresa['Cor_layout'];?>">
 
 			<div class = "MainContent">
 
@@ -65,278 +65,307 @@
 				
 				</section>
 
-				<section id = "SectionCompanyMain">
+				<section id = "SectionUserConfig" class = "SectionPlatformPanel">
 
-					<ul>
+                    <nav id = "NavUserConfig" class = "NavBarControl">
 
-						<div class = "CategoryHeader">
-							<h1> Informações </h1>
+                        <ul>
+
+                            <li id = "CFO1" class = "NavListOption active">
+                                <i class = "material-icons"> &#xe0af; </i>
+                                <span> Empresa </span>
+                            </li>
+                            <li id = "CFO2" class = "NavListOption">
+                                <i class = "material-icons"> &#xe8f0; </i>
+                                <span> Opções </span>
+                            </li>
+                            <li id = "CFO3" class = "NavListOption">
+                                <i class = "material-icons"> &#xe8b8; </i>
+                                <span> Configurações </span>
+                            </li>
+
+                        </ul>
+
+                    </nav>
+
+					<nav id = "NavComapnyFrameset" class = "NavFrameset">
+
+						<div id = "CF1" class = "NavFrame">
+
+                            <div class = "NavFrameContent">
+
+                                <div class = "FrameHeader FrameSection">
+
+                                    <h1> Empresa </h1>
+
+                                </div>
+
+                                <div class = "FrameMain FrameSection">
+
+									<ul class = "DataCategory">
+
+										<li class = "Category">
+
+											<h1 class = "HeaderCategory"> Perfil </h1>
+
+											<div class = "CategoryOptions">
+
+												<div class = "CategoryText">
+
+													<h1> Nome </h1>
+													<h2><?php echo $DadosEmpresa['Nome']; ?></h2>
+
+												</div>
+
+											</div>
+
+											<div class = "CategoryOptions">
+
+												<div class = "CategoryText">
+
+													<h1> CNPJ </h1>
+													<h2> <?php echo $cnpj; ?> </h2>
+
+												</div>
+
+											</div>
+
+											<div class = "CategoryOptions">
+
+												<div class = "CategoryText">
+
+													<h1> Endereço </h1>
+													<h2><?php echo $DadosEmpresa['Endereco']; ?></h2>
+
+												</div>
+
+											</div>
+
+										</li>
+
+										<li class = "Category">
+
+											<h1 class = "HeaderCategory"> Contato </h1>
+
+											<div class = "CategoryOptions">
+
+												<div class = "CategoryText">
+
+													<h1> Telefone </h1>
+													<h2><?php echo $DadosEmpresa['Telefone']; ?></h2>
+
+												</div>
+
+											</div>
+
+											<div class = "CategoryOptions">
+
+												<div class = "CategoryText">
+
+													<h1> Email </h1>
+													<h2><?php echo $DadosEmpresa['Email']; ?></h2>
+
+												</div>
+
+											</div>
+									
+										</li>
+
+										<li class = "Category CompanyADM">
+
+											<h1 class = "HeaderCategory"> Segurança </h1>
+
+											<div class = "CategoryOptions">
+
+												<div class = "CategoryText">
+
+													<h1> ID APE </h1>
+													<h2><?php echo $DadosEmpresa['id_empresa']; ?></h2>
+
+												</div>
+
+											</div>
+
+											<div class = "CategoryOptions">
+
+												<div class = "CategoryText">
+
+													<h1> Código de acesso </h1>
+													<h2><?php echo $DadosEmpresa['codigo_acesso']; ?></h2>
+
+												</div>
+
+											</div>
+									
+										</li>
+
+									</ul>
+									
+								</div>
+
+							</div>
+
 						</div>
 
-						<li class = "Category">
+						<div id = "CF2" class = "NavFrame">
 
-							<h1 class = "HeaderCategory"> Perfil </h1>
+                            <div class = "NavFrameContent">
 
-							<div class = "CategoryOptions">
+                                <div class = "FrameHeader FrameSection">
 
-								<div class = "CategoryText">
+                                    <h1> Opções </h1>
 
-									<h1> Nome </h1>
-									<h2><?php echo $DadosEmpresa['Nome']; ?></h2>
+                                </div>
 
+                                <div class = "FrameMain FrameSection">
+
+									<ul class = "DataCategory">
+
+										<li class = "Category">
+
+											<h1 class = "HeaderCategory"> Feed </h1>
+
+											<div class = "CategoryOptions">
+
+												<div class = "CategoryText">
+
+													<h1> Acessar Feed </h1>
+													<h2> Vizualizar o feed de itens da empresa </h2>
+
+												</div>
+
+												<div class = "btnContent">
+
+													<button class = "btnOption">
+														<a href = "Feed.php?q=<?php echo base64_encode($DadosEmpresa["id_empresa"]);?>"> Acessar Feed </a>
+													</button>
+
+												</div>
+
+											</div>
+
+											<div class = "CategoryOptions">
+
+												<div class = "CategoryText">
+
+													<h1> Sair </h1>
+													<h2> Sair da empresa </h2>
+
+												</div>
+
+												<div class = "btnContent">
+
+													<button class = "btnOption">
+														<a href = "sql/ApagarCadastros.php?q=<?php $_SESSION['TipoVerificação'] = 'LoginNaEmpresa'; echo $id_empresa; ?>"> Sair da Empresa </a>
+													</button>
+
+												</div>
+
+											</div>
+
+										</li>	
+
+									</ul>
+									
 								</div>
 
 							</div>
 
-							<div class = "CategoryOptions">
-
-								<div class = "CategoryText">
-
-									<h1> CNPJ </h1>
-									<h2> <?php echo $cnpj; ?> </h2>
-
-								</div>
-
-							</div>
-
-							<div class = "CategoryOptions">
-
-								<div class = "CategoryText">
-
-									<h1> Endereço </h1>
-									<h2><?php echo $DadosEmpresa['Endereco']; ?></h2>
-
-								</div>
-
-							</div>
-
-						</li>
-
-						<li class = "Category">
-
-							<h1 class = "HeaderCategory"> Contato </h1>
-
-							<div class = "CategoryOptions">
-
-								<div class = "CategoryText">
-
-									<h1> Telefone </h1>
-									<h2><?php echo $DadosEmpresa['Telefone']; ?></h2>
-
-								</div>
-
-							</div>
-
-							<div class = "CategoryOptions">
-
-								<div class = "CategoryText">
-
-									<h1> Email </h1>
-									<h2><?php echo $DadosEmpresa['Email']; ?></h2>
-
-								</div>
-
-							</div>
-					
-						</li>
-
-						<li class = "Category CompanyADM">
-
-							<h1 class = "HeaderCategory"> Segurança </h1>
-
-							<div class = "CategoryOptions">
-
-								<div class = "CategoryText">
-
-									<h1> ID APE </h1>
-									<h2><?php echo $DadosEmpresa['id_empresa']; ?></h2>
-
-								</div>
-
-							</div>
-
-							<div class = "CategoryOptions">
-
-								<div class = "CategoryText">
-
-									<h1> Código de acesso </h1>
-									<h2><?php echo $DadosEmpresa['codigo_acesso']; ?></h2>
-
-								</div>
-
-							</div>
-					
-						</li>
-
-					</ul>
-
-					<ul>
-
-						<div class = "CategoryHeader">
-							<h1> Opções </h1>
-						</div>
-					
-						<li class = "Category">
-
-							<h1 class = "HeaderCategory"> Feed </h1>
-
-							<div class = "CategoryOptions">
-
-								<div class = "CategoryText">
-
-									<h1> Acessar Feed </h1>
-									<h2> Vizualizar o feed de itens da empresa </h2>
-
-								</div>
-
-								<div class = "btnContent">
-
-									<button>
-										<a href = "Feed.php?q=<?php echo base64_encode($DadosEmpresa["id_empresa"]);?>"> Acessar Feed </a>
-									</button>
-
-								</div>
-
-							</div>
-
-							<div class = "CategoryOptions">
-
-								<div class = "CategoryText">
-
-									<h1> Sair </h1>
-									<h2> Sair da empresa </h2>
-
-								</div>
-
-								<div class = "btnContent">
-
-									<button>
-										<a href = "sql/ApagarCadastros.php?q=<?php $_SESSION['TipoVerificação'] = 'LoginNaEmpresa'; echo $id_empresa; ?>"> Sair da Empresa </a>
-									</button>
-
-								</div>
-
-							</div>
-
-						</li>
-
-					</ul>
-
-					<ul class = "CompanyADM">
-
-						<div class = "CategoryHeader ">
-							<h1> Configurações </h1>
 						</div>
 
-						<li class = "Category">
+						<div id = "CF3" class = "NavFrame">
 
-							<h1 class = "HeaderCategory"> Editar </h1>
+                            <div class = "NavFrameContent">
 
-							<div class = "CategoryOptions">
+                                <div class = "FrameHeader FrameSection">
 
-								<div class = "CategoryText">
+                                    <h1> Configurações </h1>
 
-									<h1> Editar empresa </h1>
-									<h2> Editar os dados da sua empresa </h2>
+                                </div>
 
-								</div>
+                                <div class = "FrameMain FrameSection">
 
-								<div class = "btnContent">
+									<ul class = "DataCategory">
 
-									<button>
-										<a href = "EditCompany.php?q=<?php echo base64_encode($id_empresa);?>"> Editar Empresa </a>
-									</button>
+										<li class = "Category">
 
-								</div>
+											<h1 class = "HeaderCategory"> Editar </h1>
 
-							</div>
+											<div class = "CategoryOptions">
 
-							<div class = "CategoryOptions">
+												<div class = "CategoryText">
 
-								<div class = "CategoryText">
+													<h1> Editar empresa </h1>
+													<h2> Editar os dados da sua empresa </h2>
 
-									<h1> Editar feed </h1>
-									<h2> Editar o feed da sua empresa </h2>
+												</div>
 
-								</div>
+												<div class = "btnContent">
 
-								<div class = "btnContent">
+													<button class = "btnOption">
+														<a href = "EditCompany.php?q=<?php echo base64_encode($id_empresa);?>"> Editar Empresa </a>
+													</button>
 
-									<button>
-										<a href = ""> Editar Feed </a>
-									</button>
+												</div>
 
-								</div>
+											</div>
 
-							</div>
+											<div class = "CategoryOptions">
 
-							<div class = "CategoryOptions">
+												<div class = "CategoryText">
 
-								<div class = "CategoryText">
+													<h1> Editar feed </h1>
+													<h2> Editar o feed da sua empresa </h2>
 
-									<h1> Editar usuários da página </h1>
-									<h2> Editar os usuários da sua empresa </h2>
+												</div>
 
-								</div>
+												<div class = "btnContent">
 
-								<div class = "btnContent">
+													<button class = "btnOption">
+														<a href = ""> Editar Feed </a>
+													</button>
 
-									<button>
-										<a href = ""> Editar Usuários </a>
-									</button>
+												</div>
 
-								</div>
+											</div>
 
-							</div>
+										</li>
 
-							<div class = "CategoryOptions">
+										<li class = "Category CategoryDanger">
 
-								<div class = "CategoryText">
+											<h1 class = "HeaderCategory"> Zona de Perigo </h1>	
 
-									<h1> Editar itens </h1>
-									<h2> Editar os itens perdidos na sua empresa </h2>
+											<div class = "CategoryOptions">
 
-								</div>
+												<div class = "CategoryText">
 
-								<div class = "btnContent">
+													<h1> Apagar empresa </h1>
+													<h2> Apagar a empresa e o seu feed da nossa plataforma </h2>
 
-									<button>
-										<a href = ""> Editar Itens </a>
-									</button>
+												</div>
 
-								</div>
+												<div class = "btnContent">
 
-							</div>
+													<button class = "btnDanger">
+														<a href = <?php echo "sql/ApagarCadastros.php?q=".$id_empresa; ?>> Apagar Empresa </a>
+													</button>
 
-						</li>
+												</div>
 
-						<li class = "Category CategoryDanger">
+											</div>
 
-							<h1 class = "HeaderCategory"> Zona de Perigo </h1>	
+										</li>
 
-							<div class = "CategoryOptions">
-
-								<div class = "CategoryText">
-
-									<h1> Apagar empresa </h1>
-									<h2> Apagar a empresa e o seu feed da nossa plataforma </h2>
-
-								</div>
-
-								<div class = "btnContent">
-
-									<button>
-										<a href = <?php echo "sql/ApagarCadastros.php?q=".$id_empresa; ?>> Apagar Empresa </a>
-									</button>
-
+									</ul>
+									
 								</div>
 
 							</div>
 
-						</li>
+						</div>
 
-					</ul>
-
+					</nav>
+					
 				</section>
 
 			</div>
