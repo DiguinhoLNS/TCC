@@ -418,27 +418,21 @@
             var date = new Date();
             var hour = date.getHours();
 
-            if (hour >= 0 && hour < 12) {
+
+            if(hour >= 6 && hour < 12){
 
                 txt = "Bom Dia";
 
-            } else {
+            }else if(hour >= 12 && hour < 18){
 
-                if (hour >= 12 && hour < 18) {
+                txt = "Boa Tarde";
 
-                    txt = "Boa Tarde";
+            }else if(hour >= 18 && hour < 6){
 
-                } else {
-
-                    if (hour >= 18) {
-
-                        txt = "Boa Noite";
-
-                    }
-
-                }
+                txt = "Boa Noite";
 
             }
+
 
             document.getElementById("DTN").innerHTML = txt;
 
