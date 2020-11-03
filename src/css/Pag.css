@@ -483,10 +483,8 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	.MainContent section {
-		width: 100%;
-		padding-left: 300px;
-		padding-right: 300px;		
-	}
+		width: 100%;		
+	}	
 
 		/*******************************************************
 			Index.php
@@ -3177,10 +3175,20 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 	background-color: var(--color-layout-s);
 }
 
+/* Page Padding 300px */
+
+#WelcomeHeader, #MainDashboard section, #MainUser section,
+#MainCompany section, #MainFeed section, #MainConfigFeed section,
+#MainItem section, #MainAbout section, #MainTerms section, #MainReleaseNotes section {
+	padding-left: 300px;
+	padding-right: 300px;
+}
+
 /* Company Header */
 
 #CompanyHeader {
 	width: calc(100% - 600px);
+	
 	padding: 30px 60px;
 	margin: 40px 300px;
 	border-radius: 30px;
