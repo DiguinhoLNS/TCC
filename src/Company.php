@@ -326,7 +326,7 @@
 												<div class = "btnContent">
 
 													<button class = "btnOption">
-														<a href = ""> Editar Feed </a>
+														<a href = "ConfigFeed.php?q=<?php echo base64_encode($id_empresa);?>"> Editar Feed </a>
 													</button>
 
 												</div>

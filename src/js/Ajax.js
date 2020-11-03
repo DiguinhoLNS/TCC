@@ -102,12 +102,10 @@ $(document).ready(function(){
         Feed
     *******************************************************/
 
-    const LoadFeedFolder = "include/LoadFeed.php;"
+    const FilterCategory = $(".FilterCategory");
+    const FilterParamenter = $(".FilterParameter");
 
     const ItemBox = $(".ItemBox");
-    const AllItemBox = $(".AllItemBox");
-    const CategoryItemBox = $(".CategoryItemBox");
-    const SearchItemBox = $(".SearchItemBox");
 
     var FeedAll = $("#FeedAll");
     var FeedCategory = $("#FeedCategory");
@@ -125,13 +123,27 @@ $(document).ready(function(){
 
                 var folder = "php/Filters/All/FilterAZ.php";
 
-                $.ajax(folder,{
+                FilterCategory.removeClass("active");
+                $("#btnAllFilter").addClass("active");
+
+                $.ajax({
+                    
+                    url : folder,
+                    type : 'get',
+
+                    beforeSend : function(){
+                        
+                        $(".ItemBox").remove();
+                        
+                        $(".LoadingFeed").css("display", "flex");
+
+                    }
 
                 }).done(function(){
-
+    
                     AJAXRequestStatus(1);
 
-                    AllItemBox.remove();
+                    $(".LoadingFeed").css("display", "none");    
 
                     $(FeedAll).load(folder);
     
@@ -174,13 +186,27 @@ $(document).ready(function(){
 
                 var folder = "php/Filters/All/FilterZA.php";
 
-                $.ajax(folder,{
+                FilterCategory.removeClass("active");
+                $("#btnAllFilter").addClass("active");
+
+                $.ajax({
+                    
+                    url : folder,
+                    type : 'get',
+
+                    beforeSend : function(){
+                        
+                        $(".ItemBox").remove();
+                        
+                        $(".LoadingFeed").css("display", "flex");
+
+                    }
 
                 }).done(function(){
     
                     AJAXRequestStatus(1);
 
-                    AllItemBox.remove();
+                    $(".LoadingFeed").css("display", "none");    
 
                     $(FeedAll).load(folder);
     
@@ -223,13 +249,27 @@ $(document).ready(function(){
 
                 var folder = "php/Filters/All/FilterRecente.php";
 
-                $.ajax(folder,{
+                FilterCategory.removeClass("active");
+                $("#btnAllFilter").addClass("active");
+
+                $.ajax({
+                    
+                    url : folder,
+                    type : 'get',
+
+                    beforeSend : function(){
+                        
+                        $(".ItemBox").remove();
+                        
+                        $(".LoadingFeed").css("display", "flex");
+
+                    }
 
                 }).done(function(){
     
                     AJAXRequestStatus(1);
 
-                    AllItemBox.remove();
+                    $(".LoadingFeed").css("display", "none");    
 
                     $(FeedAll).load(folder);
     
@@ -272,13 +312,27 @@ $(document).ready(function(){
 
                 var folder = "php/Filters/All/FilterAntigo.php";
 
-                $.ajax(folder,{
+                FilterCategory.removeClass("active");
+                $("#btnAllFilter").addClass("active");
+
+                $.ajax({
+                    
+                    url : folder,
+                    type : 'get',
+
+                    beforeSend : function(){
+                        
+                        $(".ItemBox").remove();
+                        
+                        $(".LoadingFeed").css("display", "flex");
+
+                    }
 
                 }).done(function(){
     
                     AJAXRequestStatus(1);
 
-                    AllItemBox.remove();
+                    $(".LoadingFeed").css("display", "none");    
 
                     $(FeedAll).load(folder);
     
@@ -321,7 +375,7 @@ $(document).ready(function(){
 
                 var folder = `php/Filters/Search.php?q=${pesquisa}`;
 
-                ItemBox.remove();
+                $(".ItemBox").remove();
 
                 $.ajax({
 
@@ -329,7 +383,6 @@ $(document).ready(function(){
                     type : 'get',
 
                     beforeSend : function(){
-
                         
                         $(".ItemBox").remove();
                         $(".SearchItemBox").remove();

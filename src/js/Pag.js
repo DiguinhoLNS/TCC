@@ -643,10 +643,12 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 
+    const FormData = $(".FormData");
+    const FormControl = $(".FormControl");
     var FormBackground = $(".FormLogin");
     var Theme = localStorage.getItem("Theme");
 
-    $(".FormData").on("click", function(){
+    FormData.on("click", function(){
 
         if(Theme == "DarkMode"){
 
@@ -659,14 +661,16 @@ $(document).ready(function(){
         }
 
         $(this).css("border-radius", "30px");
+        FormControl.css("border-radius", "0 30px 30px 0");
 
     });
 
-    $(".FormControl").on("click", function(){
+    FormControl.on("click", function(){
 
         FormBackground.css("background-color", "var(--color-header)");
 
         $(this).css("border-radius", "30px");
+        FormData.css("border-radius", "30px 0 0 30px");
 
     });
 

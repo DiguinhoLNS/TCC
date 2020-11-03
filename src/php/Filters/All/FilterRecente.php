@@ -37,6 +37,7 @@
         echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
 
     }else{
+        include "../../../include/LoadFeed.php";
         $i=0;
         do{
             $DataSeparada = SepararData($FeedQuery["Objeto"][$i]["Data_cadastro"]);

@@ -154,9 +154,9 @@
 
         <main id = "MainEditUser">
 
-            <div class = "FormPlatform BS">
+            <div class = "FormPlatform FormEdit BS">
 
-                <form method = "POST" action = "sql/VerificaCadastro.php">
+                <form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php">
 
                     <ul class = "FormPlatformContent">
 

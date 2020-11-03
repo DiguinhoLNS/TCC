@@ -39,7 +39,7 @@
 
 	</head>
 
-	<body id = "FeedPage" class = "UNT LightMode UserView">
+	<body id = "FeedPage" class = "UNT LightMode ADMView">
 
 		<?php
 
@@ -463,7 +463,7 @@
 						</a>
 					</li>
 					<li>
-						<a href = "ConfigFeed.php">
+						<a href = "ConfigFeed.php?q=<?php echo base64_encode($id_empresa);?>">
 							<i class = "material-icons"> &#xe8b8; </i>
 							<span> Gerenciar </span>
 						</a>

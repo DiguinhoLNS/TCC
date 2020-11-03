@@ -1865,7 +1865,7 @@ h1, h2, h3, h4, h5, h6 {
 			background-color: var(--color-theme-p);
 		}
 
-			.FormRegister {
+			.FormRegister, .FormEdit {
 				width: 440px;
 			}
 
@@ -1874,10 +1874,17 @@ h1, h2, h3, h4, h5, h6 {
 				grid-template-columns: repeat(2, 1fr);
 				
 				width: 800px;
+
+				transition: 0.1s ease;
 			}
 
 			.DarkMode .FormPlatform {
 				background-color: var(--color-theme-t);
+			}
+
+			.FormPlatform .FormData,
+			.FormPlatform .FormControl {
+				transition: 0.3s ease;
 			}
 
 		/* Data */
@@ -1885,7 +1892,7 @@ h1, h2, h3, h4, h5, h6 {
 		.FormPlatform .FormData {
 			width: 100%;
 			padding: 80px 40px;
-			border-radius: inherit;
+			border-radius: 30px;
 
 			background-color: var(--color-header);
 		}
@@ -2842,7 +2849,7 @@ h1, h2, h3, h4, h5, h6 {
 		transition: 0.1s ease;
 	}
 
-	.NavOptions ul li:hover {
+		.NavOptions ul li:hover {
 			background-color: var(--color-hover-p);
 		}
 
@@ -3315,7 +3322,7 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 		/* OFF */
 		.UNT #HeaderIconGroup, .UNT #WelcomeFind, 
 		.UNT #HeaderNavIcon, .UNT .CompaniesQuickAccessBar,
-		.UNT #DiscoverUser {
+		.UNT #DiscoverUser, .UNT .HeaderDashboard {
 			display: none;
 		}
 
@@ -3323,7 +3330,7 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 
 		/* ON */
 		.UIL #HeaderIconGroup, .UIL #WelcomeFind, .UIL #HeaderNavIcon,
-		.UIL #DiscoverUser {
+		.UIL #DiscoverUser, .UIL .HeaderDashboard {
 			display: block;
 		}
 

@@ -134,9 +134,9 @@
 
         <main id = "MainEditCompany">
 
-            <div class = "FormPlatform BS">
+            <div class = "FormPlatform FormEdit BS">
 
-                <form method = "POST" action = "sql/VerificaCadastro.php?q=<?php echo base64_encode($id_empresa);?>" >
+                <form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php?q=<?php echo base64_encode($id_empresa);?>" >
 
                     <ul class = "FormPlatformContent">
 

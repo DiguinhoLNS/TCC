@@ -23,8 +23,9 @@
         <nav>
 
             <ul>
-                <li><a href = "AbourCompanies.php"> Empresas </a></li>
-                <li><a href = "About.php"> Sobre </a></li>
+                <li class = "HeaderDashboard"><a href = "Dashboard.php"> Dashboard </a></li>
+                <li><a href = "AboutCompanies.php"> Empresas </a></li>
+                <li><a href = "AboutAPE.php"> Sobre </a></li>
             </ul>
 
         </nav>

@@ -20,19 +20,19 @@
         <h1> APE </h1>
 
         <ul>
-            <li>
+            <li id = "SideNavBarOptionHome">
                 <a href = "Index.php">
                     <i class = "material-icons"> &#xe88a; </i>
                     <span> Home </span>
                 </a>
             </li>
-            <li>
+            <li id = "SideNavBarOptionDashboard">
                 <a href = "Dashboard.php">
                     <i class = "material-icons"> &#xe871; </i>
                     <span> Dashboard </span>
                 </a>
             </li>
-            <li>
+            <li id = "SideNavBarOptionUser">
                 <a href = "User.php">
                     <i class = "material-icons"> &#xe7fd; </i>
                     <span> Usuário </span>

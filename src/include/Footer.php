@@ -29,10 +29,10 @@
 
             <h1> Sobre Nós </h1>
             <li>
-                <a href = "About.php"> Sobre </a>
+                <a href = "AboutAPE.php"> Sobre </a>
             </li>
             <li>
-                <a href = "#"> Empresas </a>
+                <a href = "AboutCompanies.php"> Empresas </a>
             </li>
             <li>
                 <a href = "Terms.php"> Termos </a>
