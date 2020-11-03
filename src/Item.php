@@ -127,20 +127,6 @@
 					
 				</section>
 
-				<section id = "SectionItemPane">
-
-					<ul class = "ItemControlPane">
-
-						<li>
-
-							<h1 id = "RecoveryItem"> Deseja recuperar esse item? </h1>
-
-						</li>
-
-					</ul>
-
-				</section>
-
 			</div>
 
 		</main>

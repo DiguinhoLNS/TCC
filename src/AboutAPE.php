@@ -214,11 +214,21 @@
                             <h3> Rodrigo Lima </h3>
 
                             <p>
-                                17 anos, fã de programação e design, cursando ensino técnico de informática integrado ao ensino médio na ETEC ZL. Líder de desenvolvimento do projeto, desenvolveu o Front-end.
+                                Fã de programação e design, estou cursando ensino técnico de informática integrado ao ensino médio na ETEC ZL. Líder de desenvolvimento do projeto, desenvolveu o Front-end.
                             </p>
 
                             <ul class = "DeveloperSocialBar SocialIconsBar">
 
+                                <li>
+                                    <a href = "https://www.facebook.com/profile.php?id=100023668262483" class = "IconFacebook" target = "_blank">
+                                        <i class = "fab"> &#xf09a; </i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href = "https://www.instagram.com/diguinho_lns/" class = "IconInstagram" target = "_blank">
+                                        <i class = "fab"> &#xf16d; </i>
+                                    </a>
+                                </li>
                                 <li>
                                     <a href = "https://twitter.com/Diguinho_lns" class = "IconTwitter" target = "_blank">
                                         <i class = "fab"> &#xf099; </i>

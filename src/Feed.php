@@ -62,9 +62,9 @@
 
 		<main id = "MainFeed" class = "<?php echo $DadosEmpresa['Cor_layout'];?>">
 
-			<div class = "MainContent">
+			<div id= "MainContent">
 
-				<section id = "SectionCompanyHeader" class = "CompanyHeader">
+				<section id = "CompanyHeader">
 					
 					<h1> Feed <?php echo $DadosEmpresa['Nome'];?></h1>
 				

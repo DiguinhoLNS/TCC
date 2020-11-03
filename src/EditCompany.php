@@ -185,7 +185,7 @@
                         </li>
                         <li class = "ContentBottom">
 							<a href = "Company.php/?q=<?php echo base64_encode($id_empresa);?>"> Voltar </a>
-							<input class = "UserInputSubmit btn" type = "submit" value = "Editar">
+							<input class = "UserInputSubmit btn" type = "submit" value = "Confirmar Alterações">
 						</li>
                         
                     </ul>

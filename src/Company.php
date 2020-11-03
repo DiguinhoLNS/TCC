@@ -59,13 +59,13 @@
 
 			<div class = "MainContent">
 
-				<section id = "SectionCompanyHeader" class = "CompanyHeader">
+				<section id= "CompanyHeader">
 				
-					<h1 id = "CompanyName"><?php echo $DadosEmpresa['Nome']; ?></h1>
+					<h1><?php echo $DadosEmpresa['Nome']; ?></h1>
 				
 				</section>
 
-				<section id = "SectionUserConfig" class = "SectionPlatformPanel">
+				<section id = "SectionCompanyConfig" class = "SectionPlatformPanel">
 
                     <nav id = "NavUserConfig" class = "NavBarControl">
 
@@ -293,6 +293,31 @@
 
 										<li class = "Category">
 
+											<h1 class = "HeaderCategory"> Configurar </h1>
+
+											<div class = "CategoryOptions">
+
+												<div class = "CategoryText">
+
+													<h1> Configurar feed </h1>
+													<h2> Configurar o feed da sua empresa </h2>
+
+												</div>
+
+												<div class = "btnContent">
+
+													<button class = "btnOption">
+														<a href = "ConfigFeed.php?q=<?php echo base64_encode($id_empresa);?>"> Configurar Feed </a>
+													</button>
+
+												</div>
+
+											</div>
+
+										</li>
+
+										<li class = "Category">
+
 											<h1 class = "HeaderCategory"> Editar </h1>
 
 											<div class = "CategoryOptions">
@@ -308,25 +333,6 @@
 
 													<button class = "btnOption">
 														<a href = "EditCompany.php?q=<?php echo base64_encode($id_empresa);?>"> Editar Empresa </a>
-													</button>
-
-												</div>
-
-											</div>
-
-											<div class = "CategoryOptions">
-
-												<div class = "CategoryText">
-
-													<h1> Editar feed </h1>
-													<h2> Editar o feed da sua empresa </h2>
-
-												</div>
-
-												<div class = "btnContent">
-
-													<button class = "btnOption">
-														<a href = "ConfigFeed.php?q=<?php echo base64_encode($id_empresa);?>"> Editar Feed </a>
 													</button>
 
 												</div>

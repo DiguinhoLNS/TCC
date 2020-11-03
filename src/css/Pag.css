@@ -483,8 +483,10 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	.MainContent section {
-		width: 100%;		
-	}	
+		width: 100%;
+		padding-left: 300px;
+		padding-right: 300px;		
+	}
 
 		/*******************************************************
 			Index.php
@@ -1254,6 +1256,18 @@ h1, h2, h3, h4, h5, h6 {
 				}
 
 		/*******************************************************
+			ConfigFeed.php
+		*******************************************************/
+			
+		#MainConfigFeed {
+			min-height: calc(100vh - 60px);
+		}
+
+		#MainConfigFeed .MainContent {
+			padding: 0 0 60px;
+		}
+
+		/*******************************************************
 			Item.php
 		*******************************************************/
 
@@ -1421,26 +1435,6 @@ h1, h2, h3, h4, h5, h6 {
 			#SectionItemMain ul .Boximg img {
 				border-radius: 30px;
 			}
-
-		/* Pane */
-
-		#SectionItemPane .ItemControlPane {
-			width: 100%;
-
-			list-style: none;
-		}
-
-		#SectionItemPane .ItemControlPane li {
-			width: 100%;
-			padding: 20px 40px;
-			border-radius: 30px;
-
-			background-color: var(--color-layout-s);
-		}
-
-		#SectionItemPane .ItemControlPane li h1 {
-			color: var(--color-txt-p);
-		}
 
 		/*******************************************************
 			About.php
@@ -3185,23 +3179,20 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 
 /* Company Header */
 
-#SectionCompanyHeader, #SectionFeedHeader {
+#CompanyHeader {
 	width: calc(100% - 600px);
-	
-	padding: 30px 20px;
+	padding: 30px 60px;
 	margin: 40px 300px;
-	border-radius: 20px;
+	border-radius: 30px;
 
 	background-color: var(--color-theme-company-p);
 }
 
-	.DarkMode #SectionCompanyHeader,
-	.DarkMode #SectionFeedHeader {
+	.DarkMode #CompanyHeader {
 		background-color: var(--color-theme-company-s);
 	}
 
-#SectionCompanyHeader h1,
-#SectionFeedHeader h1 {
+#CompanyHeader h1 {
 	width: 100%;
 	border-radius: 40px;
 	
@@ -3211,19 +3202,8 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 	text-align: center;
 }
 
-	.ThemeYellow #SectionCompanyHeader h1,
-	.ThemeYellow #SectionFeedHeader h1 {
+	.ThemeYellow #CompanyHeader h1 {
 		color: var(--color-txt-p-lm);
-	}
-
-
-/* Page Padding 300px */
-
-	#WelcomeHeader, #MainDashboard section, #MainUser section,
-	#MainCompany section, #MainFeed section, #MainItem section,
-	#MainAbout section, #MainTerms section, #MainReleaseNotes section {
-		padding-left: 300px;
-		padding-right: 300px;
 	}
 
 /*******************************************************
