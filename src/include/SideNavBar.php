@@ -57,7 +57,7 @@
                                 <li>               
                                     <a href = "Company.php?q='.base64_encode($DadosEmpresas['Dados'][$i]['id_empresa']).'">
                                         <i class = "material-icons"> &#xe0af; </i>
-                                        <span>'. $DadosEmpresas['Dados'][$i]['Nome'] .'</span>
+                                        <span>'. utf8_encode($DadosEmpresas['Dados'][$i]['Nome']) .'</span>
                                     </a>                
                                 </li>
                             ';
