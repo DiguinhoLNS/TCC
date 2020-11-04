@@ -4,17 +4,17 @@
 
         <h1>
             <?php
-            
+           
                 if(isset($_COOKIE["ID"])){
 
                     $id = base64_decode($_COOKIE["ID"]);
 
-                    $regra = "SELECT nome_user FROM usuarios WHERE id_user = '$id'";
+                    $query = "SELECT nome_user FROM usuarios WHERE id_user = '$id'";
 
-                    $res = mysqli_query($base, $regra);
-                    $mostrar = mysqli_fetch_array($res);
+                    $ResultadoQuery = $conn->dbh->query($query);
+                    $UserName = $ResultadoQuery->fetchAll();
 
-                    echo $mostrar['nome_user'];
+                    echo utf8_encode($UserName[0]['nome_user']);
 
                 }
                 

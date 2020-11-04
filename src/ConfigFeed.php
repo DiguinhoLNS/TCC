@@ -3,8 +3,11 @@
 	session_start();
 	date_default_timezone_set('America/Sao_Paulo');
 
-	include 'sql/ConexaoBD.php';
-	include_once "sql/Funcoes.php";
+	require_once 'sql/ConexaoBD.php';
+	require_once "sql/Funcoes.php";
+
+	$conn = new ConexaoBD();
+	$func = new Funcoes();
 
 	$id_empresa = base64_decode($_GET['q']);
 	
@@ -12,7 +15,7 @@
 
 		$id = base64_decode($_COOKIE["ID"]);
 
-		$DadosEmpresa = PegarDadosEmpresaPeloIdEmpresa($base, $id_empresa);
+		$DadosEmpresa = $func->PegarDadosEmpresaPeloIdEmpresa($id_empresa);
 
 	}
     
@@ -50,13 +53,13 @@
 
 		</header>
 
-		<main id = "MainConfigFeed" class = "<?php echo $DadosEmpresa['Cor_layout'];?>">
+		<main id = "MainConfigFeed" class = "<?php echo $DadosEmpresa[0]['Cor_layout'];?>">
 
             <div class = "MainContent">
 
 				<section id = "CompanyHeader">
 					
-					<h1> Configuração Feed <?php echo $DadosEmpresa['Nome'];?></h1>
+					<h1> Configuração Feed <?php echo $DadosEmpresa[0]['Nome'];?></h1>
 				
 				</section>
 

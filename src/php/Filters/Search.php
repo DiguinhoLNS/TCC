@@ -1,28 +1,29 @@
 <?php
 
-include '../../sql/ConexaoBD.php';
-include '../../sql/Funcoes.php';
+require_once '../../sql/ConexaoBD.php';
+require_once '../../sql/Funcoes.php';
+
+$conn = new ConexaoBD();
+$func = new Funcoes();
 
 $id_empresa = base64_decode($_COOKIE["ID_Company"]);
 
-$pesquisar = ClearInjectionXSS($base, $_GET["q"]);
+$pesquisar = $func->ClearInjectionXSS($_GET["q"]);
 
 if ($pesquisar != null) {
 
     $query = "SELECT * FROM objetos WHERE Nome_obj LIKE '%$pesquisar%' and id_empresa = $id_empresa";
-    $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 41");
-    $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
+    $ResultadoQuery = $conn->dbh->query($query) or die("Erro na consulta 41");
+    $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
     if ($QuantidadeDeObjetos > 0) {
-        while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-            $TodosObjetos[] = $DadosObjetos;
-        }
+        $DadosObjetos = $ResultadoQuery->fetchAll();
     }
 
-    if (isset($TodosObjetos)) {
+    if (isset($DadosObjetos)) {
         $Dados = [
             "Quantidade" => $QuantidadeDeObjetos,
-            "Objeto" => $TodosObjetos
+            "Objeto" => $DadosObjetos
         ];
         $Dados;
     } else {
@@ -38,12 +39,12 @@ if ($pesquisar != null) {
         include "../../include/LoadFeed.php";
         $i = 0;
         do {
-            $DataSeparada = SepararData($Dados["Objeto"][$i]["Data_cadastro"]);
+            $DataSeparada = $func->SepararData($Dados["Objeto"][$i]["Data_cadastro"]);
             echo '          
 
                 <li class = "SearchItemBox ItemBox">
 
-                    <a href = "Item.php?q='.base64_encode($Dados["Objeto"][$i]["id_obj"]) .'" title = "' . $Dados["Objeto"][$i]["Nome_obj"] . '">
+                    <a href = "Item.php?q=' . base64_encode($Dados["Objeto"][$i]["id_obj"]) . '" title = "' . $Dados["Objeto"][$i]["Nome_obj"] . '">
 
                         <div class = "ItemImg">
                             <img src = "imagesBD/' . $Dados["Objeto"][$i]["Nome_foto"] . '">

@@ -3,21 +3,27 @@
 	session_start();
 	date_default_timezone_set('America/Sao_Paulo');
 	
-	include 'sql/ConexaoBD.php';
-	include_once "sql/Funcoes.php";
+	require_once 'sql/ConexaoBD.php';
+	require_once "sql/Funcoes.php";
 
-	$id_empresa = base64_decode($_GET['q']);
+	$conn = new ConexaoBD();
+	$func = new Funcoes();
+
+	function setLogin(){
+		$_SESSION['TipoVerificação'] = 'LoginNaEmpresa'; 
+	}
 	$_SESSION['TipoVerificação'] = 'Empresa';
 
 	if(isset($_COOKIE["ID"])){
 
 		$id_user = base64_decode($_COOKIE["ID"]); 
+		$id_empresa = base64_decode($_GET['q']);
 
-		$DadosEmpresa = PegarDadosEmpresaPeloIdEmpresa($base, $id_empresa);
+		$DadosEmpresa = $func->PegarDadosEmpresaPeloIdEmpresa($id_empresa);
 		
-		$DadosUserEmpresa = PegarDadosUserEmpresaPeloIdUserIdEmpresa($base, $id_user, $id_empresa);
+		$DadosUserEmpresa = $func->PegarDadosUserEmpresaPeloIdUserIdEmpresa($id_user, $id_empresa);
 
-		$cnpj = ColocarPontoCNPJ($DadosEmpresa["CNPJ"]);
+		$cnpj = $func->ColocarPontoCNPJ($DadosEmpresa[0]["CNPJ"]);
 
 	}
 
@@ -28,13 +34,13 @@
 
 	<head>
 
-		<title><?php echo $DadosEmpresa['Nome'];?></title>
+		<title><?php echo utf8_encode($DadosEmpresa[0]['Nome']);?></title>
 		
 		<?php include "include/Head.php"; ?>
 
 	</head>
 
-    <body id = "CompanyPage" class = "UNT LightMode <?php if($DadosUserEmpresa['Nivel_acesso'] == 4){ echo ' ADMView'; }else if($DadosUserEmpresa['Nivel_acesso'] == 2){echo ' UserView';}?>">
+    <body id = "CompanyPage" class = "UNT LightMode <?php if($DadosUserEmpresa[0]['Nivel_acesso'] == 4){ echo ' ADMView'; }else if($DadosUserEmpresa[0]['Nivel_acesso'] == 2){echo ' UserView';}?>">
 
 		<?php
 
@@ -55,13 +61,13 @@
 
 		</header>
 
-		<main id = "MainCompany" class = "<?php echo $DadosEmpresa['Cor_layout'];?>">
+		<main id = "MainCompany" class = "<?php echo $DadosEmpresa[0]['Cor_layout'];?>">
 
 			<div class = "MainContent">
 
 				<section id= "CompanyHeader">
 				
-					<h1><?php echo $DadosEmpresa['Nome']; ?></h1>
+					<h1><?php echo utf8_encode($DadosEmpresa[0]['Nome']); ?></h1>
 				
 				</section>
 
@@ -79,7 +85,7 @@
                                 <i class = "material-icons"> &#xe8f0; </i>
                                 <span> Opções </span>
                             </li>
-							<?php if($DadosUserEmpresa['Nivel_acesso'] == 4){
+							<?php if($DadosUserEmpresa[0]['Nivel_acesso'] == 4){
 								echo '
 								<li id = "CFO3" class = "NavListOption">
 									<i class = "material-icons"> &#xe8b8; </i>
@@ -117,7 +123,7 @@
 												<div class = "CategoryText">
 
 													<h1> Nome </h1>
-													<h2><?php echo $DadosEmpresa['Nome']; ?></h2>
+													<h2><?php echo utf8_encode($DadosEmpresa[0]['Nome']); ?></h2>
 
 												</div>
 
@@ -139,7 +145,7 @@
 												<div class = "CategoryText">
 
 													<h1> Endereço </h1>
-													<h2><?php echo $DadosEmpresa['Endereco']; ?></h2>
+													<h2><?php echo utf8_encode($DadosEmpresa[0]['Endereco']); ?></h2>
 
 												</div>
 
@@ -156,7 +162,7 @@
 												<div class = "CategoryText">
 
 													<h1> Telefone </h1>
-													<h2><?php echo $DadosEmpresa['Telefone']; ?></h2>
+													<h2><?php echo $DadosEmpresa[0]['Telefone']; ?></h2>
 
 												</div>
 
@@ -167,7 +173,7 @@
 												<div class = "CategoryText">
 
 													<h1> Email </h1>
-													<h2><?php echo $DadosEmpresa['Email']; ?></h2>
+													<h2><?php echo $DadosEmpresa[0]['Email']; ?></h2>
 
 												</div>
 
@@ -184,7 +190,7 @@
 												<div class = "CategoryText">
 
 													<h1> ID APE </h1>
-													<h2><?php echo $DadosEmpresa['id_empresa']; ?></h2>
+													<h2><?php echo $DadosEmpresa[0]['id_empresa']; ?></h2>
 
 												</div>
 
@@ -195,7 +201,7 @@
 												<div class = "CategoryText">
 
 													<h1> Código de acesso </h1>
-													<h2><?php echo $DadosEmpresa['codigo_acesso']; ?></h2>
+													<h2><?php echo $DadosEmpresa[0]['codigo_acesso']; ?></h2>
 
 												</div>
 
@@ -241,7 +247,7 @@
 												<div class = "btnContent">
 
 													<button class = "btnOption">
-														<a href = "Feed.php?q=<?php echo base64_encode($DadosEmpresa["id_empresa"]);?>"> Acessar Feed </a>
+														<a href = "Feed.php?q=<?php echo base64_encode($DadosEmpresa[0]["id_empresa"]);?>"> Acessar Feed </a>
 													</button>
 
 												</div>
@@ -260,7 +266,7 @@
 												<div class = "btnContent">
 
 													<button class = "btnOption">
-														<a href = "sql/ApagarCadastros.php?q=<?php $_SESSION['TipoVerificação'] = 'LoginNaEmpresa'; echo $id_empresa; ?>"> Sair da Empresa </a>
+														<a href = "sql/ApagarCadastros.php?q=<?php echo base64_encode($id_empresa) . "&v=". base64_encode("LoginNaEmpresa"); ?>"> Sair da Empresa </a>
 													</button>
 
 												</div>
@@ -349,15 +355,15 @@
 
 												<div class = "CategoryText">
 
-													<h1> Apagar empresa </h1>
-													<h2> Apagar a empresa e o seu feed da nossa plataforma </h2>
+													<h1> Desativar empresa </h1>
+													<h2> Desativar a empresa e o seu feed da nossa plataforma </h2>
 
 												</div>
 
 												<div class = "btnContent">
 
 													<button class = "btnDanger">
-														<a href = <?php echo "sql/ApagarCadastros.php?q=".$id_empresa; ?>> Apagar Empresa </a>
+														<a href = "sql/ApagarCadastros.php?q= <?php echo base64_encode($id_empresa) . "&v=". base64_encode("Empresa"); ?>"> Apagar Empresa </a>
 													</button>
 
 												</div>

@@ -3,20 +3,23 @@
     session_start();
     date_default_timezone_set('America/Sao_Paulo');
 
-    include 'sql/ConexaoBD.php';
-    include_once "sql/Funcoes.php";
+    require_once 'sql/ConexaoBD.php';
+    require_once "sql/Funcoes.php";
+
+    $conn = new ConexaoBD();
+	$func = new Funcoes();
 
     $_SESSION['TipoVerificação'] = 'Usuario';
 
     $id = base64_decode($_COOKIE["ID"]);
 
-    $DadosEmpresas = PegarDadosEmpresaPeloIdUsuario($base, $id);
+    $DadosEmpresas = $func->PegarDadosEmpresaPeloIdUsuario($id);
                     
-    $DadosUsuario =  PegarDadosUsuarioPeloId($base, $id);
+    $DadosUsuario =  $func->PegarDadosUsuarioPeloId($id);
 
-    $DataSeparada = SepararData($DadosUsuario['Data_nasc_user']);
+    $DataSeparada = $func->SepararData($DadosUsuario[0]['Data_nasc_user']);
 
-    $cpf = ColocarPontoCPF($DadosUsuario['CPF_user']);
+    $cpf = $func->ColocarPontoCPF($DadosUsuario[0]['CPF_user']);
 
     
 ?>
@@ -61,7 +64,7 @@
 
                     <div>
                         <h1 id = "DTN"></h1>
-                        <h2> <?php echo $DadosUsuario['Nome_user']; ?> </h2>
+                        <h2> <?php echo utf8_encode($DadosUsuario[0]['Nome_user']); ?> </h2>
                     </div>
 
                 </section>
@@ -117,7 +120,7 @@
 
                                                 <div class = "CategoryText">
                                                     <h1> Nome </h1>
-                                                    <h2> <?php echo $DadosUsuario['Nome_user']; ?> </h2>
+                                                    <h2> <?php echo utf8_encode($DadosUsuario[0]['Nome_user']); ?> </h2>
                                                 </div>
 
                                             </div>
@@ -135,7 +138,7 @@
 
                                                 <div class = "CategoryText"">
                                                     <h1> Gênero </h1>
-                                                    <h2> <?php echo $DadosUsuario['Genero_user']; ?> </h2>
+                                                    <h2> <?php echo $DadosUsuario[0]['Genero_user']; ?> </h2>
                                                 </div>
 
                                             </div>
@@ -159,7 +162,7 @@
 
                                                 <div class = "CategoryText">
                                                     <h1> Email </h1>
-                                                    <h2> <?php echo $DadosUsuario['Email_user']; ?> </h2>
+                                                    <h2> <?php echo $DadosUsuario[0]['Email_user']; ?> </h2>
                                                 </div>
 
                                             </div>
@@ -168,7 +171,7 @@
 
                                                 <div class = "CategoryText">
                                                     <h1> Telefone de contato </h1>
-                                                    <h2> <?php echo $DadosUsuario['Telefone_user']; ?> </h2>
+                                                    <h2> <?php echo $DadosUsuario[0]['Telefone_user']; ?> </h2>
                                                 </div>
 
                                             </div>
@@ -183,7 +186,7 @@
 
                                                 <div class = "CategoryText">
                                                     <h1> ID APE </h1>
-                                                    <h2> <?php echo $DadosUsuario['id_user']; ?> </h2>
+                                                    <h2> <?php echo $DadosUsuario[0]['id_user']; ?> </h2>
                                                 </div>
 
                                             </div>

@@ -1,50 +1,55 @@
 <?php
 
-    session_start();
-    date_default_timezone_set('America/Sao_Paulo');
+session_start();
+date_default_timezone_set('America/Sao_Paulo');
 
-    include "ConexaoBD.php";
-    include_once "Funcoes.php";
+require_once "ConexaoBD.php";
+require_once "Funcoes.php";
 
-    $tipo_verificacao = $_SESSION['TipoVerificação'];
-    $id = ClearInjectionXSS($base, base64_decode($_COOKIE["ID"]));
-    $id_empresa = ClearInjectionXSS($base, $_GET['q']);
+$conn = new ConexaoBD();
+$func = new Funcoes();
 
-    switch ($tipo_verificacao) {
+$id = $func->ClearInjectionXSS(base64_decode($_COOKIE["ID"]));
 
-        case "Usuario":
+$id_empresa = $func->ClearInjectionXSS(base64_decode(($_GET['q'])));
+$tipo_verificacao = $func->ClearInjectionXSS(base64_decode(($_GET['v'])));
 
-            $apagarUsuario = "DELETE FROM usuarios where id_user = '$id'";
-            mysqli_query($base, $apagarUsuario);
 
-            $apagarUser_Empresa = "DELETE FROM user_empresa where id_user = '$id'";
-            mysqli_query($base, $apagarUser_Empresa);
 
-            $conexao->query($apagarUsuario) === TRUE && $conexao->query($apagarUser_Empresa) ? EncerrarSessao() : header("Location: ../User.php");
+switch ($tipo_verificacao) {
 
-        break;
+    case "Usuario":
 
-        case "Empresa":
+        $apagarUsuario = "DELETE FROM usuarios where id_user = '$id'";
+        $conn->dbh->query($apagarUsuario);
 
-            $apagarEmpresa = "DELETE FROM empresas where id_empresa = '$id_empresa'";
-            mysqli_query($base, $apagarEmpresa);
+        $apagarUser_Empresa = "DELETE FROM user_empresa where id_user = '$id'";
+        $conn->dbh->query($apagarUser_Empresa);
 
-            $apagarUser_Empresa = "DELETE FROM user_empresa where id_empresa = '$id_empresa'";
-            mysqli_query($base, $apagarUser_Empresa);
-
-            $conexao->query($apagarEmpresa) === TRUE && $conexao->query($apagarUser_Empresa) === TRUE ? header("Location: ../Dashboard.php") : header("Location: ../Company.php?q=".base64_encode($id_empresa));
+        $conn->dbh->query($apagarUsuario) && $conn->dbh->query($apagarUser_Empresa) ? $func->EncerrarSessao() : header("Location: ../User.php");
 
         break;
 
-        case "LoginNaEmpresa":
+    case "Empresa":
 
-            $apagarUser_Empresa = "DELETE FROM user_empresa where id_user = '$id' and id_empresa = '$id_empresa'";
-            mysqli_query($base, $apagarUser_Empresa);
+        $DesativarEmpresa = "UPDATE empresas SET Situacao='Desativada' WHERE id_empresa = '$id_empresa'";
+        $conn->dbh->query($DesativarEmpresa);
 
-            $conexao->query($apagarUser_Empresa) ? header("Location: ../Dashboard.php") : header("Location: ../Company.php?q=".$id_empresa);
+        $apagarUser_Empresa = "DELETE FROM user_empresa where id_empresa = '$id_empresa'";
+        $conn->dbh->query($apagarUser_Empresa);
+
+        $conn->dbh->query($DesativarEmpresa) && $conn->dbh->query($apagarUser_Empresa) ? header("Location: ../Dashboard.php") : header("Location: ../Company.php?q=" . base64_encode($id_empresa));
 
         break;
 
-    }
+    case "LoginNaEmpresa":
 
-?>
+        $apagarUser_Empresa2 = "DELETE FROM user_empresa where id_user = '$id' and id_empresa = '$id_empresa'";
+        echo $apagarUser_Empresa2;
+
+        $conn->dbh->query($apagarUser_Empresa2);
+
+        $conn->dbh->query($apagarUser_Empresa2) ? header("Location: ../Dashboard.php") : header("Location: ../Company.php?q=".$id_empresa);
+
+        break;
+}

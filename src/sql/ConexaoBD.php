@@ -1,13 +1,28 @@
 <?php
 
-	$ServerName = "localhost";
-	$UserName = "root";
-	$ServerPassword = "";
-	$ServerDataBase = "bdape";
+class ConexaoBD
+{
+    private $host = 'localhost';
+    private $user = 'root';
+    private $senha = '';
+    private $banco = 'bdape';
+    private $porta = '3306';
+    public $dbh;
 
-	$conexao = mysqli_connect($ServerName, $UserName, $ServerPassword, $ServerDataBase);
-	mysqli_set_charset($conexao, 'utf8');
+    public function __construct()
+    {
+        $dsn = 'mysql:host=' . $this->host . ';port=' . $this->porta . ';dbname=' . $this->banco;
+        $opcoes = [
+            PDO::ATTR_PERSISTENT => true,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        ];
 
-	$conexao ? $base = $conexao : die("Falha ao realizar a conexão: " .mysqli_connect_error());
+        try {
+            $this->dbh = new PDO($dsn, $this->user, $this->senha, $opcoes);
+        } catch (PDOException $e) {
+            print "Error!: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+}
 
-?>

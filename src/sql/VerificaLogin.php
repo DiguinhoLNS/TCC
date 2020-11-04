@@ -3,8 +3,11 @@
 	session_start();
 	date_default_timezone_set('America/Sao_Paulo');
 
-	include "ConexaoBD.php";
-	include_once "Funcoes.php";
+	require_once "ConexaoBD.php";
+	require_once "Funcoes.php";
+
+	$conn = new ConexaoBD();
+	$func = new Funcoes();
 
 	$tipo_verificacao = $_SESSION['TipoVerificação'];
 
@@ -14,10 +17,10 @@
 			
 			$_SESSION["UserLoginError_1"] = 0;
 
-			$email = ClearInjectionXSS($base, $_POST['L_Email']);
-			$senha = ClearInjectionXSS($base, $_POST['L_PWD']);
+			$email = $func->ClearInjectionXSS($_POST['L_Email']);
+			$senha = $func->ClearInjectionXSS($_POST['L_PWD']);
 
-			$Dados = PegarDadosUsuarioPeloEmailSenha($base, $email, $senha);
+			$Dados = $func->PegarDadosUsuarioPeloEmailSenha($email, $senha);
 
 			if ($Dados['UsuarioExiste']) {
 
@@ -32,6 +35,7 @@
 
 				$_SESSION["ErroLoginUsuario"] = true;
 				setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
+
 				header("Location: ../LoginUser.php");
 				
 			}
@@ -42,12 +46,12 @@
 
 			$_SESSION["CompanyLoginError_1"] = 0;
 
-			$codigo_acesso = ClearInjectionXSS($base, $_POST['cod']);
-			$id_user = ClearInjectionXSS($base, base64_decode($_COOKIE['ID']));
+			$codigo_acesso = $func->ClearInjectionXSS($_POST['cod']);
+			$id_user = $func->ClearInjectionXSS(base64_decode($_COOKIE['ID']));
 
-			$Dados = PegarDadosEmpresaPeloCodigo($base, $codigo_acesso);
+			$Dados = $func->PegarDadosEmpresaPeloCodigo($codigo_acesso);
 
-			$QuantidadeDeLoginsJaFeitos = VerificarSeUsuarioJaFezLoginAntes($base, $codigo_acesso, $id_user);
+			$QuantidadeDeLoginsJaFeitos = $func->VerificarSeUsuarioJaFezLoginAntes($codigo_acesso, $id_user);
 			
 			if ($Dados["CodigoExiste"] && empty($QuantidadeDeLoginsJaFeitos)) {
 

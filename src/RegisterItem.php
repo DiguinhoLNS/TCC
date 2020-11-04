@@ -104,9 +104,9 @@
 							<label for = "R_ItemCategoria"> Categoria </label>
 							<select name = "categoria" id = "R_ItemCategoria" class = "UserSelectData" required>
 								<option value = "Outros"> Outros </option>
-								<option value = "Acessório"> Acessórios </option>
+								<option value = "Acessorio"> Acessórios </option>
 								<option value = "Documento"> Documentos </option>
-								<option value = "Eletrônico"> Eletrônicos </option>
+								<option value = "Eletronico"> Eletrônicos </option>
 								<option value = "Roupa"> Roupas </option>
                             </select>
 						</li>

@@ -3,14 +3,17 @@
     session_start();
     date_default_timezone_set('America/Sao_Paulo'); 
     
-    include 'sql/ConexaoBD.php';
-    include_once "sql/Funcoes.php";
+    require_once 'sql/ConexaoBD.php';
+    require_once "sql/Funcoes.php";
+
+    $conn = new ConexaoBD();
+	$func = new Funcoes();
 
     if(isset($_COOKIE["ID"])){
 
         $id = base64_decode($_COOKIE["ID"]);
 
-        $DadosEmpresas = PegarDadosEmpresaPeloIdUsuario($base, $id);
+        $DadosEmpresas = $func->PegarDadosEmpresaPeloIdUsuario($id);
 
 
     }
@@ -75,14 +78,14 @@
                                     $i=0;
                                     do{
 
-                                        $cnpj = ColocarPontoCNPJ($DadosEmpresas['Dados'][$i]['CNPJ']);
+                                        $cnpj = $func->ColocarPontoCNPJ($DadosEmpresas['Dados'][$i]['CNPJ']);
                                         
                                         echo "
                                         
                                             <li class = 'Box ". $DadosEmpresas['Dados'][$i]['Cor_layout']."'>
                                             
                                                 <a href = 'Company.php?q=". base64_encode($DadosEmpresas['Dados'][$i]['id_empresa'])."'>
-                                                    <h1> ". $DadosEmpresas['Dados'][$i]['Nome'] ."</h1>
+                                                    <h1> ". utf8_encode($DadosEmpresas['Dados'][$i]['Nome']) ."</h1>
                                                     <h2> ". $DadosEmpresas['Dados'][$i]['Telefone'] ."</h2>
                                                 </a>                      
                                                 

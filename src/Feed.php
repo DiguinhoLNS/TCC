@@ -3,8 +3,11 @@
 	session_start();
 	date_default_timezone_set('America/Sao_Paulo');
 
-	include 'sql/ConexaoBD.php';
-	include_once "sql/Funcoes.php";
+	require_once 'sql/ConexaoBD.php';
+	require_once "sql/Funcoes.php";
+
+	$conn = new ConexaoBD();
+	$func = new Funcoes();
 
 	$id_empresa = base64_decode($_GET['q']);
 	setcookie("ID_Company", base64_encode($id_empresa), time() + (86400 * 30), "/");
@@ -13,14 +16,15 @@
 
 		$id = base64_decode($_COOKIE["ID"]);
 
-		$DadosEmpresa = PegarDadosEmpresaPeloIdEmpresa($base, $id_empresa);
-		$DadosItem = PegarDadosItemPeloIdEmpresa ($base, $id_empresa);
+		$DadosEmpresa = $func->PegarDadosEmpresaPeloIdEmpresa($id_empresa);
+		$DadosItem = $func->PegarDadosItemPeloIdEmpresa ($id_empresa);
+		$DadosUserEmpresa = $func->PegarDadosUserEmpresaPeloIdUserIdEmpresa($id, $id_empresa);
 
-		$Documentos = PegarDocumentos($base, $id_empresa);
-		$Acessorios = PegarAcessorios($base, $id_empresa);
-		$Roupas = PegarRoupas($base, $id_empresa);
-		$Eletronicos = PegarEletronicos($base, $id_empresa);
-		$Outros = PegarOutros($base, $id_empresa);
+		$Documentos = $func->PegarDocumentos($id_empresa);
+		$Acessorios = $func->PegarAcessorios($id_empresa);
+		$Roupas = $func->PegarRoupas($id_empresa);
+		$Eletronicos = $func->PegarEletronicos($id_empresa);
+		$Outros = $func->PegarOutros($id_empresa);
 
 		setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 
@@ -60,13 +64,13 @@
 
 		</header>
 
-		<main id = "MainFeed" class = "<?php echo $DadosEmpresa['Cor_layout'];?>">
+		<main id = "MainFeed" class = "<?php echo $DadosEmpresa[0]['Cor_layout'];?>">
 
 			<div id= "MainContent">
 
 				<section id = "CompanyHeader">
 					
-					<h1> Feed <?php echo $DadosEmpresa['Nome'];?></h1>
+					<h1> Feed <?php echo $DadosEmpresa[0]['Nome'];?></h1>
 				
 				</section>
 
@@ -138,7 +142,7 @@
 										}else{
 											$i=0;
 											do{
-												$DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
+												$DataSeparada = $func->SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
 												echo '
 													<li class = "ItemBox AllItemBox">
 
@@ -150,9 +154,9 @@
 
 															<div class = "ItemInfo">
 																
-																<h1 class = "ItemName"> '.$DadosItem["Objeto"][$i]["Nome_obj"].' </h1>
+																<h1 class = "ItemName"> '.utf8_encode($DadosItem["Objeto"][$i]["Nome_obj"]).' </h1>
 																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
-																<h3 class = "ItemCategory"> '.$DadosItem["Objeto"][$i]["Categoria"].' </h3>
+																<h3 class = "ItemCategory"> '.utf8_encode($DadosItem["Objeto"][$i]["Categoria"]).' </h3>
 
 															</div>
 
@@ -196,7 +200,7 @@
 
 											<ul class = "FeedBoxGroup">';
 											do{
-												$DataSeparada = SepararData($Eletronicos["Objeto"][$i]["Data_cadastro"]);
+												$DataSeparada = $func->SepararData($Eletronicos["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 
@@ -210,9 +214,9 @@
 
 															<div class = "ItemInfo">
 																
-																<h1 class = "ItemName"> '.$Eletronicos["Objeto"][$i]["Nome_obj"].' </h1>
+																<h1 class = "ItemName"> '.utf8_encode($Eletronicos["Objeto"][$i]["Nome_obj"]).' </h1>
 																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
-																<h3 class = "ItemCategory"> '.$Eletronicos["Objeto"][$i]["Categoria"].' </h3>
+																<h3 class = "ItemCategory"> Eletrônico </h3>
 
 															</div>
 
@@ -249,7 +253,7 @@
 
 											$i=0;
 											do{
-												$DataSeparada = SepararData($Roupas["Objeto"][$i]["Data_cadastro"]);
+												$DataSeparada = $func->SepararData($Roupas["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 													<li class = "ItemBox">
@@ -262,9 +266,9 @@
 
 															<div class = "ItemInfo">
 																
-																<h1 class = "ItemName"> '.$Roupas["Objeto"][$i]["Nome_obj"].' </h1>
+																<h1 class = "ItemName"> '.utf8_encode($Roupas["Objeto"][$i]["Nome_obj"]).' </h1>
 																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
-																<h3 class = "ItemCategory"> '.$Roupas["Objeto"][$i]["Categoria"].' </h3>
+																<h3 class = "ItemCategory"> '.utf8_encode($Roupas["Objeto"][$i]["Categoria"]).' </h3>
 
 															</div>
 
@@ -289,7 +293,7 @@
 										if($Acessorios["Quantidade"]==0){
 											echo '
 											<div class = "FeedFrameCategory">	
-		
+											'.$Acessorios["Quantidade"].'
 											<ul class = "FeedBoxGroup">';
 
 										}else{
@@ -301,7 +305,7 @@
 
 											<ul class = "FeedBoxGroup">';
 											do{
-												$DataSeparada = SepararData($Acessorios["Objeto"][$i]["Data_cadastro"]);
+												$DataSeparada = $func->SepararData($Acessorios["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 													<li class = "ItemBox">
@@ -314,9 +318,9 @@
 
 															<div class = "ItemInfo">
 																
-																<h1 class = "ItemName"> '.$Acessorios["Objeto"][$i]["Nome_obj"].' </h1>
+																<h1 class = "ItemName"> '.utf8_encode($Acessorios["Objeto"][$i]["Nome_obj"]).' </h1>
 																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
-																<h3 class = "ItemCategory"> '.$Acessorios["Objeto"][$i]["Categoria"].' </h3>
+																<h3 class = "ItemCategory"> Acessório </h3>
 
 															</div>
 
@@ -352,7 +356,7 @@
 											<ul class = "FeedBoxGroup">';
 
 											do{
-												$DataSeparada = SepararData($Documentos["Objeto"][$i]["Data_cadastro"]);
+												$DataSeparada = $func->SepararData($Documentos["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 													<li class = "ItemBox">
@@ -365,9 +369,9 @@
 
 															<div class = "ItemInfo">
 																
-																<h1 class = "ItemName"> '.$Documentos["Objeto"][$i]["Nome_obj"].' </h1>
+																<h1 class = "ItemName"> '.utf8_encode($Documentos["Objeto"][$i]["Nome_obj"]).' </h1>
 																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
-																<h3 class = "ItemCategory"> '.$Documentos["Objeto"][$i]["Categoria"].' </h3>
+																<h3 class = "ItemCategory"> '.utf8_encode($Documentos["Objeto"][$i]["Categoria"]).' </h3>
 
 															</div>
 
@@ -404,7 +408,7 @@
 											<ul class = "FeedBoxGroup">';
 
 											do{
-												$DataSeparada = SepararData($Outros["Objeto"][$i]["Data_cadastro"]);
+												$DataSeparada = $func->SepararData($Outros["Objeto"][$i]["Data_cadastro"]);
 												echo '
 
 													<li class = "ItemBox">
@@ -417,9 +421,9 @@
 
 															<div class = "ItemInfo">
 																
-																<h1 class = "ItemName"> '.$Outros["Objeto"][$i]["Nome_obj"].' </h1>
+																<h1 class = "ItemName"> '.utf8_encode($Outros["Objeto"][$i]["Nome_obj"]).' </h1>
 																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
-																<h3 class = "ItemCategory"> '.$Outros["Objeto"][$i]["Categoria"].' </h3>
+																<h3 class = "ItemCategory"> '.utf8_encode($Outros["Objeto"][$i]["Categoria"]).' </h3>
 
 															</div>
 
@@ -447,10 +451,14 @@
 
 			</div>
 
+			<?php if($DadosUserEmpresa[0]['Nivel_acesso'] == 4){
+				echo'
+
 			<button id = "btnFeedControl" class = "btnControl FeedADM">
 				<i class = "material-icons"> &#xe145; </i>
 			</button>
-
+			
+			
 			<div id = "FeedControlPane" class = "ControlPane BS">
 
 				<h1> Feed </h1>
@@ -470,7 +478,10 @@
 					</li>
 				</ul>
 
-			</div>
+			</div>';
+			}
+			?>
+
 
 		</main>
 

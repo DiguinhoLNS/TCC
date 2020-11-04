@@ -3,12 +3,15 @@
     session_start();
     date_default_timezone_set('America/Sao_Paulo');
 
-    include_once "sql/ConexaoBD.php";
-    include_once "sql/Funcoes.php";
+    require_once "sql/ConexaoBD.php";
+    require_once "sql/Funcoes.php";
+
+    $conn = new ConexaoBD();
+	$func = new Funcoes();
 
     $id = base64_decode($_COOKIE["ID"]);
 
-    $DadosUsuario = PegarDadosUsuarioPeloId($base, $id);
+    $DadosUsuario = $func->PegarDadosUsuarioPeloId($id);
         
     $_SESSION['TipoVerificação'] = "EditarUsuario";
 
@@ -166,35 +169,35 @@
                         <li class = "ContentInput">
 							<label for = "E_UserNome"> Nome </label>
 							<span id = "ErrorNome" class = "txtError"> Nome inválido </span>
-							<input id = "E_UserNome" class = "UserInputData" type = "text" name = "nome" value = "<?php echo $DadosUsuario["Nome_user"] ?>" required />
+							<input id = "E_UserNome" class = "UserInputData" type = "text" name = "nome" value = "<?php echo $DadosUsuario[0]["Nome_user"] ?>" required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "E_UserCPF"> CPF </label>
 							<span id = "ErrorCPF" class = "txtError"> CPF inválido </span>
-							<input id = "E_UserCPF" class = "UserInputData InputCPF" type = "text" name = "CPF" value = "<?php echo $DadosUsuario["CPF_user"] ?>" required />
+							<input id = "E_UserCPF" class = "UserInputData InputCPF" type = "text" name = "CPF" value = "<?php echo $DadosUsuario[0]["CPF_user"] ?>" required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "E_UserGenero"> Gênero </label>
 							<select name = "Genero" id = "E_UserGenero" class = "UserSelectData" required>
-                                <option value = "Feminino" <?php if($DadosUsuario["Genero_user"] == "Feminino"){ echo "selected" ;}?>> Feminino </option>
-								<option value = "Masculino" <?php if($DadosUsuario["Genero_user"] == "Masculino"){ echo "selected" ;}?>> Masculino </option>
-                                <option value = "Outros" <?php if($DadosUsuario["Genero_user"] == "Outros"){ echo "selected" ;}?>> Prefiro não informar </option>';       
+                                <option value = "Feminino" <?php if($DadosUsuario[0]["Genero_user"] == "Feminino"){ echo "selected" ;}?>> Feminino </option>
+								<option value = "Masculino" <?php if($DadosUsuario[0]["Genero_user"] == "Masculino"){ echo "selected" ;}?>> Masculino </option>
+                                <option value = "Outros" <?php if($DadosUsuario[0]["Genero_user"] == "Outros"){ echo "selected" ;}?>> Prefiro não informar </option>';       
                             </select>
 						</li>
 						<li class = "ContentInput">
 							<label for = "E_UserDataNasc"> Data de Nascimento </label>
 							<span id = "ErrorDataNasc" class = "txtError"> Data inválida </span>
-							<input id = "E_UserDataNasc" class = "UserInputData" type = "date" name = "data" value = "<?php echo $DadosUsuario["Data_nasc_user"] ?>" required />
+							<input id = "E_UserDataNasc" class = "UserInputData" type = "date" name = "data" value = "<?php echo $DadosUsuario[0]["Data_nasc_user"] ?>" required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "E_UserEmail"> Email </label>
 							<span id = "ErrorEmail" class = "txtError"> Email inválido </span>
-							<input id = "E_UserEmail" class = "UserInputData" type = "email" name = "email" value = "<?php echo $DadosUsuario["Email_user"] ?>" required />
+							<input id = "E_UserEmail" class = "UserInputData" type = "email" name = "email" value = "<?php echo $DadosUsuario[0]["Email_user"] ?>" required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "E_UserTelefone"> Telefone de contato </label>
 							<span id = "ErrorTelefone" class = "txtError"> Telefone inválido </span>
-							<input id = "E_UserTelefone" class = "UserInputData InputTelefone9" type = "text" name = "telefone" value = "<?php echo $DadosUsuario["Telefone_user"] ?>" placeholder = "Fixo ou móvel" required />
+							<input id = "E_UserTelefone" class = "UserInputData InputTelefone9" type = "text" name = "telefone" value = "<?php echo $DadosUsuario[0]["Telefone_user"] ?>" placeholder = "Fixo ou móvel" required />
 						</li>
 						<li class = "ContentBottom">
                         <a href = "User.php"> Voltar </a>

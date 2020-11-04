@@ -3,16 +3,19 @@
 	session_start();
 	date_default_timezone_set('America/Sao_Paulo');
 
-	include 'sql/ConexaoBD.php';
-	include_once "sql/Funcoes.php";
+	require_once 'sql/ConexaoBD.php';
+	require_once "sql/Funcoes.php";
+
+	$conn = new ConexaoBD();
+	$func = new Funcoes();
 
 	if(isset($_COOKIE["ID"])){
 
 		$id = base64_decode($_COOKIE["ID"]);
 		$id_item = base64_decode($_GET['q']);
 
-		$DadosItem = PegarDadosItemPeloId($base, $id_item);
-		$DataSeparada = SepararData($DadosItem["Objeto"][0]["Data_cadastro"]);
+		$DadosItem = $func->PegarDadosItemPeloId($id_item);
+		$DataSeparada = $func->SepararData($DadosItem["Objeto"][0]["Data_cadastro"]);
 
 		if($DadosItem['Quantidade'] == 0 || $DadosItem['Quantidade'] > 1){
 			die("Erro de ID de Objeto ". $DadosItem["Quantidade"]);

@@ -1,36 +1,14 @@
 <?php
 
-    include '../../../sql/ConexaoBD.php';
-    include_once '../../../sql/Funcoes.php';
+    require_once '../../../sql/ConexaoBD.php';
+    require_once '../../../sql/Funcoes.php';
+
+    $conn = new ConexaoBD();
+	$func = new Funcoes();
 
     $id_empresa = base64_decode($_COOKIE["ID_Company"]);
 
-    $FeedQuery = TodosZA($base, $id_empresa);
-
-    function TodosZA($base, $id_empresa){
-
-        $query = "SELECT * FROM objetos where id_empresa = $id_empresa order by Nome_obj DESC";
-        $ResultadoQuery = mysqli_query($base, $query) or die("Erro na consulta 21");
-        $QuantidadeDeObjetos = $ResultadoQuery->num_rows;
-
-        if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
-        }
-
-        if (isset($TodosObjetos)) {
-            $Dados = [
-                "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
-            ];
-            return $Dados;
-        } else {
-            return $Dados = [
-                "Quantidade" => $QuantidadeDeObjetos,
-            ];
-        }
-    }
+    $FeedQuery = $func->TodosZA($id_empresa);
 
     if($FeedQuery["Quantidade"]==0){
 
@@ -40,7 +18,7 @@
         include "../../../include/LoadFeed.php";
         $i=0;
         do{
-            $DataSeparada = SepararData($FeedQuery["Objeto"][$i]["Data_cadastro"]);
+            $DataSeparada = $func->SepararData($FeedQuery["Objeto"][$i]["Data_cadastro"]);
             echo '
                 <li class = "ItemBox">
 

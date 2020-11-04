@@ -3,8 +3,11 @@
     session_start();
     date_default_timezone_set('America/Sao_Paulo');
 
-    include "ConexaoBD.php";
-    include_once "Funcoes.php";
+    require_once "ConexaoBD.php";
+    require_once "Funcoes.php";
+
+    $conn = new ConexaoBD();
+	$func = new Funcoes();
 
     $tipo_verificacao = $_SESSION['TipoVerificação'];
 
@@ -12,15 +15,15 @@
 
         case "Usuario":
 
-            $nome = ClearInjectionXSS($base, $_POST["nome"]);
-            $email = ClearInjectionXSS($base, $_POST["email"]);
-            $CpfComPonto = ClearInjectionXSS($base, $_POST["CPF"]);
-            $data = ClearInjectionXSS($base, $_POST["data"]);
-            $telefone = ClearInjectionXSS($base, $_POST["telefone"]);
-            $genero = ClearInjectionXSS($base, $_POST["Genero"]);
-            $senha = ClearInjectionXSS($base, $_POST["senha"]);
+            $nome = $func->ClearInjectionXSS($_POST["nome"]);
+            $email = $func->ClearInjectionXSS($_POST["email"]);
+            $CpfComPonto = $func->ClearInjectionXSS($_POST["CPF"]);
+            $data = $func->ClearInjectionXSS($_POST["data"]);
+            $telefone = $func->ClearInjectionXSS($_POST["telefone"]);
+            $genero = $func->ClearInjectionXSS($_POST["Genero"]);
+            $senha = $func->ClearInjectionXSS($_POST["senha"]);
 
-            $cpf = TirarPontoCPF($CpfComPonto);
+            $cpf = $func->TirarPontoCPF($CpfComPonto);
 
             $ErroNosCampos = [
                 "Nome" => false,
@@ -32,18 +35,18 @@
                 "Senha" => false
             ];
 
-            $ErroNosCampos["Nome"] = VerificarCadastroNome($nome);    
+            $ErroNosCampos["Nome"] = $func->VerificarCadastroNome($nome);    
 
-            $ErroNosCampos["CPF"] = VerificaCPF($cpf);
+            $ErroNosCampos["CPF"] = $func->VerificaCPF($cpf);
 
-            $ErroNosCampos["Data"] = VerificaData($data);
+            $ErroNosCampos["Data"] = $func->VerificaData($data);
 
-            $ErroNosCampos["Telefone"] = VerificaTelefone($telefone);
+            $ErroNosCampos["Telefone"] = $func->VerificaTelefone($telefone);
 
-            $ErroNosCampos["Senha"] = VerificaSenha($senha);
+            $ErroNosCampos["Senha"] = $func->VerificaSenha($senha);
 
-            $ErroNosCampos["CPF"] ? : $ErroNosCampos["CPF"] = VerificarSeUsuarioJaCadastrado($base, $email, $cpf);
-            $ErroNosCampos["Email"] = VerificarSeUsuarioJaCadastrado($base, $email, $cpf); 
+            $ErroNosCampos["CPF"] ? : $ErroNosCampos["CPF"] = $func->VerificarSeUsuarioJaCadastrado($email, $cpf);
+            $ErroNosCampos["Email"] = $func->VerificarSeUsuarioJaCadastrado($email, $cpf); 
 
             foreach ($ErroNosCampos as $key => $verifica) {
                 if ($verifica) {
@@ -68,14 +71,14 @@
 
         case "Empresa":
 
-            $nome = ClearInjectionXSS($base, $_POST["nome"]);
-            $email = ClearInjectionXSS($base, $_POST["email"]);
-            $CnpjComPonto = ClearInjectionXSS($base, $_POST["cnpj"]);
-            $telefone = ClearInjectionXSS($base, $_POST["telefone"]);
-            $endereco = ClearInjectionXSS($base, $_POST["endereco"]);
-            $cor = ClearInjectionXSS($base, $_POST["CorLayout"]);
+            $nome = $func->ClearInjectionXSS($_POST["nome"]);
+            $email = $func->ClearInjectionXSS($_POST["email"]);
+            $CnpjComPonto = $func->ClearInjectionXSS($_POST["cnpj"]);
+            $telefone = $func->ClearInjectionXSS($_POST["telefone"]);
+            $endereco = $func->ClearInjectionXSS($_POST["endereco"]);
+            $cor = $func->ClearInjectionXSS($_POST["CorLayout"]);
 
-            $cnpj = TirarPontoCNPJ($CnpjComPonto);
+            $cnpj = $func->TirarPontoCNPJ($CnpjComPonto);
 
             $ErroNosCampos = [
                 "Nome" => false,
@@ -86,16 +89,16 @@
                 "Cor" => false
             ];
 
-            $ErroNosCampos["Nome"] = VerificarCadastroNome($nome);
+            $ErroNosCampos["Nome"] = $func->VerificarCadastroNome($nome);
 
-            $ErroNosCampos["CNPJ"] = VerificaCNPJ($cnpj);
+            $ErroNosCampos["CNPJ"] = $func->VerificaCNPJ($cnpj);
 
-            $ErroNosCampos["Endereco"] = VerificarEndereco($endereco);
+            $ErroNosCampos["Endereco"] = $func->VerificarEndereco($endereco);
 
-            $ErroNosCampos["Telefone"] = VerificaTelefone($telefone);
+            $ErroNosCampos["Telefone"] = $func->VerificaTelefone($telefone);
 
-            $ErroNosCampos["CNPJ"] ? : $ErroNosCampos["CNPJ"] = VerificarSeEmpresaJaCadastrada($base, $email, $cnpj);
-            $ErroNosCampos["Email"] = VerificarSeEmpresaJaCadastrada($base, $email, $cnpj);
+            $ErroNosCampos["CNPJ"] ? : $ErroNosCampos["CNPJ"] = $func->VerificarSeEmpresaJaCadastrada($email, $cnpj);
+            $ErroNosCampos["Email"] = $func->VerificarSeEmpresaJaCadastrada($email, $cnpj);
 
             foreach ($ErroNosCampos as $key => $verifica) {
                 if ($verifica) {
@@ -121,14 +124,14 @@
         break;
 
         case "EditarUsuario":
-            $nome = ClearInjectionXSS($base, $_POST["nome"]);
-            $email = ClearInjectionXSS($base, $_POST["email"]);
-            $CpfComPonto = ClearInjectionXSS($base, $_POST["CPF"]);
-            $data = ClearInjectionXSS($base, $_POST["data"]);
-            $telefone = ClearInjectionXSS($base, $_POST["telefone"]);
-            $genero = ClearInjectionXSS($base, $_POST["Genero"]);
+            $nome = $func->ClearInjectionXSS($_POST["nome"]);
+            $email = $func->ClearInjectionXSS($_POST["email"]);
+            $CpfComPonto = $func->ClearInjectionXSS($_POST["CPF"]);
+            $data = $func->ClearInjectionXSS($_POST["data"]);
+            $telefone = $func->ClearInjectionXSS($_POST["telefone"]);
+            $genero = $func->ClearInjectionXSS($_POST["Genero"]);
 
-            $cpf = TirarPontoCPF($CpfComPonto);
+            $cpf = $func->TirarPontoCPF($CpfComPonto);
 
             $ErroNosCampos = [
                 "Nome" => false,
@@ -139,13 +142,13 @@
                 "Telefone" => false
             ];
 
-            $ErroNosCampos["Nome"] = VerificarCadastroNome($nome);    
+            $ErroNosCampos["Nome"] = $func->VerificarCadastroNome($nome);    
 
-            $ErroNosCampos["CPF"] = VerificaCPF($cpf);
+            $ErroNosCampos["CPF"] = $func->VerificaCPF($cpf);
 
-            $ErroNosCampos["Data"] = VerificaData($data);
+            $ErroNosCampos["Data"] = $func->VerificaData($data);
 
-            $ErroNosCampos["Telefone"] = VerificaTelefone($telefone);
+            $ErroNosCampos["Telefone"] = $func->VerificaTelefone($telefone);
 
             foreach ($ErroNosCampos as $key => $verifica) {
                 if ($verifica) {
@@ -169,15 +172,15 @@
         break;
 
         case "EditarEmpresa":
-            $id_empresa = ClearInjectionXSS($base, base64_decode($_GET['q']));
-            $nome = ClearInjectionXSS($base, $_POST["nome"]);
-            $email = ClearInjectionXSS($base, $_POST["email"]);
-            $CnpjComPonto = ClearInjectionXSS($base, $_POST["cnpj"]);
-            $telefone = ClearInjectionXSS($base, $_POST["telefone"]);
-            $endereco = ClearInjectionXSS($base, $_POST["endereco"]);
-            $cor = ClearInjectionXSS($base, $_POST["CorLayout"]);
+            $id_empresa = $func->ClearInjectionXSS(base64_decode($_GET['q']));
+            $nome = $func->ClearInjectionXSS($_POST["nome"]);
+            $email = $func->ClearInjectionXSS($_POST["email"]);
+            $CnpjComPonto = $func->ClearInjectionXSS($_POST["cnpj"]);
+            $telefone = $func->ClearInjectionXSS($_POST["telefone"]);
+            $endereco = $func->ClearInjectionXSS($_POST["endereco"]);
+            $cor = $func->ClearInjectionXSS($_POST["CorLayout"]);
 
-            $cnpj = TirarPontoCNPJ($CnpjComPonto);
+            $cnpj = $func->TirarPontoCNPJ($CnpjComPonto);
 
             $ErroNosCampos = [
                 "Nome" => false,
@@ -188,13 +191,13 @@
                 "Cor" => false
             ];
 
-            $ErroNosCampos["Nome"] = VerificarCadastroNome($nome);
+            $ErroNosCampos["Nome"] = $func->VerificarCadastroNome($nome);
 
-            $ErroNosCampos["CNPJ"] = VerificaCNPJ($cnpj);
+            $ErroNosCampos["CNPJ"] = $func->VerificaCNPJ($cnpj);
 
-            $ErroNosCampos["Endereco"] = VerificarEndereco($endereco);
+            $ErroNosCampos["Endereco"] = $func->VerificarEndereco($endereco);
 
-            $ErroNosCampos["Telefone"] = VerificaTelefone($telefone);
+            $ErroNosCampos["Telefone"] = $func->VerificaTelefone($telefone);
 
             foreach ($ErroNosCampos as $key => $verifica) {
                 if ($verifica) {
@@ -219,11 +222,11 @@
         break;
 
         case "Item":
-            $id_empresa = ClearInjectionXSS($base, base64_decode($_GET['q']));
-            $nome = ClearInjectionXSS($base, $_POST["nome"]);
+            $id_empresa = $func->ClearInjectionXSS(base64_decode($_GET['q']));
+            $nome = $func->ClearInjectionXSS($_POST["nome"]);
             $foto = $_FILES["foto"];
-            $categoria = ClearInjectionXSS($base, $_POST["categoria"]);
-            $descricao = ClearInjectionXSS($base, $_POST["descricao"]);
+            $categoria = $func->ClearInjectionXSS($_POST["categoria"]);
+            $descricao = $func->ClearInjectionXSS($_POST["descricao"]);
 
             $ErroNosCampos = [
                 "Nome" => false,
@@ -232,8 +235,8 @@
                 "descricao" => false,
             ];
 
-            $ErroNosCampos["Nome"] = VerificarNomeOBJ($nome);   
-            $ErroNosCampos["foto"] = VerificarFoto($foto);
+            $ErroNosCampos["Nome"] = $func->VerificarNomeOBJ($nome);   
+            $ErroNosCampos["foto"] = $func->VerificarFoto($foto);
 
             foreach ($ErroNosCampos as $key => $verifica) {
                 if ($verifica) {
