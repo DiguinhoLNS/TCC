@@ -141,7 +141,13 @@
 
 										}else{
 											$i=0;
+											
 											do{
+												if($DadosItem["Objeto"][$i]["Categoria"] == "Acessorio"){
+													$DadosItem["Objeto"][$i]["Categoria"] = "Acessório";
+												}else if($DadosItem["Objeto"][$i]["Categoria" == "Eletronico"]){
+													$DadosItem["Objeto"][$i]["Categoria"] = "Eletrônico";
+												}
 												$DataSeparada = $func->SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
 												echo '
 													<li class = "ItemBox AllItemBox">
@@ -156,7 +162,7 @@
 																
 																<h1 class = "ItemName"> '.utf8_encode($DadosItem["Objeto"][$i]["Nome_obj"]).' </h1>
 																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
-																<h3 class = "ItemCategory"> '.utf8_encode($DadosItem["Objeto"][$i]["Categoria"]).' </h3>
+																<h3 class = "ItemCategory"> '.$DadosItem["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>
 
@@ -465,13 +471,13 @@
 
 				<ul>
 					<li>
-						<a href = "RegisterItem.php?q=<?php echo base64_encode($id_empresa);?>">
+						<a href = "RegisterItem.php?q='.base64_encode($id_empresa).'">
 							<i class = "material-icons"> &#xe145; </i>
 							<span> Criar Item </span>
 						</a>
 					</li>
 					<li>
-						<a href = "ConfigFeed.php?q=<?php echo base64_encode($id_empresa);?>">
+						<a href = "ConfigFeed.php?q='.base64_encode($id_empresa).'">
 							<i class = "material-icons"> &#xe8b8; </i>
 							<span> Gerenciar </span>
 						</a>

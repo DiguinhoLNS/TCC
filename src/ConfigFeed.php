@@ -59,7 +59,7 @@
 
 				<section id = "CompanyHeader">
 					
-					<h1> Configuração Feed <?php echo $DadosEmpresa[0]['Nome'];?></h1>
+					<h1> Configuração Feed <?php echo utf8_encode($DadosEmpresa[0]['Nome']);?></h1>
 				
 				</section>
 
