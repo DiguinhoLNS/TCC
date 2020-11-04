@@ -13,7 +13,7 @@ class ConexaoBD
     {
         $dsn = 'mysql:host=' . $this->host . ';port=' . $this->porta . ';dbname=' . $this->banco;
         $opcoes = [
-            PDO::ATTR_PERSISTENT => true,
+            PDO::ATTR_PERSISTENT => TRUE,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ];
 
@@ -25,4 +25,3 @@ class ConexaoBD
         }
     }
 }
-

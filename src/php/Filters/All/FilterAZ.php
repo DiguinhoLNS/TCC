@@ -47,5 +47,3 @@
         }while($i<($FeedQuery["Quantidade"]));
 
     }
-
-?>

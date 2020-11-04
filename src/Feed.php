@@ -70,7 +70,7 @@
 
 				<section id = "CompanyHeader">
 					
-					<h1> Feed <?php echo $DadosEmpresa[0]['Nome'];?></h1>
+					<h1> Feed <?php echo utf8_encode($DadosEmpresa[0]['Nome']);?></h1>
 				
 				</section>
 

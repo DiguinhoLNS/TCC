@@ -169,7 +169,7 @@
                         <li class = "ContentInput">
 							<label for = "E_UserNome"> Nome </label>
 							<span id = "ErrorNome" class = "txtError"> Nome inválido </span>
-							<input id = "E_UserNome" class = "UserInputData" type = "text" name = "nome" value = "<?php echo $DadosUsuario[0]["Nome_user"] ?>" required />
+							<input id = "E_UserNome" class = "UserInputData" type = "text" name = "nome" value = "<?php echo utf8_encode($DadosUsuario[0]["Nome_user"]) ?>" required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "E_UserCPF"> CPF </label>

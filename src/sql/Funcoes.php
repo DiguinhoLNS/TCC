@@ -636,7 +636,7 @@ class Funcoes extends ConexaoBD
 
         $query = "SELECT * FROM objetos where id_empresa = $id_empresa order by Data_cadastro DESC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 21");
-        $QuantidadeDeObjetos = $this->dbh->query($query);
+        $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
             $DadosObjetos = $ResultadoQuery->fetchAll();

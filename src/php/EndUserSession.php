@@ -10,5 +10,3 @@
         header("Location: ../Index.php");
 
     }    
-
-?>
