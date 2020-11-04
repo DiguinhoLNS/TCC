@@ -1275,11 +1275,60 @@ h1, h2, h3, h4, h5, h6 {
 
 		/* FCF 2 */
 
+		#FCF2 #FeedConfigUserListGroup {
+			width: 100%;
 
+			list-style: none;
+		}
+
+		#FCF2 #FeedConfigUserListGroup .ListHeader,
+		#FCF2 #FeedConfigUserListGroup .ListContent {
+			display: grid;
+			grid-template-columns: 30px 1fr auto 200px;
+			grid-gap: 0 20px;
+
+			width: 100%;
+		}
+
+			/* Header */
+
+			#FCF2 #FeedConfigUserListGroup .ListHeader {
+				margin-bottom: 15px;
+			}
+
+			#FCF2 #FeedConfigUserListGroup .ListHeader h1,
+			#FCF2 #FeedConfigUserListGroup .ListHeader h2,
+			#FCF2 #FeedConfigUserListGroup .ListHeader h3,
+			#FCF2 #FeedConfigUserListGroup .ListHeader h4 {
+				color: var(--color-txt-s);
+				font-size: 24px;
+			}
+
+			/* Content */
+
+			#FCF2 #FeedConfigUserListGroup .ListContent {
+				margin-bottom: 6px;
+
+				color: var(--color-txt-t);
+			}
+
+			#FCF2 #FeedConfigUserListGroup .ListContent h1,
+			#FCF2 #FeedConfigUserListGroup .ListContent h2,
+			#FCF2 #FeedConfigUserListGroup .ListContent h3 {
+				font-size: 18px;
+			}
+
+			#FCF2 #FeedConfigUserListGroup .ListContent .FeedConfigUserOptions {
+				list-style: none;
+			}
+
+			#FCF2 #FeedConfigUserListGroup .ListContent .FeedConfigUserOptions li {
+				background-color: red;
+			}
 
 		/* FCF 3 */
 
-		
+
 
 		/*******************************************************
 			Item.php

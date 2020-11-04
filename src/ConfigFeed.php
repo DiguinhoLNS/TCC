@@ -77,7 +77,7 @@
                                 <i class = "material-icons"> &#xe7fd; </i>
                                 <span> Usuários </span>
 							</li>
-							<li id = "FCFO2" class = "NavListOption">
+							<li id = "FCFO3" class = "NavListOption">
                                 <i class = "material-icons"> category </i>
                                 <span> Itens </span>
 							</li>
@@ -164,7 +164,39 @@
 
 								</div>
 
-								<div class = "FrameMain FrameSection"></div>
+								<div class = "FrameMain FrameSection">
+
+									<ul id = "FeedConfigUserListGroup">
+
+										<li class = "ListHeader">
+
+											<h1> ID </h1>
+											<h2> Nome</h2>
+											<h3> Nível de Acesso </h3>
+											<h4> Opções </h4>
+
+										</li>
+
+										<li class = "ListContent">
+
+											<h1> x </h1>
+											<h2> Nome do usuário lorem </h2>
+											<h3> Usuário </h3>
+
+											<ul class = "FeedConfigUserOptions">
+												<li>
+													<i class = "material-icons"> upgrade </i>
+												</li>
+												<li>
+													<i class = "material-icons"> &#xe15b; </i>
+												</li>
+											</ul>
+
+										</li>
+
+									</ul>
+
+								</div>
 								
 							</div>
 
