@@ -216,7 +216,7 @@
 						</li>
 						<li class = "ContentBottom">
 							<a href="LoginUser.php"> Já possui uma conta? </a>
-							<input class = "UserInputSubmit btn" type = "submit" value = "Cadastrar">
+							<input class = "UserInputSubmit btn" type = "submit" value = "Criar Conta">
 						</li>
 
 					</ul>

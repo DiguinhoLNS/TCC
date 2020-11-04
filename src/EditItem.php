@@ -13,7 +13,7 @@
 
 	<head>
 
-		<title> Criar Item </title>
+		<title> Editar Item </title>
 
 		<?php include "include/Head.php"; ?>
 
@@ -77,7 +77,7 @@
 
         <main id = "MainRegisterItem">
 
-			<div class = "FormPlatform FormRegister BS">
+			<div class = "FormPlatform FormEdit BS">
 
 				<form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php?q=<?php echo base64_encode($id_empresa);?>" enctype="multipart/form-data">
 			
@@ -116,7 +116,7 @@
 						</li>
 						<li class = "ContentBottom">
 							<a href = "Feed.php?q=<?php echo base64_encode($id_empresa)?>"> Voltar para Feed </a>
-							<input class = "UserInputSubmit btn" type = "submit" value = "Criar Item"/>
+							<input class = "UserInputSubmit btn" type = "submit" value = "Editar Item"/>
 						</li>
 
 					</ul>
