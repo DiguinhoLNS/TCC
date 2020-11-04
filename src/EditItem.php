@@ -97,7 +97,7 @@
 							<input id = "R_ItemFoto" type = "file" name = "foto"/>
 							<label id = "imgContent" for = "R_ItemFoto">
 								<i id = "imgIcon" class = "material-icons"> &#xe251; </i>
-								<img id = "FormFoto"/>
+								<img id = "FormFoto" <?php //src = "imagesBD/"?>>
 							</label>	
 						</li>
 						<li class = "ContentInput">

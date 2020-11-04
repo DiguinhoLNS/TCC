@@ -26,13 +26,13 @@
 
 	<head>
 
-		<title> Configurações do Feed </title>
+		<title> Configuração do Feed </title>
 		
 		<?php include "include/Head.php"; ?>
 
 	</head>
 
-	<body id = "ConfigFeedPage" class = "UNT LightMode ADMView">
+	<body id = "ConfigFeedPage" class = "UNT LightMode ADMView CompanyLayout">
 
 		<?php
 
@@ -61,6 +61,133 @@
 					
 					<h1> Configuração Feed <?php echo utf8_encode($DadosEmpresa[0]['Nome']);?></h1>
 				
+				</section>
+
+				<section id = "SectionConfigFeedMain" class = "SectionPlatformPanel">
+
+					<nav id = "NavFeedConfig" class = "NavBarControl">
+
+                        <ul>
+
+                            <li id = "FCFO1" class = "NavListOption active">
+                                <i class = "material-icons"> &#xe0af; </i>
+                                <span> Empresa </span>
+                            </li>
+                            <li id = "FCFO2" class = "NavListOption">
+                                <i class = "material-icons"> &#xe7fd; </i>
+                                <span> Usuários </span>
+							</li>
+							<li id = "FCFO2" class = "NavListOption">
+                                <i class = "material-icons"> category </i>
+                                <span> Itens </span>
+							</li>
+												
+                        </ul>
+
+					</nav>
+					
+					<nav id = "NavCompanyFrameset" class = "NavFrameset">
+
+						<div id = "FCF1" class = "NavFrame">
+
+                            <div class = "NavFrameContent">
+
+                                <div class = "FrameHeader FrameSection">
+
+                                    <h1> Empresa </h1>
+
+								</div>
+
+								<div class = "FrameMain FrameSection">
+
+									<ul class = "DataCategory">
+
+										<li class = "Category">
+
+											<h1 class = "HeaderCategory"> Visualizar </h1>
+
+											<div class = "CategoryOptions">
+
+												<div class = "CategoryText">
+
+													<h1> Acessar Feed </h1>
+													<h2> Vizualizar o feed de itens da sua empresa </h2>
+
+												</div>
+
+												<div class = "btnContent">
+
+													<button class = "btnOption">
+														<a href = "Feed.php?q=<?php echo base64_encode($DadosEmpresa[0]["id_empresa"]);?>"> Acessar Feed </a>
+													</button>
+
+												</div>
+
+											</div>
+
+											<div class = "CategoryOptions">
+
+												<div class = "CategoryText">
+
+													<h1> Acessar Empresa </h1>
+													<h2> Vizualizar a página principal da sua empresa </h2>
+
+												</div>
+
+												<div class = "btnContent">
+
+													<button class = "btnOption">
+														<a href = "Company.php?q=<?php echo base64_encode($DadosEmpresa[0]["id_empresa"]);?>"> Acessar Empresa </a>
+													</button>
+
+												</div>
+
+											</div>
+
+										</li>
+
+									</ul>
+
+								</div>
+								
+							</div>
+
+						</div>
+
+						<div id = "FCF2" class = "NavFrame">
+
+                            <div class = "NavFrameContent">
+
+                                <div class = "FrameHeader FrameSection">
+
+                                    <h1> Usuários </h1>
+
+								</div>
+
+								<div class = "FrameMain FrameSection"></div>
+								
+							</div>
+
+						</div>
+
+						<div id = "FCF3" class = "NavFrame">
+
+                            <div class = "NavFrameContent">
+
+                                <div class = "FrameHeader FrameSection">
+
+                                    <h1> Itens </h1>
+
+								</div>
+
+								<div class = "FrameMain FrameSection"></div>
+								
+							</div>
+
+						</div>
+
+					</nav>
+
 				</section>
 
 			</div>

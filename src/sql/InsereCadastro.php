@@ -37,7 +37,7 @@
 
 			do {
 
-				$codigo_acesso = strtoupper(bin2hex(random_bytes(3)));
+				$codigo_acesso = strtoupper(bin2hex(random_bytes(6)));
 				$Dados = $func->PegarDadosEmpresaPeloCodigo($codigo_acesso);
 				$CodigoJaExiste = $Dados["CodigoExiste"] ? true : false;
 			} while ($CodigoJaExiste);

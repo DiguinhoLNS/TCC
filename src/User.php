@@ -418,6 +418,29 @@
 
         <?php include "include/Script.php"; ?>
 
+        <script type = "text/javascript">
+
+            var date = new Date();
+            var hour = date.getHours();
+
+            if(hour >= 6 && hour < 12){
+
+                txt = "Bom Dia";
+
+            }else if(hour >= 12 && hour < 18){
+
+                txt = "Boa Tarde";
+
+            }else if(hour >= 18 && hour < 6){
+
+                txt = "Boa Noite";
+
+            }
+
+            document.getElementById("DTN").innerHTML = txt;
+
+        </script>
+
     </body>
 
 </html>

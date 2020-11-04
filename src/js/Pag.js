@@ -562,6 +562,32 @@ $(document).ready(function(){
 
     });
 
+    /* FeedConfig.php */
+
+    $("#FCFO1").on("click", function(){
+
+        NF.css("display", "none");
+
+        $("#FCF1").css("display", "block");
+
+    });
+
+    $("#FCFO2").on("click", function(){
+
+        NF.css("display", "none");
+
+        $("#FCF2").css("display", "block");
+
+    });
+
+    $("#FCFO3").on("click", function(){
+
+        NF.css("display", "none");
+
+        $("#FCF3").css("display", "block");
+
+    });
+
 });
 
 /* Quick Access Bar */

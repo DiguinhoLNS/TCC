@@ -1245,10 +1245,6 @@ h1, h2, h3, h4, h5, h6 {
 					background-color: var(--color-theme-company-hover);
 				}
 
-				.ThemePink #btnFeedControl i {
-					color: var(--color-txt-p-lm);
-				}
-
 				.ThemeYellow #btnFeedControl i {
 					color: var(--color-txt-p-lm);
 				}
@@ -1264,6 +1260,26 @@ h1, h2, h3, h4, h5, h6 {
 		#MainConfigFeed .MainContent {
 			padding: 0 0 60px;
 		}
+
+		/* Feed Config Frames */
+
+		#FCF2 , #FCF3 {
+			display: none;
+		}
+
+		/* FCF 1 */
+
+		#FCF1 {
+			display: block;
+		}
+
+		/* FCF 2 */
+
+
+
+		/* FCF 3 */
+
+		
 
 		/*******************************************************
 			Item.php
@@ -2675,25 +2691,25 @@ h1, h2, h3, h4, h5, h6 {
 
 		/* Company */
 
-		#CompanyPage .NavBarControl ul .active {
+		.CompanyLayout .NavBarControl ul .active {
 			border-bottom-color: var(--color-theme-company-p);
 
 			color: var(--color-theme-company-p);
 		}
 
-			#CompanyPage .NavBarControl ul .active:hover {
+			.CompanyLayout .NavBarControl ul .active:hover {
 				border-bottom-color: var(--color-theme-company-p);
 			}
 
 			/* Theme Yellow */
 
-			#CompanyPage .ThemeYellow .NavBarControl ul .active {
+			.CompanyLayout .ThemeYellow .NavBarControl ul .active {
 				border-bottom-color: var(--color-txt-p);
 	
 				color:  var(--color-txt-p);
 			}
 	
-				#CompanyPage .ThemeYellow .NavBarControl ul .active:hover {
+				.CompanyLayout .ThemeYellow .NavBarControl ul .active:hover {
 					border-bottom-color: var(--color-txt-p);
 				}
 
@@ -2745,26 +2761,26 @@ h1, h2, h3, h4, h5, h6 {
 
 	/* Main */
 
-	.FrameMain .DataCategory {
+	.DataCategory {
 		width: 100%;
 
 		list-style: none;
 	}
 
-	.FrameMain .DataCategory .Category {
+	.DataCategory .Category {
 		border-color: var(--color-border);
 	}
 
-		.FrameMain .DataCategory .Category .CategoryOptions .btnContent .btnOption:hover {
+		.DataCategory .Category .CategoryOptions .btnContent .btnOption:hover {
 			border-color: var(--color-theme-p);
 			
 			color: var(--color-txt-p-dm);
 			background-color: var(--color-theme-p);
 		}
 
-		/* Company */
+		/* Company Color */
 
-		#CompanyPage .FrameMain .DataCategory .Category .CategoryOptions .btnContent .btnOption:hover {
+		.CompanyLayout .DataCategory .Category .CategoryOptions .btnContent .btnOption:hover {
 			border-color: var(--color-theme-company-p);
 			
 			color: var(--color-txt-p-dm);
@@ -2773,7 +2789,7 @@ h1, h2, h3, h4, h5, h6 {
 
 			/* Yellow */
 			
-			#CompanyPage .ThemeYellow .FrameMain .DataCategory .Category .CategoryOptions .btnContent .btnOption:hover {
+			.CompanyLayout .ThemeYellow .FrameMain .DataCategory .Category .CategoryOptions .btnContent .btnOption:hover {
 				border-color: var(--color-theme-company-p);
 				
 				color: var(--color-txt-p-lm);
@@ -2782,19 +2798,19 @@ h1, h2, h3, h4, h5, h6 {
 
 	/* Danger */
 
-	.FrameMain .DataCategory .CategoryDanger {
+	.DataCategory .CategoryDanger {
 		border-color: rgba(234, 67, 53, 60%);
 	}
 
-	.FrameMain .DataCategory .CategoryDanger .HeaderCategory {
+	.DataCategory .CategoryDanger .HeaderCategory {
 		color: var(--color-error);
 	}
 
-	.FrameMain .DataCategory .CategoryDanger .CategoryOptions .btnContent .btnDanger {
+	.DataCategory .CategoryDanger .CategoryOptions .btnContent .btnDanger {
 		color: var(--color-error);
 	}
 
-		.FrameMain .DataCategory .CategoryDanger .CategoryOptions .btnContent .btnDanger:hover {
+		.DataCategory .CategoryDanger .CategoryOptions .btnContent .btnDanger:hover {
 			border: 1px solid var(--color-error);
 		
 			color: var(--color-txt-p-dm);

@@ -40,7 +40,7 @@
 
 	</head>
 
-    <body id = "CompanyPage" class = "UNT LightMode <?php if($DadosUserEmpresa[0]['Nivel_acesso'] == 4){ echo ' ADMView'; }else if($DadosUserEmpresa[0]['Nivel_acesso'] == 2){echo ' UserView';}?>">
+    <body id = "CompanyPage" class = "UNT LightMode CompanyLayout <?php if($DadosUserEmpresa[0]['Nivel_acesso'] == 4){ echo ' ADMView'; }else if($DadosUserEmpresa[0]['Nivel_acesso'] == 2){echo ' UserView';}?>">
 
 		<?php
 
@@ -73,7 +73,7 @@
 
 				<section id = "SectionCompanyConfig" class = "SectionPlatformPanel">
 
-                    <nav id = "NavUserConfig" class = "NavBarControl">
+                    <nav id = "NavCompanyConfig" class = "NavBarControl">
 
                         <ul>
 
@@ -98,7 +98,7 @@
 
                     </nav>
 
-					<nav id = "NavComapnyFrameset" class = "NavFrameset">
+					<nav id = "NavCompanyFrameset" class = "NavFrameset">
 
 						<div id = "CF1" class = "NavFrame">
 
