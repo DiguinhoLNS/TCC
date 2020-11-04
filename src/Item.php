@@ -59,7 +59,7 @@
 
 		</header>
 
-		<main id = "MainItem" class = "ThemeDefault">
+		<main id = "MainItem" class = "<?= $DadosItem["Objeto"][0]["Cor_layout"] ?>">
 
 			<div class = "MainContent">
 

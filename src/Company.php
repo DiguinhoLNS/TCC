@@ -34,7 +34,7 @@
 
 	<head>
 
-		<title><?php echo utf8_encode($DadosEmpresa[0]['Nome']);?></title>
+		<title><?php echo $DadosEmpresa[0]['Nome'] ;?></title>
 		
 		<?php include "include/Head.php"; ?>
 
@@ -67,7 +67,7 @@
 
 				<section id= "CompanyHeader">
 				
-					<h1><?php echo utf8_encode($DadosEmpresa[0]['Nome']); ?></h1>
+					<h1><?php echo $DadosEmpresa[0]['Nome']; ?></h1>
 				
 				</section>
 
@@ -123,7 +123,7 @@
 												<div class = "CategoryText">
 
 													<h1> Nome </h1>
-													<h2><?php echo utf8_encode($DadosEmpresa[0]['Nome']); ?></h2>
+													<h2><?php echo $DadosEmpresa[0]['Nome']; ?></h2>
 
 												</div>
 
