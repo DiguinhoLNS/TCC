@@ -87,7 +87,7 @@ if (isset($_COOKIE["ID"])) {
                             echo '
                                         <a href = "Company.php?q=' . base64_encode($DadosEmpresas['Dados'][$i]['id_empresa']) . '" class = "CompanyBox ' . $DadosEmpresas['Dados'][$i]['Cor_layout'] . '" title = "Acessar ' . $DadosEmpresas['Dados'][$i]['Nome'] . ' ">
 
-                                            <h1 class = "CompanyTitle"> ' . utf8_encode($DadosEmpresas['Dados'][$i]['Nome']). ' </h1>
+                                            <h1 class = "CompanyTitle"> ' . $DadosEmpresas['Dados'][$i]['Nome']. ' </h1>
                                         
                                         </a>
                                     ';

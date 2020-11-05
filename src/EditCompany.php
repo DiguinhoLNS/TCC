@@ -149,7 +149,7 @@
                         <li class = "ContentInput">
 							<label for = "E_CompanyNome"> Nome </label>
 							<span id = "ErrorNome" class = "txtError"> Nome inválido </span>
-							<input id = "E_CompanyNome" class = "UserInputData" type = "text" name = "nome" value = "<?php echo utf8_encode($DadosEmpresa[0]["Nome"]); ?> " required />
+							<input id = "E_CompanyNome" class = "UserInputData" type = "text" name = "nome" value = "<?php echo $DadosEmpresa[0]["Nome"]; ?> " required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "E_CompanyEmail"> Email </label>
@@ -187,7 +187,7 @@
                             </select>
                         </li>
                         <li class = "ContentBottom">
-							<a href = "Company.php/?q=<?php echo base64_encode($id_empresa);?>"> Voltar </a>
+							<a href = "Company.php?q=<?php echo base64_encode($id_empresa);?>"> Voltar </a>
 							<input class = "UserInputSubmit btn" type = "submit" value = "Confirmar Alterações">
 						</li>
                         

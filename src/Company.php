@@ -145,7 +145,7 @@
 												<div class = "CategoryText">
 
 													<h1> Endereço </h1>
-													<h2><?php echo utf8_encode($DadosEmpresa[0]['Endereco']); ?></h2>
+													<h2><?= $DadosEmpresa[0]['Endereco']; ?></h2>
 
 												</div>
 

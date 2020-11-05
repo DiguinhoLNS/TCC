@@ -371,7 +371,6 @@ class Funcoes extends ConexaoBD
 
     public function ClearInjectionXSS($input)
     {
-
         //$input = mysqli_real_escape_string($input);
         $input = htmlspecialchars($input);
         return $input;
