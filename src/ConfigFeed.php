@@ -223,37 +223,6 @@
 
 										</li>
 
-										<li class = "GroupContent">
-											
-											<ul class = "GroupUL">
-
-												<li>
-													<h1> 1 </h1>
-												</li>
-												<li>
-													<h2> Rodrigo Lima </h2>
-												</li>
-												<li>
-													<h3> 4 </h3>
-												</li>
-												<li>
-													<ul class = "FeedConfigUserOptions">
-														<li title = "Promover Usuário">
-															<i class = "material-icons"> &#xe5c7; </i>
-														</li>
-														<li title = "Rebaixar Usuário">
-															<i class = "material-icons"> &#xe5c5; </i>
-														</li>
-														<li title = "Remover Usuário">
-															<i class = "material-icons"> &#xe15b; </i>
-														</li>
-													</ul>
-												</li>
-
-											</ul>
-
-										</li>
-
 									</ul>	
 
 								</div>
@@ -272,7 +241,28 @@
 
 								</div>
 
-								<div class = "FrameMain FrameSection"></div>
+								<div class = "FrameMain FrameSection">
+								
+									<ul id = "FeedConfigItensView">
+
+                                        <li>
+                                            <a href = "Item.php?q=">
+                                                <div class = "ItemImg">
+													<img src = ""/>
+												</div>
+                                                <div class = "ItemInfo">
+                                                    <h1> Nome do Item Perdido </h1>
+												</div>
+												<div class = "ItemControl">
+													<i class = "material-icons"> &#xe150; </i>
+													<i class = "material-icons"> &#xe872; </i>
+												</div>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+								
+								</div>
 								
 							</div>
 

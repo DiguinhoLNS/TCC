@@ -925,12 +925,6 @@ h1, h2, h3, h4, h5, h6 {
 			font-size: 16px;
 		}
 
-		/* UF 3 */
-
-		#UF3 .FrameMain #UserItensView {
-			grid-template-columns: repeat(3, 1fr);
-		}
-
 		/* UF 4 */
 
 		#UF4 .FrameMain #ConfigCategory {
@@ -1361,7 +1355,70 @@ h1, h2, h3, h4, h5, h6 {
 
 		/* FCF 3 */
 
+		#FCF3 #FeedConfigItensView {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 20px;
 
+			width: 100%;
+
+			list-style: none;
+		}
+
+		#FCF3 #FeedConfigItensView li {
+			border-radius: 30px;
+
+			background-color: var(--color-layout-s);
+		}
+
+		#FCF3 #FeedConfigItensView li a {
+			width: 100%;
+			border-radius: inherit;
+		}
+
+		#FCF3 #FeedConfigItensView li a div {
+			width: 100%;
+		}
+
+		#FCF3 #FeedConfigItensView li a .ItemImg {
+			height: 300px;
+			margin-bottom: 20px;
+			border-top-left-radius: inherit;
+			border-top-right-radius: inherit;
+
+			background-color: lightblue;
+		}
+
+			#FCF3 #FeedConfigItensView li a .ItemImg img {
+				border-top-left-radius: inherit;
+				border-top-right-radius: inherit;
+			}
+
+		#FCF3 #FeedConfigItensView li a .ItemInfo {
+			padding: 0 20px;
+		}
+
+			#FCF3 #FeedConfigItensView li a .ItemInfo h1 {
+				color: var(--color-txt-p);
+				font-size: 20px;
+			}
+
+		#FCF3 #FeedConfigItensView li a .ItemControl {
+			padding: 10px 20px 20px;
+		}
+
+			#FCF3 #FeedConfigItensView li a .ItemControl i {
+				padding: 8px;
+				margin-right: 8px;
+				border-radius: 50%;
+				
+				color: var(--color-txt-p);
+				font-size: 20px;
+			}
+
+				#FCF3 #FeedConfigItensView li a .ItemControl i:hover {
+					background-color: var(--color-hover);
+				}
 
 		/*******************************************************
 			Item.php
@@ -2972,6 +3029,7 @@ h1, h2, h3, h4, h5, h6 {
 
 	.ItensView {
 		display: grid;
+		grid-template-columns: repeat(3, 1fr);
 		grid-auto-rows: auto;
 		grid-gap: 20px;
 		
