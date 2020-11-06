@@ -166,35 +166,95 @@
 
 								<div class = "FrameMain FrameSection">
 
-									<ul id = "FeedConfigUserListGroup">
+									<ul id = "UserGroupHeader">
 
-										<li class = "ListHeader">
+										<li class = "GroupContent">
 
-											<h1> ID </h1>
-											<h2> Nome</h2>
-											<h3> Nível de Acesso </h3>
-											<h4> Opções </h4>
+											<ul class = "GroupUL">
 
-										</li>
-
-										<li class = "ListContent">
-
-											<h1> x </h1>
-											<h2> Nome do usuário lorem </h2>
-											<h3> Usuário </h3>
-
-											<ul class = "FeedConfigUserOptions">
 												<li>
-													<i class = "material-icons"> upgrade </i>
+													<h1> ID </h1>
 												</li>
 												<li>
-													<i class = "material-icons"> &#xe15b; </i>
+													<h2> Nome</h2>
+												</li>
+												<li>
+													<h3> Nível </h3>
+												</li>
+												<li>
+													<h4> Opções </h4>
 												</li>
 											</ul>
 
 										</li>
 
 									</ul>
+
+									<ul id = "UserGroupMain">
+
+										<li class = "GroupContent">
+											
+											<ul class = "GroupUL">
+
+												<li>
+													<h1> 1 </h1>
+												</li>
+												<li>
+													<h2> Rodrigo Lima </h2>
+												</li>
+												<li>
+													<h3> 4 </h3>
+												</li>
+												<li>
+													<ul class = "FeedConfigUserOptions">
+														<li title = "Promover Usuário">
+															<i class = "material-icons"> &#xe5c7; </i>
+														</li>
+														<li title = "Rebaixar Usuário">
+															<i class = "material-icons"> &#xe5c5; </i>
+														</li>
+														<li title = "Remover Usuário">
+															<i class = "material-icons"> &#xe15b; </i>
+														</li>
+													</ul>
+												</li>
+
+											</ul>
+
+										</li>
+
+										<li class = "GroupContent">
+											
+											<ul class = "GroupUL">
+
+												<li>
+													<h1> 1 </h1>
+												</li>
+												<li>
+													<h2> Rodrigo Lima </h2>
+												</li>
+												<li>
+													<h3> 4 </h3>
+												</li>
+												<li>
+													<ul class = "FeedConfigUserOptions">
+														<li title = "Promover Usuário">
+															<i class = "material-icons"> &#xe5c7; </i>
+														</li>
+														<li title = "Rebaixar Usuário">
+															<i class = "material-icons"> &#xe5c5; </i>
+														</li>
+														<li title = "Remover Usuário">
+															<i class = "material-icons"> &#xe15b; </i>
+														</li>
+													</ul>
+												</li>
+
+											</ul>
+
+										</li>
+
+									</ul>	
 
 								</div>
 								
