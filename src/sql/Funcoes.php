@@ -5,6 +5,25 @@ class Funcoes extends ConexaoBD
 
     //date_default_timezone_set('America/Sao_Paulo');
 
+    public function GerarCodigoAcesso()
+    {
+
+        $rand = rand(1, 100);
+        $salt = bin2hex(md5(sha1(random_bytes($rand))));
+        $str = crypt($salt, null);
+        $str = strtoupper($str);
+        $str2 = str_split($str, 12);
+
+        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $LetraAleatoria = '';
+        $LetraAleatoria = $characters[rand(0, 25)];
+
+        $ParaTirar = ["/", "."];
+        $codigo_acesso = str_replace($ParaTirar, $LetraAleatoria, $str2[1]);
+
+        return $codigo_acesso;
+    }
+
     public function EncerrarSessao()
     {
 
@@ -77,10 +96,9 @@ class Funcoes extends ConexaoBD
 
     public function VerificarCadastroNome($nome)
     {
-        if (strlen($nome) <= 2) {
+        if (strlen($nome) <= 2 || strlen($nome) > 80) {
             return true;
-        } else if (strlen($nome) > 2) {
-
+        } else {
             for ($i = 0; $i < strlen($nome); $i++) {
                 if (ord($nome[$i]) > 32 && ord($nome[$i]) < 65 || ord($nome[$i]) > 90 && ord($nome[$i]) < 96 || ord($nome[$i]) > 122 && ord($nome[$i]) < 126) {
                     return true;
@@ -303,10 +321,10 @@ class Funcoes extends ConexaoBD
 
         if ($QuantidadeDeEmpresas > 0) {
             $DadosEmpresa = $ResultadoQuery->fetchAll();
-        }else{
+        } else {
             $DadosEmpresa = null;
         }
-        
+
         $CodigoExiste = (empty($ResultadoQuery->rowCount())) ? false : true;
 
         $Dados = array(
@@ -372,6 +390,7 @@ class Funcoes extends ConexaoBD
     public function ClearInjectionXSS($input)
     {
         //$input = mysqli_real_escape_string($input);
+        $input = trim($input);
         $input = htmlspecialchars($input);
         return $input;
     }
@@ -581,7 +600,7 @@ class Funcoes extends ConexaoBD
             ];
         }
     }
-    
+
     public function TodosZA($id_empresa)
     {
 
@@ -629,7 +648,7 @@ class Funcoes extends ConexaoBD
             ];
         }
     }
-    
+
     public function TodosRecente($id_empresa)
     {
 

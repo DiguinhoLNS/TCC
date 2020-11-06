@@ -24,10 +24,17 @@
 			$senha = $func->ClearInjectionXSS($_POST["senha"]);
 			$senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
-			$sql = "INSERT INTO usuarios (Nome_user, Genero_user, Data_nasc_user, CPF_user, Email_user, Telefone_user, Senha_user) VALUES";
-			$sql .= " ('$nome', '$genero', '$data', '$cpf', '$email', '$telefone', '$senhaCriptografada') ";
+			try{
+			$query = "INSERT INTO usuarios (Nome_user, Genero_user, Data_nasc_user, CPF_user, Email_user, Telefone_user, Senha_user) VALUES";
+			$query .= " (:nome , :genero , :data , :cpf, :email, :telefone, :senha) ;" ;
 
-			$conn->dbh->query($sql) ? header("Location: ../LoginUser.php") : header("Location: ../RegisterUser.php");
+			$sql = $conn->dbh->prepare($query);
+			$sql->execute([':nome' => $nome, ':genero' => $genero, ':data' => $data, ':cpf' => $cpf, ':email' => $email, ':telefone' => $telefone, ':senha' => $senhaCriptografada]);
+			header("Location: ../LoginUser.php");
+
+			}catch(PDOException $e){
+				die("Erro SQL");
+			}
 
 			break;
 
@@ -37,9 +44,10 @@
 
 			do {
 
-				$codigo_acesso = strtoupper(bin2hex(random_bytes(6)));
+				$codigo_acesso = $func->GerarCodigoAcesso();
 				$Dados = $func->PegarDadosEmpresaPeloCodigo($codigo_acesso);
 				$CodigoJaExiste = $Dados["CodigoExiste"] ? true : false;
+
 			} while ($CodigoJaExiste);
 
 			$id_adm = $func->ClearInjectionXSS(base64_decode($_COOKIE["ID"]));
@@ -48,12 +56,21 @@
 			$cnpj = $func->ClearInjectionXSS($_SESSION['cnpjsemponto']);
 			$telefone = $func->ClearInjectionXSS($_POST["telefone"]);
 			$cor = $func->ClearInjectionXSS($_POST["CorLayout"]);
-			$endereco = $func->ClearInjectionXSS($_POST["endereco"]);
+			$endereco = $func->ClearInjectionXSS($_POST["endereco"]);			
 
-			$sql = "INSERT INTO empresas (id_adm, codigo_acesso, Nome, CNPJ, Endereco, Email, Telefone, Cor_layout, Situacao) VALUES";
-			$sql .= " ('$id_adm', '$codigo_acesso', '$nome', '$cnpj', '$endereco', '$email', '$telefone', '$cor', 'Ativada') ";
+			try{
+				
+				$query = "INSERT INTO empresas (id_adm, codigo_acesso, Nome, CNPJ, Endereco, Email, Telefone, Cor_layout, Situacao) VALUES";
+				$query .= " (:id_adm, :codigo_acesso, :nome, :cnpj, :endereco, :email, :telefone, :cor, :situacao) ;" ;
 
-			$conn->dbh->query($sql) ? header("Location: InsereUser_Empresa.php?q=" . base64_encode($codigo_acesso)) : header("Location: ../RegisterCompany.php");
+				$sql = $conn->dbh->prepare($query);
+				$sql->execute([':id_adm' => $id_adm, ':codigo_acesso' => $codigo_acesso, ':nome' => $nome, ':cnpj' => $cnpj, ':email' => $email, ':telefone' => $telefone, ':endereco' => $endereco, ':cor' => $cor, ':situacao' => 'Ativada']);
+				
+				header("Location: InsereUser_Empresa.php?q=" . base64_encode($codigo_acesso));
+			
+			}catch(PDOException $e){
+				die("Erro no SQL");
+			}
 
 			break;
 
@@ -78,10 +95,23 @@
 
 			$data = strftime('%Y-%m-%d');			
 
-			$sql = "INSERT INTO objetos (id_empresa, Nome_foto, Nome_obj, Data_cadastro, Categoria, Descricao, situacao) VALUES";
-			$sql .= " ('$id_empresa', '$novoNome', '$nome', '$data' , '$categoria', '$descricao', 'Perdido') ";
 
-			$conn->dbh->query($sql) ? header("Location: ../Feed.php?q=".base64_encode($id_empresa)) : header("Location: ../RegisterItem.php?q=".base64_encode($id_empresa));
+			try{
+				
+				$query = "INSERT INTO objetos (id_empresa, Nome_foto, Nome_obj, Data_cadastro, Categoria, Descricao, situacao) VALUES";
+				$query .= " (:id_empresa, :nome_foto, :nome_obj, :data , :categoria, :descricao, :situacao) ";
+
+				$sql = $conn->dbh->prepare($query);
+				$sql->execute([':id_empresa' => $id_empresa, ':nome_foto' => $novoNome, ':nome_obj' => $nome, ':data' => $data, ':categoria' => $categoria, ':descricao' => $descricao, ':situacao' => 'Perdido']);
+				header("Location: ../Feed.php?q=".base64_encode($id_empresa));
+
+			}catch(PDOException $e){
+				die("Erro no SQL");
+			}
+
+
+
+		break;
 	}
 
 	$conn=null;

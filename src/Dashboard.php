@@ -85,7 +85,7 @@
                                             <li class = 'Box ". $DadosEmpresas['Dados'][$i]['Cor_layout']."'>
                                             
                                                 <a href = 'Company.php?q=". base64_encode($DadosEmpresas['Dados'][$i]['id_empresa'])."'>
-                                                    <h1> ". utf8_encode($DadosEmpresas['Dados'][$i]['Nome']) ."</h1>
+                                                    <h1> ". $DadosEmpresas['Dados'][$i]['Nome'] ."</h1>
                                                     <h2> ". $DadosEmpresas['Dados'][$i]['Telefone'] ."</h2>
                                                 </a>                      
                                                 

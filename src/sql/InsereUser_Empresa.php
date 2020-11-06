@@ -21,10 +21,19 @@
 
             $DadosEmpresa = $func->PegarDadosEmpresaPeloCodigo($codigo_acesso);
 
-            $sql = "INSERT INTO user_empresa (id_user, id_empresa, Nivel_acesso) VALUES";
-            $sql .= " ('$id_user','".$DadosEmpresa['id_empresa']."','2') ";
+            $query = "INSERT INTO user_empresa (id_user, id_empresa, Nivel_acesso) VALUES";
+            $query .= " (:id_user, :id_empresa , :nivel_acesso) ";
 
-            $conn->dbh->query($sql) ? header("Location: ../Company.php?q=".base64_encode($DadosEmpresa["id_empresa"])) : header("Location: ../LoginCompany.php");
+            try{
+
+                $sql = $conn->dbh->prepare($query);
+                $sql->execute([':id_user' => $id_user, ':id_empresa' => $DadosEmpresa['id_empresa'], ':nivel_acesso' => '2' ]);
+                header("Location: ../Company.php?q=".base64_encode($DadosEmpresa["id_empresa"]));
+
+            }catch(PDOException $e){
+                die("Erro no SQL");
+            }
+
 
         break;
 
@@ -36,10 +45,20 @@
 
             $DadosEmpresa = $func->PegarDadosEmpresaPeloId_Codigo($id_adm, $codigo_acesso);
 
-            $sql = "INSERT INTO user_empresa (id_user, id_empresa, Nivel_acesso) VALUES";
-            $sql .= " ('$id_adm','".$DadosEmpresa[0]['id_empresa']."','4') ";
+            var_dump($codigo_acesso);
 
-            $conn->dbh->query($sql) ? header("Location: ../Company.php?q=".base64_encode($DadosEmpresa[0]["id_empresa"])) : header("Location: ../RegisterCompany.php");
+            $query = "INSERT INTO user_empresa (id_user, id_empresa, Nivel_acesso) VALUES";
+            $query .= " (:id_adm, :id_empresa , :nivel_acesso) ;";
+            
+            try{
+
+                $sql = $conn->dbh->prepare($query);
+                $sql->execute([':id_adm' => $id_adm, ':id_empresa' => $DadosEmpresa[0]['id_empresa'], ':nivel_acesso' => '4' ]);
+                header("Location: ../Company.php?q=".base64_encode($DadosEmpresa[0]["id_empresa"]));
+
+            }catch(PDOException $e){
+                die("Erro no SQL") ;
+            }
 
         break;
 
