@@ -184,7 +184,10 @@
 													<h3> Nível </h3>
 												</li>
 												<li>
-													<h4> Opções </h4>
+													<h4> Status </h4>
+												</li>
+												<li>
+													<h5> Opções </h5>
 												</li>
 											</ul>
 
@@ -217,15 +220,20 @@
 													<h3> '.$DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"].' </h3>
 												</li>
 												<li>
+													<h4> Status </h4>
+												</li>
+												<li>
 													<ul class = "FeedConfigUserOptions">
-														<li title = "Promover Usuário">
-															
+														<li id = "PromoteUserAccess" title = "Promover Usuário">
 															<i class = "material-icons"> &#xe5c7; </i>
 														</li>
-														<li title = "Rebaixar Usuário" >
+														<li id = "PromoteUserAccess" title = "Rebaixar Usuário" >
 															<i class = "material-icons"> &#xe5c5; </i>
 														</li>
-														<li title = "Remover Usuário">
+														<li id = "DenyUserAccess" title = "Negar acceso">
+															<i class = "material-icons"> &#xe14b; </i>
+														</li>
+														<li id = "RemoveUserAccess" title = "Banir Usuário">
 															<i class = "material-icons"> &#xe15b; </i>
 														</li>
 													</ul>
@@ -277,7 +285,8 @@
 
 											echo'
 											<li>
-												<a href = "Item.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'">
+												<div class = "ItemBox">
+												
 													<div class = "ItemImg">
 														<img src = "imagesBD/'.$DadosItem["Objeto"][$i]["Nome_foto"].'"/>
 													</div>
@@ -285,10 +294,19 @@
 														<h1> '.utf8_encode($DadosItem["Objeto"][$i]["Nome_obj"]). ' </h1>
 													</div>
 													<div class = "ItemControl">
-														<i class = "material-icons"> &#xe150; </i>
-														<i class = "material-icons"> &#xe872; </i>
+														<a href = "Item.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
+															<i class = "material-icons"> &#xe8f4; </i>
+														</a>
+														<a href = "EditItem.php?q=" title = "Editar Item">
+															<i class = "material-icons"> &#xe150; </i>
+														</a>
+														<a href = "" title = "Apagar Item">
+															<i class = "material-icons"> &#xe872; </i>
+														</a>
 													</div>
-												</a>
+
+												</div>
+
 											</li>';
 
 										$i++;

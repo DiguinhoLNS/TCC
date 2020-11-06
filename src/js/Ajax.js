@@ -11,12 +11,15 @@
 
 
 /*******************************************************
-    Cookies
+    AJAX
 *******************************************************/
 
 $(document).ready(function(){
 
-    // ConsoleLog txt
+    /*******************************************************
+        Console Log
+    *******************************************************/
+
     function AJAXRequestStatus($s){
 
         if($s == "0"){
@@ -32,6 +35,10 @@ $(document).ready(function(){
         }
 
     }
+
+    /*******************************************************
+        Cookies
+    *******************************************************/
 
     // Deny Cookies
     function DenyCookies(){
@@ -413,5 +420,50 @@ $(document).ready(function(){
 
             
         });
+
+        
+    /*******************************************************
+        Feed Config
+    *******************************************************/
+
+    var folder;
+
+    function setFolder(type){
+
+        return `php/Config.php?q=${type}`;
+
+    }
+
+    $("#PromoteUserAccess").on("click", function(){
+
+        folder = setFolder(1);
+
+        alert(folder);
+
+    });
+
+    $("#PromoteUserAccess").on("click", function(){
+
+        folder = setFolder(2);
+
+        alert(folder);
+
+    });
+
+    $("#DenyUserAccess").on("click", function(){
+
+        folder = setFolder(3);
+
+        alert(folder);
+
+    });
+
+    $("#RemoveUserAccess").on("click", function(){
+
+        folder = setFolder(4);
+
+        alert(folder);
+
+    });
 
 });

@@ -431,7 +431,7 @@
 
                 txt = "Boa Tarde";
 
-            }else if(hour >= 18 && hour < 6){
+            }else if(hour >= 18 || hour < 6){
 
                 txt = "Boa Noite";
 

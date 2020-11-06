@@ -1282,7 +1282,7 @@ h1, h2, h3, h4, h5, h6 {
 
 		#FCF2 ul .GroupContent .GroupUL {
 			display: grid;
-			grid-template-columns: 60px 1fr 80px 136px;
+			grid-template-columns: 40px 1fr 80px 120px 152px;
 			grid-gap: 20px;
 			
 			width: 100%;
@@ -1301,7 +1301,8 @@ h1, h2, h3, h4, h5, h6 {
 			}
 
 			#FCF2 #UserGroupHeader h1, #FCF2 #UserGroupHeader h2,
-			#FCF2 #UserGroupHeader h3, #FCF2 #UserGroupHeader h4 {
+			#FCF2 #UserGroupHeader h3, #FCF2 #UserGroupHeader h4,
+			#FCF2 #UserGroupHeader h5 {
 				font-size: 20px;
 				text-align: left;
 			}
@@ -1350,6 +1351,7 @@ h1, h2, h3, h4, h5, h6 {
 				}
 
 				#FCF2 #UserGroupMain .FeedConfigUserOptions li:hover {
+					color: var(--color-txt-p);
 					background-color: var(--color-hover);
 				}
 
@@ -1380,8 +1382,6 @@ h1, h2, h3, h4, h5, h6 {
 			margin-bottom: 20px;
 			border-top-left-radius: inherit;
 			border-top-right-radius: inherit;
-
-			background-color: lightblue;
 		}
 
 			#FCF3 #FeedConfigItensView li .ItemBox .ItemImg img {
