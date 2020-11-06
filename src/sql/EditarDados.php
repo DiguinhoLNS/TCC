@@ -26,7 +26,7 @@ switch ($tipo_verificacao) {
 
         $executandoQuery = $conn->dbh->query($query) or die("Deu errado");
 
-        $conn->dbh->query($query)? header("Location: ../User.php") : header("Location: ../EditUser.php");
+        $conn->dbh->query($query) ? header("Location: ../User.php") : header("Location: ../EditUser.php");
 
         break;
 
@@ -44,10 +44,30 @@ switch ($tipo_verificacao) {
 
         $executandoQuery = $conn->dbh->query($query) or die("Deu errado 2");
 
-        $conn->dbh->query($query) ? header("Location: ../Company.php?q=" . base64_encode($id_empresa)) : header("Location: ../EditCompany.php?q=". base64_encode($id_empresa)) ;
+        $conn->dbh->query($query) ? header("Location: ../Company.php?q=" . base64_encode($id_empresa)) : header("Location: ../EditCompany.php?q=" . base64_encode($id_empresa));
 
 
         break;
+
+    case "Promover":
+
+        $id_UserEmpresa = $func->ClearInjectionXSS(base64_decode($_GET["q"]));
+
+        try {
+
+            $query = "UPDATE user_empresa SET Nivel_acesso= :nivel_acesso WHERE id_user_empresa= :id_user_empresa";
+            $sql = $conn->dbh->prepare($query);
+            $sql->execute([':nivel_acesso' => $id_UserEmpresa, ':id_user_empresa' => $id_UserEmpresa]);
+            
+        } catch (PDOException $e) {
+            die("Erro na consulta");
+        }
+
+
+        break;
+
+    case "Rebaixar":
+        break;
 }
 
-$conn=null;
+$conn = null;

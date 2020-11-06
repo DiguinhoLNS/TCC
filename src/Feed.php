@@ -457,7 +457,7 @@
 
 			</div>
 
-			<?php if($DadosUserEmpresa[0]['Nivel_acesso'] == 4){
+			<?php if($DadosUserEmpresa[0]['Nivel_acesso'] == 4 || $DadosUserEmpresa[0]['Nivel_acesso'] == 3){
 				echo'
 
 			<button id = "btnFeedControl" class = "btnControl FeedADM">
@@ -475,7 +475,10 @@
 							<i class = "material-icons"> &#xe145; </i>
 							<span> Criar Item </span>
 						</a>
-					</li>
+					</li>';}
+
+					if($DadosUserEmpresa[0]['Nivel_acesso'] == 4){
+						echo'
 					<li>
 						<a href = "ConfigFeed.php?q='.base64_encode($id_empresa).'">
 							<i class = "material-icons"> &#xe8b8; </i>

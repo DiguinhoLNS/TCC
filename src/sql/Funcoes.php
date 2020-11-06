@@ -288,6 +288,22 @@ class Funcoes extends ConexaoBD
         return $DadosUserEmpresa;
     }
 
+    public function PegarDadosUserEmpresaPeloIdEmpresa($id_empresa)
+    {
+
+        $query = "SELECT * FROM user_empresa inner join usuarios on user_empresa.id_user = usuarios.id_user where id_empresa = '$id_empresa' order by Nivel_acesso DESC, Nome_user ASC";
+        $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 4");
+        $DadosUserEmpresa = $ResultadoQuery->fetchAll();
+        $QuantidadeDeUsuarios = $ResultadoQuery->rowCount();
+
+        $Dados = [
+            "Quantidade" => $QuantidadeDeUsuarios,
+            "Usuarios" => $DadosUserEmpresa
+        ];
+
+        return $Dados;
+    }
+
     //Querys usadas no VerificaLogin
     public function PegarDadosUsuarioPeloEmailSenha($email, $senha)
     {

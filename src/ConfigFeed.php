@@ -16,6 +16,8 @@
 		$id = base64_decode($_COOKIE["ID"]);
 
 		$DadosEmpresa = $func->PegarDadosEmpresaPeloIdEmpresa($id_empresa);
+		$DadosUserEmpresa = $func->PegarDadosUserEmpresaPeloIdEmpresa($id_empresa);
+		$DadosItem = $func->PegarDadosItemPeloIdEmpresa($id_empresa);
 
 	}
     
@@ -196,28 +198,46 @@
 											
 											<ul class = "GroupUL">
 
+
+											<?php 
+
+											$i=0;
+											$i2=1;
+
+											do{
+											
+												echo '
 												<li>
-													<h1> 1 </h1>
+													<h1> '.($i2).'  </h1>
 												</li>
 												<li>
-													<h2> Rodrigo Lima </h2>
+													<h2> '.utf8_encode($DadosUserEmpresa["Usuarios"][$i]["Nome_user"]).' </h2>
 												</li>
 												<li>
-													<h3> 4 </h3>
+													<h3> '.$DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"].' </h3>
 												</li>
 												<li>
 													<ul class = "FeedConfigUserOptions">
 														<li title = "Promover Usuário">
+															
 															<i class = "material-icons"> &#xe5c7; </i>
 														</li>
-														<li title = "Rebaixar Usuário">
+														<li title = "Rebaixar Usuário" >
 															<i class = "material-icons"> &#xe5c5; </i>
 														</li>
 														<li title = "Remover Usuário">
 															<i class = "material-icons"> &#xe15b; </i>
 														</li>
 													</ul>
-												</li>
+												</li>';
+
+												$i++;
+												$i2++;
+
+
+											}while($i < $DadosUserEmpresa["Quantidade"]);
+
+											?>
 
 											</ul>
 
@@ -245,20 +265,36 @@
 								
 									<ul id = "FeedConfigItensView">
 
-                                        <li>
-                                            <a href = "Item.php?q=">
-                                                <div class = "ItemImg">
-													<img src = ""/>
-												</div>
-                                                <div class = "ItemInfo">
-                                                    <h1> Nome do Item Perdido </h1>
-												</div>
-												<div class = "ItemControl">
-													<i class = "material-icons"> &#xe150; </i>
-													<i class = "material-icons"> &#xe872; </i>
-												</div>
-                                            </a>
-                                        </li>
+									<?php
+										$i=0;
+										do{
+											if($DadosItem["Objeto"][$i]["Categoria"] == "Acessorio"){
+												$DadosItem["Objeto"][$i]["Categoria"] = "Acessório";
+											}else if($DadosItem["Objeto"][$i]["Categoria" == "Eletronico"]){
+												$DadosItem["Objeto"][$i]["Categoria"] = "Eletrônico";
+											}
+											$DataSeparada = $func->SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
+
+											echo'
+											<li>
+												<a href = "Item.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'">
+													<div class = "ItemImg">
+														<img src = "imagesBD/'.$DadosItem["Objeto"][$i]["Nome_foto"].'"/>
+													</div>
+													<div class = "ItemInfo">
+														<h1> '.utf8_encode($DadosItem["Objeto"][$i]["Nome_obj"]). ' </h1>
+													</div>
+													<div class = "ItemControl">
+														<i class = "material-icons"> &#xe150; </i>
+														<i class = "material-icons"> &#xe872; </i>
+													</div>
+												</a>
+											</li>';
+
+										$i++;
+										}while($i<$DadosItem["Quantidade"]);
+
+									?>
 
                                     </ul>
 								
