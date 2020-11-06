@@ -246,18 +246,29 @@
 									<ul id = "FeedConfigItensView">
 
                                         <li>
-                                            <a href = "Item.php?q=">
-                                                <div class = "ItemImg">
+
+											<div class = "ItemBox">
+
+												<div class = "ItemImg">
 													<img src = ""/>
 												</div>
-                                                <div class = "ItemInfo">
-                                                    <h1> Nome do Item Perdido </h1>
+												<div class = "ItemInfo">
+													<h1> Nome do Item Perdido </h1>
 												</div>
 												<div class = "ItemControl">
-													<i class = "material-icons"> &#xe150; </i>
-													<i class = "material-icons"> &#xe872; </i>
+													<a href = "Item.php?q=">
+														<i class = "material-icons"> &#xe8f4; </i>
+													</a>
+													<a href = "EditItem.php?q=">
+														<i class = "material-icons"> &#xe150; </i>
+													</a>
+													<a href = "">
+														<i class = "material-icons"> &#xe872; </i>
+													</a>
 												</div>
-                                            </a>
+
+											</div>
+												
                                         </li>
 
                                     </ul>
