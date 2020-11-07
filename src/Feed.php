@@ -220,7 +220,7 @@
 
 															<div class = "ItemInfo">
 																
-																<h1 class = "ItemName"> '.utf8_encode($Eletronicos["Objeto"][$i]["Nome_obj"]).' </h1>
+																<h1 class = "ItemName"> '.$Eletronicos["Objeto"][$i]["Nome_obj"].' </h1>
 																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
 																<h3 class = "ItemCategory"> Eletrônico </h3>
 
@@ -272,9 +272,9 @@
 
 															<div class = "ItemInfo">
 																
-																<h1 class = "ItemName"> '.utf8_encode($Roupas["Objeto"][$i]["Nome_obj"]).' </h1>
+																<h1 class = "ItemName"> '.$Roupas["Objeto"][$i]["Nome_obj"].' </h1>
 																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
-																<h3 class = "ItemCategory"> '.utf8_encode($Roupas["Objeto"][$i]["Categoria"]).' </h3>
+																<h3 class = "ItemCategory"> '.$Roupas["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>
 
@@ -324,7 +324,7 @@
 
 															<div class = "ItemInfo">
 																
-																<h1 class = "ItemName"> '.utf8_encode($Acessorios["Objeto"][$i]["Nome_obj"]).' </h1>
+																<h1 class = "ItemName"> '.$Acessorios["Objeto"][$i]["Nome_obj"].' </h1>
 																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
 																<h3 class = "ItemCategory"> Acessório </h3>
 
@@ -375,9 +375,9 @@
 
 															<div class = "ItemInfo">
 																
-																<h1 class = "ItemName"> '.utf8_encode($Documentos["Objeto"][$i]["Nome_obj"]).' </h1>
+																<h1 class = "ItemName"> '.$Documentos["Objeto"][$i]["Nome_obj"].' </h1>
 																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
-																<h3 class = "ItemCategory"> '.utf8_encode($Documentos["Objeto"][$i]["Categoria"]).' </h3>
+																<h3 class = "ItemCategory"> '.$Documentos["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>
 
@@ -427,9 +427,9 @@
 
 															<div class = "ItemInfo">
 																
-																<h1 class = "ItemName"> '.utf8_encode($Outros["Objeto"][$i]["Nome_obj"]).' </h1>
+																<h1 class = "ItemName"> '.$Outros["Objeto"][$i]["Nome_obj"].' </h1>
 																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
-																<h3 class = "ItemCategory"> '.utf8_encode($Outros["Objeto"][$i]["Categoria"]).' </h3>
+																<h3 class = "ItemCategory"> '.$Outros["Objeto"][$i]["Categoria"].' </h3>
 
 															</div>
 

@@ -212,9 +212,13 @@ class Funcoes extends ConexaoBD
         for ($i = 0; $i < 8; $i++) {
 
             $achou = strpos(strtolower($endereco), $possiveis[$i]);
-
-            return $achou !== false ? false : true;
+            if($achou !== false){
+                return false;
+            }
+       
         }
+        return true;
+
     }
 
     public function VerificaSenha($senha)

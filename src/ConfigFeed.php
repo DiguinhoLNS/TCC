@@ -311,7 +311,7 @@
 																		<h1> '.($i2).'  </h1>
 																	</li>
 																	<li>
-																		<h2> '.utf8_encode($Adms["Usuarios"][$i]["Nome_user"]).' </h2>
+																		<h2> '.$Adms["Usuarios"][$i]["Nome_user"].' </h2>
 																	</li>
 																	<li>
 																		<h3> '.$Adms["Usuarios"][$i]["Nivel_acesso"].' </h3>
@@ -444,7 +444,7 @@
 																		<h1> '.($i2).'  </h1>
 																	</li>
 																	<li>
-																		<h2> '.utf8_encode($Normais["Usuarios"][$i]["Nome_user"]).' </h2>
+																		<h2> '.$Normais["Usuarios"][$i]["Nome_user"].' </h2>
 																	</li>
 																	<li>
 																		<h3> '.$Normais["Usuarios"][$i]["Nivel_acesso"].' </h3>
@@ -576,7 +576,7 @@
 																		<h1> '.($i2).'  </h1>
 																	</li>
 																	<li>
-																		<h2> '.utf8_encode($Banidos["Usuarios"][$i]["Nome_user"]).' </h2>
+																		<h2> '.$Banidos["Usuarios"][$i]["Nome_user"].' </h2>
 																	</li>
 																	<li>
 																		<h3> '.$Banidos["Usuarios"][$i]["Nivel_acesso"].' </h3>

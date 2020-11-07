@@ -14,7 +14,7 @@
                     $ResultadoQuery = $conn->dbh->query($query);
                     $UserName = $ResultadoQuery->fetchAll();
 
-                    echo utf8_encode($UserName[0]['nome_user']);
+                    echo $UserName[0]['nome_user'];
 
                 }
                 

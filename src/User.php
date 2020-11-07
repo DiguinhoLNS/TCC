@@ -63,7 +63,7 @@
 
                     <div>
                         <h1 id = "DTN"></h1>
-                        <h2> <?php echo utf8_encode($DadosUsuario[0]['Nome_user']); ?> </h2>
+                        <h2> <?php echo $DadosUsuario[0]['Nome_user']; ?> </h2>
                     </div>
 
                 </section>
@@ -119,7 +119,7 @@
 
                                                 <div class = "CategoryText">
                                                     <h1> Nome </h1>
-                                                    <h2> <?php echo utf8_encode($DadosUsuario[0]['Nome_user']); ?> </h2>
+                                                    <h2> <?php echo $DadosUsuario[0]['Nome_user']; ?> </h2>
                                                 </div>
 
                                             </div>
@@ -226,7 +226,7 @@
                                                     echo '
                                                         <li>
                                                             <a href = "Company.php?q='.base64_encode($DadosEmpresas['Dados'][$i]['id_empresa']).'" title = "'. $DadosEmpresas['Dados'][$i]['Nome']. '">
-                                                                <h1> '. utf8_encode($DadosEmpresas['Dados'][$i]['Nome']). ' </h1>
+                                                                <h1> '. $DadosEmpresas['Dados'][$i]['Nome']. ' </h1>
                                                             </a>
                                                         </li>
                                                     ';

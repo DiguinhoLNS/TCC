@@ -215,6 +215,7 @@
 
                 setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
                 $_SESSION["ErrosEditarEmpresa"] = $erros;
+
                 header("Location: ../EditCompany.php?q=".base64_encode($id_empresa));
 
             }
