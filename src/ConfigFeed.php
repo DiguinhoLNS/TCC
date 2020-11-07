@@ -20,6 +20,8 @@
 		$DadosItem = $func->PegarDadosItemPeloIdEmpresa($id_empresa);
 
 	}
+
+	
     
 ?>
 
@@ -297,7 +299,7 @@
 														<a href = "Item.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
 															<i class = "material-icons"> &#xe8f4; </i>
 														</a>
-														<a href = "EditItem.php?q=" title = "Editar Item">
+														<a href = "EditItem.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Editar Item">
 															<i class = "material-icons"> &#xe150; </i>
 														</a>
 														<a href = "" title = "Apagar Item">

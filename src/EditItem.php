@@ -3,8 +3,16 @@
 	session_start();
 	date_default_timezone_set('America/Sao_Paulo');
 
-	$_SESSION['TipoVerificação'] = "Item";
-	$id_empresa = base64_decode($_GET["q"]);
+	require_once 'sql/ConexaoBD.php';
+	require_once "sql/Funcoes.php";
+
+	$conn = new ConexaoBD();
+	$func = new Funcoes();
+
+	$_SESSION['TipoVerificação'] = "EditarItem";
+	$id_objeto = base64_decode($_GET["q"]);
+
+	$DadosItem = $func->PegarDadosItemPeloId($id_objeto);
 
 ?>
 
@@ -79,7 +87,7 @@
 
 			<div class = "FormPlatform FormEdit BS">
 
-				<form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php?q=<?php echo base64_encode($id_empresa);?>" enctype="multipart/form-data">
+				<form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php?q=<?php echo base64_encode($id_objeto);?>" enctype="multipart/form-data">
 			
 					<ul class = "FormPlatformContent">
 
@@ -89,7 +97,7 @@
 						<li class = "ContentInput">
 							<label for = "R_ItemNome"> Nome </label>
 							<span id = "ErrorNome" class = "txtError"> Nome inválido </span>
-							<input id = "R_ItemNome" class = "UserInputData" type = "text" name = "nome" require />
+							<input id = "R_ItemNome" class = "UserInputData" type = "text" name = "nome" value = "<?= utf8_encode($DadosItem["Objeto"][0]["Nome_obj"]);?>" require />
 						</li>
 						<li class = "ContentInput">
 							<label for = "R_ItemFoto"> Foto </label>
@@ -97,22 +105,22 @@
 							<input id = "R_ItemFoto" type = "file" name = "foto"/>
 							<label id = "imgContent" for = "R_ItemFoto">
 								<i id = "imgIcon" class = "material-icons"> &#xe251; </i>
-								<img id = "FormFoto" <?php //src = "imagesBD/"?>>
+								<img id = "FormFoto" <?php echo "src = imagesBD/".$DadosItem["Objeto"][0]["Nome_foto"]?>>
 							</label>	
 						</li>
 						<li class = "ContentInput">
 							<label for = "R_ItemCategoria"> Categoria </label>
 							<select name = "categoria" id = "R_ItemCategoria" class = "UserSelectData" required>
-								<option value = "Outros"> Outros </option>
-								<option value = "Acessorio"> Acessórios </option>
-								<option value = "Documento"> Documentos </option>
-								<option value = "Eletronico"> Eletrônicos </option>
-								<option value = "Roupa"> Roupas </option>
+								<option value = "Outros" <?php if($DadosItem["Objeto"][0]["Categoria"] == "Outros"){echo "selected";}?>> Outros </option>
+								<option value = "Acessorio" <?php if($DadosItem["Objeto"][0]["Categoria"] == "Acessorio"){echo "selected";}?>> Acessórios </option>
+								<option value = "Documento" <?php if($DadosItem["Objeto"][0]["Categoria"] == "Documento"){echo "selected";}?>> Documentos </option>
+								<option value = "Eletronico" <?php if($DadosItem["Objeto"][0]["Categoria"] == "Eletronico"){echo "selected";}?>> Eletrônicos </option>
+								<option value = "Roupa" <?php if($DadosItem["Objeto"][0]["Categoria"] == "Roupa"){echo "selected";}?>> Roupas </option>
                             </select>
 						</li>
 						<li class = "ContentInput">
 							<label for = "R_ItemDesc"> Descrição </label>
-							<textarea id = "R_ItemDesc" class = "FormTextareaData" name = "descricao" rows = "4"></textarea>
+							<textarea id = "R_ItemDesc" class = "FormTextareaData" name = "descricao" rows = "4" ><?= trim(utf8_encode($DadosItem["Objeto"][0]["Descricao"]));?></textarea>
 						</li>
 						<li class = "ContentBottom">
 							<a href = "Feed.php?q=<?php echo base64_encode($id_empresa)?>"> Voltar para Feed </a>

@@ -49,24 +49,40 @@ switch ($tipo_verificacao) {
 
         break;
 
-    case "Promover":
+    case "Item":
 
-        $id_UserEmpresa = $func->ClearInjectionXSS(base64_decode($_GET["q"]));
+        $id_obj = $func->ClearInjectionXSS(base64_decode($_GET['q']));
+        $nome = $func->ClearInjectionXSS($_POST["nome"]);
+        $foto = $_FILES["foto"];
+        $categoria = $func->ClearInjectionXSS($_POST["categoria"]);
+        $descricao = $func->ClearInjectionXSS($_POST["descricao"]);
+
+        $func->PegarDadosItemPeloId($id_obj);
+
+        list($tipo, $extensao) = explode("/", $foto["type"]);
+
+        $tipo = strtolower($tipo);
+        $extensao = strtolower($extensao);
+
+        $novoNome = md5(time()) . "." . $extensao;
+        $diretorio = "C:\Users\T-Gamer\Documents\GitHub\TCC\src\imagesBD/";
+
+        move_uploaded_file($foto["tmp_name"], $diretorio . $novoNome);
 
         try {
 
-            $query = "UPDATE user_empresa SET Nivel_acesso= :nivel_acesso WHERE id_user_empresa= :id_user_empresa";
+            $query = "UPDATE objetos SET Nome_foto = :nome_foto, Nome_obj = :nome_obj, Categoria = :categoria, Descricao = :descricao WHERE id_obj = :id_obj";
+
             $sql = $conn->dbh->prepare($query);
-            $sql->execute([':nivel_acesso' => $id_UserEmpresa, ':id_user_empresa' => $id_UserEmpresa]);
-            
+            $sql->execute([':nome_foto' => $novoNome, ':nome_obj' => $nome, ':categoria' => $categoria, ':descricao' => $descricao]);
+            header("Location: ../Feed.php?q=" . base64_encode($id_empresa));
+
         } catch (PDOException $e) {
-            die("Erro na consulta");
+            die("Erro no SQL");
         }
 
 
-        break;
 
-    case "Rebaixar":
         break;
 }
 
