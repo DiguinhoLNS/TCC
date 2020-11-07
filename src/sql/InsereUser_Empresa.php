@@ -21,13 +21,13 @@
 
             $DadosEmpresa = $func->PegarDadosEmpresaPeloCodigo($codigo_acesso);
 
-            $query = "INSERT INTO user_empresa (id_user, id_empresa, Nivel_acesso) VALUES";
-            $query .= " (:id_user, :id_empresa , :nivel_acesso) ";
+            $query = "INSERT INTO user_empresa (id_user, id_empresa, Nivel_acesso, Banido) VALUES";
+            $query .= " (:id_user, :id_empresa , :nivel_acesso, :banido) ";
 
             try{
 
                 $sql = $conn->dbh->prepare($query);
-                $sql->execute([':id_user' => $id_user, ':id_empresa' => $DadosEmpresa['id_empresa'], ':nivel_acesso' => '2' ]);
+                $sql->execute([':id_user' => $id_user, ':id_empresa' => $DadosEmpresa['id_empresa'], ':nivel_acesso' => '2', ':banido' => 'N' ]);
                 header("Location: ../Company.php?q=".base64_encode($DadosEmpresa["id_empresa"]));
 
             }catch(PDOException $e){
@@ -47,13 +47,13 @@
 
             var_dump($codigo_acesso);
 
-            $query = "INSERT INTO user_empresa (id_user, id_empresa, Nivel_acesso) VALUES";
-            $query .= " (:id_adm, :id_empresa , :nivel_acesso) ;";
+            $query = "INSERT INTO user_empresa (id_user, id_empresa, Nivel_acesso, Banido) VALUES";
+            $query .= " (:id_adm, :id_empresa , :nivel_acesso, :banido) ;";
             
             try{
 
                 $sql = $conn->dbh->prepare($query);
-                $sql->execute([':id_adm' => $id_adm, ':id_empresa' => $DadosEmpresa[0]['id_empresa'], ':nivel_acesso' => '4' ]);
+                $sql->execute([':id_adm' => $id_adm, ':id_empresa' => $DadosEmpresa[0]['id_empresa'], ':nivel_acesso' => '4', ':banido' => 'N' ]);
                 header("Location: ../Company.php?q=".base64_encode($DadosEmpresa[0]["id_empresa"]));
 
             }catch(PDOException $e){

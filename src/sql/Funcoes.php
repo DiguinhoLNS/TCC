@@ -400,7 +400,7 @@ class Funcoes extends ConexaoBD
     public function PegarDadosEmpresaPeloIdUsuario($id)
     {
 
-        $query = "SELECT * FROM empresas inner join user_empresa on 'id_empresa' = 'id_empresa' where user_empresa.id_user = $id and empresas.id_empresa = user_empresa.id_empresa order by Nome ASC";
+        $query = "SELECT * FROM empresas inner join user_empresa on 'id_empresa' = 'id_empresa' where user_empresa.id_user = $id and empresas.id_empresa = user_empresa.id_empresa and user_empresa.banido = 'N' order by Nome ASC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 10");
         $QuantidadeDeEmpresas = $ResultadoQuery->rowCount();
 
