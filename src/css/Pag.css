@@ -1349,26 +1349,31 @@ h1, h2, h3, h4, h5, h6 {
 			}
 
 			#FCF1 .UserGroupMain .FeedConfigUserOptions li {
-				width: 32px;
-				height: 32px;
-				padding: 6px;
 				margin-right: 8px;
-				border-radius: 50%;
-
-				cursor: pointer;
-				transition: 0.1s ease;
 			}
 
 				#FCF1 .UserGroupMain .FeedConfigUserOptions li:last-child {
 					margin: 0;
 				}
 
-				#FCF1 .UserGroupMain .FeedConfigUserOptions li:hover {
+			#FCF1 .UserGroupMain .FeedConfigUserOptions li a {
+				width: 32px;
+				height: 32px;
+				padding: 6px;
+				border-radius: 50%;
+
+				color: var(--color-txt-t);
+
+				cursor: pointer;
+				transition: 0.1s ease;
+			}
+
+				#FCF1 .UserGroupMain .FeedConfigUserOptions li a:hover {
 					color: var(--color-txt-p);
 					background-color: var(--color-hover);
 				}
 
-			#FCF1 .UserGroupMain .FeedConfigUserOptions li i {
+			#FCF1 .UserGroupMain .FeedConfigUserOptions li a  i {
 				font-size: 20px;
 			}
 

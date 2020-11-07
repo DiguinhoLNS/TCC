@@ -182,20 +182,30 @@
 																</li>
 																<li>
 																	<ul class = "FeedConfigUserOptions">
-																		<li class = "PromoteUserAccess" title = "Promover Usuário" >
-																			<i class = "material-icons"> &#xe5c7; </i>
+																		<li>
+																			<a href = "" class = "PromoteUserAccess" title = "Promover Usuário">
+																				<i class = "material-icons"> &#xe5c7; </i>
+																			</a>
 																		</li>
-																		<li class = "DemoteUserAccess" title = "Rebaixar Usuário" >
-																			<i class = "material-icons"> &#xe5c5; </i>
+																		<li>
+																			<a href = "" class = "DemoteUserAccess" title = "Rebaixar Usuário">
+																				<i class = "material-icons"> &#xe5c5; </i>
+																			</a>
 																		</li>
-																		<li class = "EnableUserAccess" title = "Permitir Usuário">
-																			<i class = "material-icons"> person_add </i>
+																		<li>
+																			<a href = "" class = "EnableUserAccess" title = "Permitir Usuário">
+																				<i class = "material-icons"> person_add </i>
+																			</a>
 																		</li>
-																		<li class = "DenyUserAccess" title = "Bloquear Usuário">
-																			<i class = "material-icons"> person_remove </i>
+																		<li>
+																			<a href = "" class = "DenyUserAccess" title = "Bloquear Usuário">
+																				<i class = "material-icons"> person_remove </i>
+																			</a>
 																		</li>
-																		<li class = "RemoveUserAccess" title = "Remover Usuário">
-																			<i class = "material-icons"> delete_forever </i>
+																		<li>
+																			<a href = "" class = "RemoveUserAccess" title = "Remover Usuário">
+																				<i class = "material-icons"> delete_forever </i>
+																			</a>
 																		</li>
 																	</ul>
 																</li>
