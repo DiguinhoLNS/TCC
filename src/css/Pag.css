@@ -2879,98 +2879,166 @@ h1, h2, h3, h4, h5, h6 {
 		font-size: 16px;
 	}
 
-	/* Nav Frames */
+		/*******************************************************
+			Main Frame
+		*******************************************************/
 
-	.NavFrameset .NavFrame{
-		width: 100%;
-	}
-
-	.NavFrameset .NavFrame .NavFrameContent {
-		width: 100%;
-	}
-
-	.NavFrameset .NavFrame .NavFrameContent .FrameSection {
-		width: 100%;
-		margin-bottom: 25px;
-	}
-
-		.NavFrameset .NavFrame .NavFrameContent .FrameSection:last-child {
-			margin: 0;
+		.NavFrameset .NavFrame{
+			width: 100%;
 		}
 
-	/* Header */
-
-	.FrameHeader h1 {
-		float: left;
-		
-		color: var(--color-txt-p);
-		font-size: 24px;
-	}
-
-	.FrameHeader p {
-		width: 100%;
-		margin-top: 16px;
-
-		color: var(--color-txt-t);
-		font-size: 16px;
-	}
-
-	/* Main */
-
-	.DataCategory {
-		width: 100%;
-
-		list-style: none;
-	}
-
-	.DataCategory .Category {
-		border-color: var(--color-border);
-	}
-
-		.DataCategory .Category .CategoryOptions .btnContent .btnOption:hover {
-			border-color: var(--color-theme-p);
-			
-			color: var(--color-txt-p-dm);
-			background-color: var(--color-theme-p);
+		.NavFrameset .NavFrame .NavFrameContent {
+			width: 100%;
 		}
 
-		/* Company Color */
-
-		.CompanyLayout .DataCategory .Category .CategoryOptions .btnContent .btnOption:hover {
-			border-color: var(--color-theme-company-p);
-			
-			color: var(--color-txt-p-dm);
-			background-color: var(--color-theme-company-p);
+		.NavFrameset .NavFrame .NavFrameContent .FrameSection {
+			width: 100%;
+			margin-bottom: 25px;
 		}
 
-			/* Yellow */
+			.NavFrameset .NavFrame .NavFrameContent .FrameSection:last-child {
+				margin: 0;
+			}
+
+		/* Header */
+
+		.FrameHeader h1 {
+			float: left;
 			
-			.CompanyLayout .ThemeYellow .FrameMain .DataCategory .Category .CategoryOptions .btnContent .btnOption:hover {
+			color: var(--color-txt-p);
+			font-size: 24px;
+		}
+
+		.FrameHeader p {
+			width: 100%;
+			margin-top: 16px;
+
+			color: var(--color-txt-t);
+			font-size: 16px;
+		}
+
+		/* Main */
+
+		.DataCategory {
+			width: 100%;
+
+			list-style: none;
+		}
+
+		.DataCategory .Category {
+			border-color: var(--color-border);
+		}
+
+			.DataCategory .Category .CategoryOptions .btnContent .btnOption:hover {
+				border-color: var(--color-theme-p);
+				
+				color: var(--color-txt-p-dm);
+				background-color: var(--color-theme-p);
+			}
+
+			/* Company Color */
+
+			.CompanyLayout .DataCategory .Category .CategoryOptions .btnContent .btnOption:hover {
 				border-color: var(--color-theme-company-p);
 				
-				color: var(--color-txt-p-lm);
+				color: var(--color-txt-p-dm);
 				background-color: var(--color-theme-company-p);
 			}
 
-	/* Danger */
+				/* Yellow */
+				
+				.CompanyLayout .ThemeYellow .FrameMain .DataCategory .Category .CategoryOptions .btnContent .btnOption:hover {
+					border-color: var(--color-theme-company-p);
+					
+					color: var(--color-txt-p-lm);
+					background-color: var(--color-theme-company-p);
+				}
 
-	.DataCategory .CategoryDanger {
-		border-color: rgba(234, 67, 53, 60%);
-	}
+		/* Danger */
 
-	.DataCategory .CategoryDanger .HeaderCategory {
-		color: var(--color-error);
-	}
+		.DataCategory .CategoryDanger {
+			border-color: rgba(234, 67, 53, 60%);
+		}
 
-	.DataCategory .CategoryDanger .CategoryOptions .btnContent .btnDanger {
-		color: var(--color-error);
-	}
+		.DataCategory .CategoryDanger .HeaderCategory {
+			color: var(--color-error);
+		}
 
-		.DataCategory .CategoryDanger .CategoryOptions .btnContent .btnDanger:hover {
-			border: 1px solid var(--color-error);
-		
-			color: var(--color-txt-p-dm);
-			background-color: var(--color-error);
+		.DataCategory .CategoryDanger .CategoryOptions .btnContent .btnDanger {
+			color: var(--color-error);
+		}
+
+			.DataCategory .CategoryDanger .CategoryOptions .btnContent .btnDanger:hover {
+				border: 1px solid var(--color-error);
+			
+				color: var(--color-txt-p-dm);
+				background-color: var(--color-error);
+			}
+
+		/*******************************************************
+			Sub Frame
+		*******************************************************/
+
+		.SubFramesetContent {
+			display: grid;
+			grid-template-columns: 200px 1fr;
+			grid-gap: 100px;
+			
+			width: 100%;
+			margin: 0 16px;
+		}
+
+		/* Control */
+
+		.SubNavBarControl {
+			width: 100%;
+		}
+
+			.SubNavBarControl ul {
+				width: 100%;
+
+				list-style: none;
+			}
+
+			.SubNavBarControl ul li {
+				width: 100%;
+				padding: 8px 16px;
+				border-left: 2px solid transparent;
+
+				color: var(--color-txt-t);
+				font-size: 16px;
+
+				cursor: pointer;
+			}
+
+				.SubNavBarControl ul li:hover {
+					border-left-color: var(--color-border);
+				}
+
+				/* Active */
+
+				.SubNavBarControl ul .active {
+					border-left-color: var(--color-theme-p);
+
+					color: var(--color-theme-p);
+				}
+
+					.SubNavBarControl ul .active:hover {
+						border-left-color: var(--color-theme-p);
+					}
+
+				/* Company */
+
+				.CompanyLayout .SubNavBarControl ul .active {
+					border-left-color: var(--color-theme-company-p);
+
+					color: var(--color-theme-company-p);
+				}
+
+		/* Frames */
+
+		.SubNavFrameset {
+			width: 100%;
 		}
 
 	/*******************************************************

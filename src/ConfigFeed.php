@@ -162,101 +162,126 @@
 
                             <div class = "NavFrameContent">
 
-                                <div class = "FrameHeader FrameSection">
-
-                                    <h1> Usuários </h1>
-
-								</div>
-
 								<div class = "FrameMain FrameSection">
 
-									<ul id = "UserGroupHeader">
+									<div class = "SubFramesetContent">
 
-										<li class = "GroupContent">
+										<nav class = "SubNavBarControl">
 
-											<ul class = "GroupUL">
+											<ul>
 
-												<li>
-													<h1> ID </h1>
-												</li>
-												<li>
-													<h2> Nome</h2>
-												</li>
-												<li>
-													<h3> Nível </h3>
-												</li>
-												<li>
-													<h4> Status </h4>
-												</li>
-												<li>
-													<h5> Opções </h5>
-												</li>
+												<li class = "SubNavOption active"> Todos </li>
+												<li class = "SubNavOption"> Administradores </li>
+												<li class = "SubNavOption""> Banidos </li>
+												<li class = "SubNavOption"> Excluídos </li>
+
 											</ul>
 
-										</li>
+										</nav>
 
-									</ul>
+										<nav class = "SubNavFrameset">
 
-									<ul id = "UserGroupMain">
+											<div id = "SFCF1" class = "SubNavFrame">
 
-										<li class = "GroupContent">
-											
-											<ul class = "GroupUL">
+												<div class = "FrameHeader FrameSection">
 
+													<h1> Todos </h1>
 
-											<?php 
+												</div>
 
-											$i=0;
-											$i2=1;
+												<div class = "FrameMain FrameSection">
 
-											do{
-											
-												echo '
-												<li>
-													<h1> '.($i2).'  </h1>
-												</li>
-												<li>
-													<h2> '.utf8_encode($DadosUserEmpresa["Usuarios"][$i]["Nome_user"]).' </h2>
-												</li>
-												<li>
-													<h3> '.$DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"].' </h3>
-												</li>
-												<li>
-													<h4> Status </h4>
-												</li>
-												<li>
-													<ul class = "FeedConfigUserOptions">
-														<li id = "PromoteUserAccess" title = "Promover Usuário">
-															<i class = "material-icons"> &#xe5c7; </i>
+													<ul id = "UserGroupHeader">
+
+														<li class = "GroupContent">
+
+															<ul class = "GroupUL">
+
+																<li>
+																	<h1> ID </h1>
+																</li>
+																<li>
+																	<h2> Nome</h2>
+																</li>
+																<li>
+																	<h3> Nível </h3>
+																</li>
+																<li>
+																	<h4> Status </h4>
+																</li>
+																<li>
+																	<h5> Opções </h5>
+																</li>
+															</ul>
+
 														</li>
-														<li id = "DemoteUserAccess" title = "Rebaixar Usuário" >
-															<i class = "material-icons"> &#xe5c5; </i>
-														</li>
-														<li id = "EnableUserAccess" title = "Permitir Usuário">
-															<i class = "material-icons"> person_add </i>
-														</li>
-														<li id = "DenyUserAccess" title = "Bloquear Usuário">
-															<i class = "material-icons"> person_remove </i>
-														</li>
-														<li id = "RemoveUserAccess" title = "Remover Usuário">
-															<i class = "material-icons"> &#xe15b; </i>
-														</li>
+
 													</ul>
-												</li>';
 
-												$i++;
-												$i2++;
+													<ul id = "UserGroupMain">
 
+														<li class = "GroupContent">
+															
+															<ul class = "GroupUL">
+															<?php 
 
-											}while($i < $DadosUserEmpresa["Quantidade"]);
+																$i=0;
+																$i2=1;
 
-											?>
+															do{
+															
+																echo '
+																<li>
+																	<h1> '.($i2).'  </h1>
+																</li>
+																<li>
+																	<h2> '.utf8_encode($DadosUserEmpresa["Usuarios"][$i]["Nome_user"]).' </h2>
+																</li>
+																<li>
+																	<h3> '.$DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"].' </h3>
+																</li>
+																<li>
+																	<h4> Status </h4>
+																</li>
+																<li>
+																	<ul class = "FeedConfigUserOptions">
+																		<li id = "DemoteUserAccess" title = "Rebaixar Usuário" >
+																			<i class = "material-icons"> &#xe5c5; </i>
+																		</li>
+																		<li id = "DenyUserAccess" title = "Banir Usuário">
+																			<i class = "material-icons"> &#xe14b; </i>
+																		</li>
+																		<li id = "EnableUserAccess" title = "Permitir Usuário">
+																			<i class = "material-icons"> person_add </i>
+																		</li>
+																		<li id = "DenyUserAccess" title = "Bloquear Usuário">
+																			<i class = "material-icons"> person_remove </i>
+																		</li>
+																		<li id = "RemoveUserAccess" title = "Remover Usuário">
+																			<i class = "material-icons"> &#xe15b; </i>
+																		</li>
+																	</ul>
+																</li>';
 
-											</ul>
+																$i++;
+																$i2++;
 
-										</li>
+															}while($i < $DadosUserEmpresa["Quantidade"]);
 
-									</ul>	
+															?>
+															</ul>
+
+														</li>
+
+													</ul>
+
+												</div>
+
+											</div>
+
+										</nav>
+
+									</div>	
 
 								</div>
 								

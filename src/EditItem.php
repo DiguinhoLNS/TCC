@@ -92,7 +92,7 @@
 					<ul class = "FormPlatformContent">
 
 						<li class = "ContentHeader">
-							<h1> Criar Item </h1>
+							<h1> Editar Item </h1>
 						</li>
 						<li class = "ContentInput">
 							<label for = "R_ItemNome"> Nome </label>
