@@ -170,10 +170,11 @@
 
 											<ul>
 
-												<li class = "SubNavOption active"> Todos </li>
-												<li class = "SubNavOption"> Administradores </li>
-												<li class = "SubNavOption""> Banidos </li>
-												<li class = "SubNavOption"> Excluídos </li>
+												<li id = "SFCFO1" class = "SubNavOption active"> Todos </li>
+												<li id = "SFCFO2" class = "SubNavOption"> Administradores </li>
+												<li id = "SFCFO3" class = "SubNavOption""> Normais </li>
+												<li id = "SFCFO4" class = "SubNavOption""> Banidos </li>
+												<li id = "SFCFO5" class = "SubNavOption"> Excluídos </li>
 
 											</ul>
 
@@ -191,7 +192,7 @@
 
 												<div class = "FrameMain FrameSection">
 
-													<ul id = "UserGroupHeader">
+													<ul class = "UserGroupHeader">
 
 														<li class = "GroupContent">
 
@@ -218,7 +219,7 @@
 
 													</ul>
 
-													<ul id = "UserGroupMain">
+													<ul class = "UserGroupMain">
 
 														<li class = "GroupContent">
 															
@@ -245,20 +246,20 @@
 																</li>
 																<li>
 																	<ul class = "FeedConfigUserOptions">
-																		<li id = "DemoteUserAccess" title = "Rebaixar Usuário" >
+																		<li class = "PromoteUserAccess" title = "Promover Usuário" >
+																			<i class = "material-icons"> &#xe5c7; </i>
+																		</li>
+																		<li class = "DemoteUserAccess" title = "Rebaixar Usuário" >
 																			<i class = "material-icons"> &#xe5c5; </i>
 																		</li>
-																		<li id = "DenyUserAccess" title = "Banir Usuário">
-																			<i class = "material-icons"> &#xe14b; </i>
-																		</li>
-																		<li id = "EnableUserAccess" title = "Permitir Usuário">
+																		<li class = "EnableUserAccess" title = "Permitir Usuário">
 																			<i class = "material-icons"> person_add </i>
 																		</li>
-																		<li id = "DenyUserAccess" title = "Bloquear Usuário">
+																		<li class = "DenyUserAccess" title = "Bloquear Usuário">
 																			<i class = "material-icons"> person_remove </i>
 																		</li>
-																		<li id = "RemoveUserAccess" title = "Remover Usuário">
-																			<i class = "material-icons"> &#xe15b; </i>
+																		<li class = "RemoveUserAccess" title = "Remover Usuário">
+																			<i class = "material-icons"> delete_forever </i>
 																		</li>
 																	</ul>
 																</li>';
@@ -275,6 +276,170 @@
 
 													</ul>
 
+												</div>
+
+											</div>
+
+											<div id = "SFCF2" class = "SubNavFrame">
+
+												<div class = "FrameHeader FrameSection">
+
+													<h1> Administradores </h1>
+
+												</div>
+
+												<div class = "FrameMain FrameSection">
+
+													<ul class = "UserGroupHeader">
+
+														<li class = "GroupContent">
+
+															<ul class = "GroupUL">
+
+																<li>
+																	<h1> ID </h1>
+																</li>
+																<li>
+																	<h2> Nome</h2>
+																</li>
+																<li>
+																	<h3> Nível </h3>
+																</li>
+																<li>
+																	<h4> Status </h4>
+																</li>
+																<li>
+																	<h5> Opções </h5>
+																</li>
+															</ul>
+
+														</li>
+
+													</ul>	
+													
+												</div>
+
+											</div>
+
+											<div id = "SFCF3" class = "SubNavFrame">
+
+												<div class = "FrameHeader FrameSection">
+
+													<h1> Normais </h1>
+
+												</div>
+
+												<div class = "FrameMain FrameSection">
+
+													<ul class = "UserGroupHeader">
+
+														<li class = "GroupContent">
+
+															<ul class = "GroupUL">
+
+																<li>
+																	<h1> ID </h1>
+																</li>
+																<li>
+																	<h2> Nome</h2>
+																</li>
+																<li>
+																	<h3> Nível </h3>
+																</li>
+																<li>
+																	<h4> Status </h4>
+																</li>
+																<li>
+																	<h5> Opções </h5>
+																</li>
+															</ul>
+
+														</li>
+
+													</ul>	
+													
+												</div>
+
+											</div>
+											
+											<div id = "SFCF4" class = "SubNavFrame">
+
+												<div class = "FrameHeader FrameSection">
+
+													<h1> Banidos </h1>
+
+												</div>
+
+												<div class = "FrameMain FrameSection">
+
+													<ul class = "UserGroupHeader">
+
+														<li class = "GroupContent">
+
+															<ul class = "GroupUL">
+
+																<li>
+																	<h1> ID </h1>
+																</li>
+																<li>
+																	<h2> Nome</h2>
+																</li>
+																<li>
+																	<h3> Nível </h3>
+																</li>
+																<li>
+																	<h4> Status </h4>
+																</li>
+																<li>
+																	<h5> Opções </h5>
+																</li>
+															</ul>
+
+														</li>
+
+													</ul>	
+													
+												</div>
+
+											</div>
+
+											<div id = "SFCF5" class = "SubNavFrame">
+
+												<div class = "FrameHeader FrameSection">
+
+													<h1> Excluídos </h1>
+
+												</div>
+
+												<div class = "FrameMain FrameSection">
+
+													<ul class = "UserGroupHeader">
+
+														<li class = "GroupContent">
+
+															<ul class = "GroupUL">
+
+																<li>
+																	<h1> ID </h1>
+																</li>
+																<li>
+																	<h2> Nome</h2>
+																</li>
+																<li>
+																	<h3> Nível </h3>
+																</li>
+																<li>
+																	<h4> Status </h4>
+																</li>
+																<li>
+																	<h5> Opções </h5>
+																</li>
+															</ul>
+
+														</li>
+
+													</ul>	
+													
 												</div>
 
 											</div>

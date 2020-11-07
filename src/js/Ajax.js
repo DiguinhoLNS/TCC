@@ -435,7 +435,7 @@ $(document).ready(function(){
 
     }
 
-    $("#PromoteUserAccess").on("click", function(){
+    $(".PromoteUserAccess").on("click", function(){
 
         folder = setFolder("Promover", id_user_empresa);
 
@@ -457,7 +457,7 @@ $(document).ready(function(){
 
     });
 
-    $("#DemoteUserAccess").on("click", function(){
+    $(".DemoteUserAccess").on("click", function(){
 
         folder = setFolder("Rebaixar", id_user_empresa);
 
@@ -479,7 +479,7 @@ $(document).ready(function(){
 
     });
 
-    $("#DenyUserAccess").on("click", function(){
+    $(".DenyUserAccess").on("click", function(){
 
         folder = setFolder("Banir", id_user_empresa);
 
@@ -501,7 +501,7 @@ $(document).ready(function(){
 
     });
 
-    $("#RemoveUserAccess").on("click", function(){
+    $(".RemoveUserAccess").on("click", function(){
 
         folder = setFolder("Negar", id_user_empresa);
 

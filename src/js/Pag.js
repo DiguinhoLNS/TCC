@@ -485,11 +485,19 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 
-    const NLO= $(".NavListOption");
+    const NLO = $(".NavListOption");
+    const SNLO = $(".SubNavOption");
 
     NLO.on("click", function(){
 
         NLO.removeClass("active");
+        $(this).addClass("active");
+
+    });
+
+    SNLO.on("click", function(){
+
+        SNLO.removeClass("active");
         $(this).addClass("active");
 
     });
@@ -501,6 +509,7 @@ $(document).ready(function(){
 $(document).ready(function(){
 
     const NF = $(".NavFrame");
+    const SNF = $(".SubNavFrame")
 
     // User.php
 
@@ -564,29 +573,71 @@ $(document).ready(function(){
 
     /* FeedConfig.php */
 
-    $("#FCFO1").on("click", function(){
+        $("#FCFO1").on("click", function(){
 
-        NF.css("display", "none");
+            NF.css("display", "none");
 
-        $("#FCF1").css("display", "block");
+            $("#FCF1").css("display", "block");
 
-    });
+        });
 
-    $("#FCFO2").on("click", function(){
+        $("#FCFO2").on("click", function(){
 
-        NF.css("display", "none");
+            NF.css("display", "none");
 
-        $("#FCF2").css("display", "block");
+            $("#FCF2").css("display", "block");
 
-    });
+        });
 
-    $("#FCFO3").on("click", function(){
+        $("#FCFO3").on("click", function(){
 
-        NF.css("display", "none");
+            NF.css("display", "none");
 
-        $("#FCF3").css("display", "block");
+            $("#FCF3").css("display", "block");
 
-    });
+        });
+
+        // Sub Frames
+
+        $("#SFCFO1").on("click", function(){
+
+            SNF.css("display", "none");
+    
+            $("#SFCF1").css("display", "block");
+    
+        });
+
+        $("#SFCFO2").on("click", function(){
+
+            SNF.css("display", "none");
+    
+            $("#SFCF2").css("display", "block");
+    
+        });
+
+        $("#SFCFO3").on("click", function(){
+
+            SNF.css("display", "none");
+    
+            $("#SFCF3").css("display", "block");
+    
+        });
+
+        $("#SFCFO4").on("click", function(){
+
+            SNF.css("display", "none");
+    
+            $("#SFCF4").css("display", "block");
+    
+        });
+
+        $("#SFCFO5").on("click", function(){
+
+            SNF.css("display", "none");
+    
+            $("#SFCF5").css("display", "block");
+    
+        });
 
 });
 

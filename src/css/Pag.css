@@ -1278,7 +1278,15 @@ h1, h2, h3, h4, h5, h6 {
 
 		/* FCF 2 */
 
-		#FCF2 #UserGroupHeader, #FCF2 #UserGroupMain {
+		#FCF2 .SubNavFrame {
+			display: none;
+		}
+
+		#FCF2 #SFCF1 {
+			display: block;
+		}
+
+		#FCF2 .UserGroupHeader, #FCF2 .UserGroupMain {
 			width: 100%;
 
 			list-style: none;
@@ -1301,7 +1309,7 @@ h1, h2, h3, h4, h5, h6 {
 
 			/* Header */
 
-			#FCF2 #UserGroupHeader {
+			#FCF2 .UserGroupHeader {
 				padding: 0 0 10px;
 				margin-bottom: 10px;
 				border-bottom: 2px solid var(--color-border);
@@ -1309,60 +1317,62 @@ h1, h2, h3, h4, h5, h6 {
 				color: var(--color-txt-p);
 			}
 
-			#FCF2 #UserGroupHeader h1, #FCF2 #UserGroupHeader h2,
-			#FCF2 #UserGroupHeader h3, #FCF2 #UserGroupHeader h4,
-			#FCF2 #UserGroupHeader h5 {
+			#FCF2 .UserGroupHeader h1, #FCF2 .UserGroupHeader h2,
+			#FCF2 .UserGroupHeader h3, #FCF2 .UserGroupHeader h4,
+			#FCF2 .UserGroupHeader h5 {
 				font-size: 20px;
 				text-align: left;
 			}
 
 			/* Main */
 
-			#FCF2 #UserGroupMain {
+			#FCF2 .UserGroupMain {
 				color: var(--color-txt-t);
 			}
 
-			#FCF2 #UserGroupMain h1, #FCF2 #UserGroupMain h2,
-			#FCF2 #UserGroupMain h3, #FCF2 #UserGroupMain h4 {
+			#FCF2 .UserGroupMain h1, #FCF2 .UserGroupMain h2,
+			#FCF2 .UserGroupMain h3, #FCF2 .UserGroupMain h4 {
 				margin: 6px 0;
 				
 				font-size: 16px;
 				text-align: left;
 			}
 
-			#FCF2 #UserGroupMain .GroupContent {
+			#FCF2 .UserGroupMain .GroupContent {
 				padding: 4px 20px;
 				border-bottom: 1px solid var(--color-border);
 			}
 			
-			#FCF2 #UserGroupMain .FeedConfigUserOptions {
+			#FCF2 .UserGroupMain .FeedConfigUserOptions {
 				width: 100%;
 				height: 32px;
 
 				list-style: none;
 			}
 
-			#FCF2 #UserGroupMain .FeedConfigUserOptions li {
+			#FCF2 .UserGroupMain .FeedConfigUserOptions li {
 				width: 32px;
 				height: 32px;
-				padding: 4px;
+				padding: 6px;
 				margin-right: 8px;
 				border-radius: 50%;
-				
-				font-size: 24px;
 
 				cursor: pointer;
 				transition: 0.1s ease;
 			}
 
-				#FCF2 #UserGroupMain .FeedConfigUserOptions li:last-child {
+				#FCF2 .UserGroupMain .FeedConfigUserOptions li:last-child {
 					margin: 0;
 				}
 
-				#FCF2 #UserGroupMain .FeedConfigUserOptions li:hover {
+				#FCF2 .UserGroupMain .FeedConfigUserOptions li:hover {
 					color: var(--color-txt-p);
 					background-color: var(--color-hover);
 				}
+
+			#FCF2 .UserGroupMain .FeedConfigUserOptions li i {
+				font-size: 20px;
+			}
 
 		/* FCF 3 */
 
@@ -3038,6 +3048,10 @@ h1, h2, h3, h4, h5, h6 {
 		/* Frames */
 
 		.SubNavFrameset {
+			width: 100%;
+		}
+
+		.SubNavFrameset .SubNavFrame {
 			width: 100%;
 		}
 
