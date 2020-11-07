@@ -439,8 +439,6 @@ $(document).ready(function(){
 
         folder = setFolder("Promover", id_user_empresa);
 
-        //alert(folder);
-
         $.ajax({
 
             url : folder,
@@ -503,7 +501,6 @@ $(document).ready(function(){
 
     });
 
-
     $("#RemoveUserAccess").on("click", function(){
 
         folder = setFolder("Negar", id_user_empresa);
@@ -523,7 +520,6 @@ $(document).ready(function(){
             AJAXRequestStatus(0);
 
         });
-
 
     });
 

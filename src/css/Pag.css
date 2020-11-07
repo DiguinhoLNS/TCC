@@ -563,7 +563,7 @@ h1, h2, h3, h4, h5, h6 {
 				grid-gap: 50px 0;
 				
 				width: 100%;
-				border-radius: 46px;
+				border-radius: 40px;
 
 				background-color: var(--color-layout-s);
 			}
@@ -574,7 +574,7 @@ h1, h2, h3, h4, h5, h6 {
 				align-items: center;
 				justify-content: center;
 				
-				padding: 20px 40px;
+				padding: 30px 60px;
 
 				background-color: var(--color-theme-company-p);
 			}
@@ -742,6 +742,10 @@ h1, h2, h3, h4, h5, h6 {
 
 			background-color: var(--color-theme-company-p);
 		}
+
+			.DarkMode #SectionDashboardItems nav ul .Box {
+				background-color: var(--color-theme-company-s);
+			}
 
 		#SectionDashboardItems nav ul .Box a {
 			width: 100%;
@@ -1167,6 +1171,11 @@ h1, h2, h3, h4, h5, h6 {
 				height: 200px;
 			}
 
+			.FeedFrame .FeedFrameContent .FeedBoxGroup .ItemBox {
+				display: flex;
+				align-items: center;
+			}
+
 			.FeedFrame .FeedFrameContent .FeedBoxGroup .ItemBox a {
 				display: grid;
 				grid-template-rows: auto auto;
@@ -1282,7 +1291,7 @@ h1, h2, h3, h4, h5, h6 {
 
 		#FCF2 ul .GroupContent .GroupUL {
 			display: grid;
-			grid-template-columns: 40px 1fr 80px 120px 152px;
+			grid-template-columns: 40px 1fr 80px 120px 192px;
 			grid-gap: 20px;
 			
 			width: 100%;

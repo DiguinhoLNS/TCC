@@ -232,8 +232,11 @@
 														<li id = "DemoteUserAccess" title = "Rebaixar Usuário" >
 															<i class = "material-icons"> &#xe5c5; </i>
 														</li>
-														<li id = "DenyUserAccess" title = "Banir Usuário">
-															<i class = "material-icons"> &#xe14b; </i>
+														<li id = "EnableUserAccess" title = "Permitir Usuário">
+															<i class = "material-icons"> person_add </i>
+														</li>
+														<li id = "DenyUserAccess" title = "Bloquear Usuário">
+															<i class = "material-icons"> person_remove </i>
 														</li>
 														<li id = "RemoveUserAccess" title = "Remover Usuário">
 															<i class = "material-icons"> &#xe15b; </i>
