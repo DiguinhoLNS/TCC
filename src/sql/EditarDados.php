@@ -56,15 +56,16 @@ switch ($tipo_verificacao) {
         //$foto = $_FILES["foto"];
         $categoria = $func->ClearInjectionXSS($_POST["categoria"]);
         $descricao = $func->ClearInjectionXSS($_POST["descricao"]);
+        $situacao = $func->ClearInjectionXSS($_POST["situacao"]);
 
         $DadosItem = $func->PegarDadosItemPeloId($id_obj);
 
         try {
 
-            $query = "UPDATE objetos SET Nome_obj = :nome_obj, Categoria = :categoria, Descricao = :descricao WHERE id_obj = :id_obj";
+            $query = "UPDATE objetos SET Nome_obj = :nome_obj, Categoria = :categoria, Descricao = :descricao, situacao = :situacao WHERE id_obj = :id_obj";
 
             $sql = $conn->dbh->prepare($query);
-            $sql->execute([':nome_obj' => $nome, ':categoria' => $categoria, ':descricao' => $descricao, ':id_obj' => $id_obj]);
+            $sql->execute([':nome_obj' => $nome, ':categoria' => $categoria, ':descricao' => $descricao, ':situacao' => $situacao, ':id_obj' => $id_obj]);
             header("Location: ../Feed.php?q=".base64_encode($DadosItem["Objeto"][0]["id_empresa"]));
 
         } catch (PDOException $e) {

@@ -32,7 +32,7 @@
 
 	<head>
 
-		<title> <?= utf8_encode($DadosItem["Objeto"][0]["Nome_obj"]); ?> </title>
+		<title> <?= $DadosItem["Objeto"][0]["Nome_obj"]; ?> </title>
 		
 		<?php include "include/Head.php"; ?>
 
@@ -120,7 +120,7 @@
 								<li>
 									<i class = "material-icons"> &#xe88e; </i>
 									<h1> Status </h1>
-									<h2 class = "Status1"> <?= $DadosItem["Objeto"][0]["situacao"]; ?> </h2>
+									<h2 <?php $DadosItem["Objeto"][0]["situacao"] == "Perdido" ? print "class = 'Status1'" : print "class = 'Status2'";?>> <?= $DadosItem["Objeto"][0]["situacao"]; ?> </h2>
 								</li>
 
 							</ul>

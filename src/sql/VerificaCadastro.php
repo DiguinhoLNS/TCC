@@ -265,6 +265,7 @@
             //$foto = $_FILES["foto"];
             $categoria = $func->ClearInjectionXSS($_POST["categoria"]);
             $descricao = $func->ClearInjectionXSS($_POST["descricao"]);
+            $situacao = $func->ClearInjectionXSS($_POST["situacao"]);
 
             $ErroNosCampos = [
                 "Nome" => false,

@@ -114,8 +114,8 @@
 						<li class = "ContentInput">
 							<label for = "R_ItemStatus"> Status </label>
 							<select name = "situacao" id = "R_ItemStatus" class = "UserSelectData" required>
-								<option value = "Perdido"> Perdido </option>
-								<option value = "Devolvido"> Devolvido </option>
+								<option value = "Perdido" <?php if($DadosItem["Objeto"][0]["situacao"] == "Perdido"){echo "selected";}?>> Perdido </option>
+								<option value = "Devolvido" <?php if($DadosItem["Objeto"][0]["situacao"] == "Devolvido"){echo "selected";}?>> Devolvido </option>
                             </select>
 						</li>
 						<li class = "ContentBottom">

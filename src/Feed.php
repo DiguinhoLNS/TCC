@@ -17,7 +17,7 @@
 		$id = base64_decode($_COOKIE["ID"]);
 
 		$DadosEmpresa = $func->PegarDadosEmpresaPeloIdEmpresa($id_empresa);
-		$DadosItem = $func->PegarDadosItemPeloIdEmpresa ($id_empresa);
+		$DadosItem = $func->PegarDadosItemPeloIdEmpresaPerdidos($id_empresa);
 		$DadosUserEmpresa = $func->PegarDadosUserEmpresaPeloIdUserIdEmpresa($id, $id_empresa);
 
 		$Documentos = $func->PegarDocumentos($id_empresa);
@@ -475,10 +475,8 @@
 							<i class = "material-icons"> &#xe145; </i>
 							<span> Criar Item </span>
 						</a>
-					</li>';}
+					</li>
 
-					if($DadosUserEmpresa[0]['Nivel_acesso'] == 4){
-						echo'
 					<li>
 						<a href = "ConfigFeed.php?q='.base64_encode($id_empresa).'">
 							<i class = "material-icons"> &#xe8b8; </i>

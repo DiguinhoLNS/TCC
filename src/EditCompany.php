@@ -164,7 +164,7 @@
                         <li class = "ContentInput">
 							<label for = "E_CompanyEndereco"> Endereço </label>
 							<span id = "ErrorEndereco" class = "txtError"> Endereço inválido </span>
-							<input id = "E_CompanyEndereco" class = "UserInputData" type = "text" name = "endereco" value = "<?php echo utf8_encode($DadosEmpresa[0]["Endereco"]); ?> " required />
+							<input id = "E_CompanyEndereco" class = "UserInputData" type = "text" name = "endereco" value = "<?php echo $DadosEmpresa[0]["Endereco"]; ?> " required />
                         </li>
                         <li class = "ContentInput">
 							<label for = "E_CompanyTelefone"> Telefone Fixo </label>

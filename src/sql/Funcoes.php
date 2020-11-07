@@ -288,10 +288,58 @@ class Funcoes extends ConexaoBD
         return $DadosUserEmpresa;
     }
 
-    public function PegarDadosUserEmpresaPeloIdEmpresa($id_empresa)
+    public function PegarDadosUserEmpresaPeloIdEmpresaTodos($id_empresa)
     {
 
         $query = "SELECT * FROM user_empresa inner join usuarios on user_empresa.id_user = usuarios.id_user where id_empresa = '$id_empresa' order by Nivel_acesso DESC, Nome_user ASC";
+        $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 4");
+        $DadosUserEmpresa = $ResultadoQuery->fetchAll();
+        $QuantidadeDeUsuarios = $ResultadoQuery->rowCount();
+
+        $Dados = [
+            "Quantidade" => $QuantidadeDeUsuarios,
+            "Usuarios" => $DadosUserEmpresa
+        ];
+
+        return $Dados;
+    }
+
+    public function PegarDadosUserEmpresaPeloIdEmpresaAdms($id_empresa)
+    {
+
+        $query = "SELECT * FROM user_empresa inner join usuarios on user_empresa.id_user = usuarios.id_user where id_empresa = '$id_empresa' and nivel_acesso > 2 order by Nivel_acesso DESC, Nome_user ASC";
+        $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 4");
+        $DadosUserEmpresa = $ResultadoQuery->fetchAll();
+        $QuantidadeDeUsuarios = $ResultadoQuery->rowCount();
+
+        $Dados = [
+            "Quantidade" => $QuantidadeDeUsuarios,
+            "Usuarios" => $DadosUserEmpresa
+        ];
+
+        return $Dados;
+    }
+
+    public function PegarDadosUserEmpresaPeloIdEmpresaNormais($id_empresa)
+    {
+
+        $query = "SELECT * FROM user_empresa inner join usuarios on user_empresa.id_user = usuarios.id_user where id_empresa = '$id_empresa' and nivel_acesso < 3 and Banido = 'N' order by Nivel_acesso DESC, Nome_user ASC";
+        $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 4");
+        $DadosUserEmpresa = $ResultadoQuery->fetchAll();
+        $QuantidadeDeUsuarios = $ResultadoQuery->rowCount();
+
+        $Dados = [
+            "Quantidade" => $QuantidadeDeUsuarios,
+            "Usuarios" => $DadosUserEmpresa
+        ];
+
+        return $Dados;
+    }
+
+    public function PegarDadosUserEmpresaPeloIdEmpresaBanidos($id_empresa)
+    {
+
+        $query = "SELECT * FROM user_empresa inner join usuarios on user_empresa.id_user = usuarios.id_user where id_empresa = '$id_empresa' and Banido = 'S' order by Nivel_acesso DESC, Nome_user ASC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 4");
         $DadosUserEmpresa = $ResultadoQuery->fetchAll();
         $QuantidadeDeUsuarios = $ResultadoQuery->rowCount();
@@ -442,7 +490,31 @@ class Funcoes extends ConexaoBD
         return in_array($extensao, $extensoesPossiveis) && $tipo == "image" ?  false :  true;
     }
 
-    public function PegarDadosItemPeloIdEmpresa($id_empresa)
+    public function PegarDadosItemPeloIdEmpresaPerdidos($id_empresa)
+    {
+
+        $query = "SELECT * FROM objetos where id_empresa =  '$id_empresa' and situacao = 'Perdido' order by Nome_obj ASC";
+        $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 11");
+        $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
+
+        if ($QuantidadeDeObjetos > 0) {
+            $DadosObjetos = $ResultadoQuery->fetchAll();
+        }
+
+        if (isset($DadosObjetos)) {
+            $Dados = [
+                "Quantidade" => $QuantidadeDeObjetos,
+                "Objeto" => $DadosObjetos
+            ];
+            return $Dados;
+        } else {
+            return $Dados = [
+                "Quantidade" => $QuantidadeDeObjetos,
+            ];
+        }
+    }
+
+    public function PegarDadosItemPeloIdEmpresaTodos($id_empresa)
     {
 
         $query = "SELECT * FROM objetos where id_empresa =  '$id_empresa' order by Nome_obj ASC";

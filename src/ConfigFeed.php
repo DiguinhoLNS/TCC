@@ -16,8 +16,12 @@
 		$id = base64_decode($_COOKIE["ID"]);
 
 		$DadosEmpresa = $func->PegarDadosEmpresaPeloIdEmpresa($id_empresa);
-		$DadosUserEmpresa = $func->PegarDadosUserEmpresaPeloIdEmpresa($id_empresa);
-		$DadosItem = $func->PegarDadosItemPeloIdEmpresa($id_empresa);
+		$DadosUserEmpresa = $func->PegarDadosUserEmpresaPeloIdEmpresaTodos($id_empresa);
+		$DadosItem = $func->PegarDadosItemPeloIdEmpresaTodos($id_empresa);
+
+		$Adms = $func->PegarDadosUserEmpresaPeloIdEmpresaAdms($id_empresa);
+		$Normais = $func->PegarDadosUserEmpresaPeloIdEmpresaNormais($id_empresa);
+		$Banidos = $func->PegarDadosUserEmpresaPeloIdEmpresaBanidos($id_empresa);
 
 	}
 
@@ -108,7 +112,6 @@
 												<li id = "SFCFO2" class = "SubNavOption"> Administradores </li>
 												<li id = "SFCFO3" class = "SubNavOption"> Normais </li>
 												<li id = "SFCFO4" class = "SubNavOption""> Banidos </li>
-												<li id = "SFCFO5" class = "SubNavOption"> Excluídos </li>
 
 											</ul>
 
@@ -120,7 +123,7 @@
 
 												<div class = "FrameHeader FrameSection">
 
-													<h1> Todos </h1>
+													<h1> Todos (<?=$DadosUserEmpresa["Quantidade"]?>) </h1>
 
 												</div>
 
@@ -157,7 +160,14 @@
 													<?php 
 														$i=0;
 														$i2=1;
+														if($DadosUserEmpresa["Quantidade"] != 0){
 														do{
+
+															if($DadosUserEmpresa["Usuarios"][$i]["Banido"] == "N"){
+																$status = "Normal";
+															}else{
+																$status = "Banido";
+															}
 														
 															echo '
 
@@ -169,41 +179,58 @@
 																		<h1> '.($i2).'  </h1>
 																	</li>
 																	<li>
-																		<h2> '.utf8_encode($DadosUserEmpresa["Usuarios"][$i]["Nome_user"]).' </h2>
+																		<h2> '.$DadosUserEmpresa["Usuarios"][$i]["Nome_user"].' </h2>
 																	</li>
 																	<li>
 																		<h3> '.$DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"].' </h3>
 																	</li>
 																	<li>
-																		<h4> Status </h4>
+																		<h4> '.$status.' </h4>
 																	</li>
 																	<li>
-																		<ul class = "FeedConfigUserOptions">
+																		<ul class = "FeedConfigUserOptions">';
+
+																			if($DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"] < 3){
+																				echo'
 																			<li>
-																				<a href = "" class = "PromoteUserAccess" title = "Promover Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$DadosUserEmpresa["Usuarios"][$i]["id_user_empresa"].'&v=A" class = "PromoteUserAccess" title = "Promover Usuário">
 																					<i class = "material-icons"> &#xe5c7; </i>
 																				</a>
-																			</li>
+																			</li>';}
+
+																			if($DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"] > 1 && $DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"] < 4){
+																				echo'
 																			<li>
-																				<a href = "" class = "DemoteUserAccess" title = "Rebaixar Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$DadosUserEmpresa["Usuarios"][$i]["id_user_empresa"].'&v=B" class = "DemoteUserAccess" title = "Rebaixar Usuário">
 																					<i class = "material-icons"> &#xe5c5; </i>
 																				</a>
-																			</li>
+																			</li>';}
+
+																			if($DadosUserEmpresa["Usuarios"][$i]["Banido"] == "S" && $DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"] < 4){
+																				echo '
 																			<li>
-																				<a href = "" class = "EnableUserAccess" title = "Permitir Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$DadosUserEmpresa["Usuarios"][$i]["id_user_empresa"].'&v=C" class = "EnableUserAccess" title = "Desbanir Usuário">
 																					<i class = "material-icons"> person_add </i>
 																				</a>
-																			</li>
+																			</li>';}
+
+																			if($DadosUserEmpresa["Usuarios"][$i]["Banido"] == "N" && $DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"] < 4){
+																				echo '
 																			<li>
-																				<a href = "" class = "DenyUserAccess" title = "Bloquear Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$DadosUserEmpresa["Usuarios"][$i]["id_user_empresa"].'&v=D" class = "DenyUserAccess" title = "Banir Usuário">
 																					<i class = "material-icons"> person_remove </i>
 																				</a>
-																			</li>
+																			</li>';}
+
+																			if($DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"] != 4){
+																			echo'
 																			<li>
-																				<a href = "" class = "RemoveUserAccess" title = "Remover Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$DadosUserEmpresa["Usuarios"][$i]["id_user_empresa"].'&v=E" class = "RemoveUserAccess" title = "Remover Usuário">
 																					<i class = "material-icons"> delete_forever </i>
 																				</a>
-																			</li>
+																			</li>';}
+
+																			echo'
 																		</ul>
 																	</li>
 																
@@ -215,8 +242,9 @@
 															$i2++;
 
 														}while($i < $DadosUserEmpresa["Quantidade"]);
-
+													}
 													?>
+
 													</ul>
 
 												</div>
@@ -227,7 +255,7 @@
 
 												<div class = "FrameHeader FrameSection">
 
-													<h1> Administradores </h1>
+													<h1> Administradores (<?=$Adms["Quantidade"]?>)</h1>
 
 												</div>
 
@@ -259,6 +287,97 @@
 														</li>
 
 													</ul>	
+
+													<ul class = "UserGroupMain">
+													<?php 
+														$i=0;
+														$i2=1;
+														if($Adms["Quantidade"] != 0){
+														do{
+
+															if($Adms["Usuarios"][$i]["Banido"] == "N"){
+																$status = "Normal";
+															}else{
+																$status = "Banido";
+															}
+														
+															echo '
+
+															<li class = "GroupContent">
+																
+																<ul class = "GroupUL">
+																
+																	<li>
+																		<h1> '.($i2).'  </h1>
+																	</li>
+																	<li>
+																		<h2> '.utf8_encode($Adms["Usuarios"][$i]["Nome_user"]).' </h2>
+																	</li>
+																	<li>
+																		<h3> '.$Adms["Usuarios"][$i]["Nivel_acesso"].' </h3>
+																	</li>
+																	<li>
+																		<h4> '.$status.' </h4>
+																	</li>
+																	<li>
+																		<ul class = "FeedConfigUserOptions">';
+
+																			if($Adms["Usuarios"][$i]["Nivel_acesso"] < 3){
+																				echo'
+																			<li>
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$Adms["Usuarios"][$i]["id_user_empresa"].'&v=A" class = "PromoteUserAccess" title = "Promover Usuário">
+																					<i class = "material-icons"> &#xe5c7; </i>
+																				</a>
+																			</li>';}
+
+																			if($Adms["Usuarios"][$i]["Nivel_acesso"] > 1 && $Adms["Usuarios"][$i]["Nivel_acesso"] < 4){
+																				echo'
+																			<li>
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$Adms["Usuarios"][$i]["id_user_empresa"].'&v=B" class = "DemoteUserAccess" title = "Rebaixar Usuário">
+																					<i class = "material-icons"> &#xe5c5; </i>
+																				</a>
+																			</li>';}
+
+																			if($Adms["Usuarios"][$i]["Banido"] == "S" && $Adms["Usuarios"][$i]["Nivel_acesso"] < 4){
+																				echo '
+																			<li>
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$Adms["Usuarios"][$i]["id_user_empresa"].'&v=C" class = "EnableUserAccess" title = "Desbanir Usuário">
+																					<i class = "material-icons"> person_add </i>
+																				</a>
+																			</li>';}
+
+																			if($Adms["Usuarios"][$i]["Banido"] == "N" && $Adms["Usuarios"][$i]["Nivel_acesso"] < 4){
+																				echo '
+																			<li>
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$Adms["Usuarios"][$i]["id_user_empresa"].'&v=D" class = "DenyUserAccess" title = "Banir Usuário">
+																					<i class = "material-icons"> person_remove </i>
+																				</a>
+																			</li>';}
+
+																			if($Adms["Usuarios"][$i]["Nivel_acesso"] != 4){
+																			echo'
+																			<li>
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$Adms["Usuarios"][$i]["id_user_empresa"].'&v=E" class = "RemoveUserAccess" title = "Remover Usuário">
+																					<i class = "material-icons"> delete_forever </i>
+																				</a>
+																			</li>';}
+
+																			echo'
+																		</ul>
+																	</li>
+																
+																</ul>
+
+															</li>';
+
+															$i++;
+															$i2++;
+
+														}while($i < $Adms["Quantidade"]);
+													}
+													?>
+													</ul>
+
 													
 												</div>
 
@@ -268,7 +387,7 @@
 
 												<div class = "FrameHeader FrameSection">
 
-													<h1> Normais </h1>
+													<h1> Normais (<?= $Normais["Quantidade"]?>)</h1>
 
 												</div>
 
@@ -300,6 +419,97 @@
 
 														</li>
 
+													</ul>
+
+													<ul class = "UserGroupMain">
+													<?php 
+														$i=0;
+														$i2=1;
+														if($Normais["Quantidade"] != 0){
+														do{
+
+															if($Normais["Usuarios"][$i]["Banido"] == "N"){
+																$status = "Normal";
+															}else{
+																$status = "Banido";
+															}
+														
+															echo '
+
+															<li class = "GroupContent">
+																
+																<ul class = "GroupUL">
+																
+																	<li>
+																		<h1> '.($i2).'  </h1>
+																	</li>
+																	<li>
+																		<h2> '.utf8_encode($Normais["Usuarios"][$i]["Nome_user"]).' </h2>
+																	</li>
+																	<li>
+																		<h3> '.$Normais["Usuarios"][$i]["Nivel_acesso"].' </h3>
+																	</li>
+																	<li>
+																		<h4> '.$status.' </h4>
+																	</li>
+																	<li>
+																		<ul class = "FeedConfigUserOptions">';
+
+																			if($Normais["Usuarios"][$i]["Nivel_acesso"] < 3){
+																				echo'
+																			<li>
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$Normais["Usuarios"][$i]["id_user_empresa"].'&v=A" class = "PromoteUserAccess" title = "Promover Usuário">
+																					<i class = "material-icons"> &#xe5c7; </i>
+																				</a>
+																			</li>';}
+
+																			if($Normais["Usuarios"][$i]["Nivel_acesso"] > 1 && $Normais["Usuarios"][$i]["Nivel_acesso"] < 4){
+																				echo'
+																			<li>
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$Normais["Usuarios"][$i]["id_user_empresa"].'&v=B" class = "DemoteUserAccess" title = "Rebaixar Usuário">
+																					<i class = "material-icons"> &#xe5c5; </i>
+																				</a>
+																			</li>';}
+
+																			if($Normais["Usuarios"][$i]["Banido"] == "S" && $Normais["Usuarios"][$i]["Nivel_acesso"] < 4){
+																				echo '
+																			<li>
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$Normais["Usuarios"][$i]["id_user_empresa"].'&v=C" class = "EnableUserAccess" title = "Desbanir Usuário">
+																					<i class = "material-icons"> person_add </i>
+																				</a>
+																			</li>';}
+
+																			if($Normais["Usuarios"][$i]["Banido"] == "N" && $Normais["Usuarios"][$i]["Nivel_acesso"] < 4){
+																				echo '
+																			<li>
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$Normais["Usuarios"][$i]["id_user_empresa"].'&v=D" class = "DenyUserAccess" title = "Banir Usuário">
+																					<i class = "material-icons"> person_remove </i>
+																				</a>
+																			</li>';}
+
+																			if($Normais["Usuarios"][$i]["Nivel_acesso"] != 4){
+																			echo'
+																			<li>
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$Normais["Usuarios"][$i]["id_user_empresa"].'&v=E" class = "RemoveUserAccess" title = "Remover Usuário">
+																					<i class = "material-icons"> delete_forever </i>
+																				</a>
+																			</li>';}
+
+																			echo'
+																		</ul>
+																	</li>
+																
+																</ul>
+
+															</li>';
+
+															$i++;
+															$i2++;
+
+														}while($i < $Normais["Quantidade"]);
+													}
+
+													?>
 													</ul>	
 													
 												</div>
@@ -310,7 +520,7 @@
 
 												<div class = "FrameHeader FrameSection">
 
-													<h1> Banidos </h1>
+													<h1> Banidos (<?= $Banidos["Quantidade"]?>)</h1>
 
 												</div>
 
@@ -341,48 +551,98 @@
 
 														</li>
 
-													</ul>	
+													</ul>
 													
-												</div>
+													<ul class = "UserGroupMain">
+													<?php 
+														$i=0;
+														$i2=1;
+														if($Banidos["Quantidade"] != 0){
+														do{
 
-											</div>
+															if($Banidos["Usuarios"][$i]["Banido"] == "N"){
+																$status = "Normal";
+															}else{
+																$status = "Banido";
+															}
+														
+															echo '
 
-											<div id = "SFCF5" class = "SubNavFrame">
+															<li class = "GroupContent">
+																
+																<ul class = "GroupUL">
+																
+																	<li>
+																		<h1> '.($i2).'  </h1>
+																	</li>
+																	<li>
+																		<h2> '.utf8_encode($Banidos["Usuarios"][$i]["Nome_user"]).' </h2>
+																	</li>
+																	<li>
+																		<h3> '.$Banidos["Usuarios"][$i]["Nivel_acesso"].' </h3>
+																	</li>
+																	<li>
+																		<h4> '.$status.' </h4>
+																	</li>
+																	<li>
+																		<ul class = "FeedConfigUserOptions">';
 
-												<div class = "FrameHeader FrameSection">
+																			if($Banidos["Usuarios"][$i]["Nivel_acesso"] < 3){
+																				echo'
+																			<li>
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$Banidos["Usuarios"][$i]["id_user_empresa"].'&v=A" class = "PromoteUserAccess" title = "Promover Usuário">
+																					<i class = "material-icons"> &#xe5c7; </i>
+																				</a>
+																			</li>';}
 
-													<h1> Excluídos </h1>
+																			if($Banidos["Usuarios"][$i]["Nivel_acesso"] > 1 && $Banidos["Usuarios"][$i]["Nivel_acesso"] < 4){
+																				echo'
+																			<li>
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$Banidos["Usuarios"][$i]["id_user_empresa"].'&v=B" class = "DemoteUserAccess" title = "Rebaixar Usuário">
+																					<i class = "material-icons"> &#xe5c5; </i>
+																				</a>
+																			</li>';}
 
-												</div>
+																			if($Banidos["Usuarios"][$i]["Banido"] == "S" && $Banidos["Usuarios"][$i]["Nivel_acesso"] < 4){
+																				echo '
+																			<li>
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$Banidos["Usuarios"][$i]["id_user_empresa"].'&v=C" class = "EnableUserAccess" title = "Desbanir Usuário">
+																					<i class = "material-icons"> person_add </i>
+																				</a>
+																			</li>';}
 
-												<div class = "FrameMain FrameSection">
+																			if($Banidos["Usuarios"][$i]["Banido"] == "N" && $Banidos["Usuarios"][$i]["Nivel_acesso"] < 4){
+																				echo '
+																			<li>
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$Banidos["Usuarios"][$i]["id_user_empresa"].'&v=D" class = "DenyUserAccess" title = "Banir Usuário">
+																					<i class = "material-icons"> person_remove </i>
+																				</a>
+																			</li>';}
 
-													<ul class = "UserGroupHeader">
+																			if($Banidos["Usuarios"][$i]["Nivel_acesso"] != 4){
+																			echo'
+																			<li>
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$Banidos["Usuarios"][$i]["id_user_empresa"].'&v=E" class = "RemoveUserAccess" title = "Remover Usuário">
+																					<i class = "material-icons"> delete_forever </i>
+																				</a>
+																			</li>';}
 
-														<li class = "GroupContent">
+																			echo'
+																		</ul>
+																	</li>
+																
+																</ul>
 
-															<ul class = "GroupUL">
+															</li>';
 
-																<li>
-																	<h1> ID </h1>
-																</li>
-																<li>
-																	<h2> Nome</h2>
-																</li>
-																<li>
-																	<h3> Nível </h3>
-																</li>
-																<li>
-																	<h4> Status </h4>
-																</li>
-																<li>
-																	<h5> Opções </h5>
-																</li>
-															</ul>
+															$i++;
+															$i2++;
 
-														</li>
+														}while($i < $Banidos["Quantidade"]);
+													}
 
-													</ul>	
+													?>
+													</ul>
 													
 												</div>
 
