@@ -40,46 +40,44 @@
 
 					$erros = $_SESSION["ErrosRegistrarItem"];
 
-						if (isset($erros["Nome"])){
+					if (isset($erros["Nome"])){
 
-							echo '
-								
-								<script language = "javascript" type = "text/javascript">
-								
-									$(document).ready(function(){
-
-										$("#ErrorNome").css("display", "block");
-
-									});
-								
-								</script>
+						echo '
 							
-							';
-
-						}
-
-						if (isset($erros["foto"])){
-
-							echo '
-								
-								<script language = "javascript" type = "text/javascript">
-								
-									$(document).ready(function(){
-
-										$("#ErrorFoto").css("display", "block");
-
-									});
-								
-								</script>
+							<script language = "javascript" type = "text/javascript">
 							
-							';
+								$(document).ready(function(){
 
-						}
+									$("#ErrorNome").css("display", "block");
 
+								});
+							
+							</script>
+						
+						';
+
+					}
+
+					if (isset($erros["foto"])){
+
+						echo '
+							
+							<script language = "javascript" type = "text/javascript">
+							
+								$(document).ready(function(){
+
+									$("#ErrorFoto").css("display", "block");
+
+								});
+							
+							</script>
+						
+						';
+
+					}
 						
 				}
 			}
-
             
 		?>
 
@@ -99,15 +97,6 @@
 							<span id = "ErrorNome" class = "txtError"> Nome inválido </span>
 							<input id = "R_ItemNome" class = "UserInputData" type = "text" name = "nome" value = "<?= $DadosItem["Objeto"][0]["Nome_obj"];?>" require />
 						</li>
-						<!--<li class = "ContentInput">
-							<label for = "R_ItemFoto"> Foto </label>
-							<span id = "ErrorFoto" class = "txtError"> Foto inválida </span>
-							<input id = "R_ItemFoto" type = "file" name = "foto"/>
-							<label id = "imgContent" for = "R_ItemFoto">
-								<i id = "imgIcon" class = "material-icons"> &#xe251; </i>
-								<img id = "FormFoto" <?php //echo "src = imagesBD/".$DadosItem["Objeto"][0]["Nome_foto"]?>>
-							</label>	
-						</li>-->
 						<li class = "ContentInput">
 							<label for = "R_ItemCategoria"> Categoria </label>
 							<select name = "categoria" id = "R_ItemCategoria" class = "UserSelectData" required>
@@ -122,6 +111,13 @@
 							<label for = "R_ItemDesc"> Descrição </label>
 							<textarea id = "R_ItemDesc" class = "FormTextareaData" name = "descricao" rows = "4" ><?= trim($DadosItem["Objeto"][0]["Descricao"]);?></textarea>
 						</li>
+						<li class = "ContentInput">
+							<label for = "R_ItemStatus"> Status </label>
+							<select name = "situacao" id = "R_ItemStatus" class = "UserSelectData" required>
+								<option value = "Perdido"> Perdido </option>
+								<option value = "Devolvido"> Devolvido </option>
+                            </select>
+						</li>
 						<li class = "ContentBottom">
 							<a href = "Feed.php?q=<?php echo base64_encode($id_empresa)?>"> Voltar para Feed </a>
 							<input class = "UserInputSubmit btn" type = "submit" value = "Editar Item"/>
@@ -134,23 +130,6 @@
 			</div>
 
 		</main>
-
-		<script type = "text/javascript">
-
-			document.getElementById("R_ItemFoto").onchange = function() {PreviewImage()};
-
-			function PreviewImage() {
-
-				var oFReader = new FileReader();
-				oFReader.readAsDataURL(document.getElementById("R_ItemFoto").files[0]);
-
-				oFReader.onload = function (oFREvent) {
-					document.getElementById("FormFoto").src = oFREvent.target.result;
-				};
-
-			};
-
-		</script>
 
     </body>
     

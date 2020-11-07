@@ -154,67 +154,62 @@
 													</ul>
 
 													<ul class = "UserGroupMain">
-
 													<?php 
+														$i=0;
+														$i2=1;
+														do{
+														
+															echo '
 
-																$i=0;
-																$i2=1;
-
-															do{
-															
-																echo '
-
-														<li class = "GroupContent">
-															
-															<ul class = "GroupUL">
-															
-																<li>
-																	<h1> '.($i2).'  </h1>
-																</li>
-																<li>
-																	<h2> '.utf8_encode($DadosUserEmpresa["Usuarios"][$i]["Nome_user"]).' </h2>
-																</li>
-																<li>
-																	<h3> '.$DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"].' </h3>
-																</li>
-																<li>
-																	<h4> Status </h4>
-																</li>
-																<li>
-																	<ul class = "FeedConfigUserOptions">
-																		<li>
-																			<a href = "" class = "PromoteUserAccess" title = "Promover Usuário">
-																				<i class = "material-icons"> &#xe5c7; </i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href = "" class = "DemoteUserAccess" title = "Rebaixar Usuário">
-																				<i class = "material-icons"> &#xe5c5; </i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href = "" class = "EnableUserAccess" title = "Permitir Usuário">
-																				<i class = "material-icons"> person_add </i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href = "" class = "DenyUserAccess" title = "Bloquear Usuário">
-																				<i class = "material-icons"> person_remove </i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href = "" class = "RemoveUserAccess" title = "Remover Usuário">
-																				<i class = "material-icons"> delete_forever </i>
-																			</a>
-																		</li>
-																	</ul>
-																</li>
-
+															<li class = "GroupContent">
 																
-															
-															</ul>
+																<ul class = "GroupUL">
+																
+																	<li>
+																		<h1> '.($i2).'  </h1>
+																	</li>
+																	<li>
+																		<h2> '.utf8_encode($DadosUserEmpresa["Usuarios"][$i]["Nome_user"]).' </h2>
+																	</li>
+																	<li>
+																		<h3> '.$DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"].' </h3>
+																	</li>
+																	<li>
+																		<h4> Status </h4>
+																	</li>
+																	<li>
+																		<ul class = "FeedConfigUserOptions">
+																			<li>
+																				<a href = "" class = "PromoteUserAccess" title = "Promover Usuário">
+																					<i class = "material-icons"> &#xe5c7; </i>
+																				</a>
+																			</li>
+																			<li>
+																				<a href = "" class = "DemoteUserAccess" title = "Rebaixar Usuário">
+																					<i class = "material-icons"> &#xe5c5; </i>
+																				</a>
+																			</li>
+																			<li>
+																				<a href = "" class = "EnableUserAccess" title = "Permitir Usuário">
+																					<i class = "material-icons"> person_add </i>
+																				</a>
+																			</li>
+																			<li>
+																				<a href = "" class = "DenyUserAccess" title = "Bloquear Usuário">
+																					<i class = "material-icons"> person_remove </i>
+																				</a>
+																			</li>
+																			<li>
+																				<a href = "" class = "RemoveUserAccess" title = "Remover Usuário">
+																					<i class = "material-icons"> delete_forever </i>
+																				</a>
+																			</li>
+																		</ul>
+																	</li>
+																
+																</ul>
 
-														</li>';
+															</li>';
 
 															$i++;
 															$i2++;
@@ -222,7 +217,6 @@
 														}while($i < $DadosUserEmpresa["Quantidade"]);
 
 													?>
-
 													</ul>
 
 												</div>

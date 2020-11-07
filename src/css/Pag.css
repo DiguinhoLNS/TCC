@@ -1522,6 +1522,10 @@ h1, h2, h3, h4, h5, h6 {
 					background-color: var(--color-theme-company-p);
 				}
 
+					.DarkMode #SectionItemMain ul #InfoBox1 {
+						background-color: var(--color-theme-company-s);
+					}
+
 				#SectionItemMain ul #InfoBox1 h1 {
 					width: 100%;
 
@@ -1529,6 +1533,10 @@ h1, h2, h3, h4, h5, h6 {
 					font-size: 30px;
 					text-align: center;
 				}
+
+					.ThemeYellow #SectionItemMain ul #InfoBox1 h1 {
+						color: var(--color-txt-p-lm);
+					}
 
 				#SectionItemMain ul #InfoBox1 h2 {
 					width: 100%;
