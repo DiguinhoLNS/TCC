@@ -155,10 +155,7 @@
 
 													<ul class = "UserGroupMain">
 
-														<li class = "GroupContent">
-															
-															<ul class = "GroupUL">
-															<?php 
+													<?php 
 
 																$i=0;
 																$i2=1;
@@ -166,6 +163,11 @@
 															do{
 															
 																echo '
+
+														<li class = "GroupContent">
+															
+															<ul class = "GroupUL">
+															
 																<li>
 																	<h1> '.($i2).'  </h1>
 																</li>
@@ -196,17 +198,20 @@
 																			<i class = "material-icons"> delete_forever </i>
 																		</li>
 																	</ul>
-																</li>';
+																</li>
 
-																$i++;
-																$i2++;
-
-															}while($i < $DadosUserEmpresa["Quantidade"]);
-
-															?>
+																
+															
 															</ul>
 
-														</li>
+														</li>';
+
+															$i++;
+															$i2++;
+
+														}while($i < $DadosUserEmpresa["Quantidade"]);
+
+													?>
 
 													</ul>
 
@@ -266,6 +271,7 @@
 												<div class = "FrameMain FrameSection">
 
 													<ul class = "UserGroupHeader">
+
 
 														<li class = "GroupContent">
 
