@@ -87,7 +87,7 @@
 
 			<div class = "FormPlatform FormEdit BS">
 
-				<form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php?q=<?php echo base64_encode($id_objeto);?>" enctype="multipart/form-data">
+				<form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php?q=<?= base64_encode($id_objeto);?>" enctype="multipart/form-data">
 			
 					<ul class = "FormPlatformContent">
 
@@ -97,17 +97,17 @@
 						<li class = "ContentInput">
 							<label for = "R_ItemNome"> Nome </label>
 							<span id = "ErrorNome" class = "txtError"> Nome inválido </span>
-							<input id = "R_ItemNome" class = "UserInputData" type = "text" name = "nome" value = "<?= utf8_encode($DadosItem["Objeto"][0]["Nome_obj"]);?>" require />
+							<input id = "R_ItemNome" class = "UserInputData" type = "text" name = "nome" value = "<?= $DadosItem["Objeto"][0]["Nome_obj"];?>" require />
 						</li>
-						<li class = "ContentInput">
+						<!--<li class = "ContentInput">
 							<label for = "R_ItemFoto"> Foto </label>
 							<span id = "ErrorFoto" class = "txtError"> Foto inválida </span>
 							<input id = "R_ItemFoto" type = "file" name = "foto"/>
 							<label id = "imgContent" for = "R_ItemFoto">
 								<i id = "imgIcon" class = "material-icons"> &#xe251; </i>
-								<img id = "FormFoto" <?php echo "src = imagesBD/".$DadosItem["Objeto"][0]["Nome_foto"]?>>
+								<img id = "FormFoto" <?php //echo "src = imagesBD/".$DadosItem["Objeto"][0]["Nome_foto"]?>>
 							</label>	
-						</li>
+						</li>-->
 						<li class = "ContentInput">
 							<label for = "R_ItemCategoria"> Categoria </label>
 							<select name = "categoria" id = "R_ItemCategoria" class = "UserSelectData" required>
@@ -120,7 +120,7 @@
 						</li>
 						<li class = "ContentInput">
 							<label for = "R_ItemDesc"> Descrição </label>
-							<textarea id = "R_ItemDesc" class = "FormTextareaData" name = "descricao" rows = "4" ><?= trim(utf8_encode($DadosItem["Objeto"][0]["Descricao"]));?></textarea>
+							<textarea id = "R_ItemDesc" class = "FormTextareaData" name = "descricao" rows = "4" ><?= trim($DadosItem["Objeto"][0]["Descricao"]);?></textarea>
 						</li>
 						<li class = "ContentBottom">
 							<a href = "Feed.php?q=<?php echo base64_encode($id_empresa)?>"> Voltar para Feed </a>

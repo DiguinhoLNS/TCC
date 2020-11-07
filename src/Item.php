@@ -71,7 +71,7 @@
 
 							<div id = "InfoBox1" class = "BoxContent">
 
-								<h1> <?= utf8_encode($DadosItem["Objeto"][0]["Nome_obj"]); ?> </h1>
+								<h1> <?= $DadosItem["Objeto"][0]["Nome_obj"]; ?> </h1>
 
 							</div>
 
@@ -81,7 +81,7 @@
 							<div id = "InfoBox2" class = "BoxContent">
 
 								<p class = "ItemDescription">
-								<?php $DadosItem["Objeto"][0]["Descricao"] == null ? print "O item não possui descrição." : print utf8_encode($DadosItem["Objeto"][0]["Descricao"]); ?>
+								<?php $DadosItem["Objeto"][0]["Descricao"] == null ? print "O item não possui descrição." : print $DadosItem["Objeto"][0]["Descricao"]; ?>
 								</p>
 
 							</div>

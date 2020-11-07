@@ -22,7 +22,7 @@
             echo '
                 <li class = "ItemBox">
 
-                    <a href = "#" title = "'.$FeedQuery["Objeto"][$i]["Nome_obj"].'">
+                    <a href = "Item.php?q='.base64_encode($FeedQuery["Objeto"][$i]["id_obj"]) .'" title = "'.$FeedQuery["Objeto"][$i]["Nome_obj"].'">
 
                         <div class = "ItemImg">
                             <img src = "imagesBD/'.$FeedQuery["Objeto"][$i]["Nome_foto"].'">

@@ -160,7 +160,7 @@
 
 															<div class = "ItemInfo">
 																
-																<h1 class = "ItemName"> '.utf8_encode($DadosItem["Objeto"][$i]["Nome_obj"]).' </h1>
+																<h1 class = "ItemName"> '.$DadosItem["Objeto"][$i]["Nome_obj"].' </h1>
 																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
 																<h3 class = "ItemCategory"> '.$DadosItem["Objeto"][$i]["Categoria"].' </h3>
 

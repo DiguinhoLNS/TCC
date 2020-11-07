@@ -262,7 +262,7 @@
         case "EditarItem":
             $id_obj = $func->ClearInjectionXSS(base64_decode($_GET['q']));
             $nome = $func->ClearInjectionXSS($_POST["nome"]);
-            $foto = $_FILES["foto"];
+            //$foto = $_FILES["foto"];
             $categoria = $func->ClearInjectionXSS($_POST["categoria"]);
             $descricao = $func->ClearInjectionXSS($_POST["descricao"]);
 
@@ -274,7 +274,7 @@
             ];
 
             $ErroNosCampos["Nome"] = $func->VerificarNomeOBJ($nome);   
-            $ErroNosCampos["foto"] = $func->VerificarFoto($foto);
+            //$ErroNosCampos["foto"] = $func->VerificarFoto($foto);
 
             foreach ($ErroNosCampos as $key => $verifica) {
                 if ($verifica) {
@@ -283,7 +283,7 @@
             }
 
             if (!isset($erros)) {
-
+                $_SESSION['TipoVerificação'] = "Item";
                 setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
                 include "EditarDados.php";
 
@@ -292,8 +292,8 @@
                 setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
                 $_SESSION["ErrosRegistrarItem"] = $erros;
 
-                var_dump($foto);
-                //header("Location: ../RegisterItem.php?q=".base64_encode($id_empresa));
+                //var_dump($erros);
+                header("Location: ../RegisterItem.php?q=".base64_encode($id_empresa));
 
             }
         break;

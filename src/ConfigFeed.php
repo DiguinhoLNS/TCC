@@ -216,7 +216,7 @@
 													<h1> '.($i2).'  </h1>
 												</li>
 												<li>
-													<h2> '.utf8_encode($DadosUserEmpresa["Usuarios"][$i]["Nome_user"]).' </h2>
+													<h2> '.$DadosUserEmpresa["Usuarios"][$i]["Nome_user"].' </h2>
 												</li>
 												<li>
 													<h3> '.$DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"].' </h3>
@@ -293,7 +293,7 @@
 														<img src = "imagesBD/'.$DadosItem["Objeto"][$i]["Nome_foto"].'"/>
 													</div>
 													<div class = "ItemInfo">
-														<h1> '.utf8_encode($DadosItem["Objeto"][$i]["Nome_obj"]). ' </h1>
+														<h1> '.$DadosItem["Objeto"][$i]["Nome_obj"]. ' </h1>
 													</div>
 													<div class = "ItemControl">
 														<a href = "Item.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
