@@ -14,6 +14,7 @@
     AJAX
 *******************************************************/
 
+
 $(document).ready(function(){
 
     /*******************************************************
@@ -428,41 +429,101 @@ $(document).ready(function(){
 
     var folder;
 
-    function setFolder(type){
+    function setFolder(type, id){
 
-        return `php/Config.php?q=${type}`;
+        return `php/ConfigUserEmpresa.php?q=${type}&v=${id}`;
 
     }
 
     $("#PromoteUserAccess").on("click", function(){
 
-        folder = setFolder(1);
+        folder = setFolder("Promover", id_user_empresa);
 
-        alert(folder);
+        //alert(folder);
+
+        $.ajax({
+
+            url : folder,
+            type : 'get',
+
+        }).done(function(){   
+      
+            $('#UserGroupMain').load(folder);
+            AJAXRequestStatus(1); 
+            
+        }).fail(function(){
+
+            AJAXRequestStatus(0);
+
+        });
 
     });
 
-    $("#PromoteUserAccess").on("click", function(){
+    $("#DemoteUserAccess").on("click", function(){
 
-        folder = setFolder(2);
+        folder = setFolder("Rebaixar", id_user_empresa);
 
-        alert(folder);
+        $.ajax({
+
+            url : folder,
+            type : 'get',
+
+        }).done(function(){   
+      
+            $('#UserGroupMain').load(folder);
+            AJAXRequestStatus(1); 
+            
+        }).fail(function(){
+
+            AJAXRequestStatus(0);
+
+        });
 
     });
 
     $("#DenyUserAccess").on("click", function(){
 
-        folder = setFolder(3);
+        folder = setFolder("Banir", id_user_empresa);
 
-        alert(folder);
+        $.ajax({
+
+            url : folder,
+            type : 'get',
+
+        }).done(function(){   
+      
+            $('#UserGroupMain').load(folder);
+            AJAXRequestStatus(1); 
+            
+        }).fail(function(){
+
+            AJAXRequestStatus(0);
+
+        });
 
     });
 
+
     $("#RemoveUserAccess").on("click", function(){
 
-        folder = setFolder(4);
+        folder = setFolder("Negar", id_user_empresa);
 
-        alert(folder);
+        $.ajax({
+
+            url : folder,
+            type : 'get',
+
+        }).done(function(){   
+      
+            $('#UserGroupMain').load(folder);
+            AJAXRequestStatus(1); 
+            
+        }).fail(function(){
+
+            AJAXRequestStatus(0);
+
+        });
+
 
     });
 

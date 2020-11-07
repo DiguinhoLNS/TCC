@@ -216,7 +216,7 @@
 													<h1> '.($i2).'  </h1>
 												</li>
 												<li>
-													<h2> '.$DadosUserEmpresa["Usuarios"][$i]["Nome_user"].' </h2>
+													<h2> '.utf8_encode($DadosUserEmpresa["Usuarios"][$i]["Nome_user"]).' </h2>
 												</li>
 												<li>
 													<h3> '.$DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"].' </h3>
@@ -229,13 +229,13 @@
 														<li id = "PromoteUserAccess" title = "Promover Usuário">
 															<i class = "material-icons"> &#xe5c7; </i>
 														</li>
-														<li id = "PromoteUserAccess" title = "Rebaixar Usuário" >
+														<li id = "DemoteUserAccess" title = "Rebaixar Usuário" >
 															<i class = "material-icons"> &#xe5c5; </i>
 														</li>
-														<li id = "DenyUserAccess" title = "Negar acceso">
+														<li id = "DenyUserAccess" title = "Banir Usuário">
 															<i class = "material-icons"> &#xe14b; </i>
 														</li>
-														<li id = "RemoveUserAccess" title = "Banir Usuário">
+														<li id = "RemoveUserAccess" title = "Remover Usuário">
 															<i class = "material-icons"> &#xe15b; </i>
 														</li>
 													</ul>
@@ -341,6 +341,7 @@
 
 		<div id = "DarkEffect"></div>
 
+		<script type="text/javascript"> var id_user_empresa = "<?php echo $DadosUserEmpresa["Usuarios"][0]["id_user_empresa"]?>"; </script>
 		<?php include "include/Script.php"; ?>
 
     </body>
