@@ -24,12 +24,13 @@
 
 			if ($Dados['UsuarioExiste']) {
 
-				setcookie("ULogged", base64_encode("1"), time() + (86400 * 30), "/");
 				setcookie("ID", base64_encode($Dados['id_user']), time() + (86400 * 30), "/");
 				setcookie("MessageNotification", "Login realizado", time() + 900, "/");
 				setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 
-				header("Location: ../Dashboard.php");
+				$_SESSION["email"] = $email;
+
+				header("Location: ../VerificationUser.php?q=53875823");
 
 			} else {
 

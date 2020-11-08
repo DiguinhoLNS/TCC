@@ -1,5 +1,7 @@
 <?php
 
+require_once "ConexaoBD.php";
+
 class Funcoes extends ConexaoBD
 {
 
