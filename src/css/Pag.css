@@ -2123,6 +2123,7 @@ h1, h2, h3, h4, h5, h6 {
 			}
 
 			/* Content Header */
+
 			.FormPlatform .FormData .FormPlatformContent .ContentHeader {
 				margin-bottom: 60px;
 			}
@@ -2132,6 +2133,20 @@ h1, h2, h3, h4, h5, h6 {
 
 				color: var(--color-txt-p);
 				font-size: 30px;
+				text-align: center;
+			}
+
+			/* Content Info */
+
+			.FormPlatform .FormData .FormPlatformContent .ContentInfo {
+				margin-bottom: 40px;
+			}
+
+			.FormPlatform .FormData .FormPlatformContent .ContentInfo h2 {
+				width: 100%;
+
+				color: var(--color-txt-s);
+				font-size: 20px;
 				text-align: center;
 			}
 
