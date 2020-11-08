@@ -59,7 +59,7 @@
         
         ?>
 
-        <main id = "MainLoginCompany">
+        <main id = "MainLoginCompany" class = "MainFormPlatform">
 
             <div class = "FormPlatform FormLogin BS">
 

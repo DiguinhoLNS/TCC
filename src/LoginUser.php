@@ -58,7 +58,7 @@
 
 		?>
 
-		<main id = "MainLoginUser">
+		<main id = "MainLoginUser" class = "MainFormPlatform">
 
 			<div class = "FormPlatform FormLogin BS">
 

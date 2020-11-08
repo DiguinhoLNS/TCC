@@ -65,10 +65,12 @@
 
 			<div class = "MainContent">
 
-				<section id= "CompanyHeader">
-				
-					<h1><?php echo $DadosEmpresa[0]['Nome']; ?></h1>
-				
+				<section id = "CompanyHeader">
+
+					<a href = "Company.php?q=<?php echo base64_encode($DadosEmpresa[0]["id_empresa"]);?>" title = "Acessar <?php echo $DadosEmpresa[0]['Nome'];?>">
+						<h1><?php echo $DadosEmpresa[0]['Nome']; ?></h1>
+					</a>
+
 				</section>
 
 				<section id = "SectionCompanyConfig" class = "SectionPlatformPanel">

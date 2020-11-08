@@ -486,7 +486,8 @@ $(document).ready(function(){
 $(document).ready(function(){
 
     const NLO = $(".NavListOption");
-    const SNLO = $(".SubNavOption");
+    const UserSNLO = $(".UserSubNavOption");
+    const ItemSNLO = $(".ItemSubNavOption");
 
     NLO.on("click", function(){
 
@@ -495,9 +496,16 @@ $(document).ready(function(){
 
     });
 
-    SNLO.on("click", function(){
+    UserSNLO.on("click", function(){
 
-        SNLO.removeClass("active");
+        UserSNLO.removeClass("active");
+        $(this).addClass("active");
+
+    });
+
+    ItemSNLO.on("click", function(){
+
+        ItemSNLO.removeClass("active");
         $(this).addClass("active");
 
     });
@@ -509,7 +517,8 @@ $(document).ready(function(){
 $(document).ready(function(){
 
     const NF = $(".NavFrame");
-    const SNF = $(".SubNavFrame")
+    const UserSNF = $(".UserSubNavFrame");
+    const ItenSNF = $(".ItemSubNavFrame");
 
     // User.php
 
@@ -599,45 +608,65 @@ $(document).ready(function(){
 
         // Sub Frames
 
-        $("#SFCFO1").on("click", function(){
+            // Users
 
-            SNF.css("display", "none");
-    
-            $("#SFCF1").css("display", "block");
-    
-        });
+            $("#UserSFCFO1").on("click", function(){
 
-        $("#SFCFO2").on("click", function(){
+                UserSNF.css("display", "none");
+        
+                $("#UserSFCF1").css("display", "block");
+        
+            });
 
-            SNF.css("display", "none");
-    
-            $("#SFCF2").css("display", "block");
-    
-        });
+            $("#UserSFCFO2").on("click", function(){
 
-        $("#SFCFO3").on("click", function(){
+                UserSNF.css("display", "none");
+        
+                $("#UserSFCF2").css("display", "block");
+        
+            });
 
-            SNF.css("display", "none");
-    
-            $("#SFCF3").css("display", "block");
-    
-        });
+            $("#UserSFCFO3").on("click", function(){
 
-        $("#SFCFO4").on("click", function(){
+                UserSNF.css("display", "none");
+        
+                $("#UserSFCF3").css("display", "block");
+        
+            });
 
-            SNF.css("display", "none");
-    
-            $("#SFCF4").css("display", "block");
-    
-        });
+            $("#UserSFCFO4").on("click", function(){
 
-        $("#SFCFO5").on("click", function(){
+                UserSNF.css("display", "none");
+        
+                $("#UserSFCF4").css("display", "block");
+        
+            });
 
-            SNF.css("display", "none");
-    
-            $("#SFCF5").css("display", "block");
-    
-        });
+            // Itens
+
+            $("#ItemSFCFO1").on("click", function(){
+
+                ItenSNF.css("display", "none");
+        
+                $("#ItemSFCF1").css("display", "block");
+        
+            });
+
+            $("#ItemSFCFO2").on("click", function(){
+
+                ItenSNF.css("display", "none");
+        
+                $("#ItemSFCF2").css("display", "block");
+        
+            });
+
+            $("#ItemSFCFO3").on("click", function(){
+
+                ItenSNF.css("display", "none");
+        
+                $("#ItemSFCF3").css("display", "block");
+        
+            });
 
 });
 
@@ -657,19 +686,6 @@ $(document).ready(function(){
 
 });
 
-/* PWD View */
-/*
-$(document).ready(function(){
-
-    $("#DataPlaceholderPWD").on("click", function(){
-
-        $(this).css("display", "none");
-        $("#DataPWD").css("display", "block");
-
-    });
-
-});
-*/
 /* Feed */
 
 $(document).ready(function(){

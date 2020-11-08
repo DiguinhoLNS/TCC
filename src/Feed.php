@@ -69,8 +69,10 @@
 			<div class = "MainContent">
 
 				<section id = "CompanyHeader">
-					
-					<h1> Feed <?=$DadosEmpresa[0]['Nome'];?></h1>
+
+					<a href = "Company.php?q=<?php echo base64_encode($DadosEmpresa[0]["id_empresa"]);?>" title = "Acessar <?php echo $DadosEmpresa[0]['Nome'];?>">
+						<h1> Feed <?php echo $DadosEmpresa[0]['Nome']; ?></h1>
+					</a>
 				
 				</section>
 

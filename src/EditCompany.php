@@ -135,7 +135,7 @@
 		}
 		?>
 
-        <main id = "MainEditCompany">
+        <main id = "MainEditCompany" class = "MainFormPlatform">
 
             <div class = "FormPlatform FormEdit BS">
 

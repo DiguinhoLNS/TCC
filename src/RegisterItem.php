@@ -75,7 +75,7 @@
             
 		?>
 
-        <main id = "MainRegisterItem">
+        <main id = "MainRegisterItem" class = "MainFormPlatform">
 
 			<div class = "FormPlatform FormRegister BS">
 

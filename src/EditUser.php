@@ -155,7 +155,7 @@
 
         ?>
 
-        <main id = "MainEditUser">
+        <main id = "MainEditUser" class = "MainFormPlatform">
 
             <div class = "FormPlatform FormEdit BS">
 

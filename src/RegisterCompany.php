@@ -126,7 +126,7 @@
 
 		?>
 
-        <main id = "MainRegisterCompany">
+        <main id = "MainRegisterCompany" class = "MainFormPlatform">
 
             <div class = "FormPlatform FormRegister BS">
 

@@ -584,7 +584,7 @@ h1, h2, h3, h4, h5, h6 {
 				}
 
 				.CompanyBox:nth-child(1){
-					border-radius: 46px 0 0 46px;
+					border-radius: 40px 0 0 40px;
 				}
 
 				.CompanyBox:nth-child(2){
@@ -592,8 +592,8 @@ h1, h2, h3, h4, h5, h6 {
 				}
 
 				.CompanyBox:last-child {
-					border-top-right-radius: 46px;
-					border-bottom-right-radius: 46px;
+					border-top-right-radius: 40px;
+					border-bottom-right-radius: 40px;
 				}
 
 			.CompanyBox .CompanyTitle {
@@ -1264,6 +1264,20 @@ h1, h2, h3, h4, h5, h6 {
 			padding: 0 0 60px;
 		}
 
+		/* Header */
+
+		#SectionConfigFeedHeader {
+			margin: 60px 0;
+		}
+
+		#SectionConfigFeedHeader h1 {
+			width: 100%;
+			
+			color: var(--color-txt-p);
+			font-size: 40px;
+			text-align: center;
+		}
+
 		/* Feed Config Frames */
 
 		#FCF2 , #FCF3 {
@@ -1276,11 +1290,11 @@ h1, h2, h3, h4, h5, h6 {
 
 		/* FCF 1 */
 
-		#FCF1 .SubNavFrame {
+		#FCF1 .UserSubNavFrame {
 			display: none;
 		}
 
-		#FCF1 #SFCF1 {
+		#FCF1 #UserSFCF1 {
 			display: block;
 		}
 
@@ -1378,6 +1392,14 @@ h1, h2, h3, h4, h5, h6 {
 			}
 
 		/* FCF 2 */
+
+		#FCF2 .ItemSubNavFrame {
+			display: none;
+		}
+
+		#FCF2 #ItemSFCF1 {
+			display: block;
+		}
 
 		#FCF2 #FeedConfigItensView {
 			display: grid;
@@ -2023,14 +2045,10 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 		/*******************************************************
-			LoginUser.php / RegisterUser.php / EditUser.php
-			LoginCompany.php / RegisterCompany.php / EditCompany.php
-			RegisterItem.php
+			Form Platform
 		*******************************************************/
 
-		#MainLoginUser, #MainRegisterUser, #MainEditUser, 
-		#MainLoginCompany, #MainRegisterCompany, #MainEditCompany,
-		#MainRegisterItem {
+		.MainFormPlatform {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -2048,7 +2066,7 @@ h1, h2, h3, h4, h5, h6 {
 			background-color: var(--color-theme-p);
 		}
 
-			.FormRegister, .FormEdit {
+			.FormRegister, .FormEdit, .FormVerification {
 				width: 440px;
 			}
 
@@ -3003,10 +3021,9 @@ h1, h2, h3, h4, h5, h6 {
 		.SubFramesetContent {
 			display: grid;
 			grid-template-columns: 200px 1fr;
-			grid-gap: 100px;
+			grid-gap: 60px;
 			
 			width: 100%;
-			margin: 0 16px;
 		}
 
 		/* Control */
@@ -3030,6 +3047,7 @@ h1, h2, h3, h4, h5, h6 {
 				font-size: 16px;
 
 				cursor: pointer;
+				transition: 0.1s ease;
 			}
 
 				.SubNavBarControl ul li:hover {
@@ -3055,6 +3073,14 @@ h1, h2, h3, h4, h5, h6 {
 
 					color: var(--color-theme-company-p);
 				}
+
+					/* Theme Yellow */
+
+					.CompanyLayout .ThemeYellow .SubNavBarControl ul .active {
+						border-left-color: var(--color-txt-p);
+
+						color: var(--color-txt-p);
+					}
 
 		/* Frames */
 
@@ -3453,20 +3479,22 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 /* Company Header */
 
 #CompanyHeader {
-	width: calc(100% - 600px);
-	
-	padding: 30px 60px;
-	margin: 40px 300px;
-	border-radius: 30px;
+	margin: 40px 0;	
+}	
 
+#CompanyHeader a {
+	width: 100%;
+	padding: 30px 60px;
+	border-radius: 40px;
+	
 	background-color: var(--color-theme-company-p);
 }
 
-	.DarkMode #CompanyHeader {
+	.DarkMode #CompanyHeader a {
 		background-color: var(--color-theme-company-s);
 	}
 
-#CompanyHeader h1 {
+#CompanyHeader a h1 {
 	width: 100%;
 	border-radius: 40px;
 	
@@ -3476,7 +3504,7 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 	text-align: center;
 }
 
-	.ThemeYellow #CompanyHeader h1 {
+	.ThemeYellow #CompanyHeader a h1 {
 		color: var(--color-txt-p-lm);
 	}
 

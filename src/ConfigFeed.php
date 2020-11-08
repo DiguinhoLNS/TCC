@@ -24,8 +24,6 @@
 		$Banidos = $func->PegarDadosUserEmpresaPeloIdEmpresaBanidos($id_empresa);
 
 	}
-
-	
     
 ?>
 
@@ -40,7 +38,7 @@
 
 	</head>
 
-	<body id = "ConfigFeedPage" class = "UNT LightMode ADMView CompanyLayout">
+	<body id = "ConfigFeedPage" class = "UNT LightMode CompanyLayout">
 
 		<?php
 
@@ -65,7 +63,7 @@
 
             <div class = "MainContent">
 
-				<section id = "CompanyHeader">
+				<section id = "SectionConfigFeedHeader">
 					
 					<h1> Configuração Feed <?= $DadosEmpresa[0]['Nome'];?></h1>
 				
@@ -108,10 +106,10 @@
 
 											<ul>
 
-												<li id = "SFCFO1" class = "SubNavOption active"> Todos </li>
-												<li id = "SFCFO2" class = "SubNavOption"> Administradores </li>
-												<li id = "SFCFO3" class = "SubNavOption"> Normais </li>
-												<li id = "SFCFO4" class = "SubNavOption""> Banidos </li>
+												<li id = "UserSFCFO1" class = "SubNavOption UserSubNavOption active" title = "Todos os usuários"> Todos </li>
+												<li id = "UserSFCFO2" class = "SubNavOption UserSubNavOption" title = "Usuários com previlégios"> Administradores </li>
+												<li id = "UserSFCFO3" class = "SubNavOption UserSubNavOption" title = "Usuários sem privilégios"> Usuários </li>
+												<li id = "UserSFCFO4" class = "SubNavOption UserSubNavOption" title = "Usuários banidos"> Banidos </li>
 
 											</ul>
 
@@ -119,7 +117,7 @@
 
 										<nav class = "SubNavFrameset">
 
-											<div id = "SFCF1" class = "SubNavFrame">
+											<div id = "UserSFCF1" class = "UserSubNavFrame SubNavFrame">
 
 												<div class = "FrameHeader FrameSection">
 
@@ -251,7 +249,7 @@
 
 											</div>
 
-											<div id = "SFCF2" class = "SubNavFrame">
+											<div id = "UserSFCF2" class = "UserSubNavFrame SubNavFrame">
 
 												<div class = "FrameHeader FrameSection">
 
@@ -383,11 +381,11 @@
 
 											</div>
 
-											<div id = "SFCF3" class = "SubNavFrame">
+											<div id = "UserSFCF3" class = "UserSubNavFrame SubNavFrame">
 
 												<div class = "FrameHeader FrameSection">
 
-													<h1> Normais (<?= $Normais["Quantidade"]?>)</h1>
+													<h1> Usuários (<?= $Normais["Quantidade"]?>)</h1>
 
 												</div>
 
@@ -516,7 +514,7 @@
 
 											</div>
 											
-											<div id = "SFCF4" class = "SubNavFrame">
+											<div id = "UserSFCF4" class = "UserSubNavFrame SubNavFrame">
 
 												<div class = "FrameHeader FrameSection">
 
@@ -662,58 +660,108 @@
 
                             <div class = "NavFrameContent">
 
-                                <div class = "FrameHeader FrameSection">
-
-                                    <h1> Itens </h1>
-
-								</div>
-
 								<div class = "FrameMain FrameSection">
-								
-									<ul id = "FeedConfigItensView">
 
-									<?php
-										$i=0;
-										do{
-											if($DadosItem["Objeto"][$i]["Categoria"] == "Acessorio"){
-												$DadosItem["Objeto"][$i]["Categoria"] = "Acessório";
-											}else if($DadosItem["Objeto"][$i]["Categoria" == "Eletronico"]){
-												$DadosItem["Objeto"][$i]["Categoria"] = "Eletrônico";
-											}
-											$DataSeparada = $func->SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
+									<div class = "SubFramesetContent">
 
-											echo'
-											<li>
-												<div class = "ItemBox">
-												
-													<div class = "ItemImg">
-														<img src = "imagesBD/'.$DadosItem["Objeto"][$i]["Nome_foto"].'"/>
-													</div>
-													<div class = "ItemInfo">
-														<h1> '.$DadosItem["Objeto"][$i]["Nome_obj"]. ' </h1>
-													</div>
-													<div class = "ItemControl">
-														<a href = "Item.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
-															<i class = "material-icons"> &#xe8f4; </i>
-														</a>
-														<a href = "EditItem.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Editar Item">
-															<i class = "material-icons"> &#xe150; </i>
-														</a>
-														<a href = "" title = "Apagar Item">
-															<i class = "material-icons"> &#xe872; </i>
-														</a>
-													</div>
+										<nav class = "SubNavBarControl">
+
+											<ul>
+
+												<li id = "ItemSFCFO1" class = "SubNavOption ItemSubNavOption active" title = "Todos os itens"> Todos </li>
+												<li id = "ItemSFCFO2" class = "SubNavOption ItemSubNavOption" title = "Itens perdidos"> Perdidos </li>
+												<li id = "ItemSFCFO3" class = "SubNavOption ItemSubNavOption" title = "Itens devolvidos"> Devolvidos </li>
+
+											</ul>
+
+										</nav>
+
+										<nav class = "SubNavFrameset">
+
+											<div id = "ItemSFCF1" class = "ItemSubNavFrame SubNavFrame">
+
+												<div class = "FrameHeader FrameSection">
+
+													<h1> Todos </h1>
 
 												</div>
 
-											</li>';
+												<div class = "FrameMain FrameSection">
 
-										$i++;
-										}while($i<$DadosItem["Quantidade"]);
+													<ul id = "FeedConfigItensView">
+													<?php
+														$i=0;
+														do{
+															if($DadosItem["Objeto"][$i]["Categoria"] == "Acessorio"){
+																$DadosItem["Objeto"][$i]["Categoria"] = "Acessório";
+															}else if($DadosItem["Objeto"][$i]["Categoria" == "Eletronico"]){
+																$DadosItem["Objeto"][$i]["Categoria"] = "Eletrônico";
+															}
+															$DataSeparada = $func->SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
 
-									?>
+															echo'
+															<li>
+																<div class = "ItemBox">
+																
+																	<div class = "ItemImg">
+																		<img src = "imagesBD/'.$DadosItem["Objeto"][$i]["Nome_foto"].'"/>
+																	</div>
+																	<div class = "ItemInfo">
+																		<h1> '.$DadosItem["Objeto"][$i]["Nome_obj"]. ' </h1>
+																	</div>
+																	<div class = "ItemControl">
+																		<a href = "Item.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
+																			<i class = "material-icons"> &#xe8f4; </i>
+																		</a>
+																		<a href = "EditItem.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Editar Item">
+																			<i class = "material-icons"> &#xe150; </i>
+																		</a>
+																		<a href = "" title = "Apagar Item">
+																			<i class = "material-icons"> &#xe872; </i>
+																		</a>
+																	</div>
 
-                                    </ul>
+																</div>
+
+															</li>';
+
+														$i++;
+														}while($i<$DadosItem["Quantidade"]);
+
+													?>
+													</ul>
+
+												</div>
+												
+											</div>
+
+											<div id = "ItemSFCF2" class = "ItemSubNavFrame SubNavFrame">
+
+												<div class = "FrameHeader FrameSection">
+
+													<h1> Perdidos </h1>
+
+												</div>
+
+												<div class = "FrameMain FrameSection"></div>
+												
+											</div>
+
+											<div id = "ItemSFCF3" class = "ItemSubNavFrame SubNavFrame">
+
+												<div class = "FrameHeader FrameSection">
+
+													<h1> Devolvidos </h1>
+
+												</div>
+
+												<div class = "FrameMain FrameSection"></div>
+												
+											</div>
+
+										</nav>
+
+									</div>
 								
 								</div>
 								

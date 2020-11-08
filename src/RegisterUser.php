@@ -165,7 +165,7 @@
 
 		?>
 
-		<main id = "MainRegisterUser">
+		<main id = "MainRegisterUser" class = "MainFormPlatform">
 
 			<div class = "FormPlatform FormRegister BS">
 
