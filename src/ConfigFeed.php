@@ -19,6 +19,9 @@
 		$DadosUserEmpresa = $func->PegarDadosUserEmpresaPeloIdEmpresaTodos($id_empresa);
 		$DadosItem = $func->PegarDadosItemPeloIdEmpresaTodos($id_empresa);
 
+		$Perdidos = $func->PegarDadosItemPeloIdEmpresaPerdidos($id_empresa);
+		$Devolvidos = $func->PegarDadosItemPeloIdEmpresaDevolvidos($id_empresa);
+
 		$Adms = $func->PegarDadosUserEmpresaPeloIdEmpresaAdms($id_empresa);
 		$Normais = $func->PegarDadosUserEmpresaPeloIdEmpresaNormais($id_empresa);
 		$Banidos = $func->PegarDadosUserEmpresaPeloIdEmpresaBanidos($id_empresa);
@@ -682,7 +685,7 @@
 
 												<div class = "FrameHeader FrameSection">
 
-													<h1> Todos </h1>
+													<h1> Todos (<?=$DadosItem["Quantidade"]?>)</h1>
 
 												</div>
 
@@ -716,7 +719,7 @@
 																		<a href = "EditItem.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Editar Item">
 																			<i class = "material-icons"> &#xe150; </i>
 																		</a>
-																		<a href = "" title = "Apagar Item">
+																		<a href = "sql/ApagarCadastros.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]).'&v='.base64_encode('Item').'" title = "Apagar Item">
 																			<i class = "material-icons"> &#xe872; </i>
 																		</a>
 																	</div>
@@ -739,11 +742,54 @@
 
 												<div class = "FrameHeader FrameSection">
 
-													<h1> Perdidos </h1>
+													<h1> Perdidos (<?=$Perdidos["Quantidade"]?>)</h1>
 
 												</div>
 
 												<div class = "FrameMain FrameSection"></div>
+
+													<ul id = "FeedConfigItensView">
+														<?php
+															$i=0;
+															do{
+																if($Perdidos["Objeto"][$i]["Categoria"] == "Acessorio"){
+																	$Perdidos["Objeto"][$i]["Categoria"] = "Acessório";
+																}else if($Perdidos["Objeto"][$i]["Categoria" == "Eletronico"]){
+																	$Perdidos["Objeto"][$i]["Categoria"] = "Eletrônico";
+																}
+																$DataSeparada = $func->SepararData($Perdidos["Objeto"][$i]["Data_cadastro"]);
+
+																echo'
+																<li>
+																	<div class = "ItemBox">
+																	
+																		<div class = "ItemImg">
+																			<img src = "imagesBD/'.$Perdidos["Objeto"][$i]["Nome_foto"].'"/>
+																		</div>
+																		<div class = "ItemInfo">
+																			<h1> '.$Perdidos["Objeto"][$i]["Nome_obj"]. ' </h1>
+																		</div>
+																		<div class = "ItemControl">
+																			<a href = "Item.php?q='.base64_encode($Perdidos["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
+																				<i class = "material-icons"> &#xe8f4; </i>
+																			</a>
+																			<a href = "EditItem.php?q='.base64_encode($Perdidos["Objeto"][$i]["id_obj"]) .'" title = "Editar Item">
+																				<i class = "material-icons"> &#xe150; </i>
+																			</a>
+																			<a href = "sql/ApagarCadastros.php?q='.base64_encode($Perdidos["Objeto"][$i]["id_obj"]).'&v='.base64_encode('Item').'" title = "Apagar Item">
+																				<i class = "material-icons"> &#xe872; </i>
+																			</a>
+																		</div>
+
+																	</div>
+
+																</li>';
+
+															$i++;
+															}while($i<$Perdidos["Quantidade"]);
+
+														?>
+														</ul>
 												
 											</div>
 
@@ -751,11 +797,54 @@
 
 												<div class = "FrameHeader FrameSection">
 
-													<h1> Devolvidos </h1>
+													<h1> Devolvidos (<?=$Devolvidos["Quantidade"]?>)</h1>
 
 												</div>
 
 												<div class = "FrameMain FrameSection"></div>
+
+												<ul id = "FeedConfigItensView">
+														<?php
+															$i=0;
+															do{
+																if($Devolvidos["Objeto"][$i]["Categoria"] == "Acessorio"){
+																	$Devolvidos["Objeto"][$i]["Categoria"] = "Acessório";
+																}else if($Devolvidos["Objeto"][$i]["Categoria" == "Eletronico"]){
+																	$Devolvidos["Objeto"][$i]["Categoria"] = "Eletrônico";
+																}
+																$DataSeparada = $func->SepararData($Devolvidos["Objeto"][$i]["Data_cadastro"]);
+
+																echo'
+																<li>
+																	<div class = "ItemBox">
+																	
+																		<div class = "ItemImg">
+																			<img src = "imagesBD/'.$Devolvidos["Objeto"][$i]["Nome_foto"].'"/>
+																		</div>
+																		<div class = "ItemInfo">
+																			<h1> '.$Devolvidos["Objeto"][$i]["Nome_obj"]. ' </h1>
+																		</div>
+																		<div class = "ItemControl">
+																			<a href = "Item.php?q='.base64_encode($Devolvidos["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
+																				<i class = "material-icons"> &#xe8f4; </i>
+																			</a>
+																			<a href = "EditItem.php?q='.base64_encode($Devolvidos["Objeto"][$i]["id_obj"]) .'" title = "Editar Item">
+																				<i class = "material-icons"> &#xe150; </i>
+																			</a>
+																			<a href = "sql/ApagarCadastros.php?q='.base64_encode($Devolvidos["Objeto"][$i]["id_obj"]).'&v='.base64_encode('Item').'" title = "Apagar Item">
+																				<i class = "material-icons"> &#xe872; </i>
+																			</a>
+																		</div>
+
+																	</div>
+
+																</li>';
+
+															$i++;
+															}while($i<$Devolvidos["Quantidade"]);
+
+														?>
+														</ul>
 												
 											</div>
 

@@ -543,6 +543,30 @@ class Funcoes extends ConexaoBD
             ];
         }
     }
+    
+    public function PegarDadosItemPeloIdEmpresaDevolvidos($id_empresa)
+    {
+
+        $query = "SELECT * FROM objetos where id_empresa =  '$id_empresa' and situacao = 'Devolvido' order by Nome_obj ASC";
+        $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 11");
+        $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
+
+        if ($QuantidadeDeObjetos > 0) {
+            $DadosObjetos = $ResultadoQuery->fetchAll();
+        }
+
+        if (isset($DadosObjetos)) {
+            $Dados = [
+                "Quantidade" => $QuantidadeDeObjetos,
+                "Objeto" => $DadosObjetos
+            ];
+            return $Dados;
+        } else {
+            return $Dados = [
+                "Quantidade" => $QuantidadeDeObjetos,
+            ];
+        }
+    }
 
     public function PegarDadosItemPeloId($id)
     {

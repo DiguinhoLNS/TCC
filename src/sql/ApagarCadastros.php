@@ -9,47 +9,68 @@ require_once "Funcoes.php";
 $conn = new ConexaoBD();
 $func = new Funcoes();
 
-$id = $func->ClearInjectionXSS(base64_decode($_COOKIE["ID"]));
+$idU = $func->ClearInjectionXSS(base64_decode($_COOKIE["ID"]));
 
-$id_empresa = $func->ClearInjectionXSS(base64_decode(($_GET['q'])));
+$idQ = $func->ClearInjectionXSS(base64_decode(($_GET['q'])));
 $tipo_verificacao = $func->ClearInjectionXSS(base64_decode(($_GET['v'])));
-
-
 
 switch ($tipo_verificacao) {
 
     case "Usuario":
 
-        $apagarUsuario = "DELETE FROM usuarios where id_user = '$id'";
-        $conn->dbh->query($apagarUsuario);
+        $apagarUsuario = "DELETE FROM usuarios where id_user = '$idU'";
+        $apagarUser_Empresa = "DELETE FROM user_empresa where id_user = '$idU'";
 
-        $apagarUser_Empresa = "DELETE FROM user_empresa where id_user = '$id'";
-        $conn->dbh->query($apagarUser_Empresa);
+        try {
+            $conn->dbh->query($apagarUsuario);
+            $conn->dbh->query($apagarUser_Empresa);
 
-        $conn->dbh->query($apagarUsuario) && $conn->dbh->query($apagarUser_Empresa) ? $func->EncerrarSessao() : header("Location: ../User.php");
+            $func->EncerrarSessao();
+        } catch (PDOException $e) {
+            header("Location: ../User.php");
+        }
 
         break;
 
     case "Empresa":
 
-        $DesativarEmpresa = "UPDATE empresas SET Situacao='Desativada' WHERE id_empresa = '$id_empresa'";
-        $conn->dbh->query($DesativarEmpresa);
+        $DesativarEmpresa = "UPDATE empresas SET Situacao='Desativada' WHERE id_empresa = '$idQ'";
+        $apagarUser_Empresa = "DELETE FROM user_empresa where id_empresa = '$idQ'";
 
-        $apagarUser_Empresa = "DELETE FROM user_empresa where id_empresa = '$id_empresa'";
-        $conn->dbh->query($apagarUser_Empresa);
-
-        $conn->dbh->query($DesativarEmpresa) && $conn->dbh->query($apagarUser_Empresa) ? header("Location: ../Dashboard.php") : header("Location: ../Company.php?q=" . base64_encode($id_empresa));
+        try {
+            $conn->dbh->query($DesativarEmpresa);
+            $conn->dbh->query($apagarUser_Empresa);
+            header("Location: ../Dashboard.php");
+        } catch (PDOException $e) {
+            header("Location: ../Company.php?q=" . base64_encode($idQ));
+        }
 
         break;
 
     case "LoginNaEmpresa":
 
-        $apagarUser_Empresa2 = "DELETE FROM user_empresa where id_user = '$id' and id_empresa = '$id_empresa'";
-        echo $apagarUser_Empresa2;
+        $apagarUser_Empresa2 = "DELETE FROM user_empresa where id_user = '$idU' and id_empresa = '$idQ'";
 
-        $conn->dbh->query($apagarUser_Empresa2);
+        try {
+            $conn->dbh->query($apagarUser_Empresa2);
+            header("Location: ../Dashboard.php");
+        } catch (PDOException $e) {
+            header("Location: ../Company.php?q=" . base64_encode($idQ));
+        }
 
-        $conn->dbh->query($apagarUser_Empresa2) ? header("Location: ../Dashboard.php") : header("Location: ../Company.php?q=".$id_empresa);
+        break;
+
+    case "Item":
+
+        $DadosItemEmpresa = $func->PegarDadosItemPeloId($idQ);
+        $apagarItem = "DELETE FROM objetos where id_obj = '$idQ'";
+
+        try {
+            $conn->dbh->query($apagarItem);
+            header("Location: ../ConfigFeed.php?q=" . base64_encode($DadosItemEmpresa["Objeto"][0]["id_empresa"]));
+        } catch (PDOException $e) {
+            header("Location: ../ConfigFeed.php?q=" . base64_encode($DadosItemEmpresa["Objeto"][0]["id_empresa"]));
+        }
 
         break;
 }
