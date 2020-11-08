@@ -9,7 +9,7 @@
             <br/>
             <h1> 123456 </h1>
             <br>
-            <p> NÃO RESPONA A ESSE EMAIL </p>
+            <p> NÃO RESPONDA A ESSE EMAIL </p>
 
         </main>
 

@@ -14,25 +14,29 @@
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
 
-    $mail = new PHPMailer();
+    if(isset($_COOKIE["ULogged"])){
+        setcookie("ULogged", "", time() - (86400 * 30), "/");
+        setcookie("ID", "", time() - (86400 * 30), "/");
 
-    if (isset($_GET['q'])) {
-        $email = true;
-    } else {
-        $email = false;
+        header("Location: Index.php");
     }
 
+    $mail = new PHPMailer();
+
+    isset($_GET['q']) ? $email = true: $email = false;
+
     if (isset($_POST['V'])) {
-        if ($_SESSION['cod'] =  $_POST["V_Cod"]) {
+        if ($_SESSION['cod'] == $_POST["V_Cod"]) {
             header("Location: Dashboard.php");
             setcookie("ULogged", base64_encode("1"), time() + (86400 * 30), "/");
+            //echo $_POST['V_Cod'] . "<br>erro1<br>" . $_SESSION['cod'];
         } else {
-            //echo $_POST['V_Cod'] . "<br>erro<br>" . $_SESSION['cod'];
+            //echo $_POST['V_Cod'] . "<br>erro2<br>" . $_SESSION['cod'];
             $erro = true;
         }
     }
 
-    if ($email && !isset($erro)) {
+    if ($email && !isset($erro) && !isset($_COOKIE["ULogged"])) {
 
         try {
 
@@ -50,6 +54,10 @@
 
             $_SESSION["cod"] = $cod;
 
+
+
+            $mail->CharSet = 'UTF-8';
+            $mail->setLanguage("pt");
             $mail->SMTPDebug = false;
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
@@ -63,9 +71,27 @@
             $mail->addAddress($emailUser);
 
             $mail->isHTML(true);
-            $mail->Subject = utf8_encode('Codigo de verificacao');
+            $mail->Subject = 'Código de verificação';
             //$mail->MsgHTML(file_get_contents('include/BodyMail.php'));
-            $mail->Body = $cod;
+            $mail->Body = '
+            <!DOCTYPE html>
+            <html lang = "pt-br">
+            
+                <body class = "MailPage">
+            
+                    <main>
+            
+                        <h2> Aqui está o seu código de verificação de segurança da sua conta APE </h2>
+                        <br/>
+                        <h1> '.$cod.' </h1>
+                        <br>
+                        <p> NÃO RESPONDA A ESSE EMAIL </p>
+            
+                    </main>
+            
+                </body>
+            
+            </html>';
             $mail->AltBody = $cod;
 
             if ($mail->send()) {

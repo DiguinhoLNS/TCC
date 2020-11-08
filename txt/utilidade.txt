@@ -97,3 +97,15 @@ array(2) { [0]=> array(18) {
 	mysqli_set_charset($conexao, 'utf8');
 
 	$conexao ? $base = $conexao : die("Falha ao realizar a conexão: " .mysqli_connect_error());*/
+
+
+
+    
+
+    utf8_encode, mb_check_encoding, mb_detect_encoding, mb_convert_encoding, htmlentities, htmlspecialchars
+
+    ALTER DATABASE bdape CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+    ALTER TABLE empresas, objetos, user_empresa, usuarios CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+    CREATE DATABASE IF NOT EXISTS bdape DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+    USE bdape;
