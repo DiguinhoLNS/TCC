@@ -214,13 +214,11 @@ class Funcoes extends ConexaoBD
         for ($i = 0; $i < 8; $i++) {
 
             $achou = strpos(strtolower($endereco), $possiveis[$i]);
-            if($achou !== false){
+            if ($achou !== false) {
                 return false;
             }
-       
         }
         return true;
-
     }
 
     public function VerificaSenha($senha)
@@ -358,7 +356,8 @@ class Funcoes extends ConexaoBD
         return $Dados;
     }
 
-    public function PegarDadosUserEmpresaPeloId($id){
+    public function PegarDadosUserEmpresaPeloId($id)
+    {
 
         $query = "SELECT * FROM user_empresa inner join usuarios on user_empresa.id_user = usuarios.id_user where id_user_empresa = '$id' order by Nivel_acesso DESC, Nome_user ASC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 4");
@@ -371,8 +370,6 @@ class Funcoes extends ConexaoBD
         ];
 
         return $Dados;
-
-
     }
 
     //Querys usadas no VerificaLogin
@@ -543,7 +540,7 @@ class Funcoes extends ConexaoBD
             ];
         }
     }
-    
+
     public function PegarDadosItemPeloIdEmpresaDevolvidos($id_empresa)
     {
 
@@ -715,7 +712,7 @@ class Funcoes extends ConexaoBD
     public function TodosAZ($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = $id_empresa order by Nome_obj ASC";
+        $query = "SELECT * FROM objetos where id_empresa = $id_empresa and situacao = 'Perdido' order by Nome_obj ASC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 18");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
@@ -739,7 +736,7 @@ class Funcoes extends ConexaoBD
     public function TodosZA($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = $id_empresa order by Nome_obj DESC";
+        $query = "SELECT * FROM objetos where id_empresa = $id_empresa and situacao = 'Perdido' order by Nome_obj DESC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 19");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
@@ -763,7 +760,7 @@ class Funcoes extends ConexaoBD
     public function TodosAntigo($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = $id_empresa order by Data_cadastro ASC";
+        $query = "SELECT * FROM objetos where id_empresa = $id_empresa and situacao = 'Perdido' order by Data_cadastro ASC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 20");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
@@ -787,7 +784,7 @@ class Funcoes extends ConexaoBD
     public function TodosRecente($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = $id_empresa order by Data_cadastro DESC";
+        $query = "SELECT * FROM objetos where id_empresa = $id_empresa and situacao = 'Perdido' order by Data_cadastro DESC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 21");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
