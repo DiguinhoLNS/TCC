@@ -32,7 +32,8 @@
                 "Data" => false,
                 "Endereco" => false,
                 "Telefone" => false,
-                "Senha" => false
+                "Senha" => false,
+                "Captcha" => false
             ];
 
             $ErroNosCampos["Nome"] = $func->VerificarCadastroNome($nome);    
@@ -47,6 +48,8 @@
 
             $ErroNosCampos["CPF"] ? : $ErroNosCampos["CPF"] = $func->VerificarSeUsuarioJaCadastrado($email, $cpf);
             $ErroNosCampos["Email"] = $func->VerificarSeUsuarioJaCadastrado($email, $cpf); 
+
+            $ErroNosCampos["Captcha"] = $func->reCaptcha();
 
             foreach ($ErroNosCampos as $key => $verifica) {
                 if ($verifica) {
