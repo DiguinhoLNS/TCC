@@ -421,7 +421,7 @@ class Funcoes extends ConexaoBD
 
     public function PegarDadosEmpresaPeloCodigo($codigo_acesso)
     {
-        $query = "SELECT codigo_acesso, id_empresa FROM empresas where codigo_acesso =  '$codigo_acesso'";
+        $query = "SELECT * FROM empresas where codigo_acesso =  '$codigo_acesso'";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 6");
         $QuantidadeDeEmpresas = $ResultadoQuery->rowCount();
 
@@ -435,7 +435,8 @@ class Funcoes extends ConexaoBD
 
         $Dados = array(
             "CodigoExiste" => $CodigoExiste,
-            "id_empresa" => $DadosEmpresa[0]['id_empresa']
+            "id_empresa" => $DadosEmpresa[0]['id_empresa'],
+            "Empresa" => $DadosEmpresa
         );
 
         return $Dados;

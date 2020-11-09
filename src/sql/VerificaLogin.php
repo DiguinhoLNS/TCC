@@ -54,18 +54,18 @@
 
 			$QuantidadeDeLoginsJaFeitos = $func->VerificarSeUsuarioJaFezLoginAntes($codigo_acesso, $id_user);
 			
-			if ($Dados["CodigoExiste"] && empty($QuantidadeDeLoginsJaFeitos)) {
+			if ($Dados["CodigoExiste"] && empty($QuantidadeDeLoginsJaFeitos) && $Dados["Empresa"][0]["Situacao"] == 'Ativada') {
 
 				$_SESSION['TipoVerificação'] = "Usuario";
 				setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 				header("Location: InsereUser_Empresa.php?q=".base64_encode($codigo_acesso));
 
-			} else if(!empty($QuantidadeDeLoginsJaFeitos)){
+			} else if(!empty($QuantidadeDeLoginsJaFeitos && $Dados["Empresa"][0]["Situacao"] == 'Ativada')){
 
 				header("Location: ../Company.php?q=".base64_encode($Dados['id_empresa']));
 				setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 				
-			}else if(!$Dados["CodigoExiste"]) {
+			}else if(!$Dados["CodigoExiste"] || $Dados["Empresa"][0]["Situacao"] != 'Ativada') {
 
 				$_SESSION["ErroLoginEmpresa"] = true;
 				setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
