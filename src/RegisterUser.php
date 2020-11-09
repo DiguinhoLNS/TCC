@@ -180,7 +180,6 @@
 
 				}
 			}
-				
 
 		?>
 
@@ -233,9 +232,9 @@
 							<span id = "ErrorSenha" class = "txtError"> Senha inválida </span>
 							<input id = "R_UserSenha" class = "UserInputData" type = "password" name = "senha" required />
 						</li>
-						<li>
-						<span id = "ErrorCaptcha" class = "txtError"> Preencha o captcha </span>
-						<div class="g-recaptcha" data-sitekey="6LcNseAZAAAAAHJ_Z0_pIVNvaZEEoqhwHnGz2pMD"></div>
+						<li class = "ContentCaptcha">
+							<span id = "ErrorCaptcha" class = "txtError"> Preencha o captcha </span>
+							<div class = "g-recaptcha" data-sitekey = "6LcNseAZAAAAAHJ_Z0_pIVNvaZEEoqhwHnGz2pMD"></div>
 						</li>
 						<li class = "ContentBottom">
 							<a href="LoginUser.php"> Já possui uma conta? </a>
