@@ -68,7 +68,7 @@
 				<section id = "CompanyHeader">
 
 					<a href = "Company.php?q=<?php echo base64_encode($DadosEmpresa[0]["id_empresa"]);?>" title = "Acessar <?php echo $DadosEmpresa[0]['Nome'];?>">
-						<h1><?php echo $DadosEmpresa[0]['Nome']; ?></h1>
+						<h1><?=$DadosEmpresa[0]['Nome']; ?></h1>
 					</a>
 
 				</section>
@@ -87,7 +87,7 @@
                                 <i class = "material-icons"> &#xe8f0; </i>
                                 <span> Opções </span>
                             </li>
-							<?php if($DadosUserEmpresa["Usuario"][0]['Nivel_acesso'] == 4){
+							<?php if($DadosUserEmpresa[0]['Nivel_acesso'] == 4){
 								echo '
 								<li id = "CFO3" class = "NavListOption">
 									<i class = "material-icons"> &#xe8b8; </i>
