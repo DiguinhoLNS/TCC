@@ -87,7 +87,7 @@
                                 <i class = "material-icons"> &#xe8f0; </i>
                                 <span> Opções </span>
                             </li>
-							<?php if($DadosUserEmpresa[0]['Nivel_acesso'] == 4){
+							<?php if($DadosUserEmpresa["Usuario"][0]['Nivel_acesso'] == 4){
 								echo '
 								<li id = "CFO3" class = "NavListOption">
 									<i class = "material-icons"> &#xe8b8; </i>

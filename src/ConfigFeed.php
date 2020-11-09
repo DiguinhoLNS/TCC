@@ -694,42 +694,45 @@
 													<ul id = "FeedConfigItensView">
 													<?php
 														$i=0;
-														do{
-															if($DadosItem["Objeto"][$i]["Categoria"] == "Acessorio"){
-																$DadosItem["Objeto"][$i]["Categoria"] = "Acessório";
-															}else if($DadosItem["Objeto"][$i]["Categoria" == "Eletronico"]){
-																$DadosItem["Objeto"][$i]["Categoria"] = "Eletrônico";
-															}
-															$DataSeparada = $func->SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
+														if($DadosItem["Quantidade"] > 0){
+															
+															do{
+																if($DadosItem["Objeto"][$i]["Categoria"] == "Acessorio"){
+																	$DadosItem["Objeto"][$i]["Categoria"] = "Acessório";
+																}else if($DadosItem["Objeto"][$i]["Categoria" == "Eletronico"]){
+																	$DadosItem["Objeto"][$i]["Categoria"] = "Eletrônico";
+																}
+																$DataSeparada = $func->SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
 
-															echo'
-															<li>
-																<div class = "ItemBox">
-																
-																	<div class = "ItemImg">
-																		<img src = "imagesBD/'.$DadosItem["Objeto"][$i]["Nome_foto"].'"/>
+																echo'
+																<li>
+																	<div class = "ItemBox">
+																	
+																		<div class = "ItemImg">
+																			<img src = "imagesBD/'.$DadosItem["Objeto"][$i]["Nome_foto"].'"/>
+																		</div>
+																		<div class = "ItemInfo">
+																			<h1> '.$DadosItem["Objeto"][$i]["Nome_obj"]. ' </h1>
+																		</div>
+																		<div class = "ItemControl">
+																			<a href = "Item.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
+																				<i class = "material-icons"> &#xe8f4; </i>
+																			</a>
+																			<a href = "EditItem.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Editar Item">
+																				<i class = "material-icons"> &#xe150; </i>
+																			</a>
+																			<a href = "sql/ApagarCadastros.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]).'&v='.base64_encode('Item').'" title = "Apagar Item">
+																				<i class = "material-icons"> &#xe872; </i>
+																			</a>
+																		</div>
+
 																	</div>
-																	<div class = "ItemInfo">
-																		<h1> '.$DadosItem["Objeto"][$i]["Nome_obj"]. ' </h1>
-																	</div>
-																	<div class = "ItemControl">
-																		<a href = "Item.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
-																			<i class = "material-icons"> &#xe8f4; </i>
-																		</a>
-																		<a href = "EditItem.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Editar Item">
-																			<i class = "material-icons"> &#xe150; </i>
-																		</a>
-																		<a href = "sql/ApagarCadastros.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]).'&v='.base64_encode('Item').'" title = "Apagar Item">
-																			<i class = "material-icons"> &#xe872; </i>
-																		</a>
-																	</div>
 
-																</div>
+																</li>';
 
-															</li>';
-
-														$i++;
-														}while($i<$DadosItem["Quantidade"]);
+															$i++;
+															}while($i<$DadosItem["Quantidade"]);
+														}
 
 													?>
 													</ul>
@@ -746,50 +749,53 @@
 
 												</div>
 
-												<div class = "FrameMain FrameSection"></div>
+												<div class = "FrameMain FrameSection">
 
 													<ul id = "FeedConfigItensView">
 														<?php
 															$i=0;
-															do{
-																if($Perdidos["Objeto"][$i]["Categoria"] == "Acessorio"){
-																	$Perdidos["Objeto"][$i]["Categoria"] = "Acessório";
-																}else if($Perdidos["Objeto"][$i]["Categoria" == "Eletronico"]){
-																	$Perdidos["Objeto"][$i]["Categoria"] = "Eletrônico";
-																}
-																$DataSeparada = $func->SepararData($Perdidos["Objeto"][$i]["Data_cadastro"]);
+															if($Perdidos["Quantidade"] > 0){
+																do{
+																	if($Perdidos["Objeto"][$i]["Categoria"] == "Acessorio"){
+																		$Perdidos["Objeto"][$i]["Categoria"] = "Acessório";
+																	}else if($Perdidos["Objeto"][$i]["Categoria" == "Eletronico"]){
+																		$Perdidos["Objeto"][$i]["Categoria"] = "Eletrônico";
+																	}
+																	$DataSeparada = $func->SepararData($Perdidos["Objeto"][$i]["Data_cadastro"]);
 
-																echo'
-																<li>
-																	<div class = "ItemBox">
-																	
-																		<div class = "ItemImg">
-																			<img src = "imagesBD/'.$Perdidos["Objeto"][$i]["Nome_foto"].'"/>
+																	echo'
+																	<li>
+																		<div class = "ItemBox">
+																		
+																			<div class = "ItemImg">
+																				<img src = "imagesBD/'.$Perdidos["Objeto"][$i]["Nome_foto"].'"/>
+																			</div>
+																			<div class = "ItemInfo">
+																				<h1> '.$Perdidos["Objeto"][$i]["Nome_obj"]. ' </h1>
+																			</div>
+																			<div class = "ItemControl">
+																				<a href = "Item.php?q='.base64_encode($Perdidos["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
+																					<i class = "material-icons"> &#xe8f4; </i>
+																				</a>
+																				<a href = "EditItem.php?q='.base64_encode($Perdidos["Objeto"][$i]["id_obj"]) .'" title = "Editar Item">
+																					<i class = "material-icons"> &#xe150; </i>
+																				</a>
+																				<a href = "sql/ApagarCadastros.php?q='.base64_encode($Perdidos["Objeto"][$i]["id_obj"]).'&v='.base64_encode('Item').'" title = "Apagar Item">
+																					<i class = "material-icons"> &#xe872; </i>
+																				</a>
+																			</div>
+
 																		</div>
-																		<div class = "ItemInfo">
-																			<h1> '.$Perdidos["Objeto"][$i]["Nome_obj"]. ' </h1>
-																		</div>
-																		<div class = "ItemControl">
-																			<a href = "Item.php?q='.base64_encode($Perdidos["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
-																				<i class = "material-icons"> &#xe8f4; </i>
-																			</a>
-																			<a href = "EditItem.php?q='.base64_encode($Perdidos["Objeto"][$i]["id_obj"]) .'" title = "Editar Item">
-																				<i class = "material-icons"> &#xe150; </i>
-																			</a>
-																			<a href = "sql/ApagarCadastros.php?q='.base64_encode($Perdidos["Objeto"][$i]["id_obj"]).'&v='.base64_encode('Item').'" title = "Apagar Item">
-																				<i class = "material-icons"> &#xe872; </i>
-																			</a>
-																		</div>
 
-																	</div>
+																	</li>';
 
-																</li>';
-
-															$i++;
-															}while($i<$Perdidos["Quantidade"]);
-
+																$i++;
+																}while($i<$Perdidos["Quantidade"]);
+															}
 														?>
-														</ul>
+													</ul>
+
+												</div>
 												
 											</div>
 
@@ -801,11 +807,13 @@
 
 												</div>
 
-												<div class = "FrameMain FrameSection"></div>
+												<div class = "FrameMain FrameSection">
 
-												<ul id = "FeedConfigItensView">
-														<?php
-															$i=0;
+													<ul id = "FeedConfigItensView">
+													<?php
+														$i=0;
+														if($Devolvidos["Quantidade"] > 0){
+
 															do{
 																if($Devolvidos["Objeto"][$i]["Categoria"] == "Acessorio"){
 																	$Devolvidos["Objeto"][$i]["Categoria"] = "Acessório";
@@ -813,7 +821,7 @@
 																	$Devolvidos["Objeto"][$i]["Categoria"] = "Eletrônico";
 																}
 																$DataSeparada = $func->SepararData($Devolvidos["Objeto"][$i]["Data_cadastro"]);
-
+	
 																echo'
 																<li>
 																	<div class = "ItemBox">
@@ -835,16 +843,19 @@
 																				<i class = "material-icons"> &#xe872; </i>
 																			</a>
 																		</div>
-
+	
 																	</div>
-
+	
 																</li>';
-
+	
 															$i++;
 															}while($i<$Devolvidos["Quantidade"]);
 
-														?>
-														</ul>
+														}
+													?>
+													</ul>
+
+												</div>
 												
 											</div>
 

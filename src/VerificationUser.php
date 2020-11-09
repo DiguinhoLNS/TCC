@@ -54,8 +54,6 @@
 
             $_SESSION["cod"] = $cod;
 
-
-
             $mail->CharSet = 'UTF-8';
             $mail->setLanguage("pt");
             $mail->SMTPDebug = false;
@@ -66,6 +64,14 @@
             $mail->Port = 465;
             $mail->Username = 'ape.achadoseperdidos@gmail.com';
             $mail->Password = 'lmrt2020';
+
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+                )
+            );
 
             $mail->SetFrom('ape.achadoseperdidos@gmail.com', 'Ape Achados e Perdidos');
             $mail->addAddress($emailUser);
@@ -81,11 +87,11 @@
             
                     <main>
             
-                        <h2> Aqui está o seu código de verificação de segurança da sua conta APE </h2>
+                        <h2 style = "color: #202124"> Aqui está o seu código de verificação de segurança da sua conta APE </h2>
                         <br/>
-                        <h1> '.$cod.' </h1>
+                        <h1 style = "color: #202124"> '.$cod.' </h1>
                         <br>
-                        <p> NÃO RESPONDA A ESSE EMAIL </p>
+                        <p style = "color: #5F6368"> NÃO RESPONDA A ESSE EMAIL </p>
             
                     </main>
             
@@ -161,7 +167,7 @@
                         </li>
                         <li class = "ContentInput">
                             <label for = "V_Cod"> Código de Verificação </label>
-                            <input name = "V_Cod" id = "V_Cod" class = "UserInputData" type = "text" maxlength = "12" required />
+                            <input name = "V_Cod" id = "V_Cod" class = "UserInputData" type = "text" maxlength = "6" required />
                         </li>
                         <li class = "ContentError">
                             <span id = "ErrorCod" class = "txtError"> Código incorreto </span>
