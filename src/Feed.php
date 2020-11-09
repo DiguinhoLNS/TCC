@@ -301,7 +301,6 @@
 										if($Acessorios["Quantidade"]==0){
 											echo '
 											<div class = "FeedFrameCategory">	
-											'.$Acessorios["Quantidade"].'
 											<ul class = "FeedBoxGroup">';
 
 										}else{
