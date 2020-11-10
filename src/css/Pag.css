@@ -1149,7 +1149,7 @@ h1, h2, h3, h4, h5, h6 {
 
 			.FeedFrame .FeedFrameContent .FeedBoxGroup {
 				display: grid;
-				grid-template-columns: repeat(4, 1fr);
+				grid-template-columns: repeat(3, 1fr);
 				grid-template-rows: auto;
 				grid-gap: 40px;
 				
@@ -2066,11 +2066,11 @@ h1, h2, h3, h4, h5, h6 {
 			background-color: var(--color-theme-p);
 		}
 
-			.FormRegister, .FormEdit, .FormVerification {
+			.FormRegister, .FormEdit {
 				width: 440px;
 			}
 
-			.FormLogin {
+			.FormDouble {
 				display: grid;
 				grid-template-columns: repeat(2, 1fr);
 				
@@ -2147,7 +2147,7 @@ h1, h2, h3, h4, h5, h6 {
 
 				color: var(--color-txt-s);
 				font-size: 20px;
-				text-align: center;
+				text-align: left;
 			}
 
 			/* Content Input */

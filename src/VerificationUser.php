@@ -155,7 +155,7 @@
 
         <main id = "MainLoginUser" class = "MainFormPlatform">
 
-            <div class = "FormPlatform FormVerification BS">
+            <div class = "FormPlatform FormVerification FormDouble BS">
 
                 <form class = "FormData" method = "POST" action = "VerificationUser.php">
 
@@ -165,7 +165,7 @@
                             <h1> Verificação </h1>
                         </li>
                         <li class = "ContentInfo">
-                            <h2> Enviamos para <?=$emailUser?><br> um código de verificação de segurança. </h2>
+                            <h2> Enviamos um código de verificação para o seu email </h2>
                         </li>
                         <li class = "ContentInput">
                             <label for = "V_Cod"> Código de Verificação </label>
@@ -182,6 +182,22 @@
                     </ul>
 
                 </form>
+
+                <div class = "FormControl">
+
+					<ul class = "FormControlContent">
+					
+						<li class = "ContentHeader">
+							<i class = "material-icons"> &#xe0da; </i>
+							<h1> Verificação APE </h1>
+						</li>
+						<li class = "ContentControl">
+							<a href = "EditEmail.php" class = "btn"> Editar Email </a>
+						</li>
+
+					</ul>
+
+				</div>
 
             </div>
 

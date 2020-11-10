@@ -76,7 +76,7 @@
 
         <main id = "MainLoginCompany" class = "MainFormPlatform">
 
-            <div class = "FormPlatform FormLogin BS">
+            <div class = "FormPlatform FormLogin FormDouble BS">
 
                 <form class = "FormData" method = "POST" action = "sql/VerificaLogin.php">
 

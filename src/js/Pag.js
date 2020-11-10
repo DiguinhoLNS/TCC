@@ -738,7 +738,7 @@ $(document).ready(function(){
 
     const FormData = $(".FormData");
     const FormControl = $(".FormControl");
-    var FormBackground = $(".FormLogin");
+    var FormBackground = $(".FormDouble");
     var Theme = localStorage.getItem("Theme");
 
     FormData.on("click", function(){
