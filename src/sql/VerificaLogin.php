@@ -22,7 +22,9 @@
 
 			$Dados = $func->PegarDadosUsuarioPeloEmailSenha($email, $senha);
 
-			if ($Dados['UsuarioExiste']) {
+			$Captcha = $func->reCaptcha();
+
+			if ($Dados['UsuarioExiste'] && $Captcha == false) {
 
 				setcookie("ID", base64_encode($Dados['id_user']), time() + (86400 * 30), "/");
 				setcookie("MessageNotification", "Login realizado", time() + 900, "/");
@@ -53,19 +55,21 @@
 			$Dados = $func->PegarDadosEmpresaPeloCodigo($codigo_acesso);
 
 			$QuantidadeDeLoginsJaFeitos = $func->VerificarSeUsuarioJaFezLoginAntes($codigo_acesso, $id_user);
+
+			$Captcha = $func->reCaptcha();
 			
-			if ($Dados["CodigoExiste"] && empty($QuantidadeDeLoginsJaFeitos) && $Dados["Empresa"][0]["Situacao"] == 'Ativada') {
+			if ($Dados["CodigoExiste"] && empty($QuantidadeDeLoginsJaFeitos) && $Dados["Empresa"][0]["Situacao"] == 'Ativada' && $Captcha == false) {
 
 				$_SESSION['TipoVerificação'] = "Usuario";
 				setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 				header("Location: InsereUser_Empresa.php?q=".base64_encode($codigo_acesso));
 
-			} else if(!empty($QuantidadeDeLoginsJaFeitos && $Dados["Empresa"][0]["Situacao"] == 'Ativada')){
+			} else if(!empty($QuantidadeDeLoginsJaFeitos && $Dados["Empresa"][0]["Situacao"] == 'Ativada' && $Captcha == false)){
 
-				header("Location: ../Company.php?q=".base64_encode($Dados['id_empresa']));
+				header("Location: ../Feed.php?q=".base64_encode($Dados['id_empresa']));
 				setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 				
-			}else if(!$Dados["CodigoExiste"] || $Dados["Empresa"][0]["Situacao"] != 'Ativada') {
+			}else if(!$Dados["CodigoExiste"] || $Dados["Empresa"][0]["Situacao"] != 'Ativada' || $Captcha == true) {
 
 				$_SESSION["ErroLoginEmpresa"] = true;
 				setcookie("VerificaErro", "1", time() + (86400 * 30), "/");

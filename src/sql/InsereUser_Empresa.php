@@ -28,7 +28,7 @@
 
                 $sql = $conn->dbh->prepare($query);
                 $sql->execute([':id_user' => $id_user, ':id_empresa' => $DadosEmpresa['id_empresa'], ':nivel_acesso' => '2', ':banido' => 'N' ]);
-                header("Location: ../Company.php?q=".base64_encode($DadosEmpresa["id_empresa"]));
+                header("Location: ../Feed.php?q=".base64_encode($DadosEmpresa["id_empresa"]));
 
             }catch(PDOException $e){
                 die("Erro no SQL");
@@ -54,7 +54,7 @@
 
                 $sql = $conn->dbh->prepare($query);
                 $sql->execute([':id_adm' => $id_adm, ':id_empresa' => $DadosEmpresa[0]['id_empresa'], ':nivel_acesso' => '4', ':banido' => 'N' ]);
-                header("Location: ../Company.php?q=".base64_encode($DadosEmpresa[0]["id_empresa"]));
+                header("Location: ../Feed.php?q=".base64_encode($DadosEmpresa[0]["id_empresa"]));
 
             }catch(PDOException $e){
                 die("Erro no SQL") ;

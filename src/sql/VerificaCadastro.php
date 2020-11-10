@@ -89,7 +89,8 @@
                 "CNPJ" => false,
                 "Telefone" => false,
                 "Endereco" => false,
-                "Cor" => false
+                "Cor" => false,
+                "Captcha" => false
             ];
 
             $ErroNosCampos["Nome"] = $func->VerificarCadastroNome($nome);
@@ -102,6 +103,8 @@
 
             $ErroNosCampos["CNPJ"] ? : $ErroNosCampos["CNPJ"] = $func->VerificarSeEmpresaJaCadastrada($email, $cnpj);
             $ErroNosCampos["Email"] = $func->VerificarSeEmpresaJaCadastrada($email, $cnpj);
+
+            $ErroNosCampos["Captcha"] = $func->reCaptcha();
 
             foreach ($ErroNosCampos as $key => $verifica) {
                 if ($verifica) {
@@ -237,10 +240,13 @@
                 "foto" => false,
                 "categoria" => false,
                 "descricao" => false,
+                "Captcha" => false 
             ];
 
             $ErroNosCampos["Nome"] = $func->VerificarNomeOBJ($nome);   
             $ErroNosCampos["foto"] = $func->VerificarFoto($foto);
+
+            $ErroNosCampos["Captcha"] = $func->reCaptcha();
 
             foreach ($ErroNosCampos as $key => $verifica) {
                 if ($verifica) {

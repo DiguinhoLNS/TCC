@@ -14,7 +14,8 @@
 
 		<title> Entrar em Página </title>
 
-		<?php include "include/Head.php"; ?>
+        <?php include "include/Head.php"; ?>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     </head>
     
@@ -51,6 +52,20 @@
                         
                         ';
 
+                        echo '
+                        
+                            <script language = "javascript" type = "text/javascript">
+                                
+                                $(document).ready(function(){
+
+                                    $("#ErrorCaptcha").css("display", "block");
+
+                                });
+                        
+                            </script>
+                
+                        ';
+
                     }
 
                 }
@@ -74,8 +89,12 @@
 							<label for = "L_Cod"> Código </label>
 							<input id = "L_Cod" class = "UserInputData" type = "text" name = "cod" required />
                         </li>
+                        <li class = "ContentCaptcha">
+							<div class = "g-recaptcha" data-sitekey = "6LcNseAZAAAAAHJ_Z0_pIVNvaZEEoqhwHnGz2pMD"></div>
+						</li>
                         <li class = "ContentError">
-							<span id = "ErrorCod" class = "txtError"> Código incorreto </span>
+                            <span id = "ErrorCaptcha" class = "txtError"> Preencha o captcha </span><br>
+                            <span id = "ErrorCod" class = "txtError"> Código incorreto </span>
                         </li>
 						<li class = "ContentBottom">
 							<a href = "Dashboard.php"> Voltar para Dashboard </a>

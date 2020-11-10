@@ -89,8 +89,6 @@
 			$novoNome = md5(time()) .".". $extensao;
 			$diretorio = "C:\Users\T-Gamer\Documents\GitHub\TCC\src\imagesBD/";
 
-			move_uploaded_file($foto["tmp_name"], $diretorio . $novoNome);
-
 			setlocale(LC_ALL, 'pt_BR', 'pt', 'Portuguese_Brazilian');
 
 			$data = strftime('%Y-%m-%d');			
@@ -103,10 +101,11 @@
 
 				$sql = $conn->dbh->prepare($query);
 				$sql->execute([':id_empresa' => $id_empresa, ':nome_foto' => $novoNome, ':nome_obj' => $nome, ':data' => $data, ':categoria' => $categoria, ':descricao' => $descricao, ':situacao' => 'Perdido']);
+				move_uploaded_file($foto["tmp_name"], $diretorio . $novoNome);
 				header("Location: ../Feed.php?q=".base64_encode($id_empresa));
 
 			}catch(PDOException $e){
-				die("Erro no SQL");
+				die("Erro no SQL ".var_dump($_POST). " ". var_dump($_FILES));
 			}
 
 

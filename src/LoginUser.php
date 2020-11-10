@@ -15,6 +15,7 @@
 		<title> Login </title>
 
 		<?php include "include/Head.php"; ?>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 	</head>
 
@@ -51,6 +52,21 @@
 						
 						';
 
+
+						echo '
+								
+							<script language = "javascript" type = "text/javascript">
+							
+								$(document).ready(function(){
+
+									$("#ErrorCaptcha").css("display", "block");
+
+								});
+							
+							</script>
+						
+						';
+
 					}
 
 				}
@@ -77,8 +93,12 @@
 							<label for = "L_Senha"> Senha </label>
 							<input name="L_PWD" id = "L_Senha" class = "UserInputData" type = "password" required />
 						</li>
+						<li class = "ContentCaptcha">
+							<div class = "g-recaptcha" data-sitekey = "6LcNseAZAAAAAHJ_Z0_pIVNvaZEEoqhwHnGz2pMD"></div>
+						</li>
 						<li class = "ContentError">
 							<span id = "ErrorLogin" class = "txtError"> Email ou Senha incorretos </span>
+							<span id = "ErrorCaptcha" class = "txtError"> Preencha o captcha </span>
 						</li>
 						<li class = "ContentBottom">
 							<a href = "#"> Esqueceu a senha? </a>

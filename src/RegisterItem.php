@@ -16,6 +16,7 @@
 		<title> Criar Item </title>
 
 		<?php include "include/Head.php"; ?>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 	</head>
 
@@ -59,6 +60,24 @@
 									$(document).ready(function(){
 
 										$("#ErrorFoto").css("display", "block");
+
+									});
+								
+								</script>
+							
+							';
+
+						}
+
+						if (isset($erros["Captcha"])){
+
+							echo '
+								
+								<script language = "javascript" type = "text/javascript">
+								
+									$(document).ready(function(){
+
+										$("#ErrorCaptcha").css("display", "block");
 
 									});
 								
@@ -114,6 +133,10 @@
 							<label for = "R_ItemDesc"> Descrição </label>
 							<textarea id = "R_ItemDesc" class = "FormTextareaData" name = "descricao" rows = "4"></textarea>
 						</li>
+						<li class = "ContentCaptcha">
+							<div class = "g-recaptcha" data-sitekey = "6LcNseAZAAAAAHJ_Z0_pIVNvaZEEoqhwHnGz2pMD"></div>
+						</li>
+						<span id = "ErrorCaptcha" class = "txtError"> Preencha o captcha </span>
 						<li class = "ContentBottom">
 							<a href = "Feed.php?q=<?php echo base64_encode($id_empresa)?>"> Voltar para Feed </a>
 							<input class = "UserInputSubmit btn" type = "submit" value = "Criar Item"/>

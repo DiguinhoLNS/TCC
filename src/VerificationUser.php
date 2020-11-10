@@ -165,7 +165,7 @@
                             <h1> Verificação </h1>
                         </li>
                         <li class = "ContentInfo">
-                            <h2> Enviamos ao seu email um código de verificação de segurança </h2>
+                            <h2> Enviamos para <?=$emailUser?><br> um código de verificação de segurança. </h2>
                         </li>
                         <li class = "ContentInput">
                             <label for = "V_Cod"> Código de Verificação </label>

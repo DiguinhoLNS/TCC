@@ -14,7 +14,8 @@
 
         <title> Criar Página </title>
 
-        <?php include "include/Head.php"; ?>
+		<?php include "include/Head.php"; ?>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     </head>
 
@@ -121,6 +122,24 @@
 							
 						}
 
+						if(isset($erros["Captcha"])){
+
+							echo '
+								
+								<script language = "javascript" type = "text/javascript">
+								
+									$(document).ready(function(){
+
+										$("#ErrorCaptcha").css("display", "block");
+
+									});
+								
+								</script>
+							
+							';
+							
+						}
+
 					}
 			}
 
@@ -176,7 +195,11 @@
                                 <option value = "ThemeTeal"> Ciano </option>
                                 <option value = "ThemeBrown"> Marrom </option>
                             </select>
-                        </li>
+						</li>
+						<li class = "ContentCaptcha">
+							<div class = "g-recaptcha" data-sitekey = "6LcNseAZAAAAAHJ_Z0_pIVNvaZEEoqhwHnGz2pMD"></div>
+						</li>
+						<span id = "ErrorCaptcha" class = "txtError"> Preencha o captcha </span>
                         <li class = "ContentBottom">
 							<a href = "LoginCompany.php"> Já possui uma página? </a>
 							<input class = "UserInputSubmit btn" type = "submit" value = "Criar Empresa">
