@@ -40,7 +40,7 @@
 
         try {
 
-            $emailUser = $_SESSION["email"];
+            $emailUser = isset($_SESSION["email"]) ? $_SESSION["email"] : base64_decode($_GET["q"]);
 
             //echo $emailUser;
 
@@ -165,7 +165,7 @@
                             <h1> Verificação </h1>
                         </li>
                         <li class = "ContentInfo">
-                            <h2> Enviamos um código de verificação para o seu email </h2>
+                            <h2> Enviamos um código de verificação para <?=$emailUser?> </h2>
                         </li>
                         <li class = "ContentInput">
                             <label for = "V_Cod"> Código de Verificação </label>

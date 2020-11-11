@@ -294,6 +294,25 @@ class Funcoes extends ConexaoBD
         }
     }
 
+    public function PegarDadosUsuarioPeloEmail($email){
+
+        $query = "SELECT * FROM usuarios where Email_user =  '$email'";
+        $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 5");
+        $DadosUsuario = $ResultadoQuery->fetchAll();
+        $QuantidadeDeEmails = $ResultadoQuery->rowCount();
+
+        $EmailExiste = $QuantidadeDeEmails == 1 ? true : false; 
+
+        $Dados = array(
+            "Dados" => $DadosUsuario,
+            "EmailExiste" => $EmailExiste
+        );
+
+        return $Dados;
+
+
+    }
+
     //Querys usadas no Company.php
     public function PegarDadosEmpresaPeloIdEmpresa($id_empresa)
     {

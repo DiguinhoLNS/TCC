@@ -1,7 +1,16 @@
 <?php 
 
     session_start();
-    date_default_timezone_set('America/Sao_Paulo'); 
+	date_default_timezone_set('America/Sao_Paulo'); 
+
+	require_once "sql/Funcoes.php";
+	//require_once "sql/ConexaoBD.php";
+
+	//$conn= new ConexaoBD();
+    $func = new Funcoes();
+
+	$email = $_SESSION["email"];
+	$_SESSION['TipoVerificação'] = "EditarEmail";
     
 ?>
 
@@ -19,11 +28,32 @@
     
     <body id = "EditEmailPage" class = "LightMode">
 
+	<?php
+
+		if($_COOKIE["VerificaErro"] == 1){
+
+			echo '
+						
+				<script language = "javascript" type = "text/javascript">
+				
+					$(document).ready(function(){
+
+						$("#ErrorEmail").css("display", "block");
+
+					});
+				
+				</script>
+			
+			';
+			}
+
+		?>
+
         <main id = "MainEditEmail" class = "MainFormPlatform">
 
 			<div class = "FormPlatform FormEdit BS">
 
-				<form class = "FormData" method = "POST" action = "sql/.php">
+				<form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php">
 
 					<ul class = "FormPlatformContent">
 
@@ -34,12 +64,8 @@
 							<label for = "E_Email"> Novo Email </label>
 							<input name = "E_Email" id = "E_Email" class = "UserInputData" type = "email" required />
 						</li>
-						<li class = "ContentCaptcha">
-							<div class = "g-recaptcha" data-sitekey = "6LcNseAZAAAAAHJ_Z0_pIVNvaZEEoqhwHnGz2pMD"></div>
-						</li>
 						<li class = "ContentError">
-							<span id = "ErrorEmail" class = "txtError"> Email incorreto </span>
-							<span id = "ErrorCaptcha" class = "txtError"> Preencha o captcha </span>
+							<span id = "ErrorEmail" class = "txtError"> Email já cadastrado </span><br>
 						</li>
 						<li class = "ContentBottom">
 							<input class = "UserInputSubmit btn" type = "submit" value = "Alterar Email">

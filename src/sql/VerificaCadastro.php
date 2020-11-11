@@ -272,7 +272,6 @@
         case "EditarItem":
             $id_obj = $func->ClearInjectionXSS(base64_decode($_GET['q']));
             $nome = $func->ClearInjectionXSS($_POST["nome"]);
-            //$foto = $_FILES["foto"];
             $categoria = $func->ClearInjectionXSS($_POST["categoria"]);
             $descricao = $func->ClearInjectionXSS($_POST["descricao"]);
             $situacao = $func->ClearInjectionXSS($_POST["situacao"]);
@@ -285,7 +284,6 @@
             ];
 
             $ErroNosCampos["Nome"] = $func->VerificarNomeOBJ($nome);   
-            //$ErroNosCampos["foto"] = $func->VerificarFoto($foto);
 
             foreach ($ErroNosCampos as $key => $verifica) {
                 if ($verifica) {
@@ -303,10 +301,30 @@
                 setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
                 $_SESSION["ErrosRegistrarItem"] = $erros;
 
-                //var_dump($erros);
                 header("Location: ../RegisterItem.php?q=".base64_encode($id_empresa));
 
             }
+        break;
+
+        case "EditarEmail":
+
+        $emailNovo = $func->ClearInjectionXSS($_POST["E_Email"]);
+
+        $emailAntigo = $_SESSION["email"];
+
+        $Dados = $func->PegarDadosUsuarioPeloEmail($emailNovo);
+        $Dados["EmailExiste"] = $Dados["EmailExiste"] ? 1 : 0;
+
+        if($Dados["EmailExiste"] == 1){
+            setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
+            header("Location: ../EditEmail.php");
+        }else{
+            setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
+            include "EditarDados.php";
+        }
+
+
+
         break;
 
         default:

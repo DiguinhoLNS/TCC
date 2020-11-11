@@ -72,6 +72,25 @@ switch ($tipo_verificacao) {
             die("Erro no SQL ". $e);
         }
 
+        break;
+
+        case "EditarEmail":
+
+            $emailNovo = $func->ClearInjectionXSS($_POST["E_Email"]);
+            $emailAntigo = $_SESSION["email"];
+
+            try {
+
+                $query = "UPDATE usuarios SET Email_user = :email WHERE Email_user = :email_antigo";
+    
+                $sql = $conn->dbh->prepare($query);
+                $sql->execute([':email' => $emailNovo, ':email_antigo' => $emailAntigo]);
+                $_SESSION["email"] = $emailNovo;
+                header("Location: ../VerificationUser.php?q=".base64_encode($emailNovo));
+    
+            } catch (PDOException $e) {
+                die("Erro no SQL ". $e);
+            }
 
 
         break;
