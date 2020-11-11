@@ -22,6 +22,7 @@
             $telefone = $func->ClearInjectionXSS($_POST["telefone"]);
             $genero = $func->ClearInjectionXSS($_POST["Genero"]);
             $senha = $func->ClearInjectionXSS($_POST["senha"]);
+            $senha2 = $func->ClearInjectionXSS($_POST["senha2"]);
 
             $cpf = $func->TirarPontoCPF($CpfComPonto);
 
@@ -33,6 +34,7 @@
                 "Endereco" => false,
                 "Telefone" => false,
                 "Senha" => false,
+                "ConfSenha" => false,
                 "Captcha" => false
             ];
 
@@ -45,6 +47,8 @@
             $ErroNosCampos["Telefone"] = $func->VerificaTelefone($telefone);
 
             $ErroNosCampos["Senha"] = $func->VerificaSenha($senha);
+
+            $ErroNosCampos["ConfSenha"] = $senha == $senha2 ? false : true;
 
             $ErroNosCampos["CPF"] ? : $ErroNosCampos["CPF"] = $func->VerificarSeUsuarioJaCadastrado($email, $cpf);
             $ErroNosCampos["Email"] = $func->VerificarSeUsuarioJaCadastrado($email, $cpf); 

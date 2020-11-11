@@ -160,6 +160,25 @@
 						';
 
 					}
+
+					if(isset($erros["ConfSenha"])){
+
+						echo '
+							
+							<script language = "javascript" type = "text/javascript">
+							
+								$(document).ready(function(){
+
+									$("#ErrorSenha2").css("display", "block");
+
+								});
+							
+							</script>
+						
+						';
+
+					}
+
 					if(isset($erros["Captcha"])){
 
 						echo '
@@ -234,7 +253,7 @@
 						</li>
 						<li class = "ContentInput">
 							<label for = "R_UserSenha2"> Confirmar Senha </label>
-							<span id = "ErrorSenha2" class = "txtError"> Senha inválida </span>
+							<span id = "ErrorSenha2" class = "txtError"> As senhas são diferentes </span>
 							<input id = "R_UserSenha2" class = "UserInputData" type = "password" name = "senha2" required />
 						</li>
 						<li class = "ContentCaptcha">
