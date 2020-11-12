@@ -113,7 +113,7 @@
 						<li class = "ContentInput">
 							<label for = "R_ItemFoto"> Foto </label>
 							<span id = "ErrorFoto" class = "txtError"> Foto inválida </span>
-							<input id = "R_ItemFoto" type = "file" name = "foto"/>
+							<input id = "R_ItemFoto" type = "file" name = "foto" accept = "image/*"/>
 							<label id = "imgContent" for = "R_ItemFoto">
 								<i id = "imgIcon" class = "material-icons"> &#xe251; </i>
 								<img id = "FormFoto"/>

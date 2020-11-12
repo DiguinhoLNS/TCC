@@ -2147,7 +2147,7 @@ h1, h2, h3, h4, h5, h6 {
 
 				color: var(--color-txt-s);
 				font-size: 20px;
-				text-align: left;
+				text-align: center;
 			}
 
 			/* Content Input */
