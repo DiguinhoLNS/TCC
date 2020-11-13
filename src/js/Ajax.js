@@ -168,11 +168,24 @@ $(document).ready(function(){
 
                 var folder = "php/Filters/Category/FilterAZ.php";
 
-                $.ajax(folder,{
+                $.ajax({
+                    
+                    url : folder,
+                    type : 'get',
+
+                    beforeSend : function(){
+                        
+                        $(".ItemBox").remove();
+                        
+                        $(".LoadingFeed").css("display", "flex");
+
+                    }
 
                 }).done(function(){
     
                     AJAXRequestStatus(1);
+
+                    $(".LoadingFeed").css("display", "none");    
 
                     $(FeedCategory).load(folder);
     
@@ -231,11 +244,24 @@ $(document).ready(function(){
 
                 var folder = "php/Filters/Category/FilterZA.php";
 
-                $.ajax(folder,{
+                $.ajax({
+                    
+                    url : folder,
+                    type : 'get',
+
+                    beforeSend : function(){
+                        
+                        $(".ItemBox").remove();
+                        
+                        $(".LoadingFeed").css("display", "flex");
+
+                    }
 
                 }).done(function(){
     
                     AJAXRequestStatus(1);
+
+                    $(".LoadingFeed").css("display", "none");    
 
                     $(FeedCategory).load(folder);
     
@@ -294,11 +320,24 @@ $(document).ready(function(){
 
                 var folder = "php/Filters/Category/FilterRecente.php";
 
-                $.ajax(folder,{
+                $.ajax({
+                    
+                    url : folder,
+                    type : 'get',
+
+                    beforeSend : function(){
+                        
+                        $(".ItemBox").remove();
+                        
+                        $(".LoadingFeed").css("display", "flex");
+
+                    }
 
                 }).done(function(){
     
                     AJAXRequestStatus(1);
+
+                    $(".LoadingFeed").css("display", "none");    
 
                     $(FeedCategory).load(folder);
     
@@ -357,11 +396,24 @@ $(document).ready(function(){
 
                 var folder = "php/Filters/Category/FilterAntigo.php";
 
-                $.ajax(folder,{
+                $.ajax({
+                    
+                    url : folder,
+                    type : 'get',
+
+                    beforeSend : function(){
+                        
+                        $(".ItemBox").remove();
+                        
+                        $(".LoadingFeed").css("display", "flex");
+
+                    }
 
                 }).done(function(){
     
                     AJAXRequestStatus(1);
+
+                    $(".LoadingFeed").css("display", "none");    
 
                     $(FeedCategory).load(folder);
     
