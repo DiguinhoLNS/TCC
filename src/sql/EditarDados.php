@@ -32,7 +32,7 @@ switch ($tipo_verificacao) {
 
     case "Empresa":
 
-        $id_empresa = $func->ClearInjectionXSS(base64_decode($_GET["q"]));
+        $id_empresa = $func->ClearInjectionXSS($func->Descriptografar($_GET["q"]));
         $nome = $func->ClearInjectionXSS($_POST["nome"]);
         $email = $func->ClearInjectionXSS($_POST["email"]);
         $cnpj = $func->ClearInjectionXSS($_SESSION['cnpjsemponto']);
@@ -51,7 +51,7 @@ switch ($tipo_verificacao) {
 
     case "Item":
 
-        $id_obj = $func->ClearInjectionXSS(base64_decode($_GET['q']));
+        $id_obj = $func->ClearInjectionXSS($func->Descriptografar($_GET['q']));
         $nome = $func->ClearInjectionXSS($_POST["nome"]);
         //$foto = $_FILES["foto"];
         $categoria = $func->ClearInjectionXSS($_POST["categoria"]);

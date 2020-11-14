@@ -52,7 +52,7 @@
 			$_SESSION["CompanyLoginError_1"] = 0;
 
 			$codigo_acesso = $func->ClearInjectionXSS($_POST['cod']);
-			$id_user = $func->ClearInjectionXSS(base64_decode($_COOKIE['ID']));
+			$id_user = $func->ClearInjectionXSS($func->Descriptografar($_COOKIE['ID']));
 
 			$Dados = $func->PegarDadosEmpresaPeloCodigo($codigo_acesso);
 
@@ -64,11 +64,11 @@
 
 				$_SESSION['TipoVerificação'] = "Usuario";
 				setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
-				header("Location: InsereUser_Empresa.php?q=".base64_encode($codigo_acesso));
+				header("Location: InsereUser_Empresa.php?q=".$func->Criptografar($codigo_acesso));
 
 			} else if(!empty($QuantidadeDeLoginsJaFeitos && $Dados["Empresa"][0]["Situacao"] == 'Ativada' && $Captcha == false)){
 
-				header("Location: ../Feed.php?q=".base64_encode($Dados['id_empresa']));
+				header("Location: ../Feed.php?q=".$func->Criptografar($Dados['id_empresa']));
 				setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 				
 			}else if(!$Dados["CodigoExiste"] || $Dados["Empresa"][0]["Situacao"] != 'Ativada' || $Captcha == true) {

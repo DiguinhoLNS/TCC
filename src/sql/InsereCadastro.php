@@ -66,7 +66,7 @@
 				$sql = $conn->dbh->prepare($query);
 				$sql->execute([':id_adm' => $id_adm, ':codigo_acesso' => $codigo_acesso, ':nome' => $nome, ':cnpj' => $cnpj, ':email' => $email, ':telefone' => $telefone, ':endereco' => $endereco, ':cor' => $cor, ':situacao' => 'Ativada']);
 				
-				header("Location: InsereUser_Empresa.php?q=" . base64_encode($codigo_acesso));
+				header("Location: InsereUser_Empresa.php?q=" . $func->Criptografar($codigo_acesso));
 			
 			}catch(PDOException $e){
 				die("Erro no SQL");

@@ -44,7 +44,7 @@ if ($pesquisar != null) {
 
                 <li class = "SearchItemBox ItemBox">
 
-                    <a href = "Item.php?q=' . base64_encode($Dados["Objeto"][$i]["id_obj"]) . '" title = "' . $Dados["Objeto"][$i]["Nome_obj"] . '">
+                    <a href = "Item.php?q=' . $func->Criptografar($Dados["Objeto"][$i]["id_obj"]) . '" title = "' . $Dados["Objeto"][$i]["Nome_obj"] . '">
 
                         <div class = "ItemImg">
                             <img src = "imagesBD/' . $Dados["Objeto"][$i]["Nome_foto"] . '">

@@ -268,7 +268,7 @@
 												<div class = "btnContent">
 
 													<button class = "btnOption">
-														<a href = "sql/ApagarCadastros.php?q=<?php echo $func->Criptografar($id_empresa) . "&v=". base64_encode("LoginNaEmpresa"); ?>"> Sair da Empresa </a>
+														<a href = "sql/ApagarCadastros.php?q=<?php echo $func->Criptografar($id_empresa) . "&v=". $func->Criptografar("LoginNaEmpresa"); ?>"> Sair da Empresa </a>
 													</button>
 
 												</div>
@@ -365,7 +365,7 @@
 												<div class = "btnContent">
 
 													<button class = "btnDanger">
-														<a href = "sql/ApagarCadastros.php?q= <?php echo $func->Criptografar($id_empresa) . "&v=". base64_encode("Empresa"); ?>"> Apagar Empresa </a>
+														<a href = "sql/ApagarCadastros.php?q= <?php echo $func->Criptografar($id_empresa) . "&v=". $func->Criptografar("Empresa"); ?>"> Apagar Empresa </a>
 													</button>
 
 												</div>

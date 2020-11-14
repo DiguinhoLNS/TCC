@@ -16,7 +16,7 @@
         //(LOGANDO NA EMPRESA) Usuario nivel de acesso 2
         case "Usuario":
 
-            $codigo_acesso = $func->ClearInjectionXSS(base64_decode($_GET['q']));
+            $codigo_acesso = $func->ClearInjectionXSS($func->Descriptografar($_GET['q']));
             $id_user = $func->ClearInjectionXSS($func->Descriptografar($_COOKIE["ID"]));
 
             $DadosEmpresa = $func->PegarDadosEmpresaPeloCodigo($codigo_acesso);
@@ -28,7 +28,7 @@
 
                 $sql = $conn->dbh->prepare($query);
                 $sql->execute([':id_user' => $id_user, ':id_empresa' => $DadosEmpresa['id_empresa'], ':nivel_acesso' => '2', ':banido' => 'N' ]);
-                header("Location: ../Feed.php?q=".base64_encode($DadosEmpresa["id_empresa"]));
+                header("Location: ../Feed.php?q=".$func->Criptografar($DadosEmpresa["id_empresa"]));
 
             }catch(PDOException $e){
                 die("Erro no SQL");
@@ -40,7 +40,7 @@
         //(CRIANDO A EMPRESA) Usuario nivel de acesso 4
         case "Empresa":
 
-            $codigo_acesso = $func->ClearInjectionXSS(base64_decode($_GET['q']));
+            $codigo_acesso = $func->ClearInjectionXSS($func->Descriptografar($_GET['q']));
             $id_adm = $func->ClearInjectionXSS($func->Descriptografar($_COOKIE["ID"]));
 
             $DadosEmpresa = $func->PegarDadosEmpresaPeloId_Codigo($id_adm, $codigo_acesso);

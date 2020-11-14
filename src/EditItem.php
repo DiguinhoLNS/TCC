@@ -10,7 +10,7 @@
 	$func = new Funcoes();
 
 	$_SESSION['TipoVerificação'] = "EditarItem";
-	$id_objeto = base64_decode($_GET["q"]);
+	$id_objeto = $func->Descriptografar($_GET["q"]);
 
 	$DadosItem = $func->PegarDadosItemPeloId($id_objeto);
 
@@ -85,7 +85,7 @@
 
 			<div class = "FormPlatform FormEdit BS">
 
-				<form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php?q=<?= base64_encode($id_objeto);?>" enctype="multipart/form-data">
+				<form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php?q=<?= $func->Criptografar($id_objeto);?>" enctype="multipart/form-data">
 			
 					<ul class = "FormPlatformContent">
 
