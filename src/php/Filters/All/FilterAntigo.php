@@ -6,7 +6,7 @@
     $conn = new ConexaoBD();
 	$func = new Funcoes();
 
-    $id_empresa = base64_decode($_COOKIE["ID_Company"]);
+    $id_empresa = $func->Descriptografar($_COOKIE["ID_Company"]);
 
     $FeedQuery = $func->TodosAntigo($id_empresa);  
 
@@ -22,7 +22,7 @@
             echo '
                 <li class = "ItemBox">
 
-                    <a href = "Item.php?q='.base64_encode($FeedQuery["Objeto"][$i]["id_obj"]) .'" title = "'.$FeedQuery["Objeto"][$i]["Nome_obj"].'">
+                    <a href = "Item.php?q='.$func->Criptografar($FeedQuery["Objeto"][$i]["id_obj"]) .'" title = "'.$FeedQuery["Objeto"][$i]["Nome_obj"].'">
 
                         <div class = "ItemImg">
                             <img src = "imagesBD/'.$FeedQuery["Objeto"][$i]["Nome_foto"].'">

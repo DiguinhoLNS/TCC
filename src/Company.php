@@ -17,7 +17,7 @@
 	if(isset($_COOKIE["ID"])){
 
 		$id_user = $func->Descriptografar($_COOKIE["ID"]); 
-		$id_empresa = base64_decode($_GET['q']);
+		$id_empresa = $func->Descriptografar($_GET['q']);
 
 		$DadosEmpresa = $func->PegarDadosEmpresaPeloIdEmpresa($id_empresa);
 		
@@ -67,7 +67,7 @@
 
 				<section id = "CompanyHeader">
 
-					<a href = "Company.php?q=<?php echo base64_encode($DadosEmpresa[0]["id_empresa"]);?>" title = "Acessar <?php echo $DadosEmpresa[0]['Nome'];?>">
+					<a href = "Company.php?q=<?php echo $func->Criptografar($DadosEmpresa[0]["id_empresa"]);?>" title = "Acessar <?php echo $DadosEmpresa[0]['Nome'];?>">
 						<h1><?=$DadosEmpresa[0]['Nome']; ?></h1>
 					</a>
 
@@ -249,7 +249,7 @@
 												<div class = "btnContent">
 
 													<button class = "btnOption">
-														<a href = "Feed.php?q=<?php echo base64_encode($DadosEmpresa[0]["id_empresa"]);?>"> Acessar Feed </a>
+														<a href = "Feed.php?q=<?php echo $func->Criptografar($DadosEmpresa[0]["id_empresa"]);?>"> Acessar Feed </a>
 													</button>
 
 												</div>
@@ -268,7 +268,7 @@
 												<div class = "btnContent">
 
 													<button class = "btnOption">
-														<a href = "sql/ApagarCadastros.php?q=<?php echo base64_encode($id_empresa) . "&v=". base64_encode("LoginNaEmpresa"); ?>"> Sair da Empresa </a>
+														<a href = "sql/ApagarCadastros.php?q=<?php echo $func->Criptografar($id_empresa) . "&v=". base64_encode("LoginNaEmpresa"); ?>"> Sair da Empresa </a>
 													</button>
 
 												</div>
@@ -315,7 +315,7 @@
 												<div class = "btnContent">
 
 													<button class = "btnOption">
-														<a href = "ConfigFeed.php?q=<?php echo base64_encode($id_empresa);?>"> Configurar Feed </a>
+														<a href = "ConfigFeed.php?q=<?php echo $func->Criptografar($id_empresa);?>"> Configurar Feed </a>
 													</button>
 
 												</div>
@@ -340,7 +340,7 @@
 												<div class = "btnContent">
 
 													<button class = "btnOption">
-														<a href = "EditCompany.php?q=<?php echo base64_encode($id_empresa);?>"> Editar Empresa </a>
+														<a href = "EditCompany.php?q=<?php echo $func->Criptografar($id_empresa);?>"> Editar Empresa </a>
 													</button>
 
 												</div>
@@ -365,7 +365,7 @@
 												<div class = "btnContent">
 
 													<button class = "btnDanger">
-														<a href = "sql/ApagarCadastros.php?q= <?php echo base64_encode($id_empresa) . "&v=". base64_encode("Empresa"); ?>"> Apagar Empresa </a>
+														<a href = "sql/ApagarCadastros.php?q= <?php echo $func->Criptografar($id_empresa) . "&v=". base64_encode("Empresa"); ?>"> Apagar Empresa </a>
 													</button>
 
 												</div>

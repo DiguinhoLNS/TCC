@@ -9,7 +9,7 @@
 	$conn = new ConexaoBD();
 	$func = new Funcoes();
 
-	$id_empresa = base64_decode($_GET['q']);
+	$id_empresa = $func->Descriptografar($_GET['q']);
 	
 	if(isset($_COOKIE["ID"])){
 
@@ -899,7 +899,7 @@
 												<div class = "btnContent">
 
 													<button class = "btnOption">
-														<a href = "Feed.php?q=<?php echo base64_encode($DadosEmpresa[0]["id_empresa"]);?>"> Acessar Feed </a>
+														<a href = "Feed.php?q=<?php echo $func->Criptografar($DadosEmpresa[0]["id_empresa"]);?>"> Acessar Feed </a>
 													</button>
 
 												</div>
@@ -918,7 +918,7 @@
 												<div class = "btnContent">
 
 													<button class = "btnOption">
-														<a href = "Company.php?q=<?php echo base64_encode($DadosEmpresa[0]["id_empresa"]);?>"> Acessar Empresa </a>
+														<a href = "Company.php?q=<?php echo $func->Criptografar($DadosEmpresa[0]["id_empresa"]);?>"> Acessar Empresa </a>
 													</button>
 
 												</div>

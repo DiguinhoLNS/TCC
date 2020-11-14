@@ -225,7 +225,7 @@
                                                 do{
                                                     echo '
                                                         <li>
-                                                            <a href = "Feed.php?q='.base64_encode($DadosEmpresas['Dados'][$i]['id_empresa']).'" title = "'. $DadosEmpresas['Dados'][$i]['Nome']. '">
+                                                            <a href = "Feed.php?q='.$func->Criptografar($DadosEmpresas['Dados'][$i]['id_empresa']).'" title = "'. $DadosEmpresas['Dados'][$i]['Nome']. '">
                                                                 <h1> '. $DadosEmpresas['Dados'][$i]['Nome']. ' </h1>
                                                             </a>
                                                         </li>

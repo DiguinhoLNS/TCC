@@ -55,7 +55,7 @@
 
                             echo '
                                 <li>               
-                                    <a href = "Feed.php?q='.base64_encode($DadosEmpresas['Dados'][$i]['id_empresa']).'">
+                                    <a href = "Feed.php?q='.$func->Criptografar($DadosEmpresas['Dados'][$i]['id_empresa']).'">
                                         <i class = "material-icons"> &#xe0af; </i>
                                         <span>'. $DadosEmpresas['Dados'][$i]['Nome'] .'</span>
                                     </a>                

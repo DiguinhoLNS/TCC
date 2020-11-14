@@ -44,7 +44,7 @@ switch ($tipo_verificacao) {
 
         $executandoQuery = $conn->dbh->query($query) or die("Deu errado 2");
 
-        $conn->dbh->query($query) ? header("Location: ../Company.php?q=" . base64_encode($id_empresa)) : header("Location: ../EditCompany.php?q=" . base64_encode($id_empresa));
+        $conn->dbh->query($query) ? header("Location: ../Company.php?q=" . $func->Criptografar($id_empresa)) : header("Location: ../EditCompany.php?q=" . $func->Criptografar($id_empresa));
 
 
         break;
@@ -66,7 +66,7 @@ switch ($tipo_verificacao) {
 
             $sql = $conn->dbh->prepare($query);
             $sql->execute([':nome_obj' => $nome, ':categoria' => $categoria, ':descricao' => $descricao, ':situacao' => $situacao, ':id_obj' => $id_obj]);
-            header("Location: ../Feed.php?q=".base64_encode($DadosItem["Objeto"][0]["id_empresa"]));
+            header("Location: ../Feed.php?q=".$func->Criptografar($DadosItem["Objeto"][0]["id_empresa"]));
 
         } catch (PDOException $e) {
             die("Erro no SQL ". $e);

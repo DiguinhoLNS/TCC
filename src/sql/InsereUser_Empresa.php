@@ -54,7 +54,7 @@
 
                 $sql = $conn->dbh->prepare($query);
                 $sql->execute([':id_adm' => $id_adm, ':id_empresa' => $DadosEmpresa[0]['id_empresa'], ':nivel_acesso' => '4', ':banido' => 'N' ]);
-                header("Location: ../Feed.php?q=".base64_encode($DadosEmpresa[0]["id_empresa"]));
+                header("Location: ../Feed.php?q=".$func->Criptografar($DadosEmpresa[0]["id_empresa"]));
 
             }catch(PDOException $e){
                 die("Erro no SQL") ;

@@ -9,8 +9,8 @@
 	$conn = new ConexaoBD();
 	$func = new Funcoes();
 
-	$id_empresa = base64_decode($_GET['q']);
-	setcookie("ID_Company", base64_encode($id_empresa), time() + (86400 * 30), "/");
+	$id_empresa = $func->Descriptografar($_GET['q']);
+	setcookie("ID_Company", $func->Criptografar($id_empresa), time() + (86400 * 30), "/");
 
 	if(isset($_COOKIE["ID"])){
 
@@ -70,7 +70,7 @@
 
 				<section id = "CompanyHeader">
 
-					<a href = "Company.php?q=<?php echo base64_encode($DadosEmpresa[0]["id_empresa"]);?>" title = "Acessar <?php echo $DadosEmpresa[0]['Nome'];?>">
+					<a href = "Company.php?q=<?php echo $func->Criptografar($DadosEmpresa[0]["id_empresa"]);?>" title = "Acessar <?php echo $DadosEmpresa[0]['Nome'];?>">
 						<h1> Feed <?php echo $DadosEmpresa[0]['Nome']; ?></h1>
 					</a>
 				
@@ -472,14 +472,14 @@
 
 				<ul>
 					<li>
-						<a href = "RegisterItem.php?q='.base64_encode($id_empresa).'">
+						<a href = "RegisterItem.php?q='.$func->Criptografar($id_empresa).'">
 							<i class = "material-icons"> &#xe145; </i>
 							<span> Criar Item </span>
 						</a>
 					</li>
 
 					<li>
-						<a href = "ConfigFeed.php?q='.base64_encode($id_empresa).'">
+						<a href = "ConfigFeed.php?q='.$func->Criptografar($id_empresa).'">
 							<i class = "material-icons"> &#xe8b8; </i>
 							<span> Gerenciar </span>
 						</a>

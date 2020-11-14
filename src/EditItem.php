@@ -119,7 +119,7 @@
                             </select>
 						</li>
 						<li class = "ContentBottom">
-							<a href = "Feed.php?q=<?php echo base64_encode($id_empresa)?>"> Voltar para Feed </a>
+							<a href = "Feed.php?q=<?php echo $func->Criptografar($id_empresa)?>"> Voltar para Feed </a>
 							<input class = "UserInputSubmit btn" type = "submit" value = "Editar Item"/>
 						</li>
 

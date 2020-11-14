@@ -98,7 +98,7 @@
 
 			<div class = "FormPlatform FormRegister BS">
 
-				<form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php?q=<?php echo base64_encode($id_empresa);?>" enctype="multipart/form-data">
+				<form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php?q=<?php echo $func->Criptografar($id_empresa);?>" enctype="multipart/form-data">
 			
 					<ul class = "FormPlatformContent">
 
@@ -138,7 +138,7 @@
 						</li>
 						<span id = "ErrorCaptcha" class = "txtError"> Preencha o captcha </span>
 						<li class = "ContentBottom">
-							<a href = "Feed.php?q=<?php echo base64_encode($id_empresa)?>"> Voltar para Feed </a>
+							<a href = "Feed.php?q=<?php echo $func->Criptografar($id_empresa)?>"> Voltar para Feed </a>
 							<input class = "UserInputSubmit btn" type = "submit" value = "Criar Item"/>
 						</li>
 

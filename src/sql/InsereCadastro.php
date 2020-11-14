@@ -102,7 +102,7 @@
 				$sql = $conn->dbh->prepare($query);
 				$sql->execute([':id_empresa' => $id_empresa, ':nome_foto' => $novoNome, ':nome_obj' => $nome, ':data' => $data, ':categoria' => $categoria, ':descricao' => $descricao, ':situacao' => 'Perdido']);
 				move_uploaded_file($foto["tmp_name"], $diretorio . $novoNome);
-				header("Location: ../Feed.php?q=".base64_encode($id_empresa));
+				header("Location: ../Feed.php?q=".$func->Criptografar($id_empresa));
 
 			}catch(PDOException $e){
 				die("Erro no SQL ".var_dump($_POST). " ". var_dump($_FILES));

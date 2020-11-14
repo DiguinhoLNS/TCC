@@ -6,7 +6,7 @@ require_once '../../sql/Funcoes.php';
 $conn = new ConexaoBD();
 $func = new Funcoes();
 
-$id_empresa = base64_decode($_COOKIE["ID_Company"]);
+$id_empresa = $func->Descriptografar($_COOKIE["ID_Company"]);
 
 $pesquisar = $func->ClearInjectionXSS($_GET["q"]);
 

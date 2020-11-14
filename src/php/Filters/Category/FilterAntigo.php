@@ -3,7 +3,7 @@
 include '../../../sql/ConexaoBD.php';
 include_once '../../../sql/Funcoes.php';
 
-$id_empresa = base64_decode($_COOKIE["ID_Company"]);
+$id_empresa = $func->Descriptografar($_COOKIE["ID_Company"]);
 
 $Documentos = DocumentosAntigo($base, $id_empresa);
 $Acessorios = AcessoriosAntigo($base, $id_empresa);

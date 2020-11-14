@@ -85,7 +85,7 @@ if (isset($_COOKIE["ID"])) {
                         do {
 
                             echo '
-                                <a href = "Feed.php?q=' . base64_encode($DadosEmpresas['Dados'][$i]['id_empresa']) . '" class = "CompanyBox ' . $DadosEmpresas['Dados'][$i]['Cor_layout'] . '" title = "Acessar ' . $DadosEmpresas['Dados'][$i]['Nome'] . ' ">
+                                <a href = "Feed.php?q=' . $func->Criptografar($DadosEmpresas['Dados'][$i]['id_empresa']) . '" class = "CompanyBox ' . $DadosEmpresas['Dados'][$i]['Cor_layout'] . '" title = "Acessar ' . $DadosEmpresas['Dados'][$i]['Nome'] . ' ">
 
                                     <h1 class = "CompanyTitle"> ' . $DadosEmpresas['Dados'][$i]['Nome']. ' </h1>
                                 
