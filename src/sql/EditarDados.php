@@ -14,7 +14,7 @@ switch ($tipo_verificacao) {
 
     case "Usuario":
 
-        $id = $func->ClearInjectionXSS(base64_decode($_COOKIE["ID"]));
+        $id = $func->ClearInjectionXSS($func->Descriptografar($_COOKIE["ID"]));
         $nome = $func->ClearInjectionXSS($_POST["nome"]);
         $cpf = $func->ClearInjectionXSS($_SESSION['cpfsemponto']);
         $data = $func->ClearInjectionXSS($_POST["data"]);
@@ -86,7 +86,7 @@ switch ($tipo_verificacao) {
                 $sql = $conn->dbh->prepare($query);
                 $sql->execute([':email' => $emailNovo, ':email_antigo' => $emailAntigo]);
                 $_SESSION["email"] = $emailNovo;
-                header("Location: ../VerificationUser.php?q=".base64_encode($emailNovo));
+                header("Location: ../VerificationUser.php?q=".$func->Criptografar($emailNovo));
     
             } catch (PDOException $e) {
                 die("Erro no SQL ". $e);

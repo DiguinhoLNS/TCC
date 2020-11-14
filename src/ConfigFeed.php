@@ -13,7 +13,7 @@
 	
 	if(isset($_COOKIE["ID"])){
 
-		$id = base64_decode($_COOKIE["ID"]);
+		$id = $func->Descriptografar($_COOKIE["ID"]);
 
 		$DadosEmpresa = $func->PegarDadosEmpresaPeloIdEmpresa($id_empresa);
 		$DadosUserEmpresa = $func->PegarDadosUserEmpresaPeloIdEmpresaTodos($id_empresa);

@@ -50,7 +50,7 @@
 
 			} while ($CodigoJaExiste);
 
-			$id_adm = $func->ClearInjectionXSS(base64_decode($_COOKIE["ID"]));
+			$id_adm = $func->ClearInjectionXSS($func->Descriptografar($_COOKIE["ID"]));
 			$nome = $func->ClearInjectionXSS($_POST["nome"]);
 			$email = $func->ClearInjectionXSS($_POST["email"]);
 			$cnpj = $func->ClearInjectionXSS($_SESSION['cnpjsemponto']);

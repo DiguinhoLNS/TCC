@@ -9,7 +9,7 @@
     $conn = new ConexaoBD();
 	$func = new Funcoes();
 
-    $id = base64_decode($_COOKIE["ID"]);
+    $id = $func->Descriptografar($_COOKIE["ID"]);
 
     $DadosUsuario = $func->PegarDadosUsuarioPeloId($id);
         

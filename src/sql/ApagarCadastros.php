@@ -9,7 +9,7 @@ require_once "Funcoes.php";
 $conn = new ConexaoBD();
 $func = new Funcoes();
 
-$idU = $func->ClearInjectionXSS(base64_decode($_COOKIE["ID"]));
+$idU = $func->ClearInjectionXSS($func->Descriptografar($_COOKIE["ID"]));
 
 $idQ = $func->ClearInjectionXSS(base64_decode(($_GET['q'])));
 $tipo_verificacao = $func->ClearInjectionXSS(base64_decode(($_GET['v'])));

@@ -12,7 +12,7 @@ $pesquisar = $func->ClearInjectionXSS($_GET["q"]);
 
 if ($pesquisar != null) {
 
-    $query = "SELECT * FROM objetos WHERE Nome_obj LIKE '%$pesquisar%' and id_empresa = $id_empresa";
+    $query = "SELECT * FROM objetos WHERE Nome_obj LIKE '%$pesquisar%' and id_empresa = = '$id_empresa'";
     $ResultadoQuery = $conn->dbh->query($query) or die("Erro na consulta 41");
     $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 

@@ -26,9 +26,11 @@
 
 			if ($Dados['UsuarioExiste'] && $Captcha == false) {
 
-				setcookie("ID", base64_encode($Dados['id_user']), time() + (86400 * 30), "/");
+				setcookie("ID", $func->Criptografar($Dados['id_user']), time() + (86400 * 30), "/");
 				setcookie("MessageNotification", "Login realizado", time() + 900, "/");
 				setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
+
+				//echo $_COOKIE["ID"];
 
 				$_SESSION["email"] = $email;
 

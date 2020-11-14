@@ -28,7 +28,7 @@
     if (isset($_POST['V'])) {
         if ($_SESSION['cod'] == $_POST["V_Cod"]) {
             header("Location: Dashboard.php");
-            setcookie("ULogged", base64_encode("1"), time() + (86400 * 30), "/");
+            setcookie("ULogged",$func->Criptografar("1"), time() + (86400 * 30), "/");
             //echo $_POST['V_Cod'] . "<br>erro1<br>" . $_SESSION['cod'];
         } else {
             //echo $_POST['V_Cod'] . "<br>erro2<br>" . $_SESSION['cod'];
@@ -40,7 +40,7 @@
 
         try {
 
-            $emailUser = isset($_SESSION["email"]) ? $_SESSION["email"] : base64_decode($_GET["q"]);
+            $emailUser = isset($_SESSION["email"]) ? $_SESSION["email"] : $func->Descriptografar($_GET["q"]);
 
             //echo $emailUser;
 

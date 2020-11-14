@@ -16,7 +16,7 @@
 
 	if(isset($_COOKIE["ID"])){
 
-		$id_user = base64_decode($_COOKIE["ID"]); 
+		$id_user = $func->Descriptografar($_COOKIE["ID"]); 
 		$id_empresa = base64_decode($_GET['q']);
 
 		$DadosEmpresa = $func->PegarDadosEmpresaPeloIdEmpresa($id_empresa);

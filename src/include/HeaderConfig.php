@@ -7,7 +7,7 @@
            
                 if(isset($_COOKIE["ID"])){
 
-                    $id = base64_decode($_COOKIE["ID"]);
+                    $id = $func->Descriptografar($_COOKIE["ID"]);
 
                     $query = "SELECT nome_user FROM usuarios WHERE id_user = '$id'";
 

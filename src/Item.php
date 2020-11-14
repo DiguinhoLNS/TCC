@@ -11,7 +11,7 @@
 
 	if(isset($_COOKIE["ID"])){
 
-		$id = base64_decode($_COOKIE["ID"]);
+		$id = $func->Descriptografar($_COOKIE["ID"]);
 		$id_item = base64_decode($_GET['q']);
 
 		$DadosItem = $func->PegarDadosItemPeloId($id_item);

@@ -11,7 +11,7 @@
 
     $_SESSION['TipoVerificação'] = 'Usuario';
 
-    $id = base64_decode($_COOKIE["ID"]);
+    $id = $func->Descriptografar($_COOKIE["ID"]);
 
     $DadosEmpresas = $func->PegarDadosEmpresaPeloIdUsuario($id);
                     
