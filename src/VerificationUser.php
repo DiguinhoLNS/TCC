@@ -3,16 +3,10 @@
     session_start();
     date_default_timezone_set('America/Sao_Paulo');
 
-    require_once "mailer/Exception.php";
-    require_once "mailer/SMTP.php";
-    require_once "mailer/PHPMailer.php";
+    require_once "sql/Email.php";
     require_once "sql/Funcoes.php";
 
     $func = new Funcoes();
-
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\SMTP;
-    use PHPMailer\PHPMailer\Exception;
 
     if(isset($_COOKIE["ULogged"])){
         setcookie("ULogged", "", time() - (86400 * 30), "/");
@@ -21,95 +15,27 @@
         header("Location: Index.php");
     }
 
-    $mail = new PHPMailer();
-
     isset($_GET['q']) ? $email = true: $email = false;
+    if (isset($_GET['e'])) {$email = false; $emailUser = $func->Descriptografar($_GET['e']);} 
 
     if (isset($_POST['V'])) {
         if ($_SESSION['cod'] == $_POST["V_Cod"]) {
             header("Location: Dashboard.php");
             setcookie("ULogged",$func->Criptografar("1"), time() + (86400 * 30), "/");
-            //echo $_POST['V_Cod'] . "<br>erro1<br>" . $_SESSION['cod'];
         } else {
-            //echo $_POST['V_Cod'] . "<br>erro2<br>" . $_SESSION['cod'];
+            $emailUser = isset($_SESSION["email"]) ? $_SESSION["email"] : $func->Descriptografar($_GET["q"]);
             $erro = true;
         }
     }
 
     if ($email && !isset($erro) && !isset($_COOKIE["ULogged"])) {
-
-        try {
-
-            $emailUser = isset($_SESSION["email"]) ? $_SESSION["email"] : $func->Descriptografar($_GET["q"]);
-
-            //echo $emailUser;
-
-            $cod = $func->GerarCodigoAcesso();
-
-            $cod = str_split($cod, 6);
-
-            $rand = rand(0, 1);
-
-            $cod = $cod[$rand];
-
-            $_SESSION["cod"] = $cod;
-
-            $mail->CharSet = 'UTF-8';
-            $mail->setLanguage("pt");
-            $mail->SMTPDebug = false;
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->SMTPSecure = 'ssl';
-            $mail->Port = 465;
-            $mail->Username = 'ape.achadoseperdidos@gmail.com';
-            $mail->Password = 'lmrt2020';
-
-            $mail->SMTPOptions = array(
-                'ssl' => array(
-                'verify_peer' => false,
-                'verify_peer_name' => false,
-                'allow_self_signed' => true
-                )
-            );
-
-            //echo $cod;
-
-            $mail->SetFrom('ape.achadoseperdidos@gmail.com', 'Ape Achados e Perdidos');
-            $mail->addAddress($emailUser);
-
-            $mail->isHTML(true);
-            $mail->Subject = 'Código de verificação';
-            //$mail->MsgHTML(file_get_contents('include/BodyMail.php'));
-            $mail->Body = '
-            <!DOCTYPE html>
-            <html lang = "pt-br">
-            
-                <body class = "MailPage">
-            
-                    <main>
-            
-                        <h2 style = "color: #202124"> Aqui está o seu código de verificação de segurança da sua conta APE </h2>
-                        <br/>
-                        <h1 style = "color: #202124"> '.$cod.' </h1>
-                        <br>
-                        <p style = "color: #5F6368"> NÃO RESPONDA A ESSE EMAIL </p>
-            
-                    </main>
-            
-                </body>
-            
-            </html>';
-            $mail->AltBody = $cod;
-
-            if ($mail->send()) {
-                //echo "Enviado";
-            } else {
-                //echo "Falha";
-            }
-        } catch (Exception $e) {
-            echo "Erro ao enviar mensagem: {$mail->ErrorInfo}";
-        }
+        $emailUser = isset($_SESSION["email"]) ? $_SESSION["email"] : $func->Descriptografar($_GET["q"]);
+        $email = new Email();
+        $cod = $func->GerarCodigoDuasEtapas();
+        $email->setPara($emailUser);
+        $cod = $_SESSION['cod'];
+        $email->DuasEtapas($cod);
+    
     }
 
 ?>

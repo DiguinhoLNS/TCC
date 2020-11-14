@@ -26,6 +26,30 @@ class Funcoes extends ConexaoBD
         return $codigo_acesso;
     }
 
+    public function GerarCodigoDuasEtapas()
+    {
+
+        $rand = rand(1, 100);
+        $salt = bin2hex(md5(sha1(random_bytes($rand))));
+        $str = crypt($salt, null);
+        $str = strtoupper($str);
+        $str2 = str_split($str, 12);
+
+        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $LetraAleatoria = '';
+        $LetraAleatoria = $characters[rand(0, 25)];
+
+        $ParaTirar = ["/", "."];
+        $codigo_acesso = str_replace($ParaTirar, $LetraAleatoria, $str2[1]);
+        $codigo_acesso = str_split($codigo_acesso, 6);
+
+        $rand = rand(0, 1);
+
+        $codigo_acesso = $codigo_acesso[$rand];
+
+        return $codigo_acesso;
+    }
+
     public function Criptografar($frase)
     {
         $chave = rand(10, 24);
@@ -538,7 +562,7 @@ class Funcoes extends ConexaoBD
         $query = "SELECT * FROM empresas inner join user_empresa on 'id_empresa' = 'id_empresa' where user_empresa.id_user = '$id' and empresas.id_empresa = user_empresa.id_empresa and user_empresa.banido = 'N' order by Nome ASC";
 
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 10");
-        
+
         $QuantidadeDeEmpresas = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeEmpresas > 0) {
