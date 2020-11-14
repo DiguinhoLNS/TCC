@@ -12,8 +12,7 @@
 	if(isset($_COOKIE["ID"])){
 
 		$id = $func->Descriptografar($_COOKIE["ID"]);
-		$id_item = base64_decode($_GET['q']);
-
+		$id_item = $func->Descriptografar($_GET['q']);
 		$DadosItem = $func->PegarDadosItemPeloId($id_item);
 		$DataSeparada = $func->SepararData($DadosItem["Objeto"][0]["Data_cadastro"]);
 
@@ -113,7 +112,7 @@
 									<i class = "material-icons"> &#xe0af; </i>
 									<h1> Empresa </h1>
 									<h2>
-										<a href = "Company.php?q=<?= base64_encode($DadosItem["Objeto"][0][1]); ?>"> <?= $DadosItem["Objeto"][0]["Nome"]; ?> </a>
+										<a href = "Company.php?q=<?= $func->Criptografar($DadosItem["Objeto"][0][1]); ?>"> <?= $DadosItem["Objeto"][0]["Nome"]; ?> </a>
 									</h2>
 								</li>
 

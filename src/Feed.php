@@ -154,7 +154,7 @@
 												echo '
 													<li class = "ItemBox AllItemBox">
 
-														<a href = "Item.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "'.$DadosItem["Objeto"][$i]["Nome_obj"].'">
+														<a href = "Item.php?q='.$func->Criptografar($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "'.$DadosItem["Objeto"][$i]["Nome_obj"].'">
 
 															<div class = "ItemImg">
 																<img src = "imagesBD/'.$DadosItem["Objeto"][$i]["Nome_foto"].'">
@@ -214,7 +214,7 @@
 
 													<li class = "ItemBox">
 
-														<a href = "Item.php?q='.base64_encode($Eletronicos["Objeto"][$i]["id_obj"]) .'" title = "'.$Eletronicos["Objeto"][$i]["Nome_obj"].'">
+														<a href = "Item.php?q='.$func->Criptografar($Eletronicos["Objeto"][$i]["id_obj"]) .'" title = "'.$Eletronicos["Objeto"][$i]["Nome_obj"].'">
 
 															<div class = "ItemImg">
 																<img src = "imagesBD/'.$Eletronicos["Objeto"][$i]["Nome_foto"].'">
@@ -266,7 +266,7 @@
 
 													<li class = "ItemBox">
 
-														<a href = "Item.php?q='.base64_encode($Roupas["Objeto"][$i]["id_obj"]) .'" title = "'.$Roupas["Objeto"][$i]["Nome_obj"].'">
+														<a href = "Item.php?q='.$func->Criptografar($Roupas["Objeto"][$i]["id_obj"]) .'" title = "'.$Roupas["Objeto"][$i]["Nome_obj"].'">
 
 															<div class = "ItemImg">
 																<img src = "imagesBD/'.$Roupas["Objeto"][$i]["Nome_foto"].'">
@@ -317,7 +317,7 @@
 
 													<li class = "ItemBox">
 
-														<a href = "Item.php?q='.base64_encode($Acessorios["Objeto"][$i]["id_obj"]).'" title = "'.$Acessorios["Objeto"][$i]["Nome_obj"].'">
+														<a href = "Item.php?q='.$func->Criptografar($Acessorios["Objeto"][$i]["id_obj"]).'" title = "'.$Acessorios["Objeto"][$i]["Nome_obj"].'">
 
 															<div class = "ItemImg">
 																<img src = "imagesBD/'.$Acessorios["Objeto"][$i]["Nome_foto"].'">
@@ -368,7 +368,7 @@
 
 													<li class = "ItemBox">
 
-														<a href = "Item.php?q='.base64_encode($Documentos["Objeto"][$i]["id_obj"]).'" title = "'.$Documentos["Objeto"][$i]["Nome_obj"].'">
+														<a href = "Item.php?q='.$func->Criptografar($Documentos["Objeto"][$i]["id_obj"]).'" title = "'.$Documentos["Objeto"][$i]["Nome_obj"].'">
 
 															<div class = "ItemImg">
 																<img src = "imagesBD/'.$Documentos["Objeto"][$i]["Nome_foto"].'">
@@ -420,7 +420,7 @@
 
 													<li class = "ItemBox">
 
-														<a href = "Item.php?q='.base64_encode($Outros["Objeto"][$i]["id_obj"]).'" title = "'.$Outros["Objeto"][$i]["Nome_obj"].'">
+														<a href = "Item.php?q='.$func->Criptografar($Outros["Objeto"][$i]["id_obj"]).'" title = "'.$Outros["Objeto"][$i]["Nome_obj"].'">
 
 															<div class = "ItemImg">
 																<img src = "imagesBD/'.$Outros["Objeto"][$i]["Nome_foto"].'">

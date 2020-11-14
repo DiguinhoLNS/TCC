@@ -182,7 +182,7 @@
         break;
 
         case "EditarEmpresa":
-            $id_empresa = $func->ClearInjectionXSS(base64_decode($_GET['q']));
+            $id_empresa = $func->ClearInjectionXSS($func->Descriptografar($_GET['q']));
             $nome = $func->ClearInjectionXSS($_POST["nome"]);
             $email = $func->ClearInjectionXSS($_POST["email"]);
             $CnpjComPonto = $func->ClearInjectionXSS($_POST["cnpj"]);
@@ -233,7 +233,7 @@
         break;
 
         case "Item":
-            $id_empresa = $func->ClearInjectionXSS(base64_decode($_GET['q']));
+            $id_empresa = $func->ClearInjectionXSS($func->Descriptografar($_GET['q']));
             $nome = $func->ClearInjectionXSS($_POST["nome"]);
             $foto = $_FILES["foto"];
             $categoria = $func->ClearInjectionXSS($_POST["categoria"]);
@@ -274,7 +274,7 @@
         break;
 
         case "EditarItem":
-            $id_obj = $func->ClearInjectionXSS(base64_decode($_GET['q']));
+            $id_obj = $func->ClearInjectionXSS($func->Descriptografar($_GET['q']));
             $nome = $func->ClearInjectionXSS($_POST["nome"]);
             $categoria = $func->ClearInjectionXSS($_POST["categoria"]);
             $descricao = $func->ClearInjectionXSS($_POST["descricao"]);

@@ -194,7 +194,7 @@
 																			if($DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"] < 3){
 																				echo'
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$DadosUserEmpresa["Usuarios"][$i]["id_user_empresa"].'&v=A" class = "PromoteUserAccess" title = "Promover Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($DadosUserEmpresa["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("A").'" class = "PromoteUserAccess" title = "Promover Usuário">
 																					<i class = "material-icons"> &#xe5c7; </i>
 																				</a>
 																			</li>';}
@@ -202,7 +202,7 @@
 																			if($DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"] > 1 && $DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"] < 4){
 																				echo'
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$DadosUserEmpresa["Usuarios"][$i]["id_user_empresa"].'&v=B" class = "DemoteUserAccess" title = "Rebaixar Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($DadosUserEmpresa["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("B").'" class = "DemoteUserAccess" title = "Rebaixar Usuário">
 																					<i class = "material-icons"> &#xe5c5; </i>
 																				</a>
 																			</li>';}
@@ -210,7 +210,7 @@
 																			if($DadosUserEmpresa["Usuarios"][$i]["Banido"] == "S" && $DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"] < 4){
 																				echo '
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$DadosUserEmpresa["Usuarios"][$i]["id_user_empresa"].'&v=C" class = "EnableUserAccess" title = "Desbanir Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($DadosUserEmpresa["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("C").'" class = "EnableUserAccess" title = "Desbanir Usuário">
 																					<i class = "material-icons"> person_add </i>
 																				</a>
 																			</li>';}
@@ -218,7 +218,7 @@
 																			if($DadosUserEmpresa["Usuarios"][$i]["Banido"] == "N" && $DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"] < 4){
 																				echo '
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$DadosUserEmpresa["Usuarios"][$i]["id_user_empresa"].'&v=D" class = "DenyUserAccess" title = "Banir Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($DadosUserEmpresa["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("D").'" class = "DenyUserAccess" title = "Banir Usuário">
 																					<i class = "material-icons"> person_remove </i>
 																				</a>
 																			</li>';}
@@ -226,7 +226,7 @@
 																			if($DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"] != 4){
 																			echo'
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$DadosUserEmpresa["Usuarios"][$i]["id_user_empresa"].'&v=E" class = "RemoveUserAccess" title = "Remover Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($DadosUserEmpresa["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("E").'" class = "RemoveUserAccess" title = "Remover Usuário">
 																					<i class = "material-icons"> delete_forever </i>
 																				</a>
 																			</li>';}
@@ -326,7 +326,7 @@
 																			if($Adms["Usuarios"][$i]["Nivel_acesso"] < 3){
 																				echo'
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$Adms["Usuarios"][$i]["id_user_empresa"].'&v=A" class = "PromoteUserAccess" title = "Promover Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($Adms["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("A").'" class = "PromoteUserAccess" title = "Promover Usuário">
 																					<i class = "material-icons"> &#xe5c7; </i>
 																				</a>
 																			</li>';}
@@ -334,7 +334,7 @@
 																			if($Adms["Usuarios"][$i]["Nivel_acesso"] > 1 && $Adms["Usuarios"][$i]["Nivel_acesso"] < 4){
 																				echo'
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$Adms["Usuarios"][$i]["id_user_empresa"].'&v=B" class = "DemoteUserAccess" title = "Rebaixar Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($Adms["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("B").'" class = "DemoteUserAccess" title = "Rebaixar Usuário">
 																					<i class = "material-icons"> &#xe5c5; </i>
 																				</a>
 																			</li>';}
@@ -342,7 +342,7 @@
 																			if($Adms["Usuarios"][$i]["Banido"] == "S" && $Adms["Usuarios"][$i]["Nivel_acesso"] < 4){
 																				echo '
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$Adms["Usuarios"][$i]["id_user_empresa"].'&v=C" class = "EnableUserAccess" title = "Desbanir Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($Adms["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("C").'" class = "EnableUserAccess" title = "Desbanir Usuário">
 																					<i class = "material-icons"> person_add </i>
 																				</a>
 																			</li>';}
@@ -350,7 +350,7 @@
 																			if($Adms["Usuarios"][$i]["Banido"] == "N" && $Adms["Usuarios"][$i]["Nivel_acesso"] < 4){
 																				echo '
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$Adms["Usuarios"][$i]["id_user_empresa"].'&v=D" class = "DenyUserAccess" title = "Banir Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($Adms["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("D").'" class = "DenyUserAccess" title = "Banir Usuário">
 																					<i class = "material-icons"> person_remove </i>
 																				</a>
 																			</li>';}
@@ -358,7 +358,7 @@
 																			if($Adms["Usuarios"][$i]["Nivel_acesso"] != 4){
 																			echo'
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$Adms["Usuarios"][$i]["id_user_empresa"].'&v=E" class = "RemoveUserAccess" title = "Remover Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($Adms["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("E").'" class = "RemoveUserAccess" title = "Remover Usuário">
 																					<i class = "material-icons"> delete_forever </i>
 																				</a>
 																			</li>';}
@@ -459,7 +459,7 @@
 																			if($Normais["Usuarios"][$i]["Nivel_acesso"] < 3){
 																				echo'
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$Normais["Usuarios"][$i]["id_user_empresa"].'&v=A" class = "PromoteUserAccess" title = "Promover Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($Normais["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("A").'" class = "PromoteUserAccess" title = "Promover Usuário">
 																					<i class = "material-icons"> &#xe5c7; </i>
 																				</a>
 																			</li>';}
@@ -467,7 +467,7 @@
 																			if($Normais["Usuarios"][$i]["Nivel_acesso"] > 1 && $Normais["Usuarios"][$i]["Nivel_acesso"] < 4){
 																				echo'
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$Normais["Usuarios"][$i]["id_user_empresa"].'&v=B" class = "DemoteUserAccess" title = "Rebaixar Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($Normais["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("B").'" class = "DemoteUserAccess" title = "Rebaixar Usuário">
 																					<i class = "material-icons"> &#xe5c5; </i>
 																				</a>
 																			</li>';}
@@ -475,7 +475,7 @@
 																			if($Normais["Usuarios"][$i]["Banido"] == "S" && $Normais["Usuarios"][$i]["Nivel_acesso"] < 4){
 																				echo '
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$Normais["Usuarios"][$i]["id_user_empresa"].'&v=C" class = "EnableUserAccess" title = "Desbanir Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($Normais["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("C").'" class = "EnableUserAccess" title = "Desbanir Usuário">
 																					<i class = "material-icons"> person_add </i>
 																				</a>
 																			</li>';}
@@ -483,7 +483,7 @@
 																			if($Normais["Usuarios"][$i]["Banido"] == "N" && $Normais["Usuarios"][$i]["Nivel_acesso"] < 4){
 																				echo '
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$Normais["Usuarios"][$i]["id_user_empresa"].'&v=D" class = "DenyUserAccess" title = "Banir Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($Normais["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("D").'" class = "DenyUserAccess" title = "Banir Usuário">
 																					<i class = "material-icons"> person_remove </i>
 																				</a>
 																			</li>';}
@@ -491,7 +491,7 @@
 																			if($Normais["Usuarios"][$i]["Nivel_acesso"] != 4){
 																			echo'
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$Normais["Usuarios"][$i]["id_user_empresa"].'&v=E" class = "RemoveUserAccess" title = "Remover Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($Normais["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("E").'" class = "RemoveUserAccess" title = "Remover Usuário">
 																					<i class = "material-icons"> delete_forever </i>
 																				</a>
 																			</li>';}
@@ -591,7 +591,7 @@
 																			if($Banidos["Usuarios"][$i]["Nivel_acesso"] < 3){
 																				echo'
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$Banidos["Usuarios"][$i]["id_user_empresa"].'&v=A" class = "PromoteUserAccess" title = "Promover Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($Banidos["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("A").'" class = "PromoteUserAccess" title = "Promover Usuário">
 																					<i class = "material-icons"> &#xe5c7; </i>
 																				</a>
 																			</li>';}
@@ -599,7 +599,7 @@
 																			if($Banidos["Usuarios"][$i]["Nivel_acesso"] > 1 && $Banidos["Usuarios"][$i]["Nivel_acesso"] < 4){
 																				echo'
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$Banidos["Usuarios"][$i]["id_user_empresa"].'&v=B" class = "DemoteUserAccess" title = "Rebaixar Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($Banidos["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("B").'" class = "DemoteUserAccess" title = "Rebaixar Usuário">
 																					<i class = "material-icons"> &#xe5c5; </i>
 																				</a>
 																			</li>';}
@@ -607,7 +607,7 @@
 																			if($Banidos["Usuarios"][$i]["Banido"] == "S" && $Banidos["Usuarios"][$i]["Nivel_acesso"] < 4){
 																				echo '
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$Banidos["Usuarios"][$i]["id_user_empresa"].'&v=C" class = "EnableUserAccess" title = "Desbanir Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($Banidos["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("C").'" class = "EnableUserAccess" title = "Desbanir Usuário">
 																					<i class = "material-icons"> person_add </i>
 																				</a>
 																			</li>';}
@@ -615,7 +615,7 @@
 																			if($Banidos["Usuarios"][$i]["Banido"] == "N" && $Banidos["Usuarios"][$i]["Nivel_acesso"] < 4){
 																				echo '
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$Banidos["Usuarios"][$i]["id_user_empresa"].'&v=D" class = "DenyUserAccess" title = "Banir Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($Banidos["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("D").'" class = "DenyUserAccess" title = "Banir Usuário">
 																					<i class = "material-icons"> person_remove </i>
 																				</a>
 																			</li>';}
@@ -623,7 +623,7 @@
 																			if($Banidos["Usuarios"][$i]["Nivel_acesso"] != 4){
 																			echo'
 																			<li>
-																				<a href = "sql/ConfigUserEmpresa.php?q='.$Banidos["Usuarios"][$i]["id_user_empresa"].'&v=E" class = "RemoveUserAccess" title = "Remover Usuário">
+																				<a href = "sql/ConfigUserEmpresa.php?q='.$func->Criptografar($Banidos["Usuarios"][$i]["id_user_empresa"]).'&v='.$func->Criptografar("E").'" class = "RemoveUserAccess" title = "Remover Usuário">
 																					<i class = "material-icons"> delete_forever </i>
 																				</a>
 																			</li>';}
@@ -715,13 +715,13 @@
 																			<h1> '.$DadosItem["Objeto"][$i]["Nome_obj"]. ' </h1>
 																		</div>
 																		<div class = "ItemControl">
-																			<a href = "Item.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
+																			<a href = "Item.php?q='.$func->Criptografar($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
 																				<i class = "material-icons"> &#xe8f4; </i>
 																			</a>
-																			<a href = "EditItem.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Editar Item">
+																			<a href = "EditItem.php?q='.$func->Criptografar($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "Editar Item">
 																				<i class = "material-icons"> &#xe150; </i>
 																			</a>
-																			<a href = "sql/ApagarCadastros.php?q='.base64_encode($DadosItem["Objeto"][$i]["id_obj"]).'&v='.base64_encode('Item').'" title = "Apagar Item">
+																			<a href = "sql/ApagarCadastros.php?q='.$func->Criptografar($DadosItem["Objeto"][$i]["id_obj"]).'&v='.$func->Criptografar('Item').'" title = "Apagar Item">
 																				<i class = "material-icons"> &#xe872; </i>
 																			</a>
 																		</div>
@@ -774,13 +774,13 @@
 																				<h1> '.$Perdidos["Objeto"][$i]["Nome_obj"]. ' </h1>
 																			</div>
 																			<div class = "ItemControl">
-																				<a href = "Item.php?q='.base64_encode($Perdidos["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
+																				<a href = "Item.php?q='.$func->Criptografar($Perdidos["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
 																					<i class = "material-icons"> &#xe8f4; </i>
 																				</a>
-																				<a href = "EditItem.php?q='.base64_encode($Perdidos["Objeto"][$i]["id_obj"]) .'" title = "Editar Item">
+																				<a href = "EditItem.php?q='.$func->Criptografar($Perdidos["Objeto"][$i]["id_obj"]) .'" title = "Editar Item">
 																					<i class = "material-icons"> &#xe150; </i>
 																				</a>
-																				<a href = "sql/ApagarCadastros.php?q='.base64_encode($Perdidos["Objeto"][$i]["id_obj"]).'&v='.base64_encode('Item').'" title = "Apagar Item">
+																				<a href = "sql/ApagarCadastros.php?q='.$func->Criptografar($Perdidos["Objeto"][$i]["id_obj"]).'&v='.$func->Criptografar('Item').'" title = "Apagar Item">
 																					<i class = "material-icons"> &#xe872; </i>
 																				</a>
 																			</div>
@@ -833,13 +833,13 @@
 																			<h1> '.$Devolvidos["Objeto"][$i]["Nome_obj"]. ' </h1>
 																		</div>
 																		<div class = "ItemControl">
-																			<a href = "Item.php?q='.base64_encode($Devolvidos["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
+																			<a href = "Item.php?q='.$func->Criptografar($Devolvidos["Objeto"][$i]["id_obj"]) .'" title = "Visualizar Item">
 																				<i class = "material-icons"> &#xe8f4; </i>
 																			</a>
-																			<a href = "EditItem.php?q='.base64_encode($Devolvidos["Objeto"][$i]["id_obj"]) .'" title = "Editar Item">
+																			<a href = "EditItem.php?q='.$func->Criptografar($Devolvidos["Objeto"][$i]["id_obj"]) .'" title = "Editar Item">
 																				<i class = "material-icons"> &#xe150; </i>
 																			</a>
-																			<a href = "sql/ApagarCadastros.php?q='.base64_encode($Devolvidos["Objeto"][$i]["id_obj"]).'&v='.base64_encode('Item').'" title = "Apagar Item">
+																			<a href = "sql/ApagarCadastros.php?q='.$func->Criptografar($Devolvidos["Objeto"][$i]["id_obj"]).'&v='.$func->Criptografar('Item').'" title = "Apagar Item">
 																				<i class = "material-icons"> &#xe872; </i>
 																			</a>
 																		</div>

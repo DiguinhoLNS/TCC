@@ -6,8 +6,8 @@ require_once "Funcoes.php";
 $conn = new ConexaoBD();
 $func = new Funcoes();
 
-$tipoVerificacao = $_GET["v"];
-$id_user_empresa = $_GET["q"];
+$tipoVerificacao = $func->Descriptografar($_GET["v"]);
+$id_user_empresa = $func->Descriptografar($_GET["q"]);
 
 $DadosUserEmpresa = $func->PegarDadosUserEmpresaPeloId($id_user_empresa);
 
@@ -23,12 +23,12 @@ switch ($tipoVerificacao) {
                 $query = "UPDATE user_empresa SET Nivel_acesso= :nivel_acesso WHERE id_user_empresa= :id_user_empresa";
                 $sql = $conn->dbh->prepare($query);
                 $sql->execute([':nivel_acesso' => $nivel_acesso, ':id_user_empresa' => $id_user_empresa]);
-                header("Location: ../ConfigFeed.php?q=" . base64_encode($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
+                header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
             } catch (PDOException $e) {
                 die("Erro na consulta");
             }
         } else {
-            header("Location: ../ConfigFeed.php?q=" . base64_encode($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
+            header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
         }
 
         break;
@@ -43,12 +43,12 @@ switch ($tipoVerificacao) {
                 $query = "UPDATE user_empresa SET Nivel_acesso= :nivel_acesso WHERE id_user_empresa = :id_user_empresa";
                 $sql = $conn->dbh->prepare($query);
                 $sql->execute([':nivel_acesso' => $nivel_acesso, ':id_user_empresa' => $id_user_empresa]);
-                header("Location: ../ConfigFeed.php?q=" . base64_encode($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
+                header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
             } catch (PDOException $e) {
                 die("Erro na consulta");
             }
         } else {
-            header("Location: ../ConfigFeed.php?q=" . base64_encode($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
+            header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
         }
 
 
@@ -64,12 +64,12 @@ switch ($tipoVerificacao) {
                 $query = "UPDATE user_empresa SET Banido= :banido WHERE id_user_empresa = :id_user_empresa";
                 $sql = $conn->dbh->prepare($query);
                 $sql->execute([':banido' => $Banido, ':id_user_empresa' => $id_user_empresa]);
-                header("Location: ../ConfigFeed.php?q=" . base64_encode($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
+                header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
             } catch (PDOException $e) {
                 die("Erro na consulta");
             }
         } else {
-            header("Location: ../ConfigFeed.php?q=" . base64_encode($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
+            header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
         }
 
 
@@ -86,12 +86,12 @@ switch ($tipoVerificacao) {
                 $query = "UPDATE user_empresa SET Banido= :banido WHERE id_user_empresa = :id_user_empresa";
                 $sql = $conn->dbh->prepare($query);
                 $sql->execute([':banido' => $Banido, ':id_user_empresa' => $id_user_empresa]);
-                header("Location: ../ConfigFeed.php?q=" . base64_encode($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
+                header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
             } catch (PDOException $e) {
                 die("Erro na consulta");
             }
         } else {
-            header("Location: ../ConfigFeed.php?q=" . base64_encode($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
+            header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
         }
 
         break;
@@ -105,12 +105,12 @@ switch ($tipoVerificacao) {
                 $query = "DELETE FROM user_empresa WHERE id_user_empresa = :id_user_empresa";
                 $sql = $conn->dbh->prepare($query);
                 $sql->execute([':id_user_empresa' => $id_user_empresa]);
-                header("Location: ../ConfigFeed.php?q=" . base64_encode($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
+                header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($DadosUserEmpresa["Usuarios"][0]["id_empresa"]));
             } catch (PDOException $e) {
 
                 die("Erro na consulta");
             }
         }
-        
+
         break;
 }

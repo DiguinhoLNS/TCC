@@ -11,8 +11,8 @@ $func = new Funcoes();
 
 $idU = $func->ClearInjectionXSS($func->Descriptografar($_COOKIE["ID"]));
 
-$idQ = $func->ClearInjectionXSS(base64_decode(($_GET['q'])));
-$tipo_verificacao = $func->ClearInjectionXSS(base64_decode(($_GET['v'])));
+$idQ = $func->ClearInjectionXSS($func->Descriptografar(($_GET['q'])));
+$tipo_verificacao = $func->ClearInjectionXSS($func->Descriptografar(($_GET['v'])));
 
 switch ($tipo_verificacao) {
 
@@ -42,7 +42,7 @@ switch ($tipo_verificacao) {
             $conn->dbh->query($apagarUser_Empresa);
             header("Location: ../Dashboard.php");
         } catch (PDOException $e) {
-            header("Location: ../Company.php?q=" . base64_encode($idQ));
+            header("Location: ../Company.php?q=" . $func->Criptografar($idQ));
         }
 
         break;
@@ -55,7 +55,7 @@ switch ($tipo_verificacao) {
             $conn->dbh->query($apagarUser_Empresa2);
             header("Location: ../Dashboard.php");
         } catch (PDOException $e) {
-            header("Location: ../Company.php?q=" . base64_encode($idQ));
+            header("Location: ../Company.php?q=" . $func->Criptografar($idQ));
         }
 
         break;
@@ -67,9 +67,9 @@ switch ($tipo_verificacao) {
 
         try {
             $conn->dbh->query($apagarItem);
-            header("Location: ../ConfigFeed.php?q=" . base64_encode($DadosItemEmpresa["Objeto"][0]["id_empresa"]));
+            header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($DadosItemEmpresa["Objeto"][0]["id_empresa"]));
         } catch (PDOException $e) {
-            header("Location: ../ConfigFeed.php?q=" . base64_encode($DadosItemEmpresa["Objeto"][0]["id_empresa"]));
+            header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($DadosItemEmpresa["Objeto"][0]["id_empresa"]));
         }
 
         break;
