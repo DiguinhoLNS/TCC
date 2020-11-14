@@ -11,7 +11,7 @@
 
 	</head>
 
-    <body id = "AboutPage" class = "UNT LightMode">
+    <body id = "AboutAPEPage" class = "UNT LightMode">
 
         <?php 
         
@@ -30,18 +30,18 @@
 
         </header>
 
-        <main id = "MainAbout">
+        <main id = "MainAboutAPE">
 
             <div class = "MainContent">
                     
-			    <section id = "SectionAboutHeader">
+			    <section id = "SectionAboutAPEHeader">
 
                     <h1> APE - Achados e Perdidos Empresarial </h1>
                     <a href = "ReleaseNotes.php" id = "AboutReleaseNotes" class = "ReleaseNotes"> Notas de Versão </a>
 
                 </section>
 
-                <section id = "SectionAboutMain">
+                <section id = "SectionAboutAPEMain">
 
                     <h2> Plataforma APE </h2>
 
@@ -91,7 +91,7 @@
 
                 </section>
 
-                <section id = "SectionAboutDevelopers">
+                <section id = "SectionAboutAPEDevelopers">
 
                     <h2> Desenvolvedores </h2>
 

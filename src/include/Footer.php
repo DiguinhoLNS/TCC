@@ -59,22 +59,22 @@
 
             <h1> Nossas Redes Sociais </h1>
             <li>
-                <a href = "#" class = "IconFacebook" target = "_blank">
+                <a href = "#" class = "IconFacebook" target = "_blank" title = "Facebook">
                     <i class = "fab"> &#xf09a; </i>
                 </a>
             </li>
             <li>
-                <a href = "#" class = "IconInstagram" target = "_blank">
+                <a href = "#" class = "IconInstagram" target = "_blank" title = "Instagram">
                     <i class = "fab"> &#xf16d; </i>
                 </a>
             </li>
             <li>
-                <a href = "#" class = "IconTwitter" target = "_blank">
+                <a href = "#" class = "IconTwitter" target = "_blank" title = "Twitter">
                     <i class = "fab"> &#xf099; </i>
                 </a>
             </li>
             <li>
-                <a href = "#" class = "IconGithub" target = "_blank">
+                <a href = "https://github.com/DiguinhoLNS/TCC" class = "IconGithub" target = "_blank" title = "Github">
                     <i class = "fab"> &#xf09b; </i>
                 </a>
             </li>

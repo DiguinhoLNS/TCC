@@ -32,9 +32,29 @@
 
         <main id = "MainAboutCompanies">
 
-            <div class = "MainContent"></div>
+            <div class = "MainContent">
+
+                <section id = "SectionAboutCompaniesHeader">
+
+                    <h1> Empresas APE </h1>
+                   
+                </section>
+
+
+            </div>
 
         </main>
+
+        <?php include "include/Footer.php"; ?>
+        
+        <?php include "include/SideNavBar.php"; ?>
+        <?php include "include/HeaderNotification.php"; ?>
+        <?php include "include/HeaderConfig.php"; ?>
+        <?php include "include/CookieMessage.php"; ?>
+
+        <div id = "DarkEffect"></div>
+
+        <?php include "include/Script.php"; ?>
 
     </body>
 

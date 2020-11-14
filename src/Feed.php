@@ -37,7 +37,7 @@
 
 	<head>
 
-		<title> Feed </title>
+		<title> Feed <?php echo $DadosEmpresa[0]['Nome'];?></title>
 		
 		<?php include "include/Head.php"; ?>
 
