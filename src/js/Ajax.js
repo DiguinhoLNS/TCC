@@ -113,364 +113,54 @@ $(document).ready(function(){
     const FilterCategory = $(".FilterCategory");
     const FilterParamenter = $(".FilterParameter");
 
-    const ItemBox = $(".ItemBox");
-
     var FeedAll = $("#FeedAll");
     var FeedCategory = $("#FeedCategory");
 
-    var FeedAllDisplay = $("#AllItensFrame").css("display");
-    var FeedCategoryDisplay = $("#CategoryItensFrame").css("display");
+    var FeedFrame = localStorage.getItem("FeedFrame");
 
-    /* Filtes */
+    /* Search Bar */
 
-        // A-Z
-        $("#btnFeedAZ").on("click", function(){
+    $("#btnSearchFeed").on("click", function(){
 
-            // All
-            if(FeedAllDisplay == "block"){
+        var pesquisa = $("#FeedSearchItens").val();
 
-                var folder = "php/Filters/All/FilterAZ.php";
+            var folder = `php/Filters/Search.php?q=${pesquisa}`;
 
-                FilterCategory.removeClass("active");
-                $("#btnAllFilter").addClass("active");
+            $(".ItemBox").remove();
 
-                $.ajax({
+            $.ajax({
+
+                url : folder,
+                type : 'get',
+
+                beforeSend : function(){
                     
-                    url : folder,
-                    type : 'get',
-
-                    beforeSend : function(){
-                        
-                        $(".ItemBox").remove();
-                        
-                        $(".LoadingFeed").css("display", "flex");
-
-                    }
-
-                }).done(function(){
-    
-                    AJAXRequestStatus(1);
-
-                    $(".LoadingFeed").css("display", "none");    
-
-                    $(FeedAll).load(folder);
-    
-                }).fail(function(){
-    
-                    AJAXRequestStatus(0);
-    
-                });
-
-            }
-
-            // Category
-            if(FeedCategoryDisplay == "block"){
-
-                var folder = "php/Filters/Category/FilterAZ.php";
-
-                $.ajax({
+                    $(".ItemBox").remove();
+                    $(".SearchItemBox").remove();
                     
-                    url : folder,
-                    type : 'get',
-
-                    beforeSend : function(){
-                        
-                        $(".ItemBox").remove();
-                        
-                        $(".LoadingFeed").css("display", "flex");
-
-                    }
-
-                }).done(function(){
-    
-                    AJAXRequestStatus(1);
-
-                    $(".LoadingFeed").css("display", "none");    
-
-                    $(FeedCategory).load(folder);
-    
-                }).fail(function(){
-    
-                    AJAXRequestStatus(0);
-    
-                });
-
-            }
-
-        });
-
-        // Z-A
-        $("#btnFeedZA").on("click", function(){
-
-            // All
-            if(FeedAllDisplay == "block"){
-
-                var folder = "php/Filters/All/FilterZA.php";
-
-                FilterCategory.removeClass("active");
-                $("#btnAllFilter").addClass("active");
-
-                $.ajax({
+                    $(".LoadingFeed").css("display", "flex");
+                    $(".FilterItem").removeClass("active");
+                    $("#btnAllFilter").addClass("active");
                     
-                    url : folder,
-                    type : 'get',
+                    $("#AllItensFrame").css("display", "block");
+                    $("#CategoryItensFrame").css("display", "None");
 
-                    beforeSend : function(){
-                        
-                        $(".ItemBox").remove();
-                        
-                        $(".LoadingFeed").css("display", "flex");
+                }
 
-                    }
+            }).done(function(){   
 
-                }).done(function(){
-    
-                    AJAXRequestStatus(1);
+                AJAXRequestStatus(1);  
+                
+                $(".LoadingFeed").css("display", "none");     
 
-                    $(".LoadingFeed").css("display", "none");    
+                $(FeedAll).load(folder);
+        
+                
+            }).fail(function(){
 
-                    $(FeedAll).load(folder);
-    
-                }).fail(function(){
-    
-                    AJAXRequestStatus(0);
-    
-                });
+                AJAXRequestStatus(0);
 
-            }
-
-            // Category
-            if(FeedCategoryDisplay == "block"){
-
-                var folder = "php/Filters/Category/FilterZA.php";
-
-                $.ajax({
-                    
-                    url : folder,
-                    type : 'get',
-
-                    beforeSend : function(){
-                        
-                        $(".ItemBox").remove();
-                        
-                        $(".LoadingFeed").css("display", "flex");
-
-                    }
-
-                }).done(function(){
-    
-                    AJAXRequestStatus(1);
-
-                    $(".LoadingFeed").css("display", "none");    
-
-                    $(FeedCategory).load(folder);
-    
-                }).fail(function(){
-    
-                    AJAXRequestStatus(0);
-    
-                });
-
-            }
-
-        });
-
-        // Recente
-        $("#btnFeedRecente").on("click", function(){
-
-            // All
-            if(FeedAllDisplay == "block"){
-
-                var folder = "php/Filters/All/FilterRecente.php";
-
-                FilterCategory.removeClass("active");
-                $("#btnAllFilter").addClass("active");
-
-                $.ajax({
-                    
-                    url : folder,
-                    type : 'get',
-
-                    beforeSend : function(){
-                        
-                        $(".ItemBox").remove();
-                        
-                        $(".LoadingFeed").css("display", "flex");
-
-                    }
-
-                }).done(function(){
-    
-                    AJAXRequestStatus(1);
-
-                    $(".LoadingFeed").css("display", "none");    
-
-                    $(FeedAll).load(folder);
-    
-                }).fail(function(){
-    
-                    AJAXRequestStatus(0);
-    
-                });
-
-            }
-
-            // Category
-            if(FeedCategoryDisplay == "block"){
-
-                var folder = "php/Filters/Category/FilterRecente.php";
-
-                $.ajax({
-                    
-                    url : folder,
-                    type : 'get',
-
-                    beforeSend : function(){
-                        
-                        $(".ItemBox").remove();
-                        
-                        $(".LoadingFeed").css("display", "flex");
-
-                    }
-
-                }).done(function(){
-    
-                    AJAXRequestStatus(1);
-
-                    $(".LoadingFeed").css("display", "none");    
-
-                    $(FeedCategory).load(folder);
-    
-                }).fail(function(){
-    
-                    AJAXRequestStatus(0);
-    
-                });
-
-            }
-
-        });
-
-        // Antigo
-        $("#btnFeedAntigo").on("click", function(){
-
-            // All
-            if(FeedAllDisplay == "block"){
-
-                var folder = "php/Filters/All/FilterAntigo.php";
-
-                FilterCategory.removeClass("active");
-                $("#btnAllFilter").addClass("active");
-
-                $.ajax({
-                    
-                    url : folder,
-                    type : 'get',
-
-                    beforeSend : function(){
-                        
-                        $(".ItemBox").remove();
-                        
-                        $(".LoadingFeed").css("display", "flex");
-
-                    }
-
-                }).done(function(){
-    
-                    AJAXRequestStatus(1);
-
-                    $(".LoadingFeed").css("display", "none");    
-
-                    $(FeedAll).load(folder);
-    
-                }).fail(function(){
-    
-                    AJAXRequestStatus(0);
-    
-                });
-
-            }
-
-            // Category
-            if(FeedCategoryDisplay == "block"){
-
-                var folder = "php/Filters/Category/FilterAntigo.php";
-
-                $.ajax({
-                    
-                    url : folder,
-                    type : 'get',
-
-                    beforeSend : function(){
-                        
-                        $(".ItemBox").remove();
-                        
-                        $(".LoadingFeed").css("display", "flex");
-
-                    }
-
-                }).done(function(){
-    
-                    AJAXRequestStatus(1);
-
-                    $(".LoadingFeed").css("display", "none");    
-
-                    $(FeedCategory).load(folder);
-    
-                }).fail(function(){
-    
-                    AJAXRequestStatus(0);
-    
-                });
-
-            }
-
-        });
-
-        /* Search Bar */
-
-        $("#btnSearchFeed").on("click", function(){
-
-            var pesquisa = $("#FeedSearchItens").val();
-
-                var folder = `php/Filters/Search.php?q=${pesquisa}`;
-
-                $(".ItemBox").remove();
-
-                $.ajax({
-
-                    url : folder,
-                    type : 'get',
-
-                    beforeSend : function(){
-                        
-                        $(".ItemBox").remove();
-                        $(".SearchItemBox").remove();
-                        
-                        $(".LoadingFeed").css("display", "flex");
-                        $(".FilterItem").removeClass("active");
-                        $("#btnAllFilter").addClass("active");
-                        
-                        $("#AllItensFrame").css("display", "block");
-                        $("#CategoryItensFrame").css("display", "None");
-
-                    }
-
-                }).done(function(){   
-
-                    AJAXRequestStatus(1);  
-                    
-                    $(".LoadingFeed").css("display", "none");     
-
-                    $(FeedAll).load(folder);
-           
-                    
-                }).fail(function(){
-
-                    AJAXRequestStatus(0);
-
-                });
-
+            });
             
         });
 

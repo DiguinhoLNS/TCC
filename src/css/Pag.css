@@ -961,200 +961,96 @@ h1, h2, h3, h4, h5, h6 {
 			padding: 0 0 60px;
 		}
 
-		/* Nav */
-
-		#SectionFeedNav {
-			margin-bottom: 40px;
+		#MainFeed .NavFrame {
+			display: none;
 		}
 
-		#SectionFeedNav #FeedNavBar {
-			display: grid;
-			grid-template-columns: repeat(3, auto);
-			grid-gap: 30px 40px;
-
-			width: 100%;
-
-			list-style: none;
+		#MainFeed #FF1 {
+			display: block;
 		}
 
-			/* Search Bar */
+		/* FF3 */
 
-			#FeedSearchBar {
-				width: 454px;
-				height: 50px;
-				padding: 10px 30px;
-				border-radius: 25px;
+		#FeedSearchBar {
+			width: 454px;
+			height: 50px;
+			padding: 10px 30px;
+			border-radius: 25px;
 
-				background-color: var(--color-layout-s);
-			}
-		
-			#FeedSearchBar input[type = "text"]{
-				width: 350px;
-				height: 30px;
-				margin-right: 20px;
-				border: none;
-		
-				color: var(--color-txt-s);
-				font-size: 16px;
-				background-color: transparent;
-			}
-		
-				#FeedSearchBar input[type = "text"]::-webkit-input-placeholder {
-					color: var(--color-txt-t);
-				}
-
-			#FeedSearchBar button {
-				height: 30px;
-				padding: 3px 0;
-				border: none;
-				
-				color: var(--color-txt-t);
-				font-size: 24px;
-				background-color: transparent;
-		
-				cursor: pointer;
-				transition: 0.1s ease;
-			}
+			background-color: var(--color-layout-s);
+		}
 	
-				#FeedSearchBar button:hover {
-					color: var(--color-txt-p);
-				}
-
-			/* Filters */
-
-			.FeedFilters {
-				height: 38px;
-				margin: 6px 0;
-
-				list-style: none;
-			}
-
-			.FeedFilters .FilterItem {
-				padding: 10px 20px;
-				margin-right: 20px;
-				border-radius: 19px;
-
+		#FeedSearchBar input[type = "text"]{
+			width: 350px;
+			height: 30px;
+			margin-right: 20px;
+			border: none;
+	
+			color: var(--color-txt-s);
+			font-size: 16px;
+			background-color: transparent;
+		}
+	
+			#FeedSearchBar input[type = "text"]::-webkit-input-placeholder {
 				color: var(--color-txt-t);
-				font-size: 14px;
-				background-color: var(--color-layout-s);
-
-				cursor: pointer;
 			}
 
-				.FeedFilters .active {
-					color: var(--color-txt-p-dm);
-					background-color: var(--color-theme-company-p);
-				}
+		#FeedSearchBar button {
+			height: 30px;
+			padding: 3px 0;
+			border: none;
+			
+			color: var(--color-txt-t);
+			font-size: 24px;
+			background-color: transparent;
+	
+			cursor: pointer;
+			transition: 0.1s ease;
+		}
 
-					.DarkMode .FeedFilters .active {
-						background-color: var(--color-theme-company-s);
-					}
-
-					.ThemeYellow .FeedFilters .active {
-						color: var(--color-txt-p-lm);
-					}
-
-				.FeedFilters .FilterItem:hover {
-					background-color: var(--color-hover);
-				}
-
-					.FeedFilters .active:hover {
-						background-color: var(--color-theme-company-hover);
-					}
-
-				.FeedFilters .FilterItem:last-child {
-					margin-right: 0;
-				}
-
-			/* Main */
-
-			#SectionFeedMain #FeedFrameset {
-				width: 100%;
-			}
-
-				#SectionFeedMain #FeedFrameset #AllItensFrame {
-					display: block;
-				}
-
-				#SectionFeedMain #FeedFrameset #CategoryItensFrame {
-					display: none;
-				}
-
-			#SectionFeedMain #FeedFrameset .FeedFrame {
-				width: 100%;
-			}
-
-				#SectionFeedMain #FeedFrameset #CategoryItensFrame {
-					display: none;
-				}
-
-			#SectionFeedMain #FeedFrameset .FeedFrame .FeedFrameContent {
-				width: 100%;
-			}
-
-			.FeedFrame .FeedFrameContent {
-				width: 100%;
-			}
-
-			.FeedFrame .FeedFrameContent .TitleHeader {
-				width: 100%;
-				margin-bottom: 25px;
-
+			#FeedSearchBar button:hover {
 				color: var(--color-txt-p);
-				font-size: 28px;
 			}
 
-			.FeedFrame .FeedFrameContent .FeedFrameCategory {
-				width: 100%;
-				margin-bottom: 30px;
-			}
+			/* Box */
 
-				.FeedFrame .FeedFrameContent .FeedFrameCategory:last-child {
-					margin: 0;
-				}
-
-			.FeedFrame .FeedFrameContent .FeedFrameCategory .HeaderCategory {
-				width: 100%;
-				margin-bottom: 20px;
-
-				color: var(--color-txt-s);
-				font-size: 22px;
-			}
-
-				.DarkMode .FeedFrame .FeedFrameContent .FeedFrameCategory .HeaderCategory {
-					color: var(--color-theme-company-p);
-				}
-
-			.FeedFrame .FeedFrameContent .FeedBoxGroup {
+			.FeedBoxGroup {
 				display: grid;
-				grid-template-columns: repeat(4, 1fr);
-				grid-template-rows: auto;
-				grid-gap: 40px;
-				
+				grid-template-columns: repeat(3, 1fr);
+				gap: 40px 20px;
+
 				width: 100%;
 
 				list-style: none;
 			}
 
-			.FeedFrame .FeedFrameContent .FeedBoxGroup .LoadingFeed {
-				display: none;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				grid-column: 2/4;
-			}
+				.FeedCategoryContent {
+					width: 100%;
+					margin-bottom: 40px;
+				}
 
-			.FeedFrame .FeedFrameContent .FeedBoxGroup .LoadingFeed img {
-				width: 200px;
-				height: 200px;
-			}
+					.FeedCategoryContent:last-child {
+						margin: 0;
+					}
 
-			.FeedFrame .FeedFrameContent .FeedBoxGroup .ItemBox {
+				.FeedCategoryContent h2 {
+					width: 100%;
+					margin-bottom: 15px;
+
+					color: var(--color-txt-s);
+					font-size: 22px;
+				}
+
+					.DarkMode .FeedCategoryContent h2 {
+						color: var(--color-theme-company-p);
+					}
+
+			.FeedBoxGroup .ItemBox {
 				display: flex;
 				align-items: center;
 			}
 
-			.FeedFrame .FeedFrameContent .FeedBoxGroup .ItemBox a {
+			.FeedBoxGroup .ItemBox a {
 				display: grid;
 				grid-template-rows: auto auto;
 				
@@ -1166,21 +1062,21 @@ h1, h2, h3, h4, h5, h6 {
 
 				/* IMG */
 
-				.FeedFrame .FeedFrameContent .FeedBoxGroup .ItemBox a .ItemImg {
+				.FeedBoxGroup .ItemBox a .ItemImg {
 					width: 100%;
 					height: auto;
 					border-top-right-radius: inherit;
 					border-top-left-radius: inherit;
 				}
 
-				.FeedFrame .FeedFrameContent .FeedBoxGroup .ItemBox a .ItemImg img {
+				.FeedBoxGroup .ItemBox a .ItemImg img {
 					border-top-right-radius: inherit;
 					border-top-left-radius: inherit;
 				}
 
 				/* Info */
 
-				.FeedFrame .FeedFrameContent .FeedBoxGroup .ItemBox a .ItemInfo {
+				.FeedBoxGroup .ItemBox a .ItemInfo {
 					display: grid;
 					grid-template-columns: 1fr;
 					grid-template-rows: repeat(3, auto);
@@ -1192,7 +1088,7 @@ h1, h2, h3, h4, h5, h6 {
 					border-bottom-left-radius: inherit;
 				}
 
-				.FeedFrame .FeedFrameContent .FeedBoxGroup .ItemBox a .ItemInfo .ItemName {
+				.FeedBoxGroup .ItemBox a .ItemInfo .ItemName {
 					grid-column: 1/2;
 					grid-row: 1/2;
 					
@@ -1200,7 +1096,7 @@ h1, h2, h3, h4, h5, h6 {
 					font-size: 20px;
 				}
 
-				.FeedFrame .FeedFrameContent .FeedBoxGroup .ItemBox a .ItemInfo .ItemData {
+				.FeedBoxGroup .ItemBox a .ItemInfo .ItemData {
 					grid-column: 1/2;
 					grid-row: 2/3;
 					
@@ -1208,7 +1104,7 @@ h1, h2, h3, h4, h5, h6 {
 					font-size: 14px;
 				}
 
-				.FeedFrame .FeedFrameContent .FeedBoxGroup .ItemBox a .ItemInfo .ItemCategory {
+				.FeedBoxGroup .ItemBox a .ItemInfo .ItemCategory {
 					grid-column: 1/2;
 					grid-row: 3/4;
 					

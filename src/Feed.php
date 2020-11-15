@@ -43,7 +43,19 @@
 
 	</head>
 
-	<body id = "FeedPage" class = "UNT LightMode ADMView">
+	<script type = "text/javascript">
+
+		$(window).ready(function(){
+
+			var FeedFrame = localStorage.getItem("FeedFrame");
+			
+			localStorage.setItem("FeedFrame", "all");
+
+		});
+
+	</script>
+
+	<body id = "FeedPage" class = "UNT LightMode ADMView CompanyLayout">
 
 		<?php
 
@@ -76,373 +88,327 @@
 				
 				</section>
 
-				<section id = "SectionFeedNav">
+				<section id = "SectionFeedNav" class = "SectionPlatformPanel">
 
-					<ul id = "FeedNavBar">
+					<nav id = "NavFeedConfig" class = "NavBarControl">
 
-						<li>
+                        <ul>
 
-							<div id = "FeedSearchBar">
+                            <li id = "FFO1" class = "NavListOption active">
+                                <i class = "material-icons"> all_inbox </i>
+                                <span> Todos </span>
+							</li>
+							<li id = "FFO2" class = "NavListOption">
+                                <i class = "material-icons"> inbox </i>
+                                <span> Categorias </span>
+							</li>
+							<li id = "FFO3" class = "NavListOption">
+                                <i class = "material-icons"> &#xe8b6; </i>
+                                <span> Pesquisa </span>
+                            </li>
+												
+                        </ul>
 
-								<input id = "FeedSearchItens" type = "text" placeholder = "Pesquisar itens" title = "Pesquisar Itens">
-								<button id = "btnSearchFeed" title = "Pesquisar">
-									<i class = "material-icons"> &#xe8b6; </i>	
-								</button>
+					</nav>
 
-							</div>
+					<nav id = "FeedFrameset" class = "NavFrameset">
 
-						</li>
-						<li>
+						<div id = "FF1" class = "NavFrame">
 
-							<ul class = "FeedFilters">
+							<div class = "NavFrameContent">
 
-								<li id = "btnAllFilter" class = "FilterItem FilterCategory active" title = "Mostrar todos"> Todos </li>
-								<li id = "btnCategoryFilter" class = "FilterItem FilterCategory" title = "Mostrar categorias"> Categorias </li>	
+								<div class = "FrameMain FrameSection">
 
-							</ul>
+									<div class = "SubFramesetContent">
 
-						</li>
-						<li>
+										<nav class = "SubNavBarControl">
 
-							<ul class = "FeedFilters">
+											<ul>
 
-								<li id = "btnFeedAZ" class = "FilterItem FilterParameter active" title = "Ordenar de A-Z"> A - Z </li>
-								<li id = "btnFeedZA" class = "FilterItem FilterParameter" title = "Ordenar de Z-A"> Z - A </li>
-								<li id = "btnFeedRecente" class = "FilterItem FilterParameter" title = "Ordenar por mais recentes"> Mais recentes </li>
-								<li id = "btnFeedAntigo" class = "FilterItem FilterParameter" title = "Ordernar por mais antigos"> Mais antigos  </li>
+												<li id = "FIlterAll1" class = "SubNavOption AllSubNavOption active""> A-Z </li>
+												<li id = "FIlterAll2" class = "SubNavOption AllSubNavOption"> Z-A </li>
+												<li id = "FIlterAll3" class = "SubNavOption AllSubNavOption"> Recentes </li>
+												<li id = "FIlterAll4" class = "SubNavOption AllSubNavOption"> Antigos </li>
 
-							</ul>
+											</ul>
 
-						</li>
+										</nav>
 
-					</ul>
+										<nav class = "SubNavFrameset">
 
-				</section>
+											<div id = "AllSF" class = "UserSubNavFrame SubNavFrame">
 
-				<section id = "SectionFeedMain">
+												<div class = "FrameHeader FrameSection">
 
-					<nav id = "FeedFrameset">
+													<h1> Todos </h1>
 
-						<div id = "AllItensFrame" class = "FeedFrame">
+												</div>
 
-							<div class = "FeedFrameContent">
+												<div class = "FrameMain FrameSection">
 
-								<h1 class = "TitleHeader"> Todos </h1>
+													<ul class = "FeedAll FeedBoxGroup">
 
-								<div class = "FeedFrameCategory">
+														<li class = "ItemBox">
 
-									<ul id = "FeedAll" class = "FeedBoxGroup">
+															<a href = "">
 
-									<?php
+																<div class = "ItemImg">
+																	<img src = "">
+																</div>
+																<div class = "ItemInfo">
+																	
+																	<h1 class = "ItemName"> Nome </h1>
+																	<h2 class = "ItemData"> 00/00/0000 </h2>
+																	<h3 class = "ItemCategory"> Categoria </h3>
+																</div>
 
-										include "include/LoadFeed.php";
+															</a>
 
-										if($DadosItem["Quantidade"]==0){
+														</li>
 
-											echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
+													</ul>
 
-										}else{
-											$i=0;
-											
-											do{
-												if($DadosItem["Objeto"][$i]["Categoria"] == "Acessorio"){
-													$DadosItem["Objeto"][$i]["Categoria"] = "Acessório";
-												}else if($DadosItem["Objeto"][$i]["Categoria" == "Eletronico"]){
-													$DadosItem["Objeto"][$i]["Categoria"] = "Eletrônico";
-												}
-												$DataSeparada = $func->SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
-												echo '
-													<li class = "ItemBox AllItemBox">
+												</div>
 
-														<a href = "Item.php?q='.$func->Criptografar($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "'.$DadosItem["Objeto"][$i]["Nome_obj"].'">
+											</div>
 
-															<div class = "ItemImg">
-																<img src = "imagesBD/'.$DadosItem["Objeto"][$i]["Nome_foto"].'">
-															</div>
+										</nav>
 
-															<div class = "ItemInfo">
-																
-																<h1 class = "ItemName"> '.$DadosItem["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
-																<h3 class = "ItemCategory"> '.$DadosItem["Objeto"][$i]["Categoria"].' </h3>
-
-															</div>
-
-														</a>
-
-													</li>
-												';
-											$i++;
-											}while($i<($DadosItem["Quantidade"]));
-										}
-										
-									?>
-
-									</ul>
+									</div>
 
 								</div>
 
 							</div>
 
 						</div>
-						<div id = "CategoryItensFrame" class = "FeedFrame">
 
-							<div class = "FeedFrameContent">
+						<div id = "FF2" class = "NavFrame">
 
-								<h1 class = "TitleHeader"> Categorias </h1>
-								<?php
+							<div class = "NavFrameContent">
 
-										if($Eletronicos["Quantidade"]==0){
+								<div class = "FrameMain FrameSection">
 
-											echo '
-											<div class = "FeedFrameCategory">											
+									<div class = "SubFramesetContent">
 
-											<ul class = "FeedBoxGroup">';									
+										<nav class = "SubNavBarControl">
 
-										}else{
-											$i=0;
-											echo '
-											<div class = "FeedFrameCategory">
+											<ul>
 
-											<h2 class = "HeaderCategory"> Eletrônicos </h2>
+												<li id = "FIlterCategory1" class = "SubNavOption CategorySubNavOption active""> A-Z </li>
+												<li id = "FIlterCategory2" class = "SubNavOption CategorySubNavOption"> Z-A </li>
+												<li id = "FIlterCategory3" class = "SubNavOption CategorySubNavOption"> Recentes </li>
+												<li id = "FIlterCategory4" class = "SubNavOption CategorySubNavOption"> Antigos </li>
 
-											<ul class = "FeedBoxGroup">';
-											do{
-												$DataSeparada = $func->SepararData($Eletronicos["Objeto"][$i]["Data_cadastro"]);
-												echo '
+											</ul>
 
+										</nav>
 
-													<li class = "ItemBox">
+										<nav class = "SubNavFrameset">
 
-														<a href = "Item.php?q='.$func->Criptografar($Eletronicos["Objeto"][$i]["id_obj"]) .'" title = "'.$Eletronicos["Objeto"][$i]["Nome_obj"].'">
+											<div id = "CategorySF" class = "UserSubNavFrame SubNavFrame">
 
-															<div class = "ItemImg">
-																<img src = "imagesBD/'.$Eletronicos["Objeto"][$i]["Nome_foto"].'">
-															</div>
+												<div class = "FrameHeader FrameSection">
 
-															<div class = "ItemInfo">
-																
-																<h1 class = "ItemName"> '.$Eletronicos["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
-																<h3 class = "ItemCategory"> Eletrônico </h3>
+													<h1> Categorias </h1>
 
-															</div>
+												</div>
 
-														</a>
+												<div class = "FrameMain FrameSection">
 
-													</li>
-												';
-											$i++;
-											}while($i<($Eletronicos["Quantidade"]));
-										}
+													<div class = "FeedCategoryContent">
 
-									?>
+														<h2> Acessórios </h2>
 
-									</ul>
+														<ul class = "FeedCategory FeedBoxGroup">
+
+															<li class = "ItemBox">
+
+																<a href = "">
+
+																	<div class = "ItemImg">
+																		<img src = "">
+																	</div>
+																	<div class = "ItemInfo">
+																		
+																		<h1 class = "ItemName"> Nome </h1>
+																		<h2 class = "ItemData"> 00/00/0000 </h2>
+																		<h3 class = "ItemCategory"> Categoria </h3>
+																	</div>
+
+																</a>
+
+															</li>
+
+														</ul>
+
+													</div>
+
+													<div class = "FeedCategoryContent">
+
+														<h2> Documentos </h2>
+
+														<ul class = "FeedCategory FeedBoxGroup">
+
+															<li class = "ItemBox">
+
+																<a href = "">
+
+																	<div class = "ItemImg">
+																		<img src = "">
+																	</div>
+																	<div class = "ItemInfo">
+																		
+																		<h1 class = "ItemName"> Nome </h1>
+																		<h2 class = "ItemData"> 00/00/0000 </h2>
+																		<h3 class = "ItemCategory"> Categoria </h3>
+																	</div>
+
+																</a>
+
+															</li>
+
+														</ul>
+
+													</div>
+
+													<div class = "FeedCategoryContent">
+
+														<h2> Eletrônicos</h2>
+
+														<ul class = "FeedCategory FeedBoxGroup">
+
+															<li class = "ItemBox">
+
+																<a href = "">
+
+																	<div class = "ItemImg">
+																		<img src = "">
+																	</div>
+																	<div class = "ItemInfo">
+																		
+																		<h1 class = "ItemName"> Nome </h1>
+																		<h2 class = "ItemData"> 00/00/0000 </h2>
+																		<h3 class = "ItemCategory"> Categoria </h3>
+																	</div>
+
+																</a>
+
+															</li>
+
+														</ul>
+
+													</div>
+
+													<div class = "FeedCategoryContent">
+
+														<h2> Roupas </h2>
+
+														<ul class = "FeedCategory FeedBoxGroup">
+
+															<li class = "ItemBox">
+
+																<a href = "">
+
+																	<div class = "ItemImg">
+																		<img src = "">
+																	</div>
+																	<div class = "ItemInfo">
+																		
+																		<h1 class = "ItemName"> Nome </h1>
+																		<h2 class = "ItemData"> 00/00/0000 </h2>
+																		<h3 class = "ItemCategory"> Categoria </h3>
+																	</div>
+
+																</a>
+
+															</li>
+
+														</ul>
+
+													</div>
+
+													<div class = "FeedCategoryContent">
+
+														<h2> Outros </h2>
+
+														<ul class = "FeedCategory FeedBoxGroup">
+
+															<li class = "ItemBox">
+
+																<a href = "">
+
+																	<div class = "ItemImg">
+																		<img src = "">
+																	</div>
+																	<div class = "ItemInfo">
+																		
+																		<h1 class = "ItemName"> Nome </h1>
+																		<h2 class = "ItemData"> 00/00/0000 </h2>
+																		<h3 class = "ItemCategory"> Categoria </h3>
+																	</div>
+
+																</a>
+
+															</li>
+
+														</ul>
+
+													</div>
+
+												</div>
+
+												<div class = "FrameMain FrameSection"></div>
+
+											</div>
+
+										</nav>
+
+									</div>
 
 								</div>
 
-								<?php
+							</div>
 
-										if($Roupas["Quantidade"]==0){
+						</div>
 
-											echo '
-											<div class = "FeedFrameCategory">									
+						<div id = "FF3" class = "NavFrame">
 
-											<ul class = "FeedBoxGroup">';									
+							<div class = "NavFrameContent">
 
-										}else{
-											echo'
-											<div class = "FeedFrameCategory">
+								<div class = "FrameHeader FrameSection">
 
-											<h2 class = "HeaderCategory"> Roupas </h2>
+									<div id = "FeedSearchBar">
 
-											<ul class = "FeedBoxGroup">';
+										<input id = "FeedSearchItens" type = "text" placeholder = "Pesquisar itens" title = "Pesquisar Itens">
+										<button id = "btnSearchFeed" title = "Pesquisar">
+											<i class = "material-icons"> &#xe8b6; </i>	
+										</button>
 
-											$i=0;
-											do{
-												$DataSeparada = $func->SepararData($Roupas["Objeto"][$i]["Data_cadastro"]);
-												echo '
-
-													<li class = "ItemBox">
-
-														<a href = "Item.php?q='.$func->Criptografar($Roupas["Objeto"][$i]["id_obj"]) .'" title = "'.$Roupas["Objeto"][$i]["Nome_obj"].'">
-
-															<div class = "ItemImg">
-																<img src = "imagesBD/'.$Roupas["Objeto"][$i]["Nome_foto"].'">
-															</div>
-
-															<div class = "ItemInfo">
-																
-																<h1 class = "ItemName"> '.$Roupas["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
-																<h3 class = "ItemCategory"> '.$Roupas["Objeto"][$i]["Categoria"].' </h3>
-
-															</div>
-
-														</a>
-
-													</li>
-												';
-											$i++;
-											}while($i<($Roupas["Quantidade"]));
-										}
-
-									?>
-
-									</ul>
+									</div>
 
 								</div>
 
+								<div class = "FrameMain FrameSection">
 
+									<ul class = "FeedSearch FeedBoxGroup">
 
-									<?php
+										<li class = "ItemBox">
 
-										if($Acessorios["Quantidade"]==0){
-											echo '
-											<div class = "FeedFrameCategory">	
-											<ul class = "FeedBoxGroup">';
+											<a href = "">
 
-										}else{
-											$i=0;
-											echo'
-											<div class = "FeedFrameCategory">
+												<div class = "ItemImg">
+													<img src = "">
+												</div>
+												<div class = "ItemInfo">
+													
+													<h1 class = "ItemName"> Nome </h1>
+													<h2 class = "ItemData"> 00/00/0000 </h2>
+													<h3 class = "ItemCategory"> Categoria </h3>
+												</div>
 
-											<h2 class = "HeaderCategory"> Acessórios </h2>
+											</a>
 
-											<ul class = "FeedBoxGroup">';
-											do{
-												$DataSeparada = $func->SepararData($Acessorios["Objeto"][$i]["Data_cadastro"]);
-												echo '
-
-													<li class = "ItemBox">
-
-														<a href = "Item.php?q='.$func->Criptografar($Acessorios["Objeto"][$i]["id_obj"]).'" title = "'.$Acessorios["Objeto"][$i]["Nome_obj"].'">
-
-															<div class = "ItemImg">
-																<img src = "imagesBD/'.$Acessorios["Objeto"][$i]["Nome_foto"].'">
-															</div>
-
-															<div class = "ItemInfo">
-																
-																<h1 class = "ItemName"> '.$Acessorios["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
-																<h3 class = "ItemCategory"> Acessório </h3>
-
-															</div>
-
-														</a>
-
-													</li>
-												';
-											$i++;
-											}while($i<($Acessorios["Quantidade"]));
-										}
-
-									?>
-
-									</ul>
-
-								</div>
-
-									<?php
-
-										if($Documentos["Quantidade"]==0){
-											echo '
-											<div class = "FeedFrameCategory">
-
-											<ul class = "FeedBoxGroup">';
-
-										}else{
-											$i=0;
-											echo '
-											<div class = "FeedFrameCategory">
-
-											<h2 class = "HeaderCategory"> Documentos </h2>
-
-											<ul class = "FeedBoxGroup">';
-
-											do{
-												$DataSeparada = $func->SepararData($Documentos["Objeto"][$i]["Data_cadastro"]);
-												echo '
-
-													<li class = "ItemBox">
-
-														<a href = "Item.php?q='.$func->Criptografar($Documentos["Objeto"][$i]["id_obj"]).'" title = "'.$Documentos["Objeto"][$i]["Nome_obj"].'">
-
-															<div class = "ItemImg">
-																<img src = "imagesBD/'.$Documentos["Objeto"][$i]["Nome_foto"].'">
-															</div>
-
-															<div class = "ItemInfo">
-																
-																<h1 class = "ItemName"> '.$Documentos["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
-																<h3 class = "ItemCategory"> '.$Documentos["Objeto"][$i]["Categoria"].' </h3>
-
-															</div>
-
-														</a>
-
-													</li>
-												';
-											$i++;
-											}while($i<($Documentos["Quantidade"]));
-										}
-
-									?>
-
-									</ul>
-
-								</div>
-
-									<?php
-
-										if($Outros["Quantidade"]==0){
-											echo'
-
-											<div class = "FeedFrameCategory">
-		
-											<ul class = "FeedBoxGroup">';
-
-										}else{
-											$i=0;
-											echo '				
-											<div class = "FeedFrameCategory">
-
-											<h2 class = "HeaderCategory"> Outros </h2>
-		
-											<ul class = "FeedBoxGroup">';
-
-											do{
-												$DataSeparada = $func->SepararData($Outros["Objeto"][$i]["Data_cadastro"]);
-												echo '
-
-													<li class = "ItemBox">
-
-														<a href = "Item.php?q='.$func->Criptografar($Outros["Objeto"][$i]["id_obj"]).'" title = "'.$Outros["Objeto"][$i]["Nome_obj"].'">
-
-															<div class = "ItemImg">
-																<img src = "imagesBD/'.$Outros["Objeto"][$i]["Nome_foto"].'">
-															</div>
-
-															<div class = "ItemInfo">
-																
-																<h1 class = "ItemName"> '.$Outros["Objeto"][$i]["Nome_obj"].' </h1>
-																<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
-																<h3 class = "ItemCategory"> '.$Outros["Objeto"][$i]["Categoria"].' </h3>
-
-															</div>
-
-														</a>
-
-													</li>
-												';
-											$i++;
-											}while($i<($Outros["Quantidade"]));
-										}
-
-									?>
+										</li>
 
 									</ul>
 

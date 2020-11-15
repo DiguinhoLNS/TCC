@@ -488,6 +488,8 @@ $(document).ready(function(){
     const NLO = $(".NavListOption");
     const UserSNLO = $(".UserSubNavOption");
     const ItemSNLO = $(".ItemSubNavOption");
+    const AllSNLO = $(".AllSubNavOption");
+    const CategorySNLO = $(".CategorySubNavOption");
 
     NLO.on("click", function(){
 
@@ -506,6 +508,20 @@ $(document).ready(function(){
     ItemSNLO.on("click", function(){
 
         ItemSNLO.removeClass("active");
+        $(this).addClass("active");
+
+    });
+
+    AllSNLO.on("click", function(){
+
+        AllSNLO.removeClass("active");
+        $(this).addClass("active");
+
+    });
+
+    CategorySNLO.on("click", function(){
+
+        CategorySNLO.removeClass("active");
         $(this).addClass("active");
 
     });
@@ -580,93 +596,120 @@ $(document).ready(function(){
 
     });
 
+    /* Feed */
+
+    $("#FFO1").on("click", function(){
+
+        NF.css("display", "none");
+
+        $("#FF1").css("display", "block");
+
+    });
+
+    $("#FFO2").on("click", function(){
+
+        NF.css("display", "none");
+
+        $("#FF2").css("display", "block");
+
+    });
+
+    $("#FFO3").on("click", function(){
+
+        NF.css("display", "none");
+
+        $("#FF3").css("display", "block");
+
+    });
+
+
     /* FeedConfig.php */
 
-        $("#FCFO1").on("click", function(){
+    $("#FCFO1").on("click", function(){
 
-            NF.css("display", "none");
+        NF.css("display", "none");
 
-            $("#FCF1").css("display", "block");
+        $("#FCF1").css("display", "block");
 
+    });
+
+    $("#FCFO2").on("click", function(){
+
+        NF.css("display", "none");
+
+        $("#FCF2").css("display", "block");
+
+    });
+
+    $("#FCFO3").on("click", function(){
+
+        NF.css("display", "none");
+
+        $("#FCF3").css("display", "block");
+
+    });
+
+    // Sub Frames
+
+        // Users
+
+        $("#UserSFCFO1").on("click", function(){
+
+            UserSNF.css("display", "none");
+    
+            $("#UserSFCF1").css("display", "block");
+    
         });
 
-        $("#FCFO2").on("click", function(){
+        $("#UserSFCFO2").on("click", function(){
 
-            NF.css("display", "none");
-
-            $("#FCF2").css("display", "block");
-
+            UserSNF.css("display", "none");
+    
+            $("#UserSFCF2").css("display", "block");
+    
         });
 
-        $("#FCFO3").on("click", function(){
+        $("#UserSFCFO3").on("click", function(){
 
-            NF.css("display", "none");
-
-            $("#FCF3").css("display", "block");
-
+            UserSNF.css("display", "none");
+    
+            $("#UserSFCF3").css("display", "block");
+    
         });
 
-        // Sub Frames
+        $("#UserSFCFO4").on("click", function(){
 
-            // Users
+            UserSNF.css("display", "none");
+    
+            $("#UserSFCF4").css("display", "block");
+    
+        });
 
-            $("#UserSFCFO1").on("click", function(){
+        // Itens
 
-                UserSNF.css("display", "none");
-        
-                $("#UserSFCF1").css("display", "block");
-        
-            });
+        $("#ItemSFCFO1").on("click", function(){
 
-            $("#UserSFCFO2").on("click", function(){
+            ItenSNF.css("display", "none");
+    
+            $("#ItemSFCF1").css("display", "block");
+    
+        });
 
-                UserSNF.css("display", "none");
-        
-                $("#UserSFCF2").css("display", "block");
-        
-            });
+        $("#ItemSFCFO2").on("click", function(){
 
-            $("#UserSFCFO3").on("click", function(){
+            ItenSNF.css("display", "none");
+    
+            $("#ItemSFCF2").css("display", "block");
+    
+        });
 
-                UserSNF.css("display", "none");
-        
-                $("#UserSFCF3").css("display", "block");
-        
-            });
+        $("#ItemSFCFO3").on("click", function(){
 
-            $("#UserSFCFO4").on("click", function(){
-
-                UserSNF.css("display", "none");
-        
-                $("#UserSFCF4").css("display", "block");
-        
-            });
-
-            // Itens
-
-            $("#ItemSFCFO1").on("click", function(){
-
-                ItenSNF.css("display", "none");
-        
-                $("#ItemSFCF1").css("display", "block");
-        
-            });
-
-            $("#ItemSFCFO2").on("click", function(){
-
-                ItenSNF.css("display", "none");
-        
-                $("#ItemSFCF2").css("display", "block");
-        
-            });
-
-            $("#ItemSFCFO3").on("click", function(){
-
-                ItenSNF.css("display", "none");
-        
-                $("#ItemSFCF3").css("display", "block");
-        
-            });
+            ItenSNF.css("display", "none");
+    
+            $("#ItemSFCF3").css("display", "block");
+    
+        });
 
 });
 
@@ -717,6 +760,8 @@ $(document).ready(function(){
         // ALL
         $("#btnAllFilter").on("click", function(){
 
+            localStorage.setItem("FeedFrame", "all");
+
             FeedFrame.css("display", "none");
             $("#AllItensFrame").css("display", "block");
 
@@ -724,6 +769,8 @@ $(document).ready(function(){
 
         // Category
         $("#btnCategoryFilter").on("click", function(){
+
+            localStorage.setItem("FeedFrame", "category");
 
             FeedFrame.css("display", "none");
             $("#CategoryItensFrame").css("display", "block");
