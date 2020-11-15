@@ -19,7 +19,7 @@
     if (isset($_GET['e'])) {$email = false; $emailUser = $func->Descriptografar($_GET['e']);} 
 
     if (isset($_POST['V'])) {
-        if ($_SESSION['cod'] == $_POST["V_Cod"]) {
+        if ($_SESSION['cod'] == strtoupper($_POST["V_Cod"])) {
             header("Location: Dashboard.php");
             setcookie("ULogged",$func->Criptografar("1"), time() + (86400 * 30), "/");
         } else {
@@ -33,9 +33,8 @@
         $email = new Email();
         $cod = $func->GerarCodigoDuasEtapas();
         $email->setPara($emailUser);
-        $cod = $_SESSION['cod'];
+        $_SESSION['cod'] = $cod;
         $email->DuasEtapas($cod);
-    
     }
 
 ?>
