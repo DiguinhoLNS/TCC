@@ -1,15 +1,12 @@
 <?php
 
-include '../../../sql/ConexaoBD.php';
-include_once '../../../sql/Funcoes.php';
-
 $id_empresa = $func->Descriptografar($_COOKIE["ID_Company"]);
 
-$Documentos = DocumentosAntigo($base, $id_empresa);
-$Acessorios = AcessoriosAntigo($base, $id_empresa);
-$Roupas = RoupasAntigo($base, $id_empresa);
-$Eletronicos = EletronicosAntigo($base, $id_empresa);
-$Outros = OutrosAntigo($base, $id_empresa);
+$Documentos = $func->DocumentosAntigo($id_empresa);
+$Acessorios = $func->AcessoriosAntigo($id_empresa);
+$Roupas = $func->RoupasAntigo($id_empresa);
+$Eletronicos = $func->EletronicosAntigo($id_empresa);
+$Outros = $func->OutrosAntigo($id_empresa);
 
 echo '
 <div id="CategoryItensFrame" class="FeedFrame">
@@ -34,7 +31,7 @@ if ($Eletronicos["Quantidade"] == 0) {
 
         <ul class = "FeedBoxGroup">';
     do {
-        $DataSeparada = SepararData($Eletronicos["Objeto"][$i]["Data_cadastro"]);
+        $DataSeparada = $func->SepararData($Eletronicos["Objeto"][$i]["Data_cadastro"]);
         echo '
 
 
@@ -86,7 +83,7 @@ if ($Eletronicos["Quantidade"] == 0) {
 
             $i = 0;
             do {
-                $DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
+                $DataSeparada =$func->SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
                 echo '
             <li class = "ItemBox">
 
@@ -136,7 +133,7 @@ if ($Acessorios["Quantidade"] == 0) {
 
         <ul class = "FeedBoxGroup">';
     do {
-        $DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
+        $DataSeparada =$func->SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
         echo '
 
                 <li class = "ItemBox">
@@ -187,7 +184,7 @@ if ($Documentos["Quantidade"] == 0) {
         <ul class = "FeedBoxGroup">';
 
     do {
-        $DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
+        $DataSeparada =$func->SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
         echo '
 
                 <li class = "ItemBox">
@@ -239,7 +236,7 @@ if ($Outros["Quantidade"] == 0) {
         <ul class = "FeedBoxGroup">';
 
     do {
-        $DataSeparada = SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
+        $DataSeparada =$func->SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
         echo '
 
                 <li class = "ItemBox">
