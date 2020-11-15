@@ -43,18 +43,6 @@
 
 	</head>
 
-	<script type = "text/javascript">
-
-		$(window).ready(function(){
-
-			var FeedFrame = localStorage.getItem("FeedFrame");
-			
-			localStorage.setItem("FeedFrame", "all");
-
-		});
-
-	</script>
-
 	<body id = "FeedPage" class = "UNT LightMode ADMView CompanyLayout">
 
 		<?php
@@ -94,15 +82,15 @@
 
                         <ul>
 
-                            <li id = "FFO1" class = "NavListOption active">
+                            <li id = "FFO1" class = "NavListOption active" title = "Todos os Itens">
                                 <i class = "material-icons"> all_inbox </i>
                                 <span> Todos </span>
 							</li>
-							<li id = "FFO2" class = "NavListOption">
+							<li id = "FFO2" class = "NavListOption" title = "Itens em Categorias">
                                 <i class = "material-icons"> inbox </i>
                                 <span> Categorias </span>
 							</li>
-							<li id = "FFO3" class = "NavListOption">
+							<li id = "FFO3" class = "NavListOption" title = "Pesquisar Itens">
                                 <i class = "material-icons"> &#xe8b6; </i>
                                 <span> Pesquisa </span>
                             </li>
@@ -125,10 +113,10 @@
 
 											<ul>
 
-												<li id = "FIlterAll1" class = "SubNavOption AllSubNavOption active""> A-Z </li>
-												<li id = "FIlterAll2" class = "SubNavOption AllSubNavOption"> Z-A </li>
-												<li id = "FIlterAll3" class = "SubNavOption AllSubNavOption"> Recentes </li>
-												<li id = "FIlterAll4" class = "SubNavOption AllSubNavOption"> Antigos </li>
+												<li id = "FilterAll1" class = "SubNavOption AllSubNavOption active" title = "A-Z"> A-Z </li>
+												<li id = "FilterAll2" class = "SubNavOption AllSubNavOption" title = "Z-A"> Z-A </li>
+												<li id = "FilterAll3" class = "SubNavOption AllSubNavOption" title = "Recentes"> Recentes </li>
+												<li id = "FilterAll4" class = "SubNavOption AllSubNavOption" title = "Antigos"> Antigos </li>
 
 											</ul>
 
@@ -194,10 +182,10 @@
 
 											<ul>
 
-												<li id = "FIlterCategory1" class = "SubNavOption CategorySubNavOption active""> A-Z </li>
-												<li id = "FIlterCategory2" class = "SubNavOption CategorySubNavOption"> Z-A </li>
-												<li id = "FIlterCategory3" class = "SubNavOption CategorySubNavOption"> Recentes </li>
-												<li id = "FIlterCategory4" class = "SubNavOption CategorySubNavOption"> Antigos </li>
+												<li id = "FilterCategory1" class = "SubNavOption CategorySubNavOption active" title = "A-Z"> A-Z </li>
+												<li id = "FilterCategory2" class = "SubNavOption CategorySubNavOption" title = "Z-A"> Z-A </li>
+												<li id = "FilterCategory3" class = "SubNavOption CategorySubNavOption" title = "Recentes"> Recentes </li>
+												<li id = "FilterCategory4" class = "SubNavOption CategorySubNavOption" title = "Antigos"> Antigos </li>
 
 											</ul>
 
@@ -221,7 +209,7 @@
 
 														<ul class = "FeedCategory FeedBoxGroup">
 
-															<li class = "ItemBox">
+															<li class = "CategoryItemBox ItemBox">
 
 																<a href = "">
 

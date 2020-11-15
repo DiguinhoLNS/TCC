@@ -972,9 +972,9 @@ h1, h2, h3, h4, h5, h6 {
 		/* FF3 */
 
 		#FeedSearchBar {
-			width: 454px;
-			height: 50px;
-			padding: 10px 30px;
+			width: 448px;
+			height: 46px;
+			padding: 8px 24px;
 			border-radius: 25px;
 
 			background-color: var(--color-layout-s);
@@ -1044,6 +1044,23 @@ h1, h2, h3, h4, h5, h6 {
 					.DarkMode .FeedCategoryContent h2 {
 						color: var(--color-theme-company-p);
 					}
+
+			/* Load */
+
+			.FeedBoxGroup .LoadingFeed {
+				display: none;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				grid-column: 2/3;
+			}
+
+			.FeedBoxGroup .LoadingFeed img {
+				width: 200px;
+				height: 200px;
+			}
+
+			/* Box*/
 
 			.FeedBoxGroup .ItemBox {
 				display: flex;

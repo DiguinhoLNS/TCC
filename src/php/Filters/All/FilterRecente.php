@@ -1,7 +1,7 @@
 <?php
 
-    include '../../../sql/ConexaoBD.php';
-    include_once '../../../sql/Funcoes.php';
+    require_once '../../../sql/ConexaoBD.php';
+    require_once '../../../sql/Funcoes.php';
 
     $conn = new ConexaoBD();
 	$func = new Funcoes();
@@ -20,7 +20,7 @@
         do{
             $DataSeparada = $func->SepararData($FeedQuery["Objeto"][$i]["Data_cadastro"]);
             echo '
-                <li class = "ItemBox">
+                <li class = "AllItemBox ItemBox">
 
                     <a href = "Item.php?q='.$func->Criptografar($FeedQuery["Objeto"][$i]["id_obj"]) .'" title = "'.$FeedQuery["Objeto"][$i]["Nome_obj"].'" title = "'.$FeedQuery["Objeto"][$i]["Nome_obj"].'">
 

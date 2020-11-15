@@ -110,13 +110,188 @@ $(document).ready(function(){
         Feed
     *******************************************************/
 
-    const FilterCategory = $(".FilterCategory");
-    const FilterParamenter = $(".FilterParameter");
+    var FeedAll = $(".FeedAll");
+    var FeedCategory = $(".FeedCategory");
+    var FeedSearch = $(".FeedSearch");
 
-    var FeedAll = $("#FeedAll");
-    var FeedCategory = $("#FeedCategory");
+    function FeedGenerate(t,p){
 
-    var FeedFrame = localStorage.getItem("FeedFrame");
+        var folder, FeedType;
+
+        switch(t){
+
+            // All
+            case 1:
+
+                FeedType = FeedAll;
+                
+                switch(p){
+
+                    case 1:
+                        
+                        folder = "php/Filters/All/FilterAZ.php";
+                    
+                    break;
+
+                    case 2:
+                        
+                        folder = "php/Filters/All/FilterZA.php";
+                    
+                    break;
+
+                    case 3:
+                        
+                        folder = "php/Filters/All/FilterRecente.php";
+                    
+                    break;
+
+                    case 4:
+                        
+                        folder = "php/Filters/All/FilterAntigo.php";
+                    
+                    break;
+
+                }
+            
+            break;
+
+            // Category
+            case 2:
+
+                FeedType = FeedCategory;
+                
+                switch(p){
+
+                    case 1:
+                        
+                        folder = "php/Filters/Category/FilterAZ.php";
+                    
+                    break;
+
+                    case 2:
+                        
+                        folder = "php/Filters/Category/FilterZA.php";
+                    
+                    break;
+
+                    case 3:
+                        
+                        folder = "php/Filters/Category/FilterRecente.php";
+                    
+                    break;
+
+                    case 4:
+                        
+                        folder = "php/Filters/Category/FilterAntigo.php";
+                    
+                    break;
+
+                }
+            
+            break;
+
+        }
+
+        $.ajax({
+                    
+            url : folder,
+            type : 'get',
+
+            beforeSend : function(){
+
+                if(t == "1"){
+
+                    $(".AllItemBox").remove();
+
+                }else if(t == "2"){
+
+                    $(".CategoryItemBox").remove();
+
+                }else if(t == "3"){
+
+                    $(".SearchItemBox").remove();
+
+                }   
+
+                $(".LoadingFeed").css("display", "flex");
+
+            }
+
+        }).done(function(){
+
+            AJAXRequestStatus(1); 
+
+            $(".LoadingFeed").css("display", "none");
+
+            $(FeedType).load(folder);
+
+        }).fail(function(){
+
+            AJAXRequestStatus(0);
+
+        });
+
+    }
+
+    /* All */
+
+        // AZ
+        $("#FilterAll1").on("click", function(){
+
+            FeedGenerate(1,1);
+
+        });
+
+        // ZA
+        $("#FilterAll2").on("click", function(){
+
+            FeedGenerate(1,2);
+
+        });
+
+        // Recente
+        $("#FilterAll3").on("click", function(){
+
+            FeedGenerate(1,3);
+
+        });
+
+        // Antigo
+        $("#FilterAll4").on("click", function(){
+
+            FeedGenerate(1,4);
+
+        });
+
+    /* Category */
+
+        // AZ
+        $("#FilterCategory1").on("click", function(){
+
+            FeedGenerate(2,1);
+
+        });
+
+        // ZA
+        $("#FilterCategory2").on("click", function(){
+
+            FeedGenerate(2,2);
+
+        });
+
+        // Recente
+        $("#FilterCategory3").on("click", function(){
+
+            FeedGenerate(2,3);
+
+        });
+
+        // Antigo
+        $("#FilterCategory4").on("click", function(){
+
+            FeedGenerate(2,4);
+
+        });
 
     /* Search Bar */
 
@@ -124,44 +299,36 @@ $(document).ready(function(){
 
         var pesquisa = $("#FeedSearchItens").val();
 
-            var folder = `php/Filters/Search.php?q=${pesquisa}`;
+        var folder = `php/Filters/Search.php?q=${pesquisa}`;
 
-            $(".ItemBox").remove();
+        $(".ItemBox").remove();
 
-            $.ajax({
+        $.ajax({
 
-                url : folder,
-                type : 'get',
+            url : folder,
+            type : 'get',
 
-                beforeSend : function(){
-                    
-                    $(".ItemBox").remove();
-                    $(".SearchItemBox").remove();
-                    
-                    $(".LoadingFeed").css("display", "flex");
-                    $(".FilterItem").removeClass("active");
-                    $("#btnAllFilter").addClass("active");
-                    
-                    $("#AllItensFrame").css("display", "block");
-                    $("#CategoryItensFrame").css("display", "None");
-
-                }
-
-            }).done(function(){   
-
-                AJAXRequestStatus(1);  
+            beforeSend : function(){
                 
-                $(".LoadingFeed").css("display", "none");     
+                $(".SearchItemBox").remove();
+                $(".LoadingFeed").css("display", "flex");
 
-                $(FeedAll).load(folder);
-        
-                
-            }).fail(function(){
+            }
 
-                AJAXRequestStatus(0);
+        }).done(function(){   
 
-            });
+            AJAXRequestStatus(1);  
             
+            $(".LoadingFeed").css("display", "none");     
+
+            $(FeedSearch).load(folder);
+            
+        }).fail(function(){
+
+            AJAXRequestStatus(0);
+
         });
+        
+    });
 
 });
