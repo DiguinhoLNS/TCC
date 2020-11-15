@@ -200,8 +200,8 @@
 							<input id = "E_UserTelefone" class = "UserInputData InputTelefone9" type = "text" name = "telefone" value = "<?php echo $DadosUsuario[0]["Telefone_user"] ?>" placeholder = "Fixo ou móvel" required />
 						</li>
 						<li class = "ContentBottom">
-                        <a href = "User.php"> Voltar </a>
-							<input class = "UserInputSubmit btn" type = "submit" value = "Confirmar Alterações">
+                            <a href = "User.php"> Voltar </a>
+							<input class = "UserInputSubmit btn" type = "submit" value = "Alterar Conta">
 						</li>
 
                     </ul>

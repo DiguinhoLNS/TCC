@@ -120,7 +120,7 @@
 						</li>
 						<li class = "ContentBottom">
 							<a href = "Feed.php?q=<?php echo $func->Criptografar($id_empresa)?>"> Voltar para Feed </a>
-							<input class = "UserInputSubmit btn" type = "submit" value = "Editar Item"/>
+							<input class = "UserInputSubmit btn" type = "submit" value = "Alterar Item"/>
 						</li>
 
 					</ul>

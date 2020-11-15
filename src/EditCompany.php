@@ -188,7 +188,7 @@
                         </li>
                         <li class = "ContentBottom">
 							<a href = "Company.php?q=<?php echo $func->Criptografar($id_empresa);?>"> Voltar </a>
-							<input class = "UserInputSubmit btn" type = "submit" value = "Confirmar Alterações">
+							<input class = "UserInputSubmit btn" type = "submit" value = "Alterar Empresa">
 						</li>
                         
                     </ul>
