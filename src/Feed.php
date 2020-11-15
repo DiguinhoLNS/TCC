@@ -83,11 +83,11 @@
                         <ul>
 
                             <li id = "FFO1" class = "NavListOption active" title = "Todos os Itens">
-                                <i class = "material-icons"> all_inbox </i>
+                                <i class = "material-icons"> inbox  </i>
                                 <span> Todos </span>
 							</li>
 							<li id = "FFO2" class = "NavListOption" title = "Itens em Categorias">
-                                <i class = "material-icons"> inbox </i>
+                                <i class = "material-icons"> all_inbox </i>
                                 <span> Categorias </span>
 							</li>
 							<li id = "FFO3" class = "NavListOption" title = "Pesquisar Itens">
@@ -136,23 +136,7 @@
 
 													<ul class = "FeedAll FeedBoxGroup">
 
-														<li class = "ItemBox">
-
-															<a href = "">
-
-																<div class = "ItemImg">
-																	<img src = "">
-																</div>
-																<div class = "ItemInfo">
-																	
-																	<h1 class = "ItemName"> Nome </h1>
-																	<h2 class = "ItemData"> 00/00/0000 </h2>
-																	<h3 class = "ItemCategory"> Categoria </h3>
-																</div>
-
-															</a>
-
-														</li>
+														
 
 													</ul>
 
@@ -207,27 +191,7 @@
 
 														<h2> Acessórios </h2>
 
-														<ul class = "FeedCategory FeedBoxGroup">
-
-															<li class = "CategoryItemBox ItemBox">
-
-																<a href = "">
-
-																	<div class = "ItemImg">
-																		<img src = "">
-																	</div>
-																	<div class = "ItemInfo">
-																		
-																		<h1 class = "ItemName"> Nome </h1>
-																		<h2 class = "ItemData"> 00/00/0000 </h2>
-																		<h3 class = "ItemCategory"> Categoria </h3>
-																	</div>
-
-																</a>
-
-															</li>
-
-														</ul>
+														<ul class = "FeedCategory FeedBoxGroup"></ul>
 
 													</div>
 
@@ -235,27 +199,7 @@
 
 														<h2> Documentos </h2>
 
-														<ul class = "FeedCategory FeedBoxGroup">
-
-															<li class = "ItemBox">
-
-																<a href = "">
-
-																	<div class = "ItemImg">
-																		<img src = "">
-																	</div>
-																	<div class = "ItemInfo">
-																		
-																		<h1 class = "ItemName"> Nome </h1>
-																		<h2 class = "ItemData"> 00/00/0000 </h2>
-																		<h3 class = "ItemCategory"> Categoria </h3>
-																	</div>
-
-																</a>
-
-															</li>
-
-														</ul>
+														<ul class = "FeedCategory FeedBoxGroup"></ul>
 
 													</div>
 
@@ -263,27 +207,7 @@
 
 														<h2> Eletrônicos</h2>
 
-														<ul class = "FeedCategory FeedBoxGroup">
-
-															<li class = "ItemBox">
-
-																<a href = "">
-
-																	<div class = "ItemImg">
-																		<img src = "">
-																	</div>
-																	<div class = "ItemInfo">
-																		
-																		<h1 class = "ItemName"> Nome </h1>
-																		<h2 class = "ItemData"> 00/00/0000 </h2>
-																		<h3 class = "ItemCategory"> Categoria </h3>
-																	</div>
-
-																</a>
-
-															</li>
-
-														</ul>
+														<ul class = "FeedCategory FeedBoxGroup"></ul>
 
 													</div>
 
@@ -291,27 +215,7 @@
 
 														<h2> Roupas </h2>
 
-														<ul class = "FeedCategory FeedBoxGroup">
-
-															<li class = "ItemBox">
-
-																<a href = "">
-
-																	<div class = "ItemImg">
-																		<img src = "">
-																	</div>
-																	<div class = "ItemInfo">
-																		
-																		<h1 class = "ItemName"> Nome </h1>
-																		<h2 class = "ItemData"> 00/00/0000 </h2>
-																		<h3 class = "ItemCategory"> Categoria </h3>
-																	</div>
-
-																</a>
-
-															</li>
-
-														</ul>
+														<ul class = "FeedCategory FeedBoxGroup"></ul>
 
 													</div>
 
@@ -319,27 +223,7 @@
 
 														<h2> Outros </h2>
 
-														<ul class = "FeedCategory FeedBoxGroup">
-
-															<li class = "ItemBox">
-
-																<a href = "">
-
-																	<div class = "ItemImg">
-																		<img src = "">
-																	</div>
-																	<div class = "ItemInfo">
-																		
-																		<h1 class = "ItemName"> Nome </h1>
-																		<h2 class = "ItemData"> 00/00/0000 </h2>
-																		<h3 class = "ItemCategory"> Categoria </h3>
-																	</div>
-
-																</a>
-
-															</li>
-
-														</ul>
+														<ul class = "FeedCategory FeedBoxGroup"></ul>
 
 													</div>
 
