@@ -18,7 +18,7 @@ Para a empresa:
 * A partir da conta de usuario, crie sua empresa no dashboard; 
 * Depois cadastre os itens perdidos na página de cadastro de itens (recomendamos colocarem o máximo de informações sobre o item);
 * Com os itens ja cadastrados, eles apareceram no feed de sua empresa e todos aqueles que quiserem acessar esse Feed precisarão do código de acesso;
-* O código de acesso é fornecido na página da empresa (algo como: D14G93);
+* O código de acesso é fornecido na página da empresa (algo como: FENU9OD14G93);
 
 ## Exemplo de uso
 
