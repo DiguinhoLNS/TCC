@@ -227,8 +227,6 @@ $(document).ready(function(){
 
             AJAXRequestStatus(1); 
 
-            $(".LoadingFeed").css("display", "none");
-
             $(FeedType).load(folder);
 
         }).fail(function(){

@@ -229,9 +229,11 @@
 
 												</div>
 
-												<div class = "FrameMain FrameSection FeedCategory">
+												<div class = "FrameMain FrameSection">
 
 													<ul class = "FeedCategory FeedBoxGroup">
+
+														<?php include "include/LoadFeed.php"; ?>
 
 														<li class = "CategoryHeaderBox">
 
