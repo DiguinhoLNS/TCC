@@ -16,6 +16,7 @@ $Outros = $func->OutrosZA($id_empresa);
 
 if ($Acessorios["Quantidade"] > 0) {
 
+
     echo '
 
     <div class = "FeedCategoryContent">
@@ -23,8 +24,6 @@ if ($Acessorios["Quantidade"] > 0) {
         <h2> Acessórios ('.$Acessorios["Quantidade"].') </h2>
 
         <ul class = "FeedCategory FeedBoxGroup">';
-
-        include "../../../include/LoadFeed.php";
 
     $i = 0;
 
