@@ -11,10 +11,10 @@ use PHPMailer\PHPMailer\Exception;
 
 class Email extends PHPMailer
 {
-    private static $from = "ape.achadoseperdidos@gmail.com";
-    private static $password = "lmrt2020";
-    private static $hostSMTP = "smtp.gmail.com";
-    private static $port = 465;
+    const from = "ape.achadoseperdidos@gmail.com";
+    const password = "lmrt2020";
+    const hostSMTP = "smtp.gmail.com";
+    const port = 465;
     private $para;
 
     public function setPara($emailUser)
@@ -40,12 +40,12 @@ class Email extends PHPMailer
             $this->setLanguage("pt");
             $this->SMTPDebug = false;
             $this->isSMTP();
-            $this->Host = self::$hostSMTP;
+            $this->Host = self::hostSMTP;
             $this->SMTPAuth = true;
             $this->SMTPSecure = 'ssl';
-            $this->Port = self::$port;
-            $this->Username = self::$from;
-            $this->Password = self::$password;
+            $this->Port = self::port;
+            $this->Username = self::from;
+            $this->Password = self::password;
 
             $this->SMTPOptions = array(
                 'ssl' => array(
@@ -55,7 +55,7 @@ class Email extends PHPMailer
                 )
             );
 
-            $this->SetFrom(self::$from, 'Ape Achados e Perdidos');
+            $this->SetFrom(self::from, 'Ape Achados e Perdidos');
             $this->addAddress($this->para);
 
             $this->isHTML(true);
@@ -66,13 +66,13 @@ class Email extends PHPMailer
             if (!$this->send()) {
                 die("Erro no envio do Email");
             }
-                
         } catch (Exception $e) {
             echo "Erro ao enviar mensagem: {$this->ErrorInfo}";
         }
     }
 
-    public function EditarSenha(){
+    public function EditarSenha()
+    {
 
         try {
             ob_start();
@@ -84,12 +84,12 @@ class Email extends PHPMailer
             $this->setLanguage("pt");
             $this->SMTPDebug = false;
             $this->isSMTP();
-            $this->Host = self::$hostSMTP;
+            $this->Host = self::hostSMTP;
             $this->SMTPAuth = true;
             $this->SMTPSecure = 'ssl';
-            $this->Port = self::$port;
-            $this->Username = self::$from;
-            $this->Password = self::$password;
+            $this->Port = self::port;
+            $this->Username = self::from;
+            $this->Password = self::password;
 
             $this->SMTPOptions = array(
                 'ssl' => array(
@@ -99,7 +99,7 @@ class Email extends PHPMailer
                 )
             );
 
-            $this->SetFrom(self::$from, 'Ape Achados e Perdidos');
+            $this->SetFrom(self::from, 'Ape Achados e Perdidos');
             $this->addAddress($this->para);
 
             $this->isHTML(true);
@@ -110,16 +110,8 @@ class Email extends PHPMailer
             if (!$this->send()) {
                 die("Erro no envio do Email");
             }
-                
         } catch (Exception $e) {
             echo "Erro ao enviar mensagem: {$this->ErrorInfo}";
         }
-
-
-
-
-
-
     }
-    
 }

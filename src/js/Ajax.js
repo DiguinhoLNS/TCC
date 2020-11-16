@@ -301,8 +301,6 @@ $(document).ready(function(){
 
         var folder = `php/Filters/Search.php?q=${pesquisa}`;
 
-        $(".ItemBox").remove();
-
         $.ajax({
 
             url : folder,

@@ -20,11 +20,11 @@
 		$DadosItem = $func->PegarDadosItemPeloIdEmpresaPerdidos($id_empresa);
 		$DadosUserEmpresa = $func->PegarDadosUserEmpresaPeloIdUserIdEmpresa($id, $id_empresa);
 
-		$Documentos = $func->PegarDocumentos($id_empresa);
-		$Acessorios = $func->PegarAcessorios($id_empresa);
-		$Roupas = $func->PegarRoupas($id_empresa);
-		$Eletronicos = $func->PegarEletronicos($id_empresa);
-		$Outros = $func->PegarOutros($id_empresa);
+		$Documentos = $func->DocumentosAZ($id_empresa);
+		$Acessorios = $func->AcessoriosAZ($id_empresa);
+		$Roupas = $func->RoupasAZ($id_empresa);
+		$Eletronicos = $func->EletronicosAZ($id_empresa);
+		$Outros = $func->OutrosAZ($id_empresa);
 
 		setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 
@@ -136,7 +136,46 @@
 
 													<ul class = "FeedAll FeedBoxGroup">
 
-														
+														<?php
+
+															if($DadosItem["Quantidade"]==0){
+
+																echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
+
+															}else{
+																//include "../../../include/LoadFeed.php";
+																$i=0;
+																do{
+																	$DataSeparada = $func->SepararData($DadosItem["Objeto"][$i]["Data_cadastro"]);
+																	echo '
+																		<li class = "AllItemBox ItemBox">
+
+																			<a href = "Item.php?q='.$func->Criptografar($DadosItem["Objeto"][$i]["id_obj"]) .'" title = "'.$DadosItem["Objeto"][$i]["Nome_obj"].'" title = "'.$DadosItem["Objeto"][$i]["Nome_obj"].'">
+
+																				<div class = "ItemImg">
+																					<img src = "imagesBD/'.$DadosItem["Objeto"][$i]["Nome_foto"].'">
+																				</div>
+
+																				<div class = "ItemInfo">
+																					
+																					<h1 class = "ItemName"> '.$DadosItem["Objeto"][$i]["Nome_obj"].' </h1>
+																					<h2 class = "ItemData"> '.$DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"].' </h2>
+																					<h3 class = "ItemCategory"> '.$DadosItem["Objeto"][$i]["Categoria"].' </h3>
+
+																				</div>
+
+																			</a>
+
+																		</li>
+																	';
+
+																$i++;
+
+																}while($i<($DadosItem["Quantidade"]));
+
+															}
+
+														?>
 
 													</ul>
 
@@ -185,51 +224,264 @@
 
 												</div>
 
-												<div class = "FrameMain FrameSection">
+												<div class = "FrameMain FrameSection FeedCategory">
 
-													<div class = "FeedCategoryContent">
+													<!-- AQUI ACONTECE A PUTARIA -->
 
-														<h2> Acessórios </h2>
+													<?php
 
-														<ul class = "FeedCategory FeedBoxGroup"></ul>
+														if ($Acessorios["Quantidade"] > 0) {
 
-													</div>
 
-													<div class = "FeedCategoryContent">
+															echo '
 
-														<h2> Documentos </h2>
+															<div class = "FeedCategoryContent">
 
-														<ul class = "FeedCategory FeedBoxGroup"></ul>
+																<h2> Acessórios ('.$Acessorios["Quantidade"].') </h2>
 
-													</div>
+																<ul class = "FeedCategory FeedBoxGroup">';
 
-													<div class = "FeedCategoryContent">
+															$i = 0;
 
-														<h2> Eletrônicos</h2>
+															do {
+																if($Acessorios["Objeto"][$i]["Categoria"] == "Acessorio"){
+																	$Acessorios["Objeto"][$i]["Categoria"] = "Acessório";
+																}else if($Acessorios["Objeto"][$i]["Categoria" == "Eletronico"]){
+																	$Acessorios["Objeto"][$i]["Categoria"] = "Eletrônico";
+																}
+																$DataSeparada = $func->SepararData($Acessorios["Objeto"][$i]["Data_cadastro"]);
 
-														<ul class = "FeedCategory FeedBoxGroup"></ul>
+																echo '
 
-													</div>
+																<li class = "ItemBox CategoryItemBox">
 
-													<div class = "FeedCategoryContent">
+																	<a href = "Item.php?q='.$func->Criptografar($Acessorios["Objeto"][$i]["id_obj"]).'">
 
-														<h2> Roupas </h2>
+																		<div class = "ItemImg">
+																			<img src = "imagesBD/'.$Acessorios["Objeto"][$i]["Nome_foto"].'">
+																		</div>
+																		<div class = "ItemInfo">
+																			
+																			<h1 class = "ItemName"> '.$Acessorios["Objeto"][$i]["Nome_obj"].' </h1>
+																			<h2 class = "ItemData"> '.$DataSeparada["dia"].'/'.$DataSeparada["mes"].'/'.$DataSeparada["ano"].' </h2>
+																			<h3 class = "ItemCategory"> '.$Acessorios["Objeto"][$i]["Categoria"].' </h3>
 
-														<ul class = "FeedCategory FeedBoxGroup"></ul>
+																		</div>
 
-													</div>
+																	</a>
 
-													<div class = "FeedCategoryContent">
+																</li>';
 
-														<h2> Outros </h2>
+																$i++;
 
-														<ul class = "FeedCategory FeedBoxGroup"></ul>
+															} while ($i < $Acessorios["Quantidade"]);
 
-													</div>
+															echo '
+
+																</ul>
+
+															</div>';
+														}
+
+
+														if ($Documentos["Quantidade"] > 0) {
+
+															echo '
+
+															<div class = "FeedCategoryContent">
+
+																<h2> Documentos ('.$Documentos["Quantidade"].') </h2>
+
+																<ul class = "FeedCategory FeedBoxGroup">';
+
+															$i = 0;
+
+															do {
+																$DataSeparada = $func->SepararData($Documentos["Objeto"][$i]["Data_cadastro"]);
+																echo '
+
+																<li class = "ItemBox CategoryItemBox">
+
+																	<a href = "Item.php?q='.$func->Criptografar($Documentos["Objeto"][$i]["id_obj"]).'">
+
+																		<div class = "ItemImg">
+																			<img src = "imagesBD/'.$Documentos["Objeto"][$i]["Nome_foto"].'">
+																		</div>
+																		<div class = "ItemInfo">
+																			
+																			<h1 class = "ItemName"> '.$Documentos["Objeto"][$i]["Nome_obj"].' </h1>
+																			<h2 class = "ItemData"> '.$DataSeparada["dia"].'/'.$DataSeparada["mes"].'/'.$DataSeparada["ano"].' </h2>
+																			<h3 class = "ItemCategory"> '.$Documentos["Objeto"][$i]["Categoria"].' </h3>
+
+																		</div>
+
+																	</a>
+
+																</li>';
+
+																$i++;
+
+															} while ($i < $Documentos["Quantidade"]);
+
+															echo '
+
+																</ul>
+
+															</div>';
+														}
+
+
+
+														if ($Eletronicos["Quantidade"] > 0) {
+
+
+															echo '
+
+															<div class = "FeedCategoryContent">
+
+																<h2> Eletrônicos ('.$Eletronicos["Quantidade"].') </h2>
+
+																<ul class = "FeedCategory FeedBoxGroup">';
+
+															$i = 0;
+
+															do {
+																if($Eletronicos["Objeto"][$i]["Categoria"] == "Acessorio"){
+																	$Eletronicos["Objeto"][$i]["Categoria"] = "Acessório";
+																}else if($Eletronicos["Objeto"][$i]["Categoria" == "Eletronico"]){
+																	$Eletronicos["Objeto"][$i]["Categoria"] = "Eletrônico";
+																}
+																$DataSeparada = $func->SepararData($Eletronicos["Objeto"][$i]["Data_cadastro"]);
+
+																echo '
+
+																<li class = "ItemBox CategoryItemBox">
+
+																	<a href = "Item.php?q='.$func->Criptografar($Eletronicos["Objeto"][$i]["id_obj"]).'">
+
+																		<div class = "ItemImg">
+																			<img src = "imagesBD/'.$Eletronicos["Objeto"][$i]["Nome_foto"].'">
+																		</div>
+																		<div class = "ItemInfo">
+																			
+																			<h1 class = "ItemName"> '.$Eletronicos["Objeto"][$i]["Nome_obj"].' </h1>
+																			<h2 class = "ItemData"> '.$DataSeparada["dia"].'/'.$DataSeparada["mes"].'/'.$DataSeparada["ano"].' </h2>
+																			<h3 class = "ItemCategory"> '.$Eletronicos["Objeto"][$i]["Categoria"].' </h3>
+
+																		</div>
+
+																	</a>
+
+																</li>';
+
+																$i++;
+
+															} while ($i < $Eletronicos["Quantidade"]);
+
+															echo '
+
+																</ul>
+
+															</div>';
+														}
+
+														if ($Roupas["Quantidade"] > 0) {
+
+
+															echo '
+
+															<div class = "FeedCategoryContent">
+
+																<h2> Roupas ('.$Roupas["Quantidade"].') </h2>
+
+																<ul class = "FeedCategory FeedBoxGroup">';
+
+															$i = 0;
+
+															do {
+																$DataSeparada = $func->SepararData($Roupas["Objeto"][$i]["Data_cadastro"]);
+																echo '
+
+																<li class = "ItemBox CategoryItemBox">
+
+																	<a href = "Item.php?q='.$func->Criptografar($Roupas["Objeto"][$i]["id_obj"]).'">
+
+																		<div class = "ItemImg">
+																			<img src = "imagesBD/'.$Roupas["Objeto"][$i]["Nome_foto"].'">
+																		</div>
+																		<div class = "ItemInfo">
+																			
+																			<h1 class = "ItemName"> '.$Roupas["Objeto"][$i]["Nome_obj"].' </h1>
+																			<h2 class = "ItemData"> '.$DataSeparada["dia"].'/'.$DataSeparada["mes"].'/'.$DataSeparada["ano"].' </h2>
+																			<h3 class = "ItemCategory"> '.$Roupas["Objeto"][$i]["Categoria"].' </h3>
+
+																		</div>
+
+																	</a>
+
+																</li>';
+
+																$i++;
+
+															} while ($i < $Roupas["Quantidade"]);
+
+															echo '
+
+																</ul>
+
+															</div>';
+														}
+
+														if ($Outros["Quantidade"] > 0) {
+
+
+															echo '
+
+															<div class = "FeedCategoryContent">
+
+																<h2> Outros ('.$Outros["Quantidade"].') </h2>
+
+																<ul class = "FeedCategory FeedBoxGroup">';
+
+															$i = 0;
+
+															do {
+																$DataSeparada = $func->SepararData($Outros["Objeto"][$i]["Data_cadastro"]);
+																echo '
+
+																<li class = "ItemBox CategoryItemBox">
+
+																	<a href = "Item.php?q='.$func->Criptografar($Outros["Objeto"][$i]["id_obj"]).'">
+
+																		<div class = "ItemImg">
+																			<img src = "imagesBD/'.$Outros["Objeto"][$i]["Nome_foto"].'">
+																		</div>
+																		<div class = "ItemInfo">
+																			
+																			<h1 class = "ItemName"> '.$Outros["Objeto"][$i]["Nome_obj"].' </h1>
+																			<h2 class = "ItemData"> '.$DataSeparada["dia"].'/'.$DataSeparada["mes"].'/'.$DataSeparada["ano"].' </h2>
+																			<h3 class = "ItemCategory"> '.$Outros["Objeto"][$i]["Categoria"].' </h3>
+
+																		</div>
+
+																	</a>
+
+																</li>';
+
+																$i++;
+
+															} while ($i < $Outros["Quantidade"]);
+
+															echo '
+
+																</ul>
+
+															</div>';
+														}
+
+													?>
 
 												</div>
-
-												<div class = "FrameMain FrameSection"></div>
 
 											</div>
 
@@ -264,23 +516,6 @@
 
 									<ul class = "FeedSearch FeedBoxGroup">
 
-										<li class = "ItemBox">
-
-											<a href = "">
-
-												<div class = "ItemImg">
-													<img src = "">
-												</div>
-												<div class = "ItemInfo">
-													
-													<h1 class = "ItemName"> Nome </h1>
-													<h2 class = "ItemData"> 00/00/0000 </h2>
-													<h3 class = "ItemCategory"> Categoria </h3>
-												</div>
-
-											</a>
-
-										</li>
 
 									</ul>
 

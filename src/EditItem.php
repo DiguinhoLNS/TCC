@@ -11,8 +11,9 @@
 
 	$_SESSION['TipoVerificação'] = "EditarItem";
 	$id_objeto = $func->Descriptografar($_GET["q"]);
-
+	
 	$DadosItem = $func->PegarDadosItemPeloId($id_objeto);
+	$id_empresa = $DadosItem["Objeto"][0]["id_empresa"];
 
 ?>
 
@@ -119,7 +120,7 @@
                             </select>
 						</li>
 						<li class = "ContentBottom">
-							<a href = "Feed.php?q=<?php echo $func->Criptografar($id_empresa)?>"> Voltar para Feed </a>
+							<a href = "Feed.php?q=<?= $func->Criptografar($id_empresa)?>"> Voltar para Feed </a>
 							<input class = "UserInputSubmit btn" type = "submit" value = "Alterar Item"/>
 						</li>
 

@@ -919,20 +919,18 @@ class Funcoes extends ConexaoBD
     public function AcessoriosAZ($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Acessório' order by Nome_obj ASC";
+        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Acessorio' order by Nome_obj ASC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 22");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -945,20 +943,18 @@ class Funcoes extends ConexaoBD
     public function AcessoriosZA($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Acessório' order by Nome_obj DESC";
+        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Acessorio' order by Nome_obj DESC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 23");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -971,20 +967,18 @@ class Funcoes extends ConexaoBD
     public function AcessoriosAntigo($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Acessório' order by Data_cadastro ASC";
+        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Acessorio' order by Data_cadastro ASC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 24");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -997,20 +991,18 @@ class Funcoes extends ConexaoBD
     public function AcessoriosRecente($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Acessório' order by Data_cadastro DESC";
+        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Acessorio' order by Data_cadastro DESC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 24");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -1028,15 +1020,13 @@ class Funcoes extends ConexaoBD
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -1054,15 +1044,13 @@ class Funcoes extends ConexaoBD
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -1080,15 +1068,13 @@ class Funcoes extends ConexaoBD
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -1106,15 +1092,13 @@ class Funcoes extends ConexaoBD
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -1127,20 +1111,18 @@ class Funcoes extends ConexaoBD
     public function EletronicosAZ($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Eletrônico' order by Nome_obj ASC";
+        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Eletronico' order by Nome_obj ASC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 29");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -1153,20 +1135,18 @@ class Funcoes extends ConexaoBD
     public function EletronicosZA($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Eletrônico' order by Nome_obj DESC";
+        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Eletronico' order by Nome_obj DESC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 30");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -1179,20 +1159,18 @@ class Funcoes extends ConexaoBD
     public function EletronicosAntigo($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Eletrônico' order by Data_cadastro ASC";
+        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Eletronico' order by Data_cadastro ASC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 31");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
-
-        if (isset($TodosObjetos)) {
+        
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -1205,20 +1183,18 @@ class Funcoes extends ConexaoBD
     public function EletronicosRecente($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Eletrônico' order by Data_cadastro DESC";
+        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Eletronico' order by Data_cadastro DESC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 32");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -1236,15 +1212,13 @@ class Funcoes extends ConexaoBD
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -1262,15 +1236,13 @@ class Funcoes extends ConexaoBD
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -1288,15 +1260,13 @@ class Funcoes extends ConexaoBD
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -1314,15 +1284,13 @@ class Funcoes extends ConexaoBD
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -1340,15 +1308,13 @@ class Funcoes extends ConexaoBD
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -1366,15 +1332,13 @@ class Funcoes extends ConexaoBD
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -1392,15 +1356,13 @@ class Funcoes extends ConexaoBD
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
@@ -1418,15 +1380,13 @@ class Funcoes extends ConexaoBD
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
         if ($QuantidadeDeObjetos > 0) {
-            while ($DadosObjetos = mysqli_fetch_array($ResultadoQuery)) {
-                $TodosObjetos[] = $DadosObjetos;
-            }
+            $DadosObjetos = $ResultadoQuery->fetchAll();
         }
 
-        if (isset($TodosObjetos)) {
+        if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,
-                "Objeto" => $TodosObjetos
+                "Objeto" => $DadosObjetos
             ];
             return $Dados;
         } else {
