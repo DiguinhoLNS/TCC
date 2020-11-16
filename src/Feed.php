@@ -531,13 +531,16 @@
 
 			</div>
 
-			<?php if($DadosUserEmpresa[0]['Nivel_acesso'] == 4 || $DadosUserEmpresa[0]['Nivel_acesso'] == 3){
-				echo'
+			
+			<?php
+
+			ob_start();
+
+			?>	
 
 			<button id = "btnFeedControl" class = "btnControl FeedADM">
 				<i class = "material-icons"> &#xe145; </i>
-			</button>
-			
+			</button>	
 			
 			<div id = "FeedControlPane" class = "ControlPane BS">
 
@@ -559,10 +562,18 @@
 					</li>
 				</ul>
 
-			</div>';
-			}
-			?>
+			</div>
 
+			<?php
+			$content = ob_get_clean();
+			
+				if($DadosUserEmpresa[0]['Nivel_acesso'] == 4 || $DadosUserEmpresa[0]['Nivel_acesso'] == 3){
+					print $content;
+				}
+
+			ob_end_clean();
+
+			?>
 
 		</main>
 
