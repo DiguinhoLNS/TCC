@@ -87,6 +87,10 @@
                                 <span> Itens </span>
 							</li>
 							<li id = "FCFO3" class = "NavListOption">
+                                <i class = "material-icons"> cached </i>
+                                <span> Devoluções </span>
+                            </li>
+							<li id = "FCFO4" class = "NavListOption">
                                 <i class = "material-icons"> &#xe0af; </i>
                                 <span> Empresa </span>
                             </li>
@@ -870,6 +874,22 @@
 						</div>
 
 						<div id = "FCF3" class = "NavFrame">
+
+                            <div class = "NavFrameContent">
+
+                                <div class = "FrameHeader FrameSection">
+
+                                    <h1> Devoluções </h1>
+
+								</div>
+
+								<div class = "FrameMain FrameSection"></div>
+
+							</div>
+							
+						</div>
+
+						<div id = "FCF4" class = "NavFrame">
 
                             <div class = "NavFrameContent">
 

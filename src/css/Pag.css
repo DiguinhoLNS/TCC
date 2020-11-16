@@ -1171,11 +1171,11 @@ h1, h2, h3, h4, h5, h6 {
 
 		/* Feed Config Frames */
 
-		#FCF2 , #FCF3 {
+		#MainConfigFeed .NavFrame {
 			display: none;
 		}
 
-		#FCF1 {
+		#MainConfigFeed #FCF1 {
 			display: block;
 		}
 

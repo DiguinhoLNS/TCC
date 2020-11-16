@@ -622,7 +622,6 @@ $(document).ready(function(){
 
     });
 
-
     /* FeedConfig.php */
 
     $("#FCFO1").on("click", function(){
@@ -646,6 +645,14 @@ $(document).ready(function(){
         NF.css("display", "none");
 
         $("#FCF3").css("display", "block");
+
+    });
+
+    $("#FCFO4").on("click", function(){
+
+        NF.css("display", "none");
+
+        $("#FCF4").css("display", "block");
 
     });
 
