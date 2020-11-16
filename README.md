@@ -9,7 +9,7 @@ Aqui você pode entrar em páginas de achados e perdidos de várias empresas, en
 
 Para o usuário que quer encontrar um item:
 * Crie uma conta gratuitamente e faça seu login;
-* Peça para a empresa que você perdeu o objeto para que eles passem um código de acesso para entrar na página da empresa (algo como: D14G93);
+* Peça para a empresa que você perdeu o objeto para que eles passem um código de acesso para entrar na página da empresa (algo como: FENU9OD14G93);
 * Entra na página dessa empresa através do código de acesso;
 * Procure o item perdido no Feed da página;
 * Quando encontrar entre em contato com a empresa para recuperá-lo; 
