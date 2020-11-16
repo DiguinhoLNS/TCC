@@ -138,7 +138,7 @@
 
 														<?php
 
-															if($DadosItem["Quantidade"]==0){
+															if($DadosItem["Quantidade"] == 0){
 
 																echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
 
