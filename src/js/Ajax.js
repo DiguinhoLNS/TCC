@@ -164,25 +164,31 @@ $(document).ready(function(){
 
                     case 1:
                         
-                        folder = "php/Filters/Category/FilterAZ.php";
+                        folder = "php/Filters/Category/Acessorios.php";
                     
                     break;
 
                     case 2:
                         
-                        folder = "php/Filters/Category/FilterZA.php";
+                        folder = "php/Filters/Category/Documentos.php";
                     
                     break;
 
                     case 3:
                         
-                        folder = "php/Filters/Category/FilterRecente.php";
+                        folder = "php/Filters/Category/Eletronicos.php";
                     
                     break;
 
                     case 4:
                         
-                        folder = "php/Filters/Category/FilterAntigo.php";
+                        folder = "php/Filters/Category/Roupas.php";
+                    
+                    break;
+
+                    case 5:
+                        
+                        folder = "php/Filters/Category/Outros.php";
                     
                     break;
 
@@ -265,28 +271,23 @@ $(document).ready(function(){
 
     /* Category */
 
-        // AZ
         $("#FilterCategory1").on("click", function(){
 
             FeedGenerate(2,1);
 
         });
 
-        // ZA
         $("#FilterCategory2").on("click", function(){
 
             FeedGenerate(2,2);
 
         });
 
-        // Recente
         $("#FilterCategory3").on("click", function(){
 
             FeedGenerate(2,3);
 
         });
-
-        // Antigo
         $("#FilterCategory4").on("click", function(){
 
             FeedGenerate(2,4);

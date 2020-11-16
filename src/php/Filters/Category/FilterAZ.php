@@ -24,8 +24,6 @@ if ($Acessorios["Quantidade"] > 0) {
 
         <ul class = "FeedCategory FeedBoxGroup">';
 
-        include "../../../include/LoadFeed.php";
-
     $i = 0;
 
     do {
