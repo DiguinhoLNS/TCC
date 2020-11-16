@@ -10,7 +10,6 @@ $id_empresa = $func->Descriptografar($_COOKIE["ID_Company"]);
 
 $pesquisar = $func->ClearInjectionXSS($_GET["q"]);
 
-// $pesquisar = 
 
 if ($pesquisar != null) {
 

@@ -514,10 +514,7 @@
 
 								<div class = "FrameMain FrameSection">
 
-									<ul class = "FeedSearch FeedBoxGroup">
-
-
-									</ul>
+									<ul class = "FeedSearch FeedBoxGroup"></ul>
 
 								</div>
 
