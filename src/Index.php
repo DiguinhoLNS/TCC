@@ -12,6 +12,9 @@ $func = new Funcoes();
 if (isset($_COOKIE["ID"])) {
 
     $id = $func->Descriptografar($_COOKIE["ID"]);
+    if($id == "false"){
+		die("Para de tentar hackear o site");
+	}
 
     $DadosEmpresas = $func->PegarDadosEmpresaPeloIdUsuario($id);
 }

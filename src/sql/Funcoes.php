@@ -52,6 +52,9 @@ class Funcoes extends ConexaoBD
 
     public function Criptografar($frase)
     {
+
+        $dia = substr(strftime("%d"), -1, 1);
+
         $chave = rand(10, 24);
         $fraseCriptografada = '';
         $cod = $this->GerarCodigoAcesso();
@@ -65,7 +68,7 @@ class Funcoes extends ConexaoBD
 
         $criptografado = strrev(convert_uuencode(($fraseCriptografada)));
 
-        $criptografado = strrev(base64_encode($cod . $criptografado . $chave . rand(111111111, 999999999)));
+        $criptografado = strrev(base64_encode($cod . $criptografado . $chave . rand(111111111, 999999999) . $dia));
 
         $criptografado = str_replace("=", "$", $criptografado);
 
@@ -74,22 +77,34 @@ class Funcoes extends ConexaoBD
 
     public function Descriptografar($Criptografado)
     {
+        try {
+            $urlCriptografada = str_replace("$", "=", $Criptografado);
+            $urlCriptografada = base64_decode(strrev($urlCriptografada));
 
-        $urlCriptografada = str_replace("$", "=", $Criptografado);
-        $urlCriptografada = base64_decode(strrev($urlCriptografada));
-        $fraseCriptografada = substr($urlCriptografada, 12, -11);
-        $chave = substr($urlCriptografada, -11, -9);
+            $fraseCriptografada = substr($urlCriptografada, 12, -12);
+            $chave = substr($urlCriptografada, -12, -10);
+            $dia = substr($urlCriptografada, -1, 1);
 
-        $fraseCriptografada = convert_uudecode(strrev($fraseCriptografada));
-        $fraseDescriptografada = '';
+            if ($dia == substr(strftime("%d"), -1, 1)) {
 
-        for ($i = 0; $i < strlen($fraseCriptografada); $i++) {
+                $fraseCriptografada = convert_uudecode(strrev($fraseCriptografada));
+                $fraseDescriptografada = '';
 
-            $fraseAsci = ord($fraseCriptografada[$i]) + $chave;
+                for ($i = 0; $i < strlen($fraseCriptografada); $i++) {
 
-            $fraseDescriptografada .= chr($fraseAsci);
+                    $fraseAsci = ord($fraseCriptografada[$i]) + $chave;
+
+                    $fraseDescriptografada .= chr($fraseAsci);
+                }
+
+
+                return $fraseDescriptografada;
+            } else {
+                return "false";
+            }
+        } catch (Exception $e) {
+            return "false";
         }
-        return $fraseDescriptografada;
     }
 
 
@@ -1166,7 +1181,7 @@ class Funcoes extends ConexaoBD
         if ($QuantidadeDeObjetos > 0) {
             $DadosObjetos = $ResultadoQuery->fetchAll();
         }
-        
+
         if (isset($DadosObjetos)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeObjetos,

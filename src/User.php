@@ -12,6 +12,9 @@
     $_SESSION['TipoVerificação'] = 'Usuario';
 
     $id = $func->Descriptografar($_COOKIE["ID"]);
+    if($id == "false"){
+		die("Para de tentar hackear o site");
+	}
 
     $DadosEmpresas = $func->PegarDadosEmpresaPeloIdUsuario($id);
                     

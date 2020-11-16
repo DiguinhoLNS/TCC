@@ -8,6 +8,9 @@
                 if(isset($_COOKIE["ID"])){
 
                     $id = $func->Descriptografar($_COOKIE["ID"]);
+                    if($id == "false"){
+                        die("Para de tentar hackear o site");
+                    }
 
                     $query = "SELECT nome_user FROM usuarios WHERE id_user = '$id'";
 

@@ -17,6 +17,9 @@
 
     isset($_GET['q']) ? $email = true: $email = false;
     if (isset($_GET['e'])) {$email = false; $emailUser = $func->Descriptografar($_GET['e']);} 
+    if($emailUser == "false"){
+		die("Para de tentar hackear o site");
+	}
 
     if (isset($_POST['V'])) {
         if ($_SESSION['cod'] == strtoupper($_POST["V_Cod"])) {
@@ -24,12 +27,18 @@
             setcookie("ULogged",$func->Criptografar("1"), time() + (86400 * 30), "/");
         } else {
             $emailUser = isset($_SESSION["email"]) ? $_SESSION["email"] : $func->Descriptografar($_GET["q"]);
+            if($emailUser == "false"){
+                die("Para de tentar hackear o site");
+            }
             $erro = true;
         }
     }
 
     if ($email && !isset($erro) && !isset($_COOKIE["ULogged"])) {
         $emailUser = isset($_SESSION["email"]) ? $_SESSION["email"] : $func->Descriptografar($_GET["q"]);
+        if($emailUser == "false"){
+            die("Para de tentar hackear o site");
+        }
         $email = new Email();
         $cod = $func->GerarCodigoDuasEtapas();
         $email->setPara($emailUser);

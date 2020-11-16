@@ -10,6 +10,9 @@
 	$func = new Funcoes();
 
     $id = $func->Descriptografar($_COOKIE["ID"]);
+    if($id == "false"){
+		die("Para de tentar hackear o site");
+	}
 
     $DadosUsuario = $func->PegarDadosUsuarioPeloId($id);
         

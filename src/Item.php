@@ -12,7 +12,13 @@
 	if(isset($_COOKIE["ID"])){
 
 		$id = $func->Descriptografar($_COOKIE["ID"]);
+		if($id == "false"){
+			die("Para de tentar hackear o site");
+		}
 		$id_item = $func->Descriptografar($_GET['q']);
+		if($id_item == "false"){
+			die("Para de tentar hackear o site");
+		}
 		$DadosItem = $func->PegarDadosItemPeloId($id_item);
 		$DataSeparada = $func->SepararData($DadosItem["Objeto"][0]["Data_cadastro"]);
 
