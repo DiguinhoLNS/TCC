@@ -18,6 +18,11 @@
         include "../../../include/LoadFeed.php";
         $i=0;
         do{
+            if($FeedQuery["Objeto"][$i]["Categoria"] == "Acessorio"){
+                $FeedQuery["Objeto"][$i]["Categoria"] = "Acessório";
+            }else if($FeedQuery["Objeto"][$i]["Categoria"] == "Eletronico"){
+                $FeedQuery["Objeto"][$i]["Categoria"] = "Eletrônico";
+            }
             $DataSeparada = $func->SepararData($FeedQuery["Objeto"][$i]["Data_cadastro"]);
             echo '
                 <li class = "AllItemBox ItemBox">

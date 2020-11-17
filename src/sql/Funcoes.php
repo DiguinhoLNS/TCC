@@ -1,11 +1,11 @@
 <?php
 
 require_once "ConexaoBD.php";
+setlocale(LC_ALL, 'pt_BR', 'pt', 'Portuguese_Brazilian');
+date_default_timezone_set('America/Sao_Paulo');
 
 class Funcoes extends ConexaoBD
 {
-
-    //date_default_timezone_set('America/Sao_Paulo');
 
     public function GerarCodigoAcesso()
     {
@@ -96,7 +96,6 @@ class Funcoes extends ConexaoBD
 
                     $fraseDescriptografada .= chr($fraseAsci);
                 }
-
 
                 return $fraseDescriptografada;
             } else {

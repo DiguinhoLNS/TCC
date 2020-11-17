@@ -291,6 +291,11 @@ $(document).ready(function(){
             FeedGenerate(2,4);
 
         });
+        $("#FilterCategory5").on("click", function(){
+
+            FeedGenerate(2,5);
+
+        });
 
     /* Search Bar */
 

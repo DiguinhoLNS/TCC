@@ -24,11 +24,8 @@
         $i = 0;
 
         do {
-            if($Acessorios["Objeto"][$i]["Categoria"] == "Acessorio"){
-                $Acessorios["Objeto"][$i]["Categoria"] = "Acessório";
-            }else if($Acessorios["Objeto"][$i]["Categoria" == "Eletronico"]){
-                $Acessorios["Objeto"][$i]["Categoria"] = "Eletrônico";
-            }
+            $Acessorios["Objeto"][$i]["Categoria"] = "Acessório";
+
             $DataSeparada = $func->SepararData($Acessorios["Objeto"][$i]["Data_cadastro"]);
 
             echo '
@@ -55,5 +52,25 @@
             $i++;
 
         } while ($i < $Acessorios["Quantidade"]);
+
+    }else{
+
+        echo '
+            <li class = "CategoryHeaderBox">
+
+                <h2> Acessórios ('.$Acessorios["Quantidade"].') </h2>
+
+            </li>';
+
+        echo '
+
+            <li class = "ItemBox CategoryItemBox">
+
+                Nada a mostrar
+
+                </a>
+
+            </li>'; 
+
 
     }

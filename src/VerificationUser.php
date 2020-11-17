@@ -16,10 +16,15 @@
     }
 
     isset($_GET['q']) ? $email = true: $email = false;
-    if (isset($_GET['e'])) {$email = false; $emailUser = $func->Descriptografar($_GET['e']);} 
-    if($emailUser == "false"){
-		die("Para de tentar hackear o site");
-	}
+    if (isset($_GET['e'])) {
+        
+        $email = false; 
+        $emailUser = $func->Descriptografar($_GET['e']);
+
+        if($emailUser == "false"){
+            die("Para de tentar hackear o site");
+        }
+    }
 
     if (isset($_POST['V'])) {
         if ($_SESSION['cod'] == strtoupper($_POST["V_Cod"])) {
