@@ -53,8 +53,6 @@ class Funcoes extends ConexaoBD
     public function Criptografar($frase)
     {
 
-        $dia = substr(strftime("%d"), -1, 1);
-
         $chave = rand(10, 24);
         $fraseCriptografada = '';
         $cod = $this->GerarCodigoAcesso();
@@ -68,7 +66,7 @@ class Funcoes extends ConexaoBD
 
         $criptografado = strrev(convert_uuencode(($fraseCriptografada)));
 
-        $criptografado = strrev(base64_encode($cod . $criptografado . $chave . rand(111111111, 999999999) . $dia));
+        $criptografado = strrev(base64_encode($cod . $criptografado . $chave . rand(111111111, 999999999)));
 
         $criptografado = str_replace("=", "$", $criptografado);
 
@@ -83,24 +81,18 @@ class Funcoes extends ConexaoBD
 
             $fraseCriptografada = substr($urlCriptografada, 12, -12);
             $chave = substr($urlCriptografada, -12, -10);
-            $dia = substr($urlCriptografada, -1, 1);
 
-            if ($dia == substr(strftime("%d"), -1, 1)) {
+            $fraseCriptografada = convert_uudecode(strrev($fraseCriptografada));
+            $fraseDescriptografada = '';
 
-                $fraseCriptografada = convert_uudecode(strrev($fraseCriptografada));
-                $fraseDescriptografada = '';
+            for ($i = 0; $i < strlen($fraseCriptografada); $i++) {
 
-                for ($i = 0; $i < strlen($fraseCriptografada); $i++) {
+                $fraseAsci = ord($fraseCriptografada[$i]) + $chave;
 
-                    $fraseAsci = ord($fraseCriptografada[$i]) + $chave;
-
-                    $fraseDescriptografada .= chr($fraseAsci);
-                }
-
-                return $fraseDescriptografada;
-            } else {
-                return "false";
+                $fraseDescriptografada .= chr($fraseAsci);
             }
+
+            return $fraseDescriptografada;
         } catch (Exception $e) {
             return "false";
         }

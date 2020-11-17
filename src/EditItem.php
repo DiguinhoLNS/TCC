@@ -11,9 +11,6 @@
 
 	$_SESSION['TipoVerificação'] = "EditarItem";
 	$id_objeto = $func->Descriptografar($_GET["q"]);
-	if($id_objeto == "false"){
-		die("Para de tentar hackear o site");
-	}
 	
 	$DadosItem = $func->PegarDadosItemPeloId($id_objeto);
 	$id_empresa = $DadosItem["Objeto"][0]["id_empresa"];

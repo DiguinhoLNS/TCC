@@ -11,9 +11,7 @@
 
 	$_SESSION['TipoVerificação'] = "EditarEmpresa";
 	$id_empresa = $func->Descriptografar($_GET['q']);
-	if($id_empresa == "false"){
-		die("Para de tentar hackear o site");
-	}
+	
 
 	$DadosEmpresa = $func->PegarDadosEmpresaPeloIdEmpresa($id_empresa);
 

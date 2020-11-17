@@ -7,10 +7,6 @@
     $func = new Funcoes();
 
     $id_empresa = $func->Descriptografar($_COOKIE["ID_Company"]);
-
-    if($id_empresa == "false"){
-        die("Para de tentar hackear o site");
-    }
     
     $pesquisar = $func->ClearInjectionXSS($_GET["q"]);
     

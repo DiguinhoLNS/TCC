@@ -10,9 +10,7 @@
 	$func = new Funcoes();
 
 	$id_empresa = $func->Descriptografar($_GET['q']);
-	if($id_empresa == "false"){
-		die("Para de tentar hackear o site");
-	}
+	
 	
 	if(isset($_COOKIE["ID"])){
 
