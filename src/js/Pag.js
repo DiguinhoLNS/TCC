@@ -109,6 +109,7 @@ $(document).ready(function(){
     const SNB = $("#SideNavBar");
     const DBCP = $("#DashboardControlPane");
     const FCP = $("#FeedControlPane");
+    const ICP = $("#ItemControlPane");
     const DE = $("#DarkEffect");
 
     /* Hide element clicking outside element */  
@@ -142,6 +143,13 @@ $(document).ready(function(){
 
         }
 
+        // Item Control Pane
+        if(!ICP.is(e.target) && ICP.has(e.target).length === 0){
+
+            ICP.css("display", "none");
+
+        }
+
     });
 
     /* Dark Effect */
@@ -153,6 +161,7 @@ $(document).ready(function(){
         HC.css("display", "none");
         DBCP.css("display", "none");
         FCP.css("display", "none");
+        ICP.css("display", "none");
         DE.css({"opacity": "0", "visibility": "hidden"});
 
     });
@@ -241,6 +250,7 @@ $(document).ready(function(){
             HC.css("display", "none"); 
             DBCP.css("display", "none");  
             FCP.css("display", "none"); 
+            ICP.css("display", "none");
 
         }else{
             // OFF
@@ -250,6 +260,7 @@ $(document).ready(function(){
             HC.css("display", "none");
             DBCP.css("display", "none");
             FCP.css("display", "none");
+            ICP.css("display", "none");
 
         }   
 
@@ -270,6 +281,7 @@ $(document).ready(function(){
             DE.css({"opacity": "0", "visibility": "hidden"});
             DBCP.css("display", "none");
             FCP.css("display", "none");
+            ICP.css("display", "none");
            
         }else{
             // OFF
@@ -278,6 +290,7 @@ $(document).ready(function(){
             DE.css({"opacity": "0", "visibility": "hidden"});
             DBCP.css("display", "none");
             FCP.css("display", "none");
+            ICP.css("display", "none");
            
         }    
 
@@ -298,6 +311,7 @@ $(document).ready(function(){
             DE.css({"opacity": "0", "visibility": "hidden"});
             DBCP.css("display", "none");
             FCP.css("display", "none");
+            ICP.css("display", "none");
            
         }else{
             // OFF
@@ -307,6 +321,7 @@ $(document).ready(function(){
             DE.css({"opacity": "0", "visibility": "hidden"});
             DBCP.css("display", "none");
             FCP.css("display", "none");
+            ICP.css("display", "none");
            
         }    
 
@@ -329,6 +344,18 @@ $(document).ready(function(){
     $("#btnFeedControl").on("click", function(){
         // ON
         FCP.css("display", "block");
+        // OFF
+        HN.css("display", "none");
+        HC.css("display", "none");
+        SNB.css("left", "-300px");        
+
+    });
+
+    /* Item Control Pane */
+
+    $("#btnItemControl").on("click", function(){
+        // ON
+        ICP.css("display", "block");
         // OFF
         HN.css("display", "none");
         HC.css("display", "none");
@@ -535,6 +562,7 @@ $(document).ready(function(){
     const NF = $(".NavFrame");
     const UserSNF = $(".UserSubNavFrame");
     const ItenSNF = $(".ItemSubNavFrame");
+    const RecoverSNF = $(".RecoverSubNavFrame");
 
     // User.php
 
@@ -656,6 +684,14 @@ $(document).ready(function(){
 
     });
 
+    $("#FCFO5").on("click", function(){
+
+        NF.css("display", "none");
+
+        $("#FCF5").css("display", "block");
+
+    });
+
     // Sub Frames
 
         // Users
@@ -715,6 +751,32 @@ $(document).ready(function(){
             ItenSNF.css("display", "none");
     
             $("#ItemSFCF3").css("display", "block");
+    
+        });
+
+        // Recover 
+
+        $("#RecoverSFCFO1").on("click", function(){
+
+            RecoverSNF.css("display", "none");
+    
+            $("#RecoverSFCF1").css("display", "block");
+    
+        });
+
+        $("#RecoverSFCFO2").on("click", function(){
+
+            RecoverSNF.css("display", "none");
+    
+            $("#RecoverSFCF2").css("display", "block");
+    
+        });
+
+        $("#RecoverSFCFO3").on("click", function(){
+
+            RecoverSNF.css("display", "none");
+    
+            $("#RecoverSFCF3").css("display", "block");
     
         });
 

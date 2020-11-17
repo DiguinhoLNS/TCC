@@ -90,8 +90,12 @@
 							<li id = "FCFO3" class = "NavListOption">
                                 <i class = "material-icons"> cached </i>
                                 <span> Devoluções </span>
-                            </li>
+							</li>
 							<li id = "FCFO4" class = "NavListOption">
+                                <i class = "material-icons"> &#xe916; </i>
+                                <span> Agenda </span>
+                            </li>
+							<li id = "FCFO5" class = "NavListOption">
                                 <i class = "material-icons"> &#xe0af; </i>
                                 <span> Empresa </span>
                             </li>
@@ -878,19 +882,85 @@
 
                             <div class = "NavFrameContent">
 
-                                <div class = "FrameHeader FrameSection">
+								<div class = "FrameMain FrameSection">
 
-                                    <h1> Devoluções </h1>
+									<div class = "SubFramesetContent">
+
+										<nav class = "SubNavBarControl">
+
+											<ul>
+
+												<li id = "RecoverSFCFO1" class = "SubNavOption UserSubNavOption active" title = "Todos os usuários"> Pendentes </li>
+												<li id = "RecoverSFCFO2" class = "SubNavOption UserSubNavOption" title = "Usuários com previlégios"> Aceitos </li>
+												<li id = "RecoverSFCFO3" class = "SubNavOption UserSubNavOption" title = "Usuários sem privilégios"> Recusados </li>
+
+											</ul>
+
+										</nav>
+
+										<nav class = "SubNavFrameset">
+
+											<div id = "RecoverSFCF1" class = "RecoverSubNavFrame SubNavFrame">
+
+												<div class = "FrameHeader FrameSection">
+
+													<h1> Pendentes </h1>
+
+												</div>
+
+												<div class = "FrameMain FrameSection"></div>
+
+											</div>
+
+											<div id = "RecoverSFCF2" class = "RecoverSubNavFrame SubNavFrame">
+
+												<div class = "FrameHeader FrameSection">
+
+													<h1> Aceitos </h1>
+
+												</div>
+
+												<div class = "FrameMain FrameSection"></div>
+
+											</div>
+
+											<div id = "RecoverSFCF3" class = "RecoverSubNavFrame SubNavFrame">
+
+												<div class = "FrameHeader FrameSection">
+
+													<h1> Recusados </h1>
+
+												</div>
+
+												<div class = "FrameMain FrameSection"></div>
+											
+											</div>
+
+										</nav>
+
+									</div>
 
 								</div>
-
-								<div class = "FrameMain FrameSection"></div>
 
 							</div>
 							
 						</div>
 
 						<div id = "FCF4" class = "NavFrame">
+
+                            <div class = "NavFrameContent">
+
+                                <div class = "FrameHeader FrameSection">
+
+                                    <h1> Agenda </h1>
+
+								</div>
+
+							</div>
+							
+						</div>
+
+						<div id = "FCF5" class = "NavFrame">
 
                             <div class = "NavFrameContent">
 
@@ -974,6 +1044,7 @@
 		<div id = "DarkEffect"></div>
 
 		<script type="text/javascript"> var id_user_empresa = "<?php echo $DadosUserEmpresa["Usuarios"][0]["id_user_empresa"]?>"; </script>
+
 		<?php include "include/Script.php"; ?>
 
     </body>

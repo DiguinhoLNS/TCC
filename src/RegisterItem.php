@@ -23,6 +23,7 @@
 		<title> Criar Item </title>
 
 		<?php include "include/Head.php"; ?>
+
 		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 	</head>
@@ -115,7 +116,7 @@
 						<li class = "ContentInput">
 							<label for = "R_ItemNome"> Nome </label>
 							<span id = "ErrorNome" class = "txtError"> Nome inválido </span>
-							<input id = "R_ItemNome" class = "UserInputData" type = "text" name = "nome" require />
+							<input id = "R_ItemNome" class = "UserInputData" type = "text" name = "nome" required />
 						</li>
 						<li class = "ContentInput">
 							<label for = "R_ItemFoto"> Foto </label>
@@ -142,8 +143,8 @@
 						</li>
 						<li class = "ContentCaptcha">
 							<div class = "g-recaptcha" data-sitekey = "6LcNseAZAAAAAHJ_Z0_pIVNvaZEEoqhwHnGz2pMD"></div>
+							<span id = "ErrorCaptcha" class = "txtError"> Preencha o captcha </span>
 						</li>
-						<span id = "ErrorCaptcha" class = "txtError"> Preencha o captcha </span>
 						<li class = "ContentBottom">
 							<a href = "Feed.php?q=<?php echo $func->Criptografar($id_empresa)?>"> Voltar para Feed </a>
 							<input class = "UserInputSubmit btn" type = "submit" value = "Criar Item"/>

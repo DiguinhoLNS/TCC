@@ -38,7 +38,7 @@
 
 	</head>
 
-	<body id = "itemPage" class = "UNT LightMode ADMView">
+	<body id = "itemPage" class = "UNT LightMode CompanyLayout">
 
 		<?php
 
@@ -135,6 +135,25 @@
 					</ul>
 					
 				</section>
+
+			</div>
+
+			<button id = "btnItemControl" class = "btnControl FeedADM" title = "Recuperar Item">
+				<i class = "material-icons"> cached </i>
+			</button>
+
+			<div id = "ItemControlPane" class = "ControlPane BS">
+
+				<h1> Recuperar Item </h1>
+
+				<ul>
+					<li>
+						<a href = "RecoverItem.php">
+							<i class = "material-icons"> &#xe5ca; </i>
+							<span> Recuperar Item </span>
+						</a>
+					</li>
+				</ul>
 
 			</div>
 

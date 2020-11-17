@@ -348,7 +348,7 @@ if (isset($_COOKIE["ID"])) {
 			if ($DadosUserEmpresa[0]['Nivel_acesso'] == 4 || $DadosUserEmpresa[0]['Nivel_acesso'] == 3) {
 					echo '
 					
-					<button id="btnFeedControl" class="btnControl FeedADM">
+				<button id="btnFeedControl" class="btnControl FeedADM">
 					<i class="material-icons"> &#xe145; </i>
 				</button>
 

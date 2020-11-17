@@ -531,8 +531,12 @@ h1, h2, h3, h4, h5, h6 {
 			width: 100%;
 			border-radius: 46px;
 
-			background-color: var(--color-layout-t);
+			background-color: var(--color-layout-p);
 		}
+
+			.DarkMode #SectionIndexDiscover .SectionContent {
+				background-color: var(--color-layout-t);
+			}
 
 			/* Companies Quick Access Bar */
 
@@ -1080,15 +1084,15 @@ h1, h2, h3, h4, h5, h6 {
 
 			/* btn Control Pane */
 			
-			#btnFeedControl {
+			.CompanyLayout .btnControl {
 				background-color: var(--color-theme-company-p);
 			}
 		
-				#btnFeedControl:hover {
+				.CompanyLayout .btnControl:hover {
 					background-color: var(--color-theme-company-hover);
 				}
 
-				.ThemeYellow #btnFeedControl i {
+				.CompanyLayout .ThemeYellow .btnControl i {
 					color: var(--color-txt-p-lm);
 				}
 
@@ -1309,6 +1313,16 @@ h1, h2, h3, h4, h5, h6 {
 			#FCF2 #FeedConfigItensView li .ItemBox .ItemControl a i {
 				font-size: 20px;
 			}
+
+		/* FCF3 */
+
+		#FCF3 .RecoverSubNavFrame {
+			display: none;
+		}
+
+		#FCF3 #RecoverSFCF1 {
+			display: block;
+		}
 
 		/*******************************************************
 			Item.php
@@ -2016,6 +2030,19 @@ h1, h2, h3, h4, h5, h6 {
 				text-align: center;
 			}
 
+			/* Content RecoverItem */
+
+			.FormPlatform .FormData .FormPlatformContent .ContentInput .RecoverItemfoto {
+				width: 100%;
+				border-radius: 20px;
+
+				background-color: var(--color-layout-t);
+			}
+
+			.FormPlatform .FormData .FormPlatformContent .ContentInput .RecoverItemfoto img {
+				border-radius: 20px;
+			}
+
 			/* Content Input */
 
 			.FormPlatform .FormData .FormPlatformContent .ContentInput label {
@@ -2119,6 +2146,10 @@ h1, h2, h3, h4, h5, h6 {
 			.FormPlatform .FormData .FormPlatformContent .ContentInput #imgContent img {
 				width: 100%;
 				border-radius: inherit;
+			}
+
+			::-webkit-calendar-picker-indicator {
+				filter: invert(50%);
 			}
 
 			/* Content Captcha */
