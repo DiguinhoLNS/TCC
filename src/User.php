@@ -259,17 +259,26 @@
 
                                 <div class = "FrameMain FrameSection">
 
-                                    <ul id = "UserItensView" class = "ItensView">
+                                    <ul id = "UserItensView" class = "ItensView ItemGroup">
 
-                                        <li>
-                                            <a href = "">
-                                                <div class = "ItenImg"></div>
-                                                <div class = "ItenText">
-                                                    <h1> Nome do Item Perdido </h1>
-                                                    <h2> Empresa.inc </h2>
-                                                    <h3> 10/09/2020 </h3>
+                                        <li class = "AllItemBox ItemBox">
+
+                                            <a href = "" title = "">
+
+                                                <div class = "ItemImg">
+                                                    <img src = "">
                                                 </div>
+
+                                                <div class = "ItemInfo">
+                                                    
+                                                    <h1 class = "ItemName"> Nome </h1>
+                                                    <h2 class = "ItemData"> 17/11/2020 </h2>
+                                                    <h3 class = "ItemCategory"> Categoria </h3>
+
+                                                </div>
+
                                             </a>
+
                                         </li>
 
                                     </ul>

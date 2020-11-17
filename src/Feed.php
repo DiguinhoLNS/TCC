@@ -134,7 +134,7 @@ if (isset($_COOKIE["ID"])) {
 
 											<div class="FrameMain FrameSection">
 
-												<ul class="FeedAll FeedBoxGroup">
+												<ul class="FeedAll FeedBoxGroup ItemGroup">
 
 													<?php
 
@@ -229,7 +229,7 @@ if (isset($_COOKIE["ID"])) {
 
 											<div class="FrameMain FrameSection">
 
-												<ul class="FeedCategory FeedBoxGroup">
+												<ul class="FeedCategory FeedBoxGroup ItemGroup">
 													<?php
 													if ($Acessorios["Quantidade"] > 0) {
 

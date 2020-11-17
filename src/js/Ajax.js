@@ -225,7 +225,9 @@ $(document).ready(function(){
 
         }).done(function(){
 
-            AJAXRequestStatus(1); 
+            AJAXRequestStatus(1);
+            
+            $(".LoadingFeed").css("display", "none");
 
             $(FeedType).load(folder);
 

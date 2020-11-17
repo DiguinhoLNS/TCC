@@ -76,112 +76,110 @@ if (isset($_COOKIE["ID"])) {
 
             <section id="SectionIndexDiscover">
 
-                <div class="CompaniesQuickAccessBar">
-                    <?php
+                <div class = "SectionContent">
 
-                    $i = 0;
+                    <div class="CompaniesQuickAccessBar">
+                        <?php
 
-                    if ($DadosEmpresas["QuantidadeDeEmpresas"] > 0) {
+                        $i = 0;
 
-                        do {
+                        if ($DadosEmpresas["QuantidadeDeEmpresas"] > 0) {
 
-                            echo '
-                                <a href = "Feed.php?q=' . $func->Criptografar($DadosEmpresas['Dados'][$i]['id_empresa']) . '" class = "CompanyBox ' . $DadosEmpresas['Dados'][$i]['Cor_layout'] . '" title = "Acessar ' . $DadosEmpresas['Dados'][$i]['Nome'] . ' ">
+                            do {
 
-                                    <h1 class = "CompanyTitle"> ' . $DadosEmpresas['Dados'][$i]['Nome']. ' </h1>
-                                
-                                </a>
-                            ';
+                                echo '
+                                    <a href = "Feed.php?q=' . $func->Criptografar($DadosEmpresas['Dados'][$i]['id_empresa']) . '" class = "CompanyBox ' . $DadosEmpresas['Dados'][$i]['Cor_layout'] . '" title = "Acessar ' . $DadosEmpresas['Dados'][$i]['Nome'] . ' ">
 
-                            $i++;
-                            if ($i > 2) {
-                                break;
-                            }
-                        } while ($i < $DadosEmpresas["QuantidadeDeEmpresas"]);
-                    }
-
-                    ?>
-                </div>
-
-                <div id="DiscoverContent">
-
-                    <h1> Conheça a nossa plataforma </h1>
-
-                    <div id="DiscoverBlocksGroup">
-
-                        <nav>
-
-                            <ul>
-
-                                <li class="DiscoverBlockContent">
-                                    <a id="D1" title="Leia mais">
-                                        <i class="material-icons"> &#xe1b1; </i>
+                                        <h1 class = "CompanyTitle"> ' . $DadosEmpresas['Dados'][$i]['Nome']. ' </h1>
+                                    
                                     </a>
-                                </li>
-                                <li class="DiscoverBlockContent">
-                                    <a href="RegisterUser.php" id="DiscoverNewUser" title="Criar uma conta gratuitamente">
-                                        <i class="material-icons"> &#xe7fd; </i>
-                                    </a>
-                                    <a href="User.php" id="DiscoverUser" title="Sua conta">
-                                        <i class="material-icons"> &#xe7fd; </i>
-                                    </a>
-                                </li>
-                                <li class="DiscoverBlockContent">
-                                    <a id="D2" title="Leia mais">
-                                        <i class="material-icons"> &#xe32a; </i>
-                                    </a>
-                                </li>
+                                ';
 
-                                <li class="DiscoverBlockText">
-                                    <span> Multiplataforma </span>
-                                </li>
-                                <li class="DiscoverBlockText">
-                                    <span> Conta Gratuita </span>
-                                </li>
-                                <li class="DiscoverBlockText">
-                                    <span> Segurança </span>
-                                </li>
+                                $i++;
+                                if ($i > 2) {
+                                    break;
+                                }
+                            } while ($i < $DadosEmpresas["QuantidadeDeEmpresas"]);
+                        }
 
-                            </ul>
+                        ?>
+                    </div>
 
-                        </nav>
+                    <div id="DiscoverContent">
 
-                        <nav>
+                        <h1> Conheça a nossa plataforma </h1>
 
-                            <ul>
+                        <div id="DiscoverBlocksGroup">
 
-                                <li class="DiscoverBlockContent">
-                                    <a id="D3" title="Leia mais">
-                                        <i class="material-icons"> admin_panel_settings </i>
-                                    </a>
-                                </li>
-                                <li class="DiscoverBlockContent">
-                                    <a id="D4" title="Leia mais">
-                                        <i class="material-icons"> &#xe1db; </i>
-                                    </a>
-                                </li>
-                                <li class="DiscoverBlockContent">
-                                    <a class="LightModeSwitch" title="Mudar tema">
-                                        <i class="material-icons"> &#xe891; </i>
-                                    </a>
-                                    <a class="DarkModeSwitch" title="Mudar tema">
-                                        <i class="material-icons"> &#xe891; </i>
-                                    </a>
-                                </li>
+                            <nav>
 
-                                <li class="DiscoverBlockText">
-                                    <span> Configurações Avançadas </span>
-                                </li>
-                                <li class="DiscoverBlockText">
-                                    <span> Armazenamento Gratuito </span>
-                                </li>
-                                <li class="DiscoverBlockText">
-                                    <span> Temas </span>
-                                </li>
+                                <ul>
 
-                            </ul>
+                                    <li>
+                                        <div class = "DiscoverIconContent">
+                                            <a id="D1" title="Leia mais">
+                                                <i class="material-icons"> &#xe1b1; </i>
+                                            </a>
+                                        </div>
+                                        <span> Multiplataforma </span>
+                                    </li>
 
-                        </nav>
+                                    <li>
+                                        <div class = "DiscoverIconContent">
+                                            <a href="RegisterUser.php" id="DiscoverNewUser" title="Criar uma conta gratuitamente">
+                                                <i class="material-icons"> &#xe7fd; </i>
+                                            </a>
+                                            <a href="User.php" id="DiscoverUser" title="Sua conta">
+                                                <i class="material-icons"> &#xe7fd; </i>
+                                            </a>
+                                        </div>
+                                        <span> Conta Gratuita </span>
+                                    </li>
+
+                                    <li class="DiscoverBlockContent">
+                                        <div class = "DiscoverIconContent">
+                                            <a id="D2" title="Leia mais">
+                                                <i class="material-icons"> &#xe32a; </i>
+                                            </a>
+                                        </div>
+                                        <span> Segurança </span>
+                                    </li>
+
+                                    <li>
+                                        <div class = "DiscoverIconContent">
+                                            <a id="D3" title="Leia mais">
+                                                <i class="material-icons"> admin_panel_settings </i>
+                                            </a>
+                                        </div>
+                                        <span> Configurações Avançadas </span>
+                                    </li>
+
+                                    <li>
+                                        <div class = "DiscoverIconContent">
+                                            <a id="D4" title="Leia mais">
+                                                <i class="material-icons"> &#xe1db; </i>
+                                            </a>
+                                        </div>
+                                        <span> Armazenamento Gratuito </span>
+                                    </li>
+
+                                    <li>
+                                        <div class = "DiscoverIconContent">
+                                            <a class="LightModeSwitch" title="Mudar tema">
+                                                <i class="material-icons"> &#xe891; </i>
+                                            </a>
+                                            <a class="DarkModeSwitch" title="Mudar tema">
+                                                <i class="material-icons"> &#xe891; </i>
+                                            </a>
+                                        </div>
+                                        <span> Temas </span>
+                                    </li>
+
+                                </ul>
+
+                            </nav>
+
+                        </div>
 
                     </div>
 
