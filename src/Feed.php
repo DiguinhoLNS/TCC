@@ -11,7 +11,6 @@ $func = new Funcoes();
 
 $id_empresa = $func->Descriptografar($_GET['q']);
 
-
 setcookie("ID_Company", $func->Criptografar($id_empresa), time() + (86400 * 30), "/");
 
 if (isset($_COOKIE["ID"])) {
@@ -346,7 +345,6 @@ if (isset($_COOKIE["ID"])) {
 		</div>
 
 		<?php
-
 			if ($DadosUserEmpresa[0]['Nivel_acesso'] == 4 || $DadosUserEmpresa[0]['Nivel_acesso'] == 3) {
 					echo '
 					

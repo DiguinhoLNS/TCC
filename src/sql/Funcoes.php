@@ -79,8 +79,8 @@ class Funcoes extends ConexaoBD
             $urlCriptografada = str_replace("$", "=", $Criptografado);
             $urlCriptografada = base64_decode(strrev($urlCriptografada));
 
-            $fraseCriptografada = substr($urlCriptografada, 12, -12);
-            $chave = substr($urlCriptografada, -12, -10);
+            $fraseCriptografada = substr($urlCriptografada, 12, -11);
+            $chave = substr($urlCriptografada, -11, -9);
 
             $fraseCriptografada = convert_uudecode(strrev($fraseCriptografada));
             $fraseDescriptografada = '';
