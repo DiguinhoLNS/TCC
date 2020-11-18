@@ -562,7 +562,7 @@ $(document).ready(function(){
     const NF = $(".NavFrame");
     const UserSNF = $(".UserSubNavFrame");
     const ItenSNF = $(".ItemSubNavFrame");
-    const RecoverSNF = $(".RecoverSubNavFrame");
+    const RequestSNF = $(".RequestSubNavFrame");
 
     // User.php
 
@@ -692,6 +692,14 @@ $(document).ready(function(){
 
     });
 
+    $("#FCFO6").on("click", function(){
+
+        NF.css("display", "none");
+
+        $("#FCF6").css("display", "block");
+
+    });
+
     // Sub Frames
 
         // Users
@@ -754,29 +762,29 @@ $(document).ready(function(){
     
         });
 
-        // Recover 
+        // Request 
 
-        $("#RecoverSFCFO1").on("click", function(){
+        $("#RequestSFCFO1").on("click", function(){
 
-            RecoverSNF.css("display", "none");
+            RequestSNF.css("display", "none");
     
-            $("#RecoverSFCF1").css("display", "block");
-    
-        });
-
-        $("#RecoverSFCFO2").on("click", function(){
-
-            RecoverSNF.css("display", "none");
-    
-            $("#RecoverSFCF2").css("display", "block");
+            $("#RequestSFCF1").css("display", "block");
     
         });
 
-        $("#RecoverSFCFO3").on("click", function(){
+        $("#RequestSFCFO2").on("click", function(){
 
-            RecoverSNF.css("display", "none");
+            RequestSNF.css("display", "none");
     
-            $("#RecoverSFCF3").css("display", "block");
+            $("#RequestSFCF2").css("display", "block");
+    
+        });
+
+        $("#RequestSFCFO3").on("click", function(){
+
+            RequestSNF.css("display", "none");
+    
+            $("#RequestSFCF3").css("display", "block");
     
         });
 

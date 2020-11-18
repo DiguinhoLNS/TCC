@@ -22,7 +22,7 @@
 					<ul class = "FormPlatformContent">
 
 						<li class = "ContentHeader">
-							<h1> Recuperar Item </h1>
+							<h1> Enviar Pedido de Recuperação de Item </h1>
                         </li>
                         <li class = "ContentInput">
                             <label for = "R_ItemFoto"> Foto </label>
@@ -44,7 +44,7 @@
 						</li>
 						<li class = "ContentBottom">
 							<a href = "URL DO ITEM"> Voltar </a>
-							<input class = "UserInputSubmit btn" type = "submit" value = "Recuperar"/>
+							<input class = "UserInputSubmit btn" type = "submit" value = "Enviar Pedido"/>
 						</li>
                         
                     </ul>

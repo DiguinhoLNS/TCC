@@ -63,11 +63,9 @@
 
         echo '
 
-            <li class = "ItemBox CategoryItemBox">
+            <li class = "NoFor">
 
-                Nada a mostrar
-
-                </a>
+                Nenhum item para mostrar!
 
             </li>';    
 

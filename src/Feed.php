@@ -140,7 +140,7 @@ if (isset($_COOKIE["ID"])) {
 
 														if ($DadosItem["Quantidade"] == 0) {
 
-															echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
+															echo '<li class = "NoFor"> Nenhum item para mostrar! </li>';
 														} else {
 															include "include/LoadFeed.php";
 															$i = 0;
@@ -281,15 +281,7 @@ if (isset($_COOKIE["ID"])) {
 
 															</li>';
 
-														echo '
-
-															<li class = "ItemBox CategoryItemBox">
-
-																Nada a mostrar
-
-																</a>
-
-															</li>';
+														echo '<li class = "NoFor"> Nenhum item para mostrar! </li>';
 													}
 													?>
 												</ul>

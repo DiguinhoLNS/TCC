@@ -1028,6 +1028,19 @@ h1, h2, h3, h4, h5, h6 {
 				color: var(--color-txt-p);
 			}
 
+			/* No For */
+
+			.FeedBoxGroup .NoFor {
+				grid-column: 2/3;
+
+				padding: 20px 0;
+				border-radius: 32px;
+
+				color: var(--color-txt-t);
+				font-size: 20px;
+				text-align: center;
+			}
+
 			/* Box */
 
 			.FeedBoxGroup {
@@ -1142,99 +1155,10 @@ h1, h2, h3, h4, h5, h6 {
 			display: block;
 		}
 
-		#FCF1 .UserGroupHeader, #FCF1 .UserGroupMain {
-			width: 100%;
-
-			list-style: none;
-		}
-
-		#FCF1 ul .GroupContent {
-			width: 100%;
-			padding: 0 20px;
-		}
-
 		#FCF1 ul .GroupContent .GroupUL {
-			display: grid;
 			grid-template-columns: 40px 1fr 55px 120px 192px;
-			gap: 20px;
+		}	
 			
-			width: 100%;
-
-			list-style: none;
-		}
-
-			/* Header */
-
-			#FCF1 .UserGroupHeader {
-				padding: 0 0 10px;
-				margin-bottom: 10px;
-				border-bottom: 2px solid var(--color-border);
-				
-				color: var(--color-txt-p);
-			}
-
-			#FCF1 .UserGroupHeader h1, #FCF1 .UserGroupHeader h2,
-			#FCF1 .UserGroupHeader h3, #FCF1 .UserGroupHeader h4,
-			#FCF1 .UserGroupHeader h5 {
-				font-size: 20px;
-				text-align: left;
-			}
-
-			/* Main */
-
-			#FCF1 .UserGroupMain {
-				color: var(--color-txt-t);
-			}
-
-			#FCF1 .UserGroupMain h1, #FCF1 .UserGroupMain h2,
-			#FCF1 .UserGroupMain h3, #FCF1 .UserGroupMain h4 {
-				margin: 6px 0;
-				
-				font-size: 16px;
-				text-align: left;
-			}
-
-			#FCF1 .UserGroupMain .GroupContent {
-				padding: 4px 20px;
-				border-bottom: 1px solid var(--color-border);
-			}
-			
-			#FCF1 .UserGroupMain .FeedConfigUserOptions {
-				width: 100%;
-				height: 32px;
-
-				list-style: none;
-			}
-
-			#FCF1 .UserGroupMain .FeedConfigUserOptions li {
-				margin-right: 8px;
-			}
-
-				#FCF1 .UserGroupMain .FeedConfigUserOptions li:last-child {
-					margin: 0;
-				}
-
-			#FCF1 .UserGroupMain .FeedConfigUserOptions li a {
-				width: 32px;
-				height: 32px;
-				padding: 6px;
-				border-radius: 50%;
-
-				color: var(--color-txt-t);
-
-				cursor: pointer;
-				transition: 0.1s ease;
-			}
-
-				#FCF1 .UserGroupMain .FeedConfigUserOptions li a:hover {
-					color: var(--color-txt-p);
-					background-color: var(--color-hover);
-				}
-
-			#FCF1 .UserGroupMain .FeedConfigUserOptions li a  i {
-				font-size: 20px;
-			}
-
 		/* FCF 2 */
 
 		#FCF2 .ItemSubNavFrame {
@@ -1316,13 +1240,26 @@ h1, h2, h3, h4, h5, h6 {
 
 		/* FCF3 */
 
-		#FCF3 .RecoverSubNavFrame {
+		#FCF3 .RequestSubNavFrame {
 			display: none;
 		}
 
-		#FCF3 #RecoverSFCF1 {
+		#FCF3 #RequestSFCF1 {
 			display: block;
 		}
+
+			/* RecoverSFCF1 */
+
+			#RequestSFCF1 ul .GroupContent .GroupUL {
+				grid-template-columns: 90px 90px 60px 1fr 100px 112px;
+			}
+
+			/* RecoverSFCF2/RecoverSFCF3 */
+
+			#RequestSFCF2 ul .GroupContent .GroupUL,
+			#RequestSFCF3 ul .GroupContent .GroupUL {
+				grid-template-columns: 90px 90px 60px 1fr 100px;
+			}
 
 		/*******************************************************
 			Item.php
@@ -3234,6 +3171,121 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 	/*******************************************************
+		FeedConfig
+	*******************************************************/
+
+	.GroupHeader, .GroupMain {
+		width: 100%;
+
+		list-style: none;
+	}
+
+	/* Header */
+
+	.GroupHeader {
+		padding: 0 0 10px;
+		margin-bottom: 10px;
+		border-bottom: 2px solid var(--color-border);
+		
+		color: var(--color-txt-p);
+	}
+
+	.GroupHeader .GroupContent {
+		border: none;
+	}
+
+	.GroupHeader h1 {
+		font-size: 20px;
+		text-align: left;
+	}
+
+	/* Main */
+
+	.GroupMain {
+		color: var(--color-txt-t);
+	}
+
+	.GroupMain h1 {
+		margin: 6px 0;
+		
+		font-size: 16px;
+		text-align: left;
+	}
+
+	.GroupContent {
+		width: 100%;
+		padding: 4px 20px;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.GroupContent .GroupUL {
+		display: grid;
+		gap: 20px;
+		
+		width: 100%;
+
+		list-style: none;
+	}
+
+	.GroupContent .GroupUL .Status1 {
+		color: #FBBC05;
+	}
+
+	.GroupContent .GroupUL .Status2 {
+		color: #34A853;
+	}
+
+	.GroupContent .GroupUL .Status3 {
+		color: #EA4335;
+	}
+
+	/* Config Options */
+
+	.FeedConfigOptions {
+		width: 100%;
+		height: 32px;
+
+		list-style: none;
+	}
+
+		.FeedConfigOptions .ConfirmOrder:hover {
+			color: #34A853;
+		}
+
+		.FeedConfigOptions .DenyOrder:hover {
+			color: #EA4335;
+		}
+
+	.FeedConfigOptions li {
+		margin-right: 8px;
+	}
+
+		.FeedConfigOptions li:last-child {
+			margin: 0;
+		}
+
+	.FeedConfigOptions li a {
+		width: 32px;
+		height: 32px;
+		padding: 6px;
+		border-radius: 50%;
+
+		color: var(--color-txt-t);
+
+		cursor: pointer;
+		transition: 0.1s ease;
+	}
+
+		.FeedConfigOptions li a:hover {
+			color: var(--color-txt-p);
+			background-color: var(--color-hover);
+		}
+
+	.FeedConfigOptions li a  i {
+		font-size: 20px;
+	}
+
+	/*******************************************************
 		Overlay
 	*******************************************************/
 
@@ -3669,6 +3721,12 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 
 			.FeedBoxGroup {
 				grid-template-columns: repeat(2, 1fr);
+			}
+
+			.FeedBoxGroup .NoFor {
+				grid-column: 1/2;
+
+				text-align: left;
 			}
 
 			#FCF2 #FeedConfigItensView {

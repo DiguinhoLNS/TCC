@@ -12,7 +12,7 @@
 
     if($FeedQuery["Quantidade"]==0){
 
-        echo '<li class = "NoFor"> Nenhum item para mostrar </li>';
+        echo '<li class = "NoFor"> Nenhum item para mostrar! </li>';
 
     }else{
         include "../../../include/LoadFeed.php";

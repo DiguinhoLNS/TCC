@@ -69,7 +69,7 @@
 
 				<section id = "SectionConfigFeedHeader">
 					
-					<h1> Configuração Feed <?= $DadosEmpresa[0]['Nome'];?></h1>
+					<h1> Gerenciar Feed <?= $DadosEmpresa[0]['Nome'];?></h1>
 				
 				</section>
 
@@ -88,14 +88,18 @@
                                 <span> Itens </span>
 							</li>
 							<li id = "FCFO3" class = "NavListOption">
-                                <i class = "material-icons"> cached </i>
-                                <span> Devoluções </span>
+                                <i class = "material-icons"> &#xe0c9; </i>
+                                <span> Pedidos </span>
 							</li>
 							<li id = "FCFO4" class = "NavListOption">
                                 <i class = "material-icons"> &#xe916; </i>
                                 <span> Agenda </span>
-                            </li>
+							</li>
 							<li id = "FCFO5" class = "NavListOption">
+                                <i class = "material-icons"> cached </i>
+                                <span> Devoluções </span>
+							</li>
+							<li id = "FCFO6" class = "NavListOption">
                                 <i class = "material-icons"> &#xe0af; </i>
                                 <span> Empresa </span>
                             </li>
@@ -139,7 +143,7 @@
 
 												<div class = "FrameMain FrameSection">
 
-													<ul class = "UserGroupHeader">
+													<ul class = "GroupHeader">
 
 														<li class = "GroupContent">
 
@@ -149,16 +153,16 @@
 																	<h1> ID </h1>
 																</li>
 																<li>
-																	<h2> Nome</h2>
+																	<h1> Nome</h1>
 																</li>
 																<li>
-																	<h3> Nível </h3>
+																	<h1> Nível </h1>
 																</li>
 																<li>
-																	<h4> Status </h4>
+																	<h1> Status </h1>
 																</li>
 																<li>
-																	<h5> Opções </h5>
+																	<h1> Opções </h1>
 																</li>
 															</ul>
 
@@ -166,7 +170,7 @@
 
 													</ul>
 
-													<ul class = "UserGroupMain">
+													<ul class = "GroupMain">
 													<?php 
 														$i=0;
 														$i2=1;
@@ -189,16 +193,16 @@
 																		<h1> '.($i2).'  </h1>
 																	</li>
 																	<li>
-																		<h2> '.$DadosUserEmpresa["Usuarios"][$i]["Nome_user"].' </h2>
+																		<h1> '.$DadosUserEmpresa["Usuarios"][$i]["Nome_user"].' </h1>
 																	</li>
 																	<li>
-																		<h3> '.$DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"].' </h3>
+																		<h1> '.$DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"].' </h1>
 																	</li>
 																	<li>
-																		<h4> '.$status.' </h4>
+																		<h1> '.$status.' </h1>
 																	</li>
 																	<li>
-																		<ul class = "FeedConfigUserOptions">';
+																		<ul class = "FeedConfigUserOptions FeedConfigOptions">';
 
 																			if($DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"] < 3){
 																				echo'
@@ -271,7 +275,7 @@
 
 												<div class = "FrameMain FrameSection">
 
-													<ul class = "UserGroupHeader">
+													<ul class = "GroupHeader">
 
 														<li class = "GroupContent">
 
@@ -281,16 +285,16 @@
 																	<h1> ID </h1>
 																</li>
 																<li>
-																	<h2> Nome</h2>
+																	<h1> Nome</h1>
 																</li>
 																<li>
-																	<h3> Nível </h3>
+																	<h1> Nível </h1>
 																</li>
 																<li>
-																	<h4> Status </h4>
+																	<h1> Status </h1>
 																</li>
 																<li>
-																	<h5> Opções </h5>
+																	<h1> Opções </h1>
 																</li>
 															</ul>
 
@@ -298,7 +302,7 @@
 
 													</ul>	
 
-													<ul class = "UserGroupMain">
+													<ul class = "GroupMain">
 													<?php 
 														$i=0;
 														$i2=1;
@@ -321,16 +325,16 @@
 																		<h1> '.($i2).'  </h1>
 																	</li>
 																	<li>
-																		<h2> '.$Adms["Usuarios"][$i]["Nome_user"].' </h2>
+																		<h1> '.$Adms["Usuarios"][$i]["Nome_user"].' </h1>
 																	</li>
 																	<li>
-																		<h3> '.$Adms["Usuarios"][$i]["Nivel_acesso"].' </h3>
+																		<h1> '.$Adms["Usuarios"][$i]["Nivel_acesso"].' </h1>
 																	</li>
 																	<li>
-																		<h4> '.$status.' </h4>
+																		<h1> '.$status.' </h1>
 																	</li>
 																	<li>
-																		<ul class = "FeedConfigUserOptions">';
+																		<ul class = "FeedConfigUserOptions FeedConfigOptions">';
 
 																			if($Adms["Usuarios"][$i]["Nivel_acesso"] < 3){
 																				echo'
@@ -403,7 +407,7 @@
 
 												<div class = "FrameMain FrameSection">
 
-													<ul class = "UserGroupHeader">
+													<ul class = "GroupHeader">
 
 
 														<li class = "GroupContent">
@@ -414,16 +418,16 @@
 																	<h1> ID </h1>
 																</li>
 																<li>
-																	<h2> Nome</h2>
+																	<h1> Nome</h1>
 																</li>
 																<li>
-																	<h3> Nível </h3>
+																	<h1> Nível </h1>
 																</li>
 																<li>
-																	<h4> Status </h4>
+																	<h1> Status </h1>
 																</li>
 																<li>
-																	<h5> Opções </h5>
+																	<h1> Opções </h1>
 																</li>
 															</ul>
 
@@ -431,7 +435,7 @@
 
 													</ul>
 
-													<ul class = "UserGroupMain">
+													<ul class = "GroupMain">
 													<?php 
 														$i=0;
 														$i2=1;
@@ -454,16 +458,16 @@
 																		<h1> '.($i2).'  </h1>
 																	</li>
 																	<li>
-																		<h2> '.$Normais["Usuarios"][$i]["Nome_user"].' </h2>
+																		<h1> '.$Normais["Usuarios"][$i]["Nome_user"].' </h1>
 																	</li>
 																	<li>
-																		<h3> '.$Normais["Usuarios"][$i]["Nivel_acesso"].' </h3>
+																		<h1> '.$Normais["Usuarios"][$i]["Nivel_acesso"].' </h1>
 																	</li>
 																	<li>
-																		<h4> '.$status.' </h4>
+																		<h1> '.$status.' </h1>
 																	</li>
 																	<li>
-																		<ul class = "FeedConfigUserOptions">';
+																		<ul class = "FeedConfigUserOptions FeedConfigOptions">';
 
 																			if($Normais["Usuarios"][$i]["Nivel_acesso"] < 3){
 																				echo'
@@ -536,7 +540,7 @@
 
 												<div class = "FrameMain FrameSection">
 
-													<ul class = "UserGroupHeader">
+													<ul class = "GroupHeader">
 
 														<li class = "GroupContent">
 
@@ -546,16 +550,16 @@
 																	<h1> ID </h1>
 																</li>
 																<li>
-																	<h2> Nome</h2>
+																	<h1> Nome</h1>
 																</li>
 																<li>
-																	<h3> Nível </h3>
+																	<h1> Nível </h1>
 																</li>
 																<li>
-																	<h4> Status </h4>
+																	<h1> Status </h1>
 																</li>
 																<li>
-																	<h5> Opções </h5>
+																	<h1> Opções </h1>
 																</li>
 															</ul>
 
@@ -563,7 +567,7 @@
 
 													</ul>
 													
-													<ul class = "UserGroupMain">
+													<ul class = "GroupMain">
 													<?php 
 														$i=0;
 														$i2=1;
@@ -586,16 +590,16 @@
 																		<h1> '.($i2).'  </h1>
 																	</li>
 																	<li>
-																		<h2> '.$Banidos["Usuarios"][$i]["Nome_user"].' </h2>
+																		<h1> '.$Banidos["Usuarios"][$i]["Nome_user"].' </h1>
 																	</li>
 																	<li>
-																		<h3> '.$Banidos["Usuarios"][$i]["Nivel_acesso"].' </h3>
+																		<h1> '.$Banidos["Usuarios"][$i]["Nivel_acesso"].' </h1>
 																	</li>
 																	<li>
-																		<h4> '.$status.' </h4>
+																		<h1> '.$status.' </h1>
 																	</li>
 																	<li>
-																		<ul class = "FeedConfigUserOptions">';
+																		<ul class = "FeedConfigUserOptions FeedConfigOptions">';
 
 																			if($Banidos["Usuarios"][$i]["Nivel_acesso"] < 3){
 																				echo'
@@ -890,9 +894,9 @@
 
 											<ul>
 
-												<li id = "RecoverSFCFO1" class = "SubNavOption UserSubNavOption active" title = "Todos os usuários"> Pendentes </li>
-												<li id = "RecoverSFCFO2" class = "SubNavOption UserSubNavOption" title = "Usuários com previlégios"> Aceitos </li>
-												<li id = "RecoverSFCFO3" class = "SubNavOption UserSubNavOption" title = "Usuários sem privilégios"> Recusados </li>
+												<li id = "RequestSFCFO1" class = "SubNavOption UserSubNavOption active" title = "Todos os usuários"> Pendentes </li>
+												<li id = "RequestSFCFO2" class = "SubNavOption UserSubNavOption" title = "Usuários com previlégios"> Aceitos </li>
+												<li id = "RequestSFCFO3" class = "SubNavOption UserSubNavOption" title = "Usuários sem privilégios"> Recusados </li>
 
 											</ul>
 
@@ -900,39 +904,232 @@
 
 										<nav class = "SubNavFrameset">
 
-											<div id = "RecoverSFCF1" class = "RecoverSubNavFrame SubNavFrame">
+											<div id = "RequestSFCF1" class = "RequestSubNavFrame SubNavFrame">
 
 												<div class = "FrameHeader FrameSection">
 
-													<h1> Pendentes </h1>
+													<h1> Pendentes (x) </h1>
 
 												</div>
 
-												<div class = "FrameMain FrameSection"></div>
+												<div class = "FrameMain FrameSection">
+
+													<ul class = "GroupHeader">
+
+														<li class = "GroupContent">
+
+															<ul class = "GroupUL">
+
+																<li>
+																	<h1> Data </h1>
+																</li>
+																<li>
+																	<h1> Horário </h1>
+																</li>
+																<li>
+																	<h1> Item </h1>
+																</li>
+																<li>
+																	<h1> Nome </h1>
+																</li>
+																<li>
+																	<h1> Status </h1>
+																</li>
+																<li>
+																	<h1> Opções </h1>
+																</li>
+															</ul>
+
+														</li>
+
+													</ul>
+
+													<ul class = "GroupMain">
+
+														<li class = "GroupContent">
+
+															<ul class = "GroupUL">
+
+																<li>
+																	<h1> 18/11/2020 </h1>
+																</li>
+																<li>
+																	<h1> 13:30 </h1>
+																</li>
+																<li>
+																	<h1> 12 </h1>
+																</li>
+																<li>
+																	<h1> Nome do Sujeito </h1>
+																</li>
+																<li class = "Status1">
+																	<h1> Pendente </h1>
+																</li>
+																<li>
+																	<ul class = "FeedConfigDevolutionOptions FeedConfigOptions">
+																		<li>
+																			<a href = "OrderDetails.php" target = "_blank" title = "Ver Mais Detalhes">		
+																				<i class = "material-icons"> &#xe8f4; </i>
+																			</a>
+																		</li>
+																		<li>
+																			<a href = "" class = "ConfirmOrder" title = "Confirmar Pedido">
+																				<i class = "material-icons"> &#xe5ca; </i>
+																			</a>
+																		</li>
+																		<li>
+																			<a href = "" class = "DenyOrder" title = "Negar Pedido">
+																				<i class = "material-icons"> &#xe5cd; </i>
+																			</a>
+																		</li>
+																	</ul>
+																</li>
+
+															</ul>
+
+														</li>
+
+													</ul>
+
+												</div>
 
 											</div>
 
-											<div id = "RecoverSFCF2" class = "RecoverSubNavFrame SubNavFrame">
+											<div id = "RequestSFCF2" class = "RequestSubNavFrame SubNavFrame">
 
 												<div class = "FrameHeader FrameSection">
 
-													<h1> Aceitos </h1>
+													<h1> Aceitos (x) </h1>
 
 												</div>
 
-												<div class = "FrameMain FrameSection"></div>
+												<div class = "FrameMain FrameSection">
+
+													<ul class = "GroupHeader">
+
+														<li class = "GroupContent">
+
+															<ul class = "GroupUL">
+
+																<li>
+																	<h1> Data </h1>
+																</li>
+																<li>
+																	<h1> Horário </h1>
+																</li>
+																<li>
+																	<h1> Item </h1>
+																</li>
+																<li>
+																	<h1> Nome </h1>
+																</li>
+																<li>
+																	<h1> Status </h1>
+																</li>
+															</ul>
+
+														</li>
+
+													</ul>
+
+													<ul class = "GroupMain">
+
+														<li class = "GroupContent">
+
+															<ul class = "GroupUL">
+
+																<li>
+																	<h1> 18/11/2020 </h1>
+																</li>
+																<li>
+																	<h1> 13:30 </h1>
+																</li>
+																<li>
+																	<h1> 12 </h1>
+																</li>
+																<li>
+																	<h1> Nome do Sujeito </h1>
+																</li>
+																<li class = "Status2">
+																	<h1> Aceito </h1>
+																</li>
+
+															</ul>
+
+														</li>
+
+													</ul>
+
+												</div>
 
 											</div>
 
-											<div id = "RecoverSFCF3" class = "RecoverSubNavFrame SubNavFrame">
+											<div id = "RequestSFCF3" class = "RequestSubNavFrame SubNavFrame">
 
 												<div class = "FrameHeader FrameSection">
 
-													<h1> Recusados </h1>
+													<h1> Recusados (x) </h1>
 
 												</div>
 
-												<div class = "FrameMain FrameSection"></div>
+												<div class = "FrameMain FrameSection">
+
+													<ul class = "GroupHeader">
+
+														<li class = "GroupContent">
+
+															<ul class = "GroupUL">
+
+																<li>
+																	<h1> Data </h1>
+																</li>
+																<li>
+																	<h1> Horário </h1>
+																</li>
+																<li>
+																	<h1> Item </h1>
+																</li>
+																<li>
+																	<h1> Nome </h1>
+																</li>
+																<li>
+																	<h1> Status </h1>
+																</li>
+															</ul>
+
+														</li>
+
+													</ul>
+
+													<ul class = "GroupMain">
+
+														<li class = "GroupContent">
+
+															<ul class = "GroupUL">
+
+																<li>
+																	<h1> 18/11/2020 </h1>
+																</li>
+																<li>
+																	<h1> 13:30 </h1>
+																</li>
+																<li>
+																	<h1> 12 </h1>
+																</li>
+																<li>
+																	<h1> Nome do Sujeito </h1>
+																</li>
+																<li class = "Status3">
+																	<h1> Negado </h1>
+																</li>
+
+															</ul>
+
+														</li>
+
+													</ul>
+
+												</div>
 											
 											</div>
 
@@ -966,6 +1163,20 @@
 
                                 <div class = "FrameHeader FrameSection">
 
+                                    <h1> Devoluções </h1>
+
+								</div>
+
+							</div>
+							
+						</div>
+
+						<div id = "FCF6" class = "NavFrame">
+
+                            <div class = "NavFrameContent">
+
+                                <div class = "FrameHeader FrameSection">
+
                                     <h1> Empresa </h1>
 
 								</div>
@@ -983,7 +1194,7 @@
 												<div class = "CategoryText">
 
 													<h1> Acessar Feed </h1>
-													<h2> Vizualizar o feed de itens da sua empresa </h2>
+													<h1> Vizualizar o feed de itens da sua empresa </h1>
 
 												</div>
 
@@ -1002,7 +1213,7 @@
 												<div class = "CategoryText">
 
 													<h1> Acessar Empresa </h1>
-													<h2> Vizualizar a página principal da sua empresa </h2>
+													<h1> Vizualizar a página principal da sua empresa </h1>
 
 												</div>
 
@@ -1042,8 +1253,6 @@
 		<?php include "include/CookieMessage.php"; ?>
 
 		<div id = "DarkEffect"></div>
-
-		<script type="text/javascript"> var id_user_empresa = "<?php echo $DadosUserEmpresa["Usuarios"][0]["id_user_empresa"]?>"; </script>
 
 		<?php include "include/Script.php"; ?>
 

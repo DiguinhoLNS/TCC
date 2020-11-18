@@ -301,21 +301,21 @@
 
 										<li class = "Category">
 
-											<h1 class = "HeaderCategory"> Configurar </h1>
+											<h1 class = "HeaderCategory"> Gerenciar </h1>
 
 											<div class = "CategoryOptions">
 
 												<div class = "CategoryText">
 
-													<h1> Configurar feed </h1>
-													<h2> Configurar o feed da sua empresa </h2>
+													<h1> Gerenciar feed </h1>
+													<h2> Gerenciar o feed da sua empresa </h2>
 
 												</div>
 
 												<div class = "btnContent">
 
 													<button class = "btnOption">
-														<a href = "ConfigFeed.php?q=<?php echo $func->Criptografar($id_empresa);?>"> Configurar Feed </a>
+														<a href = "ConfigFeed.php?q=<?php echo $func->Criptografar($id_empresa);?>"> Gerenciar Feed </a>
 													</button>
 
 												</div>

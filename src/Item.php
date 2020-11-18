@@ -149,8 +149,8 @@
 				<ul>
 					<li>
 						<a href = "RecoverItem.php">
-							<i class = "material-icons"> &#xe5ca; </i>
-							<span> Recuperar Item </span>
+							<i class = "material-icons"> add_comment </i>
+							<span> Enviar Pedido </span>
 						</a>
 					</li>
 				</ul>
