@@ -92,12 +92,12 @@
                                 <span> Pedidos </span>
 							</li>
 							<li id = "FCFO4" class = "NavListOption">
-                                <i class = "material-icons"> &#xe916; </i>
-                                <span> Agenda </span>
-							</li>
-							<li id = "FCFO5" class = "NavListOption">
                                 <i class = "material-icons"> cached </i>
                                 <span> Devoluções </span>
+							</li>
+							<li id = "FCFO5" class = "NavListOption">
+                                <i class = "material-icons"> &#xe916; </i>
+                                <span> Agenda </span>
 							</li>
 							<li id = "FCFO6" class = "NavListOption">
                                 <i class = "material-icons"> &#xe0af; </i>
@@ -921,6 +921,9 @@
 															<ul class = "GroupUL">
 
 																<li>
+																	<h1> ID </h1>
+																</li>
+																<li>
 																	<h1> Data </h1>
 																</li>
 																<li>
@@ -950,6 +953,9 @@
 
 															<ul class = "GroupUL">
 
+																<li>
+																	<h1> 1 </h1>
+																</li>
 																<li>
 																	<h1> 18/11/2020 </h1>
 																</li>
@@ -1012,6 +1018,9 @@
 															<ul class = "GroupUL">
 
 																<li>
+																	<h1> ID </h1>
+																</li>	
+																<li>
 																	<h1> Data </h1>
 																</li>
 																<li>
@@ -1038,6 +1047,9 @@
 
 															<ul class = "GroupUL">
 
+																<li>
+																	<h1> 1 </h1>
+																</li>
 																<li>
 																	<h1> 18/11/2020 </h1>
 																</li>
@@ -1081,6 +1093,9 @@
 															<ul class = "GroupUL">
 
 																<li>
+																	<h1> ID </h1>
+																</li>
+																<li>
 																	<h1> Data </h1>
 																</li>
 																<li>
@@ -1107,6 +1122,9 @@
 
 															<ul class = "GroupUL">
 
+																<li>
+																	<h1> 1 </h1>
+																</li>
 																<li>
 																	<h1> 18/11/2020 </h1>
 																</li>
@@ -1147,9 +1165,194 @@
 
                             <div class = "NavFrameContent">
 
-                                <div class = "FrameHeader FrameSection">
+                                <div class = "SubFramesetContent">
 
-                                    <h1> Agenda </h1>
+									<nav class = "SubNavBarControl">
+
+										<ul>
+
+											<li id = "DevolutionSFCFO1" class = "SubNavOption DevolutionSubNavOption active" title = "Pedidos Pendentes"> Pendentes </li>
+											<li id = "DevolutionSFCFO2" class = "SubNavOption DevolutionSubNavOption" title = "Pedidos Devolviods"> Devolvidos </li>
+
+										</ul>
+
+									</nav>
+
+									<nav class = "SubNavFrameset">
+
+										<div id = "DevolutionSFCF1" class = "DevolutionSubNavFrame SubNavFrame">
+
+											<div class = "FrameHeader FrameSection">
+
+												<h1> Pendentes (x) </h1>
+
+											</div>
+
+											<div class = "FrameMain FrameSection">
+
+												<ul class = "GroupHeader">
+
+													<li class = "GroupContent">
+
+														<ul class = "GroupUL">
+
+															<li>
+																<h1> ID </h1>
+															</li>
+															<li>
+																<h1> Data </h1>
+															</li>
+															<li>
+																<h1> Horário </h1>
+															</li>
+															<li>
+																<h1> Item </h1>
+															</li>
+															<li>
+																<h1> Nome </h1>
+															</li>
+															<li>
+																<h1> Status </h1>
+															</li>
+															<li>
+																<h1> Opções </h1>
+															</li>
+														</ul>
+
+													</li>
+
+												</ul>
+
+												<ul class = "GroupMain">
+
+													<li class = "GroupContent">
+
+														<ul class = "GroupUL">
+
+															<li>
+																<h1> 1 </h1>
+															</li>
+															<li>
+																<h1> 18/11/2020 </h1>
+															</li>
+															<li>
+																<h1> 13:30 </h1>
+															</li>
+															<li>
+																<h1> 12 </h1>
+															</li>
+															<li>
+																<h1> Nome do Sujeito </h1>
+															</li>
+															<li class = "Status1">
+																<h1> Pendente </h1>
+															</li>
+															<li>
+																<ul class = "FeedConfigDevolutionOptions FeedConfigOptions">			
+																	<li>
+																		<a href = "OrderDetails.php" target = "_blank" title = "Ver Pedido">		
+																			<i class = "material-icons"> &#xe8f4; </i>
+																		</a>
+																	</li>
+																	<li>
+																		<a href = "" class = "ConfirmDevolution" title = "Pedido Devolvido">
+																			<i class = "material-icons"> &#xe5ca; </i>
+																		</a>
+																	</li>
+																	<li>
+																		<a href = "" class = "DenyDevolution" title = "Pedido Não Devolvido">
+																			<i class = "material-icons"> &#xe5cd; </i>
+																		</a>
+																	</li>
+																</ul>
+															</li>
+
+														</ul>
+
+													</li>
+
+												</ul>
+
+											</div>
+
+										</div>
+
+										<div id = "DevolutionSFCF2" class = "DevolutionSubNavFrame SubNavFrame">
+
+											<div class = "FrameHeader FrameSection">
+
+												<h1> Devolvidos (x) </h1>
+
+											</div>
+
+											<div class = "FrameMain FrameSection">
+
+												<ul class = "GroupHeader">
+
+													<li class = "GroupContent">
+
+														<ul class = "GroupUL">
+
+															<li>
+																<h1> ID </h1>
+															</li>
+															<li>
+																<h1> Data </h1>
+															</li>
+															<li>
+																<h1> Horário </h1>
+															</li>
+															<li>
+																<h1> Item </h1>
+															</li>
+															<li>
+																<h1> Nome </h1>
+															</li>
+															<li>
+																<h1> Status </h1>
+															</li>
+														</ul>
+
+													</li>
+
+												</ul>
+
+												<ul class = "GroupMain">
+
+													<li class = "GroupContent">
+
+														<ul class = "GroupUL">
+
+															<li>
+																<h1> 1 </h1>
+															</li>
+															<li>
+																<h1> 18/11/2020 </h1>
+															</li>
+															<li>
+																<h1> 13:30 </h1>
+															</li>
+															<li>
+																<h1> 12 </h1>
+															</li>
+															<li>
+																<h1> Nome do Sujeito </h1>
+															</li>
+															<li class = "Status2">
+																<h1> Devolvido </h1>
+															</li>
+
+														</ul>
+
+													</li>
+
+												</ul>
+
+											</div>
+										
+										</div>
+
+									</nav>
 
 								</div>
 
@@ -1163,9 +1366,11 @@
 
                                 <div class = "FrameHeader FrameSection">
 
-                                    <h1> Devoluções </h1>
+                                    <h1> Agenda </h1>
 
 								</div>
+
+								<div class = "FrameMain FrameSection"></div>
 
 							</div>
 							

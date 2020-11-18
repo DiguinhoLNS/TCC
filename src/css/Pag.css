@@ -1156,7 +1156,7 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 		#FCF1 ul .GroupContent .GroupUL {
-			grid-template-columns: 40px 1fr 55px 120px 192px;
+			grid-template-columns: 30px 1fr 55px 120px 192px;
 		}	
 			
 		/* FCF 2 */
@@ -1251,14 +1251,36 @@ h1, h2, h3, h4, h5, h6 {
 			/* RecoverSFCF1 */
 
 			#RequestSFCF1 ul .GroupContent .GroupUL {
-				grid-template-columns: 90px 90px 60px 1fr 100px 112px;
+				grid-template-columns: 30px 90px 90px 60px 1fr 100px 112px;
 			}
 
 			/* RecoverSFCF2/RecoverSFCF3 */
 
 			#RequestSFCF2 ul .GroupContent .GroupUL,
 			#RequestSFCF3 ul .GroupContent .GroupUL {
-				grid-template-columns: 90px 90px 60px 1fr 100px;
+				grid-template-columns: 30px 90px 90px 60px 1fr 100px;
+			}
+
+		/* FCF 4 */
+
+		#FCF4 .DevolutionSubNavFrame {
+			display: none;
+		}
+
+		#FCF4 #DevolutionSFCF1 {
+			display: block;
+		}
+
+			/* DevolutionSFCF1 */
+
+			#DevolutionSFCF1 ul .GroupContent .GroupUL {
+				grid-template-columns: 30px 90px 90px 60px 1fr 100px 112px;
+			}
+
+			/* DevolutionSFCF2 */
+
+			#DevolutionSFCF2 ul .GroupContent .GroupUL {
+				grid-template-columns: 30px 90px 90px 60px 1fr 100px;
 			}
 
 		/*******************************************************
@@ -3180,6 +3202,21 @@ h1, h2, h3, h4, h5, h6 {
 		list-style: none;
 	}
 
+	.GroupContent {
+		width: 100%;
+		padding: 4px 20px;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.GroupContent .GroupUL {
+		display: grid;
+		gap: 20px;
+		
+		width: 100%;
+
+		list-style: none;
+	}
+
 	/* Header */
 
 	.GroupHeader {
@@ -3209,35 +3246,27 @@ h1, h2, h3, h4, h5, h6 {
 		margin: 6px 0;
 		
 		font-size: 16px;
+		line-height: 20px;
 		text-align: left;
 	}
 
-	.GroupContent {
-		width: 100%;
-		padding: 4px 20px;
-		border-bottom: 1px solid var(--color-border);
-	}
-
-	.GroupContent .GroupUL {
-		display: grid;
-		gap: 20px;
+	.GroupMain .GroupContent .GroupUL {
+		vertical-align: middle;
 		
-		width: 100%;
-
-		list-style: none;
+		height: 32px;
 	}
 
-	.GroupContent .GroupUL .Status1 {
-		color: #FBBC05;
-	}
+		.GroupMain .GroupContent .GroupUL .Status1 {
+			color: #FBBC05;
+		}
 
-	.GroupContent .GroupUL .Status2 {
-		color: #34A853;
-	}
+		.GroupMain .GroupContent .GroupUL .Status2 {
+			color: #34A853;
+		}
 
-	.GroupContent .GroupUL .Status3 {
-		color: #EA4335;
-	}
+		.GroupMain .GroupContent .GroupUL .Status3 {
+			color: #EA4335;
+		}
 
 	/* Config Options */
 
@@ -3248,11 +3277,13 @@ h1, h2, h3, h4, h5, h6 {
 		list-style: none;
 	}
 
-		.FeedConfigOptions .ConfirmOrder:hover {
+		.FeedConfigOptions .ConfirmOrder:hover,
+		.FeedConfigOptions .ConfirmDevolution:hover {
 			color: #34A853;
 		}
 
-		.FeedConfigOptions .DenyOrder:hover {
+		.FeedConfigOptions .DenyOrder:hover,
+		.FeedConfigOptions .DenyDevolution:hover{
 			color: #EA4335;
 		}
 

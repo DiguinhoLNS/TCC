@@ -517,6 +517,7 @@ $(document).ready(function(){
     const ItemSNLO = $(".ItemSubNavOption");
     const AllSNLO = $(".AllSubNavOption");
     const CategorySNLO = $(".CategorySubNavOption");
+    const DevolutionSNLO = $(".DevolutionSubNavOption");
 
     NLO.on("click", function(){
 
@@ -553,6 +554,13 @@ $(document).ready(function(){
 
     });
 
+    DevolutionSNLO.on("click", function(){
+
+        DevolutionSNLO.removeClass("active");
+        $(this).addClass("active");
+
+    });
+
 });
 
 /* Platform Frame */
@@ -560,9 +568,11 @@ $(document).ready(function(){
 $(document).ready(function(){
 
     const NF = $(".NavFrame");
+
     const UserSNF = $(".UserSubNavFrame");
     const ItenSNF = $(".ItemSubNavFrame");
     const RequestSNF = $(".RequestSubNavFrame");
+    const DevolutionSNF = $(".DevolutionSubNavFrame");
 
     // User.php
 
@@ -785,6 +795,24 @@ $(document).ready(function(){
             RequestSNF.css("display", "none");
     
             $("#RequestSFCF3").css("display", "block");
+    
+        });
+
+        // Devolution
+
+        $("#DevolutionSFCFO1").on("click", function(){
+
+            DevolutionSNF.css("display", "none");
+    
+            $("#DevolutionSFCF1").css("display", "block");
+    
+        });
+
+        $("#DevolutionSFCFO2").on("click", function(){
+
+            DevolutionSNF.css("display", "none");
+    
+            $("#DevolutionSFCF2").css("display", "block");
     
         });
 
