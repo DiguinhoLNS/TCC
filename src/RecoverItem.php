@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang = "pt-br">
 
@@ -5,7 +6,23 @@
 
 		<title> Recuperar NOME DO OBJ </title>
 		
-        <?php include "include/Head.php"; ?>
+        <?php include "include/Head.php"; 
+
+        require_once 'sql/ConexaoBD.php';
+        require_once "sql/Funcoes.php";
+
+        $conn = new ConexaoBD();
+        $func = new Funcoes();
+        
+        $id = $func->Descriptografar($_COOKIE["ID"]);
+        $id_item = $_SESSION['id_objeto'];
+        
+        $DadosItem = $func->PegarDadosItemPeloId($id_item);
+        $DataSeparada = $func->SepararData($DadosItem["Objeto"][0]["Data_cadastro"]);
+        
+        $_SESSION["TipoVerificação"] = "RecuperarItem";
+        
+        ?>
         
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
@@ -17,7 +34,7 @@
 
 			<div class = "FormPlatform FormRegister BS">
 
-				<form class = "FormData" method = "POST" action = "sql/.php" enctype = "multipart/form-data">
+				<form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php" enctype = "multipart/form-data">
 			
 					<ul class = "FormPlatformContent">
 
@@ -27,7 +44,7 @@
                         <li class = "ContentInput">
                             <label for = "R_ItemFoto"> Foto </label>
                             <div class = "RecoverItemfoto">
-                                <img src = ""/>
+                                <img src = "imagesBD/<?=$DadosItem["Objeto"][0]["Nome_foto"]?>"/>
                             </div>
                         </li>
                         <li class = "ContentInput">

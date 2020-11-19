@@ -327,11 +327,43 @@
             include "EditarDados.php";
         }
 
+        break;
 
+        case "RecuperarItem":
+            $data = $_POST["data"];
+            $horario = $_POST["time"];
+            $id_objeto = $_SESSION["id_objeto"];
+
+            $ErroNosCampos = [
+                "Data" => false,
+                "Horario" => false,
+                "Captcha" => false
+            ];
+
+            if(strtotime($data) < strtotime("now")){
+                $ErroNosCampos["Data"] = true;
+            }
+
+            $ErroNosCampos["Captcha"] = $func->reCaptcha();
+
+            if (!isset($erros)) {
+                $_SESSION['TipoVerificação'] = "RecuperarItem";
+                setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
+                include "InsereCadastro.php";
+
+            } else {
+
+                setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
+                $_SESSION["ErrosRegistrarItem"] = $erros;
+
+                header("Location: ../RegisterItem.php?q=".$func->Criptografar($id_empresa));
+
+            }
 
         break;
 
         default:
+        die("Erro 760");
         break;
 
     }

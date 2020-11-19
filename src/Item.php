@@ -20,10 +20,13 @@
 		if($DadosItem['Quantidade'] == 0 || $DadosItem['Quantidade'] > 1){
 			die("Erro de ID de Objeto ". $DadosItem["Quantidade"]);
 		}
+		$_SESSION["id_objeto"] = $id_item;
 
 	}else{
 		die("Erro de ID de usuario");
 	}
+
+	
     
 ?>
 

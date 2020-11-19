@@ -109,3 +109,5 @@ array(2) { [0]=> array(18) {
 
     CREATE DATABASE IF NOT EXISTS bdape DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
     USE bdape;
+
+    INSERT INTO devolucoes (id_user, id_obj, data, hora, situacao) VALUES ( "1" , "1"  , "2020-12-10" , "12:36" , "Pendente") 
