@@ -66,31 +66,29 @@ switch ($tipo_verificacao) {
 
             $sql = $conn->dbh->prepare($query);
             $sql->execute([':nome_obj' => $nome, ':categoria' => $categoria, ':descricao' => $descricao, ':situacao' => $situacao, ':id_obj' => $id_obj]);
-            header("Location: ../Feed.php?q=".$func->Criptografar($DadosItem["Objeto"][0]["id_empresa"]));
-
+            header("Location: ../Feed.php?q=" . $func->Criptografar($DadosItem["Objeto"][0]["id_empresa"]));
         } catch (PDOException $e) {
-            die("Erro no SQL ". $e);
+            die("Erro no SQL " . $e);
         }
 
         break;
 
-        case "EditarEmail":
+    case "EditarEmail":
 
-            $emailNovo = $func->ClearInjectionXSS($_POST["E_Email"]);
-            $emailAntigo = $_SESSION["email"];
+        $emailNovo = $func->ClearInjectionXSS($_POST["E_Email"]);
+        $emailAntigo = $_SESSION["email"];
 
-            try {
+        try {
 
-                $query = "UPDATE usuarios SET Email_user = :email WHERE Email_user = :email_antigo";
-    
-                $sql = $conn->dbh->prepare($query);
-                $sql->execute([':email' => $emailNovo, ':email_antigo' => $emailAntigo]);
-                $_SESSION["email"] = $emailNovo;
-                header("Location: ../VerificationUser.php?q=".$func->Criptografar($emailNovo));
-    
-            } catch (PDOException $e) {
-                die("Erro no SQL ". $e);
-            }
+            $query = "UPDATE usuarios SET Email_user = :email WHERE Email_user = :email_antigo";
+
+            $sql = $conn->dbh->prepare($query);
+            $sql->execute([':email' => $emailNovo, ':email_antigo' => $emailAntigo]);
+            $_SESSION["email"] = $emailNovo;
+            header("Location: ../VerificationUser.php?q=" . $func->Criptografar($emailNovo));
+        } catch (PDOException $e) {
+            die("Erro no SQL " . $e);
+        }
 
 
         break;

@@ -912,7 +912,7 @@
 
 												<div class = "FrameHeader FrameSection">
 
-													<h1> Pendentes (x) </h1>
+													<h1> Pendentes (<?=$PedidosPendentes["Quantidade"]?>) </h1>
 
 												</div>
 
@@ -991,9 +991,6 @@
 																			<h1> Pendente </h1>
 																		</li>
 
-																	
-
-
 																	<li>
 																		<ul class = "FeedConfigDevolutionOptions FeedConfigOptions">
 																			<li>
@@ -1002,12 +999,12 @@
 																				</a>
 																			</li>
 																			<li>
-																				<a href = "" class = "ConfirmOrder" title = "Confirmar Pedido">
+																				<a href = "sql/ConfigAgendamento.php?q='.$func->Criptografar($PedidosPendentes["Agendamento"][$i]["id_agendamento"]).'&v='.$func->Criptografar("A").'" class = "ConfirmOrder" title = "Confirmar Pedido">
 																					<i class = "material-icons"> &#xe5ca; </i>
 																				</a>
 																			</li>
 																			<li>
-																				<a href = "" class = "DenyOrder" title = "Negar Pedido">
+																				<a href = "sql/ConfigAgendamento.php?q='.$func->Criptografar($PedidosPendentes["Agendamento"][$i]["id_agendamento"]).'&v='.$func->Criptografar("B").'" class = "DenyOrder" title = "Negar Pedido">
 																					<i class = "material-icons"> &#xe5cd; </i>
 																				</a>
 																			</li>
@@ -1034,7 +1031,7 @@
 
 												<div class = "FrameHeader FrameSection">
 
-													<h1> Aceitos (x) </h1>
+													<h1> Aceitos (<?=$PedidosAceitos["Quantidade"]?>) </h1>
 
 												</div>
 
@@ -1130,7 +1127,7 @@
 
 												<div class = "FrameHeader FrameSection">
 
-													<h1> Recusados (x) </h1>
+													<h1> Recusados (<?=$PedidosNegados["Quantidade"]?>) </h1>
 
 												</div>
 
