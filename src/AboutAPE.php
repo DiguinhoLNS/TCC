@@ -154,7 +154,7 @@
                             <h3> Marcos Augusto </h3>
 
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a blandit dolor. Phasellus et massa dignissim, egestas libero eu, facilisis risus. Praesent vulputate magna lacus, nec egestas lorem sodales sit.
+                                Amante da Gastronomia, Genética e Redes, responsável pela documentação e auxiliar de design do site
                             </p>
 
                             <ul class = "DeveloperSocialBar SocialIconsBar">

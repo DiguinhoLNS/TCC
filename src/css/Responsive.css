@@ -167,6 +167,63 @@
                     grid-row: 2/3;
                 }
 
+            /*******************************************************
+                OrderDetails.php
+            *******************************************************/
+
+            #SectionOrderDetailsMain .BoxGroup {
+                grid-template-columns: 1fr;
+                grid-template-rows: 77px auto auto auto auto;
+            }
+
+                #SectionOrderDetailsMain .BoxGroup .Box:nth-child(1){
+                    grid-column: 1/4;
+                    grid-row: 1/2;
+                }
+
+                #SectionOrderDetailsMain .BoxGroup .Box:nth-child(2){
+                    grid-column: 1/2;
+                    grid-row: 4/5;
+                }
+
+                #SectionOrderDetailsMain .BoxGroup .Box:nth-child(3){
+                    grid-column: 1/2;
+                    grid-row: 3/4;
+                }
+
+                #SectionOrderDetailsMain .BoxGroup .Box:nth-child(4){
+                    grid-column: 1/2;
+                    grid-row: 2/3;
+                }
+
+                #SectionOrderDetailsMain .BoxGroup .Box:nth-child(5){
+                    grid-column: 1/2;
+                    grid-row: 5/6;
+                }
+
+            /*******************************************************
+                AboutCompanies.php
+            *******************************************************/
+
+            #SectionAboutCompaniesDiscover ul {
+                grid-template-columns: 1fr;
+                grid-template-rows: 150px auto;
+            }
+
+                #SectionAboutCompaniesDiscover ul .IconAboutCompanies {
+                    grid-column: 1/2;
+                    grid-row: 1/2;
+                }
+
+                #SectionAboutCompaniesDiscover ul .TextAboutCompanies {
+                    grid-column: 1/2;
+                    grid-row: 2/3;
+                }
+
+            #SectionAboutCompaniesDiscover ul li p {
+				text-align: center;
+			}
+
         /*******************************************************
             Footer
         *******************************************************/

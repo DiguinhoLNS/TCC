@@ -125,6 +125,11 @@ h1, h2, h3, h4, h5, h6 {
 	/* Error */
 	--color-error: #EA4335;
 
+	/* Status */
+	--color-status-1:#FBBC05;
+	--color-status-2:#34A853;
+	--color-status-3:#EA4335;
+
 	/* Themes */
 	--color-theme-default-p: var(--color-theme-p);
 	--color-theme-default-s: rgba(106, 80, 167, 60%);
@@ -572,7 +577,7 @@ h1, h2, h3, h4, h5, h6 {
 		*******************************************************/
 		
 		#MainDashboard {
-			min-height: calc(100vh - 60px);
+			min-height: calc(100vh - 56px);
 		}
 
 		#MainDashboard .MainContent {
@@ -677,7 +682,7 @@ h1, h2, h3, h4, h5, h6 {
 		*******************************************************/
 
 		#MainUser {
-			min-height: calc(100vh - 60px);
+			min-height: calc(100vh - 56px);
 		}
 
 		#MainUser .MainContent {
@@ -841,7 +846,7 @@ h1, h2, h3, h4, h5, h6 {
 		*******************************************************/
 
 		#MainCompany {
-			min-height: calc(100vh - 60px);
+			min-height: calc(100vh - 56px);
 		}
 
 		#MainCompany .MainContent {
@@ -871,7 +876,7 @@ h1, h2, h3, h4, h5, h6 {
 		*******************************************************/
 
 		#MainFeed {
-			min-height: calc(100vh - 60px);
+			min-height: calc(100vh - 56px);
 		}
 
 		#MainFeed .MainContent {
@@ -1015,7 +1020,7 @@ h1, h2, h3, h4, h5, h6 {
 		*******************************************************/
 			
 		#MainConfigFeed {
-			min-height: calc(100vh - 60px);
+			min-height: calc(100vh - 56px);
 		}
 
 		#MainConfigFeed .MainContent {
@@ -1189,7 +1194,7 @@ h1, h2, h3, h4, h5, h6 {
 		*******************************************************/
 
 		#MainItem {
-			min-height: calc(100vh - 60px);
+			min-height: calc(100vh - 56px);
 		}
 
 		#MainItem .MainContent {
@@ -1334,11 +1339,11 @@ h1, h2, h3, h4, h5, h6 {
 				}
 
 					#SectionItemMain ul #InfoBox3 li .Status1 {
-						color: #FBBC05;
+						color: var(--color-status-1);
 					}
 
 					#SectionItemMain ul #InfoBox3 li .Status2 {
-						color: #34A853;
+						color: var(--color-status-2);
 					}
 
 				#SectionItemMain ul #InfoBox3 li h2 a {
@@ -1360,6 +1365,224 @@ h1, h2, h3, h4, h5, h6 {
 			#SectionItemMain ul .Boximg img {
 				border-radius: 30px;
 			}
+
+		/*******************************************************
+			OrderDetails.php
+		*******************************************************/
+
+		#MainOrderDetails {
+			min-height: calc(100vh - 56px);
+		}
+
+		#MainOrderDetails .MainContent {
+			padding: 60px 0;
+		}
+
+		/* Main */
+
+		#SectionOrderDetailsMain .BoxGroup {
+			display: grid;
+			grid-template-columns: 25% 25% 1fr;
+			grid-template-rows: 77px auto auto;
+			gap: 20px;
+			
+			width: 100%;
+
+			list-style: none;
+		}
+
+		#SectionOrderDetailsMain .BoxGroup .Box {
+			width: 100%;
+		}
+
+			#SectionOrderDetailsMain .BoxGroup .Box:nth-child(1){
+				grid-column: 1/4;
+				grid-row: 1/2;
+			}
+
+			#SectionOrderDetailsMain .BoxGroup .Box:nth-child(2){
+				grid-column: 1/2;
+				grid-row: 2/3;
+			}
+
+			#SectionOrderDetailsMain .BoxGroup .Box:nth-child(3){
+				grid-column: 2/3;
+				grid-row: 2/3;
+			}
+
+			#SectionOrderDetailsMain .BoxGroup .Box:nth-child(4){
+				grid-column: 3/4;
+				grid-row: 2/3;
+			}
+
+			#SectionOrderDetailsMain .BoxGroup .Box:nth-child(5){
+				grid-column: 1/4;
+				grid-row: 3/4;
+			}
+
+			/* Box */
+
+			#SectionOrderDetailsMain .BoxGroup .Box .BoxContent {
+				display: grid;
+				grid-template-rows: auto;
+				gap: 15px;
+				
+				width: 100%;
+				padding: 20px;
+				border-radius: 30px;
+
+				list-style: none;
+				background-color: var(--color-layout-s);
+			}
+
+			#SectionOrderDetailsMain .BoxGroup .Box .BoxContent .ContentHeader {
+				width: 100%;
+
+				color: var(--color-txt-p);
+				font-size: 22px;
+			}
+
+			#SectionOrderDetailsMain .BoxGroup .Box .BoxContent .BoxCategory {
+				display: grid;
+				grid-template-columns: auto 1fr;
+				grid-template-rows: auto auto;
+				gap: 4px 20px;
+				
+				width: 100%;
+			}
+
+			#SectionOrderDetailsMain .BoxGroup .Box .BoxContent .BoxCategory i {
+				grid-column: 1/2;
+				grid-row: 1/3;
+				
+				margin: 11px 0;
+
+				color: var(--color-txt-p);
+				font-size: 24px;
+
+				cursor: default;
+			}
+
+			#SectionOrderDetailsMain .BoxGroup .Box .BoxContent .BoxCategory h1 {
+				grid-column: 2/3;
+				grid-row: 1/2;
+				
+				width: 100%;
+
+				color: var(--color-txt-s);
+				font-size: 20px;
+			}
+
+			#SectionOrderDetailsMain .BoxGroup .Box .BoxContent .BoxCategory h2 {
+				grid-column: 2/3;
+				grid-row: 2/3;
+				
+				width: 100%;
+
+				color: var(--color-txt-t);
+				font-size: 14px;
+			}
+
+				#SectionOrderDetailsMain .BoxGroup .Box .BoxContent .BoxCategory .Status1 {
+					color: var(--color-status-1);
+				}
+
+				#SectionOrderDetailsMain .BoxGroup .Box .BoxContent .BoxCategory .Status2 {
+					color: var(--color-status-3);
+				}
+
+				#SectionOrderDetailsMain .BoxGroup .Box .BoxContent .BoxCategory .Status3 {
+					color: var(--color-status-2);
+				}
+
+			#SectionOrderDetailsMain .BoxGroup .Box .BoxContent .BoxCategory h2 a {
+				color: inherit;
+				text-decoration: underline;
+					
+				transition: 0.1s ease;
+			}
+
+				#SectionOrderDetailsMain .BoxGroup .Box .BoxContent .BoxCategory h2 a:hover {
+					color: var(--color-txt-p);
+				}
+
+				/* Box 1 */ 
+
+				#SectionOrderDetailsMain ul #OrderBox1 {
+					background-color: var(--color-theme-company-p);
+				}
+
+					.DarkMode #SectionOrderDetailsMain ul #OrderBox1 {
+						background-color: var(--color-theme-company-s);
+					}
+
+				#SectionOrderDetailsMain ul #OrderBox1 h1 {
+					width: 100%;
+
+					color: var(--color-txt-p-dm);
+					font-size: 30px;
+					text-align: center;
+				}
+
+				/* Box 4 */
+
+				#SectionOrderDetailsMain ul #OrderBox4 {
+					padding: 0;
+				}
+
+				#SectionOrderDetailsMain ul #OrderBox4 img {
+					border-radius: inherit;
+				}
+
+				/* Box 5 */
+
+				#SectionOrderDetailsMain ul #OrderBox5 {
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					gap: 0;
+
+					padding: 0;
+					border-radius: 46px;
+				}
+
+				#SectionOrderDetailsMain ul #OrderBox5 li {
+					display: block;
+					width: 100%;
+				}
+
+					#SectionOrderDetailsMain ul #OrderBox5 li:nth-child(1){
+						border-radius: 46px 0 0 46px;
+
+						background-color: var(--color-status-2);
+					}
+
+						#SectionOrderDetailsMain ul #OrderBox5 li:nth-child(1):hover {
+							background-color: rgba(52, 168, 83, 80%);
+						}
+
+					#SectionOrderDetailsMain ul #OrderBox5 li:nth-child(2){
+						border-radius: 0 46px 46px 0;
+
+						background-color: var(--color-status-3);
+					}
+
+						#SectionOrderDetailsMain ul #OrderBox5 li:nth-child(2):hover {
+							background-color: rgba(234, 67, 53, 80%);
+						}
+
+				#SectionOrderDetailsMain ul #OrderBox5 li a {
+					width: 100%;
+					padding: 30px 60px;
+					border-radius: inherit;
+				}
+
+				#SectionOrderDetailsMain ul #OrderBox5 li a h1 {
+					width: 100%;
+
+					color: var(--color-txt-p);
+					font-size: 24px;
+					text-align: center;
+				}
 
 		/*******************************************************
 			AboutAPE.php
@@ -1542,7 +1765,8 @@ h1, h2, h3, h4, h5, h6 {
 
 		#SectionAboutCompaniesDiscover ul {
 			display: grid;
-			grid-template-columns: auto 1fr;
+			grid-template-columns: auto auto;
+			
 			gap: 80px;
 			
 			width: 100%;
@@ -1554,11 +1778,11 @@ h1, h2, h3, h4, h5, h6 {
 			#SectionAboutCompaniesDiscover ul:nth-child(1){
 				border-radius: 40px 40px 0 0;
 
-				background-color: var(--color-theme-p);
+				background-color: var(--color-theme-s);
 			}
 
 			#SectionAboutCompaniesDiscover ul:nth-child(2){
-				background-color: var(--color-theme-s);
+				background-color: var(--color-theme-p);
 			}
 
 			#SectionAboutCompaniesDiscover ul:nth-child(3){
@@ -1591,7 +1815,8 @@ h1, h2, h3, h4, h5, h6 {
 				width: 100%;
 
 				color: var(--color-txt-p-dm);
-				font-size: 40px;
+				font-size: 34px;
+				text-align: left;
 			}
 
 		/*******************************************************
@@ -3340,15 +3565,15 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 		.GroupMain .GroupContent .GroupUL .Status1 {
-			color: #FBBC05;
+			color: var(--color-status-1);
 		}
 
 		.GroupMain .GroupContent .GroupUL .Status2 {
-			color: #34A853;
+			color: var(--color-status-2);
 		}
 
 		.GroupMain .GroupContent .GroupUL .Status3 {
-			color: #EA4335;
+			color: var(--color-status-3);
 		}
 
 	/* Config Options */

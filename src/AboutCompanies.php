@@ -106,15 +106,15 @@
 
                 <section id = "SectionAboutCompaniesDiscover">
 
-                    <ul>
+                    <ul class = "LeftAlign">
 
-                        <li>
+                        <li class = "IconAboutCompanies">
                             <span>
                                 <i class = "material-icons"> category </i>
                             </span>
                         </li>
 
-                        <li>
+                        <li class = "TextAboutCompanies">
                             <p>
                                 Cadastre itens no feed de sua empresa para que os usuários possam ver o que a sua empresa possui no achados e perdidos.
                             </p>
@@ -122,14 +122,15 @@
 
                     </ul>
 
-                    <ul>
-
-                        <li>
+                    <ul class = "RightAlign">
+                        
+                        <li class = "TextAboutCompanies">
                             <p>
                                 Para recuperar o item, o usuário poderá enviar um pedido de agendamento para ir buscá-lo pessoalmente na empresa, você poderá aceitar ou negar esses pedidos.
                             </p>
                         </li>
-                        <li>
+
+                        <li class = "IconAboutCompanies">
                             <span>
                                 <i class = "material-icons"> admin_panel_settings </i>
                             </span>
@@ -137,15 +138,15 @@
 
                     </ul>
 
-                    <ul>
+                    <ul class = "LeftAlign">
 
-                        <li>
+                        <li class = "IconAboutCompanies">
                             <span>
                                 <i class = "material-icons"> &#xe897; </i>
                             </span>
                         </li>
 
-                        <li>
+                        <li class = "TextAboutCompanies">
                             <p>
                                 Controle o acesso que os usuários possuem no feed de sua empresa, você possui a opção de banir algum usuário que seja incoveniente, e também adicionar outros administradores para que eles possam cadastrar novos itens perdidos.
                             </p>
