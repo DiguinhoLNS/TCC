@@ -409,7 +409,7 @@
 
                                                 <div class = "btnContent">
 
-                                                    <button class = "bntDanger">
+                                                    <button class = "btnDanger">
                                                         <a href = "sql/ApagarCadastros.php"> Apagar Conta </a>
                                                     </button>
 

@@ -24,7 +24,7 @@
 
         ?>
         
-		<header id = "HeaderAbout">
+		<header id = "HeaderAboutAPE">
 
             <?php include "include/Header.php"; ?>
 

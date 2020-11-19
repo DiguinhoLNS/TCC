@@ -1,28 +1,27 @@
 <?php
 
-session_start();
-date_default_timezone_set('America/Sao_Paulo');
+    session_start();
+    date_default_timezone_set('America/Sao_Paulo');
 
-require_once 'sql/ConexaoBD.php';
-require_once "sql/Funcoes.php";
+    require_once 'sql/ConexaoBD.php';
+    require_once "sql/Funcoes.php";
 
-$conn = new ConexaoBD();
-$func = new Funcoes();
+    $conn = new ConexaoBD();
+    $func = new Funcoes();
 
-if (isset($_COOKIE["ID"])) {
+    if (isset($_COOKIE["ID"])) {
 
-    $id = $func->Descriptografar($_COOKIE["ID"]);
-    
+        $id = $func->Descriptografar($_COOKIE["ID"]);
+        
+        $DadosEmpresas = $func->PegarDadosEmpresaPeloIdUsuario($id);
+    }
 
-    $DadosEmpresas = $func->PegarDadosEmpresaPeloIdUsuario($id);
-}
-
-
+    setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang = "pt-br">
 
 <head>
 
@@ -32,53 +31,55 @@ if (isset($_COOKIE["ID"])) {
 
 </head>
 
-<body id="IndexPage" class="UNT LightMode">
+<body id = "IndexPage" class = "UNT LightMode">
 
     <?php
 
-    include "php/Pag.php";
+        include "php/Pag.php";
 
-    CookieStatus();
-    C_Login();
-    setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
-
-    include "include/Load.php";
+        CookieStatus();
+        C_Login();
+    
+        include "include/Load.php";
 
     ?>
 
-    <header id="HeaderIndex">
+    <header id = "HeaderIndex">
 
         <?php include "include/Header.php"; ?>
 
     </header>
 
-    <main id="MainIndex">
+    <main id = "MainIndex">
 
-        <div class="MainContent">
+        <div class = "MainContent">
 
-            <section id="SectionIndexWelcome">
+            <section id = "SectionIndexWelcome" class = "SectionWelcome">
 
-                <div id="WelcomeHeader">
+                <ul>
 
-                    <div id="WelcomeNav">
+                    <li>
+
                         <h1> Seus itens perdidos reunidos aqui </h1>
                         <p> Encontre os seus itens perdidos em nossa plataforma, ultilizada por empresas privadas e públicas </p>
-                        <button class="btn">
-                            <a id="WelcomeLogin" href="LoginUser.php"> Encontrar </a>
-                            <a id="WelcomeFind" href="Dashboard.php"> Encontrar </a>
+                        <button class = "btn">
+                            <a id = "WelcomeLogin" href = "LoginUser.php"> Encontrar </a>
+                            <a id = "WelcomeFind" href = "Dashboard.php"> Encontrar </a>
                         </button>
-                    </div>
-                    <div id="WelcomeBanner"> PLACEHOLDER - Imagem </div>
 
-                </div>
+                    </li>
+
+                    <li id = "WelcomeBanner"></li>
+
+                </ul>
 
             </section>
 
-            <section id="SectionIndexDiscover">
+            <section id = "SectionIndexDiscover">
 
                 <div class = "SectionContent">
 
-                    <div class="CompaniesQuickAccessBar">
+                    <ul class = "CompaniesQuickAccessBar">
                         <?php
 
                         $i = 0;
@@ -88,28 +89,29 @@ if (isset($_COOKIE["ID"])) {
                             do {
 
                                 echo '
-                                    <a href = "Feed.php?q=' . $func->Criptografar($DadosEmpresas['Dados'][$i]['id_empresa']) . '" class = "CompanyBox ' . $DadosEmpresas['Dados'][$i]['Cor_layout'] . '" title = "Acessar ' . $DadosEmpresas['Dados'][$i]['Nome'] . ' ">
-
-                                        <h1 class = "CompanyTitle"> ' . $DadosEmpresas['Dados'][$i]['Nome']. ' </h1>
-                                    
+                                <li class = "CompanyBox">
+                                    <a href = "Feed.php?q = ' . $func->Criptografar($DadosEmpresas['Dados'][$i]['id_empresa']) . '" class = "'. $DadosEmpresas['Dados'][$i]['Cor_layout'] . '" title = "Acessar ' . $DadosEmpresas['Dados'][$i]['Nome'] . ' ">
+                                        <h1> ' . $DadosEmpresas['Dados'][$i]['Nome']. ' </h1>
                                     </a>
+                                </li>
                                 ';
-
                                 $i++;
-                                if ($i > 2) {
+                                if ($i > 1) {
                                     break;
                                 }
                             } while ($i < $DadosEmpresas["QuantidadeDeEmpresas"]);
                         }
-
                         ?>
-                    </div>
+                        <li class = "SeeMore">
+                            <a href = "Dashboard.php"> Ver Mais </a>
+                        </li> 
+                    </ul>
 
-                    <div id="DiscoverContent">
+                    <div id = "DiscoverContent">
 
                         <h1> Conheça a nossa plataforma </h1>
 
-                        <div id="DiscoverBlocksGroup">
+                        <div id = "DiscoverBlocksGroup">
 
                             <nav>
 
@@ -117,8 +119,8 @@ if (isset($_COOKIE["ID"])) {
 
                                     <li>
                                         <div class = "DiscoverIconContent">
-                                            <a id="D1" title="Leia mais">
-                                                <i class="material-icons"> &#xe1b1; </i>
+                                            <a id = "D1" title = "Leia mais">
+                                                <i class = "material-icons"> &#xe1b1; </i>
                                             </a>
                                         </div>
                                         <span> Multiplataforma </span>
@@ -126,20 +128,20 @@ if (isset($_COOKIE["ID"])) {
 
                                     <li>
                                         <div class = "DiscoverIconContent">
-                                            <a href="RegisterUser.php" id="DiscoverNewUser" title="Criar uma conta gratuitamente">
-                                                <i class="material-icons"> &#xe7fd; </i>
+                                            <a href = "RegisterUser.php" id = "DiscoverNewUser" title = "Criar uma conta gratuitamente">
+                                                <i class = "material-icons"> &#xe7fd; </i>
                                             </a>
-                                            <a href="User.php" id="DiscoverUser" title="Sua conta">
-                                                <i class="material-icons"> &#xe7fd; </i>
+                                            <a href = "User.php" id = "DiscoverUser" title = "Sua conta">
+                                                <i class = "material-icons"> &#xe7fd; </i>
                                             </a>
                                         </div>
                                         <span> Conta Gratuita </span>
                                     </li>
 
-                                    <li class="DiscoverBlockContent">
+                                    <li class = "DiscoverBlockContent">
                                         <div class = "DiscoverIconContent">
-                                            <a id="D2" title="Leia mais">
-                                                <i class="material-icons"> &#xe32a; </i>
+                                            <a id = "D2" title = "Leia mais">
+                                                <i class = "material-icons"> &#xe32a; </i>
                                             </a>
                                         </div>
                                         <span> Segurança </span>
@@ -147,8 +149,8 @@ if (isset($_COOKIE["ID"])) {
 
                                     <li>
                                         <div class = "DiscoverIconContent">
-                                            <a id="D3" title="Leia mais">
-                                                <i class="material-icons"> admin_panel_settings </i>
+                                            <a id = "D3" title = "Leia mais">
+                                                <i class = "material-icons"> admin_panel_settings </i>
                                             </a>
                                         </div>
                                         <span> Configurações Avançadas </span>
@@ -156,8 +158,8 @@ if (isset($_COOKIE["ID"])) {
 
                                     <li>
                                         <div class = "DiscoverIconContent">
-                                            <a id="D4" title="Leia mais">
-                                                <i class="material-icons"> &#xe1db; </i>
+                                            <a id = "D4" title = "Leia mais">
+                                                <i class = "material-icons"> &#xe1db; </i>
                                             </a>
                                         </div>
                                         <span> Armazenamento Gratuito </span>
@@ -165,11 +167,11 @@ if (isset($_COOKIE["ID"])) {
 
                                     <li>
                                         <div class = "DiscoverIconContent">
-                                            <a class="LightModeSwitch" title="Mudar tema">
-                                                <i class="material-icons"> &#xe891; </i>
+                                            <a class = "LightModeSwitch" title = "Mudar tema">
+                                                <i class = "material-icons"> &#xe891; </i>
                                             </a>
-                                            <a class="DarkModeSwitch" title="Mudar tema">
-                                                <i class="material-icons"> &#xe891; </i>
+                                            <a class = "DarkModeSwitch" title = "Mudar tema">
+                                                <i class = "material-icons"> &#xe891; </i>
                                             </a>
                                         </div>
                                         <span> Temas </span>
@@ -198,18 +200,18 @@ if (isset($_COOKIE["ID"])) {
     <?php include "include/HeaderConfig.php"; ?>
     <?php include "include/CookieMessage.php"; ?>
 
-    <div id="DarkEffect"></div>
+    <div id = "DarkEffect"></div>
 
-    <div id="DiscoverOverlay" class="MainOverlay">
+    <div id = "DiscoverOverlay" class = "MainOverlay">
 
-        <div id="CloseDiscoverOverlay" class="CloseOverlay">
-            <i class="material-icons"> &#xe5cd; </i>
+        <div id = "CloseDiscoverOverlay" class = "CloseOverlay">
+            <i class = "material-icons"> &#xe5cd; </i>
         </div>
 
-        <ul id="DiscoverContent1" class="DiscoverOverlayUL OverlayUL BS">
+        <ul id = "DiscoverContent1" class = "DiscoverOverlayUL OverlayUL BS">
 
             <li>
-                <i class="material-icons"> &#xe1b1; </i>
+                <i class = "material-icons"> &#xe1b1; </i>
                 <h1> Multiplataforma </h1>
             </li>
             <li>
@@ -220,10 +222,10 @@ if (isset($_COOKIE["ID"])) {
 
         </ul>
 
-        <ul id="DiscoverContent2" class="DiscoverOverlayUL OverlayUL BS">
+        <ul id = "DiscoverContent2" class = "DiscoverOverlayUL OverlayUL BS">
 
             <li>
-                <i class="material-icons"> &#xe32a; </i>
+                <i class = "material-icons"> &#xe32a; </i>
                 <h1> Segurança </h1>
             </li>
             <li>
@@ -234,10 +236,10 @@ if (isset($_COOKIE["ID"])) {
 
         </ul>
 
-        <ul id="DiscoverContent3" class="DiscoverOverlayUL OverlayUL BS">
+        <ul id = "DiscoverContent3" class = "DiscoverOverlayUL OverlayUL BS">
 
             <li>
-                <i class="material-icons"> admin_panel_settings </i>
+                <i class = "material-icons"> admin_panel_settings </i>
                 <h1> Configurações Avançadas </h1>
             </li>
             <li>
@@ -248,10 +250,10 @@ if (isset($_COOKIE["ID"])) {
 
         </ul>
 
-        <ul id="DiscoverContent4" class="DiscoverOverlayUL OverlayUL BS">
+        <ul id = "DiscoverContent4" class = "DiscoverOverlayUL OverlayUL BS">
 
             <li>
-                <i class="material-icons"> &#xe1db; </i>
+                <i class = "material-icons"> &#xe1db; </i>
                 <h1> Armazenamento Gratuito </h1>
             </li>
             <li>

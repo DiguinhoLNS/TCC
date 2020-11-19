@@ -457,7 +457,7 @@ h1, h2, h3, h4, h5, h6 {
 	*******************************************************/
 
 	main {
-		margin-top: 60px;
+		margin-top: 56px;
 
 		background-color: var(--color-layout-p);
 	}
@@ -476,53 +476,6 @@ h1, h2, h3, h4, h5, h6 {
 
 		/* Welcome */
 
-		#SectionIndexWelcome {
-			padding-top: 100px;
-			padding-bottom: 200px;
-		}
-
-		#WelcomeHeader {
-			display: grid;
-			grid-template-columns: repeat(2, 50%);
-			gap: 0 20px;
-
-			width: 100%;
-		}
-
-			/* Left */
-
-			#WelcomeNav h1 {
-				width: 100%;
-				margin-bottom: 30px;
-				
-				color: var(--color-txt-p);
-				font-size: 70px;
-				text-align-last: left;
-			}
-
-			#WelcomeNav p {
-				width: 100%;
-				margin-bottom: 50px;
-
-				color: var(--color-txt-s);
-				font-size: 20px;
-				text-align-last: left;
-			}
-
-			#WelcomeNav button {
-				border-radius: 17.5px;
-			}
-
-			#WelcomeNav button a {
-				padding: 10px 20px;
-				border-radius: 17.5px;
-
-				color: var(--color-txt-p-dm);
-				font-size: 16px;
-			}
-
-			/* Right */
-
 			#WelcomeBanner {
 				display: none;
 			}
@@ -536,59 +489,7 @@ h1, h2, h3, h4, h5, h6 {
 
 			.DarkMode #SectionIndexDiscover .SectionContent {
 				background-color: var(--color-layout-t);
-			}
-
-			/* Companies Quick Access Bar */
-
-			.CompaniesQuickAccessBar {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				grid-template-rows: auto;
-				
-				width: 100%;
-				border-radius: 40px;
-
-				background-color: var(--color-layout-s);
-			}
-
-			.CompanyBox {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				
-				padding: 30px 60px;
-
-				background-color: var(--color-theme-company-p);
-			}
-
-				.CompanyBox:hover {
-					background-color: var(--color-theme-company-hover);
-				}
-
-				.CompanyBox:nth-child(1){
-					border-radius: 40px 0 0 40px;
-				}
-
-				.CompanyBox:nth-child(2){
-					border-radius: 0;
-				}
-
-				.CompanyBox:last-child {
-					border-top-right-radius: 40px;
-					border-bottom-right-radius: 40px;
-				}
-
-			.CompanyBox .CompanyTitle {
-				width: 100%;
-				color: var(--color-txt-p-dm);
-				font-size: 26px;
-				text-align: center;
-			}
-
-				.ThemeYellow .CompanyTitle {
-					color: var(--color-txt-p-lm);
-				}
+			}	
 
 			/* Discover */
 
@@ -1628,26 +1529,70 @@ h1, h2, h3, h4, h5, h6 {
 		*******************************************************/
 
 		#MainAboutCompanies .MainContent {
-			padding: 60px 0;
+			padding: 0px 0px 100px;
 		}
 
-		#MainAboutCompanies .MainContent section {
-			margin-bottom: 40px;
+		/* Your Companies */
+
+		#SectionAboutCompaniesYourCompanies {
+			margin: 0 0 80px;
 		}
 
-			#MainAboutCompanies .MainContent section:last-child {
-				margin: 0;
+		/* Discover */
+
+		#SectionAboutCompaniesDiscover ul {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			gap: 80px;
+			
+			width: 100%;
+			padding: 80px 100px;
+
+			list-style: none;
+		}
+
+			#SectionAboutCompaniesDiscover ul:nth-child(1){
+				border-radius: 40px 40px 0 0;
+
+				background-color: var(--color-theme-p);
 			}
 
-		/* Header */
+			#SectionAboutCompaniesDiscover ul:nth-child(2){
+				background-color: var(--color-theme-s);
+			}
 
-		#SectionAboutCompaniesHeader h1 {
-			width: 100%;
+			#SectionAboutCompaniesDiscover ul:nth-child(3){
+				border-radius: 0 0 40px 40px;
 
-			color: var(--color-txt-p);
-			font-size: 40px;
-			text-align: center;
+				background-color: var(--color-theme-t);
+			}
+
+		#SectionAboutCompaniesDiscover ul li {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
 		}
+
+			#SectionAboutCompaniesDiscover ul li span {
+				width: 150px;
+				height: 150px;
+				padding: 25px;
+				border-radius: 50%;
+
+				color: var(--color-txt-p-dm);
+			}
+
+			#SectionAboutCompaniesDiscover ul li span i {
+				font-size: 100px;
+			}
+
+			#SectionAboutCompaniesDiscover ul li p {
+				width: 100%;
+
+				color: var(--color-txt-p-dm);
+				font-size: 40px;
+			}
 
 		/*******************************************************
 			Terms.php
@@ -2418,6 +2363,138 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 	/*******************************************************
+		Welcome
+	*******************************************************/
+
+	.SectionWelcome {
+		padding-top: 100px;
+		padding-bottom: 200px;
+	}
+
+	.SectionWelcome ul {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+		
+		width: 100%;
+
+		list-style: none;
+	}
+
+	.SectionWelcome ul li {
+		width: 100%;
+	}
+
+		.SectionWelcome ul li h1 {
+			width: 100%;
+			margin-bottom: 30px;
+
+			color: var(--color-txt-p);
+			font-size: 70px;
+			text-align-last: left;
+		}
+
+		.SectionWelcome ul li p {
+			width: 100%;
+			margin-bottom: 50px;
+
+			color: var(--color-txt-s);
+			font-size: 20px;
+			text-align-last: left;
+		}
+
+		.SectionWelcome ul li button {
+			border-radius: 19.5px;
+		}
+
+		.SectionWelcome ul li button a {
+			padding: 10px 20px;
+			border-radius: 19.5px;
+
+			color: var(--color-txt-p-dm);
+			font-size: 16px;
+		}
+
+	/*******************************************************
+		Companies Quick Access Bar
+	*******************************************************/
+
+	.CompaniesQuickAccessBar {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: auto;
+		
+		width: 100%;
+		border-radius: 40px;
+
+		list-style: none;
+		background-color: var(--color-layout-s);
+	}
+
+	.CompaniesQuickAccessBar li {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.CompaniesQuickAccessBar .CompanyBox {
+		width: 100%;
+	}		
+
+		.CompaniesQuickAccessBar .CompanyBox:nth-child(1) {
+			border-radius: 40px 0 0 40px;
+		}
+
+		.CompaniesQuickAccessBar .CompanyBox:nth-child(2){
+			border-radius: 0 40px 40px 0;
+		}
+
+	.CompaniesQuickAccessBar .CompanyBox a {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		width: 100%;
+		padding: 30px 60px;
+		border-radius: inherit;
+
+		background-color: var(--color-theme-company-p);
+	}
+
+		.CompaniesQuickAccessBar .CompanyBox a:hover {
+			background-color: var(--color-theme-company-hover);
+		}
+
+	.CompaniesQuickAccessBar .CompanyBox a h1 {
+		width: 100%;
+
+		color: var(--color-txt-p-dm);
+		font-size: 26px;
+		text-align: center;
+	}
+
+		.CompaniesQuickAccessBar .CompanyBox .ThemeYellow h1 {
+			color: var(--color-txt-p-lm);
+		}
+	
+	.CompaniesQuickAccessBar .SeeMore {
+		padding: 30px 60px;
+	}
+
+	.CompaniesQuickAccessBar .SeeMore a {
+		color: var(--color-txt-t);
+		font-size: 16px;
+
+		transition: 0.1s ease;
+	}
+
+		.CompaniesQuickAccessBar .SeeMore a:hover {
+			color: var(--color-txt-p);
+		}
+
+	/*******************************************************
 		Social Icons
 	*******************************************************/
 
@@ -2540,10 +2617,13 @@ h1, h2, h3, h4, h5, h6 {
 		width: 100%;
 		border-radius: 20px;
 
+		color: var(--color-txt-s);
+
 		transition: 0.2s ease;
 	}
 
 		.ControlPane ul li:hover {
+			color: var(--color-txt-p);
 			background-color: var(--color-hover-p);
 		} 
 
@@ -2552,7 +2632,7 @@ h1, h2, h3, h4, h5, h6 {
 		padding: 10px 20px;
 		border-radius: 20px;
 
-		color: var(--color-txt-p);
+		color: inherit;
 	}
 	
 	.ControlPane ul li a i {
@@ -3079,10 +3159,13 @@ h1, h2, h3, h4, h5, h6 {
 		width: 100%;
 		border-radius: 20px;
 
+		color: var(--color-txt-s);
+
 		transition: 0.1s ease;
 	}
 
 		.NavOptions ul li:hover {
+			color: var(--color-txt-p);
 			background-color: var(--color-hover-p);
 		}
 
@@ -3095,7 +3178,7 @@ h1, h2, h3, h4, h5, h6 {
 		padding: 10px 20px;
 		border-radius: 20px;
 
-		color: var(--color-txt-p);
+		color: inherit;
 	}
 
 	.NavOptions ul li a i {
@@ -3621,7 +3704,8 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 		/* OFF */
 		.UNT #HeaderIconGroup, .UNT #WelcomeFind, 
 		.UNT #HeaderNavIcon, .UNT .CompaniesQuickAccessBar,
-		.UNT #DiscoverUser, .UNT .HeaderDashboard {
+		.UNT #DiscoverUser, .UNT .HeaderDashboard,
+		.UNT #SectionAboutCompaniesYourCompanies {
 			display: none;
 		}
 
@@ -3640,182 +3724,3 @@ header, #HeaderNotification, #HeaderConfig, #SideNavBar {
 		.UIL #DiscoverNewUser {
 			display: none;
 		}
-
-	/*******************************************************
-		Media Devices
-	*******************************************************/
-
-	@media only screen and (max-width: 1500px){
-
-		/*******************************************************
-			Main
-		*******************************************************/
-
-		.MainContent section {
-			padding-left: 100px;
-			padding-right: 100px;		
-		}
-
-		/*******************************************************
-			Footer
-		*******************************************************/
-
-		#FooterContent {
-			padding: 40px 100px;
-		}
-
-	}
-
-	@media only screen and (max-width: 1100px){
-
-		/*******************************************************
-			Header
-		*******************************************************/
-
-		.HeaderContent {
-			grid-template-columns: auto 1fr auto;
-		}
-
-		#Header3, #Header4 {
-			display: none;
-		}
-
-		/*******************************************************
-			Main
-		*******************************************************/
-
-		.MainContent section {
-			padding-left: 40px;
-			padding-right: 40px;		
-		}
-
-			/*******************************************************
-				Index.php
-			*******************************************************/
-
-			#SectionIndexWelcome {
-				padding-top: 100px;
-				padding-bottom: 100px;
-			}
-
-			#WelcomeHeader {
-				grid-template-columns: 1fr;
-				grid-template-rows: auto auto;
-			}
-
-			.CompaniesQuickAccessBar {
-				grid-template-columns: 1fr;
-				grid-template-rows: auto auto auto;
-			}
-
-				.CompanyBox:nth-child(1){
-					border-radius: 40px 40px 0 0;
-				}
-
-				.CompanyBox:nth-child(2){
-					border-radius: 0;
-				}
-
-				.CompanyBox:last-child {
-					border-radius: 0;
-					border-bottom-left-radius: 40px;
-					border-bottom-right-radius: 40px;
-				}
-
-			#DiscoverContent #DiscoverBlocksGroup nav ul {
-				grid-template-columns: repeat(2, 1fr);
-			}
-
-			/*******************************************************
-				Dashboard.php
-			*******************************************************/
-
-			#SectionDashboardItems nav ul {
-				grid-template-columns: repeat(2, 1fr);
-			}
-
-			/*******************************************************
-				User.php
-			*******************************************************/
-
-			#UF2 .FrameMain .BoxView {
-				grid-template-columns: repeat(2, 1fr);
-			}
-
-			#UF3 .FrameMain .ItensView {
-				grid-template-columns: repeat(2, 1fr);
-			}
-
-			/*******************************************************
-				Feed.php
-			*******************************************************/
-
-			.FeedBoxGroup {
-				grid-template-columns: repeat(2, 1fr);
-			}
-
-			.FeedBoxGroup .NoFor {
-				grid-column: 1/2;
-
-				text-align: left;
-			}
-
-			#FCF2 #FeedConfigItensView {
-				grid-template-columns: repeat(2, 1fr);
-			}
-			
-			/*******************************************************
-				ConfigFeed.php
-			*******************************************************/
-
-			#FCF1 ul .GroupContent .GroupUL li {
-				display: flex;
-				align-items: center;
-			}
-
-			/*******************************************************
-				Item.php
-			*******************************************************/
-
-			#SectionItemMain .BoxGroup {
-				grid-template-columns: 1fr;
-				grid-template-rows: 77px auto auto auto;
-			}
-
-				#SectionItemMain .BoxGroup .Box:nth-child(1){
-					grid-column: 1/2;
-					grid-row: 1/2;
-				}
-
-				#SectionItemMain .BoxGroup .Box:nth-child(2){
-					grid-column: 1/2;
-					grid-row: 4/5;
-				}
-
-				#SectionItemMain .BoxGroup .Box:nth-child(3){
-					grid-column: 1/2;
-					grid-row: 3/4;
-				}
-
-				#SectionItemMain .BoxGroup .Box:nth-child(4){
-					grid-column: 1/2;
-					grid-row: 2/3;
-				}
-
-		/*******************************************************
-			Footer
-		*******************************************************/
-
-		#FooterContent {
-			padding: 40px;
-		}	
-
-		/*******************************************************
-			Outros
-		*******************************************************/
-
-		.SubFramesetContent {
-			gap: 40px;
-		}
-
-	}

@@ -1399,7 +1399,7 @@
 												<div class = "CategoryText">
 
 													<h1> Acessar Feed </h1>
-													<h1> Vizualizar o feed de itens da sua empresa </h1>
+													<h2> Vizualizar o feed de itens da sua empresa </h2>
 
 												</div>
 
@@ -1418,7 +1418,7 @@
 												<div class = "CategoryText">
 
 													<h1> Acessar Empresa </h1>
-													<h1> Vizualizar a página principal da sua empresa </h1>
+													<h2> Vizualizar a página principal da sua empresa </h2>
 
 												</div>
 
