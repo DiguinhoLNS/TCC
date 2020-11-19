@@ -27,6 +27,10 @@
 		$Normais = $func->PegarDadosUserEmpresaPeloIdEmpresaNormais($id_empresa);
 		$Banidos = $func->PegarDadosUserEmpresaPeloIdEmpresaBanidos($id_empresa);
 
+		$PedidosPendentes = $func->PedidosPendentes($id_empresa);
+		$PedidosAceitos = $func->PedidosAceitos($id_empresa);
+		$PedidosNegados = $func->PedidosNegados($id_empresa);
+
 	}
     
 ?>
@@ -951,47 +955,72 @@
 
 														<li class = "GroupContent">
 
-															<ul class = "GroupUL">
+														<?php
 
-																<li>
-																	<h1> 1 </h1>
-																</li>
-																<li>
-																	<h1> 18/11/2020 </h1>
-																</li>
-																<li>
-																	<h1> 13:30 </h1>
-																</li>
-																<li>
-																	<h1> 12 </h1>
-																</li>
-																<li>
-																	<h1> Nome do Sujeito </h1>
-																</li>
-																<li class = "Status1">
-																	<h1> Pendente </h1>
-																</li>
-																<li>
-																	<ul class = "FeedConfigDevolutionOptions FeedConfigOptions">
-																		<li>
-																			<a href = "OrderDetails.php" target = "_blank" title = "Ver Mais Detalhes">		
-																				<i class = "material-icons"> &#xe8f4; </i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href = "" class = "ConfirmOrder" title = "Confirmar Pedido">
-																				<i class = "material-icons"> &#xe5ca; </i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href = "" class = "DenyOrder" title = "Negar Pedido">
-																				<i class = "material-icons"> &#xe5cd; </i>
-																			</a>
-																		</li>
-																	</ul>
-																</li>
+															if($PedidosPendentes["Quantidade"] == 0){
+																echo "Nenhum pedido Pendente";
+															}else{
 
-															</ul>
+																$i=0;
+																do{
+
+																	//  var_dump($PedidosPendentes);
+
+																	$DataSeparada = $func->SepararData($PedidosPendentes["Agendamento"][$i]["data"]);
+
+																	echo ' 
+
+																	<ul class = "GroupUL">
+
+																		<li>
+																			<h1> '.($i+1).' </h1>
+																		</li>
+																		<li>
+																			<h1> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h1>
+																		</li>
+																		<li>
+																			<h1> '. $PedidosPendentes["Agendamento"][$i]["horario"] .' </h1>
+																		</li>
+																		<li>
+																			<h1> '. $PedidosPendentes["Agendamento"][$i]["id_obj"] .' </h1>
+																		</li>
+																		<li>
+																			<h1> '. $PedidosPendentes["Agendamento"][$i]["Nome_user"] .'  </h1>
+																		</li>
+																		<li class = "Status1">
+																			<h1> Pendente </h1>
+																		</li>
+
+																	
+
+
+																	<li>
+																		<ul class = "FeedConfigDevolutionOptions FeedConfigOptions">
+																			<li>
+																				<a href = "OrderDetails.php" target = "_blank" title = "Ver Mais Detalhes">		
+																					<i class = "material-icons"> &#xe8f4; </i>
+																				</a>
+																			</li>
+																			<li>
+																				<a href = "" class = "ConfirmOrder" title = "Confirmar Pedido">
+																					<i class = "material-icons"> &#xe5ca; </i>
+																				</a>
+																			</li>
+																			<li>
+																				<a href = "" class = "DenyOrder" title = "Negar Pedido">
+																					<i class = "material-icons"> &#xe5cd; </i>
+																				</a>
+																			</li>
+																		</ul>
+																	</li>
+
+															</ul>';
+
+															$i++;
+														}while ($i < $PedidosPendentes["Quantidade"]);
+													}
+
+													?>
 
 														</li>
 
@@ -1045,29 +1074,50 @@
 
 														<li class = "GroupContent">
 
+														<?php
+
+														if($PedidosAceitos["Quantidade"] == 0){
+															echo "Nenhum pedido aceito";
+														}else{
+
+															$i=0;
+
+															do{
+
+															$DataSeparada = $func->SepararData($PedidosAceitos["Agendamento"][$i]["data"]);
+
+															echo '
+															
 															<ul class = "GroupUL">
 
-																<li>
-																	<h1> 1 </h1>
-																</li>
-																<li>
-																	<h1> 18/11/2020 </h1>
-																</li>
-																<li>
-																	<h1> 13:30 </h1>
-																</li>
-																<li>
-																	<h1> 12 </h1>
-																</li>
-																<li>
-																	<h1> Nome do Sujeito </h1>
-																</li>
-																<li class = "Status2">
-																	<h1> Aceito </h1>
-																</li>
+															<li>
+															<h1> '.($i+1).' </h1>
+														</li>
+														<li>
+															<h1> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h1>
+														</li>
+														<li>
+															<h1> '. $PedidosAceitos["Agendamento"][$i]["horario"] .' </h1>
+														</li>
+														<li>
+															<h1> '. $PedidosAceitos["Agendamento"][$i]["id_obj"] .' </h1>
+														</li>
+														<li>
+															<h1> '. $PedidosAceitos["Agendamento"][$i]["Nome_user"] .'  </h1>
+														</li>
+														<li class = "Status2">
+															<h1> Aceito </h1>
+														</li>
 
 															</ul>
+															
+															';
 
+															$i++;
+															}while($i < $PedidosAceitos["Quantidade"]);
+														}
+															
+														?>
 														</li>
 
 													</ul>
@@ -1120,28 +1170,47 @@
 
 														<li class = "GroupContent">
 
-															<ul class = "GroupUL">
+														<?php
+
+														if($PedidosNegados["Quantidade"] == 0){
+															echo "Nenhum pedido negado";
+														}else{
+
+															$i=0;
+															do{
+
+																$DataSeparada = $func->SepararData($PedidosNegados["Agendamento"][$i]["data"]);
+
+																echo ' 
+
+																<ul class = "GroupUL">
 
 																<li>
-																	<h1> 1 </h1>
+																	<h1> ('.$i.' ) </h1>
 																</li>
 																<li>
-																	<h1> 18/11/2020 </h1>
+																	<h1> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h1>
 																</li>
 																<li>
-																	<h1> 13:30 </h1>
+																	<h1> '. $PedidosNegados["Agendamento"][$i]["horario"] .' </h1>
 																</li>
 																<li>
-																	<h1> 12 </h1>
+																	<h1> '. $PedidosNegados["Agendamento"][$i]["id_obj"] .' </h1>
 																</li>
 																<li>
-																	<h1> Nome do Sujeito </h1>
+																	<h1> '. $PedidosNegados["Agendamento"][$i]["Nome_user"] .'  </h1>
 																</li>
 																<li class = "Status3">
 																	<h1> Negado </h1>
 																</li>
 
-															</ul>
+															</ul>';
+
+																$i++;
+															}while ($i < $PedidosNegados["Quantidade"]);
+														}
+	
+														?>
 
 														</li>
 

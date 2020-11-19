@@ -115,7 +115,7 @@ switch ($tipo_verificacao) {
 
 		try {
 
-			$query = "INSERT INTO devolucoes (id_user, id_obj, data, horario, situacao) VALUES";
+			$query = "INSERT INTO agendamento (id_user, id_obj, data, horario, situacao) VALUES";
 			$query .= " (:id_user, :id_obj, :data, :horario, :situacao) ";
 
 			$sql = $conn->dbh->prepare($query);

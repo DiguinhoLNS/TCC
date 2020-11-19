@@ -84,7 +84,7 @@
 
                                 echo '
                                 <li class = "CompanyBox">
-                                    <a href = "Feed.php?q = ' . $func->Criptografar($DadosEmpresas['Dados'][$i]['id_empresa']) . '" class = "'. $DadosEmpresas['Dados'][$i]['Cor_layout'] . '" title = "Acessar ' . $DadosEmpresas['Dados'][$i]['Nome'] . ' ">
+                                    <a href = "Feed.php?q=' . $func->Criptografar($DadosEmpresas['Dados'][$i]['id_empresa']) . '" class = "'. $DadosEmpresas['Dados'][$i]['Cor_layout'] . '" title = "Acessar ' . $DadosEmpresas['Dados'][$i]['Nome'] . ' ">
                                         <h1> ' . $DadosEmpresas['Dados'][$i]['Nome']. ' </h1>
                                     </a>
                                 </li>
@@ -110,13 +110,13 @@
 
                         <li>
                             <span>
-                                <i class = "material-icons"> &#xe0af; </i>
+                                <i class = "material-icons"> category </i>
                             </span>
                         </li>
 
                         <li>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
+                                Cadastre itens no feed de sua empresa para que os usuários possam ver o que a sua empresa possui no achados e perdidos.
                             </p>
                         </li>
 
@@ -126,7 +126,7 @@
 
                         <li>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
+                                Para recuperar o item, o usuário poderá enviar um pedido de agendamento para ir buscá-lo pessoalmente na empresa, você poderá aceitar ou negar esses pedidos.
                             </p>
                         </li>
                         <li>
@@ -147,7 +147,7 @@
 
                         <li>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
+                                Controle o acesso que os usuários possuem no feed de sua empresa, você possui a opção de banir algum usuário que seja incoveniente, e também adicionar outros administradores para que eles possam cadastrar novos itens perdidos.
                             </p>
                         </li>
 
