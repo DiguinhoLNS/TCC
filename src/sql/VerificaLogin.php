@@ -30,8 +30,6 @@
 				setcookie("MessageNotification", "Login realizado", time() + 900, "/");
 				setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
 
-				//echo $_COOKIE["ID"];
-
 				$_SESSION["email"] = $email;
 
 				header("Location: ../VerificationUser.php?q=53875823");

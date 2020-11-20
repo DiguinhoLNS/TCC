@@ -510,6 +510,34 @@ class Funcoes extends ConexaoBD
         return $Dados;
     }
 
+    public function PegarDadosEmpresaPeloIdObjeto($id_obj){
+
+        $query = "SELECT * FROM empresas inner join objetos on empresas.id_empresa = objetos.id_empresa where objetos.id_obj = $id_obj";
+        $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 6");
+        $QuantidadeDeEmpresas = $ResultadoQuery->rowCount();
+
+        if ($QuantidadeDeEmpresas > 0) {
+            $DadosEmpresa = $ResultadoQuery->fetchAll();
+        } else {
+            $DadosEmpresa = null;
+        }
+
+        if(isset($DadosEmpresa)){
+            $Dados = [
+                "Quantidade" => $QuantidadeDeEmpresas,
+                "Empresa" => $DadosEmpresa
+            ];
+        }else{
+            $Dados = [
+                "Quantiade" => $QuantidadeDeEmpresas
+            ];
+        }
+
+        return $Dados;
+
+
+    }
+
     public function PegarDadosEmpresaPeloCodigo($codigo_acesso)
     {
         $query = "SELECT * FROM empresas where codigo_acesso =  '$codigo_acesso'";

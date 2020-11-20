@@ -7,7 +7,11 @@
 	require_once "sql/Funcoes.php";
 
 	$conn = new ConexaoBD();
-    $func = new Funcoes();
+	$func = new Funcoes();
+	
+	$Agendamento = $func->PedidoPeloID($func->Descriptografar($_GET["q"]));
+	$DataSeparadaPedido = $func->SepararData($Agendamento["Agendamento"][0]["data"]);
+	$DataSeparadaItem = $func->SepararData($Agendamento["Agendamento"][0]["Data_cadastro"]);
     
 ?>
 
@@ -55,7 +59,7 @@
 
 							<div id = "OrderBox1" class = "BoxContent">
 
-								<h1> Pedido 145665 </h1> 
+								<h1> Pedido <?= $Agendamento["Agendamento"][0]["id_agendamento"]?> </h1> 
 
 							</div>
 
@@ -70,22 +74,30 @@
 								<li class = "BoxCategory">
 									<i class = "material-icons"> &#xe916; </i>
 									<h1> Data </h1>
-									<h2> 00/00/2020 </h2>
+									<h2> <?= $DataSeparadaPedido["dia"] . '/' . $DataSeparadaPedido["mes"] . '/' . $DataSeparadaPedido["ano"] ?> </h2>
 								</li>
 								<li class = "BoxCategory">
 									<i class = "material-icons"> &#xe8b5; </i>
 									<h1> Horário </h1>
-									<h2> 00:00 </h2>
+									<h2> <?= substr($Agendamento["Agendamento"][0]["horario"], 0, 5)?>h  </h2>
 								</li>
 								<li class = "BoxCategory">
 									<i class = "material-icons"> &#xe7fd; </i>
 									<h1> Usuário </h1>
-									<h2> Rodrigo Lima </h2>
+									<h2> <?= $Agendamento["Agendamento"][0]["Nome_user"]?>  </h2>
 								</li>
 								<li class = "BoxCategory">
 									<i class = "material-icons"> &#xe88e; </i>
 									<h1> Status </h1>
-									<h2 class = "Status1"> Status </h2>
+									<?php
+									if($Agendamento["Agendamento"][0][5] == "Pendente"){
+										echo '<h2 class = "Status1">'.  $Agendamento["Agendamento"][0][5] .' </h2>';
+									}else if($Agendamento["Agendamento"][0][5] == "Aceito"){
+										echo '<h2 class = "Status3">'.  $Agendamento["Agendamento"][0][5] .'</h2>';
+									}else{
+										echo '<h2 class = "Status2">'.  $Agendamento["Agendamento"][0][5] .'</h2>';
+									}	
+									?>
 								</li>
 
 							</ul>
@@ -102,30 +114,37 @@
 									<i class = "material-icons"> category </i>
 									<h1> Item </h1>
 									<h2>
-										<a href = "Item.php?q="> Boné da Oakley </a>
+										<a href = "Item.php?q=<?=$func->Criptografar($Agendamento["Agendamento"][0]["id_obj"])?>"> <?= $Agendamento["Agendamento"][0]["Nome_obj"]?> </a>
 									</h2>
 								</li>
 								<li class = "BoxCategory">
 									<i class = "material-icons"> &#xe916; </i>
 									<h1> Data </h1>
-									<h2> 00/00/2020 </h2>
+									<h2> <?= $DataSeparadaItem["dia"] . '/' . $DataSeparadaItem["mes"] . '/' . $DataSeparadaItem["ano"] ?> </h2>
 								</li>
 								<li class = "BoxCategory">
 									<i class = "material-icons"> category </i>
 									<h1> Categoria </h1>
-									<h2> Eletronicos </h2>
+									<h2> <?= $Agendamento["Agendamento"][0]["Categoria"]?> </h2>
 								</li>
 								<li class = "BoxCategory"> 
 									<i class = "material-icons">  &#xe0af; </i>
 									<h1> Empresa </h1>
 									<h2>
-										<a href = "Company.php?q="> Nome Empresa </a>
+										<a href = "Company.php?q=<?=$func->Criptografar($Agendamento["Agendamento"][0]["id_empresa"])?>"> <?= $Agendamento["Agendamento"][0][17]?> </a>
 									</h2>
 								</li>
 								<li class = "BoxCategory">
 									<i class = "material-icons"> &#xe88e; </i>
 									<h1> Status </h1>
-									<h2 class = "Status1"> Status </h2>
+
+									<?php
+									if($Agendamento["Agendamento"][0]["situacao"] == "Devolvido"){
+										echo '<h2 class = "Status3"> '.$Agendamento["Agendamento"][0]["situacao"].' </h2>';
+									}else{
+										echo '<h2 class = "Status1"> '.$Agendamento["Agendamento"][0]["situacao"].' </h2>';
+									}
+									?>
 								</li>
 
 							</ul>
@@ -135,7 +154,7 @@
 						<li class = "Box BoxImg">
 
 							<div id = "OrderBox4" class = "BoxContent">
-								<img src = "imagesBD\3efebabd50c78670a7f4ffe156e50ea2.jpeg"/>
+								<img src = "imagesBD\<?= $Agendamento["Agendamento"][0]["Nome_foto"]?>"/>
 							</div>
 
 						</li>
@@ -145,12 +164,12 @@
 							<ul id = "OrderBox5" class = "BoxContent">
 
 								<li>
-									<a href = "">
+									<a href = "sql/ConfigAgendamento.php?q=<?=$func->Criptografar($PedidosPendentes["Agendamento"][$i]["id_agendamento"]).'&v='.$func->Criptografar("A")?>">
 										<h1> Confirmar Devolução </h1>
 									</a>
 								</li>
 								<li>
-									<a href = "">
+									<a href = "sql/ConfigAgendamento.php?q=<?=$func->Criptografar($PedidosPendentes["Agendamento"][$i]["id_agendamento"]).'&v='.$func->Criptografar("B")?>">
 										<h1> Negar Devolução </h1>
 									</a>
 								</li>

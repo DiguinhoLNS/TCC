@@ -112,6 +112,7 @@ switch ($tipo_verificacao) {
 		$horario = $_POST["time"];
 		$id_objeto = $_SESSION["id_objeto"];
 		$id_user = $func->Descriptografar($_COOKIE["ID"]);
+		$Empresa = $func->PegarDadosEmpresaPeloIdObjeto($id_objeto);
 
 		try {
 
@@ -120,8 +121,8 @@ switch ($tipo_verificacao) {
 
 			$sql = $conn->dbh->prepare($query);
 			$sql->execute([':id_user' => $id_user, ':id_obj' => $id_objeto, ':data' => $data, ':horario' => $horario, ':situacao' => "Pendente"]);
-			Notificar("Pedido Realizado com Sucesso, você receberá uma resposta por email");
-			header("Location: ../Dashboard.php");
+			setcookie("MessageNotification", "Pedido de devolução realizado com sucesso", time() + 900, "/");
+			header("Location: ../Feed.php?q=".$func->Criptografar($Empresa["Empresa"][0]["id_empresa"]));
 
 		} catch (PDOException $e) {
 			die("Erro no SQL " . var_dump($query));

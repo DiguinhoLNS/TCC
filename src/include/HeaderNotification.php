@@ -5,15 +5,13 @@
         <ul id = "NotificationsGroup">
         <?php 
 
-        function Notificar($mensagem){
-        
             if(isset($_COOKIE["MessageNotification"])){
 
                 echo '
 
                     <li class = "NotificationBox">
                         <i class = "material-icons"> &#xe645; </i>
-                        <span> '.$mensagem.' </span>
+                        <span> '.$_COOKIE["MessageNotification"].' </span>
                     </li>
                 
                 ';
@@ -23,7 +21,6 @@
                 echo '<li id = "NoneNotifications"> Sem Notificações </li>';
 
             }
-        }
         
         ?>
             <li id = "NoneNotifications"> Sem Notificações </li>
