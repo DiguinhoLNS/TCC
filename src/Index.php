@@ -90,7 +90,7 @@
 
                                 echo '
                                 <li class = "CompanyBox">
-                                    <a href = "Feed.php?q = ' . $func->Criptografar($DadosEmpresas['Dados'][$i]['id_empresa']) . '" class = "'. $DadosEmpresas['Dados'][$i]['Cor_layout'] . '" title = "Acessar ' . $DadosEmpresas['Dados'][$i]['Nome'] . ' ">
+                                    <a href = "Feed.php?q=' . $func->Criptografar($DadosEmpresas['Dados'][$i]['id_empresa']) . '" class = "'. $DadosEmpresas['Dados'][$i]['Cor_layout'] . '" title = "Acessar ' . $DadosEmpresas['Dados'][$i]['Nome'] . ' ">
                                         <h1> ' . $DadosEmpresas['Dados'][$i]['Nome']. ' </h1>
                                     </a>
                                 </li>
