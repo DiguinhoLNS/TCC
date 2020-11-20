@@ -8,7 +8,25 @@ require_once "Funcoes.php";
 $conn = new ConexaoBD();
 $func = new Funcoes();
 
-$tipo_verificacao = $_SESSION['TipoVerificação'];
+if(isset($_GET["q"])){
+    $id_obj = $func->Descriptografar($_GET["q"]);
+}
+
+if(isset($_GET["a"])){
+    $id_agendamento = $func->Descriptografar($_GET["a"]);
+}
+
+if (isset($_GET["c"])){
+    $id_empresa = $func->Descriptografar($_GET["c"]);
+}
+
+if(isset($_GET["v"])){
+    $tipo_verificacao = $func->Descriptografar($_GET["v"]);
+}else{
+    $tipo_verificacao = $_SESSION['TipoVerificação'];
+}
+
+
 
 switch ($tipo_verificacao) {
 
@@ -56,16 +74,15 @@ switch ($tipo_verificacao) {
         //$foto = $_FILES["foto"];
         $categoria = $func->ClearInjectionXSS($_POST["categoria"]);
         $descricao = $func->ClearInjectionXSS($_POST["descricao"]);
-        $situacao = $func->ClearInjectionXSS($_POST["situacao"]);
 
         $DadosItem = $func->PegarDadosItemPeloId($id_obj);
 
         try {
 
-            $query = "UPDATE objetos SET Nome_obj = :nome_obj, Categoria = :categoria, Descricao = :descricao, situacao = :situacao WHERE id_obj = :id_obj";
+            $query = "UPDATE objetos SET Nome_obj = :nome_obj, Categoria = :categoria, Descricao = :descricao WHERE id_obj = :id_obj";
 
             $sql = $conn->dbh->prepare($query);
-            $sql->execute([':nome_obj' => $nome, ':categoria' => $categoria, ':descricao' => $descricao, ':situacao' => $situacao, ':id_obj' => $id_obj]);
+            $sql->execute([':nome_obj' => $nome, ':categoria' => $categoria, ':descricao' => $descricao, ':id_obj' => $id_obj]);
             header("Location: ../Feed.php?q=" . $func->Criptografar($DadosItem["Objeto"][0]["id_empresa"]));
         } catch (PDOException $e) {
             die("Erro no SQL " . $e);
@@ -90,8 +107,28 @@ switch ($tipo_verificacao) {
             die("Erro no SQL " . $e);
         }
 
-
         break;
+
+    case "Devolvido":
+
+        $situacao = "Devolvido";
+
+        try {
+
+            $query = "UPDATE objetos SET situacao = '$situacao', id_agendamento = $id_agendamento WHERE id_obj = $id_obj";
+            $query2 = "UPDATE agendamento SET situacao = '$situacao' where id_agendamento = $id_agendamento";
+
+            $sql = $conn->dbh->query($query);
+            $sql = $conn->dbh->query($query2);
+            header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($id_empresa));
+
+        } catch (PDOException $e) {
+            die("Erro no SQL $e $situacao " . $id_agendamento." ". $id_obj);
+        }
+
+    break;
+
+
 }
 
 $conn = null;

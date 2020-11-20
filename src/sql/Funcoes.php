@@ -688,7 +688,7 @@ class Funcoes extends ConexaoBD
     public function PegarDadosItemPeloIdEmpresaDevolvidos($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa =  '$id_empresa' and situacao = 'Devolvido' order by Nome_obj ASC";
+        $query = "SELECT * FROM objetos inner join agendamento on agendamento.id_agendamento = objetos.id_agendamento inner join usuarios on agendamento.id_user = usuarios.id_user where objetos.id_empresa =  '$id_empresa' and objetos.situacao = 'Devolvido' and agendamento.situacao = 'Devolvido' order by Nome_obj ASC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 11");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
@@ -1434,28 +1434,20 @@ class Funcoes extends ConexaoBD
         $query = "SELECT * FROM agendamento inner join objetos on agendamento.id_obj = objetos.id_obj inner join empresas on objetos.id_empresa = empresas.id_empresa inner join usuarios on agendamento.id_user = usuarios.id_user where agendamento.id_agendamento = $id_pedido";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 41");
         $QuantidadeDeAgendamentos = $ResultadoQuery->rowCount();
+        $DadosAgendamento = $ResultadoQuery->fetchAll();
 
-        if ($QuantidadeDeAgendamentos > 0) {
-            $DadosAgendamento = $ResultadoQuery->fetchAll();
-        }
-
-        if (isset($DadosAgendamento)) {
             $Dados = [
                 "Quantidade" => $QuantidadeDeAgendamentos,
                 "Agendamento" => $DadosAgendamento
             ];
             return $Dados;
-        } else {
-            return $Dados = [
-                "Quantidade" => $QuantidadeDeAgendamentos,
-            ];
-        }
+
     }
 
     public function PedidosPendentes($id_empresa)
     {
 
-        $query = "SELECT * FROM agendamento inner join objetos on agendamento.id_obj = objetos.id_obj inner join empresas on objetos.id_empresa = empresas.id_empresa inner join usuarios on agendamento.id_user = usuarios.id_user where empresas.id_empresa = $id_empresa and agendamento.situacao = 'Pendente' order by agendamento.data asc;";
+        $query = "SELECT * FROM agendamento inner join objetos on agendamento.id_obj = objetos.id_obj inner join empresas on objetos.id_empresa = empresas.id_empresa inner join usuarios on agendamento.id_user = usuarios.id_user where empresas.id_empresa = $id_empresa and agendamento.situacao = 'Pendente' order by agendamento.data asc";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 42");
         $QuantidadeDeAgendamentos = $ResultadoQuery->rowCount();
 

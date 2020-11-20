@@ -112,13 +112,6 @@
 							<label for = "R_ItemDesc"> Descrição </label>
 							<textarea id = "R_ItemDesc" class = "FormTextareaData" name = "descricao" rows = "4" ><?= trim($DadosItem["Objeto"][0]["Descricao"]);?></textarea>
 						</li>
-						<li class = "ContentInput">
-							<label for = "R_ItemStatus"> Status </label>
-							<select name = "situacao" id = "R_ItemStatus" class = "UserSelectData" required>
-								<option value = "Perdido" <?php if($DadosItem["Objeto"][0]["situacao"] == "Perdido"){echo "selected";}?>> Perdido </option>
-								<option value = "Devolvido" <?php if($DadosItem["Objeto"][0]["situacao"] == "Devolvido"){echo "selected";}?>> Devolvido </option>
-                            </select>
-						</li>
 						<li class = "ContentBottom">
 							<a href = "Feed.php?q=<?= $func->Criptografar($id_empresa)?>"> Voltar para Feed </a>
 							<input class = "UserInputSubmit btn" type = "submit" value = "Alterar Item"/>

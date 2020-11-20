@@ -59,7 +59,7 @@
 
 							<div id = "OrderBox1" class = "BoxContent">
 
-								<h1> Pedido <?= $Agendamento["Agendamento"][0]["id_agendamento"]?> </h1> 
+								<h1> Pedido <?= $Agendamento["Agendamento"][0][0]?> </h1> 
 
 							</div>
 

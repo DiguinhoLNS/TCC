@@ -12,6 +12,12 @@ $func = new Funcoes();
 $idU = $func->ClearInjectionXSS($func->Descriptografar($_COOKIE["ID"]));
 
 $idQ = $func->ClearInjectionXSS($func->Descriptografar(($_GET['q'])));
+
+if (isset($_GET["c"])) {
+    $id_empresa = $func->ClearInjectionXSS($func->Descriptografar(($_GET['c'])));
+}
+
+
 $tipo_verificacao = $func->ClearInjectionXSS($func->Descriptografar(($_GET['v'])));
 
 switch ($tipo_verificacao) {
@@ -70,6 +76,20 @@ switch ($tipo_verificacao) {
             header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($DadosItemEmpresa["Objeto"][0]["id_empresa"]));
         } catch (PDOException $e) {
             header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($DadosItemEmpresa["Objeto"][0]["id_empresa"]));
+        }
+
+        break;
+
+    case "Agendamento":
+
+        $id_agendamento = $idQ;
+        $query = "DELETE FROM agendamento where id_agendamento = $id_agendamento";
+
+        try {
+            $conn->dbh->query($query);
+            header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($id_empresa));
+        } catch (PDOException $e) {
+            die("Erro no SQL");
         }
 
         break;

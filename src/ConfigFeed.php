@@ -971,7 +971,7 @@
 																	<ul class = "GroupUL">
 
 																		<li>
-																			<h1> '.($i+1).' </h1>
+																			<h1> '.$PedidosPendentes["Agendamento"][$i][0].' </h1>
 																		</li>
 																		<li>
 																			<h1> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h1>
@@ -991,17 +991,17 @@
 																		<li>
 																			<ul class = "FeedConfigDevolutionOptions FeedConfigOptions">
 																				<li>
-																					<a href = "OrderDetails.php?q='.$func->Criptografar($PedidosPendentes["Agendamento"][$i]["id_agendamento"]).'"fa target = "_blank" title = "Ver Mais Detalhes">		
+																					<a href = "OrderDetails.php?q='.$func->Criptografar($PedidosPendentes["Agendamento"][$i][0]).'"fa target = "_blank" title = "Ver Mais Detalhes">		
 																						<i class = "material-icons"> &#xe8f4; </i>
 																					</a>
 																				</li>
 																				<li>
-																					<a href = "sql/ConfigAgendamento.php?q='.$func->Criptografar($PedidosPendentes["Agendamento"][$i]["id_agendamento"]).'&v='.$func->Criptografar("A").'" class = "ConfirmOrder" title = "Confirmar Pedido">
+																					<a href = "sql/ConfigAgendamento.php?q='.$func->Criptografar($PedidosPendentes["Agendamento"][$i][0]).'&v='.$func->Criptografar("A").'" class = "ConfirmOrder" title = "Confirmar Pedido">
 																						<i class = "material-icons"> &#xe5ca; </i>
 																					</a>
 																				</li>
 																				<li>
-																					<a href = "sql/ConfigAgendamento.php?q='.$func->Criptografar($PedidosPendentes["Agendamento"][$i]["id_agendamento"]).'&v='.$func->Criptografar("B").'" class = "DenyOrder" title = "Negar Pedido">
+																					<a href = "sql/ConfigAgendamento.php?q='.$func->Criptografar($PedidosPendentes["Agendamento"][$i][0]).'&v='.$func->Criptografar("B").'" class = "DenyOrder" title = "Negar Pedido">
 																						<i class = "material-icons"> &#xe5cd; </i>
 																					</a>
 																				</li>
@@ -1084,7 +1084,7 @@
 															<ul class = "GroupUL">
 
 																<li>
-																	<h1> '.($i+1).' </h1>
+																	<h1> '.$PedidosAceitos["Agendamento"][$i][0].' </h1>
 																</li>
 																<li>
 																	<h1> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h1>
@@ -1178,7 +1178,7 @@
 																<ul class = "GroupUL">
 
 																	<li>
-																		<h1> ('.$i.' ) </h1>
+																		<h1> '.$PedidosNegados["Agendamento"][$i][0].'  </h1>
 																	</li>
 																	<li>
 																		<h1> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h1>
@@ -1244,7 +1244,7 @@
 
 											<div class = "FrameHeader FrameSection">
 
-												<h1> Pendentes (x) </h1>
+												<h1> Pendentes (<?=$PedidosAceitos["Quantidade"]?>) </h1>
 
 											</div>
 
@@ -1287,47 +1287,70 @@
 
 													<li class = "GroupContent">
 
-														<ul class = "GroupUL">
+													<?php
 
-															<li>
-																<h1> 1 </h1>
-															</li>
-															<li>
-																<h1> 18/11/2020 </h1>
-															</li>
-															<li>
-																<h1> 13:30 </h1>
-															</li>
-															<li>
-																<h1> 12 </h1>
-															</li>
-															<li>
-																<h1> Nome do Sujeito </h1>
-															</li>
-															<li class = "Status1">
-																<h1> Pendente </h1>
-															</li>
-															<li>
-																<ul class = "FeedConfigDevolutionOptions FeedConfigOptions">			
-																	<li>
-																		<a href = "OrderDetails.php" target = "_blank" title = "Ver Pedido">		
-																			<i class = "material-icons"> &#xe8f4; </i>
-																		</a>
-																	</li>
-																	<li>
-																		<a href = "" class = "ConfirmDevolution" title = "Pedido Devolvido">
-																			<i class = "material-icons"> &#xe5ca; </i>
-																		</a>
-																	</li>
-																	<li>
-																		<a href = "" class = "DenyDevolution" title = "Pedido Não Devolvido">
-																			<i class = "material-icons"> &#xe5cd; </i>
-																		</a>
-																	</li>
-																</ul>
-															</li>
+														if($PedidosAceitos["Quantidade"] == 0){
+															echo "Nenhuma devolução pendente";
+														}else{	
 
-														</ul>
+															$i=0;
+
+															do{
+
+																$DataSeparada = $func->SepararData($PedidosAceitos["Agendamento"][$i]["data"]);
+
+																echo '
+
+																<ul class = "GroupUL">
+
+																<li>
+																	<h1> ' . $PedidosAceitos["Agendamento"][$i][0] . ' </h1>
+																</li>
+																<li>
+																	<h1> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h1>
+																</li>
+																<li>
+																	<h1> '. $PedidosAceitos["Agendamento"][$i]["horario"] .' </h1>
+																</li>
+																<li>
+																	<h1> '. $PedidosAceitos["Agendamento"][$i]["id_obj"] .' </h1>
+																</li>
+																<li>
+																	<h1> '. $PedidosAceitos["Agendamento"][$i]["Nome_user"] .' </h1>
+																</li>
+																<li class = "Status1">
+																	<h1> Pendente </h1>
+																</li>
+																<li>
+																	<ul class = "FeedConfigDevolutionOptions FeedConfigOptions">			
+																		<li>
+																			<a href = "OrderDetails.php" target = "_blank" title = "Ver Pedido">		
+																				<i class = "material-icons"> &#xe8f4; </i>
+																			</a>
+																		</li>
+																		<li>
+																			<a href = "sql/EditarDados.php?q='.$func->Criptografar($PedidosAceitos["Agendamento"][$i]["id_obj"]).'&v='. $func->Criptografar("Devolvido").'&a='.$func->Criptografar($PedidosAceitos["Agendamento"][$i][0]).'&c='.$func->Criptografar($id_empresa).'" class = "ConfirmDevolution" title = "Pedido Devolvido">
+																				<i class = "material-icons"> &#xe5ca; </i>
+																			</a>
+																		</li>
+																		<li>
+																			<a href = "sql/ApagarCadastros.php?q='.$func->Criptografar($PedidosAceitos["Agendamento"][$i][0]).'&v='. $func->Criptografar("Agendamento").'&c='.$func->Criptografar($id_empresa).'" class = "DenyDevolution" title = "Pedido Não Devolvido">
+																				<i class = "material-icons"> &#xe5cd; </i>
+																			</a>
+																		</li>
+																	</ul>
+																</li>
+
+															</ul>
+
+
+																';
+
+
+															$i++;
+															}while($i < $PedidosAceitos["Quantidade"]);
+														}
+													?>								
 
 													</li>
 
@@ -1341,7 +1364,7 @@
 
 											<div class = "FrameHeader FrameSection">
 
-												<h1> Devolvidos (x) </h1>
+												<h1> Devolvidos (<?=$Devolvidos["Quantidade"]?>) </h1>
 
 											</div>
 
@@ -1381,29 +1404,55 @@
 
 													<li class = "GroupContent">
 
-														<ul class = "GroupUL">
+														<?php
 
-															<li>
-																<h1> 1 </h1>
-															</li>
-															<li>
-																<h1> 18/11/2020 </h1>
-															</li>
-															<li>
-																<h1> 13:30 </h1>
-															</li>
-															<li>
-																<h1> 12 </h1>
-															</li>
-															<li>
-																<h1> Nome do Sujeito </h1>
-															</li>
-															<li class = "Status2">
-																<h1> Devolvido </h1>
-															</li>
+															if($Devolvidos["Quantidade"] == 0){
 
-														</ul>
+																echo 'Nenhum Item devolvido';
 
+															}else{
+
+																$i=0;
+
+																do{
+
+																	$DataSeparada = $func->SepararData($Devolvidos["Objeto"][$i]["data"]);
+
+																	echo '
+																	
+																		<ul class = "GroupUL">
+
+																			<li>
+																				<h1> '.$Devolvidos["Objeto"][$i]["id_agendamento"].' </h1>
+																			</li>
+																			<li>
+																				<h1> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h1>
+																			</li>
+																			<li>
+																				<h1> '. $Devolvidos["Objeto"][$i]["horario"] .' </h1>
+																			</li>
+																			<li>
+																				<h1> '. $Devolvidos["Objeto"][$i]["id_obj"] .' </h1>
+																			</li>
+																			<li>
+																				<h1> '. $Devolvidos["Objeto"][$i]["Nome_user"] .' </h1>
+																			</li>
+																			<li class = "Status2">
+																				<h1> Devolvido </h1>
+																			</li>
+
+																		</ul>
+																		
+																		';
+
+																	$i++;
+																	
+																}while($i < $Devolvidos["Quantidade"]);
+
+															}
+													
+														?>
+														
 													</li>
 
 												</ul>
