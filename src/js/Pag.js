@@ -927,7 +927,7 @@ $(document).ready(function(){
     
     $(".ExitMessageBottom").on("click", function(){
 
-        $(".BottomMessage").css("bottom", "-75px");
+        $(".BottomMessage").css("bottom", "-150px");
 
     });
     

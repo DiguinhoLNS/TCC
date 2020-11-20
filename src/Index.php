@@ -103,7 +103,7 @@
                         }
                         ?>
                         <li class = "SeeMore">
-                            <a href = "Dashboard.php"> Ver Mais </a>
+                            <a href = "Dashboard.php" title = "Ir para Dashboard"> Ver Mais </a>
                         </li> 
                     </ul>
 

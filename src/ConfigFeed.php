@@ -953,22 +953,20 @@
 
 													<ul class = "GroupMain">
 
-														<li class = "GroupContent">
+													<?php
 
-														<?php
+														if($PedidosPendentes["Quantidade"] == 0){
+															
+														}else{
 
-															if($PedidosPendentes["Quantidade"] == 0){
-																echo "Nenhum pedido Pendente";
-															}else{
+															$i=0;
+															do{
 
-																$i=0;
-																do{
+																$DataSeparada = $func->SepararData($PedidosPendentes["Agendamento"][$i]["data"]);
 
-																	//  var_dump($PedidosPendentes);
+																echo ' 
 
-																	$DataSeparada = $func->SepararData($PedidosPendentes["Agendamento"][$i]["data"]);
-
-																	echo ' 
+																<li class = "GroupContent">
 
 																	<ul class = "GroupUL">
 
@@ -990,36 +988,35 @@
 																		<li class = "Status1">
 																			<h1> Pendente </h1>
 																		</li>
+																		<li>
+																			<ul class = "FeedConfigDevolutionOptions FeedConfigOptions">
+																				<li>
+																					<a href = "OrderDetails.php?q='.$func->Criptografar($PedidosPendentes["Agendamento"][$i]["id_agendamento"]).'"fa target = "_blank" title = "Ver Mais Detalhes">		
+																						<i class = "material-icons"> &#xe8f4; </i>
+																					</a>
+																				</li>
+																				<li>
+																					<a href = "sql/ConfigAgendamento.php?q='.$func->Criptografar($PedidosPendentes["Agendamento"][$i]["id_agendamento"]).'&v='.$func->Criptografar("A").'" class = "ConfirmOrder" title = "Confirmar Pedido">
+																						<i class = "material-icons"> &#xe5ca; </i>
+																					</a>
+																				</li>
+																				<li>
+																					<a href = "sql/ConfigAgendamento.php?q='.$func->Criptografar($PedidosPendentes["Agendamento"][$i]["id_agendamento"]).'&v='.$func->Criptografar("B").'" class = "DenyOrder" title = "Negar Pedido">
+																						<i class = "material-icons"> &#xe5cd; </i>
+																					</a>
+																				</li>
+																			</ul>
+																		</li>
 
-																	<li>
-																		<ul class = "FeedConfigDevolutionOptions FeedConfigOptions">
-																			<li>
-																				<a href = "OrderDetails.php?q='.$func->Criptografar($PedidosPendentes["Agendamento"][$i]["id_agendamento"]).'"fa target = "_blank" title = "Ver Mais Detalhes">		
-																					<i class = "material-icons"> &#xe8f4; </i>
-																				</a>
-																			</li>
-																			<li>
-																				<a href = "sql/ConfigAgendamento.php?q='.$func->Criptografar($PedidosPendentes["Agendamento"][$i]["id_agendamento"]).'&v='.$func->Criptografar("A").'" class = "ConfirmOrder" title = "Confirmar Pedido">
-																					<i class = "material-icons"> &#xe5ca; </i>
-																				</a>
-																			</li>
-																			<li>
-																				<a href = "sql/ConfigAgendamento.php?q='.$func->Criptografar($PedidosPendentes["Agendamento"][$i]["id_agendamento"]).'&v='.$func->Criptografar("B").'" class = "DenyOrder" title = "Negar Pedido">
-																					<i class = "material-icons"> &#xe5cd; </i>
-																				</a>
-																			</li>
-																		</ul>
-																	</li>
-
-															</ul>';
+																	</ul>
+																	
+																</li>';
 
 															$i++;
 														}while ($i < $PedidosPendentes["Quantidade"]);
 													}
 
 													?>
-
-														</li>
 
 													</ul>
 
@@ -1068,55 +1065,54 @@
 													</ul>
 
 													<ul class = "GroupMain">
+													<?php
+
+													if($PedidosAceitos["Quantidade"] == 0){
+
+													}else{
+
+														$i=0;
+
+														do{
+
+														$DataSeparada = $func->SepararData($PedidosAceitos["Agendamento"][$i]["data"]);
+
+														echo '
 
 														<li class = "GroupContent">
-
-														<?php
-
-														if($PedidosAceitos["Quantidade"] == 0){
-															echo "Nenhum pedido aceito";
-														}else{
-
-															$i=0;
-
-															do{
-
-															$DataSeparada = $func->SepararData($PedidosAceitos["Agendamento"][$i]["data"]);
-
-															echo '
-															
+														
 															<ul class = "GroupUL">
 
-															<li>
-															<h1> '.($i+1).' </h1>
-														</li>
-														<li>
-															<h1> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h1>
-														</li>
-														<li>
-															<h1> '. $PedidosAceitos["Agendamento"][$i]["horario"] .' </h1>
-														</li>
-														<li>
-															<h1> '. $PedidosAceitos["Agendamento"][$i]["id_obj"] .' </h1>
-														</li>
-														<li>
-															<h1> '. $PedidosAceitos["Agendamento"][$i]["Nome_user"] .'  </h1>
-														</li>
-														<li class = "Status2">
-															<h1> Aceito </h1>
-														</li>
+																<li>
+																	<h1> '.($i+1).' </h1>
+																</li>
+																<li>
+																	<h1> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h1>
+																</li>
+																<li>
+																	<h1> '. $PedidosAceitos["Agendamento"][$i]["horario"] .' </h1>
+																</li>
+																<li>
+																	<h1> '. $PedidosAceitos["Agendamento"][$i]["id_obj"] .' </h1>
+																</li>
+																<li>
+																	<h1> '. $PedidosAceitos["Agendamento"][$i]["Nome_user"] .'  </h1>
+																</li>
+																<li class = "Status2">
+																	<h1> Aceito </h1>
+																</li>
 
 															</ul>
-															
-															';
 
-															$i++;
-															}while($i < $PedidosAceitos["Quantidade"]);
-														}
-															
-														?>
 														</li>
+														
+														';
 
+														$i++;
+														}while($i < $PedidosAceitos["Quantidade"]);
+													}
+														
+													?>
 													</ul>
 
 												</div>
@@ -1164,53 +1160,51 @@
 													</ul>
 
 													<ul class = "GroupMain">
+													<?php
 
-														<li class = "GroupContent">
+													if($PedidosNegados["Quantidade"] == 0){
+														
+													}else{
 
-														<?php
+														$i=0;
+														do{
 
-														if($PedidosNegados["Quantidade"] == 0){
-															echo "Nenhum pedido negado";
-														}else{
+															$DataSeparada = $func->SepararData($PedidosNegados["Agendamento"][$i]["data"]);
 
-															$i=0;
-															do{
+															echo ' 
 
-																$DataSeparada = $func->SepararData($PedidosNegados["Agendamento"][$i]["data"]);
-
-																echo ' 
+															<li class = "GroupContent">
 
 																<ul class = "GroupUL">
 
-																<li>
-																	<h1> ('.$i.' ) </h1>
-																</li>
-																<li>
-																	<h1> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h1>
-																</li>
-																<li>
-																	<h1> '. $PedidosNegados["Agendamento"][$i]["horario"] .' </h1>
-																</li>
-																<li>
-																	<h1> '. $PedidosNegados["Agendamento"][$i]["id_obj"] .' </h1>
-																</li>
-																<li>
-																	<h1> '. $PedidosNegados["Agendamento"][$i]["Nome_user"] .'  </h1>
-																</li>
-																<li class = "Status3">
-																	<h1> Negado </h1>
-																</li>
+																	<li>
+																		<h1> ('.$i.' ) </h1>
+																	</li>
+																	<li>
+																		<h1> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h1>
+																	</li>
+																	<li>
+																		<h1> '. $PedidosNegados["Agendamento"][$i]["horario"] .' </h1>
+																	</li>
+																	<li>
+																		<h1> '. $PedidosNegados["Agendamento"][$i]["id_obj"] .' </h1>
+																	</li>
+																	<li>
+																		<h1> '. $PedidosNegados["Agendamento"][$i]["Nome_user"] .'  </h1>
+																	</li>
+																	<li class = "Status3">
+																		<h1> Negado </h1>
+																	</li>
 
-															</ul>';
+																</ul>
+																
+															</li>';
 
-																$i++;
-															}while ($i < $PedidosNegados["Quantidade"]);
-														}
-	
-														?>
+															$i++;
+														}while ($i < $PedidosNegados["Quantidade"]);
+													}
 
-														</li>
-
+													?>
 													</ul>
 
 												</div>
@@ -1436,7 +1430,81 @@
 
 								</div>
 
-								<div class = "FrameMain FrameSection"></div>
+								<div class = "FrameMain FrameSection">
+
+									<ul class = "CalendarDayContent Today">
+
+										<li class = "CalendarHeader">
+											<h2> 20/11/2020 </li>
+										</li>
+
+										<li class = "CalendarEvent">
+
+											<ul class = "CalendarEventContent">
+
+												<li>
+													<h3> 00:00 </h3>
+												</li>
+												<li>
+													<h3> Nome do FDP </h3>
+												</li>
+												<li>
+													<h3> 000.000.000-00 </h3>
+												</li>
+												<li>
+													<h3>
+														<a href = "Item.php?q="> Item </a>
+													</h3>
+												</li>
+												<li>
+													<h3>
+														<a href = "OrderDetails.php?q="> Pedido </a>
+													</h3>
+												</li>
+
+											</ul>			
+
+										</li>
+
+									</ul>
+
+									<ul class = "CalendarDayContent">
+
+										<li class = "CalendarHeader">
+											<h2> 27/11/2020 </li>
+										</li>
+
+										<li class = "CalendarEvent">
+
+											<ul class = "CalendarEventContent">
+
+												<li>
+													<h3> 00:00 </h3>
+												</li>
+												<li>
+													<h3> Nome do FDP </h3>
+												</li>
+												<li>
+													<h3> 000.000.000-00 </h3>
+												</li>
+												<li>
+													<h3>
+														<a href = "Item.php?q="> Item </a>
+													</h3>
+												</li>
+												<li>
+													<h3>
+														<a href = "OrderDetails.php?q="> Pedido </a>
+													</h3>
+												</li>
+
+											</ul>			
+
+										</li>
+
+									</ul>
+
+								</div>
 
 							</div>
 							

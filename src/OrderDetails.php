@@ -20,7 +20,7 @@
 
 	<head>
 
-		<title> Detalhes do Pedido </title>
+		<title> Detalhes do Pedido <?= $Agendamento["Agendamento"][0]["id_agendamento"]?> </title>
 		
 		<?php include "include/Head.php"; ?>
 

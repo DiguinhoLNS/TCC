@@ -319,8 +319,9 @@ if (isset($_COOKIE["ID"])) {
 
 							<div class="FrameMain FrameSection">
 
-								<ul class="FeedSearch FeedBoxGroup">
+								<ul class="FeedSearch FeedBoxGroup ItemGroup">
 
+									<li class = "NoFor"> Comece a pesquisar </li>
 
 								</ul>
 

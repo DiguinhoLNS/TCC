@@ -1189,6 +1189,84 @@ h1, h2, h3, h4, h5, h6 {
 				grid-template-columns: 30px 90px 90px 60px 1fr 100px;
 			}
 
+		/* FCF 5 */
+
+		#FCF5 .CalendarDayContent {
+			width: 100%;
+			margin-bottom: 25px;
+
+			list-style: none;
+		}
+
+			#FCF5 .CalendarDayContent:last-child {
+				margin-bottom: 0;
+			}
+
+		#FCF5 .CalendarDayContent li {
+			width: 100%;
+		}
+
+		#FCF5 .CalendarDayContent .CalendarHeader {
+			padding: 10px 0;
+			margin-bottom: 10px;
+			border-bottom: 2px solid var(--color-border);
+
+			color: var(--color-txt-t);
+		}
+
+			#FCF5 .CalendarDayContent .CalendarHeader h2 {
+				width: 100%;
+
+				color: inherit;
+				font-size: 20px;
+			}
+
+		#FCF5 .CalendarDayContent .CalendarEvent {
+			padding: 10px 20px;
+			border-bottom: 1px solid var(--color-border);
+		}
+
+			#FCF5 .CalendarDayContent .CalendarEvent .CalendarEventContent {
+				display: grid;
+				grid-template-columns: 80px 1fr 150px 60px 60px;
+				gap: 20px;
+
+				width: 100%;
+
+				list-style: none;
+			}
+
+			#FCF5 .CalendarDayContent .CalendarEvent .CalendarEventContent li {
+				color: var(--color-txt-t);
+			}
+
+			#FCF5 .CalendarDayContent .CalendarEvent .CalendarEventContent li h3 {
+				font-size: 16px;
+				line-height: 20px;
+			}
+
+			#FCF5 .CalendarDayContent .CalendarEvent .CalendarEventContent li h3 a {
+				color: inherit;
+			}
+
+				#FCF5 .CalendarDayContent .CalendarEvent .CalendarEventContent li h3 a:hover {
+					color: var(--color-txt-p);
+					text-decoration: underline;
+				}
+
+		/* Today */
+
+		#FCF5 .Today .CalendarHeader {
+			border-bottom-color: var(--color-theme-company-p);
+			
+
+			color: var(--color-theme-company-p);
+		}
+
+		#FCF5 .Today .CalendarEvent .CalendarEventContent li {
+			color: var(--color-txt-s);
+		}
+
 		/*******************************************************
 			Item.php
 		*******************************************************/
@@ -1348,6 +1426,7 @@ h1, h2, h3, h4, h5, h6 {
 
 				#SectionItemMain ul #InfoBox3 li h2 a {
 					color: inherit;
+					text-decoration: underline;
 					
 					transition: 0.1s ease;
 				}
@@ -2877,7 +2956,7 @@ h1, h2, h3, h4, h5, h6 {
 	.BottomMessage {
 		z-index: 10;
 		position: fixed;
-		bottom: -75px;
+		bottom: -150px;
 
 		width: 100%;
 		padding: 10px 20px;
