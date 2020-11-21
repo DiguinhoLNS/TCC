@@ -1865,6 +1865,10 @@ h1, h2, h3, h4, h5, h6 {
 			}
 
 			#SectionAboutCompaniesDiscover ul:nth-child(3){
+				background-color: #4D3882;
+			}
+
+			#SectionAboutCompaniesDiscover ul:nth-child(4){
 				border-radius: 0 0 40px 40px;
 
 				background-color: var(--color-theme-t);

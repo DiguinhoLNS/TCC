@@ -138,11 +138,11 @@
 
                     </ul>
 
-                    <ul class = "LeftAlign">
+                     <ul class = "LeftAlign">
 
                         <li class = "IconAboutCompanies">
                             <span>
-                                <i class = "material-icons"> &#xe897; </i>
+                                <i class = "material-icons"> vpn_key </i>
                             </span>
                         </li>
 
@@ -150,6 +150,22 @@
                             <p>
                                 Controle o acesso que os usuários possuem no feed de sua empresa, você possui a opção de banir algum usuário que seja incoveniente, e também adicionar outros administradores para que eles possam cadastrar novos itens perdidos.
                             </p>
+                        </li>
+
+                    </ul>
+
+                    <ul class = "RightAlign">
+
+                        <li class = "TextAboutCompanies">
+                            <p>
+                                Controle o acesso que os usuários possuem no feed de sua empresa, você possui a opção de banir algum usuário que seja incoveniente, e também adicionar outros administradores para que eles possam cadastrar novos itens perdidos.
+                            </p>
+                        </li>
+
+                        <li class = "IconAboutCompanies">
+                            <span>
+                                <i class = "material-icons"> &#xe897; </i>
+                            </span>
                         </li>
 
                     </ul>
