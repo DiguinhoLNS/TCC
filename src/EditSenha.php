@@ -8,10 +8,10 @@
 
     $conn = new ConexaoBD();
 	$func = new Funcoes();
-
-    $id = $func->Descriptografar($_COOKIE["ID"]);
-    
-    
+  
+    $id = $func->Descriptografar($_GET["q"]);
+    $_SESSION["id_editar_senha"] = $id;
+    $_SESSION['TipoVerificação'] = "EditarSenha";
 
 ?>
 
@@ -34,13 +34,40 @@
 
             StopUserAccess();
 
+            if($_COOKIE["VerificaErro"]){
+
+				if (isset($_SESSION["ErrosEditarSenha"])) {
+					
+
+					$erros = $_SESSION["ErrosEditarSenha"];
+
+					if (isset($erros["senha"]) || isset($erros["senha2"])){
+
+						echo '
+							
+							<script language = "javascript" type = "text/javascript">
+							
+								$(document).ready(function(){
+
+									$("#ErrorSenha").css("display", "block");
+
+								});
+							
+							</script>
+						
+						';
+
+                    }
+                }
+            }
+
         ?>
 
         <main id = "MainEditSenha" class = "MainFormPlatform">
 
             <div class = "FormPlatform FormEdit BS">
 
-                <form class = "FormData" method = "POST" action = "sql/.php">
+                <form class = "FormData" method = "POST" action = "sql/VerificaCadastro.php">
 
                     <ul class = "FormPlatformContent">
                     
@@ -56,10 +83,10 @@
 							<input id = "E_UserSenha2" class = "UserInputData" type = "password" name = "senha2" required />
                         </li>
                         <li class = "ContentError">
-                            <span id = "ErrorSenha" class = "txtError"> Senha incorreta </span>
+                            <span id = "ErrorSenha" class = "txtError"> Senhas inválidas ou incompatíveis </span>
                         </li>
                         <li class = "ContentBottom">
-                            <a href = ".php"> Voltar </a>
+                            <a href = "LoginUser.php"> Voltar </a>
 							<input class = "UserInputSubmit btn" type = "submit" value = "Alterar Senha">
 						</li>
                     

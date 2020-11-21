@@ -8,21 +8,21 @@ require_once "Funcoes.php";
 $conn = new ConexaoBD();
 $func = new Funcoes();
 
-if(isset($_GET["q"])){
+if (isset($_GET["q"])) {
     $id_obj = $func->Descriptografar($_GET["q"]);
 }
 
-if(isset($_GET["a"])){
+if (isset($_GET["a"])) {
     $id_agendamento = $func->Descriptografar($_GET["a"]);
 }
 
-if (isset($_GET["c"])){
+if (isset($_GET["c"])) {
     $id_empresa = $func->Descriptografar($_GET["c"]);
 }
 
-if(isset($_GET["v"])){
+if (isset($_GET["v"])) {
     $tipo_verificacao = $func->Descriptografar($_GET["v"]);
-}else{
+} else {
     $tipo_verificacao = $_SESSION['TipoVerificação'];
 }
 
@@ -121,14 +121,34 @@ switch ($tipo_verificacao) {
             $sql = $conn->dbh->query($query);
             $sql = $conn->dbh->query($query2);
             header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($id_empresa));
-
         } catch (PDOException $e) {
-            die("Erro no SQL $e $situacao " . $id_agendamento." ". $id_obj);
+            die("Erro no SQL $e $situacao " . $id_agendamento . " " . $id_obj);
         }
 
-    break;
+        break;
+
+    case "EditarSenha":
+
+        $id = $_SESSION["id_editar_senha"];
+
+        $senha = $func->ClearInjectionXSS($_POST["senha"]);
+        $senha2 = $func->ClearInjectionXSS($_POST["senha2"]);
+
+        $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
+
+        try {
+
+            $query = "UPDATE usuarios SET Senha_user = '$senhaCriptografada' WHERE id_user = $id";
+
+            $sql = $conn->dbh->query($query);
+
+            header("Location: ../LoginUser.php");
+        } catch (PDOException $e) {
+            die("Erro no SQL $e $senhaCriptografada $id");
+        }
 
 
+        break;
 }
 
 $conn = null;

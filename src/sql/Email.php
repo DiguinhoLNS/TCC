@@ -71,13 +71,13 @@ class Email extends PHPMailer
         }
     }
 
-    public function EditarSenha()
+    public function EditarSenha($id_user)
     {
 
         try {
             ob_start();
-            include "./include/EstiloEditarSenha.php";
-            $TwoSteps = ob_get_clean();
+            include "./include/EstiloEsqueciMinhaSenha.php";
+            $ForgetPWD = ob_get_clean();
             ob_end_clean();
 
             $this->CharSet = 'UTF-8';
@@ -104,8 +104,8 @@ class Email extends PHPMailer
 
             $this->isHTML(true);
             $this->Subject = 'Código de verificação';
-            $this->MsgHTML($TwoSteps);
-            $this->AltBody = $cod;
+            $this->MsgHTML($ForgetPWD);
+            $this->AltBody = $id_user;
 
             if (!$this->send()) {
                 die("Erro no envio do Email");

@@ -362,6 +362,43 @@
 
         break;
 
+        case "EditarSenha":
+
+            $id = $_SESSION["id_editar_senha"];
+
+            $senha = $func->ClearInjectionXSS($_POST["senha"]);
+            $senha2 = $func->ClearInjectionXSS($_POST["senha2"]);
+
+            $ErroNosCampos = [
+                "senha" => false,
+                "senha2" => false
+            ];
+
+            $ErroNosCampos["senha"] = $func->VerificaSenha($senha);
+            $ErroNosCampos["senha2"] = $senha == $senha2 ? false : true;
+
+            foreach ($ErroNosCampos as $key => $verifica) {
+                if ($verifica) {
+                    $erros[$key] =  true;
+                }
+            }
+
+            if (!isset($erros)) {
+                setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
+                include "EditarDados.php";
+
+            } else {
+
+                setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
+                $_SESSION["ErrosEditarSenha"] = $erros;
+
+                header("Location: ../EditSenha.php?q=".$func->Criptografar($id));
+
+            }
+
+
+        break;
+
         default:
         die("Erro 760");
         break;
