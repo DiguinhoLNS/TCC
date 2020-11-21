@@ -148,7 +148,7 @@
 
                         <li class = "TextAboutCompanies">
                             <p>
-                                Controle o acesso que os usuários possuem no feed de sua empresa, você possui a opção de banir algum usuário que seja incoveniente, e também adicionar outros administradores para que eles possam cadastrar novos itens perdidos.
+                                Para que um usuário acesse o feed de sua empresa, é necessário que ele faça o login nela através do código de acesso que geramos automaticamente assim que você criar uma empresa. É possivel encontrar esse código na página de informações sobre a empresa na parte de "Segurança".
                             </p>
                         </li>
 

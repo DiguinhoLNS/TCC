@@ -52,15 +52,18 @@
                             <h3> Sobre Nós </h3>
 
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
+                                Somos um grupo de amigos, estudantes do ensino médio integrado com o curso técnico de informática da ETEC da Zona Leste entre os anos de 2018 e 2020.
                             </p>
 
                         </li>
 
                         <li class = "TextContent">
 
+                            <h3> Sobre o projeto </h3>
+
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies orci sit amet quam laoreet, eu efficitur lectus eleifend.
+                                Este projeto foi realizado com a intenção de ser o nosso trabalho de conclusão de curso de informática. Foi desenvolvido no segundo semestre de 2020 
+                                com a orientação de professores da ETEC da Zona Leste, com o nosso esforço e muitas noites de trabalho pesado.
                             </p>
 
                         </li>
@@ -74,7 +77,7 @@
                             <h3> Nossos Termos </h3>
 
                             <p>
-                                Leia sobre os nossos Termos, Políticas e Licensas.
+                                Leia sobre os nossos Termos, Políticas e Licenças.
                             </p>
 
                         </li>
@@ -108,7 +111,7 @@
                             <h3> Luís Gustavo </h3>
 
                             <p>
-                                Vulgo LG, amante de PHP. Dono da mágica por trás do site, ou seja, o Back-end.<br>
+                                Vulgo LG, amante de PHP. Dono da mágica por trás do site, ou seja, o Back-end. ENFP<br>
                                 †ℐℋ𝒮†
                             </p>
 
@@ -154,7 +157,7 @@
                             <h3> Marcos Augusto </h3>
 
                             <p>
-                                Amante da Gastronomia, Genética e Redes, responsável pela documentação e auxiliar de design do site
+                                Amante da Gastronomia, Genética e Redes, responsável pela documentação e auxiliar de design do site. ENFP
                             </p>
 
                             <ul class = "DeveloperSocialBar SocialIconsBar">
@@ -214,7 +217,7 @@
                             <h3> Rodrigo Lima </h3>
 
                             <p>
-                                Fã de programação e design, estou cursando ensino técnico de informática integrado ao ensino médio na ETEC ZL. Líder de desenvolvimento do projeto, desenvolveu o Front-end.
+                                Fã de programação e design, estou cursando ensino técnico de informática integrado ao ensino médio na ETEC ZL. Líder de desenvolvimento do projeto, desenvolveu o Front-end. ISTJ
                             </p>
 
                             <ul class = "DeveloperSocialBar SocialIconsBar">
