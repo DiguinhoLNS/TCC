@@ -13,7 +13,6 @@
 
     $id = $func->Descriptografar($_COOKIE["ID"]);
     
-
     $DadosEmpresas = $func->PegarDadosEmpresaPeloIdUsuario($id);
                     
     $DadosUsuario =  $func->PegarDadosUsuarioPeloId($id);
@@ -21,6 +20,8 @@
     $DataSeparada = $func->SepararData($DadosUsuario[0]['Data_nasc_user']);
 
     $cpf = $func->ColocarPontoCPF($DadosUsuario[0]['CPF_user']);
+
+    $PedidosDevolvidos = $func->PedidosDevolvidosPeloIdUser($id);
 
 ?>
 
@@ -261,25 +262,48 @@
 
                                     <ul id = "UserItensView" class = "ItensView ItemGroup">
 
-                                        <li class = "AllItemBox ItemBox">
+                                        <?php
 
-                                            <a href = "" title = "">
+                                            $i=0;
 
-                                                <div class = "ItemImg">
-                                                    <img src = "">
-                                                </div>
+                                            do{
 
-                                                <div class = "ItemInfo">
-                                                    
-                                                    <h1 class = "ItemName"> Nome </h1>
-                                                    <h2 class = "ItemData"> 17/11/2020 </h2>
-                                                    <h3 class = "ItemCategory"> Categoria </h3>
+                                                if($PedidosDevolvidos["Agendamento"][$i]["Categoria"] == "Acessorio"){
+                                                    $PedidosDevolvidos["Agendamento"][$i]["Categoria"] = "Acessório";
+                                                }else if($PedidosDevolvidos["Agendamento"][$i]["Categoria"] == "Eletronico"){
+                                                    $PedidosDevolvidos["Agendamento"][$i]["Categoria"] = "Eletrônico";
+                                                }
 
-                                                </div>
+                                                $DataSeparada = $func->SepararData($PedidosDevolvidos["Agendamento"][$i]["Data_cadastro"]);
 
-                                            </a>
+                                                echo'
 
-                                        </li>
+                                                <li class = "AllItemBox ItemBox">
+
+                                                <a href="">
+
+                                                    <div class = "ItemImg">
+                                                        <img src = "imagesBD/'.$PedidosDevolvidos["Agendamento"][$i]["Nome_foto"].'">
+                                                    </div>
+
+                                                    <div class = "ItemInfo">
+                                                        
+                                                        <h1 class = "ItemName"> '.$PedidosDevolvidos["Agendamento"][$i]["Nome_obj"].' </h1>
+                                                        <h2 class = "ItemData"> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h2>
+                                                        <h3 class = "ItemCategory"> '.$PedidosDevolvidos["Agendamento"][$i]["Categoria"].' </h3>
+
+                                                    </div>
+
+                                                </a>
+
+                                                </li>
+                                                ';
+
+                                                $i++;
+
+                                            }while($i < $PedidosDevolvidos["Quantidade"]);
+
+                                        ?>
 
                                     </ul>
 
