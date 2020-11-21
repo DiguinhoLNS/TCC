@@ -7,6 +7,35 @@
     $email = new Email();
     $func = new Funcoes();
 
+    if(isset($_POST["Enviar"])){
+
+        $EnvioEmail = false;
+        $email_user = $_POST["E_Email"];
+        $DadosUsuario = $func->PegarDadosUsuarioPeloEmail($email_user);
+
+        if($DadosUsuario["EmailExiste"]){
+
+            try{
+                
+                $email->setPara($email_user);
+                $email->EditarSenha($func->Criptografar($DadosUsuario["Dados"][0]["id_user"]));
+
+                $EnvioEmail = true;
+
+            }catch(Exception $e){
+
+                $EnvioEmail = false;
+
+            }
+
+        }else{
+
+            $EnvioEmail = false;
+
+        }
+
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -23,51 +52,16 @@
     <body id = "EditSenhaPage" class = "LightMode">
 
         <?php
-
+        
             include "php/Pag.php";
 
             StopUserAccess();
-
-            $EnvioEmail = false;
-
-            if(isset($_POST["Enviar"])){
-
-                $EnvioEmail = false;
-        
-                $email_user = $_POST["email"];
-                $DadosUsuario = $func->PegarDadosUsuarioPeloEmail($email_user);
-        
-                if($DadosUsuario["EmailExiste"]){
-        
-                    try{
-                        
-                        $email->setPara($email_user);
-                        $email->EditarSenha($func->Criptografar($DadosUsuario["Dados"][0]["id_user"]));
-        
-                        $EnvioEmail = true;
-        
-                    }catch(Exception $e){
-        
-                        $EnvioEmail = false;
-        
-                    }
-        
-                }else{
-        
-                    $EnvioEmail = false;
-        
-                }
-        
-            }
-
-            var_dump($EnvioEmail);
 
             if(isset($EnvioEmail)){
 
                 if($EnvioEmail){
 
                     echo '
-                    
                         <script language = "javascript" type = "text/javascript">
                                 
                             $(document).ready(function(){
@@ -83,16 +77,15 @@
                 }else{
     
                     echo '
-                    
-                        <script language = "javascript" type = "text/javascript">
-                                
+                            <script language = "javascript" type = "text/javascript">
+                                    
                             $(document).ready(function(){
-        
+
                                 $(".txtError").css("display", "block");
-        
+
                             });
                         
-                        </script> 
+                        </script>
                     
                     ';
     
@@ -125,7 +118,7 @@
 						</li>
 						<li class = "ContentBottom">
 							<a href = "LoginUser.php"> Voltar </a>
-							<input class = "UserInputSubmit btn" type = "submit" value = "Redefinir Senha">
+							<input class = "UserInputSubmit btn" type = "submit" name = "Enviar" value = "Redefinir Senha">
 						</li>
 
                     </ul>
