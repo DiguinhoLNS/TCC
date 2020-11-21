@@ -87,7 +87,7 @@
 						</li>
 						<li class = "ContentInput">
 							<label for = "L_Cod"> Código </label>
-							<input id = "L_Cod" class = "UserInputData" type = "text" name = "cod" required />
+							<input id = "L_Cod" class = "UserInputData" type = "text" name = "cod" maxlength = "12" required />
                         </li>
                         <li class = "ContentCaptcha">
 							<div class = "g-recaptcha" data-sitekey = "6LcNseAZAAAAAHJ_Z0_pIVNvaZEEoqhwHnGz2pMD"></div>
