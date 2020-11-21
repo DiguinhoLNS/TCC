@@ -1430,6 +1430,7 @@ class Funcoes extends ConexaoBD
         }
     }
 
+
     public function PedidoPeloID($id_pedido){
         $query = "SELECT * FROM agendamento inner join objetos on agendamento.id_obj = objetos.id_obj inner join empresas on objetos.id_empresa = empresas.id_empresa inner join usuarios on agendamento.id_user = usuarios.id_user where agendamento.id_agendamento = $id_pedido";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 41");
@@ -1471,7 +1472,7 @@ class Funcoes extends ConexaoBD
     public function PedidosAceitos($id_empresa)
     {
 
-        $query = "SELECT * FROM agendamento inner join objetos on agendamento.id_obj = objetos.id_obj inner join empresas on objetos.id_empresa = empresas.id_empresa inner join usuarios on agendamento.id_user = usuarios.id_user where empresas.id_empresa = $id_empresa and agendamento.situacao = 'Aceito'";
+        $query = "SELECT * FROM agendamento inner join objetos on agendamento.id_obj = objetos.id_obj inner join empresas on objetos.id_empresa = empresas.id_empresa inner join usuarios on agendamento.id_user = usuarios.id_user where empresas.id_empresa = $id_empresa and agendamento.situacao = 'Aceito' order by agendamento.data asc";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 43");
         $QuantidadeDeAgendamentos = $ResultadoQuery->rowCount();
 

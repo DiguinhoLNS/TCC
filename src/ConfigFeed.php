@@ -977,7 +977,7 @@
 																			<h1> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h1>
 																		</li>
 																		<li>
-																			<h1> '. $PedidosPendentes["Agendamento"][$i]["horario"] .' </h1>
+																			<h1> '. substr($PedidosPendentes["Agendamento"][$i]["horario"], 0, 5) .' </h1>
 																		</li>
 																		<li>
 																			<h1> '. $PedidosPendentes["Agendamento"][$i]["id_obj"] .' </h1>
@@ -1090,7 +1090,7 @@
 																	<h1> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h1>
 																</li>
 																<li>
-																	<h1> '. $PedidosAceitos["Agendamento"][$i]["horario"] .' </h1>
+																	<h1> '. substr($PedidosAceitos["Agendamento"][$i]["horario"], 0, 5) .' </h1>
 																</li>
 																<li>
 																	<h1> '. $PedidosAceitos["Agendamento"][$i]["id_obj"] .' </h1>
@@ -1184,7 +1184,7 @@
 																		<h1> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h1>
 																	</li>
 																	<li>
-																		<h1> '. $PedidosNegados["Agendamento"][$i]["horario"] .' </h1>
+																		<h1> '. substr($PedidosNegados["Agendamento"][$i]["horario"], 0, 5) .' </h1>
 																	</li>
 																	<li>
 																		<h1> '. $PedidosNegados["Agendamento"][$i]["id_obj"] .' </h1>
@@ -1481,78 +1481,116 @@
 
 								<div class = "FrameMain FrameSection">
 
-									<ul class = "CalendarDayContent Today">
+									<?php 
 
-										<li class = "CalendarHeader">
-											<h2> 20/11/2020 </li>
-										</li>
 
-										<li class = "CalendarEvent">
+										if($PedidosAceitos["Quantidade"] == 0){
+											echo "Nada agendado.";
+										}else{
 
-											<ul class = "CalendarEventContent">
+											$i=0;
 
-												<li>
-													<h3> 00:00 </h3>
-												</li>
-												<li>
-													<h3> Nome do FDP </h3>
-												</li>
-												<li>
-													<h3> 000.000.000-00 </h3>
-												</li>
-												<li>
-													<h3>
-														<a href = "Item.php?q="> Item </a>
-													</h3>
-												</li>
-												<li>
-													<h3>
-														<a href = "OrderDetails.php?q="> Pedido </a>
-													</h3>
-												</li>
+											do{
 
-											</ul>			
+												$PedidosAceitos["Agendamento"][$i]["CPF_user"] = $func->ColocarPontoCPF($PedidosAceitos["Agendamento"][$i]["CPF_user"]);
+												$DataSeparada = $func->SepararData($PedidosAceitos["Agendamento"][$i]["data"]);
 
-										</li>
+											if(strtotime($PedidosAceitos["Agendamento"][$i]["data"]) == strtotime(date("Y-m-d"))){
 
-									</ul>
 
-									<ul class = "CalendarDayContent">
+													echo '
+													
+													<ul class = "CalendarDayContent Today">
+	
+														<li class = "CalendarHeader">
+															<h2> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </li>
+														</li>
+	
+														<li class = "CalendarEvent">
+	
+															<ul class = "CalendarEventContent">
+	
+																<li>
+																	<h3> '. substr($PedidosAceitos["Agendamento"][$i]["horario"], 0, 5) .' </h3>
+																</li>
+																<li>
+																	<h3> '. $PedidosAceitos["Agendamento"][$i]["Nome_user"] .' </h3>
+																</li>
+																<li>
+																	<h3> '. $PedidosAceitos["Agendamento"][$i]["CPF_user"] .' </h3>
+																</li>
+																<li>
+																	<h3>
+																		<a href = "Item.php?q='. $func->Criptografar($PedidosAceitos["Agendamento"][$i][6]) .'"> Item </a>
+																	</h3>
+																</li>
+																<li>
+																	<h3>
+																		<a href = "OrderDetails.php?q='. $func->Criptografar($PedidosAceitos["Agendamento"][$i][0]) .'"> Pedido </a>
+																	</h3>
+																</li>
+	
+															</ul>			
+	
+														</li>
+	
+													</ul>
+													
+													';
 
-										<li class = "CalendarHeader">
-											<h2> 27/11/2020 </li>
-										</li>
+											}else{
 
-										<li class = "CalendarEvent">
+												echo '
+												
+												<ul class = "CalendarDayContent">
 
-											<ul class = "CalendarEventContent">
+													<li class = "CalendarHeader">
+														<h2> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </li>
+													</li>
 
-												<li>
-													<h3> 00:00 </h3>
-												</li>
-												<li>
-													<h3> Nome do FDP </h3>
-												</li>
-												<li>
-													<h3> 000.000.000-00 </h3>
-												</li>
-												<li>
-													<h3>
-														<a href = "Item.php?q="> Item </a>
-													</h3>
-												</li>
-												<li>
-													<h3>
-														<a href = "OrderDetails.php?q="> Pedido </a>
-													</h3>
-												</li>
+													<li class = "CalendarEvent">
 
-											</ul>			
+														<ul class = "CalendarEventContent">
 
-										</li>
+															<li>
+																<h3> '. substr($PedidosAceitos["Agendamento"][$i]["horario"], 0, 5) .' </h3>
+															</li>
+															<li>
+																<h3> '. $PedidosAceitos["Agendamento"][$i]["Nome_user"] .' </h3>
+															</li>
+															<li>
+																<h3> '. $PedidosAceitos["Agendamento"][$i]["CPF_user"] .' </h3>
+															</li>
+															<li>
+																<h3>
+																	<a href = "Item.php?q='. $func->Criptografar($PedidosAceitos["Agendamento"][$i][6]) .'"> Item </a>
+																</h3>
+															</li>
+															<li>
+																<h3>
+																	<a href = "OrderDetails.php?q='. $func->Criptografar($PedidosAceitos["Agendamento"][$i][0]) .'"> Pedido </a>
+																</h3>
+															</li>
 
-									</ul>
+														</ul>			
 
+													</li>
+
+												</ul>
+
+												';
+
+											}
+											$i++;
+											
+										}while($i < $PedidosAceitos["Quantidade"]);
+
+
+										}
+
+										?>
+
+									
 								</div>
 
 							</div>
