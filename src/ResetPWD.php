@@ -1,40 +1,141 @@
 <?php
 
-require_once "sql/ConexaoBD.php";
-require_once "sql/Funcoes.php";
-require_once "sql/Email.php";
+    require_once "sql/ConexaoBD.php";
+    require_once "sql/Funcoes.php";
+    require_once "sql/Email.php";
 
-$email = new Email();
-$func = new Funcoes();
-
-if(isset($_POST["Enviar"])){
-
-    $email_user = $_POST["email"];
-    $DadosUsuario = $func->PegarDadosUsuarioPeloEmail($email_user);
-
-    if($DadosUsuario["EmailExiste"]){
-
-        try{
-        $email->setPara($email_user);
-        $email->EditarSenha($func->Criptografar($DadosUsuario["Dados"][0]["id_user"]));
-        echo "Email Enviado, caso não tenha recebido, digite o seu endereço de email novamente";
-        }catch(Exception $e){
-            echo "Erro no envio do email";
-        }
-
-    }else{
-        echo "O email não existe";
-    }
-
-}
-
-
+    $email = new Email();
+    $func = new Funcoes();
 
 ?>
 
-<form action="ResetPWD.php" method="POST">
+<!DOCTYPE html>
+<html lang = "pt-br">
 
-    <input type="email" name="email" placeholder="email" required>
-    <input type="submit" name="Enviar" value="Enviar"> 
+    <head>
 
-</form>
+        <title> Redefinir Senha </title>
+
+        <?php include "include/Head.php"; ?>
+
+    </head>
+
+    <body id = "EditSenhaPage" class = "LightMode">
+
+        <?php
+
+            include "php/Pag.php";
+
+            StopUserAccess();
+
+            $EnvioEmail = false;
+
+            if(isset($_POST["Enviar"])){
+
+                $EnvioEmail = false;
+        
+                $email_user = $_POST["email"];
+                $DadosUsuario = $func->PegarDadosUsuarioPeloEmail($email_user);
+        
+                if($DadosUsuario["EmailExiste"]){
+        
+                    try{
+                        
+                        $email->setPara($email_user);
+                        $email->EditarSenha($func->Criptografar($DadosUsuario["Dados"][0]["id_user"]));
+        
+                        $EnvioEmail = true;
+        
+                    }catch(Exception $e){
+        
+                        $EnvioEmail = false;
+        
+                    }
+        
+                }else{
+        
+                    $EnvioEmail = false;
+        
+                }
+        
+            }
+
+            var_dump($EnvioEmail);
+
+            if(isset($EnvioEmail)){
+
+                if($EnvioEmail){
+
+                    echo '
+                    
+                        <script language = "javascript" type = "text/javascript">
+                                
+                            $(document).ready(function(){
+    
+                                $(".EmailContent").css("display", "block");
+    
+                            });
+                        
+                        </script> 
+                    
+                    ';
+    
+                }else{
+    
+                    echo '
+                    
+                        <script language = "javascript" type = "text/javascript">
+                                
+                            $(document).ready(function(){
+        
+                                $(".txtError").css("display", "block");
+        
+                            });
+                        
+                        </script> 
+                    
+                    ';
+    
+                }
+
+            }
+
+        ?>
+
+        <main id = "MainEditSenha" class = "MainFormPlatform">
+
+            <div class = "FormPlatform FormEdit BS">
+
+                <form class = "FormData" method = "POST" action = "ResetPWD.php">
+
+                    <ul class = "FormPlatformContent">
+                    
+                        <li class = "ContentHeader">
+                            <h1> Redefinir Senha </h1>
+                        </li>
+                        <li class = "ContentInfo EmailContent" style = "display: none">
+                            <h2> Enviamos um email para você redefinir a sua senha </h2>
+                        </li>
+                        <li class = "ContentInput">
+							<label for = "E_Email"> Enviar Email </label>
+							<input name = "E_Email" id = "E_Email" class = "UserInputData" type = "email" required />
+						</li>
+						<li class = "ContentError">
+							<span id = "ErrorEmail" class = "txtError"> Email inexistente </span>
+						</li>
+						<li class = "ContentBottom">
+							<a href = "LoginUser.php"> Voltar </a>
+							<input class = "UserInputSubmit btn" type = "submit" value = "Redefinir Senha">
+						</li>
+
+                    </ul>
+
+                </form>
+
+            </div>
+
+        </main>
+
+    </body>
+
+</html>

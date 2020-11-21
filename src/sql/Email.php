@@ -103,7 +103,7 @@ class Email extends PHPMailer
             $this->addAddress($this->para);
 
             $this->isHTML(true);
-            $this->Subject = 'Código de verificação';
+            $this->Subject = 'Redefinir senha da conta APE';
             $this->MsgHTML($ForgetPWD);
             $this->AltBody = $id_user;
 
