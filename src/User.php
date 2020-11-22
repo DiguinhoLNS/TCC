@@ -350,7 +350,7 @@
 
                                             </div>
 
-                                            <div class = "CategoryOptions">
+                                            <!-- <div class = "CategoryOptions">
 
                                                 <div class = "CategoryText">
 
@@ -367,7 +367,7 @@
 
                                                 </div>
 
-                                            </div>
+                                            </div> -->
 
                                         </li>
 

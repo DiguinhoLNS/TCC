@@ -87,7 +87,7 @@
 
         <main id = "MainLoginUser" class = "MainFormPlatform">
 
-            <div class = "FormPlatform FormVerification FormDouble BS">
+            <div class = "FormPlatform FormVerification BS">
 
                 <form class = "FormData" method = "POST" action = "VerificationUser.php">
 
@@ -115,7 +115,7 @@
 
                 </form>
 
-                <div class = "FormControl">
+                <!-- <div class = "FormControl">
 
 					<ul class = "FormControlContent">
 					
@@ -129,7 +129,7 @@
 
 					</ul>
 
-				</div>
+				</div> -->
 
             </div>
 
