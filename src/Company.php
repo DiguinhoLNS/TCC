@@ -355,6 +355,16 @@
 
 											<h1 class = "HeaderCategory"> Zona de Perigo </h1>	
 
+
+
+
+
+										<?php
+
+										if($DadosEmpresa[0]['Situacao'] == "Ativada"){
+
+											echo '
+
 											<div class = "CategoryOptions">
 
 												<div class = "CategoryText">
@@ -367,12 +377,39 @@
 												<div class = "btnContent">
 
 													<button class = "btnDanger">
-														<a href = "sql/ApagarCadastros.php?q= <?php echo $func->Criptografar($id_empresa) . "&v=". $func->Criptografar("Empresa"); ?>"> Apagar Empresa </a>
+														<a href = "sql/ApagarCadastros.php?q='. $func->Criptografar($id_empresa) . "&v=". $func->Criptografar("EmpresaD") .'"> Desativar Empresa </a>
 													</button>
 
 												</div>
 
-											</div>
+											</div>';
+
+										}else if($DadosEmpresa[0]['Situacao'] == "Desativada"){
+
+											echo'
+
+											<div class = "CategoryOptions">
+
+												<div class = "CategoryText">
+
+													<h1> Ativar empresa </h1>
+													<h2> Ativar a empresa e o seu feed na nossa plataforma </h2>
+
+												</div>
+
+												<div class = "btnContent">
+
+													<button class = "btnDanger">
+														<a href = "sql/ApagarCadastros.php?q='. $func->Criptografar($id_empresa) . "&v=". $func->Criptografar("EmpresaA") .'"> Ativar Empresa </a>
+													</button>
+
+												</div>
+
+											</div>';
+
+										}
+
+										?>
 
 										</li>
 

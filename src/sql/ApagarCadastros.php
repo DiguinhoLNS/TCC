@@ -38,14 +38,29 @@ switch ($tipo_verificacao) {
 
         break;
 
-    case "Empresa":
+    case "EmpresaD":
 
         $DesativarEmpresa = "UPDATE empresas SET Situacao='Desativada' WHERE id_empresa = '$idQ'";
-        $apagarUser_Empresa = "DELETE FROM user_empresa where id_empresa = '$idQ'";
+        $apagarUser_Empresa = "DELETE FROM user_empresa where id_empresa = '$idQ' and nivel_acesso != '4'";
 
         try {
             $conn->dbh->query($DesativarEmpresa);
             $conn->dbh->query($apagarUser_Empresa);
+            header("Location: ../Dashboard.php");
+        } catch (PDOException $e) {
+            header("Location: ../Company.php?q=" . $func->Criptografar($idQ));
+        }
+
+        break;
+
+    case "EmpresaA":
+
+        $AtivarEmpresa = "UPDATE empresas SET Situacao='Ativada' WHERE id_empresa = '$idQ'";
+
+
+        try {
+            $conn->dbh->query($AtivarEmpresa);
+
             header("Location: ../Dashboard.php");
         } catch (PDOException $e) {
             header("Location: ../Company.php?q=" . $func->Criptografar($idQ));

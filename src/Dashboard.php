@@ -80,14 +80,28 @@
 
                                         $cnpj = $func->ColocarPontoCNPJ($DadosEmpresas['Dados'][$i]['CNPJ']);
                                         
-                                        echo "
                                         
-                                            <li class = 'Box ". $DadosEmpresas['Dados'][$i]['Cor_layout']."'>
+
+                                        if($DadosEmpresas['Dados'][$i]['Nivel_acesso'] == 4 and $DadosEmpresas['Dados'][$i]['Situacao'] == "Desativada"){
+                                            echo " <li class = 'Box ". $DadosEmpresas['Dados'][$i]['Cor_layout']." desactive'>";
+                                        }else{
+                                            echo " <li class = 'Box ". $DadosEmpresas['Dados'][$i]['Cor_layout']."'>";
+                                        }
+
+                                            echo "
                                             
                                                 <a href = 'Feed.php?q=". $func->Criptografar($DadosEmpresas['Dados'][$i]['id_empresa'])."'>
                                                     <h1> ". $DadosEmpresas['Dados'][$i]['Nome'] ."</h1>
                                                     <h2> ". $DadosEmpresas['Dados'][$i]['Telefone'] ."</h2>
-                                                    <h3> Online </h3>
+                                                    
+                                                    ";
+
+                                                    if($DadosEmpresas['Dados'][$i]['Nivel_acesso'] == 4 and $DadosEmpresas['Dados'][$i]['Situacao'] == "Desativada"){
+                                                        echo "<h3> Desativada </h3>";
+                                                    }
+
+                                                    echo "
+
                                                 </a>                      
                                                 
                                             </li>
