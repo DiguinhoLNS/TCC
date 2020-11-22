@@ -66,13 +66,14 @@
 
 			} else if(!empty($QuantidadeDeLoginsJaFeitos && $Dados["Empresa"][0]["Situacao"] == 'Ativada' && $Captcha == false)){
 
-				header("Location: ../Feed.php?q=".$func->Criptografar($Dados['id_empresa']));
 				setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
+				header("Location: ../Feed.php?q=".$func->Criptografar($Dados['id_empresa']));	
 				
 			}else if(!$Dados["CodigoExiste"] || $Dados["Empresa"][0]["Situacao"] != 'Ativada' || $Captcha == true) {
 
 				$_SESSION["ErroLoginEmpresa"] = true;
 				setcookie("VerificaErro", "1", time() + (86400 * 30), "/");
+
 				header("Location: ../LoginCompany.php");
 			}
 

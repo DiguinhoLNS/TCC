@@ -9,9 +9,6 @@
 	$conn = new ConexaoBD();
 	$func = new Funcoes();
 
-	function setLogin(){
-		$_SESSION['TipoVerificação'] = 'LoginNaEmpresa'; 
-	}
 	$_SESSION['TipoVerificação'] = 'Empresa';
 
 	if(isset($_COOKIE["ID"])){
@@ -19,11 +16,16 @@
 		$id_user = $func->Descriptografar($_COOKIE["ID"]); 
 		$id_empresa = $func->Descriptografar($_GET['q']);
 
-		$DadosEmpresa = $func->PegarDadosEmpresaPeloIdEmpresa($id_empresa);
-		
-		$DadosUserEmpresa = $func->PegarDadosUserEmpresaPeloIdUserIdEmpresa($id_user, $id_empresa);
+		$UsuarioEstaLogado = $func->VerificarSeUsuarioJaFezLoginNestaEmpresa($id_user, $id_empresa);
+		if($UsuarioEstaLogado){
 
+		$DadosEmpresa = $func->PegarDadosEmpresaPeloIdEmpresa($id_empresa);
+		$DadosUserEmpresa = $func->PegarDadosUserEmpresaPeloIdUserIdEmpresa($id_user, $id_empresa);
 		$cnpj = $func->ColocarPontoCNPJ($DadosEmpresa[0]["CNPJ"]);
+
+		}else{
+			die("Algo deu errado, tente voltar para a tela de inicio");
+		}
 
 	}
 

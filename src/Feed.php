@@ -17,17 +17,24 @@ if (isset($_COOKIE["ID"])) {
 
 	$id = $func->Descriptografar($_COOKIE["ID"]);
 
-	$DadosEmpresa = $func->PegarDadosEmpresaPeloIdEmpresa($id_empresa);
-	$DadosItem = $func->PegarDadosItemPeloIdEmpresaPerdidos($id_empresa);
-	$DadosUserEmpresa = $func->PegarDadosUserEmpresaPeloIdUserIdEmpresa($id, $id_empresa);
+	$UsuarioEstaLogado = $func->VerificarSeUsuarioJaFezLoginNestaEmpresa($id, $id_empresa);
+	if($UsuarioEstaLogado){
+		$DadosEmpresa = $func->PegarDadosEmpresaPeloIdEmpresa($id_empresa);
+		$DadosItem = $func->PegarDadosItemPeloIdEmpresaPerdidos($id_empresa);
+		$DadosUserEmpresa = $func->PegarDadosUserEmpresaPeloIdUserIdEmpresa($id, $id_empresa);
 
-	$Documentos = $func->DocumentosAZ($id_empresa);
-	$Acessorios = $func->AcessoriosAZ($id_empresa);
-	$Roupas = $func->RoupasAZ($id_empresa);
-	$Eletronicos = $func->EletronicosAZ($id_empresa);
-	$Outros = $func->OutrosAZ($id_empresa);
+		$Documentos = $func->DocumentosAZ($id_empresa);
+		$Acessorios = $func->AcessoriosAZ($id_empresa);
+		$Roupas = $func->RoupasAZ($id_empresa);
+		$Eletronicos = $func->EletronicosAZ($id_empresa);
+		$Outros = $func->OutrosAZ($id_empresa);
 
-	setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
+		setcookie("VerificaErro", "0", time() + (86400 * 30), "/");
+	}else{
+		die("Algo deu errado, tente voltar para a tela de inicio");
+	}
+
+	
 }
 
 ?>

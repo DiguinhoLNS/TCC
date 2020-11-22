@@ -82,19 +82,19 @@ class Funcoes extends ConexaoBD
             $fraseCriptografada = substr($urlCriptografada, 12, -11);
             $chave = substr($urlCriptografada, -11, -9);
 
-            $fraseCriptografada = convert_uudecode(strrev($fraseCriptografada));
+            @$fraseCriptografada = convert_uudecode(strrev($fraseCriptografada));
             $fraseDescriptografada = '';
 
             for ($i = 0; $i < strlen($fraseCriptografada); $i++) {
 
-                $fraseAsci = ord($fraseCriptografada[$i]) + $chave;
+                @$fraseAsci = ord($fraseCriptografada[$i]) + $chave;
 
                 $fraseDescriptografada .= chr($fraseAsci);
             }
 
             return $fraseDescriptografada;
         } catch (Exception $e) {
-            return "false";
+            echo 'Erro: '. $e->getMessage();
         }
     }
 
@@ -383,6 +383,18 @@ class Funcoes extends ConexaoBD
         );
 
         return $Dados;
+    }
+
+    public function VerificarSeUsuarioJaFezLoginNestaEmpresa($id, $id_empresa){
+
+        $query = "SELECT * FROM user_empresa where id_user =  '$id' and id_empresa = '$id_empresa' and Banido = 'N';";
+        $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 5");
+        $NumeroDeLinhas = $ResultadoQuery->rowCount();
+
+        $Logado = $NumeroDeLinhas == 1 ? true : false;
+
+        return $Logado;
+
     }
 
     //Querys usadas no Company.php

@@ -31,7 +31,6 @@
 
                 if (isset($_SESSION["ErroLoginEmpresa"])) {
 
-                    //Zerar erros no cadastro de empresa
                     $_SESSION["ErrosCadastrosEmpresa"] = null;
 
                     $erro = $_SESSION["ErroLoginEmpresa"];

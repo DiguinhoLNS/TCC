@@ -135,8 +135,8 @@
 
         case "EditarUsuario":
             $nome = $func->ClearInjectionXSS($_POST["nome"]);
-            $email = $func->ClearInjectionXSS($_POST["email"]);
-            $CpfComPonto = $func->ClearInjectionXSS($_POST["CPF"]);
+            // $email = $func->ClearInjectionXSS($_POST["email"]);
+            // $CpfComPonto = $func->ClearInjectionXSS($_POST["CPF"]);
             $data = $func->ClearInjectionXSS($_POST["data"]);
             $telefone = $func->ClearInjectionXSS($_POST["telefone"]);
             $genero = $func->ClearInjectionXSS($_POST["Genero"]);
@@ -154,7 +154,7 @@
 
             $ErroNosCampos["Nome"] = $func->VerificarCadastroNome($nome);    
 
-            $ErroNosCampos["CPF"] = $func->VerificaCPF($cpf);
+            // $ErroNosCampos["CPF"] = $func->VerificaCPF($cpf);
 
             $ErroNosCampos["Data"] = $func->VerificaData($data);
 

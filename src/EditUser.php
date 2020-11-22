@@ -172,11 +172,11 @@
 							<span id = "ErrorNome" class = "txtError"> Nome inválido </span>
 							<input id = "E_UserNome" class = "UserInputData" type = "text" name = "nome" value = "<?php echo $DadosUsuario[0]["Nome_user"] ?>" required />
 						</li>
-						<li class = "ContentInput">
+						<!-- <li class = "ContentInput">
 							<label for = "E_UserCPF"> CPF </label>
 							<span id = "ErrorCPF" class = "txtError"> CPF inválido </span>
 							<input id = "E_UserCPF" class = "UserInputData InputCPF" type = "text" name = "CPF" value = "<?php echo $DadosUsuario[0]["CPF_user"] ?>" required />
-						</li>
+						</li> -->
 						<li class = "ContentInput">
 							<label for = "E_UserGenero"> Gênero </label>
 							<select name = "Genero" id = "E_UserGenero" class = "UserSelectData" required>
@@ -190,11 +190,11 @@
 							<span id = "ErrorDataNasc" class = "txtError"> Data inválida </span>
 							<input id = "E_UserDataNasc" class = "UserInputData" type = "date" name = "data" value = "<?php echo $DadosUsuario[0]["Data_nasc_user"] ?>" required />
 						</li>
-						<li class = "ContentInput">
+						<!-- <li class = "ContentInput">
 							<label for = "E_UserEmail"> Email </label>
 							<span id = "ErrorEmail" class = "txtError"> Email inválido </span>
 							<input id = "E_UserEmail" class = "UserInputData" type = "email" name = "email" value = "<?php echo $DadosUsuario[0]["Email_user"] ?>" required />
-						</li>
+						</li> -->
 						<li class = "ContentInput">
 							<label for = "E_UserTelefone"> Telefone de contato </label>
 							<span id = "ErrorTelefone" class = "txtError"> Telefone inválido </span>

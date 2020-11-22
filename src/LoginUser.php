@@ -101,7 +101,7 @@
 							<span id = "ErrorCaptcha" class = "txtError"> Preencha o captcha </span>
 						</li>
 						<li class = "ContentBottom">
-							<a href = "ResetPWD.php"> Esqueceu a senha? </a>
+							<!-- <a href = "ResetPWD.php"> Esqueceu a senha? </a> -->
 							<input class = "UserInputSubmit btn" type = "submit" value = "Entrar">
 						</li>
 

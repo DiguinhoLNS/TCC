@@ -34,13 +34,13 @@ switch ($tipo_verificacao) {
 
         $id = $func->ClearInjectionXSS($func->Descriptografar($_COOKIE["ID"]));
         $nome = $func->ClearInjectionXSS($_POST["nome"]);
-        $cpf = $func->ClearInjectionXSS($_SESSION['cpfsemponto']);
+        // $cpf = $func->ClearInjectionXSS($_SESSION['cpfsemponto']);
         $data = $func->ClearInjectionXSS($_POST["data"]);
         $telefone = $func->ClearInjectionXSS($_POST["telefone"]);
         $genero = $func->ClearInjectionXSS($_POST["Genero"]);
-        $email = $func->ClearInjectionXSS($_POST["email"]);
+        // $email = $func->ClearInjectionXSS($_POST["email"]);
 
-        $query = "UPDATE usuarios SET Nome_user='$nome', Genero_user='$genero', Data_nasc_user = '$data', CPF_user = '$cpf', Email_user = '$email', Telefone_user = '$telefone' WHERE id_user='$id'";
+        $query = "UPDATE usuarios SET Nome_user='$nome', Genero_user='$genero', Data_nasc_user = '$data', Telefone_user = '$telefone' WHERE id_user='$id'";
 
         $executandoQuery = $conn->dbh->query($query) or die("Deu errado");
 
