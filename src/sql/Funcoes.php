@@ -963,7 +963,7 @@ class Funcoes extends ConexaoBD
     public function AcessoriosAZ($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Acessorio' order by Nome_obj ASC";
+        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Acessorio' and situacao = 'Perdido' order by Nome_obj ASC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 22");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
@@ -1059,7 +1059,7 @@ class Funcoes extends ConexaoBD
     public function DocumentosAZ($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Documento' order by Nome_obj ASC";
+        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Documento' and situacao = 'Perdido' order by Nome_obj ASC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 25");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
@@ -1155,7 +1155,7 @@ class Funcoes extends ConexaoBD
     public function EletronicosAZ($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Eletronico' order by Nome_obj ASC";
+        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Eletronico' and situacao = 'Perdido' order by Nome_obj ASC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 29");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
@@ -1251,7 +1251,7 @@ class Funcoes extends ConexaoBD
     public function RoupasAZ($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Roupa' order by Nome_obj ASC";
+        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Roupa' and situacao = 'Perdido' order by Nome_obj ASC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 33");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
@@ -1347,7 +1347,7 @@ class Funcoes extends ConexaoBD
     public function OutrosAZ($id_empresa)
     {
 
-        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Outros' order by Nome_obj ASC";
+        $query = "SELECT * FROM objetos where id_empresa = '$id_empresa' and categoria = 'Outros' and situacao = 'Perdido' order by Nome_obj ASC";
         $ResultadoQuery = $this->dbh->query($query) or die("Erro na consulta 37");
         $QuantidadeDeObjetos = $ResultadoQuery->rowCount();
 
