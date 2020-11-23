@@ -1829,7 +1829,7 @@ h1, h2, h3, h4, h5, h6 {
 			grid-template-columns: 150px auto;
 			gap: 50px;
 			
-			margin-bottom: 35px;
+			margin-bottom: 40px;
 		}
 
 			#SectionAboutAPEDevelopers .DeveloperBox:last-child {
@@ -1837,11 +1837,21 @@ h1, h2, h3, h4, h5, h6 {
 			}
 
 		#SectionAboutAPEDevelopers .DeveloperBox .DeveloperPhoto span {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			
 			width: 150px;
 			height: 150px;
 			border-radius: 50%;
 
-			background-color: lightgrey;
+			background-color: var(--color-layout-s);
+		}
+
+		#SectionAboutAPEDevelopers .DeveloperBox .DeveloperPhoto span h1 {
+			color: var(--color-txt-p);
+			font-size: 50px;
 		}
 
 		#SectionAboutAPEDevelopers .DeveloperBox .TextContent {

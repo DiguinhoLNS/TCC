@@ -102,7 +102,9 @@
 
                         <li class = "DeveloperPhoto">
 
-                            <span></span>
+                            <span>
+                                <h1> L </h1>
+                            </span>
 
                         </li>
 
@@ -148,7 +150,9 @@
 
                         <li class = "DeveloperPhoto">
 
-                            <span></span>
+                            <span>
+                                <h1> M </h1>
+                            </span>
 
                         </li>
 
@@ -208,7 +212,9 @@
 
                         <li class = "DeveloperPhoto">
 
-                            <span></span>
+                            <span>
+                                <h1> R </h1>
+                            </span>
 
                         </li>
 
@@ -217,7 +223,7 @@
                             <h3> Rodrigo Lima </h3>
 
                             <p>
-                                Fã de programação e design, estou cursando ensino técnico de informática integrado ao ensino médio na ETEC ZL. Líder de desenvolvimento do projeto, desenvolveu o Front-end. ISTJ
+                                Fã de programação e design, estou cursando ensino técnico de informática integrado ao ensino médio na ETEC ZL. Desenvolveu o Front-end da plataforma. ISTJ
                             </p>
 
                             <ul class = "DeveloperSocialBar SocialIconsBar">
@@ -253,7 +259,9 @@
 
                         <li class = "DeveloperPhoto">
 
-                            <span></span>
+                            <span>
+                                <h1> T </h1>
+                            </span>
 
                         </li>
 
@@ -268,38 +276,18 @@
                             <ul class = "DeveloperSocialBar SocialIconsBar">
 
                                 <li>
-                                    <a href = "#" class = "IconFacebook" target = "_blank">
+                                    <a href = "https://www.facebook.com/marcosaugusto.quiuqui.1" class = "IconFacebook" target = "_blank">
                                         <i class = "fab"> &#xf09a; </i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href = "#" class = "IconInstagram" target = "_blank">
+                                    <a href = "https://www.instagram.com/marcosaquiuqui/" class = "IconInstagram" target = "_blank">
                                         <i class = "fab"> &#xf16d; </i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href = "#" class = "IconTwitter" target = "_blank">
+                                    <a href = "https://twitter.com/marcosaquiuqui" class = "IconTwitter" target = "_blank">
                                         <i class = "fab"> &#xf099; </i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href = "#" class = "IconPinterest" target = "_blank">
-                                        <i class = "fab"> &#xf0d2; </i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href = "" class = "IconReddit" target = "_blank">
-                                        <i class = "fab"> &#xf1a1; </i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href = "#" class = "IconLinkedin" target = "_blank">
-                                        <i class = "fab"> &#xf08c; </i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href = "" class = "IconGithub" target = "_blank">
-                                        <i class = "fab"> &#xf09b; </i>
                                     </a>
                                 </li>
 

@@ -202,6 +202,24 @@
                 }
 
             /*******************************************************
+                AboutAPE.php
+            *******************************************************/    
+
+            #SectionAboutAPEDevelopers .DeveloperBox {
+                grid-template-columns: 1fr;
+                grid-template-rows: 150px auto;
+            }
+
+            #SectionAboutAPEDevelopers .DeveloperBox .DeveloperPhoto {
+                display: flex;
+                justify-content: center;
+            }
+
+            #SectionAboutAPEDevelopers .DeveloperBox .TextContent h3 {
+                text-align: center;
+            }
+
+            /*******************************************************
                 AboutCompanies.php
             *******************************************************/
 
