@@ -90,24 +90,24 @@
 								<li class = "BoxCategory">
 									<i class = "material-icons"> folder_shared </i>
 									<h1> CPF </h1>
-									<h2> 000.000.000-00 </h2>
+									<h2> <?= $func->ColocarPontoCPF($Agendamento["Agendamento"][0]["CPF_user"])?> </h2>
 								</li>
 								<li class = "BoxCategory">
 									<i class = "material-icons"> email </i>
 									<h1> Email </h1>
-									<h2> a@a.com </h2>
+									<h2> <?= $Agendamento["Agendamento"][0]["Email"]?> </h2>
 								</li>
 								<li class = "BoxCategory">
 									<i class = "material-icons"> &#xe88e; </i>
 									<h1> Status </h1>
 									<?php
-									if($Agendamento["Agendamento"][0][5] == "Pendente"){
-										echo '<h2 class = "Status1">'.  $Agendamento["Agendamento"][0][5] .' </h2>';
-									}else if($Agendamento["Agendamento"][0][5] == "Aceito"){
-										echo '<h2 class = "Status3">'.  $Agendamento["Agendamento"][0][5] .'</h2>';
-									}else{
-										echo '<h2 class = "Status3">'.  $Agendamento["Agendamento"][0][5] .'</h2>';
-									}	
+										if($Agendamento["Agendamento"][0][5] == "Pendente"){
+											echo '<h2 class = "Status1">'.  $Agendamento["Agendamento"][0][5] .' </h2>';
+										}else if($Agendamento["Agendamento"][0][5] == "Aceito"){
+											echo '<h2 class = "Status3">'.  $Agendamento["Agendamento"][0][5] .'</h2>';
+										}else{
+											echo '<h2 class = "Status3">'.  $Agendamento["Agendamento"][0][5] .'</h2>';
+										}	
 									?>
 								</li>
 
