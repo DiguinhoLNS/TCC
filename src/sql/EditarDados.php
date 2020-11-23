@@ -52,13 +52,13 @@ switch ($tipo_verificacao) {
 
         $id_empresa = $func->ClearInjectionXSS($func->Descriptografar($_GET["q"]));
         $nome = $func->ClearInjectionXSS($_POST["nome"]);
-        $email = $func->ClearInjectionXSS($_POST["email"]);
-        $cnpj = $func->ClearInjectionXSS($_SESSION['cnpjsemponto']);
+        // $email = $func->ClearInjectionXSS($_POST["email"]);
+        // $cnpj = $func->ClearInjectionXSS($_SESSION['cnpjsemponto']);
         $telefone = $func->ClearInjectionXSS($_POST["telefone"]);
         $cor = $func->ClearInjectionXSS($_POST["CorLayout"]);
         $endereco = $func->ClearInjectionXSS($_POST["endereco"]);
 
-        $query = "UPDATE empresas SET Nome='$nome', Email='$email', CNPJ = '$cnpj', Telefone = '$telefone', Cor_layout = '$cor', Endereco = '$endereco' WHERE id_empresa='$id_empresa'";
+        $query = "UPDATE empresas SET Nome='$nome', Telefone = '$telefone', Cor_layout = '$cor', Endereco = '$endereco' WHERE id_empresa='$id_empresa'";
 
         $executandoQuery = $conn->dbh->query($query) or die("Deu errado 2");
 

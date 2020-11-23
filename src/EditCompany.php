@@ -152,16 +152,16 @@
 							<span id = "ErrorNome" class = "txtError"> Nome inválido </span>
 							<input id = "E_CompanyNome" class = "UserInputData" type = "text" name = "nome" value = "<?php echo $DadosEmpresa[0]["Nome"]; ?> " required />
 						</li>
-						<li class = "ContentInput">
+						<!-- <li class = "ContentInput">
 							<label for = "E_CompanyEmail"> Email </label>
 							<span id = "ErrorEmail" class = "txtError"> Email inválido </span>
-							<input id = "E_CompanyEmail" class = "UserInputData" type = "email" name = "email" value = "<?php echo $DadosEmpresa[0]["Email"]; ?> " required />
-                        </li>
-                        <li class = "ContentInput">
+							<input id = "E_CompanyEmail" class = "UserInputData" type = "email" name = "email" value = "<?php /*echo $DadosEmpresa[0]["Email"];*/ ?> " required />
+                        </li> -->
+                        <!-- <li class = "ContentInput">
 							<label for = "E_CompanyCNPJ"> CNPJ </label>
 							<span id = "ErrorCNPJ" class = "txtError"> CNPJ inválido </span>
-							<input id = "E_CompanyCNPJ" class = "UserInputData InputCNPJ" type = "text" name = "cnpj" value = "<?php echo $DadosEmpresa[0]["CNPJ"]; ?> " required />
-						</li>
+							<input id = "E_CompanyCNPJ" class = "UserInputData InputCNPJ" type = "text" name = "cnpj" value = "<?php /*echo $DadosEmpresa[0]["CNPJ"];*/ ?> " required />
+						</li> -->
                         <li class = "ContentInput">
 							<label for = "E_CompanyEndereco"> Endereço </label>
 							<span id = "ErrorEndereco" class = "txtError"> Endereço inválido </span>

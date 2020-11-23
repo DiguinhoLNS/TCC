@@ -141,7 +141,7 @@
             $telefone = $func->ClearInjectionXSS($_POST["telefone"]);
             $genero = $func->ClearInjectionXSS($_POST["Genero"]);
 
-            $cpf = $func->TirarPontoCPF($CpfComPonto);
+            // $cpf = $func->TirarPontoCPF($CpfComPonto);
 
             $ErroNosCampos = [
                 "Nome" => false,
@@ -184,13 +184,13 @@
         case "EditarEmpresa":
             $id_empresa = $func->ClearInjectionXSS($func->Descriptografar($_GET['q']));
             $nome = $func->ClearInjectionXSS($_POST["nome"]);
-            $email = $func->ClearInjectionXSS($_POST["email"]);
-            $CnpjComPonto = $func->ClearInjectionXSS($_POST["cnpj"]);
+            // $email = $func->ClearInjectionXSS($_POST["email"]);
+            // $CnpjComPonto = $func->ClearInjectionXSS($_POST["cnpj"]);
             $telefone = $func->ClearInjectionXSS($_POST["telefone"]);
             $endereco = $func->ClearInjectionXSS($_POST["endereco"]);
             $cor = $func->ClearInjectionXSS($_POST["CorLayout"]);
 
-            $cnpj = $func->TirarPontoCNPJ($CnpjComPonto);
+            // $cnpj = $func->TirarPontoCNPJ($CnpjComPonto);
 
             $ErroNosCampos = [
                 "Nome" => false,
@@ -203,7 +203,7 @@
 
             $ErroNosCampos["Nome"] = $func->VerificarCadastroNome($nome);
 
-            $ErroNosCampos["CNPJ"] = $func->VerificaCNPJ($cnpj);
+            // $ErroNosCampos["CNPJ"] = $func->VerificaCNPJ($cnpj);
 
             $ErroNosCampos["Endereco"] = $func->VerificarEndereco($endereco);
 

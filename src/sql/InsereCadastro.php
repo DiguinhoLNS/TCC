@@ -51,8 +51,8 @@ switch ($tipo_verificacao) {
 
 		$id_adm = $func->ClearInjectionXSS($func->Descriptografar($_COOKIE["ID"]));
 		$nome = $func->ClearInjectionXSS($_POST["nome"]);
-		$email = $func->ClearInjectionXSS($_POST["email"]);
-		$cnpj = $func->ClearInjectionXSS($_SESSION['cnpjsemponto']);
+		// $email = $func->ClearInjectionXSS($_POST["email"]);
+		// $cnpj = $func->ClearInjectionXSS($_SESSION['cnpjsemponto']);
 		$telefone = $func->ClearInjectionXSS($_POST["telefone"]);
 		$cor = $func->ClearInjectionXSS($_POST["CorLayout"]);
 		$endereco = $func->ClearInjectionXSS($_POST["endereco"]);
