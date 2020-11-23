@@ -88,6 +88,16 @@
 									<h2> <?= $Agendamento["Agendamento"][0]["Nome_user"]?>  </h2>
 								</li>
 								<li class = "BoxCategory">
+									<i class = "material-icons"> folder_shared </i>
+									<h1> CPF </h1>
+									<h2> 000.000.000-00 </h2>
+								</li>
+								<li class = "BoxCategory">
+									<i class = "material-icons"> email </i>
+									<h1> Email </h1>
+									<h2> a@a.com </h2>
+								</li>
+								<li class = "BoxCategory">
 									<i class = "material-icons"> &#xe88e; </i>
 									<h1> Status </h1>
 									<?php
