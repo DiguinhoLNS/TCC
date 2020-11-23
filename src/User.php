@@ -266,42 +266,50 @@
 
                                             $i=0;
 
-                                            do{
+                                            if($PedidosDevolvidos["Quantidade"] == 0){
 
-                                                if($PedidosDevolvidos["Agendamento"][$i]["Categoria"] == "Acessorio"){
-                                                    $PedidosDevolvidos["Agendamento"][$i]["Categoria"] = "Acessório";
-                                                }else if($PedidosDevolvidos["Agendamento"][$i]["Categoria"] == "Eletronico"){
-                                                    $PedidosDevolvidos["Agendamento"][$i]["Categoria"] = "Eletrônico";
-                                                }
+                                                echo "Nenhum item recuperado.";
 
-                                                $DataSeparada = $func->SepararData($PedidosDevolvidos["Agendamento"][$i]["Data_cadastro"]);
+                                            }else{
 
-                                                echo'
+                                                do{
 
-                                                <li class = "AllItemBox ItemBox">
+                                                    if($PedidosDevolvidos["Agendamento"][$i]["Categoria"] == "Acessorio"){
+                                                        $PedidosDevolvidos["Agendamento"][$i]["Categoria"] = "Acessório";
+                                                    }else if($PedidosDevolvidos["Agendamento"][$i]["Categoria"] == "Eletronico"){
+                                                        $PedidosDevolvidos["Agendamento"][$i]["Categoria"] = "Eletrônico";
+                                                    }
 
-                                                <a href="">
+                                                    $DataSeparada = $func->SepararData($PedidosDevolvidos["Agendamento"][$i]["Data_cadastro"]);
 
-                                                    <div class = "ItemImg">
-                                                        <img src = "imagesBD/'.$PedidosDevolvidos["Agendamento"][$i]["Nome_foto"].'">
-                                                    </div>
+                                                    echo'
 
-                                                    <div class = "ItemInfo">
-                                                        
-                                                        <h1 class = "ItemName"> '.$PedidosDevolvidos["Agendamento"][$i]["Nome_obj"].' </h1>
-                                                        <h2 class = "ItemData"> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h2>
-                                                        <h3 class = "ItemCategory"> '.$PedidosDevolvidos["Agendamento"][$i]["Categoria"].' </h3>
+                                                    <li class = "AllItemBox ItemBox">
 
-                                                    </div>
+                                                    <a href="">
 
-                                                </a>
+                                                        <div class = "ItemImg">
+                                                            <img src = "imagesBD/'.$PedidosDevolvidos["Agendamento"][$i]["Nome_foto"].'">
+                                                        </div>
 
-                                                </li>
-                                                ';
+                                                        <div class = "ItemInfo">
+                                                            
+                                                            <h1 class = "ItemName"> '.$PedidosDevolvidos["Agendamento"][$i]["Nome_obj"].' </h1>
+                                                            <h2 class = "ItemData"> ' . $DataSeparada["dia"] . '/' . $DataSeparada["mes"] . '/' . $DataSeparada["ano"] . ' </h2>
+                                                            <h3 class = "ItemCategory"> '.$PedidosDevolvidos["Agendamento"][$i]["Categoria"].' </h3>
 
-                                                $i++;
+                                                        </div>
 
-                                            }while($i < $PedidosDevolvidos["Quantidade"]);
+                                                    </a>
+
+                                                    </li>
+                                                    ';
+
+                                                    $i++;
+
+                                                }while($i < $PedidosDevolvidos["Quantidade"]);
+
+                                            }   
 
                                         ?>
 
