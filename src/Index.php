@@ -61,7 +61,7 @@
                     <li>
 
                         <h1> Seus itens perdidos reunidos aqui </h1>
-                        <p> Encontre os seus itens perdidos em nossa plataforma, ultilizada por empresas privadas e públicas </p>
+                        <p> Encontre os seus itens perdidos em nossa plataforma, ultilizada por empresas públicas e privadas  </p>
                         <button class = "btn">
                             <a id = "WelcomeLogin" href = "LoginUser.php"> Encontrar </a>
                             <a id = "WelcomeFind" href = "Dashboard.php"> Encontrar </a>
