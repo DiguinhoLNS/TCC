@@ -1324,7 +1324,7 @@
 																		<li>
 																			<ul class = "FeedConfigDevolutionOptions FeedConfigOptions">			
 																				<li>
-																					<a href = "OrderDetails.php" target = "_blank" title = "Ver Pedido">		
+																					<a href = "OrderDetails.php?q='.$func->Criptografar($PedidosAceitos["Agendamento"][$i][0]).'" target = "_blank" title = "Ver Pedido">		
 																						<i class = "material-icons"> &#xe8f4; </i>
 																					</a>
 																				</li>

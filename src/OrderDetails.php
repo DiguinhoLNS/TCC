@@ -9,7 +9,8 @@
 	$conn = new ConexaoBD();
 	$func = new Funcoes();
 	
-	$Agendamento = $func->PedidoPeloID($func->Descriptografar($_GET["q"]));
+	$id = $func->Descriptografar($_GET["q"]);
+	$Agendamento = $func->PedidoPeloID($id);
 	$DataSeparadaPedido = $func->SepararData($Agendamento["Agendamento"][0]["data"]);
 	$DataSeparadaItem = $func->SepararData($Agendamento["Agendamento"][0]["Data_cadastro"]);
     
