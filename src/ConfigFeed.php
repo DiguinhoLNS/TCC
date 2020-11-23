@@ -88,7 +88,7 @@
                                 <span> Usuários </span>
 							</li>
 							<li id = "FCFO2" class = "NavListOption">
-                                <i class = "material-icons"> category </i>
+                                <i class = "material-icons"> widgets  </i>
                                 <span> Itens </span>
 							</li>
 							<li id = "FCFO3" class = "NavListOption">
@@ -1391,6 +1391,9 @@
 															<li>
 																<h1> Status </h1>
 															</li>
+															<li>
+																<h1> Opções </h1>
+															</li>
 														</ul>
 
 													</li>
@@ -1436,6 +1439,15 @@
 																			</li>
 																			<li class = "Status2">
 																				<h1> Devolvido </h1>
+																			</li>
+																			<li>
+																				<ul class = "FeedConfigDevolutionOptions FeedConfigOptions">			
+																					<li>
+																						<a href = "OrderDetails.php?q='.$func->Criptografar($Devolvidos["Agendamento"][$i][0]).'" target = "_blank" title = "Ver Pedido">		
+																							<i class = "material-icons"> &#xe8f4; </i>
+																						</a>
+																					</li>
+																				</ul>
 																			</li>
 
 																		</ul>

@@ -85,7 +85,7 @@
                                 <span> Empresas </span>
                             </li>
                             <li id = "UFO3" class = "NavListOption">
-                                <i class = "material-icons"> category </i>
+                                <i class = "material-icons"> widgets </i>
                                 <span> Itens </span>
                             </li>
                             <li id = "UFO4" class = "NavListOption">

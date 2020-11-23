@@ -1214,7 +1214,7 @@ h1, h2, h3, h4, h5, h6 {
 			/* DevolutionSFCF2 */
 
 			#DevolutionSFCF2 ul .GroupContent .GroupUL {
-				grid-template-columns: 30px 90px 90px 60px 1fr 100px;
+				grid-template-columns: 30px 90px 90px 60px 1fr 100px 80px;
 			}
 
 		/* FCF 5 */
@@ -1686,7 +1686,7 @@ h1, h2, h3, h4, h5, h6 {
 				#SectionOrderDetailsMain ul #OrderBox5 li a h1 {
 					width: 100%;
 
-					color: var(--color-txt-p);
+					color: var(--color-txt-p-dm);
 					font-size: 24px;
 					text-align: center;
 				}

@@ -112,7 +112,7 @@
 								<h2 class = "ContentHeader"> Item </h2>
 
 								<li class = "BoxCategory">
-									<i class = "material-icons"> category </i>
+									<i class = "material-icons"> widgets </i>
 									<h1> Item </h1>
 									<h2>
 										<a href = "Item.php?q=<?=$func->Criptografar($Agendamento["Agendamento"][0]["id_obj"])?>"> <?= $Agendamento["Agendamento"][0]["Nome_obj"]?> </a>

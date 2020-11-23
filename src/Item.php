@@ -95,6 +95,11 @@
 							<ul id = "InfoBox3" class = "BoxContent">
 
 								<li>
+									<i class = "material-icons"> widgets </i>
+									<h1> ID </h1>
+									<h2> X </h2>
+								</li>
+								<li>
 									<i class = "material-icons"> &#xe916; </i>
 									<h1> Data </h1>
 									<h2> <?= $DataSeparada["dia"] . "/" . $DataSeparada["mes"] . "/" . $DataSeparada["ano"] ?></h2>
