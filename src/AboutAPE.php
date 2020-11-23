@@ -113,7 +113,7 @@
                             <h3> Luís Gustavo </h3>
 
                             <p>
-                                Vulgo LG, amante de PHP. Dono da mágica por trás do site, ou seja, o Back-end. †ℐℋ𝒮†. ENFP 
+                                Vulgo LG, amante de PHP. Dono da mágica por trás do site, ou seja, o Back-end. †ℐℋ𝒮†. ENFP.
                             </p>
 
                             <ul class = "DeveloperSocialBar SocialIconsBar">
@@ -160,7 +160,7 @@
                             <h3> Marcos Augusto </h3>
 
                             <p>
-                                Amante da Gastronomia, Genética e Redes, responsável pela documentação e auxiliar de design do site. ENFP
+                                Amante da Gastronomia, Genética e Redes, responsável pela documentação e auxiliar de design do site. ENFP.
                             </p>
 
                             <ul class = "DeveloperSocialBar SocialIconsBar">
@@ -202,7 +202,7 @@
                             <h3> Rodrigo Lima </h3>
 
                             <p>
-                                Fã de programação e design, estou cursando ensino técnico de informática integrado ao ensino médio na ETEC ZL. Desenvolveu o Front-end da plataforma. ISTJ
+                                Fã de programação e design, estou cursando ensino técnico de informática integrado ao ensino médio na ETEC ZL. Desenvolveu o Front-end da plataforma. ISTJ.
                             </p>
 
                             <ul class = "DeveloperSocialBar SocialIconsBar">
@@ -249,7 +249,7 @@
                             <h3> Tiago Barbosa </h3>
 
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a blandit dolor. Phasellus et massa dignissim, egestas libero eu, facilisis risus. Praesent vulputate magna lacus, nec egestas lorem sodales sit.
+                                Responsável pelo Banco de Dados do site, Espírito livre e futuro fazendeiro. ENFP.
                             </p>
 
                             <ul class = "DeveloperSocialBar SocialIconsBar">

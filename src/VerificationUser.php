@@ -41,8 +41,7 @@
         $cod = $func->GerarCodigoDuasEtapas();
         $email->setPara($emailUser);
         $_SESSION['cod'] = $cod;
-        // $email->DuasEtapas($cod);
-        echo $cod;
+        $email->DuasEtapas($cod);
     }
 
 ?>
@@ -88,7 +87,7 @@
 
         <main id = "MainLoginUser" class = "MainFormPlatform">
 
-            <div class = "FormPlatform FormVerification BS">
+            <div class = "FormPlatform FormEdit BS">
 
                 <form class = "FormData" method = "POST" action = "VerificationUser.php">
 
