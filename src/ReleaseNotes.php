@@ -67,16 +67,6 @@
 
                                 </li>
 
-                                <li class = "ReleaseNotesText">
-
-                                    <h2> Título da att </h2>
-
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at tincidunt augue. Sed id metus semper, pellentesque felis at, condimentum mi. Mauris sagittis augue sed ligula hendrerit, in pharetra odio finibus. Cras at volutpat ligula. Sed id velit nec leo euismod mollis vitae non sapien. Pellentesque suscipit sollicitudin egestas. Integer fermentum dui augue, ac ultrices magna tempor vel. Pellentesque ullamcorper odio rhoncus enim cursus, facilisis viverra lacus maximus. Proin bibendum vel erat nec congue.
-                                    </p> 
-
-                                </li>
-
                             </ul>
 
                         </li>
@@ -97,16 +87,6 @@
 
                                 </li>
 
-                                <li class = "ReleaseNotesText">
-
-                                    <h2> Título da att </h2>
-
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at tincidunt augue. Sed id metus semper, pellentesque felis at, condimentum mi. Mauris sagittis augue sed ligula hendrerit, in pharetra odio finibus. Cras at volutpat ligula. Sed id velit nec leo euismod mollis vitae non sapien. Pellentesque suscipit sollicitudin egestas. Integer fermentum dui augue, ac ultrices magna tempor vel. Pellentesque ullamcorper odio rhoncus enim cursus, facilisis viverra lacus maximus. Proin bibendum vel erat nec congue.
-                                    </p> 
-
-                                </li>
-
                             </ul>
 
                         </li>
@@ -116,16 +96,6 @@
                             <h1> Erros Corrigidos </h1>
 
                             <ul class = "ReleaseNotesContent">
-
-                                <li class = "ReleaseNotesText">
-
-                                    <h2> Título da att </h2>
-
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at tincidunt augue. Sed id metus semper, pellentesque felis at, condimentum mi. Mauris sagittis augue sed ligula hendrerit, in pharetra odio finibus. Cras at volutpat ligula. Sed id velit nec leo euismod mollis vitae non sapien. Pellentesque suscipit sollicitudin egestas. Integer fermentum dui augue, ac ultrices magna tempor vel. Pellentesque ullamcorper odio rhoncus enim cursus, facilisis viverra lacus maximus. Proin bibendum vel erat nec congue.
-                                    </p> 
-
-                                </li>
 
                                 <li class = "ReleaseNotesText">
 

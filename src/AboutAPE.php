@@ -113,8 +113,7 @@
                             <h3> Luís Gustavo </h3>
 
                             <p>
-                                Vulgo LG, amante de PHP. Dono da mágica por trás do site, ou seja, o Back-end. ENFP<br>
-                                †ℐℋ𝒮†
+                                Vulgo LG, amante de PHP. Dono da mágica por trás do site, ou seja, o Back-end. †ℐℋ𝒮†. ENFP 
                             </p>
 
                             <ul class = "DeveloperSocialBar SocialIconsBar">
@@ -255,7 +254,7 @@
 
                             <ul class = "DeveloperSocialBar SocialIconsBar">
 
-                            <li>
+                                <li>
                                     <a href = "#" class = "IconFacebook" target = "_blank">
                                         <i class = "fab"> &#xf09a; </i>
                                     </a>

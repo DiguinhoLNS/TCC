@@ -210,12 +210,14 @@
                 grid-template-rows: 150px auto;
             }
 
-            #SectionAboutAPEDevelopers .DeveloperBox .DeveloperPhoto {
+            #SectionAboutAPEDevelopers .DeveloperBox .DeveloperPhoto, 
+            #SectionAboutAPEDevelopers .DeveloperBox .DeveloperSocialBar {
                 display: flex;
                 justify-content: center;
             }
 
-            #SectionAboutAPEDevelopers .DeveloperBox .TextContent h3 {
+            #SectionAboutAPEDevelopers .DeveloperBox .TextContent h3,
+            #SectionAboutAPEDevelopers .DeveloperBox .TextContent p {
                 text-align: center;
             }
 

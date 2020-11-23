@@ -1752,6 +1752,9 @@ h1, h2, h3, h4, h5, h6 {
 			}
 
 		#MainAboutAPE .MainContent section ul .TextContent p {
+			display: flex;
+			align-items: center;
+			
 			width: 100%;
 
 			font-size: 16px;
@@ -2075,6 +2078,7 @@ h1, h2, h3, h4, h5, h6 {
 		#SectionReleaseNotesMain .ReleaseNotesVersionHeader h3 {
 			color: var(--color-txt-t);
 			font-size: 28px;
+			font-style: italic;
 		}
 
 		#SectionReleaseNotesMain #ReleaseNotesGroup {
