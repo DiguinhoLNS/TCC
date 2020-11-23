@@ -22,7 +22,6 @@ switch ($tipoVerificacao) {
             $sql->execute([':situacao' => "Aceito", ':id_agendamento' => $id_agendamento]);
 
             header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($Pedido["Agendamento"][0]["id_empresa"]));
-
         } catch (PDOException $e) {
 
             die("Erro na consulta");
@@ -37,6 +36,40 @@ switch ($tipoVerificacao) {
             $query = "UPDATE agendamento SET situacao= :situacao WHERE id_agendamento= :id_agendamento";
             $sql = $conn->dbh->prepare($query);
             $sql->execute([':situacao' => "Negado", ':id_agendamento' => $id_agendamento]);
+            header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($Pedido["Agendamento"][0]["id_empresa"]));
+        } catch (PDOException $e) {
+
+            die("Erro na consulta");
+        }
+
+
+        break;
+
+    case "C":
+
+        try {
+
+            $query = "UPDATE agendamento SET situacao= :situacao WHERE id_agendamento= :id_agendamento";
+            $sql = $conn->dbh->prepare($query);
+            $sql->execute([':situacao' => "Devolvido", ':id_agendamento' => $id_agendamento]);
+            header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($Pedido["Agendamento"][0]["id_empresa"]));
+        } catch (PDOException $e) {
+
+            die("Erro na consulta");
+        }
+
+
+        break;
+
+
+    case "D":
+
+        try {
+
+            $query = "DELETE FROM agendamento WHERE id_agendamento= :id_agendamento";
+            $sql = $conn->dbh->prepare($query);
+            $sql->execute([':id_agendamento' => $id_agendamento]);
+            
             header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($Pedido["Agendamento"][0]["id_empresa"]));
         } catch (PDOException $e) {
 

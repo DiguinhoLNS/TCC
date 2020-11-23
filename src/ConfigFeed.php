@@ -1288,7 +1288,7 @@
 													<?php
 
 														if($PedidosAceitos["Quantidade"] == 0){
-															echo "Nenhuma devolução pendente";
+															echo "";
 														}else{	
 
 															$i=0;
@@ -1406,7 +1406,7 @@
 
 															if($Devolvidos["Quantidade"] == 0){
 
-																echo 'Nenhum Item devolvido';
+																echo '';
 
 															}else{
 
@@ -1443,7 +1443,7 @@
 																			<li>
 																				<ul class = "FeedConfigDevolutionOptions FeedConfigOptions">			
 																					<li>
-																						<a href = "OrderDetails.php?q='.$func->Criptografar($Devolvidos["Agendamento"][$i][0]).'" target = "_blank" title = "Ver Pedido">		
+																						<a href = "OrderDetails.php?q='.$func->Criptografar($Devolvidos["Objeto"][$i]["id_agendamento"]).'" target = "_blank" title = "Ver Pedido">		
 																							<i class = "material-icons"> &#xe8f4; </i>
 																						</a>
 																					</li>

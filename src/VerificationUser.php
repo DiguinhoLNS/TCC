@@ -41,7 +41,8 @@
         $cod = $func->GerarCodigoDuasEtapas();
         $email->setPara($emailUser);
         $_SESSION['cod'] = $cod;
-        $email->DuasEtapas($cod);
+        // $email->DuasEtapas($cod);
+        echo $cod;
     }
 
 ?>

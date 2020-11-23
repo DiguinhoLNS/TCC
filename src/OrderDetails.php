@@ -96,7 +96,7 @@
 									}else if($Agendamento["Agendamento"][0][5] == "Aceito"){
 										echo '<h2 class = "Status3">'.  $Agendamento["Agendamento"][0][5] .'</h2>';
 									}else{
-										echo '<h2 class = "Status2">'.  $Agendamento["Agendamento"][0][5] .'</h2>';
+										echo '<h2 class = "Status3">'.  $Agendamento["Agendamento"][0][5] .'</h2>';
 									}	
 									?>
 								</li>
@@ -132,7 +132,7 @@
 									<i class = "material-icons">  &#xe0af; </i>
 									<h1> Empresa </h1>
 									<h2>
-										<a href = "Company.php?q=<?=$func->Criptografar($Agendamento["Agendamento"][0]["id_empresa"])?>"> <?= $Agendamento["Agendamento"][0][17]?> </a>
+										<a href = "Company.php?q=<?=$func->Criptografar($Agendamento["Agendamento"][0]["id_empresa"])?>"> <?= $Agendamento["Agendamento"][0]["Nome"]?> </a>
 									</h2>
 								</li>
 								<li class = "BoxCategory">
@@ -162,20 +162,49 @@
 
 						<li class = "Box OrderControl">
 
+						<?php 
+
+						if($Agendamento["Agendamento"][0][5] == "Pendente"){
+
+							echo '
+
 							<ul id = "OrderBox5" class = "BoxContent">
 
 								<li>
-									<a href = "sql/ConfigAgendamento.php?q=<?=$func->Criptografar($PedidosPendentes["Agendamento"][$i]["id_agendamento"]).'&v='.$func->Criptografar("A")?>">
+									<a href = "sql/ConfigAgendamento.php?q='.$func->Criptografar($Agendamento["Agendamento"][0][0]).'&v='.$func->Criptografar("A").'">
+										<h1> Confirmar Agendamento </h1>
+									</a>
+								</li>
+								<li>
+									<a href = "sql/ConfigAgendamento.php?q='.$func->Criptografar($Agendamento["Agendamento"][0][0]).'&v='.$func->Criptografar("B").'">
+										<h1> Negar Agendamento </h1>
+									</a>
+								</li>
+
+							</ul>';
+
+						}else if($Agendamento["Agendamento"][0][5] == "Aceito"){
+
+							echo '
+
+							<ul id = "OrderBox5" class = "BoxContent">
+
+								<li>
+									<a href = "sql/EditarDados.php?q='.$func->Criptografar($Agendamento["Agendamento"][0]["id_obj"]).'&v='. $func->Criptografar("Devolvido").'&a='.$func->Criptografar($Agendamento["Agendamento"][0][0]).'&c='.$func->Criptografar($Agendamento["Agendamento"][0]["id_empresa"]).'">
 										<h1> Confirmar Devolução </h1>
 									</a>
 								</li>
 								<li>
-									<a href = "sql/ConfigAgendamento.php?q=<?=$func->Criptografar($PedidosPendentes["Agendamento"][$i]["id_agendamento"]).'&v='.$func->Criptografar("B")?>">
+									<a href = "sql/ConfigAgendamento.php?q='.$func->Criptografar($Agendamento["Agendamento"][0][0]).'&v='.$func->Criptografar("D").'">
 										<h1> Negar Devolução </h1>
 									</a>
 								</li>
 
-							</ul>
+							</ul>';
+
+						}
+
+						?>
 
 						</li>
 
