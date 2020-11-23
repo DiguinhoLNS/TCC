@@ -167,38 +167,18 @@
                             <ul class = "DeveloperSocialBar SocialIconsBar">
 
                                 <li>
-                                    <a href = "#" class = "IconFacebook" target = "_blank">
+                                    <a href = "https://www.facebook.com/marcosaugusto.quiuqui.1" class = "IconFacebook" target = "_blank">
                                         <i class = "fab"> &#xf09a; </i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href = "#" class = "IconInstagram" target = "_blank">
+                                    <a href = "https://www.instagram.com/marcosaquiuqui/" class = "IconInstagram" target = "_blank">
                                         <i class = "fab"> &#xf16d; </i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href = "#" class = "IconTwitter" target = "_blank">
+                                    <a href = "https://twitter.com/marcosaquiuqui" class = "IconTwitter" target = "_blank">
                                         <i class = "fab"> &#xf099; </i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href = "#" class = "IconPinterest" target = "_blank">
-                                        <i class = "fab"> &#xf0d2; </i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href = "" class = "IconReddit" target = "_blank">
-                                        <i class = "fab"> &#xf1a1; </i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href = "#" class = "IconLinkedin" target = "_blank">
-                                        <i class = "fab"> &#xf08c; </i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href = "" class = "IconGithub" target = "_blank">
-                                        <i class = "fab"> &#xf09b; </i>
                                     </a>
                                 </li>
 
@@ -275,18 +255,18 @@
 
                             <ul class = "DeveloperSocialBar SocialIconsBar">
 
-                                <li>
-                                    <a href = "https://www.facebook.com/marcosaugusto.quiuqui.1" class = "IconFacebook" target = "_blank">
+                            <li>
+                                    <a href = "#" class = "IconFacebook" target = "_blank">
                                         <i class = "fab"> &#xf09a; </i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href = "https://www.instagram.com/marcosaquiuqui/" class = "IconInstagram" target = "_blank">
+                                    <a href = "#" class = "IconInstagram" target = "_blank">
                                         <i class = "fab"> &#xf16d; </i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href = "https://twitter.com/marcosaquiuqui" class = "IconTwitter" target = "_blank">
+                                    <a href = "#" class = "IconTwitter" target = "_blank">
                                         <i class = "fab"> &#xf099; </i>
                                     </a>
                                 </li>
