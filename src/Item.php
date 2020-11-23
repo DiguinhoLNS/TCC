@@ -97,7 +97,7 @@
 								<li>
 									<i class = "material-icons"> widgets </i>
 									<h1> ID </h1>
-									<h2> X </h2>
+									<h2> <?= $DadosItem["Objeto"][0]["id_obj"] ?> </h2>
 								</li>
 								<li>
 									<i class = "material-icons"> &#xe916; </i>
@@ -146,24 +146,36 @@
 
 			</div>
 
-			<button id = "btnItemControl" class = "btnControl FeedADM" title = "Recuperar Item">
-				<i class = "material-icons"> cached </i>
-			</button>
+			<?php
 
-			<div id = "ItemControlPane" class = "ControlPane BS">
+			if($DadosItem["Objeto"][0]["situacao"] != "Devolvido"){
 
-				<h1> Recuperar Item </h1>
+				echo'
 
-				<ul>
-					<li>
-						<a href = "RecoverItem.php">
-							<i class = "material-icons"> add_comment </i>
-							<span> Enviar Pedido </span>
-						</a>
-					</li>
-				</ul>
+					<button id = "btnItemControl" class = "btnControl FeedADM" title = "Recuperar Item">
+						<i class = "material-icons"> cached </i>
+					</button>
 
-			</div>
+					<div id = "ItemControlPane" class = "ControlPane BS">
+
+						<h1> Recuperar Item </h1>
+
+						<ul>
+							<li>
+								<a href = "RecoverItem.php">
+									<i class = "material-icons"> add_comment </i>
+									<span> Enviar Pedido </span>
+								</a>
+							</li>
+						</ul>
+
+					</div>'
+
+				;
+
+			}
+
+			?>
 
 		</main>
 
