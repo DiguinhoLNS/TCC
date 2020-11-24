@@ -93,7 +93,7 @@
 
             <div id = "MailContentMessage" class = "MailContent">
 
-                <h2> Pedido do agendamento de devolução do item <<?=$Nome_obj?>, foi aceito </h2>
+                <h2> Pedido do agendamento de devolução do item <?=$Nome_obj?>, foi aceito! </h2>
 
             </div>
 
