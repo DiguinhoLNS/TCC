@@ -59,30 +59,10 @@
 
                                 <li class = "ReleaseNotesText">
 
-                                    <h2> Título da att </h2>
+                                    <h2> Primeira versão - First Release </h2>
 
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at tincidunt augue. Sed id metus semper, pellentesque felis at, condimentum mi. Mauris sagittis augue sed ligula hendrerit, in pharetra odio finibus. Cras at volutpat ligula. Sed id velit nec leo euismod mollis vitae non sapien. Pellentesque suscipit sollicitudin egestas. Integer fermentum dui augue, ac ultrices magna tempor vel. Pellentesque ullamcorper odio rhoncus enim cursus, facilisis viverra lacus maximus. Proin bibendum vel erat nec congue.
-                                    </p> 
-
-                                </li>
-
-                            </ul>
-
-                        </li>
-
-                        <li id = "Updates" class = "ReleaseNotesBox">
-
-                            <h1> Atualizações </h1>
-
-                            <ul class = "ReleaseNotesContent">
-
-                                <li class = "ReleaseNotesText">
-
-                                    <h2> Título da att </h2>
-
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at tincidunt augue. Sed id metus semper, pellentesque felis at, condimentum mi. Mauris sagittis augue sed ligula hendrerit, in pharetra odio finibus. Cras at volutpat ligula. Sed id velit nec leo euismod mollis vitae non sapien. Pellentesque suscipit sollicitudin egestas. Integer fermentum dui augue, ac ultrices magna tempor vel. Pellentesque ullamcorper odio rhoncus enim cursus, facilisis viverra lacus maximus. Proin bibendum vel erat nec congue.
+                                    Primeira versão do nosso projeto Achados e Perdidos Empresarial, APE-Group.
                                     </p> 
 
                                 </li>
@@ -99,10 +79,10 @@
 
                                 <li class = "ReleaseNotesText">
 
-                                    <h2> Título da att </h2>
+                                    <h2> Primeira versão - First Release </h2>
 
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at tincidunt augue. Sed id metus semper, pellentesque felis at, condimentum mi. Mauris sagittis augue sed ligula hendrerit, in pharetra odio finibus. Cras at volutpat ligula. Sed id velit nec leo euismod mollis vitae non sapien. Pellentesque suscipit sollicitudin egestas. Integer fermentum dui augue, ac ultrices magna tempor vel. Pellentesque ullamcorper odio rhoncus enim cursus, facilisis viverra lacus maximus. Proin bibendum vel erat nec congue.
+                                        Nenhum erro encontrado até esta versão.
                                     </p> 
 
                                 </li>
