@@ -44,6 +44,10 @@
             }
 
             h3 {
+                display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
                 color: #202124;
                 font-size: 22px;
                 font-weight: bold;
@@ -51,7 +55,7 @@
             }
 
             h3 a {
-                color: inherit;
+                color: #202124;
             }
 
                 h3 a:hover {

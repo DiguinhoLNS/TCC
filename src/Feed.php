@@ -78,7 +78,7 @@ if (isset($_COOKIE["ID"])) {
 			<section id="CompanyHeader">
 
 				<a href="Company.php?q=<?php echo $func->Criptografar($DadosEmpresa[0]["id_empresa"]); ?>" title="Acessar <?php echo $DadosEmpresa[0]['Nome']; ?>">
-					<h1> Feed <?php echo $DadosEmpresa[0]['Nome']; ?></h1>
+					<h1><?php echo $DadosEmpresa[0]['Nome']; ?></h1>
 				</a>
 
 			</section>

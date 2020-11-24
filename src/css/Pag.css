@@ -31,11 +31,12 @@ html, body {
 }
 
 /*******************************************************
-	CSS - Link - V3
+	CSS - Link - V4
 *******************************************************/
 
 a {		
 	border: none;
+	outline: none;
 	color: none;
 	text-decoration: none;
 	cursor: pointer;
@@ -43,30 +44,35 @@ a {
 
 a:link {
 	border: none;
+	outline: none;
 	color: none;
 	text-decoration: none;
 }
 
 a:active {
 	border: none;
+	outline: none;
 	color: none;
 	text-decoration: none;
 }
 
 a:visited {
 	border: none;
+	outline: none;
 	color: none;
 	text-decoration: none;
 }
 
 a:hover {
 	border: none;
+	outline: none;
 	color: none;
 	text-decoration: none;
 }
 
 a:focus {
 	border: none;
+	outline: none;
 	color: none;
 	text-decoration: none;
 }
@@ -1219,6 +1225,14 @@ h1, h2, h3, h4, h5, h6 {
 
 		/* FCF 5 */
 
+		#FCF5 .NoFor {
+			width: 100%;
+			
+			color: var(--color-txt-t);
+			font-size: 16px;
+			text-align: center;
+		}
+
 		#FCF5 .CalendarDayContent {
 			width: 100%;
 			margin-bottom: 25px;
@@ -1405,7 +1419,7 @@ h1, h2, h3, h4, h5, h6 {
 
 				#SectionItemMain ul #InfoBox3 li {
 					display: grid;
-					grid-template-columns: auto 1fr;
+					grid-template-columns: 24px 1fr;
 					grid-template-rows: auto auto;
 					gap: 4px 20px;
 					
@@ -1431,7 +1445,7 @@ h1, h2, h3, h4, h5, h6 {
 					width: 100%;
 
 					color: var(--color-txt-s);
-					font-size: 20px;
+					font-size: 16px;
 				}
 
 				#SectionItemMain ul #InfoBox3 li h2 {
@@ -1546,12 +1560,16 @@ h1, h2, h3, h4, h5, h6 {
 				width: 100%;
 
 				color: var(--color-txt-p);
-				font-size: 22px;
+				font-size: 20px;
 			}
+
+				.ThemeYellow #SectionOrderDetailsMain .BoxGroup .Box .BoxContent .ContentHeader {
+					color: var(--color-txt-p-lm);
+				}
 
 			#SectionOrderDetailsMain .BoxGroup .Box .BoxContent .BoxCategory {
 				display: grid;
-				grid-template-columns: auto 1fr;
+				grid-template-columns: 24px 1fr;
 				grid-template-rows: auto auto;
 				gap: 4px 20px;
 				
@@ -1577,7 +1595,7 @@ h1, h2, h3, h4, h5, h6 {
 				width: 100%;
 
 				color: var(--color-txt-s);
-				font-size: 20px;
+				font-size: 16px;
 			}
 
 			#SectionOrderDetailsMain .BoxGroup .Box .BoxContent .BoxCategory h2 {
@@ -1630,6 +1648,10 @@ h1, h2, h3, h4, h5, h6 {
 					font-size: 30px;
 					text-align: center;
 				}
+
+					.ThemeYellow #SectionOrderDetailsMain ul #OrderBox1 h1 {
+						color: var(--color-txt-p-lm);
+					}
 
 				/* Box 4 */
 
@@ -1687,7 +1709,7 @@ h1, h2, h3, h4, h5, h6 {
 					width: 100%;
 
 					color: var(--color-txt-p-dm);
-					font-size: 24px;
+					font-size: 22px;
 					text-align: center;
 				}
 
@@ -3808,10 +3830,13 @@ h1, h2, h3, h4, h5, h6 {
 
 		.MainOverlay .DiscoverOverlayUL {
 			display: grid;
-			grid-template-rows: auto 1fr;
+			grid-template-rows: 80px 1fr;
+			gap: 30px;
 			
-			width: 900px;
+			max-width: 900px;
+			min-width: 300px;
 			padding: 40px 60px;
+			margin: 40px;
 			border-radius: 40px;
 
 			list-style-type: none;
@@ -3825,16 +3850,12 @@ h1, h2, h3, h4, h5, h6 {
 			width: 100%;
 		}
 
-			.MainOverlay .DiscoverOverlayUL li:nth-child(1){
-				height: 80px;
-				margin-bottom: 60px;
-
-				text-align: center;
-			}
-
 		.MainOverlay .DiscoverOverlayUL li i {
-			margin-right: 40px;
-
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			
 			color: var(--color-txt-p);
 			font-size: 80px;
 		}

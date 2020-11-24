@@ -254,23 +254,18 @@
                             <h3> Tiago Barbosa </h3>
 
                             <p>
-                                Responsável pelo Banco de Dados do site, Espírito livre e futuro fazendeiro. ENFP.
+                                Responsável pelo Banco de Dados,  amante de esportes e tecnologia, explorador. ENFP-A
                             </p>
 
                             <ul class = "DeveloperSocialBar SocialIconsBar">
 
                                 <li>
-                                    <a href = "#" class = "IconFacebook" target = "_blank">
+                                    <a href = "https://www.facebook.com/profile.php?id=100005397422246" class = "IconFacebook" target = "_blank">
                                         <i class = "fab"> &#xf09a; </i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href = "#" class = "IconInstagram" target = "_blank">
-                                        <i class = "fab"> &#xf16d; </i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href = "#" class = "IconTwitter" target = "_blank">
+                                    <a href = "https://twitter.com/Tiraxgo" class = "IconTwitter" target = "_blank">
                                         <i class = "fab"> &#xf099; </i>
                                     </a>
                                 </li>

@@ -14,6 +14,10 @@
     Media Devices
 *******************************************************/
 
+    /*******************************************************
+        1500
+    *******************************************************/
+
     @media only screen and (max-width: 1500px){
 
         /*******************************************************
@@ -35,6 +39,10 @@
 
     }
 
+    /*******************************************************
+        1100
+    *******************************************************/
+
     @media only screen and (max-width: 1100px){
 
         /*******************************************************
@@ -42,7 +50,7 @@
         *******************************************************/
 
         .HeaderContent {
-            grid-template-columns: auto 1fr auto;
+            grid-template-columns: 88px 1fr 88px;
         }
 
         #Header3, #Header4 {
@@ -87,6 +95,11 @@
                     border-radius: 0 0 40px 40px;
                 }
 
+                #SectionIndexDiscover .CompanyBox:last-child,
+                #SectionAboutCompaniesYourCompanies:last-child {
+                    border-radius: 40px;
+                }
+
             #DiscoverContent #DiscoverBlocksGroup nav ul {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -103,10 +116,7 @@
                 User.php
             *******************************************************/
 
-            #UF2 .FrameMain .BoxView {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
+            #UF2 .FrameMain .BoxView,
             #UF3 .FrameMain .ItensView {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -258,6 +268,299 @@
 
         .SubFramesetContent {
             gap: 40px;
+        }
+
+    }
+
+    /*******************************************************
+        800
+    *******************************************************/
+
+    @media only screen and (max-width: 768px){
+
+        
+        /*******************************************************
+            Main
+        *******************************************************/
+
+        #MainIndex .MainContent {
+            padding: 0 0 60px;
+        }
+
+        .MainContent section {
+            padding-left: 20px;
+            padding-right: 20px;		
+        }
+
+            /*******************************************************
+                Index.php
+            *******************************************************/
+
+            .SectionWelcome {
+                padding-top: 60px;
+                padding-bottom: 60px;
+            }
+
+            .SectionWelcome ul li h1 {
+                font-size: 50px;
+            }
+
+            #DiscoverContent {
+                padding: 20px;
+            }
+
+            #DiscoverContent h1 {
+                margin-bottom: 40px;
+
+                font-size: 30px;
+            }
+
+            #DiscoverContent #DiscoverBlocksGroup nav ul {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            #DiscoverContent #DiscoverBlocksGroup nav ul a {
+                padding: 30px;
+            }
+
+            #DiscoverContent #DiscoverBlocksGroup nav ul a i {
+                font-size: 40px;
+            }
+
+            #DiscoverContent #DiscoverBlocksGroup nav ul span {
+                display: none;
+            }
+
+            /*******************************************************
+                Dashboard.php
+            *******************************************************/
+
+            #SectionDashboardItems nav ul {
+                grid-template-columns: 1fr;
+            }
+
+            /*******************************************************
+                User.php
+            *******************************************************/
+
+            #SectionUserHeader {
+                margin-bottom: 60px;
+            }
+
+            #UF2 .FrameMain .BoxView,
+            #UF3 .FrameMain .ItensView {
+                grid-template-columns: 1fr;
+            }
+
+            /*******************************************************
+                Feed.php
+            *******************************************************/
+
+            .FeedBoxGroup {
+                grid-template-columns: 1fr;
+            }
+
+            .FeedBoxGroup .CategoryHeaderBox {
+                grid-column: 1/2;
+            }
+
+            /*******************************************************
+                ConfigFeed.php
+            *******************************************************/
+
+            .GroupHeader {
+                display: none;
+            }
+
+            .GroupMain .GroupContent {
+                padding: 20px;
+                margin-bottom: 20px;
+                border: none;
+                border-radius: 20px;
+
+                background-color: var(--color-layout-s);
+            }
+
+            .GroupMain .GroupContent .GroupUL {
+                height: auto;
+            }
+
+            .GroupMain .GroupContent .GroupUL h1 {
+                margin: 0;
+            }
+
+            /* FCF1 */
+
+            #FCF1 ul .GroupContent .GroupUL {
+                grid-template-columns: 1fr 100px;
+                gap: 10px
+            }
+
+            #FCF1 ul .GroupContent .GroupUL .FeedConfigOptionContent {
+                grid-column: 1/3;
+
+                width: 100%;
+            }
+
+            #FCF1 ul .GroupContent .GroupUL .FeedConfigUserNameContent h1 {
+                color: var(--color-txt-p);
+            }
+
+                #FCF1 ul .GroupContent .GroupUL .FeedConfigUserCodeContent,
+                #FCF1 ul .GroupContent .GroupUL .FeedConfigUserLevelContent {
+                    display: none;
+                }
+
+            /* Frames */
+
+            #FCF2 #FeedConfigItensView, #FCF3 ul .GroupContent .GroupUL,
+            #FCF4 ul .GroupContent .GroupUL,  #FCF5 .CalendarDayContent .CalendarEvent .CalendarEventContent {
+                grid-template-columns: 1fr;
+            }
+
+            /*******************************************************
+                Item.php
+            *******************************************************/
+
+            #MainItem .MainContent {
+                padding: 40px 0;
+            }
+
+            /*******************************************************
+                OrderDetails.php
+            *******************************************************/
+
+            #MainOrderDetails .MainContent {
+                padding: 40px 0;
+            }
+
+            #SectionOrderDetailsMain ul #OrderBox5 {
+                grid-template-columns: 1fr;
+            }
+
+            #SectionOrderDetailsMain ul #OrderBox5 li:nth-child(1){
+                border-radius: 46px 46px 0 0;
+            }
+
+            #SectionOrderDetailsMain ul #OrderBox5 li:nth-child(2){
+                border-radius: 0 0 46px 46px;
+            }
+
+            #SectionOrderDetailsMain ul #OrderBox5 li a {
+                padding: 20px 40px;
+            }
+
+        /*******************************************************
+            Footer
+        *******************************************************/
+
+        #FooterContent {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(6, auto);
+
+            padding: 40px 20px;
+        }
+
+        #FooterContent ul {
+            grid-column: 1/2;	
+        }
+
+        .FooterSocial h1 {
+            width: 100%;
+            margin: 0;
+            margin-bottom: 16px;
+        }
+
+        /*******************************************************
+            Outros
+        *******************************************************/
+
+        /* Form Platform */
+
+        .FormPlatform .FormControl {
+            display: none;
+        }
+
+        .FormPlatform .FormData {
+            padding: 40px 20px;
+        }
+
+        .FormPlatform .FormData .FormPlatformContent .ContentHeader {
+            margin-bottom: 40px;
+        }
+
+        /* Frames */
+
+        .SubFramesetContent {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 20px;
+        }
+
+        .NavBarControl {
+            margin-bottom: 20px;
+        }
+
+        .SubNavBarControl ul li {
+            width: auto;
+            border: none;
+            border-radius: 18px;
+            outline: none;
+        }
+
+        .SubNavBarControl ul li:focus {
+            outline: none;
+        }
+
+            .CompanyLayout .SubNavBarControl ul .active {
+                color: var(--color-txt-p-dm);
+                background-color: var(--color-theme-company-p);
+            }
+
+        /* Company Header */
+
+        #CompanyHeader a {
+            padding: 20px;
+        }
+
+        #CompanyHeader a h1 {
+            font-size: 30px;
+        }
+
+        /* Main Overlay */
+
+        .MainOverlay .DiscoverOverlayUL {
+            grid-template-rows: auto auto;
+
+            padding: 30px;
+        }
+
+        .MainOverlay .DiscoverOverlayUL li i {
+            font-size: 50px;
+        }
+
+        .MainOverlay .DiscoverOverlayUL li h1 {
+            margin: 0;
+        }
+
+        .MainOverlay .DiscoverOverlayUL li p {
+            font-size: 16px;
+        }
+
+        /* Category */
+
+        .Category .CategoryOptions {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto;
+        }
+
+        .Category .CategoryOptions .btnContent {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 20px;
         }
 
     }

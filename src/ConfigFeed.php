@@ -193,19 +193,19 @@
 																
 																<ul class = "GroupUL">
 																
-																	<li>
+																	<li class = "FeedConfigUserCodeContent">
 																		<h1> '.($i2).'  </h1>
 																	</li>
-																	<li>
+																	<li class = "FeedConfigUserNameContent">
 																		<h1> '.$DadosUserEmpresa["Usuarios"][$i]["Nome_user"].' </h1>
 																	</li>
-																	<li>
+																	<li class = "FeedConfigUserLevelContent">
 																		<h1> '.$DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"].' </h1>
 																	</li>
-																	<li>
+																	<li class = "FeedConfigUserStatusContent">
 																		<h1> '.$status.' </h1>
 																	</li>
-																	<li>
+																	<li class = "FeedConfigOptionContent">
 																		<ul class = "FeedConfigUserOptions FeedConfigOptions">';
 
 																			if($DadosUserEmpresa["Usuarios"][$i]["Nivel_acesso"] < 3){
@@ -325,19 +325,19 @@
 																
 																<ul class = "GroupUL">
 																
-																	<li>
+																	<li class = "FeedConfigUserCodeContent">
 																		<h1> '.($i2).'  </h1>
 																	</li>
-																	<li>
+																	<li class = "FeedConfigUserNameContent">
 																		<h1> '.$Adms["Usuarios"][$i]["Nome_user"].' </h1>
 																	</li>
-																	<li>
+																	<li class = "FeedConfigUserLevelContent">
 																		<h1> '.$Adms["Usuarios"][$i]["Nivel_acesso"].' </h1>
 																	</li>
-																	<li>
+																	<li class = "FeedConfigUserStatusContent">
 																		<h1> '.$status.' </h1>
 																	</li>
-																	<li>
+																	<li class = "FeedConfigUserOptionsContent">
 																		<ul class = "FeedConfigUserOptions FeedConfigOptions">';
 
 																			if($Adms["Usuarios"][$i]["Nivel_acesso"] < 3){
@@ -458,19 +458,19 @@
 																
 																<ul class = "GroupUL">
 																
-																	<li>
+																	<li class = "FeedConfigUserCodeContent">
 																		<h1> '.($i2).'  </h1>
 																	</li>
-																	<li>
+																	<li class = "FeedConfigUserNameContent">
 																		<h1> '.$Normais["Usuarios"][$i]["Nome_user"].' </h1>
 																	</li>
-																	<li>
+																	<li class = "FeedConfigUserLevelContent">
 																		<h1> '.$Normais["Usuarios"][$i]["Nivel_acesso"].' </h1>
 																	</li>
-																	<li>
+																	<li class = "FeedConfigUserStatusContent">
 																		<h1> '.$status.' </h1>
 																	</li>
-																	<li>
+																	<li class = "FeedConfigUserOptionsContent">
 																		<ul class = "FeedConfigUserOptions FeedConfigOptions">';
 
 																			if($Normais["Usuarios"][$i]["Nivel_acesso"] < 3){
@@ -590,19 +590,19 @@
 																
 																<ul class = "GroupUL">
 																
-																	<li>
+																	<li class = "FeedConfigUserCodeContent">
 																		<h1> '.($i2).'  </h1>
 																	</li>
-																	<li>
+																	<li class = "FeedConfigUserNameContent">
 																		<h1> '.$Banidos["Usuarios"][$i]["Nome_user"].' </h1>
 																	</li>
-																	<li>
+																	<li class = "FeedConfigUserLevelContent">
 																		<h1> '.$Banidos["Usuarios"][$i]["Nivel_acesso"].' </h1>
 																	</li>
-																	<li>
+																	<li class = "FeedConfigUserStatusContent">
 																		<h1> '.$status.' </h1>
 																	</li>
-																	<li>
+																	<li class = "FeedConfigUserOptionsContent">
 																		<ul class = "FeedConfigUserOptions FeedConfigOptions">';
 
 																			if($Banidos["Usuarios"][$i]["Nivel_acesso"] < 3){
@@ -1494,7 +1494,7 @@
 
 
 										if($PedidosAceitos["Quantidade"] == 0){
-											echo "Nada agendado.";
+											echo '<div class = "NoFor"> Nada agendado </div>';
 										}else{
 
 											$i=0;

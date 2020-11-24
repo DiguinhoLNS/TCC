@@ -210,11 +210,10 @@
 
         <ul id = "DiscoverContent1" class = "DiscoverOverlayUL OverlayUL BS">
 
-            <li>
+            <li class = "OverlayIcon">
                 <i class = "material-icons"> &#xe1b1; </i>
-                <h1> Multiplataforma </h1>
             </li>
-            <li>
+            <li class = "OverlayText">
                 <p>
                     A plataforma APE está disponível em várias plataformas e navegadores, permitindo a conexão de muitos lugares diferentes.
                 </p>
@@ -224,11 +223,10 @@
 
         <ul id = "DiscoverContent2" class = "DiscoverOverlayUL OverlayUL BS">
 
-            <li>
+            <li class = "OverlayIcon">
                 <i class = "material-icons"> &#xe32a; </i>
-                <h1> Segurança </h1>
             </li>
-            <li>
+            <li class = "OverlayText">
                 <p>
                     Todos os dados armazenados na plataforma APE são criptografados com tecnologia de ponta que mantém a sua segurança e a sua privacidade.
                 </p>
@@ -238,11 +236,10 @@
 
         <ul id = "DiscoverContent3" class = "DiscoverOverlayUL OverlayUL BS">
 
-            <li>
+            <li class = "OverlayIcon">
                 <i class = "material-icons"> admin_panel_settings </i>
-                <h1> Configurações Avançadas </h1>
             </li>
-            <li>
+            <li class = "OverlayText">
                 <p>
                     Com uma conta nível 4 dentro de uma empresa, você terá opções avançadas para gerenciar a sua página.
                 </p>
@@ -252,11 +249,10 @@
 
         <ul id = "DiscoverContent4" class = "DiscoverOverlayUL OverlayUL BS">
 
-            <li>
+            <li class = "OverlayIcon">
                 <i class = "material-icons"> &#xe1db; </i>
-                <h1> Armazenamento Gratuito </h1>
             </li>
-            <li>
+            <li class = "OverlayText">
                 <p>
                     O armazenamento de dados na plataforma APE é totalmente gratuito e seguro.
                 </p>

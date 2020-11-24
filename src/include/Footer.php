@@ -25,7 +25,7 @@
 
         </ul>
 
-        <ul class = "FooterLinks">
+        <ul id = "FooterAPE" class = "FooterLinks">
 
             <h1> Sobre Nós </h1>
             <li>

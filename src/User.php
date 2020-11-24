@@ -358,25 +358,6 @@
 
                                             </div>
 
-                                            <!-- <div class = "CategoryOptions">
-
-                                                <div class = "CategoryText">
-
-                                                    <h1> Verificação em duas etapas </h1>
-                                                    <h2> A verificação em duas etapas requer que o seu email seja verificado quando iniciar a sua sessão </h2>
-
-                                                </div>
-
-                                                <div class = "btnContent">
-
-                                                    <button class = "btnOption">
-                                                        <a href = ""> Ativar Verificação </a>
-                                                    </button>
-
-                                                </div>
-
-                                            </div> -->
-
                                         </li>
 
                                         <li class = "Category">
