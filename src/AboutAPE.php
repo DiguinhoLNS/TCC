@@ -180,6 +180,11 @@
                                         <i class = "fab"> &#xf099; </i>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href = "https://github.com/Mquiuqui" class = "IconGithub" target = "_blank">
+                                        <i class = "fab"> &#xf09b; </i>
+                                    </a>
+                                </li>
 
                             </ul>
 
