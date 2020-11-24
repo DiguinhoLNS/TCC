@@ -12,7 +12,7 @@
         setcookie("ULogged", "", time() - (86400 * 30), "/");
         setcookie("ID", "", time() - (86400 * 30), "/");
 
-        header("Location: Index.php");
+        header("Location: index.php");
     }
 
     isset($_GET['q']) ? $email = true: $email = false;

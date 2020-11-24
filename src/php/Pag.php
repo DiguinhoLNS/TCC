@@ -52,7 +52,7 @@
 
             if($_COOKIE["CookiesStatus"] == "0"){
 
-                header("Location: Index.php");
+                header("Location: index.php");
 
             }
 
@@ -60,7 +60,7 @@
 
             setcookie("CookiesStatus", "0", time() + (86400 * 30), "/");
 
-            header("Location: Index.php");
+            header("Location: index.php");
 
         }
 

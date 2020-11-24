@@ -5,7 +5,7 @@
         <ul class = "FooterHeader">	
 
             <li>
-                <a href = "Index.php"> APE - Achados e Perdidos Empresarial </a>
+                <a href = "index.php"> APE - Achados e Perdidos Empresarial </a>
             </li>
 
         </ul>
@@ -14,7 +14,7 @@
 
             <h1> APE </h1>
             <li>
-                <a href = "Index.php"> Home </a>
+                <a href = "index.php"> Home </a>
             </li>
             <li>
                 <a href = "Dashboard.php"> Dashboard </a>

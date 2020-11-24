@@ -24,7 +24,7 @@
 
         <ul>
             <li>
-                <a href = "Index.php">
+                <a href = "index.php">
                     <i class = "material-icons"> &#xe88a; </i>
                     <span> Home </span>
                 </a>

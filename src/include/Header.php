@@ -10,7 +10,7 @@
 
         <div id = "HeaderBanner">
 
-            <a href = "Index.php" title = "Página Inicial">
+            <a href = "index.php" title = "Página Inicial">
                 <h1> APE </h1>
             </a>
 
