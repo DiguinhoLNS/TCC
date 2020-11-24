@@ -4,7 +4,6 @@ date_default_timezone_set('America/Sao_Paulo');
 
 require_once "ConexaoBD.php";
 require_once "Funcoes.php";
-require_once "./../include/HeaderNotification.php";
 
 $conn = new ConexaoBD();
 $func = new Funcoes();
@@ -91,14 +90,13 @@ switch ($tipo_verificacao) {
 
 		$data = strftime('%Y-%m-%d');
 
-
 		try {
 
-			$query = "INSERT INTO objetos (id_empresa, Nome_foto, Nome_obj, Data_cadastro, Categoria, Descricao, situacao) VALUES";
-			$query .= " (:id_empresa, :nome_foto, :nome_obj, :data , :categoria, :descricao, :situacao) ";
+			$query = "INSERT INTO objetos (id_empresa, Nome_foto, Nome_obj, Data_cadastro, Categoria, Descricao, situacao, id_agendamento) VALUES";
+			$query .= " (:id_empresa, :nome_foto, :nome_obj, :data , :categoria, :descricao, :situacao, :id_agendamento) ";
 
 			$sql = $conn->dbh->prepare($query);
-			$sql->execute([':id_empresa' => $id_empresa, ':nome_foto' => $novoNome, ':nome_obj' => $nome, ':data' => $data, ':categoria' => $categoria, ':descricao' => $descricao, ':situacao' => 'Perdido']);
+			$sql->execute([':id_empresa' => $id_empresa, ':nome_foto' => $novoNome, ':nome_obj' => $nome, ':data' => $data, ':categoria' => $categoria, ':descricao' => $descricao, ':situacao' => 'Perdido', 'id:agendamento' => "0"]);
 			move_uploaded_file($foto["tmp_name"], $diretorio . $novoNome);
 			header("Location: ../Feed.php?q=" . $func->Criptografar($id_empresa));
 		} catch (PDOException $e) {
