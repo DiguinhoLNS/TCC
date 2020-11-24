@@ -2,8 +2,10 @@
 
 require_once "ConexaoBD.php";
 require_once "Funcoes.php";
+require_once "Email.php";
 
 $conn = new ConexaoBD();
+$email = new Email();
 $func = new Funcoes();
 
 $tipoVerificacao = $func->Descriptografar($_GET["v"]);
@@ -20,6 +22,9 @@ switch ($tipoVerificacao) {
             $query = "UPDATE agendamento SET situacao= :situacao WHERE id_agendamento= :id_agendamento";
             $sql = $conn->dbh->prepare($query);
             $sql->execute([':situacao' => "Aceito", ':id_agendamento' => $id_agendamento]);
+
+            $email->setPara($Pedido["Agendamento"][0]["Email_user"]);
+            $email->PedidoAceito($Pedido["Agendamento"][0]["Nome_obj"]);
 
             header("Location: ../ConfigFeed.php?q=" . $func->Criptografar($Pedido["Agendamento"][0]["id_empresa"]));
         } catch (PDOException $e) {

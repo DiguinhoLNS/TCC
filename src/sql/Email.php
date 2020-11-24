@@ -1,9 +1,9 @@
 <?php
 
-require_once "./mailer/Exception.php";
-require_once "./mailer/SMTP.php";
-require_once "./mailer/PHPMailer.php";
-require_once "Funcoes.php";
+require_once "C:\Users\T-Gamer\Documents\GitHub\TCC\src\mailer/Exception.php";
+require_once "C:\Users\T-Gamer\Documents\GitHub\TCC\src\mailer/SMTP.php";
+require_once "C:\Users\T-Gamer\Documents\GitHub\TCC\src/mailer/PHPMailer.php";
+require_once "C:\Users\T-Gamer\Documents\GitHub\TCC\src\sql/Funcoes.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -106,6 +106,50 @@ class Email extends PHPMailer
             $this->Subject = 'Redefinir senha da conta APE';
             $this->MsgHTML($ForgetPWD);
             $this->AltBody = $id_user;
+
+            if (!$this->send()) {
+                die("Erro no envio do Email");
+            }
+        } catch (Exception $e) {
+            echo "Erro ao enviar mensagem: {$this->ErrorInfo}";
+        }
+    }
+
+    public function PedidoAceito($Nome_obj)
+    {
+
+        try {
+            ob_start();
+            include "C:\Users\T-Gamer\Documents\GitHub\TCC\src/include/EstiloPedidoAceito.php";
+            $Accepted = ob_get_clean();
+            ob_end_clean();
+
+            $this->CharSet = 'UTF-8';
+            $this->setLanguage("pt");
+            $this->SMTPDebug = false;
+            $this->isSMTP();
+            $this->Host = self::hostSMTP;
+            $this->SMTPAuth = true;
+            $this->SMTPSecure = 'ssl';
+            $this->Port = self::port;
+            $this->Username = self::from;
+            $this->Password = self::password;
+
+            $this->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                )
+            );
+
+            $this->SetFrom(self::from, 'Ape Achados e Perdidos');
+            $this->addAddress($this->para);
+
+            $this->isHTML(true);
+            $this->Subject = 'Pedido de agendamento';
+            $this->MsgHTML($Accepted);
+            $this->AltBody = 'Pedido de agendamento do item '. $Nome_obj. ' aceito';
 
             if (!$this->send()) {
                 die("Erro no envio do Email");
