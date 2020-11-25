@@ -2809,9 +2809,7 @@ h1, h2, h3, h4, h5, h6 {
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-	}
 
-	.CompaniesQuickAccessBar .CompanyBox {
 		width: 100%;
 	}		
 
@@ -2823,8 +2821,9 @@ h1, h2, h3, h4, h5, h6 {
 			border-radius: 0 40px 40px 0;
 		}
 
-		.CompaniesQuickAccessBar .CompanyBox:last-child {
-			border-radius: 40px;
+		.CompaniesQuickAccessBar .CompanyBox:nth-last-of-type(2) {
+			border-top-right-radius: 40px;
+			border-bottom-right-radius: 40px;
 		}
 
 	.CompaniesQuickAccessBar .CompanyBox a {

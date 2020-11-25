@@ -95,9 +95,10 @@
                     border-radius: 0 0 40px 40px;
                 }
 
-                #SectionIndexDiscover .CompanyBox:last-child,
-                #SectionAboutCompaniesYourCompanies:last-child {
-                    border-radius: 40px;
+                #SectionIndexDiscover .CompanyBox:nth-last-of-type(2),
+                #SectionAboutCompaniesYourCompanies .CompanyBox:nth-last-of-type(2){
+                    border-bottom-left-radius: 40px;
+                    border-bottom-right-radius: 40px;
                 }
 
             #DiscoverContent #DiscoverBlocksGroup nav ul {
@@ -237,7 +238,10 @@
 
             #SectionAboutCompaniesDiscover ul {
                 grid-template-columns: 1fr;
-                grid-template-rows: 150px auto;
+                grid-template-rows: 70px auto;
+                gap: 30px;
+
+                padding: 30px 20px;
             }
 
                 #SectionAboutCompaniesDiscover ul .IconAboutCompanies {
@@ -250,8 +254,19 @@
                     grid-row: 2/3;
                 }
 
+            #SectionAboutCompaniesDiscover ul li span {
+                width: 70px;
+                height: 70px;
+                padding: 0;
+            }
+
+            #SectionAboutCompaniesDiscover ul li span i {
+                font-size: 70px;
+            }
+
             #SectionAboutCompaniesDiscover ul li p {
-				text-align: center;
+                font-size: 24px;
+                text-align: center;
 			}
 
         /*******************************************************

@@ -824,11 +824,11 @@ $(document).ready(function(){
 
     if($(".CompanyBox").length > 0){
 
-        $("#CompaniesQuickAccessBar").css("display", "grid");
+        $(".CompaniesQuickAccessBar").css("display", "grid");
 
     }else{
 
-        $("#CompaniesQuickAccessBar").css("display", "none");
+        $(".CompaniesQuickAccessBar").css("display", "none");
 
     }
 
