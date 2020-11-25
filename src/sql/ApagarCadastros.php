@@ -17,22 +17,28 @@ if (isset($_GET["c"])) {
     $id_empresa = $func->ClearInjectionXSS($func->Descriptografar(($_GET['c'])));
 }
 
-
 $tipo_verificacao = $func->ClearInjectionXSS($func->Descriptografar(($_GET['v'])));
+$PedidosDevolvidos = $func->PedidosDevolvidosPeloIdUser($id);
 
 switch ($tipo_verificacao) {
 
     case "Usuario":
 
-        $apagarUsuario = "DELETE FROM usuarios where id_user = '$idU'";
-        $apagarUser_Empresa = "DELETE FROM user_empresa where id_user = '$idU'";
+        if ($PedidosDevolvidos["Quantidade"] == 0) {
 
-        try {
-            $conn->dbh->query($apagarUsuario);
-            $conn->dbh->query($apagarUser_Empresa);
+            $apagarUsuario = "DELETE FROM usuarios where id_user = '$idU'";
+            $apagarUser_Empresa = "DELETE FROM user_empresa where id_user = '$idU'";
 
-            $func->EncerrarSessao();
-        } catch (PDOException $e) {
+            try {
+                $conn->dbh->query($apagarUsuario);
+                $conn->dbh->query($apagarUser_Empresa);
+
+                $func->EncerrarSessao();
+            } catch (PDOException $e) {
+                header("Location: ../User.php");
+            }
+            
+        } else {
             header("Location: ../User.php");
         }
 
