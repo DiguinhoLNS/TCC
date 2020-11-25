@@ -96,7 +96,7 @@ switch ($tipo_verificacao) {
 			$query .= " (:id_empresa, :nome_foto, :nome_obj, :data , :categoria, :descricao, :situacao, :id_agendamento) ";
 
 			$sql = $conn->dbh->prepare($query);
-			$sql->execute([':id_empresa' => $id_empresa, ':nome_foto' => $novoNome, ':nome_obj' => $nome, ':data' => $data, ':categoria' => $categoria, ':descricao' => $descricao, ':situacao' => 'Perdido', 'id:agendamento' => "0"]);
+			$sql->execute([':id_empresa' => $id_empresa, ':nome_foto' => $novoNome, ':nome_obj' => $nome, ':data' => $data, ':categoria' => $categoria, ':descricao' => $descricao, ':situacao' => 'Perdido', ':id_agendamento' => "0"]);
 			move_uploaded_file($foto["tmp_name"], $diretorio . $novoNome);
 			header("Location: ../Feed.php?q=" . $func->Criptografar($id_empresa));
 		} catch (PDOException $e) {
