@@ -1,9 +1,11 @@
 <?php
 
-require_once "C:\Users\T-Gamer\Documents\GitHub\TCC\src\mailer/Exception.php";
-require_once "C:\Users\T-Gamer\Documents\GitHub\TCC\src\mailer/SMTP.php";
-require_once "C:\Users\T-Gamer\Documents\GitHub\TCC\src/mailer/PHPMailer.php";
-require_once "C:\Users\T-Gamer\Documents\GitHub\TCC\src\sql/Funcoes.php";
+require_once "./config.php";
+
+require_once ROOT."\mailer/Exception.php";
+require_once ROOT."\mailer/SMTP.php";
+require_once ROOT."/mailer/PHPMailer.php";
+require_once ROOT."\sql/Funcoes.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
