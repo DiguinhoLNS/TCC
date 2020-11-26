@@ -84,7 +84,7 @@ switch ($tipo_verificacao) {
 		$extensao = strtolower($extensao);
 
 		$novoNome = md5(time()) . "." . $extensao;
-		$diretorio = "C:\Users\T-Gamer\Documents\GitHub\TCC\src\imagesBD/";
+		$diretorio = "/storage/ssd1/621/15485621/public_html/imagesBD/";
 
 		setlocale(LC_ALL, 'pt_BR', 'pt', 'Portuguese_Brazilian');
 
@@ -100,7 +100,7 @@ switch ($tipo_verificacao) {
 			move_uploaded_file($foto["tmp_name"], $diretorio . $novoNome);
 			header("Location: ../Feed.php?q=" . $func->Criptografar($id_empresa));
 		} catch (PDOException $e) {
-			die("Erro no SQL " . var_dump($_POST) . " " . var_dump($_FILES));
+			die("Erro no SQL");
 		}
 		break;
 

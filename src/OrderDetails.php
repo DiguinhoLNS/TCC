@@ -95,7 +95,7 @@
 								<li class = "BoxCategory">
 									<i class = "material-icons"> email </i>
 									<h1> Email </h1>
-									<h2> <?= $Agendamento["Agendamento"][0]["Email"]?> </h2>
+									<h2> <?= $Agendamento["Agendamento"][0]["Email_user"]?> </h2>
 								</li>
 								<li class = "BoxCategory">
 									<i class = "material-icons"> &#xe88e; </i>

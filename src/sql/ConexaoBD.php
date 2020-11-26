@@ -3,9 +3,9 @@
 class ConexaoBD
 {
     private $host = 'localhost';
-    private $user = 'root';
-    private $senha = '';
-    private $banco = 'bdape';
+    private $user = 'id15485621_root';
+    private $senha = '?Nfvng]qK1j0vv_E';
+    private $banco = 'id15485621_bdape';
     private $porta = '3306';
     public $dbh;
 

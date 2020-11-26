@@ -1,11 +1,9 @@
 <?php
 
-require_once "./config.php";
-
-require_once ROOT."\mailer/Exception.php";
-require_once ROOT."\mailer/SMTP.php";
-require_once ROOT."/mailer/PHPMailer.php";
-require_once ROOT."\sql/Funcoes.php";
+require_once "/storage/ssd1/621/15485621/public_html/mailer/Exception.php";
+require_once "/storage/ssd1/621/15485621/public_html/mailer/SMTP.php";
+require_once "/storage/ssd1/621/15485621/public_html/mailer/PHPMailer.php";
+require_once "/storage/ssd1/621/15485621/public_html/sql/Funcoes.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -122,7 +120,7 @@ class Email extends PHPMailer
 
         try {
             ob_start();
-            include ROOT."/include/EstiloPedidoAceito.php";
+            include "/storage/ssd1/621/15485621/public_html/include/EstiloPedidoAceito.php";
             $Accepted = ob_get_clean();
             ob_end_clean();
 
@@ -151,7 +149,7 @@ class Email extends PHPMailer
             $this->isHTML(true);
             $this->Subject = 'Pedido de agendamento';
             $this->MsgHTML($Accepted);
-            $this->AltBody = 'Pedido de agendamento do item '. $Nome_obj. ' aceito';
+            $this->AltBody = 'Pedido de agendamento do item ' . $Nome_obj . ' aceito';
 
             if (!$this->send()) {
                 die("Erro no envio do Email");

@@ -96,7 +96,7 @@
                 <h2> Entre neste link para redefinir sua senha </h2>
 
                 <h3> 
-                    <a href="http://127.0.0.1:8080/edsa-TCC/EditSenha.php?q=<?=$id_user?>"> Editar Senha </a>
+                    <a href="https://tcc-ape.000webhostapp.com/EditSenha.php?q=<?=$id_user?>"> Editar Senha </a>
                 </h3>
 
             </div>

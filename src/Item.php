@@ -111,7 +111,7 @@
 									<h2> <?php									
 									if($DadosItem["Objeto"][0]["Categoria"] == "Acessorio"){
 										$DadosItem["Objeto"][0]["Categoria"] = "Acessório";
-									}else if($DadosItem["Objeto"][0]["Categoria" == "Eletronico"]){
+									}else if($DadosItem["Objeto"][0]["Categoria"] == "Eletronico"){
 										$DadosItem["Objeto"][0]["Categoria"] = "Eletrônico";
 									}									
 									echo $DadosItem["Objeto"][0]["Categoria"]; ?> </h2>

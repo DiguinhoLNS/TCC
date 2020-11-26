@@ -11,14 +11,14 @@ $func = new Funcoes();
 
 $idU = $func->ClearInjectionXSS($func->Descriptografar($_COOKIE["ID"]));
 
-$idQ = $func->ClearInjectionXSS($func->Descriptografar(($_GET['q'])));
+$idQ = $func->ClearInjectionXSS($func->Descriptografar($_GET['q']));
 
 if (isset($_GET["c"])) {
-    $id_empresa = $func->ClearInjectionXSS($func->Descriptografar(($_GET['c'])));
+    $id_empresa = $func->ClearInjectionXSS($func->Descriptografar($_GET['c']));
 }
 
-$tipo_verificacao = $func->ClearInjectionXSS($func->Descriptografar(($_GET['v'])));
-$PedidosDevolvidos = $func->PedidosDevolvidosPeloIdUser($id);
+$tipo_verificacao = $func->ClearInjectionXSS($func->Descriptografar($_GET['v']));
+$PedidosDevolvidos = $func->PedidosDevolvidosPeloIdUser($idU);
 
 switch ($tipo_verificacao) {
 
